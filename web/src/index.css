@@ -3658,45 +3658,63 @@ html, body, #root { height: 100%; }
   }
 }
 
-/* Cluster icons */
-.cluster-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-weight: 700;
-  font-size: 13px;
-  color: #fff;
-  border: 2px solid rgba(255,255,255,0.6);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-.cluster-small  { background: #4caf50; width: 36px; height: 36px; }
-.cluster-medium { background: #ff9800; width: 44px; height: 44px; }
-.cluster-large  { background: #f44336; width: 52px; height: 52px; }
+/* ====================================================== MAP PINS ==========
+   Marker and cluster chrome, on the design system's pin (see
+   docs/map-design-system.md). A pin says what it is — venue name, how many
+   dates sit behind it, a category dot — rather than being an anonymous
+   teardrop. The label tier is budgeted in pinIcon.js; a pin outside it keeps
+   the pill but drops the text.
 
-/* Temporal-group markers: a default pin with a corner count badge for events
-   that recur on multiple dates at one venue. */
-.event-group-marker { position: relative; }
-.event-group-pin { display: block; width: 25px; height: 41px; }
-.event-group-badge {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  min-width: 18px;
-  height: 18px;
-  padding: 0 4px;
-  border-radius: 9px;
-  background: var(--pin, #d24a3d);
-  color: #fff;
-  font-family: var(--font-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 18px;
-  text-align: center;
-  border: 2px solid #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-sizing: content-box;
+   Clusters read as the same object at another scale: same surface, same
+   hairline, same mono count. SIZE is the only density signal — the old
+   green/amber/red ramp said "warning" about a perfectly healthy dense
+   neighbourhood, and had no dark-mode values at all. */
+
+/* The icon box is sized honestly (pinIcon.js sets iconSize) so the cluster
+   layer can reason about it, but only the pill should take clicks — otherwise
+   a 190px box's empty margins swallow taps meant for the map. A click on the
+   pill still bubbles through this element to Leaflet's own listener. */
+.app206 .mpin { pointer-events: none; }
+.app206 .mpin-body {
+  pointer-events: auto;
+  position: absolute; left: 50%; bottom: 9px; transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: 6px;
+  max-width: var(--map-pin-max-w); height: var(--map-pin-h);
+  padding: 0 10px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
+  font-family: var(--font-sans); font-size: var(--type-xs-size); font-weight: 600;
+  white-space: nowrap; cursor: pointer;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.28));
 }
+.app206 .mpin-body:hover { background: var(--surface-2); }
+.app206 .mpin--dot .mpin-body { padding: 0 8px; gap: 5px; }
+.app206 .mpin-dot { width: 7px; height: 7px; border-radius: 999px; flex: 0 0 auto; background: var(--blue); }
+.app206 .mpin-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.app206 .mpin-count { flex: 0 0 auto; font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); }
+.app206 .mpin-stem {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: 2px; height: 9px; background: var(--line-2);
+}
+/* The open pin. Leaflet stacks markers by latitude, so this also lifts the
+   selected one clear of its neighbours. */
+.app206 .mpin--sel { z-index: 1000 !important; }
+.app206 .mpin--sel .mpin-body,
+.app206 .mpin--sel .mpin-body:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.app206 .mpin--sel .mpin-dot { background: #fff; }
+.app206 .mpin--sel .mpin-count { color: rgba(255,255,255,.8); }
+.app206 .mpin--sel .mpin-stem { background: var(--blue); }
+
+.app206 .cluster-icon {
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
+  font-family: var(--font-mono); font-weight: 700; font-size: 12px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.28));
+}
+.app206 .cluster-icon:hover { background: var(--surface-2); }
+.app206 .cluster-small  { width: 36px; height: 36px; }
+.app206 .cluster-medium { width: 44px; height: 44px; font-size: 13px; }
+.app206 .cluster-large  { width: 52px; height: 52px; font-size: 14px; }
 
 /* ==================================================== MAP POPUPS ==========
    The map surface's popup family, ported from the 206.events Design System
@@ -4595,14 +4613,19 @@ html, body, #root { height: 100%; }
 /* While dragging, keep the col-resize cursor and stop text selection / map
    iframe interactions from hijacking the drag. */
 body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select: none !important; }
-.app206 .a-mapbar { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
+.app206 .a-mapbar { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border: 1px solid var(--line-2); border-radius: var(--map-popup-radius); padding: 9px 14px; box-shadow: var(--map-shadow); z-index: 500; }
 .app206 .a-mapbar-actions { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
-.app206 .a-mapbar .a-iconbtn { width: 36px; height: 36px; border-radius: 10px; }
+/* Mono eyebrow above a display title — the pairing the popups use, so the bar
+   reads as part of the same surface rather than a separate widget. */
+.app206 .a-mapbar .mk-tag { font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; }
+.app206 .a-mapbar .a-h2 { font-size: 15px; margin-top: 2px; }
+/* Scoped to the bar: the shared .a-iconbtn is used across every screen. */
+.app206 .a-mapbar .a-iconbtn { width: 36px; height: 36px; border-radius: var(--radius-md); }
 .app206 .a-mapbar .a-iconbtn svg { width: 18px; height: 18px; }
-.app206 .a-mapsave { height: 36px; font-size: 13px; padding: 0 12px; }
+.app206 .a-mapsave { height: 36px; font-size: var(--type-sm-size); padding: 0 12px; border-width: 1px; border-radius: var(--radius-md); }
 /* Floating "next N days" date-window slider over the map (bottom overlay), and
    the same control inline inside the filter popover. */
-.app206 .a-mapfilter { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border-radius: 13px; padding: 10px 14px; box-shadow: 0 2px 10px rgba(20,15,10,.08); z-index: 500; }
+.app206 .a-mapfilter { position: absolute; left: 16px; right: 16px; bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(8px); border: 1px solid var(--line-2); border-radius: var(--map-popup-radius); padding: 10px 14px; box-shadow: var(--map-shadow); z-index: 500; }
 /* On the mobile map the scope toggle rides in this same floating bar beside the
    slider (using its empty horizontal space), so the map keeps full height. */
 .app206 .a-mapfilter .a-datewindow { flex: 1 1 180px; min-width: 0; }
@@ -4611,7 +4634,7 @@ body.a-resizing, body.a-resizing * { cursor: col-resize !important; user-select:
    Flows inline beside the slider/scope toggle and wraps to its own line when
    space is tight; the pill stays content-width (never stretches full-bar). */
 .app206 .a-mapfilter .a-mapsearch { flex: 0 1 auto; max-width: 100%; }
-.app206 .a-mapsearch { display: inline-flex; align-items: center; gap: 7px; min-width: 0; padding: 4px 5px 4px 11px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-ink); font-size: 12.5px; font-weight: 600; }
+.app206 .a-mapsearch { display: inline-flex; align-items: center; gap: 7px; min-width: 0; padding: 4px 5px 4px 11px; border-radius: 999px; background: var(--blue-soft); color: var(--blue-ink); font-size: var(--type-sm-size); font-weight: 600; }
 .app206 .a-mapsearch-ico { flex: 0 0 auto; }
 .app206 .a-mapsearch-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .app206 .a-mapsearch-x { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: var(--blue-ink); }

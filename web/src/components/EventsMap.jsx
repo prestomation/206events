@@ -5,19 +5,9 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { eventKey } from '../lib/eventKey.js'
 import { groupEvents, groupByVenue } from '../lib/event-grouping.js'
+import { channelColor } from '../redesign/categories.js'
+import { createPinIcon, shouldLabelPins } from './map/pinIcon.js'
 import cityConfig from '../../../city.config.ts'
-
-// Fix Leaflet default marker icons in Vite
-import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png'
-import markerIcon from 'leaflet/dist/images/marker-icon.png'
-import markerShadow from 'leaflet/dist/images/marker-shadow.png'
-
-delete L.Icon.Default.prototype._getIconUrl
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-})
 
 // Populated metro extent used to reject distant outliers from the default map
 // fit. Configured per city in city.config.ts (Seattle's box hugs King County
@@ -111,21 +101,6 @@ function createClusterIcon(cluster) {
     className: '',
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
-  })
-}
-
-// Marker icon for a temporal group with more than one date: the bundled default
-// pin image plus a small corner badge showing the number of dates. Single-date
-// groups use the default Leaflet marker instead (no icon prop), so the global
-// Icon.Default setup above is untouched. Sized/anchored to match the default
-// marker footprint. `count` is always a number here, so no escaping is needed.
-function createGroupBadgeIcon(count) {
-  return L.divIcon({
-    className: 'event-group-marker',
-    html: `<img class="event-group-pin" src="${markerIcon}" alt="" /><span class="event-group-badge">${count}</span>`,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
   })
 }
 
@@ -298,6 +273,18 @@ function EventsMapInner({
   // display strings only ever read in the drill-down panel (≤ 50 rows). The
   // panel now derives both at render time from the raw instance.
 
+  // A single-series pin names the show; a multi-series pin names the place.
+  const pinLabel = useCallback((venue) => (
+    venue.seriesCount === 1
+      ? venue.series[0].summary
+      : (venue.label.split(',')[0].trim() || venue.series[0].summary)
+  ), [])
+
+  // Category colour for the pin's dot, taken from the venue's first series.
+  const pinColor = useCallback((venue) => (
+    channelColor(calendarTagsByIcsUrl[venue.series[0].instances[0]?.icsUrl] || [])
+  ), [calendarTagsByIcsUrl])
+
   // Two-stage grouping, both on the already-filtered (isMappable) set so counts
   // reflect the active date window automatically:
   //   1. groupEvents  — the many instances of a conceptually-same recurring
@@ -319,11 +306,27 @@ function EventsMapInner({
   // them (ViewportTracker seeds actual bounds right after mount).
   const [viewport, setViewport] = useState(null)
   const onViewport = useCallback((v) => setViewport(v), [])
-  const visibleVenues = useMemo(() => {
+  // One pass answers both questions: the PADDED bounds decide what renders, and
+  // the unpadded bounds count what is actually on screen — which is the number
+  // the pin-label budget should be reading, not the buffered one.
+  const { visibleVenues, tightCount } = useMemo(() => {
     const b = viewport?.bounds || L.latLngBounds(INITIAL_BOUNDS)
     const padded = b.pad(0.5) // ~50% buffer so just-offscreen markers stay put while panning
-    return venueGroups.filter((v) => padded.contains([v.lat, v.lng]))
+    const visible = []
+    let tight = 0
+    for (const v of venueGroups) {
+      const point = [v.lat, v.lng]
+      if (!padded.contains(point)) continue
+      visible.push(v)
+      if (b.contains(point)) tight++
+    }
+    return { visibleVenues: visible, tightCount: tight }
   }, [venueGroups, viewport])
+
+  // The label tier: a 190px pill per pin is unreadable at city zoom and
+  // unaffordable in bulk, so pins wear their name only once they have the room.
+  // The selected pin is labelled regardless (see createPinIcon).
+  const labelsOn = shouldLabelPins(viewport?.zoom ?? 0, tightCount)
 
   // Defer the marker/cluster layer behind the map shell's first paint: the
   // container + tiles commit and paint first, then the (thousands-strong)
@@ -343,17 +346,20 @@ function EventsMapInner({
   // override (and crash) Leaflet's default icon in a real browser. Clicking
   // reports the venue up to MapPanel, which owns the popup. Keyed on the stable
   // venue key (date-independent) so slider drags update markers in place.
-  const markers = useMemo(() => !markersReady ? [] : visibleVenues.map((venue) => {
-    const iconProps = venue.dateCount > 1 ? { icon: createGroupBadgeIcon(venue.dateCount) } : {}
-    return (
-      <Marker
-        key={`venue-${venue.key}`}
-        position={[venue.lat, venue.lng]}
-        {...iconProps}
-        eventHandlers={{ click: () => onSelectVenue?.(venue) }}
-      />
-    )
-  }), [markersReady, visibleVenues, onSelectVenue])
+  const markers = useMemo(() => !markersReady ? [] : visibleVenues.map((venue) => (
+    <Marker
+      key={`venue-${venue.key}`}
+      position={[venue.lat, venue.lng]}
+      icon={createPinIcon({
+        label: pinLabel(venue),
+        count: venue.dateCount,
+        dotColor: pinColor(venue),
+        labelled: labelsOn,
+        selected: venue.key === selectedVenueKey,
+      })}
+      eventHandlers={{ click: () => onSelectVenue?.(venue) }}
+    />
+  )), [markersReady, visibleVenues, onSelectVenue, labelsOn, selectedVenueKey, pinLabel, pinColor])
 
   return (
     <div className="events-map-container" data-testid="events-map">

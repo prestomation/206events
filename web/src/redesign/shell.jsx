@@ -621,9 +621,11 @@ export function MapPanel({ mobile = false }) {
       {filterBar}
       {popup}
       <div className="a-mapbar">
+        {/* Eyebrow above title, matching the popups. The count string is
+            unchanged: cross-source-dedup.spec.js asserts it verbatim. */}
         <div>
-          <div className="a-h2" style={{ fontSize: 15 }}>{query ? <>Matching “{query}”</> : feedOnly ? 'Your feed' : 'Near you'}</div>
-          <div className="mk-tag" style={{ marginTop: 2 }}>{shownCount} EVENTS</div>
+          <div className="mk-tag">{shownCount} EVENTS</div>
+          <div className="a-h2">{query ? <>Matching “{query}”</> : feedOnly ? 'Your feed' : 'Near you'}</div>
         </div>
         <div className="a-mapbar-actions">
           <button className="a-iconbtn a-mapexpand" onClick={app.toggleMapExpand}
