@@ -169,11 +169,12 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
 
     if (kept.length > 0) {
       const prev = kept[kept.length - 1]
-      // The first tick renders left-anchored (so it stays inside the box), the
-      // rest centered — so the previous label extends its full width to the
-      // right only when it is the first one.
-      const prevRight = kept.length === 1 ? prev.width : prev.width / 2
-      const need = Math.max(minGap, prevRight + width / 2 + 6)
+      // How far the previous label reaches to the RIGHT of its own tick: its
+      // full width when it is the first (start-anchored), half otherwise
+      // (centred). A length, not a coordinate — see rightEdgeOf below, which
+      // works in absolute x.
+      const prevExtendsRight = kept.length === 1 ? prev.width : prev.width / 2
+      const need = Math.max(minGap, prevExtendsRight + width / 2 + 6)
       if (x - prev.x < need) return
     }
 
@@ -183,32 +184,35 @@ export function monthTicks(history, xOf, minGap, charW = AXIS_CHAR_W) {
     kept.push({ i, label, x, width })
   })
 
+  // Labels depend on which ticks survive (the first of a year carries it), and
+  // whether the tail collides depends on those labels' widths — so relabel and
+  // re-check alternately until nothing more is dropped. Doing it once let a
+  // tick widen from "Feb" to "Feb 2027" *after* its collision check had passed.
+  const relabel = () => {
+    let year = null
+    for (const tick of kept) {
+      const [y] = String(history[tick.i].date).split('-')
+      const month = fmtMonth(history[tick.i].date)
+      tick.label = y === year ? month : `${month} ${y}`
+      tick.width = tick.label.length * charW
+      year = y
+    }
+  }
+
   // The last tick renders end-anchored (to stay inside the box), so it extends
-  // its FULL width to the LEFT, not half. The greedy pass above budgeted only
-  // half, so re-check the tail and drop whichever neighbour collides.
+  // its FULL width to the LEFT, not half — the greedy pass above budgeted only
+  // half. `rightEdgeOf` keeps the two passes honest about units: both work in
+  // absolute x, not in widths relative to a tick's own position.
+  const rightEdgeOf = (idx) => kept[idx].x + (idx === 0 ? kept[idx].width : kept[idx].width / 2)
+
+  relabel()
   while (kept.length >= 2) {
     const last = kept[kept.length - 1]
-    const prev = kept[kept.length - 2]
-    // The first tick is start-anchored, so its full width sits to the right.
-    const prevRight = prev.x + (kept.length === 2 ? prev.width : prev.width / 2)
-    if (last.x - last.width - prevRight >= 6) break
+    if (last.x - last.width - rightEdgeOf(kept.length - 2) >= 6) break
     // Never drop the first tick: it anchors the start of the series and is the
     // one carrying the year. With only two left, the later one goes instead.
     kept.splice(kept.length === 2 ? 1 : kept.length - 2, 1)
-  }
-
-  // Re-derive labels after culling. The forward pass decided which tick carries
-  // a year, but the tail loop can splice that exact tick out — leaving an axis
-  // that runs "Nov 2026 -> Mar" with nothing saying Mar is 2027.
-  let year = null
-  for (const tick of kept) {
-    const [y] = String(history[tick.i].date).split('-')
-    tick.label = y === year ? fmtMonth(history[tick.i].date) : `${fmtMonth(history[tick.i].date)} ${y}`
-    // Width follows the final label. Leaving the pre-cull width behind would
-    // make `width` describe a string that is no longer rendered — including for
-    // the overlap property test, which builds its extents from it.
-    tick.width = tick.label.length * charW
-    year = y
+    relabel()
   }
   return kept
 }
@@ -286,6 +290,21 @@ export function timePositions(history) {
 // x for a normalized position.
 export function xScale(t, ML, PW) {
   return ML + (Number.isFinite(t) ? t : 0) * PW
+}
+
+// Smallest gap in px between adjacent points.
+//
+// With time spacing, PW / count no longer bounds this: 25 points inside one
+// week followed by 5 across the next year gives a comfortable average while the
+// cluster renders as an unreadable blob of overlapping dots.
+export function minPointGap(positions, PW) {
+  if (!positions || positions.length < 2) return Infinity
+  let min = Infinity
+  for (let i = 1; i < positions.length; i++) {
+    const gap = (positions[i] - positions[i - 1]) * PW
+    if (gap < min) min = gap
+  }
+  return min
 }
 
 // Nearest point for a client-space x. Rendering at 1:1 CSS pixels means no CTM

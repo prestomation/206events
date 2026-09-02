@@ -3192,8 +3192,12 @@ html, body, #root { height: 100%; }
 
      MARGIN, not padding: padding sits inside the border box, so a child with a
      border or background (.health-tabs has a border-bottom) would keep drawing
-     it across the full viewport width. */
-  .app206 .health-dashboard > *:not(.health-coverage-chart):not(.health-drawer-overlay) {
+     it across the full viewport width.
+
+     Opting out via a class rather than another :not() so the exception list
+     does not have to grow — and so this rule's specificity stays low enough
+     that a child can still set its own horizontal margin. */
+  .app206 .health-dashboard > *:not(.health-full-bleed) {
     margin-inline: 16px;
   }
 

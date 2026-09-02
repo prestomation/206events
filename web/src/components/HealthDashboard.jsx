@@ -15,9 +15,10 @@ import {
   layout,
   xScale,
   timePositions,
+  minPointGap,
   indexFromClientX,
   deltaAt,
-} from './coverageChart.js'
+} from '../lib/coverageChart.js'
 
 // Human-readable label + tone for each source status.
 const STATUS_META = {
@@ -80,7 +81,7 @@ function ErrorItem({ type, reason, path, href }) {
 // lines crossing in one box.
 //
 // Pure SVG — no charting dependency. Geometry and formatting live in
-// coverageChart.js so they can be tested without React.
+// ../lib/coverageChart.js so they can be tested without React.
 export function CoverageChart({ history }) {
   const wrapRef = useRef(null)
   const svgRef = useRef(null)
@@ -239,8 +240,10 @@ export function CoverageChart({ history }) {
   const ticks = useMemo(() => monthTicks(history, xOf, minTickGap), [history, xOf, minTickGap])
   const axisY = geom.panelTop(Math.max(0, panels.length - 1)) + panelH
   // Degrade smoothly instead of the old `length <= 90` cliff, which the
-  // backfill would have crossed — making every dot vanish at once.
-  const showDots = PW / n >= 6
+  // backfill would have crossed — making every dot vanish at once. Measured
+  // from the TIGHTEST adjacent gap: with time spacing the average says nothing
+  // about whether a dense cluster overlaps.
+  const showDots = minPointGap(positions, PW) >= 6
   // Clamped against the current history: `sel` is set against the length of the
   // render that scheduled it, so a history that shrinks while mounted would
   // otherwise index past the end and throw on point.date.
@@ -346,7 +349,7 @@ export function CoverageChart({ history }) {
   if (n < 2) return null
 
   return (
-    <div className="health-coverage-chart">
+    <div className="health-coverage-chart health-full-bleed">
       <div
         className="health-chart-plot"
         ref={wrapRef}
@@ -371,10 +374,16 @@ export function CoverageChart({ history }) {
 
           {sel !== null && (
             <g className="health-chart-crosshair" pointerEvents="none">
-              <line
-                x1={selX} x2={selX} y1={geom.MT} y2={axisY}
-                stroke="var(--ink-4)" strokeWidth="1" strokeDasharray="3 3"
-              />
+              {/* One segment per panel rather than a single full-height line:
+                  the panel titles live in the gaps between plot areas, and a
+                  continuous line struck straight through them. */}
+              {panels.map((panel) => (
+                <line
+                  key={panel.key}
+                  x1={selX} x2={selX} y1={panel.top} y2={panel.top + panelH}
+                  stroke="var(--ink-4)" strokeWidth="1" strokeDasharray="3 3"
+                />
+              ))}
               {panels.map((panel) => (
                 Number.isFinite(point?.[panel.key]) && (
                   <circle
@@ -1211,8 +1220,11 @@ function SourceDrawer({ source, uncertain, geo, onClose }) {
   const eventsLabel = `${source.events}${source.expectEmpty && source.events === 0 ? ' (expected empty)' : ''}${source.expectEmpty && source.events > 0 ? ' (remove expectEmpty)' : ''}`
   const clean = source.errorDetails.length === 0 && uncertain.length === 0 && geo.length === 0
 
+  // health-full-bleed opts this out of the mobile gutter: the overlay is
+  // position:fixed inset:0, and a margin would inset the drawer on exactly the
+  // viewport where it is full-width.
   return (
-    <div className="health-drawer-overlay" onClick={onClose}>
+    <div className="health-drawer-overlay health-full-bleed" onClick={onClose}>
       <aside
         className="health-drawer"
         role="dialog"

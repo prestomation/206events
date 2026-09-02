@@ -49,6 +49,13 @@ const hostIdx = args.indexOf('--preview-host');
 const positional = args.filter((a, i) => !a.startsWith('--') && !(hostIdx >= 0 && i === hostIdx + 1));
 const MAX_PR = parseInt(positional[0] ?? '1400', 10);
 const MIN_PR = parseInt(positional[1] ?? '1', 10);
+// Without this, `backfill-event-history.mjs latest` yields NaN bounds, an empty
+// PR list, and a run that rewrites the data file unchanged and exits 0 — a
+// no-op reported as success, which the shrink guard cannot catch either.
+if (!Number.isInteger(MAX_PR) || !Number.isInteger(MIN_PR) || MIN_PR < 1 || MAX_PR < MIN_PR) {
+  console.error(`Invalid PR range: MIN_PR=${positional[1] ?? 1} MAX_PR=${positional[0] ?? 1400}`);
+  process.exit(1);
+}
 const BASE_URL = hostIdx >= 0 ? args[hostIdx + 1] : defaultPreviewHost();
 
 async function fetchJson(url) {

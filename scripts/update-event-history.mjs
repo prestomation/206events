@@ -7,9 +7,9 @@
 // days vanished. So this script no longer trusts any single source. It merges,
 // in increasing order of authority:
 //
-//   committed docs/event-history.json
-//     -> each --merge <path> in the order given (restored cache, then the
-//        live published copy fetched from the deployed site)
+//   each --merge <path> in the order given (restored cache, then the live
+//   published copy fetched from the deployed site)
+//     -> the committed docs/event-history.json
 //     -> this build's own computation
 //
 // For any (date, field) the most authoritative source with a *defined* value
@@ -17,6 +17,11 @@
 // a date now requires it to be absent from every source at once, and the
 // published copy is the previous run's merged output. The shrink guard below
 // fails the build rather than let the file truncate a second time.
+//
+// The COMMITTED file outranks both machine-generated layers on purpose. The
+// backfill harvests preview builds of unmerged branches, so a skewed value can
+// reach the published copy; if the site outranked the repo, correcting that
+// value in a PR would be reverted by the next build and could never land.
 //
 // Usage:
 //   node scripts/update-event-history.mjs
@@ -30,6 +35,11 @@ const HISTORY_FILE = 'docs/event-history.json';
 const MANIFEST_FILE = 'output/manifest.json';
 const BUILD_ERRORS_FILE = 'output/build-errors.json';
 const CANDIDATES_DIR = 'docs/source-candidates';
+
+// All paths resolve against an injectable root (default: the process cwd) so
+// tests can point main() at a temp directory instead of calling process.chdir,
+// which is unavailable when vitest runs in worker threads.
+const at = (root, ...parts) => (root ? path.join(root, ...parts) : path.join(...parts));
 
 // Statuses that mean "we evaluated this source, it looks viable, and it is not
 // implemented yet" — the un-worked part of the discovery pipeline. `added` and
@@ -203,11 +213,11 @@ function parseArgs(argv) {
   return { merges, cacheOut };
 }
 
-export function main(argv) {
+export function main(argv, { root = '' } = {}) {
   const { merges, cacheOut } = parseArgs(argv);
 
-  const manifest = readJsonObject(MANIFEST_FILE);
-  const buildErrors = readJsonObject(BUILD_ERRORS_FILE);
+  const manifest = readJsonObject(at(root, MANIFEST_FILE));
+  const buildErrors = readJsonObject(at(root, BUILD_ERRORS_FILE));
   const calendars = countCalendars(manifest);
   const events = buildErrors?.geoStats?.totalEvents;
 
@@ -230,7 +240,7 @@ export function main(argv) {
         date: new Date().toISOString().slice(0, 10),
         events,
         calendars,
-        candidates: countViableCandidates(),
+        candidates: countViableCandidates(at(root, CANDIDATES_DIR)),
         queue: openWorkQueue(buildErrors),
         errors: buildErrors?.totalErrors,
       })
@@ -238,16 +248,17 @@ export function main(argv) {
 
   // Merge in increasing authority, tracking the biggest input so the shrink
   // guard can tell truncation from a genuinely small series.
-  let history = readJsonArray(HISTORY_FILE, { required: true }).points ?? [];
+  const committed = readJsonArray(at(root, HISTORY_FILE), { required: true }).points ?? [];
+  let history = [];
   // Count DISTINCT dates, not raw entries. mergeHistory keys by date, so a
   // source carrying one duplicated or date-less entry would otherwise look
   // like truncation and fail the build on every subsequent run — the poisoned
   // file gets re-saved to the cache and restored again next time.
   const distinctDates = (points) => new Set(points.map((p) => p?.date).filter(Boolean)).size;
-  let largestInput = distinctDates(history);
+  let largestInput = distinctDates(committed);
 
   for (const file of merges) {
-    const read = readJsonArray(file);
+    const read = readJsonArray(at(root, file));
     if (read.status === 'corrupt') {
       // Never conflate this with "absent": a truncated download of the
       // published copy would otherwise be logged as "the site had none",
@@ -263,6 +274,9 @@ export function main(argv) {
     largestInput = Math.max(largestInput, distinctDates(read.points));
     history = mergeHistory(history, read.points);
   }
+  // Committed last of the three, so the repo stays authoritative over its own
+  // data file; today's own measurements then win over everything.
+  history = mergeHistory(history, committed);
   if (point) history = upsertPoint(history, point);
 
   // Defensive invariant, not a live recovery path: mergeHistory unions by date,
@@ -279,9 +293,9 @@ export function main(argv) {
   }
 
   const json = JSON.stringify(history, null, 2) + '\n';
-  writeFileSync(HISTORY_FILE, json);
-  if (existsSync('output')) writeFileSync('output/event-history.json', json);
-  if (cacheOut) writeFileSync(cacheOut, json);
+  writeFileSync(at(root, HISTORY_FILE), json);
+  if (existsSync(at(root, 'output'))) writeFileSync(at(root, 'output/event-history.json'), json);
+  if (cacheOut) writeFileSync(at(root, cacheOut), json);
 
   if (point) {
     const shown = Object.entries(point)

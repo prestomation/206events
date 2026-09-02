@@ -253,7 +253,6 @@ describe('countViableCandidates against the real tree', () => {
 // its paths relative to cwd.
 describe('main', () => {
   let dir
-  let cwd
 
   const write = (rel, data) => {
     const full = path.join(dir, rel)
@@ -262,10 +261,13 @@ describe('main', () => {
   }
   const readHistory = () => JSON.parse(readFileSync(path.join(dir, 'docs/event-history.json'), 'utf-8'))
 
+  // main() takes an injectable root rather than the tests calling
+  // process.chdir: chdir is unavailable when vitest runs in worker threads, and
+  // this suite gates every calendar build.
+  const run = (argv = []) => main(argv, { root: dir })
+
   beforeEach(() => {
     dir = mkdtempSync(path.join(tmpdir(), 'history-main-'))
-    cwd = process.cwd()
-    process.chdir(dir)
     write('docs/source-candidates/a.md', '---\nstatus: candidate\n---\n\nx\n')
     write('output/manifest.json', { rippers: [{ calendars: [1, 2] }] })
     write('output/build-errors.json', {
@@ -280,17 +282,14 @@ describe('main', () => {
       osmGaps: [],
     })
   })
-  afterEach(() => {
-    process.chdir(cwd)
-    rmSync(dir, { recursive: true, force: true })
-  })
+  afterEach(() => rmSync(dir, { recursive: true, force: true }))
 
   it('merges every source and adds today, writing all three destinations', () => {
     write('docs/event-history.json', [{ date: '2026-04-13', events: 100, calendars: 10 }])
     write('cached.json', [{ date: '2026-05-01', events: 200, calendars: 20 }])
     write('published.json', [{ date: '2026-06-01', events: 300, calendars: 30 }])
 
-    expect(main(['--merge', 'cached.json', '--merge', 'published.json', '--cache-out', 'cached.json'])).toBe(0)
+    expect(run(['--merge', 'cached.json', '--merge', 'published.json', '--cache-out', 'cached.json'])).toBe(0)
 
     const out = readHistory()
     expect(out.length).toBe(4) // three merged dates plus today
@@ -308,7 +307,7 @@ describe('main', () => {
     rmSync(path.join(dir, 'output/build-errors.json'))
     rmSync(path.join(dir, 'output/manifest.json'))
 
-    expect(main(['--merge', 'cached.json'])).toBe(0)
+    expect(run(['--merge', 'cached.json'])).toBe(0)
 
     const out = readHistory()
     expect(out.map((p) => p.date)).toEqual(['2026-04-13', '2026-05-01']) // no new point
@@ -320,12 +319,12 @@ describe('main', () => {
   // series would be written back over everything.
   it('throws on a corrupt committed history instead of starting from empty', () => {
     write('docs/event-history.json', '{ this is not json')
-    expect(() => main([])).toThrow(/not valid JSON/)
+    expect(() => run([])).toThrow(/not valid JSON/)
   })
 
   it('skips a merge source that does not exist', () => {
     write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
-    expect(main(['--merge', 'absent.json'])).toBe(0)
+    expect(run(['--merge', 'absent.json'])).toBe(0)
     expect(readHistory().length).toBe(2)
   })
 
@@ -338,7 +337,7 @@ describe('main', () => {
     vi.setSystemTime(new Date('2027-03-04T12:00:00Z'))
     try {
       write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
-      expect(main([])).toBe(0)
+      expect(run([])).toBe(0)
       expect(readHistory().at(-1).date).toBe('2027-03-04')
     } finally {
       vi.useRealTimers()
@@ -348,7 +347,7 @@ describe('main', () => {
   it('skips a corrupt merge source without failing', () => {
     write('docs/event-history.json', [{ date: '2026-04-13', events: 100 }])
     write('cached.json', 'truncated{{{')
-    expect(main(['--merge', 'cached.json'])).toBe(0)
+    expect(run(['--merge', 'cached.json'])).toBe(0)
     expect(readHistory().length).toBe(2)
   })
 
@@ -362,7 +361,7 @@ describe('main', () => {
       { date: '2026-05-01', events: 2 },
       { events: 3 },
     ])
-    expect(main(['--merge', 'cached.json'])).toBe(0)
+    expect(run(['--merge', 'cached.json'])).toBe(0)
     // Derived, never hardcoded: main() stamps the point with today's date, so
     // a literal here would start failing the whole build the next day.
     expect(readHistory().map((p) => p.date)).toEqual(['2026-04-13', '2026-05-01', today()])
@@ -384,7 +383,7 @@ describe('main', () => {
       geocodeErrors: [],
       osmGaps: [],
     })
-    expect(main([])).toBe(0)
+    expect(run([])).toBe(0)
     const today = readHistory().at(-1)
     expect(today.events).toBe(0)
     expect(today.calendars).toBe(0)

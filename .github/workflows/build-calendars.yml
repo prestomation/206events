@@ -257,8 +257,15 @@ jobs:
           exit 0
         fi
         echo "Fetching published history from $SITE_URL"
-        curl -fsSL --max-time 30 "$SITE_URL/event-history.json" \
-          -o published-event-history.json || rm -f published-event-history.json
+        if ! curl -fsSL --max-time 30 "$SITE_URL/event-history.json" \
+          -o published-event-history.json; then
+          rm -f published-event-history.json
+          # Warn, don't just skip. This layer is what makes a cache eviction
+          # survivable, and a silent fallback is the exact shape of the failure
+          # that lost 67 days in the first place — it must not be able to sit
+          # broken for months looking like a normal cold start.
+          echo "::warning::Could not fetch $SITE_URL/event-history.json; the published-history merge layer is unavailable this build."
+        fi
 
     - name: Update event history
       if: github.event_name != 'pull_request'

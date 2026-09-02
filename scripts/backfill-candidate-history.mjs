@@ -112,7 +112,11 @@ function countAt(sha) {
       // a doc carrying both a frontmatter status and a `status:`-lookalike line
       // in its prose would count twice — and unlike assertCountersAgree, which
       // only checks HEAD, that would silently skew a historical point.
-      'grep', '-l', '-E', `^status: *(${VIABLE})`, sha, '--',
+      // Anchored with [[:space:]]*$: an unanchored prefix match would count
+      // `status: candidate-followup` as viable here while the live counter,
+      // which tests exact membership, would not — and assertCountersAgree only
+      // compares HEAD, so a past divergence would go unnoticed.
+      'grep', '-l', '-E', `^status: *(${VIABLE})[[:space:]]*$`, sha, '--',
       `${DIR}/*.md`,
       // README.md documents the schema with a literal `status: candidate`
       // example line, which would otherwise count as a real candidate.
