@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6249277
+  lng: -122.3565653
+  label: "The Tin Lizzie Lounge, 600 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 1773269726
+name: tin-lizzie-lounge-balboa-blues
+sourceRole: venue
+friendlyname: "Balboa, Booze and a Dash o' Blues at The Tin Lizzie Lounge"
+description: Swing-era Balboa dance social hosted by the Hot Rhythm Club at this Lower Queen Anne hotel lounge.
+timezone: America/Los_Angeles
+location: "600 Queen Anne Ave N, Seattle, WA 98109"
+url: https://thetinlizzielounge.com/live-music/
+tags:
+  - Music
+  - Dance
+  - Nightlife
+  - QueenAnne
+schedules:
+  - schedule: 2nd and 4th Monday
+    start_time: "20:00"
+    duration: PT2H

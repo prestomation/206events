@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6249277
+  lng: -122.3565653
+  label: "The Tin Lizzie Lounge, 600 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 1773269726
+name: tin-lizzie-lounge-bluegrass
+sourceRole: venue
+friendlyname: Josh Philpott and Tim Wetmiller at The Tin Lizzie Lounge
+description: Weekly bluegrass live music at this Lower Queen Anne hotel lounge.
+timezone: America/Los_Angeles
+location: "600 Queen Anne Ave N, Seattle, WA 98109"
+url: https://thetinlizzielounge.com/live-music/
+tags:
+  - Music
+  - Nightlife
+  - QueenAnne
+schedules:
+  - schedule: every Thursday
+    start_time: "20:00"
+    duration: PT2H

@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6249277
+  lng: -122.3565653
+  label: "The Tin Lizzie Lounge, 600 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 1773269726
+name: tin-lizzie-lounge-enrique-henao
+sourceRole: venue
+friendlyname: Enrique Henao at The Tin Lizzie Lounge
+description: Monthly live performance by international recording artist and singer Enrique Henao at this Lower Queen Anne hotel lounge.
+timezone: America/Los_Angeles
+location: "600 Queen Anne Ave N, Seattle, WA 98109"
+url: https://thetinlizzielounge.com/live-music/
+tags:
+  - Music
+  - Nightlife
+  - QueenAnne
+schedules:
+  - schedule: 1st Sunday
+    start_time: "19:00"
+    duration: PT2H
