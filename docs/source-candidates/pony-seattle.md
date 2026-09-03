@@ -6,7 +6,7 @@ url: https://www.ponyseattle.com
 tags: [Nightlife, Capitol Hill, LGBTQ]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-03
-pr:
+pr: 1360
 ---
 
 Capitol Hill gay bar known for dance parties and DJ nights. Events listed on their homepage.
