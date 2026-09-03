@@ -7,6 +7,7 @@ description: "Seattle Artist League"
 # page; the built-in schema URLParser fetches this once (no lookahead set).
 url: "https://www.seattleartistleague.com/wp-json/wc/store/v1/products?per_page=100"
 friendlyLink: https://www.seattleartistleague.com/all-classes/
+imageUrl: "https://sal-bucket-1.s3.amazonaws.com/wp-content/uploads/2024/08/22113806/Bust-Ruthie-square.jpeg"
 tags: ["Arts", "Georgetown"]
 geo:
   lat: 47.5528833
