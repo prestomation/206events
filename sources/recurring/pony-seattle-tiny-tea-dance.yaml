@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6130849
+  lng: -122.3157619
+  label: "Pony, 1221 E Madison St, Seattle, WA 98122"
+  osmType: way
+  osmId: 295329823
+name: pony-seattle-tiny-tea-dance
+sourceRole: venue
+friendlyname: Tiny Tea Dance at Pony
+description: Weekly Sunday afternoon patio tea dance at Pony, Capitol Hill's longtime gay dive bar. No cover.
+timezone: America/Los_Angeles
+location: 1221 E Madison St, Seattle, WA 98122
+url: https://www.ponyseattle.com
+tags:
+  - Nightlife
+  - Capitol Hill
+  - LGBTQ
+cost: free
+schedules:
+  - schedule: every Sunday
+    start_time: "16:00"
+    duration: PT5H

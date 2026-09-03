@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6130849
+  lng: -122.3157619
+  label: "Pony, 1221 E Madison St, Seattle, WA 98122"
+  osmType: way
+  osmId: 295329823
+name: pony-seattle-pony-oke
+sourceRole: venue
+friendlyname: Pony-oke Karaoke at Pony
+description: Weekly Tuesday karaoke night at Pony, Capitol Hill's longtime gay dive bar, hosted by TV. No cover.
+timezone: America/Los_Angeles
+location: 1221 E Madison St, Seattle, WA 98122
+url: https://www.ponyseattle.com
+tags:
+  - Nightlife
+  - Capitol Hill
+  - LGBTQ
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "21:00"
+    duration: PT5H
