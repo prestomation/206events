@@ -6,7 +6,7 @@ url: https://www.ballardclay.com/studio
 tags: [Arts, Ballard]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-03
-pr: TBD
+pr: 1362
 ---
 
 Ballard neighborhood pottery studio offering classes, studio time, and workshops.
