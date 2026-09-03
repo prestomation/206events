@@ -16964,6 +16964,71 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-02",
       "note": "Different SPL branches (Douglass-Truth vs Greenwood) - same program type run independently at separate locations"
+    },
+    "danceus-tango-danceus-tango.ics Saturday Milonga @ Dance Underground|2026-09-05T20:30:00-07:00[America/Los_Angeles]::recurring-dance-underground.ics Dance Underground|2026-09-05T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same milonga event at Dance Underground, same time; danceus lists specific dance style, recurring entry is venue-level"
+    },
+    "external-Geekwire.ics PAX West 2026|2026-09-04T00:00:00Z[UTC]::seattle-humane-seattle-humane.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same PAX West gaming convention; identical event, minor title variation (year suffix)"
+    },
+    "recurring-cider-summit-seattle.ics Cider Summit Seattle|2026-09-11T15:00:00-07:00[America/Los_Angeles]::seattle-humane-seattle-humane.ics Cider Summit|2026-09-11T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same Cider Summit event at South Lake Union Discovery Center, same time"
+    },
+    "recurring-pax-west.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]::seattle-humane-seattle-humane.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same PAX West at Seattle Convention Center, identical title and start time"
+    },
+    "salsa-vida-seattle-salsa-vida-seattle.ics Live Salsa Music at Sea Monster Lounge|2026-09-12T19:00:00-07:00[America/Los_Angeles]::sea-monster-lounge-calendar.ics Sea Monster Salsa Saturdays|2026-09-12T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same recurring salsa event at Sea Monster Lounge (2202 N 45th, 15m apart); salsa-vida names the music act, venue names the series"
+    },
+    "seatoday-seatoday-all.ics Fair on 44th|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fair on 44th|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Exact same event from two seatoday sub-calendars (all vs community), identical location and URL"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Chamber Monthly Lunch & Learn|2026-09-15T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mill Creek Chamber Monthly Lunch & Learn|2026-09-15T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Exact same event from seatoday-all and seatoday-community, identical title, location, and URL"
+    },
+    "seatoday-seatoday-all.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]::seattle-humane-seattle-humane.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same PAX West at Seattle Convention Center, same time; seatoday and seattle-humane both aggregate this major event"
+    },
+    "seatoday-seatoday-community.ics Mill Creek Chamber Monthly Lunch & Learn|2026-09-15T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Mill Creek Chamber Monthly Lunch & Learn|2026-09-15T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Exact same event from seatoday-community and seatoday-food sub-calendars, identical location and URL"
+    },
+    "seatoday-seatoday-community.ics Mill Creek Chamber Monthly Lunch & Learn|2026-09-15T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Chamber Monthly Lunch & Learn|2026-09-15T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Exact same event from seatoday-community and seatoday-learning sub-calendars, identical location and URL"
+    },
+    "seatoday-seatoday-community.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]::seattle-humane-seattle-humane.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same PAX West at Seattle Convention Center, same time; seatoday-community and seattle-humane both aggregate this event"
+    },
+    "seattle-convention-center-all-events.ics PAX West 2026|2026-09-04T09:00:00-07:00[America/Los_Angeles]::seattle-humane-seattle-humane.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same PAX West at Seattle Convention Center; 1-hour start-time gap (9am vs 10am) reflects doors-open vs programming-start; same multi-day event"
+    },
+    "seattle-humane-seattle-humane.ics PAX West|2026-09-04T10:00:00-07:00[America/Los_Angeles]::where-ya-at-matt-where-ya-at-matt.ics PAX WEST|2026-09-04T10:00:00.191-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-03",
+      "note": "Same PAX West event, identical time; title case difference only (PAX West vs PAX WEST)"
     }
   }
 }
