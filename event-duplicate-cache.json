@@ -16547,8 +16547,8 @@
     },
     "external-town-hall-seattle.ics El Grito 2026|2026-09-13T20:00:00Z[UTC]::orquesta-northwest-orquesta-northwest.ics \"El Grito\"|2026-09-13T14:00:00.177-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
-      "resolvedAt": "2026-09-02",
-      "note": "Same El Grito celebration event, listed by both Town Hall Seattle and Orquesta Northwest (same time: 1pm PT)"
+      "resolvedAt": "2026-09-04",
+      "note": "same event different title variant across sources"
     },
     "external-unexpected-productions.ics Free Introductory Improv Class - Georgetown|2026-09-06T18:00:00Z[UTC]::seatoday-seatoday-all.ics Free Introductory Improv Class - Georgetown|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
@@ -17383,37 +17383,37 @@
     "external-town-hall-seattle.ics El Grito 2026|2026-09-13T20:00:00Z[UTC]::orquesta-northwest-orquesta-northwest.ics ”El Grito“|2026-09-13T14:00:00.177-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
-      "note": "Same El Grito concert at Town Hall Seattle (1119 8th Ave), Town Hall's own listing vs presenting org Orquesta Northwest's listing"
+      "note": "same event cross-source or cross-category seatoday feed"
     },
     "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
-      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+      "note": "same event cross-source or cross-category seatoday feed"
     },
     "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
-      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+      "note": "same event cross-source or cross-category seatoday feed"
     },
     "seatoday-seatoday-all.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
-      "note": "Same walking tour, venue's own listing vs seatoday/CitySpark republishing"
+      "note": "same event cross-source or cross-category seatoday feed"
     },
     "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
-      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+      "note": "same event cross-source or cross-category seatoday feed"
     },
     "seatoday-seatoday-community.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
-      "note": "Same walking tour, venue's own listing vs seatoday/CitySpark republishing"
+      "note": "same event cross-source or cross-category seatoday feed"
     },
     "seatoday-seatoday-sports.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
-      "note": "Same walking tour, venue's own listing vs seatoday/CitySpark republishing"
+      "note": "same event cross-source or cross-category seatoday feed"
     }
   }
 }
