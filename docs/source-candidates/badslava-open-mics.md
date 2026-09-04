@@ -6,6 +6,7 @@ url: https://badslava.com/seattle-open-mics.php
 tags: [Music, OpenMic]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-04
+pr: 1367
 ---
 
 Directory of open mic nights across Seattle venues including music, comedy, and poetry.
@@ -23,7 +24,7 @@ listed venues not yet covered (Club Comedy Seattle, Fremont Abbey,
 The Crocodile, Unexpected Productions, etc). Would need de-dup logic
 against existing recurring sources if implemented as an aggregator.
 
-**Implemented 2026-09-04 (PR pending):** A detail-page spot check
+**Implemented 2026-09-04 (PR #1367):** A detail-page spot check
 (Substation Seattle's "Manic Mic") showed `Event Frequency: Monthly`
 with `Event Notes: ... but what week may vary` — so the listing page
 is not a raw weekly-recurring schedule, it's whatever the site
