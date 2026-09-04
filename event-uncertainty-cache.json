@@ -71257,7 +71257,46 @@
       "source": "agent",
       "evidence": "https://tabletopvillage.com/pages/events"
     },
-    "seatoday:cityspark-19807696": {
+    "seattle-center:uicideboy-grey-day-tour": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/uicideboy-grey-day-tour",
+      "partialFingerprint": "1pkh4bc"
+    },
+    "seattle-center:eureka-day-preview-performance-x50307": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-preview-performance-x50307",
+      "partialFingerprint": "vum7rt"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest (free admission, \"no tickets or admission fees—purchase items at individual participating businesses\" per seattleschild.com/slurpstation.com)",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+    },
+    "venue:loc:lincoln park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "Lincoln Park is a large West Seattle waterfront public park; Seattle Parks Dept park-activation events (movie nights, etc.) at parks are held outdoors on park grounds"
+    },
+    "seatoday:cityspark-19810528": {
       "fields": {
         "cost": {
           "min": 0
@@ -71265,8 +71304,8 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://rainierartscenter.org/events/world-rhythm-festival-779/",
-      "partialFingerprint": "118leps"
+      "evidence": "https://pacificsciencecenter.org/events/blood-drive/",
+      "partialFingerprint": "10fie7k"
     },
     "seatoday:cityspark-19806616": {
       "fields": {
@@ -71290,7 +71329,7 @@
       "evidence": "https://kingcounty.mastergardenerfoundation.org/event/carkeek-park-demonstration-garden/2026-09-08/",
       "partialFingerprint": "1dgengb"
     },
-    "seatoday:cityspark-19809726": {
+    "seatoday:cityspark-19807696": {
       "fields": {
         "cost": {
           "min": 0
@@ -71298,19 +71337,22 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://kingcounty.mastergardenerfoundation.org/event/bellevue-demonstration-garden/2026-09-09/",
-      "partialFingerprint": "153erx6"
+      "evidence": "https://rainierartscenter.org/events/world-rhythm-festival-779/",
+      "partialFingerprint": "118leps"
     },
-    "seatoday:cityspark-19810528": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
+    "seatoday:cityspark-19794122": {
+      "unresolvable": true,
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://pacificsciencecenter.org/events/blood-drive/",
-      "partialFingerprint": "10fie7k"
+      "reason": "No registration fee or pricing published on Tabor 100 or OMWBE event pages",
+      "partialFingerprint": "kwud11"
+    },
+    "seatoday:cityspark-19814413": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Mixed free/ticketed sub-events at a PAX West booth (learn-to-play free, some events ticketed via convention badge); no single admission price published",
+      "partialFingerprint": "97klyx"
     },
     "seatoday:cityspark-19809719": {
       "fields": {
@@ -71334,6 +71376,31 @@
       "evidence": "https://www.themissingpiecegames.com/event/star-wars-rpg-night/2026-09-07/",
       "partialFingerprint": "g0f5br"
     },
+    "seatoday:cityspark-19809726": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://kingcounty.mastergardenerfoundation.org/event/bellevue-demonstration-garden/2026-09-09/",
+      "partialFingerprint": "153erx6"
+    },
+    "seatoday:cityspark-17845591": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "No pricing published for this specific Redmond WA clinic; only found audit pricing for a different Sylvia Zerbini clinic location (Poulsbo), not reliable for this event",
+      "partialFingerprint": "1pbh9xe"
+    },
+    "seatoday:cityspark-18293729": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Newcastle Chamber of Commerce site lists the event but publishes no registration fee or member/non-member pricing",
+      "partialFingerprint": "10ysdsz"
+    },
     "seatoday:cityspark-19571052": {
       "fields": {
         "cost": {
@@ -71346,34 +71413,6 @@
       "evidence": "https://48north.com/news/fall-boats-afloat-show-coming-to-south-lake-union-2/",
       "partialFingerprint": "cnux1k"
     },
-    "seatoday:cityspark-19814413": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "Mixed free/ticketed sub-events at a PAX West booth (learn-to-play free, some events ticketed via convention badge); no single admission price published",
-      "partialFingerprint": "97klyx"
-    },
-    "seatoday:cityspark-18293729": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "Newcastle Chamber of Commerce site lists the event but publishes no registration fee or member/non-member pricing",
-      "partialFingerprint": "10ysdsz"
-    },
-    "seatoday:cityspark-17845591": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "No pricing published for this specific Redmond WA clinic; only found audit pricing for a different Sylvia Zerbini clinic location (Poulsbo), not reliable for this event",
-      "partialFingerprint": "1pbh9xe"
-    },
-    "seatoday:cityspark-19794122": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "No registration fee or pricing published on Tabor 100 or OMWBE event pages",
-      "partialFingerprint": "kwud11"
-    },
     "discover-slu:discover-slu-guest-chef-night-nguyen-2": {
       "fields": {
         "duration": 14400
@@ -71383,24 +71422,6 @@
       "evidence": "https://www.discoverslu.com/events/guest-chef-night-nguyen-2/",
       "partialFingerprint": "1cbub7h"
     },
-    "seattle-center:uicideboy-grey-day-tour": {
-      "fields": {
-        "duration": 10800
-      },
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/uicideboy-grey-day-tour",
-      "partialFingerprint": "1pkh4bc"
-    },
-    "seattle-center:eureka-day-preview-performance-x50307": {
-      "fields": {
-        "duration": 9000
-      },
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-preview-performance-x50307",
-      "partialFingerprint": "vum7rt"
-    },
     "climate-pledge-arena:tm-vvG1HZ_2SpAqPx": {
       "unresolvable": true,
       "resolvedAt": "2026-09-04",
@@ -71408,18 +71429,27 @@
       "reason": "Pre-game arena tour start time is scheduled relative to that days Kraken game puck-drop time (not fixed); Ticketmaster event page returns HTTP 403 and no exact time for this date was found elsewhere",
       "partialFingerprint": "9ojbxg"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+    "venue:loc:online only": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Virtual/online event with no physical location — weather badge not applicable"
+    },
+    "venue:osm:node:2462428286": {
       "fields": {
-        "startTime": "12:00",
-        "duration": 21600,
-        "cost": {
-          "min": 0
-        }
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://udistrictseattle.com/bobafest (free admission, \"no tickets or admission fees—purchase items at individual participating businesses\" per seattleschild.com/slurpstation.com)",
-      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+      "evidence": "https://goodbusinessnetwork.org/taste-of-the-sound/ (\"an outdoor waterfront celebration...at Fishermens Terminal\") + vendor canopy/tent-fan requirements on the event listing"
+    },
+    "cidbia:cidbia-6a988e441a341d7a346c1105-202610101800": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/t/632bb2847a361210c50418bc/1663808133009/RECC-Logo_Color-Transparent.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Reclaim Clay Collective) + https://www.reclaimclay.com/"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202609080000": {
       "fields": {
@@ -71564,14 +71594,6 @@
       "source": "agent",
       "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
-    "cidbia:cidbia-6a988e441a341d7a346c1105-202610101800": {
-      "fields": {
-        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/t/632bb2847a361210c50418bc/1663808133009/RECC-Logo_Color-Transparent.png?format=1500w"
-      },
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Reclaim Clay Collective) + https://www.reclaimclay.com/"
-    },
     "cidbia:cidbia-6a98986bc56c055337e862ec-202612080100": {
       "fields": {
         "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/t/632bb2847a361210c50418bc/1663808133009/RECC-Logo_Color-Transparent.png?format=1500w",
@@ -71623,6 +71645,16 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/a-john-waters-christmas-seattle-washington-12-02-2026/event/0F0064BAE115E3D8 (one-night show, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
     },
+    "tabletop-village:3fc1kpnu46mkk9rg2snk3epgn8@google.com-2027-03-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event at a venue that charges $10-15 tournament entry, but exact Magic draft-night pricing (which also includes pack cost) is not confirmed"
+    },
     "tabletop-village:4lj3hu9flcv0ojh2iv8vd6l161_R20220610T220000@google.com-2027-03-03": {
       "fields": {
         "cost": {
@@ -71643,16 +71675,6 @@
       "source": "agent",
       "evidence": "https://tabletopvillage.com/collections/tournament (weekly Pokemon TCG tournaments: $15 non-member / $10 member entry, per web search of the venue listing)"
     },
-    "tabletop-village:3fc1kpnu46mkk9rg2snk3epgn8@google.com-2027-03-02": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event at a venue that charges $10-15 tournament entry, but exact Magic draft-night pricing (which also includes pack cost) is not confirmed"
-    },
     "tabletop-village:6n37huunc7vugo8nplsdnv2old@google.com-2027-03-02": {
       "fields": {
         "cost": {
@@ -71672,28 +71694,6 @@
       "resolvedAt": "2026-09-04",
       "source": "agent",
       "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event; exact DBZ Super TCG entry price not confirmed"
-    },
-    "venue:loc:lincoln park": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "evidence": "Lincoln Park is a large West Seattle waterfront public park; Seattle Parks Dept park-activation events (movie nights, etc.) at parks are held outdoors on park grounds"
-    },
-    "venue:loc:online only": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "Virtual/online event with no physical location — weather badge not applicable"
-    },
-    "venue:osm:node:2462428286": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "evidence": "https://goodbusinessnetwork.org/taste-of-the-sound/ (\"an outdoor waterfront celebration...at Fishermens Terminal\") + vendor canopy/tent-fan requirements on the event listing"
     },
     "19hz:19hz-2026/08/27-Soft Circuit: Carnival": {
       "unresolvable": true,
