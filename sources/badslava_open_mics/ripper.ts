@@ -1,4 +1,4 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { parse as parseHtml, HTMLElement } from "node-html-parser";
 import { ZonedDateTime, LocalDateTime, Duration, ZoneId } from "@js-joda/core";
@@ -6,6 +6,20 @@ import { decode } from "html-entities";
 import '@js-joda/timezone';
 
 const DEFAULT_DURATION = Duration.ofHours(2);
+const TIME_PATTERN = /(\d{1,2}):(\d{2})\s*([ap]m)/i;
+
+export function hasParseableTime(time: string): boolean {
+    return TIME_PATTERN.test(time);
+}
+
+// Badslava's own venue names are sometimes suffixed with descriptive/marketing
+// copy after a "-" or "|" (e.g. "Skylark Cafe & Club- Live Music | Scratch
+// Kitchen | West Seattle"). Trimming to the leading segment keeps event
+// titles readable and improves cross-source title matching against venues
+// that already have their own dedicated source under a plainer name.
+export function cleanVenueName(raw: string): string {
+    return raw.split(/\s*[-|]\s+/)[0].trim();
+}
 
 export interface OpenMicEntry {
     detailId: string;
@@ -47,7 +61,7 @@ export function extractOpenMicEntries(html: HTMLElement): OpenMicEntry[] {
 
         if (!href || !detailId || !venueName || !address) continue;
 
-        entries.push({ detailId, detailUrl: href, venueName: decode(venueName), address, time, dateStr: currentDateStr });
+        entries.push({ detailId, detailUrl: href, venueName: cleanVenueName(decode(venueName)), address, time, dateStr: currentDateStr });
     }
 
     return entries;
@@ -60,7 +74,7 @@ export function parseOpenMicEntry(entry: OpenMicEntry, zone: ZoneId): RipperEven
     }
     const [, month, day, twoDigitYear] = dateMatch;
 
-    const timeMatch = entry.time.match(/(\d{1,2}):(\d{2})\s*([ap]m)/i);
+    const timeMatch = entry.time.match(TIME_PATTERN);
     let hour = 19; // Most open mics start in the evening; used only if the listing omits a time.
     let minute = 0;
     if (timeMatch) {
@@ -116,6 +130,16 @@ export default class BadslavaOpenMicsRipper implements IRipper {
             if ('date' in result) {
                 if (result.date.isBefore(now)) continue; // Past event — intentional skip
                 events.push(result);
+                if (!hasParseableTime(entry.time)) {
+                    const unknownFields: UncertaintyField[] = ["startTime"];
+                    errors.push({
+                        type: "Uncertainty",
+                        reason: `badslava-open-mics listing did not include a parseable start time (raw: "${entry.time}")`,
+                        source: "badslava-open-mics",
+                        unknownFields,
+                        event: result,
+                    });
+                }
             } else {
                 errors.push(result);
             }

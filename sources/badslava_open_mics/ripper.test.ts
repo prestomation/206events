@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { parse as parseHtml } from 'node-html-parser';
 import { ZoneId } from '@js-joda/core';
-import { extractOpenMicEntries, parseOpenMicEntry } from './ripper.js';
+import { extractOpenMicEntries, parseOpenMicEntry, cleanVenueName, hasParseableTime } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ZONE = ZoneId.of('America/Los_Angeles');
@@ -53,6 +53,43 @@ describe('extractOpenMicEntries', () => {
             </table>
         `);
         expect(extractOpenMicEntries(html)).toEqual([]);
+    });
+
+    it('strips marketing-tagline suffixes from scraped venue names', () => {
+        const html = parseHtml(loadFixture());
+        const entries = extractOpenMicEntries(html);
+        const skylark = entries.find(e => e.venueName.startsWith('Skylark'));
+        expect(skylark?.venueName).toBe('Skylark Cafe & Club');
+        const couthBuzzard = entries.find(e => e.venueName.includes('Couth Buzzard'));
+        expect(couthBuzzard?.venueName).toBe('The Couth Buzzard');
+    });
+});
+
+describe('cleanVenueName', () => {
+    it('trims a "- tagline" suffix', () => {
+        expect(cleanVenueName('The Couth Buzzard - Books & Community')).toBe('The Couth Buzzard');
+    });
+
+    it('trims a "- tagline | more" suffix with no space before the hyphen', () => {
+        expect(cleanVenueName('Skylark Cafe & Club- Live Music | Scratch Kitchen | West Seattle')).toBe('Skylark Cafe & Club');
+    });
+
+    it('leaves a plain venue name with no delimiter unchanged', () => {
+        expect(cleanVenueName('Rickshaw Restaurant & Lounge')).toBe('Rickshaw Restaurant & Lounge');
+    });
+
+    it('leaves apostrophes in venue names unchanged', () => {
+        expect(cleanVenueName("BoneYard's Howlin' Bistro")).toBe("BoneYard's Howlin' Bistro");
+    });
+});
+
+describe('hasParseableTime', () => {
+    it('recognizes a standard listing time', () => {
+        expect(hasParseableTime('8:00pm')).toBe(true);
+    });
+
+    it('rejects free-text placeholders', () => {
+        expect(hasParseableTime('TBD')).toBe(false);
     });
 });
 
