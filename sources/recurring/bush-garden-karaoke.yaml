@@ -1,0 +1,35 @@
+geo:
+  lat: 47.5984956
+  lng: -122.3226719
+  label: "Bush Garden, 714 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 13874560124
+name: bush-garden-karaoke
+sourceRole: venue
+friendlyname: Karaoke Night at Bush Garden
+description: Nightly karaoke at Bush Garden, Seattle's legendary Chinatown-International District karaoke bar and Japanese restaurant, reopened in 2026 after a multi-year closure.
+timezone: America/Los_Angeles
+location: "714 S King St, Seattle, WA 98104"
+url: https://www.bushgardenseattle.com/
+tags:
+  - Nightlife
+  - International District
+schedules:
+  - schedule: every Sunday
+    start_time: "21:30"
+    duration: PT4H
+  - schedule: every Monday
+    start_time: "21:30"
+    duration: PT4H
+  - schedule: every Wednesday
+    start_time: "21:30"
+    duration: PT4H
+  - schedule: every Thursday
+    start_time: "21:30"
+    duration: PT4H
+  - schedule: every Friday
+    start_time: "21:30"
+    duration: PT4H
+  - schedule: every Saturday
+    start_time: "21:30"
+    duration: PT4H
