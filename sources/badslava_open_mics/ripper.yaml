@@ -1,0 +1,11 @@
+name: badslava-open-mics
+sourceRole: aggregator
+description: "Badslava Seattle Open Mics"
+url: "https://badslava.com/seattle-open-mics.php"
+friendlyLink: https://badslava.com/seattle-open-mics.php
+tags: ["Music", "OpenMic"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Open Mics"
+    timezone: America/Los_Angeles
