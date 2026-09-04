@@ -6,6 +6,7 @@ url: https://www.lovestruckinseattle.com/pages/events
 tags: [Books, Wedgwood]
 firstSeen: 2026-09-04
 lastChecked: 2026-09-04
+pr: 1369
 ---
 
 Queer- and woman-owned romance-only indie bookstore, first pop-up in July
