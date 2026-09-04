@@ -5489,18 +5489,26 @@
       "partialFingerprint": "soeec6"
     },
     "stg:tm-vvG1HZ_1pbLbue": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1suwgu"
+      "evidence": "https://www.ticketmaster.com/not-for-radio-a-summer-in-seattle-washington-11-11-2026/event/0F0064A5987D8342 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "stxkuc"
     },
     "stg:tm-vvG1HZ_1pLozWy": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1cwywv4"
+      "evidence": "https://www.ticketmaster.com/not-for-radio-a-summer-in-seattle-washington-11-12-2026/event/0F0064A59F478F79 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1s43qnp"
     },
     "stg:tm-vvG1HZ_dKjrbV1": {
       "unresolvable": true,
@@ -10816,11 +10824,15 @@
       "evidence": "https://www.seattlerep.org/plays/202526-season/the-play-that-goes-wrong"
     },
     "climate-pledge-arena:tm-vvG1HZ_dpmChtr": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1rzjkvc"
+      "evidence": "https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-seattle-washington-09-08-2026/event/0F006435AE39BA5E (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "x5wygx"
     },
     "climate-pledge-arena:tm-vvG1HZ_d6OS55N": {
       "unresolvable": true,
@@ -10851,11 +10863,15 @@
       "partialFingerprint": "1ut8tek"
     },
     "crocodile:tm-Z7r9jZ1A7Pdfg": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "b4aydy"
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1A7Pdfg (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1i32jq2"
     },
     "crocodile:tm-rZ7HnEZ1AfPJ3K": {
       "unresolvable": true,
@@ -10975,25 +10991,37 @@
       "partialFingerprint": "yyeu9"
     },
     "lumen-field:tm-vvG1HZ_F5JLE3p": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "uhut2"
+      "evidence": "https://www.ticketmaster.com/seattle-seahawks-vs-new-england-patriots-seattle-washington-09-09-2026/event/0F006482E67E7496 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "p84kac"
     },
     "lumen-field:tm-vvG1HZbz27hIoI": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "b9wy6v"
+      "evidence": "https://www.ticketmaster.com/seattle-sounders-fc-vs-red-bull-seattle-washington-09-05-2026/event/0F006383C46E8468 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1vceaku"
     },
     "lumen-field:tm-vvG1HZ_A3PfHHd": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "90c1el"
+      "evidence": "https://www.ticketmaster.com/seattle-reign-fc-vs-san-diego-seattle-washington-09-06-2026/event/0F006454A553CF03 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1295561"
     },
     "lumen-field:tm-vvG1HZ_GnVrnQP": {
       "unresolvable": true,
@@ -11107,32 +11135,48 @@
       "reason": "Source page only shows start time (2pm), no end time or duration listed"
     },
     "stg:tm-vvG1HZ_1Rl1XOD": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1x3bf18"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-05-2026/event/0F0064ABEB2BE83B (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1aotb4u"
     },
     "stg:tm-vvG1HZ_1Rlur-a": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "167rx5w"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-06-2026/event/0F0064ABEB35E849 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "6mpd7t"
     },
     "stg:tm-vvG1HZ_1RlGC-A": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1ohu4cz"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-05-2026/event/0F0064ABEB30E845 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "zu9rl6"
     },
     "stg:tm-vvG1HZ_1Rl3m-0": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "6wpf47"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-10-2026/event/0F0064ABEB4AE864 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "3pv76l"
     },
     "stg:tm-vvG1HZ_1RlArOb": {
       "unresolvable": true,
@@ -11142,18 +11186,26 @@
       "partialFingerprint": "e3m6q3"
     },
     "stg:tm-vvG1HZ_1RloC-r": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1f1xieo"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-09-2026/event/0F0064ABEB44E85E (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1ac6ny9"
     },
     "stg:tm-vvG1HZ_1RlCm-u": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "xmamhn"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-06-2026/event/0F0064ABEB3AE84D (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "pcua88"
     },
     "stg:tm-vvG1HZ_1RlkmOQ": {
       "unresolvable": true,
@@ -11163,25 +11215,37 @@
       "partialFingerprint": "1p7q74d"
     },
     "stg:tm-vvG1HZ_1Rl2X-f": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1nry1ll"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-08-2026/event/0F0064ABEB3FE854 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "oetq6z"
     },
     "stg:tm-vvG1HZ_1RlamOw": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "ddq3yp"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-04-2026/event/0F0064ABEB26E832 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "lxgsli"
     },
     "stg:tm-vvG1HZ_1RlKX-E": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1qmaq6q"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-11-2026/event/0F0064ABEB4FE867 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "z1gt11"
     },
     "stg:tm-vvG1HZ_1RlFrON": {
       "unresolvable": true,
@@ -11198,18 +11262,26 @@
       "partialFingerprint": "2dcbo7"
     },
     "stg:tm-vvG1HZ_dMzIh6I": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "b4aydy"
+      "evidence": "https://www.ticketmaster.com/jose-maria-napoleon-hasta-siempre-tour-seattle-washington-09-10-2026/event/0F00643DF8A1B1E8 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "dp0gg2"
     },
     "stg:tm-vvG1HZ_AKgbbQJ": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1ktelb3"
+      "evidence": "https://www.ticketmaster.com/kamelot-dark-asylum-world-tour-seattle-washington-09-08-2026/event/0F006454F56186A6 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1gb8cjz"
     },
     "stg:tm-vvG1HZ_1XU7H3l": {
       "unresolvable": true,
@@ -11226,11 +11298,15 @@
       "partialFingerprint": "oa2siw"
     },
     "stg:tm-vvG1HZ_G3nLl92": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1tn26u2"
+      "evidence": "https://www.ticketmaster.com/raphael-ghanem-seattle-washington-10-21-2026/event/0F0064C4AA7EB5CF (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "5m6f12"
     },
     "t-mobile-park:tm-vvG1HZ_dsW6KyQ": {
       "unresolvable": true,
@@ -11240,39 +11316,59 @@
       "partialFingerprint": "18kw9ai"
     },
     "t-mobile-park:tm-vvG1HZbgRmXEu8": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "dj5qxg"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-texas-rangers-seattle-washington-09-10-2026/event/0F00635BEEFA7350 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "5cwqom"
     },
     "t-mobile-park:tm-vvG1HZbgRmD6u6": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "10ve0pf"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-athletics-seattle-washington-09-05-2026/event/0F00635BEEEC7347 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "mkwxgz"
     },
     "t-mobile-park:tm-vvG1HZbgRmWEuC": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "16hebu0"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-texas-rangers-seattle-washington-09-09-2026/event/0F00635BEEF6734E (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1w06mzu"
     },
     "t-mobile-park:tm-vvG1HZbgRmDMu1": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "177aele"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-athletics-seattle-washington-09-06-2026/event/0F00635BEEEF734A (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "gt5hwh"
     },
     "t-mobile-park:tm-vvG1HZbgRmB6uv": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "bep53p"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-athletics-seattle-washington-09-04-2026/event/0F00635BEEE87341 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "8ujl4h"
     },
     "t-mobile-park:tm-vvG1HZbgRmy9GT": {
       "unresolvable": true,
@@ -11282,11 +11378,15 @@
       "partialFingerprint": "doa1vz"
     },
     "t-mobile-park:tm-vvG1HZbgRmHMuG": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "105hxy1"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-texas-rangers-seattle-washington-09-08-2026/event/0F00635BEEF3734C (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "ytnx8v"
     },
     "t-mobile-park:tm-vvG1HZ_1-W1A-I": {
       "unresolvable": true,
@@ -11387,18 +11487,26 @@
       "partialFingerprint": "15ibota"
     },
     "wamu-theater:tm-vvG1HZ_1USMH__": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "102c71m"
+      "evidence": "https://www.ticketmaster.com/wave-to-earth-the-pieces-tour-seattle-washington-09-05-2026/event/0F0064ADB3DFC659 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1uud57f"
     },
     "wamu-theater:tm-vvG1HZ_1B7bJvD": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "102c71m"
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-wave-to-seattle-washington-09-05-2026/event/0F0064AE8462607B (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1qubfih"
     },
     "seattle-center:lets-play-sea-26-armory-fan-experience-x47239": {
       "fields": {
@@ -53391,7 +53499,7 @@
     "seatoday:cityspark-19693248": {
       "fields": {
         "cost": {
-          "min": 55.0
+          "min": 55
         }
       },
       "resolvedAt": "2026-08-21",
@@ -53485,7 +53593,7 @@
     "seatoday:cityspark-19698716": {
       "fields": {
         "cost": {
-          "min": 6.0
+          "min": 6
         }
       },
       "resolvedAt": "2026-08-21",
@@ -53659,8 +53767,8 @@
         "startTime": "10:00",
         "duration": 43200,
         "cost": {
-          "min": 16.0,
-          "max": 37.0
+          "min": 16,
+          "max": 37
         },
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/671a9ce14a84f2359ce74a1d/b8972a2c-862c-46fa-bda5-047fb8427ced/Image_20260528115309_8_416.png?format=1500w"
       },
@@ -53674,8 +53782,8 @@
         "startTime": "10:00",
         "duration": 36000,
         "cost": {
-          "min": 14.0,
-          "max": 35.0
+          "min": 14,
+          "max": 35
         },
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/671a9ce14a84f2359ce74a1d/b8972a2c-862c-46fa-bda5-047fb8427ced/Image_20260528115309_8_416.png?format=1500w"
       },
@@ -54122,7 +54230,7 @@
     "seatoday:cityspark-19599394": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54133,8 +54241,8 @@
     "seatoday:cityspark-17845544": {
       "fields": {
         "cost": {
-          "min": 16.0,
-          "max": 24.0
+          "min": 16,
+          "max": 24
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54267,8 +54375,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztyjcnbbc": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54278,8 +54386,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztyjcpbwb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54289,8 +54397,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztyjcqbtb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54300,8 +54408,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykccbzb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54311,8 +54419,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykcdbvb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54322,8 +54430,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykcfbvb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54333,8 +54441,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykcgbbc": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54344,8 +54452,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykchbxb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54355,8 +54463,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykcjbtb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54366,8 +54474,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykckbbc": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -54377,8 +54485,8 @@
     "new-tech-seattle:new-tech-seattle-wlqxztykclbwb": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 27.0
+          "min": 20,
+          "max": 27
         }
       },
       "resolvedAt": "2026-08-29",
@@ -61229,7 +61337,7 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival (outdoor u-pick sunflower field festival)"
     },
     "events12:sunflower-farms-118543-2026-09-18": {
       "fields": {
@@ -63816,7 +63924,7 @@
     "burke-museum:burke-julie-kim-artist-studio": {
       "fields": {
         "cost": {
-          "min": 24.0
+          "min": 24
         }
       },
       "resolvedAt": "2026-08-29",
@@ -63837,7 +63945,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/bestlittlewhorehouseposter.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-30",
@@ -63848,7 +63956,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/cannibalholocaust4Kposter-1200x1778.jpg",
         "cost": {
-          "min": 16.0
+          "min": 16
         }
       },
       "resolvedAt": "2026-08-30",
@@ -64614,7 +64722,7 @@
     "seatoday:cityspark-19523140": {
       "fields": {
         "cost": {
-          "min": 9.0
+          "min": 9
         }
       },
       "resolvedAt": "2026-08-30",
@@ -64624,8 +64732,8 @@
     "seatoday:cityspark-19625021": {
       "fields": {
         "cost": {
-          "min": 14.0,
-          "max": 16.0
+          "min": 14,
+          "max": 16
         }
       },
       "resolvedAt": "2026-08-30",
@@ -64675,7 +64783,7 @@
     "northwest-film-forum:staff-selects-the-daytrippers-2026-10-23": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/daytrippers1600-3.jpg"
       },
@@ -64686,7 +64794,7 @@
     "northwest-film-forum:trauma-bond-a-serbian-film-2026-extended-cut-2026-10-23": {
       "fields": {
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/serbianfilm1600-2.png"
       },
@@ -64697,7 +64805,7 @@
     "northwest-film-forum:trauma-bond-come-and-see-2026-10-09": {
       "fields": {
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/comeandsee1600-4.png"
       },
@@ -64708,7 +64816,7 @@
     "northwest-film-forum:trauma-bond-irreversible-2026-10-16": {
       "fields": {
         "cost": {
-          "min": 16.0
+          "min": 16
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/irreversible1600-1.png"
       },
@@ -64723,7 +64831,7 @@
       "reason": "Source lists this as an all-day flexible double-feature pass, not a single showtime: page shows \"Sun Aug 30: All Day\" and the $24 pass \"GETS YOU INTO ONE SCREENING OF EACH FILM, YOU CHOOSE WHEN\" - Mysterious Skin screens at 3:30pm/7:00pm and Three Bewildered People In The Night at 7:30pm, so there is no single start time/duration to publish without guessing which showing the patron picks.",
       "fields": {
         "cost": {
-          "min": 24.0
+          "min": 24
         },
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/arakiDF1600.png"
       },
@@ -64823,7 +64931,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskin1600-7.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-31",
@@ -64834,7 +64942,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeople1600-1.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-31",
@@ -64844,7 +64952,7 @@
     "seattle-makers:seattle-makers-154859": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-08-31",
@@ -64854,7 +64962,7 @@
     "seattle-makers:seattle-makers-165226": {
       "fields": {
         "cost": {
-          "min": 200.0
+          "min": 200
         }
       },
       "resolvedAt": "2026-08-31",
@@ -64865,7 +64973,7 @@
       "fields": {
         "duration": 7200,
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-08-31",
@@ -64891,7 +64999,7 @@
     "seatoday:cityspark-19671016": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-08-31",
@@ -64901,7 +65009,7 @@
     "seatoday:cityspark-19726164": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-08-31",
@@ -64993,7 +65101,7 @@
     "seattle-makers:seattle-makers-165259": {
       "fields": {
         "cost": {
-          "min": 200.0
+          "min": 200
         }
       },
       "resolvedAt": "2026-08-31",
@@ -65003,7 +65111,7 @@
     "seattle-makers:seattle-makers-165262": {
       "fields": {
         "cost": {
-          "min": 115.0
+          "min": 115
         }
       },
       "resolvedAt": "2026-08-31",
@@ -65121,7 +65229,7 @@
     "seattle-makers:seattle-makers-162427": {
       "fields": {
         "cost": {
-          "min": 140.0
+          "min": 140
         }
       },
       "resolvedAt": "2026-09-01",
@@ -65255,7 +65363,7 @@
     "watershed-pub:watershed-pub-13_th_annual_alpenfire_cider_dinner_orchard_to_island-2026-09-23": {
       "fields": {
         "cost": {
-          "min": 100.0
+          "min": 100
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65325,7 +65433,7 @@
     "danceus-swing:danceus-165480871911716-2026-09-02": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65335,7 +65443,7 @@
     "danceus-swing:danceus-165480872035224-2026-09-02": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65345,7 +65453,7 @@
     "danceus-swing:danceus-16548087208160-2026-09-03": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65355,7 +65463,7 @@
     "danceus-swing:danceus-165480872789424-2026-09-05": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65385,7 +65493,7 @@
     "chihuly-garden-and-glass:chihuly-evening-yoga-in-the-glasshouse-10-20261021": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65395,7 +65503,7 @@
     "chihuly-garden-and-glass:chihuly-evening-yoga-in-the-glasshouse-10-20261118": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65445,7 +65553,7 @@
     "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20260906": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65455,7 +65563,7 @@
     "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20261004": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65465,7 +65573,7 @@
     "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20261018": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65475,7 +65583,7 @@
     "chihuly-garden-and-glass:chihuly-yoga-in-the-glasshouse-12-20261101": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-02",
@@ -65569,7 +65677,7 @@
       "fields": {
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/59fa9f67017db2dc76f9d1e7/07d2f890-09ec-431c-b815-60f8bbc8a7dd/CSS-16+early+crowd.2.jpg",
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-03",
@@ -65602,7 +65710,7 @@
     "danceus-tango:danceus-tango-166059771866132-2026-09-07": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-09-03",
@@ -65612,7 +65720,7 @@
     "danceus-tango:danceus-tango-16605977262778-2026-09-07": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-09-03",
@@ -71155,7 +71263,8 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/uicideboy-grey-day-tour"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/uicideboy-grey-day-tour",
+      "partialFingerprint": "1pkh4bc"
     },
     "seattle-center:eureka-day-preview-performance-x50307": {
       "fields": {
@@ -71163,13 +71272,21 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-preview-performance-x50307"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-preview-performance-x50307",
+      "partialFingerprint": "vum7rt"
     },
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
+      "fields": {
+        "startTime": "12:00",
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "Past event (Aug 1 2026). Source page confirms date but does not list start time or duration. Cannot verify."
+      "evidence": "https://udistrictseattle.com/bobafest (free admission, \"no tickets or admission fees—purchase items at individual participating businesses\" per seattleschild.com/slurpstation.com)",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
     },
     "venue:loc:lincoln park": {
       "fields": {
@@ -71177,7 +71294,7 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.seattle.gov/parks/find/parks/lincoln-park"
+      "evidence": "Lincoln Park is a large West Seattle waterfront public park; Seattle Parks Dept park-activation events (movie nights, etc.) at parks are held outdoors on park grounds"
     },
     "seatoday:cityspark-19810528": {
       "fields": {
@@ -71187,7 +71304,8 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.redcross.org/give-blood"
+      "evidence": "https://pacificsciencecenter.org/events/blood-drive/",
+      "partialFingerprint": "10fie7k"
     },
     "seatoday:cityspark-19806616": {
       "fields": {
@@ -71197,7 +71315,8 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://seattle.gov/council"
+      "evidence": "https://www.desmoineswa.gov/calendar.aspx?EID=1407",
+      "partialFingerprint": "shqwtz"
     },
     "seatoday:cityspark-19809725": {
       "fields": {
@@ -71207,7 +71326,8 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.seattle.gov/parks"
+      "evidence": "https://kingcounty.mastergardenerfoundation.org/event/carkeek-park-demonstration-garden/2026-09-08/",
+      "partialFingerprint": "1dgengb"
     },
     "seatoday:cityspark-19807696": {
       "fields": {
@@ -71217,9 +71337,35 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.seattle.gov/parks"
+      "evidence": "https://rainierartscenter.org/events/world-rhythm-festival-779/",
+      "partialFingerprint": "118leps"
     },
     "seatoday:cityspark-19794122": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "No registration fee or pricing published on Tabor 100 or OMWBE event pages",
+      "partialFingerprint": "kwud11"
+    },
+    "seatoday:cityspark-19814413": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Mixed free/ticketed sub-events at a PAX West booth (learn-to-play free, some events ticketed via convention badge); no single admission price published",
+      "partialFingerprint": "97klyx"
+    },
+    "seatoday:cityspark-19809719": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://thechildrensmuseum.org/visit/prices/",
+      "partialFingerprint": "1q3z4vq"
+    },
+    "seatoday:cityspark-19809729": {
       "fields": {
         "cost": {
           "min": 0
@@ -71227,49 +71373,45 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.omwbe.wa.gov"
-    },
-    "seatoday:cityspark-19814413": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "Source page uses JavaScript hash routing (6amcity.com embed) - cannot fetch; PAX West event cost depends on pass type"
-    },
-    "seatoday:cityspark-19809719": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "Source page uses JavaScript hash routing (6amcity.com embed) - cannot fetch; museum admission varies by membership"
-    },
-    "seatoday:cityspark-19809729": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-04",
-      "source": "agent",
-      "reason": "Source page uses JavaScript hash routing (6amcity.com embed) - cannot fetch; game store event cost unknown"
+      "evidence": "https://www.themissingpiecegames.com/event/star-wars-rpg-night/2026-09-07/",
+      "partialFingerprint": "g0f5br"
     },
     "seatoday:cityspark-19809726": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "Source page uses JavaScript hash routing (6amcity.com embed) - cannot fetch; Bellevue city program cost unknown"
+      "evidence": "https://kingcounty.mastergardenerfoundation.org/event/bellevue-demonstration-garden/2026-09-09/",
+      "partialFingerprint": "153erx6"
     },
     "seatoday:cityspark-17845591": {
       "unresolvable": true,
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "Source page uses JavaScript hash routing (6amcity.com embed) - cannot fetch; Liberty Clinic horse clinic cost unknown"
+      "reason": "No pricing published for this specific Redmond WA clinic; only found audit pricing for a different Sylvia Zerbini clinic location (Poulsbo), not reliable for this event",
+      "partialFingerprint": "1pbh9xe"
     },
     "seatoday:cityspark-18293729": {
       "unresolvable": true,
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "Source page uses JavaScript hash routing (6amcity.com embed) - cannot fetch; chamber event may require membership"
+      "reason": "Newcastle Chamber of Commerce site lists the event but publishes no registration fee or member/non-member pricing",
+      "partialFingerprint": "10ysdsz"
     },
     "seatoday:cityspark-19571052": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 16.0,
+          "max": 24.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "Source page uses JavaScript hash routing (6amcity.com embed) - cannot fetch; Fall Boats Afloat Show has ticketed admission"
+      "evidence": "https://48north.com/news/fall-boats-afloat-show-coming-to-south-lake-union-2/",
+      "partialFingerprint": "cnux1k"
     },
     "discover-slu:discover-slu-guest-chef-night-nguyen-2": {
       "fields": {
@@ -71277,21 +71419,21 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/guest-chef-night-nguyen-2/"
+      "evidence": "https://www.discoverslu.com/events/guest-chef-night-nguyen-2/",
+      "partialFingerprint": "1cbub7h"
     },
     "climate-pledge-arena:tm-vvG1HZ_2SpAqPx": {
       "unresolvable": true,
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "Ticketmaster event page returns 403 Forbidden; cannot verify start time"
+      "reason": "Pre-game arena tour start time is scheduled relative to that days Kraken game puck-drop time (not fixed); Ticketmaster event page returns HTTP 403 and no exact time for this date was found elsewhere",
+      "partialFingerprint": "9ojbxg"
     },
     "venue:loc:online only": {
-      "fields": {
-        "setting": "indoor"
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://206.events"
+      "reason": "Virtual/online event with no physical location — weather badge not applicable"
     },
     "venue:osm:node:2462428286": {
       "fields": {
@@ -71299,97 +71441,169 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/node/2462428286"
+      "evidence": "https://goodbusinessnetwork.org/taste-of-the-sound/ (\"an outdoor waterfront celebration...at Fishermens Terminal\") + vendor canopy/tent-fan requirements on the event listing"
     },
     "cidbia:cidbia-6a988e441a341d7a346c1105-202610101800": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/t/632bb2847a361210c50418bc/1663808133009/RECC-Logo_Color-Transparent.png?format=1500w"
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Reclaim Clay Collective) + https://www.reclaimclay.com/"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202609080000": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202609220000": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202610060000": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202610200000": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202611030100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202611170100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202612010100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202612150100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202612290100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202701120100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202701260100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202702090100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202702230100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98986bc56c055337e862ec-202612080100": {
-      "unresolvable": true,
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/t/632bb2847a361210c50418bc/1663808133009/RECC-Logo_Color-Transparent.png?format=1500w",
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "reason": "CIDBIA source website (seattlechinatownid.com) returns 403 Forbidden; no event-specific image accessible"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (free-entry holiday makers market, \"Shop unique handmade goods... enjoy delicious food\")"
     },
     "climate-pledge-arena:tm-vvG1HZ_G3OOn5F": {
       "fields": {
@@ -71399,7 +71613,7 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-dallas-stars-seattle-wa"
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-dallas-stars-seattle-washington-12-03-2026/event/0F0064C4A082A2C8 (NHL game, dynamically priced, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
     },
     "stg:tm-vvG1HZ_2Us0_Py": {
       "fields": {
@@ -71409,7 +71623,7 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.stgpresents.org/calendar"
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-02-2026/event/0F0064FDB1919979 (touring show, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
     },
     "stg:tm-vvG1HZ_2UsPyJZ": {
       "fields": {
@@ -71419,7 +71633,7 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.stgpresents.org/calendar"
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-03-2026/event/0F0064FDB1979980 (touring show, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
     },
     "stg:tm-vvG1HZ_5l-Ar2b": {
       "fields": {
@@ -71429,7 +71643,7 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://www.stgpresents.org/calendar"
+      "evidence": "https://www.ticketmaster.com/a-john-waters-christmas-seattle-washington-12-02-2026/event/0F0064BAE115E3D8 (one-night show, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
     },
     "tabletop-village:3fc1kpnu46mkk9rg2snk3epgn8@google.com-2027-03-02": {
       "fields": {
@@ -71439,27 +71653,27 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events"
+      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event at a venue that charges $10-15 tournament entry, but exact Magic draft-night pricing (which also includes pack cost) is not confirmed"
     },
     "tabletop-village:4lj3hu9flcv0ojh2iv8vd6l161_R20220610T220000@google.com-2027-03-03": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events"
+      "evidence": "Official Play! Pokémon League Handbook (pokemon.com) — League events (casual play, not sanctioned tournaments) are required to be free to attend under the Play! Pokémon program"
     },
     "tabletop-village:5i164ugulqqevcrm34608dkeeu_R20260326T010000@google.com-2027-03-03": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 15.0
         }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events"
+      "evidence": "https://tabletopvillage.com/collections/tournament (weekly Pokemon TCG tournaments: $15 non-member / $10 member entry, per web search of the venue listing)"
     },
     "tabletop-village:6n37huunc7vugo8nplsdnv2old@google.com-2027-03-02": {
       "fields": {
@@ -71469,7 +71683,7 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events"
+      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event; exact GUNDAM TCG entry price not confirmed"
     },
     "tabletop-village:71l66g48p7akmkpk719sio9hl0@google.com-2027-03-02": {
       "fields": {
@@ -71479,7 +71693,21 @@
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events"
+      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event; exact DBZ Super TCG entry price not confirmed"
+    },
+    "19hz:19hz-2026/08/27-Soft Circuit: Carnival": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Partiful event page requires sign-in/phone verification to view end time; only start time (8pm) is publicly visible",
+      "partialFingerprint": "uxzo55"
+    },
+    "19hz:19hz-2026/08/27-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Source is an Instagram profile link with no fetchable event page (login-walled); no duration or price published",
+      "partialFingerprint": "uxzo55"
     }
   }
 }
