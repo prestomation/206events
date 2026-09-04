@@ -5489,18 +5489,26 @@
       "partialFingerprint": "soeec6"
     },
     "stg:tm-vvG1HZ_1pbLbue": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1suwgu"
+      "evidence": "https://www.ticketmaster.com/not-for-radio-a-summer-in-seattle-washington-11-11-2026/event/0F0064A5987D8342 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "stxkuc"
     },
     "stg:tm-vvG1HZ_1pLozWy": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-05-18",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1cwywv4"
+      "evidence": "https://www.ticketmaster.com/not-for-radio-a-summer-in-seattle-washington-11-12-2026/event/0F0064A59F478F79 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1s43qnp"
     },
     "stg:tm-vvG1HZ_dKjrbV1": {
       "unresolvable": true,
@@ -10816,11 +10824,15 @@
       "evidence": "https://www.seattlerep.org/plays/202526-season/the-play-that-goes-wrong"
     },
     "climate-pledge-arena:tm-vvG1HZ_dpmChtr": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1rzjkvc"
+      "evidence": "https://www.ticketmaster.com/andrea-bocelli-romanza-30th-anniversary-world-seattle-washington-09-08-2026/event/0F006435AE39BA5E (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "x5wygx"
     },
     "climate-pledge-arena:tm-vvG1HZ_d6OS55N": {
       "unresolvable": true,
@@ -10851,11 +10863,15 @@
       "partialFingerprint": "1ut8tek"
     },
     "crocodile:tm-Z7r9jZ1A7Pdfg": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "b4aydy"
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1A7Pdfg (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1i32jq2"
     },
     "crocodile:tm-rZ7HnEZ1AfPJ3K": {
       "unresolvable": true,
@@ -10975,25 +10991,37 @@
       "partialFingerprint": "yyeu9"
     },
     "lumen-field:tm-vvG1HZ_F5JLE3p": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "uhut2"
+      "evidence": "https://www.ticketmaster.com/seattle-seahawks-vs-new-england-patriots-seattle-washington-09-09-2026/event/0F006482E67E7496 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "p84kac"
     },
     "lumen-field:tm-vvG1HZbz27hIoI": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "b9wy6v"
+      "evidence": "https://www.ticketmaster.com/seattle-sounders-fc-vs-red-bull-seattle-washington-09-05-2026/event/0F006383C46E8468 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1vceaku"
     },
     "lumen-field:tm-vvG1HZ_A3PfHHd": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "90c1el"
+      "evidence": "https://www.ticketmaster.com/seattle-reign-fc-vs-san-diego-seattle-washington-09-06-2026/event/0F006454A553CF03 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1295561"
     },
     "lumen-field:tm-vvG1HZ_GnVrnQP": {
       "unresolvable": true,
@@ -11107,32 +11135,48 @@
       "reason": "Source page only shows start time (2pm), no end time or duration listed"
     },
     "stg:tm-vvG1HZ_1Rl1XOD": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1x3bf18"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-05-2026/event/0F0064ABEB2BE83B (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1aotb4u"
     },
     "stg:tm-vvG1HZ_1Rlur-a": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "167rx5w"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-06-2026/event/0F0064ABEB35E849 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "6mpd7t"
     },
     "stg:tm-vvG1HZ_1RlGC-A": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1ohu4cz"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-05-2026/event/0F0064ABEB30E845 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "zu9rl6"
     },
     "stg:tm-vvG1HZ_1Rl3m-0": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "6wpf47"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-10-2026/event/0F0064ABEB4AE864 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "3pv76l"
     },
     "stg:tm-vvG1HZ_1RlArOb": {
       "unresolvable": true,
@@ -11142,18 +11186,26 @@
       "partialFingerprint": "e3m6q3"
     },
     "stg:tm-vvG1HZ_1RloC-r": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1f1xieo"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-09-2026/event/0F0064ABEB44E85E (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1ac6ny9"
     },
     "stg:tm-vvG1HZ_1RlCm-u": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "xmamhn"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-06-2026/event/0F0064ABEB3AE84D (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "pcua88"
     },
     "stg:tm-vvG1HZ_1RlkmOQ": {
       "unresolvable": true,
@@ -11163,25 +11215,37 @@
       "partialFingerprint": "1p7q74d"
     },
     "stg:tm-vvG1HZ_1Rl2X-f": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1nry1ll"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-08-2026/event/0F0064ABEB3FE854 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "oetq6z"
     },
     "stg:tm-vvG1HZ_1RlamOw": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "ddq3yp"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-04-2026/event/0F0064ABEB26E832 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "lxgsli"
     },
     "stg:tm-vvG1HZ_1RlKX-E": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1qmaq6q"
+      "evidence": "https://www.ticketmaster.com/harry-potter-and-the-cursed-child-seattle-washington-09-11-2026/event/0F0064ABEB4FE867 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "z1gt11"
     },
     "stg:tm-vvG1HZ_1RlFrON": {
       "unresolvable": true,
@@ -11198,18 +11262,26 @@
       "partialFingerprint": "2dcbo7"
     },
     "stg:tm-vvG1HZ_dMzIh6I": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "b4aydy"
+      "evidence": "https://www.ticketmaster.com/jose-maria-napoleon-hasta-siempre-tour-seattle-washington-09-10-2026/event/0F00643DF8A1B1E8 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "dp0gg2"
     },
     "stg:tm-vvG1HZ_AKgbbQJ": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1ktelb3"
+      "evidence": "https://www.ticketmaster.com/kamelot-dark-asylum-world-tour-seattle-washington-09-08-2026/event/0F006454F56186A6 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1gb8cjz"
     },
     "stg:tm-vvG1HZ_1XU7H3l": {
       "unresolvable": true,
@@ -11226,11 +11298,15 @@
       "partialFingerprint": "oa2siw"
     },
     "stg:tm-vvG1HZ_G3nLl92": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "1tn26u2"
+      "evidence": "https://www.ticketmaster.com/raphael-ghanem-seattle-washington-10-21-2026/event/0F0064C4AA7EB5CF (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "5m6f12"
     },
     "t-mobile-park:tm-vvG1HZ_dsW6KyQ": {
       "unresolvable": true,
@@ -11240,39 +11316,59 @@
       "partialFingerprint": "18kw9ai"
     },
     "t-mobile-park:tm-vvG1HZbgRmXEu8": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "dj5qxg"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-texas-rangers-seattle-washington-09-10-2026/event/0F00635BEEFA7350 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "5cwqom"
     },
     "t-mobile-park:tm-vvG1HZbgRmD6u6": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "10ve0pf"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-athletics-seattle-washington-09-05-2026/event/0F00635BEEEC7347 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "mkwxgz"
     },
     "t-mobile-park:tm-vvG1HZbgRmWEuC": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "16hebu0"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-texas-rangers-seattle-washington-09-09-2026/event/0F00635BEEF6734E (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1w06mzu"
     },
     "t-mobile-park:tm-vvG1HZbgRmDMu1": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "177aele"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-athletics-seattle-washington-09-06-2026/event/0F00635BEEEF734A (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "gt5hwh"
     },
     "t-mobile-park:tm-vvG1HZbgRmB6uv": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "bep53p"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-athletics-seattle-washington-09-04-2026/event/0F00635BEEE87341 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "8ujl4h"
     },
     "t-mobile-park:tm-vvG1HZbgRmy9GT": {
       "unresolvable": true,
@@ -11282,11 +11378,15 @@
       "partialFingerprint": "doa1vz"
     },
     "t-mobile-park:tm-vvG1HZbgRmHMuG": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "105hxy1"
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-vs-texas-rangers-seattle-washington-09-08-2026/event/0F00635BEEF3734C (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "ytnx8v"
     },
     "t-mobile-park:tm-vvG1HZ_1-W1A-I": {
       "unresolvable": true,
@@ -11387,18 +11487,26 @@
       "partialFingerprint": "15ibota"
     },
     "wamu-theater:tm-vvG1HZ_1USMH__": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "102c71m"
+      "evidence": "https://www.ticketmaster.com/wave-to-earth-the-pieces-tour-seattle-washington-09-05-2026/event/0F0064ADB3DFC659 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1uud57f"
     },
     "wamu-theater:tm-vvG1HZ_1B7bJvD": {
-      "unresolvable": true,
-      "reason": "Ticketmaster API does not expose event duration",
-      "resolvedAt": "2026-06-11",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "partialFingerprint": "102c71m"
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-wave-to-seattle-washington-09-05-2026/event/0F0064AE8462607B (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "partialFingerprint": "1qubfih"
     },
     "seattle-center:lets-play-sea-26-armory-fan-experience-x47239": {
       "fields": {
@@ -71586,6 +71694,20 @@
       "resolvedAt": "2026-09-04",
       "source": "agent",
       "evidence": "https://goodbusinessnetwork.org/taste-of-the-sound/ (\"an outdoor waterfront celebration...at Fishermens Terminal\") + vendor canopy/tent-fan requirements on the event listing"
+    },
+    "19hz:19hz-2026/08/27-Soft Circuit: Carnival": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Partiful event page requires sign-in/phone verification to view end time; only start time (8pm) is publicly visible",
+      "partialFingerprint": "uxzo55"
+    },
+    "19hz:19hz-2026/08/27-Westworld": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Source is an Instagram profile link with no fetchable event page (login-walled); no duration or price published",
+      "partialFingerprint": "uxzo55"
     }
   }
 }
