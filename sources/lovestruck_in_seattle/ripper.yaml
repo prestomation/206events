@@ -1,0 +1,20 @@
+name: lovestruck-in-seattle
+sourceRole: venue
+type: eventbrite
+description: "Lovestruck in Seattle"
+url: "https://www.lovestruckinseattle.com/pages/events"
+friendlyLink: https://www.lovestruckinseattle.com
+tags: ["Books", "Wedgwood"]
+imageUrl: "https://www.lovestruckinseattle.com/cdn/shop/files/Website_Logo_Lovestruck.png?v=1754940486&width=600"
+geo:
+  lat: 47.6904779
+  lng: -122.2909384
+  label: "Lovestruck in Seattle, 8507 35th Ave NE, Seattle, WA 98115"
+calendars:
+  - name: lovestruck-in-seattle
+    friendlyname: "Lovestruck in Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "112498075441"
+      defaultLocation: "8507 35th Ave NE, Seattle, WA 98115"
+      defaultDurationHours: 2
