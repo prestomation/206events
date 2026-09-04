@@ -1,6 +1,6 @@
 ---
 name: "Lovestruck in Seattle"
-status: candidate
+status: added
 platform: Eventbrite
 url: https://www.lovestruckinseattle.com/pages/events
 tags: [Books, Wedgwood]
@@ -24,3 +24,6 @@ Investigated 2026-09-04:
   Event" Sep 4), none flagged `is_series`/`is_series_parent`.
 - 🔥 High confidence — built-in `eventbrite` ripper type, verified
   working organizerId with real dated occurrences.
+
+Confirmed in CI (PR #1369): **11 events, 0 errors** for
+`lovestruck-in-seattle-lovestruck-in-seattle`.
