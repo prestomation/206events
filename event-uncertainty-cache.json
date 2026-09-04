@@ -71302,116 +71302,158 @@
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
       "fields": {
         "startTime": "12:00",
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://udistrictseattle.com/bobafest (12pm-6pm per seattleschild.com/everout.com listings)",
+      "evidence": "https://udistrictseattle.com/bobafest (free admission, \"no tickets or admission fees—purchase items at individual participating businesses\" per seattleschild.com/slurpstation.com)",
       "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202609080000": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202609220000": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202610060000": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202610200000": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202611030100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202611170100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202612010100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202612150100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202612290100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202701120100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202701260100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202702090100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a98909dc56c055337e81a8a-202702230100": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg"
+        "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
+        "cost": {
+          "min": 10.0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig, 710 8th Ave S) + https://www.seattlemet.com/eat-and-drink/2023/10/melissa-miranda-kilig-chinatown-international-district"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Kilig — event description: \"There is a $10 cover, but that includes a drink!\")"
     },
     "cidbia:cidbia-6a988e441a341d7a346c1105-202610101800": {
       "fields": {
@@ -71423,11 +71465,104 @@
     },
     "cidbia:cidbia-6a98986bc56c055337e862ec-202612080100": {
       "fields": {
-        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/t/632bb2847a361210c50418bc/1663808133009/RECC-Logo_Color-Transparent.png?format=1500w"
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/t/632bb2847a361210c50418bc/1663808133009/RECC-Logo_Color-Transparent.png?format=1500w",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (venue: Reclaim Clay Collective) + https://www.reclaimclay.com/"
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d (free-entry holiday makers market, \"Shop unique handmade goods... enjoy delicious food\")"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OOn5F": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-dallas-stars-seattle-washington-12-03-2026/event/0F0064C4A082A2C8 (NHL game, dynamically priced, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
+    },
+    "stg:tm-vvG1HZ_2Us0_Py": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-02-2026/event/0F0064FDB1919979 (touring show, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
+    },
+    "stg:tm-vvG1HZ_2UsPyJZ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-03-2026/event/0F0064FDB1979980 (touring show, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
+    },
+    "stg:tm-vvG1HZ_5l-Ar2b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/a-john-waters-christmas-seattle-washington-12-02-2026/event/0F0064BAE115E3D8 (one-night show, Ticketmaster page blocks automated fetch — no priceRanges yet in the API)"
+    },
+    "tabletop-village:4lj3hu9flcv0ojh2iv8vd6l161_R20220610T220000@google.com-2027-03-03": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "Official Play! Pokémon League Handbook (pokemon.com) — League events (casual play, not sanctioned tournaments) are required to be free to attend under the Play! Pokémon program"
+    },
+    "tabletop-village:5i164ugulqqevcrm34608dkeeu_R20260326T010000@google.com-2027-03-03": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/collections/tournament (weekly Pokemon TCG tournaments: $15 non-member / $10 member entry, per web search of the venue listing)"
+    },
+    "tabletop-village:3fc1kpnu46mkk9rg2snk3epgn8@google.com-2027-03-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event at a venue that charges $10-15 tournament entry, but exact Magic draft-night pricing (which also includes pack cost) is not confirmed"
+    },
+    "tabletop-village:6n37huunc7vugo8nplsdnv2old@google.com-2027-03-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event; exact GUNDAM TCG entry price not confirmed"
+    },
+    "tabletop-village:71l66g48p7akmkpk719sio9hl0@google.com-2027-03-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event; exact DBZ Super TCG entry price not confirmed"
     }
   }
 }
