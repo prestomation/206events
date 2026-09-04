@@ -92,4 +92,25 @@ describe('parseEventDetailPage', () => {
         const result = parseEventDetailPage(html, 'https://ratcityrollerderby.com/events/bad-date/', '4', ZONE);
         expect('type' in result && result.type === 'ParseError').toBe(true);
     });
+
+    it('returns a ParseError when the date is out of range instead of throwing', () => {
+        const html = parseHtml('<h1 class="entry-title">Impossible Date</h1><p class="event-date">02/30/2027</p>');
+        const result = parseEventDetailPage(html, 'https://ratcityrollerderby.com/events/impossible-date/', '5', ZONE);
+        expect('type' in result && result.type === 'ParseError').toBe(true);
+    });
+
+    it('picks "first whistle" by label even if it appears before "doors open" in the markup', () => {
+        const html = parseHtml(`
+            <h1 class="entry-title">Reordered Times</h1>
+            <div class="entry-meta">
+                <p class="event-date">01/02/2027</p>
+                <p class="event-time"><strong>6:30 PM</strong> first whistle<br /><strong>6:00 PM</strong> doors open</p>
+                <p class="event-location h5">Southgate Roller Rink</p>
+            </div>
+        `);
+        const result = parseEventDetailPage(html, 'https://ratcityrollerderby.com/events/reordered/', '6', ZONE);
+        if (!('date' in result)) throw new Error('expected an event');
+        expect(result.date.hour()).toBe(18);
+        expect(result.date.minute()).toBe(30);
+    });
 });

@@ -65,15 +65,22 @@ export function parseEventDetailPage(html: HTMLElement, url: string, postId: str
     // Prefer "first whistle" (when the bout actually starts) over "doors
     // open"; fall back to whichever time is present. Both read as
     // "<strong>H:MM PM</strong> doors open<br/><strong>H:MM PM</strong> first whistle".
+    // Anchored to the label text (not array position) so the parse doesn't
+    // silently pick the wrong time if the site ever reorders the two.
     const timeText = html.querySelector('.event-time')?.text ?? '';
-    const clockTimes = timeText.match(/\d{1,2}:\d{2}\s*[AP]M/gi) ?? [];
-    const firstWhistle = clockTimes.length > 1 ? clockTimes[1] : clockTimes[0];
-    const clock = firstWhistle ? parseClockTime(firstWhistle) : undefined;
+    const firstWhistleMatch = timeText.match(/(\d{1,2}:\d{2}\s*[AP]M)\s*first whistle/i);
+    const doorsOpenMatch = timeText.match(/(\d{1,2}:\d{2}\s*[AP]M)\s*doors open/i);
+    const clock = parseClockTime((firstWhistleMatch ?? doorsOpenMatch)?.[1] ?? '');
 
-    const date = ZonedDateTime.of(
-        LocalDateTime.of(parseInt(year, 10), parseInt(month, 10), parseInt(day, 10), clock?.hour ?? 12, clock?.minute ?? 0),
-        zone
-    );
+    let date: ZonedDateTime;
+    try {
+        date = ZonedDateTime.of(
+            LocalDateTime.of(parseInt(year, 10), parseInt(month, 10), parseInt(day, 10), clock?.hour ?? 12, clock?.minute ?? 0),
+            zone
+        );
+    } catch (err) {
+        return { type: "ParseError", reason: `Invalid event date/time: "${dateText}" (${err})`, context: title };
+    }
 
     const rawLocation = html.querySelector('.event-location')?.text.trim();
     const location = rawLocation ? (VENUE_ADDRESSES[rawLocation] ?? rawLocation) : undefined;
@@ -109,18 +116,22 @@ export default class RatCityRollerDerbyRipper implements IRipper {
         const errors: RipperError[] = [];
 
         for (const link of eventLinks) {
-            const res = await fetchFn(link.url, { headers });
-            if (!res.ok) {
-                errors.push({ type: "ParseError", reason: `Failed to fetch event page: ${res.status} ${res.statusText}`, context: link.url });
-                continue;
-            }
-            const detailHtml = parseHtml(await res.text());
-            const result = parseEventDetailPage(detailHtml, res.url || link.url, link.postId, zone);
-            if ('date' in result) {
-                if (result.date.isBefore(now)) continue; // Past event — intentional skip
-                events.push(result);
-            } else {
-                errors.push(result);
+            try {
+                const res = await fetchFn(link.url, { headers });
+                if (!res.ok) {
+                    errors.push({ type: "ParseError", reason: `Failed to fetch event page: ${res.status} ${res.statusText}`, context: link.url });
+                    continue;
+                }
+                const detailHtml = parseHtml(await res.text());
+                const result = parseEventDetailPage(detailHtml, res.url || link.url, link.postId, zone);
+                if ('date' in result) {
+                    if (result.date.isBefore(now)) continue; // Past event — intentional skip
+                    events.push(result);
+                } else {
+                    errors.push(result);
+                }
+            } catch (err) {
+                errors.push({ type: "ParseError", reason: `Error fetching/parsing event page: ${err}`, context: link.url });
             }
         }
 
