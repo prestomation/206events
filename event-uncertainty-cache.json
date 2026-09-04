@@ -61224,11 +61224,12 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-26",
+      "resolvedAt": "2026-09-04",
       "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)"
+      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival (outdoor u-pick sunflower field festival)"
     },
     "events12:sunflower-farms-118543-2026-09-18": {
       "fields": {
@@ -71563,6 +71564,28 @@
       "resolvedAt": "2026-09-04",
       "source": "agent",
       "evidence": "https://tabletopvillage.com/pages/events — weekly ticketed TCG event; exact DBZ Super TCG entry price not confirmed"
+    },
+    "venue:loc:lincoln park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "Lincoln Park is a large West Seattle waterfront public park; Seattle Parks Dept park-activation events (movie nights, etc.) at parks are held outdoors on park grounds"
+    },
+    "venue:loc:online only": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "reason": "Virtual/online event with no physical location — weather badge not applicable"
+    },
+    "venue:osm:node:2462428286": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-04",
+      "source": "agent",
+      "evidence": "https://goodbusinessnetwork.org/taste-of-the-sound/ (\"an outdoor waterfront celebration...at Fishermens Terminal\") + vendor canopy/tent-fan requirements on the event listing"
     }
   }
 }

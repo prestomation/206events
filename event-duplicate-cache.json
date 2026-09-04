@@ -17029,6 +17029,356 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-03",
       "note": "Same PAX West event, identical time; title case difference only (PAX West vs PAX WEST)"
+    },
+    "external-seattle-childrens-museum.ics Beyond the Box Exhibit Closes|2026-09-07T23:30:00Z[UTC]::seatoday-seatoday-all.ics Beyond the Box Exhibit Closes|2026-09-07T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle Children's Museum's own listing vs seatoday/CitySpark republishing the same museum event"
+    },
+    "external-seattle-childrens-museum.ics Beyond the Box Exhibit Closes|2026-09-07T23:30:00Z[UTC]::seatoday-seatoday-arts.ics Beyond the Box Exhibit Closes|2026-09-07T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle Children's Museum's own listing vs seatoday/CitySpark republishing the same museum event"
+    },
+    "external-seattle-childrens-museum.ics Beyond the Box Exhibit Closes|2026-09-07T23:30:00Z[UTC]::seatoday-seatoday-community.ics Beyond the Box Exhibit Closes|2026-09-07T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle Children's Museum's own listing vs seatoday/CitySpark republishing the same museum event"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-04T18:00:00Z[UTC]::seatoday-seatoday-all.ics Story Time|2026-09-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle Children's Museum's own listing vs seatoday/CitySpark republishing the same museum event"
+    },
+    "external-seattle-childrens-museum.ics Story Time|2026-09-04T18:00:00Z[UTC]::seatoday-seatoday-arts.ics Story Time|2026-09-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle Children's Museum's own listing vs seatoday/CitySpark republishing the same museum event"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-all.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-community.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-learning.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-sports.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-all.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-arts.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-community.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-sports.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-16T18:00:00Z[UTC]::seatoday-seatoday-all.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-16T18:00:00Z[UTC]::seatoday-seatoday-community.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-17T18:00:00Z[UTC]::seatoday-seatoday-all.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-17T18:00:00Z[UTC]::seatoday-seatoday-arts.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-17T18:00:00Z[UTC]::seatoday-seatoday-community.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-all.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-community.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-learning.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-16T21:00:00Z[UTC]::seatoday-seatoday-sports.ics Bike Lessons with Cascade Bike Club|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-all.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-arts.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-community.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-sports.ics Fitness and Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-16T18:00:00Z[UTC]::seatoday-seatoday-all.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-16T18:00:00Z[UTC]::seatoday-seatoday-community.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-17T18:00:00Z[UTC]::seatoday-seatoday-all.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-17T18:00:00Z[UTC]::seatoday-seatoday-arts.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-17T18:00:00Z[UTC]::seatoday-seatoday-community.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle city government listing vs seatoday/CitySpark republishing the same city rec/parks event"
+    },
+    "external-seattle-university.ics School Counseling Programs Virtual Information Session|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-all.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle University's own event page vs seatoday/CitySpark republishing the same info session"
+    },
+    "external-seattle-university.ics School Counseling Programs Virtual Information Session|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-community.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle University's own event page vs seatoday/CitySpark republishing the same info session"
+    },
+    "external-seattle-university.ics School Counseling Programs Virtual Information Session|2026-09-16T19:00:00Z[UTC]::seatoday-seatoday-learning.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Seattle University's own event page vs seatoday/CitySpark republishing the same info session"
+    },
+    "external-town-hall-seattle.ics El Grito 2026|2026-09-13T20:00:00Z[UTC]::orquesta-northwest-orquesta-northwest.ics ”El Grito“|2026-09-13T14:00:00.177-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same El Grito concert at Town Hall Seattle (1119 8th Ave), Town Hall's own listing vs presenting org Orquesta Northwest's listing"
+    },
+    "external-wallyhood.ics Wallingford Farmers Market|2026-09-09T22:00:00Z[UTC]::recurring-wallingford-farmers-market.ics Wallingford Farmers Market|2026-09-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same Wallingford Farmers Market, neighborhood blog listing vs our own recurring venue source"
+    },
+    "pacific-science-center-special-events.ics Seattle Center Blood Drive|2026-09-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Seattle Center Blood Drive|2026-09-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same Bloodworks NW blood drive at Pacific Science Center, venue's own listing vs seatoday/CitySpark republishing"
+    },
+    "pacific-science-center-special-events.ics Seattle Center Blood Drive|2026-09-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Seattle Center Blood Drive|2026-09-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same Bloodworks NW blood drive at Pacific Science Center, venue's own listing vs seatoday/CitySpark republishing"
+    },
+    "queer-social-club-all-events.ics 21+ LGBTQIA+ Pride Skate Night|2026-09-09T20:30:00.857-07:00[America/Los_Angeles]::recurring-southgate-roller-rink-pride-skate-night.ics LGBTQIA+ Pride Skate Night (21+) at Southgate Roller Rink|2026-09-09T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Aggregator (Queer Social Club) republishing our own recurring venue source's event; matching address"
+    },
+    "queer-social-club-all-events.ics Trivia Thursday - Columbia City|2026-09-10T19:00:00.903-07:00[America/Los_Angeles]::recurring-rough-tumble-trivia-thursday-columbia-city.ics Trivia Thursday at Rough & Tumble - Columbia City|2026-09-10T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Aggregator (Queer Social Club) republishing our own recurring venue source's event; matching address"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-09-13T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-13T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same recurring game-night event at The Missing Piece Games (4707 California Ave SW); seatoday's CitySpark venue address (9456 35th Ave SW, a different 'Missing Piece' cafe in Roxhill) is stale/wrong data, not a different venue"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-09-16T14:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same recurring game-night event at The Missing Piece Games (4707 California Ave SW); seatoday's CitySpark venue address (9456 35th Ave SW, a different 'Missing Piece' cafe in Roxhill) is stale/wrong data, not a different venue"
+    },
+    "seatoday-seatoday-all.ics Coffee & Connections: Chamber Member Morning Meet-Up|2026-09-17T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Coffee & Connections: Chamber Member Morning Meet-Up|2026-09-17T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-09-14T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-09-14T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same recurring game-night event at The Missing Piece Games (4707 California Ave SW); seatoday's CitySpark venue address (9456 35th Ave SW, a different 'Missing Piece' cafe in Roxhill) is stale/wrong data, not a different venue"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Liberty Clinic with Sylvia Zerbini|2026-09-16T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Liberty Clinic with Sylvia Zerbini|2026-09-16T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Liberty Clinic with Sylvia Zerbini|2026-09-16T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Liberty Clinic with Sylvia Zerbini|2026-09-16T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics OMWBE Certification Workshop|2026-09-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics OMWBE Certification Workshop|2026-09-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-09-16T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-09-16T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-09-16T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-09-16T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle 2026 Venture Capital World Summit|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle 2026 Venture Capital World Summit|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Center Blood Drive|2026-09-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Seattle Center Blood Drive|2026-09-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same walking tour, venue's own listing vs seatoday/CitySpark republishing"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics ¡Vamos al Acuario!|2026-09-16T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ¡Vamos al Acuario!|2026-09-16T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-all.ics ¡Vamos al Acuario!|2026-09-17T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ¡Vamos al Acuario!|2026-09-17T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-arts.ics Crafting and Creativity Night|2026-09-14T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-09-14T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same recurring game-night event at The Missing Piece Games (4707 California Ave SW); seatoday's CitySpark venue address (9456 35th Ave SW, a different 'Missing Piece' cafe in Roxhill) is stale/wrong data, not a different venue"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-09-16T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-09-16T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-arts.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-community.ics Liberty Clinic with Sylvia Zerbini|2026-09-16T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Liberty Clinic with Sylvia Zerbini|2026-09-16T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-community.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics School Counseling Programs Virtual Information Session|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same seatoday/CitySpark event id republished across the source's own topic-filtered calendars"
+    },
+    "seatoday-seatoday-community.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same walking tour, venue's own listing vs seatoday/CitySpark republishing"
+    },
+    "seatoday-seatoday-sports.ics Secrets of Seattle's Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]::waterfront-park-waterfront-park.ics Secrets of Seattle’s Historic Shoreline Walking Tour|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same walking tour, venue's own listing vs seatoday/CitySpark republishing"
+    },
+    "seattle-center-seattle-center-events.ics Eureka Day: Preview Performance|2026-09-29T19:30:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Eureka Day|2026-09-29T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-04",
+      "note": "Same 'Eureka Day' preview performance at Seattle Rep's Leo K. Theater (on the Seattle Center campus), exact same start time on both feeds"
     }
   }
 }
