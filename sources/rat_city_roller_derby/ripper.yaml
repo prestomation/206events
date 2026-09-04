@@ -1,0 +1,11 @@
+name: rat-city-roller-derby
+sourceRole: venue
+description: "Rat City Roller Derby"
+url: "https://ratcityrollerderby.com/events/"
+friendlyLink: https://ratcityrollerderby.com/events/
+tags: ["Sports"]
+geo: null
+calendars:
+  - name: events
+    friendlyname: "Rat City Roller Derby"
+    timezone: America/Los_Angeles
