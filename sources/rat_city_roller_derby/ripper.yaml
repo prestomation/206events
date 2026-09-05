@@ -4,6 +4,7 @@ description: "Rat City Roller Derby"
 url: "https://ratcityrollerderby.com/events/"
 friendlyLink: https://ratcityrollerderby.com/events/
 tags: ["Sports"]
+skipEventPhotos: true
 geo: null
 calendars:
   - name: events

@@ -5,6 +5,7 @@ url: "https://badslava.com/seattle-open-mics.php"
 friendlyLink: https://badslava.com/seattle-open-mics.php
 tags: ["Music", "OpenMic"]
 cost: free
+skipEventPhotos: true
 geo: null
 calendars:
   - name: all-events

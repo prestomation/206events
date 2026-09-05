@@ -71770,6 +71770,22 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.beguiledbooks.com/events"
+    },
+    "dogwoodplaypark:6a5d255c-7ae3-4e10-b6d7-866e7ea61871": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_5c55b068815d44a895221123290bab51~mv2.jpg/v1/fill/w_6000,h_3375,al_c,q_90/037af7_5c55b068815d44a895221123290bab51~mv2.jpg"
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/11th-annual-halloween-costume-party"
+    },
+    "dogwoodplaypark:c6aafa44-25b3-48ba-93d4-ea534ffa2345": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_57476acbb25c471d9f09e617181678f8~mv2.jpg/v1/fill/w_6000,h_3375,al_c,q_90/037af7_57476acbb25c471d9f09e617181678f8~mv2.jpg"
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/11-year-anniversary-party-barktoberfest-style"
     }
   }
 }
