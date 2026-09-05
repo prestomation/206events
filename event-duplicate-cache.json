@@ -17939,6 +17939,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
       "note": "Same event: Fremont Oktoberfest on Sep 18, high title similarity, 376m apart at same festival venue"
+    },
+    "external-Geekwire.ics PAX West 2026|2026-09-04T00:00:00Z[UTC]::seattle-convention-center-all-events.ics PAX West 2026|2026-09-04T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "PAX West 2026 at Seattle Convention Center — same event in venue feed (seattle-convention-center) and aggregator (Geekwire). Venue feed is canonical."
     }
   }
 }
