@@ -1,5 +1,5 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyField } from "../../lib/config/schema.js";
-import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyField } from "../../lib/config/schema.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse as parseHtml, HTMLElement } from "node-html-parser";
 import { ZonedDateTime, LocalDateTime, Duration, ZoneId } from "@js-joda/core";
 import { decode } from "html-entities";
@@ -67,6 +67,32 @@ export function extractOpenMicEntries(html: HTMLElement): OpenMicEntry[] {
     return entries;
 }
 
+// Badslava's own event detail page (details.php?id=<id>) renders a plain
+// info table with a `<tr><td><b>Event Cost: </b><br>Free</td></tr>` (or
+// "Paid") row. The site never publishes an actual dollar amount — just
+// this binary flag — so "Paid" can only become `{ paid: true }` (ticketed,
+// amount unknown), never a guessed number.
+const COST_PATTERN = /Event Cost:\s*<\/b>\s*<br\s*\/?>\s*([^<]*)/i;
+
+export function parseEventCost(detailHtml: string): EventCost | undefined {
+    const raw = detailHtml.match(COST_PATTERN)?.[1]?.trim().toLowerCase();
+    if (raw === 'free') return { min: 0 };
+    if (raw === 'paid') return { paid: true };
+    return undefined;
+}
+
+// badslava.com fronts every page (listing and detail alike) with an
+// intermittent bot-check: some requests 409 with a page whose only content
+// is `document.cookie = "humans_21909=1"; document.location.reload(true)`.
+// That cookie name/value is fixed site-wide (verified stable across dozens
+// of requests), so sending it up front — exactly what the reload would set
+// — reliably avoids the extra round trip rather than working around it
+// after the fact.
+const REQUEST_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)',
+    'Cookie': 'humans_21909=1',
+};
+
 export function parseOpenMicEntry(entry: OpenMicEntry, zone: ZoneId): RipperEvent {
     const dateMatch = entry.dateStr.match(/^(\d{2})\/(\d{2})\/(\d{2})$/);
     if (!dateMatch) {
@@ -108,14 +134,26 @@ export function parseOpenMicEntry(entry: OpenMicEntry, zone: ZoneId): RipperEven
     return event;
 }
 
+// Fetches one event's own detail page and extracts its Event Cost field.
+// Returns `undefined` (rather than throwing) when the fetch succeeds but the
+// field is missing/unparseable, so the caller can tell "server error" apart
+// from "page fetched fine, cost just wasn't there" only via the throw path —
+// both are treated as an unresolved cost by the caller either way.
+async function fetchDetailPageCost(fetchFn: FetchFn, detailUrl: string): Promise<EventCost | undefined> {
+    const res = await fetchFn(detailUrl, { headers: REQUEST_HEADERS });
+    if (!res.ok) {
+        throw Error(`${res.status} ${res.statusText}`);
+    }
+    return parseEventCost(await res.text());
+}
+
 export default class BadslavaOpenMicsRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
         const zone = ZoneId.of(ripper.config.calendars[0].timezone.toString());
         const now = ZonedDateTime.now(zone);
-        const headers = { 'User-Agent': 'Mozilla/5.0 (compatible; 206events/1.0)' };
 
-        const res = await fetchFn(ripper.config.url.toString(), { headers });
+        const res = await fetchFn(ripper.config.url.toString(), { headers: REQUEST_HEADERS });
         if (!res.ok) {
             throw Error(`${res.status} ${res.statusText}`);
         }
@@ -127,21 +165,48 @@ export default class BadslavaOpenMicsRipper implements IRipper {
 
         for (const entry of listedEntries) {
             const result = parseOpenMicEntry(entry, zone);
-            if ('date' in result) {
-                if (result.date.isBefore(now)) continue; // Past event — intentional skip
-                events.push(result);
-                if (!hasParseableTime(entry.time)) {
-                    const unknownFields: UncertaintyField[] = ["startTime"];
-                    errors.push({
-                        type: "Uncertainty",
-                        reason: `badslava-open-mics listing did not include a parseable start time (raw: "${entry.time}")`,
-                        source: "badslava-open-mics",
-                        unknownFields,
-                        event: result,
-                    });
-                }
-            } else {
+            if (!('date' in result)) {
                 errors.push(result);
+                continue;
+            }
+            if (result.date.isBefore(now)) continue; // Past event — intentional skip
+
+            // One UncertaintyError per event: both gaps (start time from the
+            // listing, cost from the detail page) fold into the same
+            // `unknownFields` array/reason rather than emitting two errors
+            // for the same event.id, per the cost-resolver skill's
+            // "append to existing unknownFields" rule.
+            const unknownFields: UncertaintyField[] = [];
+            const reasons: string[] = [];
+
+            if (!hasParseableTime(entry.time)) {
+                unknownFields.push("startTime");
+                reasons.push(`listing did not include a parseable start time (raw: "${entry.time}")`);
+            }
+
+            try {
+                const cost = await fetchDetailPageCost(fetchFn, entry.detailUrl);
+                if (cost) {
+                    result.cost = cost;
+                } else {
+                    unknownFields.push("cost");
+                    reasons.push(`detail page (id ${entry.detailId}) had no recognized Event Cost value`);
+                }
+            } catch (err) {
+                unknownFields.push("cost");
+                reasons.push(`failed to fetch/parse detail page (id ${entry.detailId}) for cost: ${err}`);
+            }
+
+            events.push(result);
+
+            if (unknownFields.length > 0) {
+                errors.push({
+                    type: "Uncertainty",
+                    reason: `badslava-open-mics ${reasons.join('; ')}`,
+                    source: "badslava-open-mics",
+                    unknownFields,
+                    event: result,
+                });
             }
         }
 
