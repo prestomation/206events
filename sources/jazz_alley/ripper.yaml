@@ -8,6 +8,8 @@ geo:
   lat: 47.6145805
   lng: -122.3391523
   label: "Dimitriou's Jazz Alley, 2033 6th Ave, Seattle, WA 98121"
+  osmType: node
+  osmId: 2327732103
 tags: ["Music", "Belltown"]
 calendars:
   - name: jazz-alley
