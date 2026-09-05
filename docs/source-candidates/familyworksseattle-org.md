@@ -6,6 +6,7 @@ url: https://www.familyworksseattle.org/events/?ical=1
 tags: ["Community", "Wallingford"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-05
+pr: 1380
 ---
 
 Seattle nonprofit running food banks and family resource centers in
