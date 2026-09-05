@@ -4,13 +4,17 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { parse as parseHtml } from 'node-html-parser';
 import { ZoneId } from '@js-joda/core';
-import { extractOpenMicEntries, parseOpenMicEntry, cleanVenueName, hasParseableTime } from './ripper.js';
+import { extractOpenMicEntries, parseOpenMicEntry, cleanVenueName, hasParseableTime, parseEventCost } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ZONE = ZoneId.of('America/Los_Angeles');
 
 function loadFixture(): string {
     return fs.readFileSync(path.join(__dirname, 'sample-events.html'), 'utf8');
+}
+
+function loadDetailFixture(name: string): string {
+    return fs.readFileSync(path.join(__dirname, name), 'utf8');
 }
 
 describe('extractOpenMicEntries', () => {
@@ -90,6 +94,33 @@ describe('hasParseableTime', () => {
 
     it('rejects free-text placeholders', () => {
         expect(hasParseableTime('TBD')).toBe(false);
+    });
+});
+
+describe('parseEventCost', () => {
+    it('maps a "Free" detail page to { min: 0 }', () => {
+        const html = loadDetailFixture('sample-detail-free.html');
+        expect(parseEventCost(html)).toEqual({ min: 0 });
+    });
+
+    it('maps a "Paid" detail page to { paid: true } without inventing an amount', () => {
+        const html = loadDetailFixture('sample-detail-paid.html');
+        expect(parseEventCost(html)).toEqual({ paid: true });
+    });
+
+    it('returns undefined when the Event Cost row is missing', () => {
+        const html = '<table><tr><td><b>Event Name: </b><br>Some Mic</td></tr></table>';
+        expect(parseEventCost(html)).toBeUndefined();
+    });
+
+    it('returns undefined for an unrecognized cost value', () => {
+        const html = '<tr><td><b>Event Cost: </b><br>Donation</td></tr>';
+        expect(parseEventCost(html)).toBeUndefined();
+    });
+
+    it('is case-insensitive on the cost value', () => {
+        const html = '<tr><td><b>Event Cost: </b><br>FREE</td></tr>';
+        expect(parseEventCost(html)).toEqual({ min: 0 });
     });
 });
 

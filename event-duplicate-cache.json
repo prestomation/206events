@@ -17705,80 +17705,85 @@
       "resolvedAt": "2026-09-05",
       "note": "identical event in seatoday-arts and seatoday-community sub-calendars; same URL and venue"
     },
+    "19hz-all-events.ics its my birthday|2026-09-18T22:00:00-07:00[America/Los_Angeles]::kremwerk-kremwerk.ics Club V presents: \"its my birthday\" |2026-09-18T22:00:00.910-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Kremwerk/Timbre Room/Cherry are room names within the same Kremwerk complex (1809 Minor Ave); same 'its my birthday' Club V party, same date/time"
+    },
     "NWMetalCalendar-NWMetal.ics Castle, Mother Crone, Slow Goat|2026-10-23T19:00-07:00[America/Los_Angeles]::el-corazon-the-funhouse.ics Castle with Slow Goat|2026-10-23T20:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same show at The Funhouse; NWMetal lists all bands, El Corazon lists headliner+opener; 1h time difference is load-in vs doors"
+      "note": "Same Castle show at The Funhouse, same date; NWMetalCalendar lists full support bill, El Corazon's own listing shortens it"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Preseason Game 2 - Seattle Kraken vs. Calgary Flames|2026-09-24T18:40:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Calgary Flames|2026-09-24T18:40:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same preseason Kraken game; climate-pledge-arena is venue source"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Anaheim Ducks|2026-11-23T18:40:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Anaheim Ducks|2026-11-23T18:40:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Calgary Flames|2026-10-04T17:00:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Calgary Flames|2026-10-04T17:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Calgary Flames|2026-11-04T19:00:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Calgary Flames|2026-11-04T19:00:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Chicago Blackhawks|2026-11-25T18:40:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Chicago Blackhawks|2026-11-25T18:40:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Dallas Stars|2026-12-01T18:40:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Dallas Stars|2026-12-01T18:40:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Dallas Stars|2026-12-03T19:00:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Dallas Stars|2026-12-03T18:40:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game; small time diff is schedule vs ticketmaster listing"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Detroit Red Wings|2026-10-20T18:40:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Detroit Red Wings|2026-10-20T18:40:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Edmonton Oilers|2026-11-28T19:00:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Edmonton Oilers|2026-11-28T19:00:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Minnesota Wild|2026-10-24T19:00:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Minnesota Wild|2026-10-24T19:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. New York Rangers|2026-11-07T14:00:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. New York Rangers|2026-11-07T14:00:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Toronto Maple Leafs|2026-10-28T19:00:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Toronto Maple Leafs|2026-10-28T19:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Utah Mammoth|2026-10-22T19:00:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Utah Mammoth|2026-10-22T18:40:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game; small time diff is schedule vs ticketmaster listing"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Vancouver Canucks|2026-11-19T18:40:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Vancouver Canucks|2026-11-19T18:40:00-08:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same Kraken home game"
+      "note": "Same Kraken game: climate-pledge-arena's own listing vs events12's syndicated 'Hockey vs. X' entry, same date/venue"
     },
     "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Vegas Golden Knights|2026-10-06T18:40:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Vegas Golden Nights|2026-10-06T18:40:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
@@ -17833,7 +17838,7 @@
     "cornish-all-events.ics Coffee with the Curator - Neddy Artist Award Exhibition|2026-09-11T13:00:00-07:00::external-seattle-university.ics Coffee with the Curator - Neddy Artist Award Exhibition|2026-09-11T20:00:00Z[UTC]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same event at Behnke Gallery \u2014 same URL, title=1.0; times match (13:00 PDT = 20:00 UTC)"
+      "note": "Cornish and Seattle University co-list the same event at the same building"
     },
     "cornish-all-events.ics National Portfolio Day - Seattle|2026-11-01T12:00:00-08:00::external-seattle-university.ics National Portfolio Day - Seattle|2026-11-01T20:00:00Z[UTC]": {
       "decision": "confirmed",
@@ -17893,22 +17898,117 @@
     "el-corazon-el-corazon.ics The Pancakes & Booze Art Show|2026-09-12T20:00:00-07:00[America/Los_Angeles]::events12-seattle-events.ics Underground art show|2026-09-12T20:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
-      "note": "Same event at El Coraz\u00f3n \u2014 Pancakes & Booze is a traveling underground art show; events12 uses generic description"
+      "note": "El Corazon's own listing ('Pancakes & Booze Art Show') matches events12's generic 'Underground art show' description, same venue/date"
+    },
+    "events12-seattle-events.ics Hockey vs. Calgary Flames|2026-09-24T18:40:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Seattle Kraken vs Calgary Flames|2026-09-24T18:40:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same Kraken game listed by both seattle-center's own calendar and events12"
+    },
+    "events12-seattle-events.ics Hockey vs. Vancouver Canucks|2026-09-19T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Seattle Kraken vs Vancouver Canucks|2026-09-19T18:40:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same Kraken game listed by both seattle-center's own calendar and events12"
+    },
+    "events12-seattle-events.ics Indoor music festival|2026-09-05T20:00:00-07:00[America/Los_Angeles]::royal-room-all-events.ics Staycation Music Festival Night 2|2026-09-05T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Royal Room's own Staycation Music Festival night matches events12's generic 'Indoor music festival' entry, same venue/date"
+    },
+    "events12-seattle-events.ics Indoor music festival|2026-09-05T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-the-royal-room.ics Staycation Music Festival Night 2|2026-09-05T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "seattle-showlists' Royal Room listing matches events12's generic 'Indoor music festival' entry, same venue/date"
+    },
+    "events12-seattle-events.ics Indoor music festival|2026-09-06T20:00:00-07:00[America/Los_Angeles]::royal-room-all-events.ics Staycation Music Festival Night 3|2026-09-06T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Royal Room's own Staycation Music Festival night matches events12's generic 'Indoor music festival' entry, same venue/date"
+    },
+    "events12-seattle-events.ics Indoor music festival|2026-09-06T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-the-royal-room.ics Staycation Music Festival Night 3|2026-09-06T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "seattle-showlists' Royal Room listing matches events12's generic 'Indoor music festival' entry, same venue/date"
+    },
+    "events12-seattle-events.ics Monster trucks|2026-09-19T17:00:00-07:00[America/Los_Angeles]::lumen-field-lumen-field.ics Monster Jam|2026-09-19T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Lumen Field's own Monster Jam listing matches events12's generic 'Monster trucks' entry, same venue/date"
+    },
+    "events12-seattle-events.ics Night market|2026-09-19T18:00:00-07:00[America/Los_Angeles]::recurring-columbia-city-night-market.ics Columbia City Night Market|2026-09-19T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Columbia City Night Market recurring entry matches events12's generic 'Night market' entry, same date/neighborhood"
+    },
+    "events12-seattle-events.ics Oktoberfest in Fremont|2026-09-18T12:00:00-07:00[America/Los_Angeles]::external-washington-beer-blog.ics Fremont Oktoberfest|2026-09-18T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Washington Beer Blog's Fremont Oktoberfest matches events12's 'Oktoberfest in Fremont' entry, same venue/date"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-10T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-10T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-11T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-11T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-17T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-17T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-18T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-18T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-city-wide.ics Restoration work in Lincoln Park|2026-09-12T16:00:00Z[UTC]::external-seattle-parks-foundation.ics Restoration work in Lincoln Park|2026-09-12T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-10T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-10T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-11T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-11T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-17T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-17T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-18T18:00:00Z[UTC]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-18T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
+    },
+    "external-seattle-gov-parks-recreation.ics Restoration work in Lincoln Park|2026-09-12T16:00:00Z[UTC]::external-seattle-parks-foundation.ics Restoration work in Lincoln Park|2026-09-12T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Seattle Parks Foundation's own listing matches the city's syndicated feed for the same volunteer work party, same date"
     },
     "19hz-all-events.ics Firn Frequency: Restless Planet|2026-09-10T17:00:00-07:00[America/Los_Angeles]::external-populus-seattle.ics Firn Frequency: Restless Planet|2026-09-10T23:00:00Z[UTC]": {
       "decision": "confirmed",
-      "note": "Same event at Populus Seattle; title score=1.0; 17:00 PDT = 23:00 UTC; external-populus-seattle is venue source",
-      "decidedAt": "2026-09-05T00:00:00.000Z"
+      "resolvedAt": "2026-09-05",
+      "note": "Firn is the lounge/venue name inside Populus Seattle hotel (100 S King St); 19hz and the venue's own feed both list the same weekly Restless Planet night"
     },
     "19hz-all-events.ics Firn Frequency: Restless Planet|2026-09-17T17:00:00-07:00[America/Los_Angeles]::external-populus-seattle.ics Firn Frequency: Restless Planet|2026-09-17T23:00:00Z[UTC]": {
       "decision": "confirmed",
-      "note": "Same event at Populus Seattle; title score=1.0; 17:00 PDT = 23:00 UTC; external-populus-seattle is venue source",
-      "decidedAt": "2026-09-05T00:00:00.000Z"
+      "resolvedAt": "2026-09-05",
+      "note": "Firn is the lounge/venue name inside Populus Seattle hotel (100 S King St); 19hz and the venue's own feed both list the same weekly Restless Planet night"
     },
     "19hz-all-events.ics Firn Frequency: Restless Planet|2026-09-24T17:00:00-07:00[America/Los_Angeles]::external-populus-seattle.ics Firn Frequency: Restless Planet|2026-09-24T23:00:00Z[UTC]": {
       "decision": "confirmed",
-      "note": "Same event at Populus Seattle; title score=1.0; 17:00 PDT = 23:00 UTC; external-populus-seattle is venue source",
-      "decidedAt": "2026-09-05T00:00:00.000Z"
+      "resolvedAt": "2026-09-05",
+      "note": "Firn is the lounge/venue name inside Populus Seattle hotel (100 S King St); 19hz and the venue's own feed both list the same weekly Restless Planet night"
     }
   }
 }

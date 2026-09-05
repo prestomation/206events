@@ -7,6 +7,10 @@ tags: ["Music", "OpenMic"]
 cost: free
 skipEventPhotos: true
 geo: null
+# Verified 2026-09-05 across all 26 events on the live listing: no
+# details.php detail page has an <img> tag anywhere in its HTML — no
+# per-event photo is harvestable, so skip the photoGaps queue for this source.
+skipEventPhotos: true
 calendars:
   - name: all-events
     friendlyname: "Seattle Open Mics"

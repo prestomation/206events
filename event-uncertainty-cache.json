@@ -33482,7 +33482,8 @@
       },
       "resolvedAt": "2026-07-12",
       "source": "agent",
-      "evidence": "Building 30 (Hangar 30) at Magnuson Park is a large historic naval hangar building (building=yes, historic=naval in OSM); covered but with large open doors for events"
+      "evidence": "Building 30 (Hangar 30) at Magnuson Park is a large historic naval hangar building (building=yes, historic=naval in OSM); covered but with large open doors for events",
+      "lastSeen": "2026-09-05"
     },
     "venue:osm:way:68648885": {
       "fields": {
@@ -53681,13 +53682,13 @@
     },
     "events12:live-theater-119957-2026-09-05": {
       "fields": {
-        "startTime": "19:30",
+"startTime": "19:30",
         "duration": 9000
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-06": {
       "fields": {
@@ -53697,7 +53698,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-07": {
       "fields": {
@@ -53707,7 +53708,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-08": {
       "fields": {
@@ -53717,7 +53718,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-09": {
       "fields": {
@@ -53727,7 +53728,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-10": {
       "fields": {
@@ -53737,7 +53738,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-11": {
       "fields": {
@@ -53747,7 +53748,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-12": {
       "fields": {
@@ -53757,7 +53758,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-13": {
       "fields": {
@@ -53767,7 +53768,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-14": {
       "fields": {
@@ -53777,7 +53778,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-15": {
       "fields": {
@@ -53787,7 +53788,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-16": {
       "fields": {
@@ -53797,7 +53798,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-17": {
       "fields": {
@@ -53807,7 +53808,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-18": {
       "fields": {
@@ -53817,7 +53818,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-19": {
       "fields": {
@@ -53827,7 +53828,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-20": {
       "fields": {
@@ -53837,7 +53838,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-21": {
       "fields": {
@@ -53847,7 +53848,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-22": {
       "fields": {
@@ -53857,7 +53858,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-23": {
       "fields": {
@@ -53867,7 +53868,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-24": {
       "fields": {
@@ -53877,7 +53878,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-25": {
       "fields": {
@@ -53887,7 +53888,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-26": {
       "fields": {
@@ -53897,7 +53898,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:live-theater-119957-2026-09-27": {
       "fields": {
@@ -53907,7 +53908,7 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-09-27-tu"
+"partialFingerprint": "8mclbx-until2026-09-27-tu"
     },
     "events12:free-things-to-do-119028-2026-08-29": {
       "unresolvable": true,
@@ -55316,17 +55317,17 @@
     },
     "events12:concerts-120202-2026-09-05": {
       "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-09-05",
       "source": "agent",
-      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
     },
     "events12:concerts-120202-2026-09-06": {
       "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-09-05",
       "source": "agent",
-      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
     },
     "events12:dance-in-the-park-109594-2026-08-29": {
       "fields": {
@@ -55716,10 +55717,10 @@
     },
     "events12:concerts-120202-2026-09-07": {
       "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-09-05",
       "source": "agent",
-      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1qghi99-until2026-09-07-tu"
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
     },
     "events12:family-circus-115468-2026-08-29": {
       "unresolvable": true,
@@ -70772,7 +70773,7 @@
     "seatoday:cityspark-19809719": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70819,8 +70820,8 @@
     "seatoday:cityspark-19571052": {
       "fields": {
         "cost": {
-          "min": 16.0,
-          "max": 24.0
+          "min": 16,
+          "max": 24
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70870,7 +70871,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70881,7 +70882,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70892,7 +70893,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70903,7 +70904,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70914,7 +70915,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70925,7 +70926,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70936,7 +70937,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70947,7 +70948,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70958,7 +70959,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70969,7 +70970,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70980,7 +70981,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -70991,7 +70992,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -71002,7 +71003,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/sagacity/image/upload/c_crop,h_1333,w_2000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1200/A64A2190-HDR_sm6typ.jpg",
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-04",
@@ -71083,7 +71084,7 @@
     "tabletop-village:5i164ugulqqevcrm34608dkeeu_R20260326T010000@google.com-2027-03-03": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-04",
@@ -71388,7 +71389,7 @@
     "seatoday:cityspark-19686507": {
       "fields": {
         "cost": {
-          "min": 29.0
+          "min": 29
         }
       },
       "resolvedAt": "2026-09-05",
@@ -71426,7 +71427,7 @@
     "cidbia:cidbia-6a99c448f7ae54a2d4cbdf3d-202609200130": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-05",
@@ -71442,8 +71443,8 @@
     "cidbia:cidbia-6a99c807f7ae54a2d4cc367b-202610040030": {
       "fields": {
         "cost": {
-          "min": 75.0,
-          "max": 125.0
+          "min": 75,
+          "max": 125
         }
       },
       "resolvedAt": "2026-09-05",
@@ -71484,11 +71485,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://static.wixstatic.com/media/95a24f_e40744897453482d83e955631eea1a8b~mv2.jpeg"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://www.seattlechinatownid.com/local-events"
+      "evidence": "Bush Garden's own venue photo (sources/recurring/bush-garden-karaoke.yaml) — same venue as this CIDBIA-listed event; seattlechinatownid.com itself 403s automated fetches"
     },
     "cidbia:cidbia-6a99e1aaf7ae54a2d4cccce8-202609200030": {
       "fields": {
@@ -71508,7 +71510,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10973": {
       "fields": {
@@ -71518,7 +71521,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10974": {
       "fields": {
@@ -71528,7 +71532,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10975": {
       "fields": {
@@ -71538,7 +71543,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10976": {
       "fields": {
@@ -71548,7 +71554,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10977": {
       "fields": {
@@ -71558,7 +71565,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10978": {
       "fields": {
@@ -71568,7 +71576,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10979": {
       "fields": {
@@ -71578,7 +71587,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10980": {
       "fields": {
@@ -71588,7 +71598,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "rat-city-roller-derby:rat-city-roller-derby-10981": {
       "fields": {
@@ -71598,7 +71609,8 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://ratcityrollerderby.com"
+      "evidence": "https://ratcityrollerderby.com",
+      "lastSeen": "2026-09-05"
     },
     "cornish:cornish-53825747747779": {
       "fields": {
@@ -71840,9 +71852,1768 @@
       "source": "agent",
       "evidence": "https://www.beguiledbooks.com/events"
     },
+"events12:concerts-120202-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-09-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-10-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-11-30": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-02": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-03": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-23": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-25": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:concerts-120202-2026-12-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
+      "partialFingerprint": "1qghi99-until2026-12-27-tu"
+    },
+    "events12:architectural-tour-119702-2026-09-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:architectural-tour-119702-2026-09-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.org/tours/",
+      "partialFingerprint": "rb7b97-until2026-09-26-tk"
+    },
+    "events12:art-walks-118595-2026-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:art-walks-118595-2026-09-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Seattle.gov page confirms art walks are free but 'organized individually by the local business community' per neighborhood with no universal citywide start time published",
+      "partialFingerprint": "84qu99-until2026-09-18-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-18": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-20": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-21": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-22": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-23": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-24": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-25": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:local-film-festival-103544-2026-09-27": {
+      "fields": {
+        "cost": {
+          "min": 15
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/",
+      "partialFingerprint": "1dcas1r-until2026-09-27-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-15": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-16": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-17": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-18": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-19": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-20": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-21": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-22": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-23": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-24": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-25": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-26": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-27": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-28": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-29": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-09-30": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-01": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-02": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-03": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-04": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-05": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-06": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-07": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-08": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-09": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-10": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-11": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-12": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-13": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-14": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-15": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-16": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-17": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:all-american-musical-120364-2026-10-18": {
+      "fields": {
+        "duration": 10200
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://villagetheatre.org/mainstage/ragtime/",
+      "partialFingerprint": "1p783r0-until2026-10-18-tu"
+    },
+    "events12:live-theater-119957-2026-09-28": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+    },
+    "events12:live-theater-119957-2026-09-29": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+    },
+    "events12:live-theater-119957-2026-09-30": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+    },
+    "events12:live-theater-119957-2026-10-01": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+    },
+    "events12:live-theater-119957-2026-10-02": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+    },
+    "events12:live-theater-119957-2026-10-03": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
+      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+    },
+    "events12:star-trek-day-120420-2026-09-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.mopop.org/events/star-trek-60th-anniversary",
+      "partialFingerprint": "1r5gtny-until2026-09-05-tk"
+    },
+    "events12:bourbon-tasting-120310-2026-09-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/the-ambrosia-sessions-tickets-1549982091159",
+      "partialFingerprint": "1k2b31n-until2026-09-05-tk"
+    },
+    "events12:fantasy-scavenger-hunt-120402-2026-09-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://freezetag.ticketspice.com/oneshotseattle",
+      "partialFingerprint": "17fptlz-until2026-09-05-tk"
+    },
+    "events12:drawing-day-102359-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://gageacademy.org/events/drawingjam2026",
+      "partialFingerprint": "i0igl6-until2026-09-12-tk"
+    },
+    "events12:magnolia-wine-walk-104443-2026-09-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://discovermagnolia.org/vino/",
+      "partialFingerprint": "1atuer4-until2026-09-12-tk"
+    },
+    "events12:dogs-in-the-pool-119410-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 10
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.kirklandwa.gov/Whats-Happening/Community-Events/Parks-and-Community-Services/See-Spot-Splash",
+      "partialFingerprint": "1bptmbh-until2026-09-12-tk"
+    },
+    "events12:tasting-in-snohomish-114187-2026-09-12": {
+      "fields": {
+        "cost": {
+          "min": 40
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.historicdowntownsnohomish.org/event-details/snohomish-wine-walk-september-12-2026",
+      "partialFingerprint": "195mtod-until2026-09-12-tk"
+    },
+    "events12:adventure-race-103578-2026-09-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://seattlesports.org/signature-events/urban-x-2026",
+      "partialFingerprint": "1bpcuf5-until2026-09-13-tk"
+    },
+    "events12:gourmet-cooking-class-vs-italian-pasta-and-sauces-119075-2026-09-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-vegetarian-bao-dumplings-119075-2026-09-12-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-french-pastry-119075-2026-09-12-1430": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-new-orleans-crawfish-119075-2026-09-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-mexican-enchilads-119075-2026-09-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-salmon-gnocchi-flan-119075-2026-09-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-chicken-samosa-of-india-119075-2026-09-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-vietnamese-pho-119075-2026-09-26-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "events12:gourmet-cooking-class-vs-potstickers-onion-pancakes-119075-2026-09-26-1430": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.hotstovesociety.com/store/events/",
+      "partialFingerprint": "1vmda95-until2026-09-26-tk"
+    },
+    "fremont-chamber-of-commerce:fremont-trick-or-treat-1912497": {
+      "fields": {
+        "location": "Fremont, Seattle, WA (event spans participating businesses across the neighborhood)",
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://business.fremont.com/calendar/Details/fremont-trick-or-treat-1912497",
+      "partialFingerprint": "19bahf8"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "reason": "Event already occurred (Aug 1, 2026); udistrictseattle.com recap page gives only the date, not hourly start/end times",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+    },
+    "can-can:can-can-49601ASJBNVSCTNMSJHKPCGQLLJSNSJJN": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/61f04274efdfd2284d81ed62/d5956b41-5ee0-40a7-9295-a9579fa3221f/wonderland+2026+teaser+-+logo.png"
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.cancanseattle.com/wonderland-2026"
+    },
+    "can-can:can-can-49801AVVVJQRDHHCHGRNLMSSLHRNCVBPM": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/61f04274efdfd2284d81ed62/d5956b41-5ee0-40a7-9295-a9579fa3221f/wonderland+2026+teaser+-+logo.png"
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.cancanseattle.com/wonderland-2026"
+    },
+    "can-can:can-can-50001ALBDLSVMDTDTMKNPPLMDQMDRBTLK": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/61f04274efdfd2284d81ed62/d5956b41-5ee0-40a7-9295-a9579fa3221f/wonderland+2026+teaser+-+logo.png"
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.cancanseattle.com/wonderland-2026"
+    },
+    "can-can:can-can-50201AJQJMNKPVNTVBTBMSCMBRSMTGJSS": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/61f04274efdfd2284d81ed62/d5956b41-5ee0-40a7-9295-a9579fa3221f/wonderland+2026+teaser+-+logo.png"
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.cancanseattle.com/wonderland-2026"
+    },
     "dogwoodplaypark:6a5d255c-7ae3-4e10-b6d7-866e7ea61871": {
       "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/037af7_5c55b068815d44a895221123290bab51~mv2.jpg/v1/fill/w_6000,h_3375,al_c,q_90/037af7_5c55b068815d44a895221123290bab51~mv2.jpg"
+        "imageUrl": "https://static.wixstatic.com/media/037af7_5c55b068815d44a895221123290bab51~mv2.jpg"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -71850,7 +73621,7 @@
     },
     "dogwoodplaypark:c6aafa44-25b3-48ba-93d4-ea534ffa2345": {
       "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/037af7_57476acbb25c471d9f09e617181678f8~mv2.jpg/v1/fill/w_6000,h_3375,al_c,q_90/037af7_57476acbb25c471d9f09e617181678f8~mv2.jpg"
+"imageUrl": "https://static.wixstatic.com/media/037af7_57476acbb25c471d9f09e617181678f8~mv2.jpg/v1/fill/w_6000,h_3375,al_c,q_90/037af7_57476acbb25c471d9f09e617181678f8~mv2.jpg"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -71859,7 +73630,7 @@
     "chophouse-row:6a6a6c109d5a7a66a7b5c4e3": {
       "fields": {
         "cost": {
-          "min": 50.0,
+"min": 50.0,
           "max": 150.0
         }
       },
@@ -71867,7 +73638,7 @@
       "source": "agent",
       "evidence": "https://www.chophouserow.com/events/celine-waldmann-sept6"
     },
-    "fremont-chamber-of-commerce:fremont-trick-or-treat-1912497": {
+"fremont-chamber-of-commerce:fremont-trick-or-treat-1912497": {
       "fields": {
         "cost": {
           "min": 0
@@ -71906,7 +73677,7 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
+"evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
     },
     "el-suenito-brewing:el-suenito-brewing-37d5e66e-a98a-45f6-a034-e5148787b8f3": {
       "fields": {
@@ -71916,7 +73687,7 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
+"evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
     },
     "el-suenito-brewing:el-suenito-brewing-59d137be-86ac-488e-a10a-ef1cd5665241": {
       "fields": {
@@ -71929,7 +73700,7 @@
       "evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
     },
     "el-suenito-brewing:el-suenito-brewing-a06e2b90-bc68-458c-8a74-658c30a83847": {
-      "fields": {
+"fields": {
         "cost": {
           "min": 0
         }
@@ -71974,7 +73745,7 @@
       "source": "agent",
       "evidence": "https://www.cobyscafe.com/product/x/4SYYTC5ZRQJILET4G5ZORGPP"
     },
-    "events12:seattle-haunted-house-101800-2026-09-25": {
+"events12:seattle-haunted-house-101800-2026-09-25": {
       "fields": {
         "cost": {
           "paid": true
@@ -75515,7 +77286,7 @@
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://www.piercecountywa.gov/7604/Bark-by-the-Bay"
+"evidence": "https://www.piercecountywa.gov/7604/Bark-by-the-Bay"
     },
     "events12:dogs-in-the-pool-119410-2026-09-12": {
       "fields": {
