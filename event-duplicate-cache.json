@@ -17414,6 +17414,271 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-04",
       "note": "same event cross-source or cross-category seatoday feed"
+    },
+    "19hz-all-events.ics Frost Children|2026-12-04T20:00:00-08:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Frost Children with Kuru|2026-12-04T20:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same show at Showbox SoDo same time; 19hz lists AXS ticket link, Showbox lists own site"
+    },
+    "19hz-all-events.ics Josh Baker|2026-11-20T22:00:00-08:00[America/Los_Angeles]::substation-substation.ics Josh Baker - Night 2|2026-11-20T22:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same Eventbrite URL, same venue (Substation), same time"
+    },
+    "19hz-all-events.ics its my birthday|2026-09-18T22:00:00-07:00[America/Los_Angeles]::kremwerk-kremwerk.ics Club V presents: \"its my birthday\" |2026-09-18T22:00:00.910-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same club night at Kremwerk/Cherry complex, same time, title match"
+    },
+    "badslava-open-mics-all-events.ics Open Mic at Skylark Cafe & Club|2026-09-09T19:30:00-07:00[America/Los_Angeles]::recurring-skylark-cafe-open-mic.ics Skylark Cafe — Wednesday Open Mic|2026-09-09T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same weekly open mic at Skylark Cafe, same address (3803 Delridge Way SW), same time"
+    },
+    "badslava-open-mics-all-events.ics Open Mic at The Growler Guys|2026-09-08T21:00:00-07:00[America/Los_Angeles]::dark-room-comedy-dark-room-comedy.ics Comedy Night at The Growler Guys|2026-09-08T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same comedy open mic at The Growler Guys (8500 Lake City Way NE), same time"
+    },
+    "cidbia-cidbia-events.ics Gameday at Bush Garden|2026-09-09T14:00:00-07:00[America/Los_Angeles]::recurring-bush-garden-karaoke.ics Karaoke Night at Bush Garden|2026-09-09T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-05",
+      "note": "Different events at same venue: Gameday watch party at 14:00, Karaoke Night at 21:30 (7.5 hours apart)"
+    },
+    "cornish-all-events.ics underhand, overhand, backstops, treetops, zaps - Christopher Paul Jordan|2026-10-02T16:30:00-07:00::external-seattle-university.ics underhand, overhand, backstops, treetops, zaps - Christopher Paul Jordan|2026-10-02T23:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Identical event title and URL; same Behnke Gallery event in two feeds (cornish + seattle-university ICS)"
+    },
+    "external-350-seattle.ics Table with us @ the Burke Gilman Hike-in 55th Anniversary Celebration|2026-09-12T16:00:00Z[UTC]::external-seattle-parks-foundation.ics Burke-Gilman 55th Anniversary of the Hike-In|2026-09-12T16:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same event (Burke Gilman 55th Anniversary) at Matthews Beach Park, same time; 350-Seattle has table, parks foundation is organizer"
+    },
+    "external-Geekwire.ics Bumbershoot 2026|2026-09-05T00:00:00Z[UTC]::recurring-bumbershoot.ics Bumbershoot|2026-09-05T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same multi-day festival at Seattle Center; recurring entry is venue source, GeekWire is aggregator"
+    },
+    "external-Geekwire.ics Bumbershoot 2026|2026-09-05T00:00:00Z[UTC]::seattle-center-seattle-center-events.ics Bumbershoot 2026|2026-09-05T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same Bumbershoot festival; Seattle Center is venue source, GeekWire is aggregator"
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-09-14T02:00:00Z[UTC]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-09-14T02:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same weekly salsa/bachata dance at Aria Ballroom (Redmond), same time; two dance listing sites"
+    },
+    "external-myballard.ics Ballard Bookworms Community Storytime|2026-09-13T17:30:00Z[UTC]::external-phinney-neighborhood-association.ics Ballard Bookworms Community Storytime|2026-09-13T17:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Identical title, same time, Ballard Locks location; two neighborhood aggregators listing same community event"
+    },
+    "external-nw-asian-weekly.ics Guest Curator Daniel Tam-Claiborne \"Diaspora & Belonging\"|2026-10-30T01:00:00Z[UTC]::external-seattle-city-of-lit.ics  Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-10-30T01:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same reading/event (title match 0.875), same time; NW Asian Weekly and Seattle City of Lit both listing"
+    },
+    "external-science-in-seattle.ics Nature & Health Community Dinner|2026-09-23T01:00:00Z[UTC]::external-uw-campus-events.ics Nature and Health Fall Community Dinner|2026-09-23T01:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same dinner event at Fremont Brewing; UW organizes, science-in-seattle and uw-campus-events both list it"
+    },
+    "external-science-in-seattle.ics Nature & Health Community Dinner|2026-09-23T01:00:00Z[UTC]::external-uw-sustainability.ics Nature and Health Fall Community Dinner|2026-09-23T01:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same dinner event at Fremont Brewing; UW organizes, science-in-seattle and uw-sustainability both list it"
+    },
+    "external-seattle-gov-arts.ics SmART Ventures Draft Review Session|2026-10-01T19:30:00Z[UTC]::external-seattle-gov-city-wide.ics SmART Ventures Draft Review Session|2026-10-01T19:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Identical event in two Seattle.gov feeds (arts + city-wide)"
+    },
+    "external-seattle-gov-arts.ics SmART Ventures Information Session|2026-10-01T18:30:00Z[UTC]::external-seattle-gov-city-wide.ics SmART Ventures Information Session|2026-10-01T18:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Identical event in two Seattle.gov feeds (arts + city-wide)"
+    },
+    "external-seattle-gov-city-wide.ics Beaver Pond Natural Area Smothering|2026-09-27T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Beaver Pond Natural Area Smothering|2026-09-27T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Identical event in two Seattle.gov feeds (city-wide + parks-recreation)"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T17:00:00Z[UTC]::seatoday-seatoday-all.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same BirdWalk event; 17:00Z = 10:00 PDT; seattle.gov and seatoday both listing"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T17:00:00Z[UTC]::seatoday-seatoday-community.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same BirdWalk event; seatoday community calendar duplicate of city-wide"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T17:00:00Z[UTC]::seatoday-seatoday-sports.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same BirdWalk event; seatoday sports calendar duplicate of city-wide"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-02T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-02T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Same BirdWalk in two Seattle.gov feeds (city-wide + parks-recreation)"
+    },
+    "external-seattle-gov-city-wide.ics Clueless at Outdoors On The Ave|2026-09-26T02:30:00Z[UTC]::external-wallyhood.ics Outdoors on the Ave|2026-09-26T01:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-05",
+      "note": "Different events: seattle-gov lists specific 'Clueless' screening at 7:30pm; wallyhood lists generic 'Outdoors on the Ave' series at 6pm (different time, different specificity)"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-09-26T22:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-09-26T22:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Identical event in two Seattle.gov feeds (city-wide + parks-recreation)"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-01T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-01T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "Identical event in two Seattle.gov feeds (city-wide + parks-recreation)"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-02T18:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-02T18:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Duwamish Head Greenbelt Restoration|2026-09-29T17:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Duwamish Head Greenbelt Restoration|2026-09-29T17:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-30T19:00:00Z[UTC]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-30T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in city-wide and parks-recreation feeds"
+    },
+    "external-seattle-gov-neighborhoods.ics Nature and Health Community Dinner|2026-09-23T01:00:00Z[UTC]::external-uw-campus-events.ics Nature and Health Fall Community Dinner|2026-09-23T01:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time, 'Fall' variant in title"
+    },
+    "external-seattle-gov-neighborhoods.ics Nature and Health Community Dinner|2026-09-23T01:00:00Z[UTC]::external-uw-sustainability.ics Nature and Health Fall Community Dinner|2026-09-23T01:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time, 'Fall' variant in title"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T17:00:00Z[UTC]::seatoday-seatoday-all.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "17:00Z == 10:00 PDT, same event in parks-recreation and seatoday-all"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T17:00:00Z[UTC]::seatoday-seatoday-community.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "17:00Z == 10:00 PDT, same event in parks-recreation and seatoday-community"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T17:00:00Z[UTC]::seatoday-seatoday-sports.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "17:00Z == 10:00 PDT, same event in parks-recreation and seatoday-sports"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-09-11T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-09-11T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event at Unicorn 1118 E Pike St, same time, queer-social-club and recurring venue source"
+    },
+    "seatoday-seatoday-all.ics BOARD OF DIRECTORS MEETING|2026-09-18T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BOARD OF DIRECTORS MEETING|2026-09-18T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-community"
+    },
+    "seatoday-seatoday-all.ics BOARD OF DIRECTORS MEETING|2026-09-18T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics BOARD OF DIRECTORS MEETING|2026-09-18T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-learning"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-community"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-sports"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-arts"
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-community"
+    },
+    "seatoday-seatoday-all.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-community"
+    },
+    "seatoday-seatoday-all.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-learning"
+    },
+    "seatoday-seatoday-all.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-sports"
+    },
+    "seatoday-seatoday-all.ics ¡Vamos al Acuario!|2026-09-18T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ¡Vamos al Acuario!|2026-09-18T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-all and seatoday-community"
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-arts and seatoday-community"
+    },
+    "seatoday-seatoday-community.ics BOARD OF DIRECTORS MEETING|2026-09-18T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics BOARD OF DIRECTORS MEETING|2026-09-18T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-community and seatoday-learning"
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-community and seatoday-sports"
+    },
+    "seatoday-seatoday-community.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-community and seatoday-learning"
+    },
+    "seatoday-seatoday-community.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-community and seatoday-sports"
+    },
+    "seatoday-seatoday-learning.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Forterra Fridays: September 2026|2026-09-18T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same event same time in seatoday-learning and seatoday-sports"
+    },
+    "seattle-center-seattle-center-events.ics Eureka Day: Opening Night|2026-09-30T19:30:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Eureka Day|2026-09-30T19:30-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same play at Seattle Rep, Opening Night listing vs generic performance listing, same time"
+    },
+    "external-seattle-gov-city-wide.ics Grease at Outdoors On The Ave|2026-09-26T02:45:00Z[UTC]::external-wallyhood.ics Outdoors on the Ave|2026-09-26T01:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-05",
+      "note": "specific film screening vs generic series placeholder; different titles and different times (1:45 hour apart)"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-10-05T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-10-05T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-05",
+      "note": "different physical locations 321m apart - 1201 Eastlake vs 1551 Eastlake are separate food truck stops"
     }
   }
 }
