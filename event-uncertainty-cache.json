@@ -71802,7 +71802,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "location": "Fremont neighborhood businesses, Seattle, WA 98103"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -71889,14 +71890,10 @@
       "evidence": "https://tabletopvillage.com/pages/events"
     },
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-09-05",
       "source": "agent",
-      "evidence": "https://udistrictseattle.com/bobafest"
+      "reason": "Past event (Aug 1 2026); start time and duration not available; cost verified paid but price unknown"
     },
     "cobys_cafe:https://www.cobyscafe.com/product/x/4SYYTC5ZRQJILET4G5ZORGPP": {
       "fields": {
