@@ -71786,6 +71786,127 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.dogwoodplaypark.com/event-details/11-year-anniversary-party-barktoberfest-style"
+    },
+    "chophouse-row:6a6a6c109d5a7a66a7b5c4e3": {
+      "fields": {
+        "cost": {
+          "min": 50.0,
+          "max": 150.0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/celine-waldmann-sept6"
+    },
+    "fremont-chamber-of-commerce:fremont-trick-or-treat-1912497": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://business.fremont.com/calendar/Details/fremont-trick-or-treat-1912497"
+    },
+    "fremont-chamber-of-commerce:shameless-self-promotion-networking-1911181": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://business.fremont.com/calendar/Details/shameless-self-promotion-networking-1911181"
+    },
+    "west-seattle-nursery:6a976250664f007a1b49618f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/summer-food-drive-for-kids"
+    },
+    "el-suenito-brewing:el-suenito-brewing-05d673a5-e6b2-4602-8155-b3a6ad3c4b7c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
+    },
+    "el-suenito-brewing:el-suenito-brewing-37d5e66e-a98a-45f6-a034-e5148787b8f3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
+    },
+    "el-suenito-brewing:el-suenito-brewing-59d137be-86ac-488e-a10a-ef1cd5665241": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/trivia-in-seattle"
+    },
+    "el-suenito-brewing:el-suenito-brewing-a06e2b90-bc68-458c-8a74-658c30a83847": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/queer-book-club-2026-09-09-19-00"
+    },
+    "tabletop-village:_68oj8e9j6gr4cb9o712k8b9k60qk6b9o68rj0b9p651j8e258923gd1l84_R20260327T020000@google.com-2027-03-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "tabletop-village:4rst5btadvlfacggop9bfplvsj_R20260417T010000@google.com-2027-03-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/4SYYTC5ZRQJILET4G5ZORGPP": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/4SYYTC5ZRQJILET4G5ZORGPP"
     }
   }
 }
