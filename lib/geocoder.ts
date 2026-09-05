@@ -716,7 +716,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'columbia park': { lat: 47.560033, lng: -122.286900 },
   'concord international school': { lat: 47.523505, lng: -122.324305 },
   'federal way town square park': { lat: 47.317826, lng: -122.308114 },
-  'firn rooftop bar': { lat: 47.598643, lng: -122.333666 },
+  'firn rooftop bar': { lat: 47.5984171, lng: -122.3338243, osmType: 'node', osmId: 13458644701 }, // Populus Seattle's OSM-verified node (sources/external/populus-seattle.yaml)
   'freeway park': { lat: 47.609164, lng: -122.330511 },
   'fremont social': { lat: 47.651340, lng: -122.355990 },
   'gasworks park': { lat: 47.647548, lng: -122.332751 },
@@ -1389,7 +1389,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // independently; skipped here to avoid a duplicate-key TS error.)
   'behnke gallery': { lat: 47.6182381, lng: -122.3354570 }, // 1077 Lenora St, Seattle, WA 98121 (cross-checked against cornish/seattle-university duplicate listings)
   'pigott building': { lat: 47.6106523, lng: -122.3171370 }, // 901 12th Ave, Seattle, WA 98122 — Seattle University campus building (cross-checked against cornish/seattle-university duplicate listings)
-  'firn': { lat: 47.5986433, lng: -122.3336662 }, // Firn is the lounge inside Populus Seattle, 100 S King St, Seattle, WA 98104 (cross-checked against the confirmed 19hz/external-populus-seattle duplicate listings)
+  'firn': { lat: 47.5984171, lng: -122.3338243, osmType: 'node', osmId: 13458644701 }, // Firn is the lounge inside Populus Seattle, 100 S King St, Seattle, WA 98104 — reuses the venue's own OSM-verified node (sources/external/populus-seattle.yaml) rather than a fresh street-address geocode; identified via the confirmed 19hz/external-populus-seattle duplicate listings
 };
 
 /**
