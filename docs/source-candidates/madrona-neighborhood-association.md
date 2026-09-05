@@ -6,7 +6,7 @@ url: https://madrona.us/
 tags: [Community, "Madrona"]
 firstSeen: 2026-08-11
 lastChecked: 2026-09-05
-pr: TBD
+pr: 1378
 ---
 
 Neighborhood association for Madrona, on the east side of Capitol Hill /
