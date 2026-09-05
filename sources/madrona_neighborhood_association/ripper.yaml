@@ -1,0 +1,11 @@
+name: madrona-neighborhood-association
+sourceRole: venue
+description: "Madrona Neighborhood Association"
+url: "https://madrona.us/events/"
+friendlyLink: https://madrona.us/events/
+tags: ["Community", "Madrona"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Madrona Neighborhood Association"
+    timezone: America/Los_Angeles
