@@ -78615,6 +78615,27 @@
       "source": "agent",
       "evidence": "https://muzfest.org/",
       "lastSeen": "2026-09-05"
+    },
+    "seattle-center:sombr-you-are-the-reason-tour": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/sombr-you-are-the-reason-tour",
+      "partialFingerprint": "bj2275"
+    },
+    "seattle-humane:seattle-humane-pax-west-2027-09-04": {
+      "fields": {
+        "duration": 288000,
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://west.paxsite.com/en-us.html",
+      "partialFingerprint": "448788da"
     }
   }
 }
