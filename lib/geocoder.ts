@@ -1380,6 +1380,14 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // events use for the same venue as its main geo — Zulu's Games Event Center,
   // 10131b Main St, Bothell, WA 98011 (OSM node 2367594038).
   "zulu's guildhall": { lat: 47.7599233, lng: -122.2042918 },
+
+  // --- 2026-09-05 geo-resolver batch: "venue name only" unresolvable entries
+  // whose address was verified on the venue's own site, then forward-geocoded
+  // via Nominatim (never reverse-geocoded). ---
+  'vashon center for the arts': { lat: 47.4287555, lng: -122.4601317 }, // 19600 Vashon Hwy SW, Vashon, WA 98070 (own site)
+  'bainbridge performing arts center': { lat: 47.6261039, lng: -122.5185003 }, // 200 Madison Ave N, Bainbridge Island, WA 98110 (own site)
+  'behnke gallery': { lat: 47.6182381, lng: -122.3354570 }, // 1077 Lenora St, Seattle, WA 98121 (cross-checked against cornish/seattle-university duplicate listings)
+  'pigott building': { lat: 47.6106523, lng: -122.3171370 }, // 901 12th Ave, Seattle, WA 98122 — Seattle University campus building (cross-checked against cornish/seattle-university duplicate listings)
 };
 
 /**

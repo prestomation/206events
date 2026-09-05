@@ -3,6 +3,10 @@ sourceRole: venue
 description: "Rat City Roller Derby"
 url: "https://ratcityrollerderby.com/events/"
 friendlyLink: https://ratcityrollerderby.com/events/
+imageUrl: "https://ratcityrollerderby.com/wp-content/uploads/2023/12/RCRD_logo.png"
+# Individual bout detail pages carry no per-event image (checked several), only
+# this shared league logo — skip the event-photo backfill queue.
+skipEventPhotos: true
 tags: ["Sports"]
 geo: null
 calendars:
