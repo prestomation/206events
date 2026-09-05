@@ -74,6 +74,14 @@ describe('MadronaNeighborhoodAssociationRipper - parseTimeRange', () => {
     test('returns null when no time range is present', () => {
         expect(ripper.parseTimeRange('Date To be Announced')).toBeNull();
     });
+
+    test('keeps 11am when "11-1PM" style would otherwise push start past end', () => {
+        // Regression check requested during PR review: without the < endHour12
+        // guard, inferring "start is PM because end is PM" would wrongly turn
+        // an 11am-1pm range into 11pm-1pm (23:00-13:00, an invalid range).
+        const result = ripper.parseTimeRange('11-1PM');
+        expect(result).toEqual({ hour: 11, minute: 0, endHour: 13, endMinute: 0 });
+    });
 });
 
 describe('MadronaNeighborhoodAssociationRipper - parsePage', () => {
