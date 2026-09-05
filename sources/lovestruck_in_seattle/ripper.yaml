@@ -10,6 +10,8 @@ geo:
   lat: 47.6904779
   lng: -122.2909384
   label: "Lovestruck in Seattle, 8507 35th Ave NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 7571657299
 calendars:
   - name: lovestruck-in-seattle
     friendlyname: "Lovestruck in Seattle"
