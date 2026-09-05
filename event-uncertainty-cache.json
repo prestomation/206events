@@ -53680,49 +53680,70 @@
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+      "partialFingerprint": "8mclbx-until2026-10-03-tu",
+      "fields": {
+        "setting": "indoor"
+      }
     },
     "events12:live-theater-119957-2026-08-30": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+      "partialFingerprint": "8mclbx-until2026-10-03-tu",
+      "fields": {
+        "setting": "indoor"
+      }
     },
     "events12:live-theater-119957-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+      "partialFingerprint": "8mclbx-until2026-10-03-tu",
+      "fields": {
+        "setting": "indoor"
+      }
     },
     "events12:live-theater-119957-2026-09-01": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+      "partialFingerprint": "8mclbx-until2026-10-03-tu",
+      "fields": {
+        "setting": "indoor"
+      }
     },
     "events12:live-theater-119957-2026-09-02": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+      "partialFingerprint": "8mclbx-until2026-10-03-tu",
+      "fields": {
+        "setting": "indoor"
+      }
     },
     "events12:live-theater-119957-2026-09-03": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+      "partialFingerprint": "8mclbx-until2026-10-03-tu",
+      "fields": {
+        "setting": "indoor"
+      }
     },
     "events12:live-theater-119957-2026-09-04": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
       "source": "agent",
       "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu"
+      "partialFingerprint": "8mclbx-until2026-10-03-tu",
+      "fields": {
+        "setting": "indoor"
+      }
     },
     "events12:live-theater-119957-2026-09-05": {
       "fields": {
@@ -53730,7 +53751,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53744,7 +53766,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53758,7 +53781,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53772,7 +53796,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53786,7 +53811,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53800,7 +53826,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53814,7 +53841,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53828,7 +53856,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53842,7 +53871,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53856,7 +53886,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53870,7 +53901,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53884,7 +53916,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53898,7 +53931,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53912,7 +53946,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53926,7 +53961,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53940,7 +53976,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53954,7 +53991,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53968,7 +54006,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53982,7 +54021,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -53996,7 +54036,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -54010,7 +54051,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -54024,7 +54066,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -54038,7 +54081,8 @@
         "duration": 9000,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -73931,7 +73975,8 @@
           "paid": true
         },
         "startTime": "19:30",
-        "duration": 9000
+        "duration": 9000,
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -73944,7 +73989,8 @@
           "paid": true
         },
         "startTime": "19:30",
-        "duration": 9000
+        "duration": 9000,
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -73957,7 +74003,8 @@
           "paid": true
         },
         "startTime": "19:30",
-        "duration": 9000
+        "duration": 9000,
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -73970,7 +74017,8 @@
           "paid": true
         },
         "startTime": "19:30",
-        "duration": 9000
+        "duration": 9000,
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -73983,7 +74031,8 @@
           "paid": true
         },
         "startTime": "19:30",
-        "duration": 9000
+        "duration": 9000,
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -73996,7 +74045,8 @@
           "paid": true
         },
         "startTime": "19:30",
-        "duration": 9000
+        "duration": 9000,
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -74096,7 +74146,8 @@
           "paid": true
         },
         "startTime": "09:30",
-        "duration": 21600
+        "duration": 21600,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -77996,7 +78047,10 @@
     "events12:wine-train-115404-2026-09-18": {
       "fields": {
         "startTime": "17:00",
-        "duration": 9000
+        "duration": 9000,
+        "cost": {
+          "min": 99
+        }
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -78099,6 +78153,14 @@
       "source": "agent",
       "reason": "UW football kickoff times not confirmed from schedule page",
       "lastSeen": "2026-09-05"
+    },
+    "events12:touch-a-truck-119147-2026-09-12": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-05",
+      "source": "agent",
+      "evidence": "https://www.piercecountywa.gov/1274/Touch-A-Truck"
     }
   }
 }
