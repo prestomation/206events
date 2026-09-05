@@ -17679,6 +17679,11 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-05",
       "note": "different physical locations 321m apart - 1201 Eastlake vs 1551 Eastlake are separate food truck stops"
+    },
+    "external-seattle-gov-city-wide.ics Grease at Outdoors On The Ave|2026-09-19T02:45:00Z[UTC]::external-wallyhood.ics Outdoors on the Ave|2026-09-19T01:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-05",
+      "note": "specific film screening vs generic series placeholder; different titles and 1.75 hour time gap"
     }
   }
 }
