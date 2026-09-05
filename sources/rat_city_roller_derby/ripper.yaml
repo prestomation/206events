@@ -8,7 +8,6 @@ imageUrl: "https://ratcityrollerderby.com/wp-content/uploads/2023/12/RCRD_logo.p
 # this shared league logo — skip the event-photo backfill queue.
 skipEventPhotos: true
 tags: ["Sports"]
-skipEventPhotos: true
 geo: null
 calendars:
   - name: events
