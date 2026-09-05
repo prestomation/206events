@@ -17684,6 +17684,26 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-05",
       "note": "specific film screening vs generic series placeholder; different titles and 1.75 hour time gap"
+    },
+    "19hz-all-events.ics Tape B|2026-12-04T19:00:00-08:00[America/Los_Angeles]::wamu-theater-wamu-theater.ics Tape B: 2-Day Pass|2026-12-04T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "same Tape B concert at WaMu Theater Dec 4; 19hz lists single-night, WaMu lists 2-day pass — same event"
+    },
+    "seatoday-seatoday-all.ics Creative Sundays: Voices Off|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Creative Sundays: Voices Off|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "identical event in seatoday-all and seatoday-arts sub-calendars; same URL and venue Eleven:Eleven On The Block"
+    },
+    "seatoday-seatoday-all.ics Creative Sundays: Voices Off|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Creative Sundays: Voices Off|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "identical event in seatoday-all and seatoday-community sub-calendars; same URL and venue"
+    },
+    "seatoday-seatoday-arts.ics Creative Sundays: Voices Off|2026-09-06T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Creative Sundays: Voices Off|2026-09-06T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-05",
+      "note": "identical event in seatoday-arts and seatoday-community sub-calendars; same URL and venue"
     }
   }
 }
