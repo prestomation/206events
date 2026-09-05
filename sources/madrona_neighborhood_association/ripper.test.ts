@@ -133,4 +133,42 @@ describe('MadronaNeighborhoodAssociationRipper - parsePage', () => {
         expect(results).toHaveLength(1);
         expect(results[0]).toHaveProperty('type', 'ParseError');
     });
+
+    test('ignores an unrelated "Month D, YYYY"-shaped decoy elsewhere on the page (Trick or Treat is anchored on "Business District")', () => {
+        const decoyText = `Copyright © September 5, 2026 Madrona Neighborhood Association. `
+            + ripper.stripHtml(loadFixture('sample-trickortreat.html'));
+        const results = ripper.parsePage(TRICK_OR_TREAT_PAGE, decoyText) as RipperCalendarEvent[];
+
+        expect(results).toHaveLength(1);
+        expect(results[0].date.monthValue()).toBe(10);
+        expect(results[0].date.dayOfMonth()).toBe(31);
+        expect(results[0].date.year()).toBe(2026);
+    });
+
+    test('parses a 4-Tuesday season without dropping the 4th date', () => {
+        const text = ripper.stripHtml(loadFixture('sample-musicintheplayfield.html'))
+            .replace('AUGUST 11 · 18 · 25', 'AUGUST 4 · 11 · 18 · 25');
+        const results = ripper.parsePage(MUSIC_PAGE, text) as RipperCalendarEvent[];
+
+        expect(results.map(e => e.date.dayOfMonth())).toEqual([4, 11, 18, 25]);
+    });
+
+    test('matches the dated-Tuesdays heading case-insensitively', () => {
+        const text = ripper.stripHtml(loadFixture('sample-musicintheplayfield.html'))
+            .replace('AUGUST 11 · 18 · 25', 'August 11 · 18 · 25');
+        const results = ripper.parsePage(MUSIC_PAGE, text) as RipperCalendarEvent[];
+
+        expect(results).toHaveLength(3);
+        expect(results.map(e => e.date.dayOfMonth())).toEqual([11, 18, 25]);
+    });
+
+    test('returns a ParseError instead of throwing when the parsed date is invalid', () => {
+        const text = ripper.stripHtml(loadFixture('sample-trickortreat.html'))
+            .replace('Oct 31, 2026', 'Feb 30, 2026');
+        expect(() => ripper.parsePage(TRICK_OR_TREAT_PAGE, text)).not.toThrow();
+
+        const results = ripper.parsePage(TRICK_OR_TREAT_PAGE, text);
+        expect(results).toHaveLength(1);
+        expect(results[0]).toHaveProperty('type', 'ParseError');
+    });
 });

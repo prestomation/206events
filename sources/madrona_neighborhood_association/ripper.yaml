@@ -1,5 +1,9 @@
 name: madrona-neighborhood-association
 sourceRole: venue
+# All three scraped pages are intermittent/seasonal (annual Halloween event,
+# meetings paused in July/August, concerts only in August), so a build window
+# with zero upcoming events across all of them is expected, not a break.
+expectEmpty: true
 description: "Madrona Neighborhood Association"
 url: "https://madrona.us/events/"
 friendlyLink: https://madrona.us/events/

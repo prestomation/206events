@@ -82,7 +82,18 @@ export default class MadronaNeighborhoodAssociationRipper implements IRipper {
 
             // Past events are filtered here (not in the parsers) so the
             // parsers stay testable against whatever date they're given.
-            for (const result of this.parsePage(page, text)) {
+            // Parsing is wrapped per-page so a crash on one page (e.g. an
+            // unexpected regex match producing an out-of-range day) can't
+            // take down the other two pages' events — same convention as
+            // sources/book_larder/ripper.ts's per-item try/catch.
+            let results: RipperEvent[];
+            try {
+                results = this.parsePage(page, text);
+            } catch (err) {
+                errors.push({ type: 'ParseError', reason: `Failed to parse ${page.path}: ${err}`, context: page.slug });
+                continue;
+            }
+            for (const result of results) {
                 if ('date' in result) {
                     if (result.date.isBefore(now)) continue;
                     events.push(result);
@@ -118,7 +129,18 @@ export default class MadronaNeighborhoodAssociationRipper implements IRipper {
 
     // "Trick or Treat / The Madrona Business District / Saturday, Oct 31, 2026 / 4-6PM"
     parseTrickOrTreat(page: EventPage, text: string): RipperEvent[] {
-        const dateMatch = text.match(/([A-Z][a-z]{2,8})\.?\s+(\d{1,2}),\s*(\d{4})/);
+        // Anchored on "Business District" (like the other two parsers anchor
+        // on their own nearby landmark text) rather than searching the whole
+        // page: an unanchored date regex risks silently matching an unrelated
+        // "Month D, YYYY"-shaped string elsewhere on the page (nav, footer
+        // copyright, related-post blurbs) and publishing the wrong date.
+        const anchor = text.indexOf('Business District');
+        if (anchor === -1) {
+            return [{ type: 'ParseError', reason: 'No "Business District" heading found (page structure changed?)', context: page.slug }];
+        }
+        const block = text.slice(anchor, anchor + 200);
+
+        const dateMatch = block.match(/([A-Z][a-z]{2,8})\.?\s+(\d{1,2}),\s*(\d{4})/);
         if (!dateMatch || dateMatch.index === undefined) {
             return [{ type: 'ParseError', reason: 'No date found on page (likely TBA)', context: page.slug }];
         }
@@ -129,7 +151,7 @@ export default class MadronaNeighborhoodAssociationRipper implements IRipper {
         const day = parseInt(dateMatch[2], 10);
         const year = parseInt(dateMatch[3], 10);
 
-        const time = this.parseTimeRange(text.slice(dateMatch.index, dateMatch.index + 200));
+        const time = this.parseTimeRange(block.slice(dateMatch.index, dateMatch.index + 200));
         if (!time) {
             return [{ type: 'ParseError', reason: 'Found a date but no time range nearby', context: page.slug }];
         }
@@ -184,13 +206,24 @@ export default class MadronaNeighborhoodAssociationRipper implements IRipper {
         }
         const year = parseInt(yearMatch[2], 10);
 
-        const daysMatch = block.match(new RegExp(`${yearMatch[1].toUpperCase()}\\s+(\\d{1,2})(?:\\s*[\\u00b7,]\\s*(\\d{1,2}))?(?:\\s*[\\u00b7,]\\s*(\\d{1,2}))?`));
+        // Matches an arbitrary-length run of "NN · NN" day tokens after the
+        // month name (not capped at 3) — the page currently lists three
+        // Tuesdays, but a season with more shouldn't silently lose one.
+        // Case-insensitive: the heading is "AUGUST 11 · 18 · 25" in the live
+        // markup, but don't assume that capitalization is guaranteed to hold.
+        // Requires at least one "digits + separator" pair before the final
+        // digit group so this can't match the single bare year in the
+        // "evenings in the park, August 2026" sentence above the heading —
+        // that "August" is a different occurrence than the all-caps one this
+        // is meant to anchor on.
+        const daysMatch = block.match(new RegExp(`${yearMatch[1]}\\s+((?:\\d{1,2}\\s*[·,]\\s*)+\\d{1,2})`, 'i'));
         if (!daysMatch) {
             return [{ type: 'ParseError', reason: 'No dated Tuesdays list found', context: page.slug }];
         }
-        const days = [daysMatch[1], daysMatch[2], daysMatch[3]]
-            .filter((d): d is string => !!d)
-            .map(d => parseInt(d, 10));
+        const days = (daysMatch[1].match(/\d{1,2}/g) ?? []).map(d => parseInt(d, 10));
+        if (days.length === 0) {
+            return [{ type: 'ParseError', reason: 'No dated Tuesdays list found', context: page.slug }];
+        }
 
         const time = this.parseTimeRange(block.slice((daysMatch.index ?? 0) + daysMatch[0].length));
         if (!time) {
@@ -200,8 +233,17 @@ export default class MadronaNeighborhoodAssociationRipper implements IRipper {
         return days.map(day => this.buildEvent(page, year, month, day, time, `madrona-music-in-the-playfield-${year}-${month}-${day}`));
     }
 
-    private buildEvent(page: EventPage, year: number, month: number, day: number, time: TimeRange, id: string): RipperCalendarEvent {
-        const date = ZonedDateTime.of(LocalDateTime.of(year, month, day, time.hour, time.minute), TIMEZONE);
+    // Returns a ParseError instead of throwing when the parsed numbers don't
+    // form a valid calendar date (e.g. a mis-parsed day-of-month) — a single
+    // page's regex slip should degrade to one dropped event, not crash the
+    // whole ripper (see the per-page try/catch in rip()).
+    private buildEvent(page: EventPage, year: number, month: number, day: number, time: TimeRange, id: string): RipperEvent {
+        let date: ZonedDateTime;
+        try {
+            date = ZonedDateTime.of(LocalDateTime.of(year, month, day, time.hour, time.minute), TIMEZONE);
+        } catch (err) {
+            return { type: 'ParseError', reason: `Invalid date ${year}-${month}-${day}: ${err}`, context: page.slug };
+        }
 
         const startMinutes = time.hour * 60 + time.minute;
         const endMinutes = time.endHour * 60 + time.endMinute;
