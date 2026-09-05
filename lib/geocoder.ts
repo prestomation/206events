@@ -1389,6 +1389,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // independently; skipped here to avoid a duplicate-key TS error.)
   'behnke gallery': { lat: 47.6182381, lng: -122.3354570 }, // 1077 Lenora St, Seattle, WA 98121 (cross-checked against cornish/seattle-university duplicate listings)
   'pigott building': { lat: 47.6106523, lng: -122.3171370 }, // 901 12th Ave, Seattle, WA 98122 — Seattle University campus building (cross-checked against cornish/seattle-university duplicate listings)
+  'firn': { lat: 47.5986433, lng: -122.3336662 }, // Firn is the lounge inside Populus Seattle, 100 S King St, Seattle, WA 98104 (cross-checked against the confirmed 19hz/external-populus-seattle duplicate listings)
 };
 
 /**
