@@ -35,3 +35,8 @@ the `requires-proxy-testing` label at `proxy: false` for
 `skills/proxy-escalation/SKILL.md` (out-of-band job) to test the
 `outofband`/`browserbase` ladder and merge the lowest working rung, or close
 the PR if neither works.
+
+**Proxy ladder verified 2026-09-05 (out-of-band job):** `outofband` rung
+confirmed working — `generate-outofband --sources familyworks` fetched the
+ICS from the residential IP and returned **27 events, hasFutureEvents=true**.
+Set `proxy: "outofband"` and merged PR #1380 at that rung.

@@ -4,6 +4,7 @@ name: familyworks
 sourceRole: venue
 friendlyname: FamilyWorks Seattle
 description: "Seattle nonprofit running food banks and family resource centers across North Seattle — playgroups, parenting classes, food distribution, and community events for families with young children"
+proxy: "outofband"
 icsUrl: "https://www.familyworksseattle.org/events/?ical=1"
 infoUrl: "https://www.familyworksseattle.org/events/"
 tags:
