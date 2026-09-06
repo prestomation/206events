@@ -1,0 +1,16 @@
+name: open-books
+sourceRole: venue
+description: "Open Books: A Poem Emporium"
+url: "https://open-books-a-poem-emporium.myshopify.com/pages/events-calendar"
+friendlyLink: https://openpoetrybooks.com/pages/events-calendar
+tags: ["Books", "Pioneer Square"]
+geo:
+  lat: 47.6028122
+  lng: -122.3339575
+  label: "Open Books: A Poem Emporium, 108 Cherry Street, Seattle, WA 98104"
+  osmType: node
+  osmId: 3006173067
+calendars:
+  - name: all-events
+    friendlyname: "Open Books: A Poem Emporium"
+    timezone: America/Los_Angeles
