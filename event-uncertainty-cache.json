@@ -77723,12 +77723,12 @@
     },
     "events12:edmonds-art-tour-109054-2026-09-19": {
       "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg/v1/fill/w_1315,h_1041,al_c/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg"
+        "imageUrl": "https://static.wixstatic.com/media/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg/v1/fill/w_1315,h_1041,al_c/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg",
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-06",
       "source": "agent",
-      "evidence": "https://www.edmondsartstudiotour.com",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://www.edmondsartstudiotour.com"
     },
     "events12:edmonds-art-tour-109054-2026-09-20": {
       "fields": {
@@ -79129,6 +79129,22 @@
       "resolvedAt": "2026-09-06",
       "source": "agent",
       "evidence": "https://tabletopvillage.com/pages/tournaments"
+    },
+    "venue:loc:green lake community center, 7201 east green lake dr n, seattle, wa 98115": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://fremontartscouncil.org/luminata"
+    },
+    "venue:osm:node:2404211190": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2404211190"
     }
   }
 }
