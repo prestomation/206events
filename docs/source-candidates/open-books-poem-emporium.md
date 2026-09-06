@@ -1,11 +1,12 @@
 ---
 name: "Open Books: A Poem Emporium"
-status: candidate
+status: added
 platform: Shopify (static content page, not a product feed)
 url: https://open-books-a-poem-emporium.myshopify.com/pages/events-calendar
 tags: [Books, "Pioneer Square"]
 firstSeen: 2026-06-10
-lastChecked: 2026-07-29
+lastChecked: 2026-09-06
+pr: 1391
 ---
 
 Poetry-only bookstore in Pioneer Square, founded 1995 (`openpoetrybooks.com`,
@@ -38,3 +39,13 @@ normal 200 (no rate-limiting observed this check) and, while still not a
 built-in ripper type, a custom scraper over the one `body_html` field is a
 concrete, buildable path that the earlier "not viable" verdicts didn't
 spell out.
+
+**Implemented 2026-09-06 (PR #1391):** custom `IRipper` in
+`sources/open_books/ripper.ts` fetches the `?format=json` page endpoint
+and parses `body_html` directly — walks ordered `<p>` month headers and
+`<li>` event lines, splits the "Title, time, cost" tail from the end
+(titles keep their own commas), handles both am/pm-qualified and bare
+`H:MM-H:MM` time ranges, infers the year via rollover against "now", and
+pairs an `UncertaintyError` when no time can be parsed. Verified 7 live
+upcoming events at implementation time
+(`ONLY_SOURCE=open-books npm run generate-calendars`), 0 errors.
