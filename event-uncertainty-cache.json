@@ -76423,12 +76423,12 @@
           "paid": true
         },
         "startTime": "19:00",
-        "duration": 10800
+        "duration": 10800,
+        "imageUrl": "https://theroyalroomseattle.com/wp-content/uploads/2026/07/2026_09_04_Staycation-Festival-Print.jpeg"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-06",
       "source": "agent",
-      "evidence": "https://theroyalroomseattle.com/event/staycation-music-festival-2-2026/",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://theroyalroomseattle.com/event/staycation-music-festival-2-2026/"
     },
     "events12:lego-building-convention-100218-2026-09-12": {
       "fields": {
@@ -76821,12 +76821,12 @@
           "min": 0
         },
         "startTime": "10:00",
-        "duration": 21600
+        "duration": 21600,
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/6387adff09b4ce49ecd0b641/dfb6843e-45b6-4f1d-aaa0-1059333399ae/MakingLocalMarkets-2.jpg"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-06",
       "source": "agent",
-      "evidence": "https://www.makinglocal.com/sept-2026",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://www.makinglocal.com/sept-2026"
     },
     "venue:loc:bellevue downtown park, 10201 ne 4th st, bellevue, wa 98004": {
       "fields": {
@@ -77282,12 +77282,12 @@
       "fields": {
         "setting": "indoor",
         "startTime": "16:00",
-        "duration": 14400
+        "duration": 14400,
+        "imageUrl": "https://cdn.prod.website-files.com/60db882f5ca11779656536d1/6201ac5d5f2c142304f1ae20_pexels-ann-antonova-5986729.jpg"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-06",
       "source": "agent",
-      "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://www.fosswaterwayseaport.org/education-pages/free-3rd-thursday"
     },
     "events12:tour-modern-homes-108791-2026-09-12": {
       "unresolvable": true,
@@ -78199,7 +78199,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://i0.wp.com/rainierbeachcommunityclub.org/wp-content/uploads/2025/12/rummage-sale-2025-10-23-at-11.55.27-AM.jpg?resize=580%2C316&ssl=1"
       },
       "resolvedAt": "2026-09-06",
       "source": "agent",
