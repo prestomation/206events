@@ -78797,6 +78797,274 @@
       "resolvedAt": "2026-09-06",
       "source": "agent",
       "evidence": "https://queersocialclub.com/events-seattle/prism-lgbtq-improv-jam-1"
+    },
+    "seatoday:cityspark-19844726": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.siff.net/cinema/box-office",
+      "partialFingerprint": "5ahdu9"
+    },
+    "seatoday:cityspark-19814108": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.siff.net/cinema/box-office",
+      "partialFingerprint": "12u0rxy"
+    },
+    "seatoday:cityspark-19814109": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.siff.net/cinema/box-office",
+      "partialFingerprint": "uh0wet"
+    },
+    "seatoday:cityspark-19844197": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://members.thegsba.org/eventcalendar/Details/know-your-resources-washington-s-hate-crimes-bias-incidents-hotline-1900020?sourceTypeId=Website",
+      "partialFingerprint": "90sxh9"
+    },
+    "seatoday:cityspark-19844213": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D206686675",
+      "partialFingerprint": "1bnpjh4"
+    },
+    "seatoday:cityspark-19844774": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D205992917",
+      "partialFingerprint": "4m1d20"
+    },
+    "seatoday:cityspark-19844221": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D206851449",
+      "partialFingerprint": "ia5azf"
+    },
+    "seatoday:cityspark-19539363": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.issaquahwa.gov/calendar.aspx?EID=14683",
+      "partialFingerprint": "1e1od5r"
+    },
+    "seatoday:cityspark-17845666": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/749987967875398/",
+      "partialFingerprint": "7az8ah"
+    },
+    "seatoday:cityspark-19844223": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D207117478",
+      "partialFingerprint": "1k5jx5"
+    },
+    "seatoday:cityspark-19796939": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.downtownkentwa.com/event/team-up-2-clean-up-may-2026/",
+      "partialFingerprint": "zkbg21"
+    },
+    "seatoday:cityspark-19716106": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/all-offers-accepted-fall-2026-tool-sale-tickets-1995395018214",
+      "partialFingerprint": "mr2xc5"
+    },
+    "seatoday:cityspark-19637914": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.issaquahalps.org/hikesandevents/2026/9/19/green-issaquah-restoration-event-at-park-pointe",
+      "partialFingerprint": "kq8zqq"
+    },
+    "seatoday:cityspark-18876280": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://waterfrontparkseattle.org/blog/event/salmon-homecoming-2026/?date=202609191000",
+      "partialFingerprint": "10882wy"
+    },
+    "seatoday:cityspark-17845627": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "reason": "CitySpark API and pickleballtournaments.com only list player entry fees ($65-95); no spectator admission price is published anywhere",
+      "partialFingerprint": "159z710"
+    },
+    "stg:tm-vvG1HZ_2UsnyJj": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-05-2026/event/0F0064FDB1AB999C",
+      "partialFingerprint": "2nowve"
+    },
+    "stg:tm-vvG1HZ_2Usc_Jl": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-06-2026/event/0F0064FDB1B599AB",
+      "partialFingerprint": "19iolo7"
+    },
+    "stg:tm-vvG1HZ_19wtU1i": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/choir-choir-choir-unsilent-night-an-seattle-washington-12-05-2026/event/0F0064A5F2A762AC",
+      "partialFingerprint": "v90fvh"
+    },
+    "stg:tm-vvG1HZ_1xsm5pO": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/amber-autry-happy-holler-tour-seattle-washington-12-05-2026/event/0F0064A8B1B8B5A0",
+      "partialFingerprint": "olcn4i"
+    },
+    "stg:tm-vvG1HZ_1L0MvVa": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/amber-autry-happy-holler-tour-seattle-washington-12-05-2026/event/0F0064A7E4DC1D09",
+      "partialFingerprint": "1ywrcrg"
+    },
+    "wamu-theater:tm-vvG1HZ_2KdMu_r": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/tape-b-seattle-washington-12-05-2026/event/0F0064F4C3DCD65E",
+      "partialFingerprint": "1bgtl6n"
+    },
+    "wamu-theater:tm-vvG1HZ_2xQoByj": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-tape-b-seattle-washington-12-05-2026/event/0F0064F89A47AE5C",
+      "partialFingerprint": "1v12aie"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.parentmap.com/calendar/seattle-boba-fest-0/",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_8UqqUNb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-seattle-washington-12-05-2026/event/0F00650D9D7768D8",
+      "partialFingerprint": "1g3mt09"
+    },
+    "discover-slu:discover-slu-photo-essentials-1-2026-2-2-2-2-2-2-2-2-2-2": {
+      "fields": {
+        "duration": 5400
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/photo-essentials-1-2026-2-2-2-2-2-2-2-2-2-2/",
+      "partialFingerprint": "mh6xis"
     }
   }
 }
