@@ -7,6 +7,7 @@ icsUrl: "https://seattleindies.org/?post_type=tribe_events&ical=1&eventDisplay=l
 infoUrl: "https://seattleindies.org/events/"
 imageUrl: "https://seattleindies.org/wp-content/themes/seattle-indies/images/socialmedia_logo.png"
 geo: null
+proxy: outofband
 tags:
   - Gaming
   - Tech
