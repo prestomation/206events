@@ -215,6 +215,9 @@ export default class SeattleChildrensTheatreRipper implements IRipper {
         }
 
         const calConfig = ripper.config.calendars[0];
+        if (!calConfig) {
+            throw new Error("No calendars configured for seattle-childrens-theatre");
+        }
         return [{
             name: calConfig.name,
             friendlyname: calConfig.friendlyname,
