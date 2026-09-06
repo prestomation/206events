@@ -114,6 +114,16 @@ describe('parsePanel invalid-date handling', () => {
         expect(result).not.toBeNull();
         expect(result!).toHaveProperty('type', 'ParseError');
     });
+
+    it('returns null (not a ParseError) for the off-season "Schedule TBD" placeholder heading', () => {
+        const html = parse('<div class="fusion-panel">'
+            + '<span class="fusion-toggle-heading">2027 - Schedule TBD</span>'
+            + '<div class="panel-body">We\'ll be back Summer of 2027!</div>'
+            + '</div>');
+        const panel = html.querySelector('.fusion-panel')!;
+        const result = parsePanel(panel, NOW, PACIFIC);
+        expect(result).toBeNull();
+    });
 });
 
 describe('parsePanelsFromHtml (integration)', () => {
