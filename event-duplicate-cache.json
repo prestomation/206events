@@ -17944,6 +17944,181 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-05",
       "note": "PAX West 2026 at Seattle Convention Center — same event in venue feed (seattle-convention-center) and aggregator (Geekwire). Venue feed is canonical."
+    },
+    "charlies-queer-books-all-events.ics This Book Group is Queer (virtual)|2026-09-08T18:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics  This Book Group is Queer (virtual)|2026-09-08T18:00:00.256-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event listed by both charlies-queer-books and queer-social-club"
+    },
+    "events12-seattle-events.ics Gay Nordic film festival|2026-09-16T18:00:00-07:00[America/Los_Angeles]::national-nordic-museum-national-nordic-museum.ics SEA-Nordic Film Festival: Skádja (2022) & Sauna (2025)|2026-09-16T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-06",
+      "note": "Different titles - events12 generic festival listing vs specific museum film screening"
+    },
+    "external-seattle-city-of-lit.ics  Folio Presents: Hamlet – Behind the Scenes with Director Victor Pappas|2026-09-13T21:00:00Z[UTC]::pike-place-market-events.ics Folio Presents: Hamlet – Behind the Scenes with Director Victor Pappas|2026-09-13T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at Folio/Seattle Athenaeum 93 Pike St, listed by PPM and Seattle City of Lit"
+    },
+    "external-seattle-city-of-lit.ics  Folio Presents: Novel Study – Don Quixote by Miguel de Cervantes|2026-09-10T23:00:00Z[UTC]::pike-place-market-events.ics Folio Presents: Novel Study – Don Quixote by Miguel de Cervantes|2026-09-10T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at Folio, listed by both PPM and Seattle City of Lit (hybrid in-person/Zoom)"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-09-23T00:00:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-09-23T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL across UW campus and Foster school calendars"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-10-07T19:00:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-10-07T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL across UW campus and Foster school calendars"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-10-23T00:00:00Z[UTC]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-10-23T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL across UW campus and Foster school calendars"
+    },
+    "external-uw-campus-events.ics MSIM International Q&A Information Session|2026-09-30T15:30:00Z[UTC]::external-uw-information-school.ics MSIM International Q&A Information Session|2026-09-30T15:30:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL in UW campus and iSchool calendars"
+    },
+    "external-uw-campus-events.ics PhD in Information Science Information Session|2026-09-15T19:00:00Z[UTC]::external-uw-information-school.ics PhD in Information Science Information Session|2026-09-15T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL in UW campus and iSchool calendars"
+    },
+    "external-uw-campus-events.ics PhD in Information Science Information Session|2026-11-18T20:00:00Z[UTC]::external-uw-information-school.ics PhD in Information Science Information Session|2026-11-18T20:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL in UW campus and iSchool calendars"
+    },
+    "external-uw-campus-events.ics Pick Your Path Through MSIM|2026-10-16T19:00:00Z[UTC]::external-uw-information-school.ics Pick Your Path Through MSIM|2026-10-16T19:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL in UW campus and iSchool calendars"
+    },
+    "external-uw-campus-events.ics Sesión Informativa para Estudiantes Potenciales del MLIS / MLIS Prospective Student Information Session (Spanish)|2026-11-06T00:00:00Z[UTC]::external-uw-information-school.ics Sesión Informativa para Estudiantes Potenciales del MLIS / MLIS Prospective Student Information Session (Spanish)|2026-11-06T00:00:00Z[UTC]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Identical event URL in UW campus and iSchool calendars"
+    },
+    "nectar-lounge-nectar-lounge.ics RJD2 with Alice Camille & Nathan Nothing (DJ Set)|2026-09-19T19:30:00-07:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics RJD2 with Alice Camille & DJ Indica Jones|2026-09-19T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-06",
+      "note": "Different supporting acts listed (Nathan Nothing vs DJ Indica Jones) and 30min time discrepancy"
+    },
+    "pike-place-market-events.ics Blessed %26 Blasphemous|2026-09-06T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Blessed & Blasphemous|2026-09-06T19:30:00.627-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Darren Loucas, Barton Carroll %26 Braly Sangster|2026-09-11T20:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Darren Loucas, Barton Carroll & Braly Sangster|2026-09-11T20:00:00.549-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Debbie Miller, Amanda Winterhalter + Friends|2026-10-03T20:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Debbie Miller, Amanda Winterhalter + Friends|2026-10-03T20:00:00.585-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Desert Hollow|2026-09-07T19:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Desert Hollow|2026-09-07T19:00:00.568-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics John Coons and Jonah Wheeler, DOUBLE INDUMBNITY|2026-09-20T19:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics John Coons and Jonah Wheeler, DOUBLE INDUMBNITY|2026-09-20T19:00:00.279-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Joseph Decosimo / Elise Leavy|2026-09-09T20:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Joseph Decosimo / Elise Leavy|2026-09-09T20:00:00.186-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Lady A|2026-09-18T19:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Lady A|2026-09-18T19:00:00.699-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Open Michael|2026-09-22T18:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Open Michael |2026-09-22T18:00:00.263-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Sam Weber|2026-09-05T20:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Sam Weber|2026-09-05T20:00:00.532-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics The Bad Things with Mister Ink|2026-09-19T20:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics The Bad Things with Mister Ink|2026-09-19T20:00:00.041-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics The Set Up|2026-09-12T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics The Set Up |2026-09-12T19:30:00.255-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics The Triple Door presents Alicia Witt – Album Release Show at The Rabbit Box|2026-10-01T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics The Triple Door presents Alicia Witt – Album Release Show at The Rabbit Box|2026-10-01T19:30:00.854-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics The Triple Door presents Dune Moss at The RabbitBox|2026-09-10T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics The Triple Door presents Dune Moss at The RabbitBox|2026-09-10T19:30:00.047-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics The Triple Door presents Federico Aubele at the Rabbit Box|2026-09-29T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics The Triple Door presents Federico Aubele at the Rabbit Box|2026-09-29T19:30:00.629-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by both PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics Richard B. Simon reading from his new novel, %26#8220;The Dolphin Ambassador's Daughter''|2026-09-13T19:30:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics Richard B. Simon reading from his new novel, \"The Dolphin Ambassador's Daughter\" |2026-09-13T19:30:00.482-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box (94 Pike St) listed by PPM and rabbit_box, HTML entity/quote variant"
+    },
+    "pike-place-market-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater %26 Songs by Michelle Lassaline|2026-09-26T19:00:00-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline at The Rabbit Box|2026-09-26T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box - Triple Door presentation, listed by both PPM and triple-door"
+    },
+    "pike-place-market-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater %26 Songs by Michelle Lassaline|2026-09-26T19:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline|2026-09-26T19:00:00.404-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box listed by PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater %26 Songs by Michelle Lassaline|2026-09-27T15:00:00-07:00[America/Los_Angeles]::rabbit_box-all-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline |2026-09-27T15:00:00.404-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box listed by PPM and rabbit_box"
+    },
+    "pike-place-market-events.ics The Triple Door and Debra Heesch present The Ghost of Buena Vista Past, Shadow Theater %26 Songs by Michelle Lassaline|2026-09-27T15:00:00-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics The Ghost of Buena Vista Past, Shadow Theater & Songs by Michelle Lassaline at The Rabbit Box|2026-09-27T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same event at The Rabbit Box - Triple Door presentation, listed by both PPM and triple-door"
+    },
+    "pike-place-market-events.ics The Triple Door presents Federico Aubele at the Rabbit Box|2026-09-29T19:30:00-07:00[America/Los_Angeles]::triple-door-the-triple-door.ics Federico Aubele @ The Rabbit Box|2026-09-29T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same Federico Aubele show at The Rabbit Box listed by PPM and Triple Door"
+    },
+    "queer-social-club-all-events.ics Queer Figure Drawing|2026-09-06T14:00:00.181-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Queer Figure Drawing|2026-09-06T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same recurring Queer Figure Drawing event listed by queer-social-club and seattle-pride"
+    },
+    "queer-social-club-all-events.ics Queer Figure Drawing|2026-09-20T14:00:00.181-07:00[America/Los_Angeles]::seattle-pride-all-events.ics Queer Figure Drawing|2026-09-20T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-06",
+      "note": "Same recurring Queer Figure Drawing event listed by queer-social-club and seattle-pride"
     }
   }
 }
