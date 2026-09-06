@@ -1,8 +1,17 @@
 import { Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
+
+// Deterministic hash for partialFingerprint — stability only, not security.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
 
 const BASE_URL = "https://www.sct.org";
 const CALENDAR_URL = `${BASE_URL}/tickets-shows/calendar`;
@@ -82,8 +91,9 @@ export function parseCalendarPage(html: HTMLElement, requestedYear: number, requ
 
         for (const eventEl of dayCell.querySelectorAll("li.event")) {
             const typeEl = eventEl.querySelector(".event-type span");
-            const eventType = typeEl?.getAttribute("class")?.trim() ?? "";
-            if (SKIPPED_EVENT_TYPES.has(eventType)) continue;
+            const typeClasses = (typeEl?.getAttribute("class") ?? "").trim().split(/\s+/).filter(Boolean);
+            if (typeClasses.some(c => SKIPPED_EVENT_TYPES.has(c))) continue;
+            const eventType = typeClasses[0] ?? "";
 
             const linkEl = eventEl.querySelector(".event-name a");
             const title = linkEl?.text?.trim();
@@ -116,16 +126,28 @@ export function parseProductionDetail(html: HTMLElement): ProductionDetail {
     const description = html.querySelector('meta[property="og:description"]')?.getAttribute("content")?.trim();
 
     // The "Location"/"Running Time" fields are plain <p><strong>Label</strong><br>Value</p>
-    // blocks with no id/class to hook — match against the rendered text instead.
-    const bodyText = html.text;
-    const locationMatch = bodyText.match(/Location\s*\n?\s*([^\n]+?)(?:\s*Age Recommendation|\s*Running Time|$)/);
-    const runningTimeMatch = bodyText.match(/Running Time\s*\n?\s*Approx\.\s*(\d+)\s*minutes?/i);
+    // blocks with no id/class to hook. Scan each <p> individually (rather than
+    // regexing the whole page's text) so an unrelated "Location" elsewhere on
+    // the page — e.g. a footer or related-shows blurb — can't be mismatched.
+    let location: string | undefined;
+    let durationMinutes: number | undefined;
+    for (const p of html.querySelectorAll("p")) {
+        const label = p.querySelector("strong")?.text?.trim();
+        if (!label) continue;
+        const value = p.text.replace(label, "").trim();
+        if (label === "Location" && !location) {
+            location = value || undefined;
+        } else if (label === "Running Time" && durationMinutes === undefined) {
+            const match = value.match(/Approx\.\s*(\d+)\s*minutes?/i);
+            if (match) durationMinutes = parseInt(match[1], 10);
+        }
+    }
 
     return {
         imageUrl: imageUrl || undefined,
         description: description || undefined,
-        location: locationMatch?.[1]?.trim() || undefined,
-        durationMinutes: runningTimeMatch ? parseInt(runningTimeMatch[1], 10) : undefined,
+        location,
+        durationMinutes,
     };
 }
 
@@ -164,20 +186,18 @@ export default class SeattleChildrensTheatreRipper implements IRipper {
             }
 
             for (const parsedEvent of parsedEvents) {
+                // A known start time on the grid always parses; if the site ever
+                // ships an unrecognized format, still publish the event (noon
+                // placeholder) rather than silently dropping a real show, and
+                // flag it through the standard uncertainty flow instead.
                 const time = parseTime(parsedEvent.timeText);
-                if (!time) {
-                    errors.push({
-                        type: "ParseError",
-                        reason: `Could not parse event time "${parsedEvent.timeText}"`,
-                        context: parsedEvent.title,
-                    });
-                    continue;
-                }
+                const startTimeUncertain = time === null;
+                const { hour, minute } = time ?? { hour: 12, minute: 0 };
 
                 let date: ZonedDateTime;
                 try {
                     date = ZonedDateTime.of(
-                        LocalDateTime.of(parsedEvent.year, parsedEvent.month, parsedEvent.day, time.hour, time.minute),
+                        LocalDateTime.of(parsedEvent.year, parsedEvent.month, parsedEvent.day, hour, minute),
                         TIMEZONE
                     );
                 } catch (e) {
@@ -190,7 +210,7 @@ export default class SeattleChildrensTheatreRipper implements IRipper {
                 }
                 if (date.isBefore(now)) continue;
 
-                const id = `sct-${slugify(parsedEvent.title)}-${date.toLocalDate().toString().replace(/-/g, "")}-${String(time.hour).padStart(2, "0")}${String(time.minute).padStart(2, "0")}`;
+                const id = `sct-${slugify(parsedEvent.title)}-${date.toLocalDate().toString().replace(/-/g, "")}-${String(hour).padStart(2, "0")}${String(minute).padStart(2, "0")}`;
                 if (seenIds.has(id)) continue; // month-grid padding can repeat the same day across two fetches
                 seenIds.add(id);
 
@@ -200,7 +220,7 @@ export default class SeattleChildrensTheatreRipper implements IRipper {
                 }
                 const detail = productionCache.get(productionUrl) ?? null;
 
-                events.push({
+                const event: RipperCalendarEvent = {
                     id,
                     ripped: new Date(),
                     date,
@@ -210,7 +230,20 @@ export default class SeattleChildrensTheatreRipper implements IRipper {
                     location: detail?.location ? `${detail.location}, ${VENUE_ADDRESS}` : VENUE_ADDRESS,
                     url: productionUrl,
                     imageUrl: detail?.imageUrl,
-                });
+                };
+                events.push(event);
+
+                if (startTimeUncertain) {
+                    const unknownFields: UncertaintyField[] = ["startTime"];
+                    errors.push({
+                        type: "Uncertainty",
+                        reason: `Unrecognized calendar time format: "${parsedEvent.timeText}"`,
+                        source: "seattle-childrens-theatre",
+                        unknownFields,
+                        event,
+                        partialFingerprint: simpleHash(parsedEvent.timeText),
+                    });
+                }
             }
         }
 
