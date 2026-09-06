@@ -79040,11 +79040,14 @@
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
       "fields": {
         "startTime": "12:00",
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-06",
       "source": "agent",
-      "evidence": "https://www.parentmap.com/calendar/seattle-boba-fest-0/",
+      "evidence": "https://udistrictseattle.com/bobafest/about",
       "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
     },
     "climate-pledge-arena:tm-vvG1HZ_8UqqUNb": {
@@ -79066,6 +79069,66 @@
       "source": "agent",
       "evidence": "https://www.discoverslu.com/events/photo-essentials-1-2026-2-2-2-2-2-2-2-2-2-2/",
       "partialFingerprint": "mh6xis"
+    },
+    "seattle-cocktail-club:6a99cc5cd6733a13236c9244": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.seattlecocktailclub.com/event/happy-hour-at-judes-37wab-s2rdf-gkx59"
+    },
+    "seattle-creates:6a97034730f39472bd8b0650": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.seattlecreates.org/events/walk-dont-run-w6p86"
+    },
+    "seattle-folklore-society:seattle-folklore-society-kalos-cd-release-concert-at-fremont-abbey-2026-11-18": {
+      "fields": {
+        "cost": {
+          "min": 26.99
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/kalos-cd-release-concert-at-fremont-abbey/"
+    },
+    "tabletop-village:1r2o40803sdtoobp66dq3ahur3_R20260808T010000@google.com-2027-03-05": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/trade-day"
+    },
+    "tabletop-village:782ebrph990d6kbt5fmk04do31_R20260328T010000@google.com-2027-03-05": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/collections/tournament"
+    },
+    "tabletop-village:70jn8l1at8qjls7981j5qs4rnr_R20260328T010000@google.com-2027-03-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-06",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/tournaments"
     }
   }
 }
