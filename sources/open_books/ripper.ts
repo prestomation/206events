@@ -24,24 +24,16 @@ interface ShopifyPageResponse {
 
 // One <li> pulled out of a <ul> that follows a recognized month-name <p>.
 interface RawListItem {
-    /** Plain-text month name from the enclosing <p> header (sanity check only). */
+    /**
+     * Plain-text month name from the enclosing <p> header. Captured for
+     * context/debugging only — parseListItem does not cross-check it against
+     * the numeric M/D prefix (which is authoritative), so a source data-entry
+     * mistake that misfiles a list item under the wrong month header will not
+     * be flagged.
+     */
     monthHeader: string;
     /** Inner HTML of the <li>, unmodified — still needs tag-stripping/href extraction. */
     innerHtml: string;
-}
-
-interface ParsedItem {
-    month: number;
-    day: number;
-    year: number;
-    title: string;
-    url?: string;
-    hour: number;
-    minute: number;
-    endHour?: number;
-    endMinute?: number;
-    timeConfident: boolean;
-    cost?: EventCost;
 }
 
 export default class OpenBooksRipper implements IRipper {
@@ -150,16 +142,32 @@ export default class OpenBooksRipper implements IRipper {
         const hour = parsedTail.timeConfident ? parsedTail.hour : DEFAULT_START_HOUR;
         const minute = parsedTail.timeConfident ? parsedTail.minute : 0;
 
-        const eventDate = ZonedDateTime.of(
-            LocalDateTime.of(year, month, day, hour, minute),
-            TIMEZONE
-        );
+        // LocalDateTime.of throws for a calendar-invalid month/day (e.g. a
+        // mis-scanned "13/40" prefix, or "2/30"); catch it here and report a
+        // ParseError instead of letting it escape parseListItem and crash the
+        // whole rip() loop for every other list item.
+        let eventDate: ZonedDateTime;
+        try {
+            eventDate = ZonedDateTime.of(
+                LocalDateTime.of(year, month, day, hour, minute),
+                TIMEZONE
+            );
+        } catch (err) {
+            return [{
+                type: 'ParseError',
+                reason: `Invalid date month=${month} day=${day}: ${err}`,
+                context: plainText,
+            }];
+        }
 
         let durationMinutes = DEFAULT_DURATION_MINUTES;
         if (parsedTail.endHour !== undefined) {
             const end = parsedTail.endHour * 60 + (parsedTail.endMinute ?? 0);
             const start = hour * 60 + minute;
             if (end > start) durationMinutes = end - start;
+            // Spans midnight (e.g. "11pm-1am"): the end clock time is
+            // earlier than the start, so wrap through the end of the day.
+            else if (end < start) durationMinutes = (24 * 60 - start) + end;
         }
 
         // href extraction: the first <a href="..."> found in the raw inner
@@ -237,6 +245,10 @@ export default class OpenBooksRipper implements IRipper {
             } else if (costMatch[2]) {
                 const amount = parseFloat(costMatch[2]);
                 if (!isNaN(amount)) cost = { min: amount };
+            } else if (/donation/i.test(costMatch[1])) {
+                // Donation-based has no required minimum, per the pricing
+                // rubric (min = cheapest general-admission price).
+                cost = { min: 0 };
             }
             text = text.slice(0, costMatch.index).trim();
         }

@@ -101,6 +101,12 @@ describe('OpenBooksRipper - parseTailSegments', () => {
         expect(result.cost).toBeUndefined();
     });
 
+    test('maps a "donation" cost segment to a $0 minimum, matching the pricing rubric', () => {
+        const result = ripper.parseTailSegments('Benefit Reading, 7pm, donation');
+        expect(result.title).toBe('Benefit Reading');
+        expect(result.cost).toEqual({ min: 0 });
+    });
+
     test('returns timeConfident=false and a placeholder time when no time is present at all', () => {
         const result = ripper.parseTailSegments('A Poetry Reading With No Listed Time, free');
         expect(result.timeConfident).toBe(false);
@@ -221,6 +227,38 @@ describe('OpenBooksRipper - parseListItem', () => {
         // Re-parsing the identical item yields the identical id.
         const again = eventOf(ripper.parseListItem(item));
         expect(again!.id).toBe(event!.id);
+    });
+
+    test('returns a ParseError (not a thrown exception) for a calendar-invalid month/day', () => {
+        const item = {
+            monthHeader: 'october',
+            innerHtml: '<span><strong>13/40</strong>: Bogus Date Entry, 7pm, free</span>',
+        };
+        const results = ripper.parseListItem(item);
+        expect(results).toHaveLength(1);
+        expect(results[0]).toHaveProperty('type', 'ParseError');
+    });
+
+    test('returns a ParseError (not a thrown exception) for a day that does not exist in the given month', () => {
+        const item = {
+            monthHeader: 'february',
+            innerHtml: '<span><strong>2/30</strong>: Bogus Date Entry, 7pm, free</span>',
+        };
+        const results = ripper.parseListItem(item);
+        expect(results).toHaveLength(1);
+        expect(results[0]).toHaveProperty('type', 'ParseError');
+    });
+
+    test('computes duration across midnight when the event spans into the next day', () => {
+        const item = {
+            monthHeader: 'october',
+            innerHtml: '<span><strong>10/31</strong>: Late Night Reading, 11pm-1am, free</span>',
+        };
+        const results = ripper.parseListItem(item);
+        const event = eventOf(results);
+        expect(event).toBeDefined();
+        expect(event!.date.hour()).toBe(23);
+        expect(event!.duration.toMinutes()).toBe(120);
     });
 });
 
