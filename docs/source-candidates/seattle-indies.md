@@ -16,8 +16,8 @@ Investigated 2026-06-20:
 - Tribe Events ICS feed at `/?post_type=tribe_events&ical=1&eventDisplay=list` returns 200 OK with 30 upcoming events
 - ~19 events in Seattle proper; remaining are online (10) or regional socials in Auburn, Bremerton, Tacoma (1-3 each)
 - Primary Seattle venues: Academy of Interactive Entertainment (305 Harrison St, Seattle Center), Phoenix Comics and Games (113 Broadway E), Stoup Brewery, Chuck's Hop Shop, Hugo House, Watershed Pub
-- No proxy required (WordPress.com — accessible from GitHub Actions)
 - Organization is Seattle-based; primarily serves Seattle indie game dev audience
 - Not covered anywhere else in the repo
+- **Re-probed 2026-09-06 (out-of-band):** the Tribe ICS feed now returns `HTTP 403: Forbidden` from the residential out-of-band IP — no longer directly accessible. Staged for proxy testing at `proxy: "outofband"` (PR #1390). Outofband rung failed (403); browserbase rung untested (`BROWSERBASE_API_KEY` absent) — left open to retry.
 
 Implemented as `sources/external/seattle-indies.yaml` with `geo: null`, `sourceRole: venue`, tags `Gaming`, `Tech`, `Community`.
