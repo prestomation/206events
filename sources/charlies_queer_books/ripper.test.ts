@@ -160,3 +160,46 @@ describe('CharliesQueerBooksRipper - stripHtml', () => {
         expect(ripper.stripHtml('')).toBe('');
     });
 });
+
+describe('CharliesQueerBooksRipper - parseCost', () => {
+    const ripper = new CharliesQueerBooksRipper();
+    const row = (over = {}) => ({ id: 1, title: 't', ...over }) as any;
+
+    test('reads an explicit single price from the description', () => {
+        expect(ripper.parseCost(row(), 'Tickets for this event are $35.')).toEqual({ min: 35 });
+    });
+
+    test('reads a price range', () => {
+        expect(ripper.parseCost(row(), '$45 – $55 (Includes Book)')).toEqual({ min: 45, max: 55 });
+    });
+
+    test('a range whose end is not higher collapses to a single min', () => {
+        expect(ripper.parseCost(row(), '$20 - $20')).toEqual({ min: 20 });
+    });
+
+    test('recognizes explicit free phrasing', () => {
+        expect(ripper.parseCost(row(), 'It is FREE with RSVP.')).toEqual({ min: 0 });
+        expect(ripper.parseCost(row(), 'Admission is free.')).toEqual({ min: 0 });
+    });
+
+    test('does not treat incidental prose as free', () => {
+        // The bare /free/ match this deliberately avoids: "her free time".
+        expect(ripper.parseCost(row(), 'She writes poetry in her free time.')).toBeUndefined();
+    });
+
+    test('a ticket SKU means paid with an unknown amount', () => {
+        expect(ripper.parseCost(row({ tickets: ['sku-1'] }), 'Join us!')).toEqual({ paid: true });
+        expect(ripper.parseCost(row({ ticket_label: 'Buy Tickets' }), 'Join us!')).toEqual({ paid: true });
+    });
+
+    test('a stated price wins over the ticket SKU', () => {
+        expect(ripper.parseCost(row({ tickets: ['sku-1'] }), 'Tickets are $18.')).toEqual({ min: 18 });
+    });
+
+    test('returns undefined when nothing indicates a price', () => {
+        // The regression this guards: main previously published this as
+        // { min: 0 }, stating a guess as fact and hiding the gap from costGaps.
+        expect(ripper.parseCost(row(), 'An evening of readings.')).toBeUndefined();
+        expect(ripper.parseCost(row(), undefined)).toBeUndefined();
+    });
+});
