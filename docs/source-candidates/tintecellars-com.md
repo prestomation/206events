@@ -6,7 +6,7 @@ url: https://tintecellars.com/events/
 tags: [Wine, Georgetown]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-07
-pr:
+pr: 1395
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
