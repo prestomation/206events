@@ -1,9 +1,14 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
+import { screenshotStable } from './screenshot.js'
 
-// Map-view smoke tests. These exercise the real built bundle: temporal-group
-// markers, the drill-down panel, and (critically) that clicking a pin never
-// throws an uncaught page error.
+// Map-view smoke tests. These exercise the real built bundle: venue pins, the
+// popup they open, and (critically) that clicking a pin never throws an
+// uncaught page error.
+//
+// A pin is a VENUE, not a series (lib/event-grouping.js groupByVenue), so the
+// two fixtures below — a three-night run at Neumos and a one-off in Bellevue —
+// are two pins, and the Neumos pin carries a "3" date count.
 
 // A js-joda-style local datetime string N days out at the given hour.
 function futureJoda(days, hour = 19) {
@@ -57,12 +62,25 @@ test.afterEach(async ({ page }) => {
 async function openMap(page) {
   await page.goto('/')
   await expect(page.getByText('Neumos')).toBeVisible()
-  const mapTab = page.getByRole('button', { name: 'Map' })
+  // `exact` matters: without it this also matches the map bar's "Expand map"
+  // button, which silently puts the desktop map full-screen.
+  const mapTab = page.getByRole('button', { name: 'Map', exact: true })
   if (await mapTab.count() && await mapTab.first().isVisible()) await mapTab.first().click()
   const map = page.locator('.events-map-container:visible').first()
   await expect(map.locator('.events-map')).toBeVisible()
   return map
 }
+
+// The two pins, told apart by their date count: only the three-night run has
+// one. Both are divIcons now — there is no <img> marker left to key off.
+const runPin = (map) => map.locator('.mpin:has(.mpin-count)')
+const singlePin = (map) => map.locator('.mpin:not(:has(.mpin-count))')
+
+// The popup is a sibling of the map container (it lives in MapPanel, so that
+// following a calendar re-renders it without rebuilding the marker layer), and
+// the mobile keep-alive can hold a second, hidden MapPanel — so scope to the
+// visible one at page level rather than inside .events-map-container.
+const visiblePopup = (page) => page.locator('[data-testid="map-popup"]:visible')
 
 // Issue #653: the map frames its initial viewport at the metro extent
 // (city.config clampBounds) the moment it mounts, so OSM tiles for the right
@@ -83,7 +101,7 @@ test('requests metro-extent tiles at mount (no city-center zoom-in animation)', 
 
   const map = await openMap(page)
   // Markers still render (the events fit happens on top of the initial frame).
-  await expect(map.locator('.event-group-marker')).toHaveCount(1)
+  await expect(map.locator('.mpin')).toHaveCount(2)
 
   // Wait for the first tile request to land, then assert the map mounted framed
   // at the wide metro extent (zoom <= 11) rather than the old city-center zoom
@@ -96,51 +114,73 @@ test('requests metro-extent tiles at mount (no city-center zoom-in animation)', 
   expect(tileZooms[0], 'first tile request should be a metro-extent zoom (<= 11)')
     .toBeLessThanOrEqual(11)
 
-  await map.screenshot({ path: 'e2e/screenshots/map-initial-bounds.png' })
+  await screenshotStable(page, 'e2e/screenshots/map-initial-bounds.png', { expectMarkers: true })
 })
 
-test('renders group and plain markers on the map', async ({ page }) => {
+test('renders one pin per venue, with a date count on the multi-date one', async ({ page }) => {
   const map = await openMap(page)
-  // The three-night run collapses to one badged group marker; the one-off is a
-  // plain Leaflet marker.
-  await expect(map.locator('.event-group-marker')).toHaveCount(1)
-  await expect(map.locator('.event-group-badge')).toHaveText('3')
-  await expect(map.locator('img.leaflet-marker-icon')).toHaveCount(1)
+  // Two venues, so two pins. The three-night run's pin carries its date count;
+  // the one-off shows no lonely "1".
+  await expect(map.locator('.mpin')).toHaveCount(2)
+  await expect(map.locator('.mpin-count')).toHaveCount(1)
+  await expect(map.locator('.mpin-count')).toHaveText('3')
 })
 
-test('clicking a group pin opens the panel listing every date', async ({ page }) => {
+test('clicking a multi-date pin opens the popup listing every date', async ({ page }) => {
   const map = await openMap(page)
-  await map.locator('.event-group-marker').click()
+  await runPin(map).click()
 
-  const panel = map.getByTestId('event-group-panel')
-  await expect(panel).toBeVisible()
-  await expect(panel.getByText('Long Run Musical')).toBeVisible()
-  await expect(panel.getByText('3 dates')).toBeVisible()
-  // Each date links to its instance.
-  await expect(panel.locator('a.egp-row')).toHaveCount(3)
+  const popup = visiblePopup(page)
+  await expect(popup).toBeVisible()
+  await expect(popup.getByText('Long Run Musical')).toBeVisible()
+  await expect(popup.getByText('3 dates').first()).toBeVisible()
+  // One row per date, each with a link out to that instance's own page.
+  await expect(popup.locator('.mp-daterow')).toHaveCount(3)
+  await expect(popup.locator('a.mp-daterow-go')).toHaveCount(3)
+
+  await screenshotStable(page, 'e2e/screenshots/map-panel-event.png', { fullPage: true, expectMarkers: true })
 })
 
-test('clicking a single-event pin opens the panel', async ({ page }) => {
+test('clicking a single-event pin opens its popup directly', async ({ page }) => {
   const map = await openMap(page)
-  await map.locator('img.leaflet-marker-icon').click()
+  await singlePin(map).click()
 
-  const panel = map.getByTestId('event-group-panel')
-  await expect(panel).toBeVisible()
-  await expect(panel.getByText('One Night Only')).toBeVisible()
-  await expect(panel.getByText('Event')).toBeVisible()
+  const popup = visiblePopup(page)
+  await expect(popup).toBeVisible()
+  await expect(popup.getByText('One Night Only')).toBeVisible()
+  await expect(popup.getByText('Event')).toBeVisible()
+  // One series at this venue, so there is no venue level to go back to.
+  await expect(popup.locator('.mp-back')).toHaveCount(0)
 })
 
-test('the panel closes via its close button', async ({ page }) => {
+test('the popup closes via its close button and on Escape', async ({ page }) => {
   const map = await openMap(page)
-  await map.locator('.event-group-marker').click()
-  const panel = map.getByTestId('event-group-panel')
-  await expect(panel).toBeVisible()
-  await panel.getByRole('button', { name: 'Close' }).click()
-  await expect(panel).toHaveCount(0)
+  await runPin(map).click()
+  const popup = visiblePopup(page)
+  await expect(popup).toBeVisible()
+  await popup.getByRole('button', { name: 'Close' }).click()
+  await expect(popup).toHaveCount(0)
+
+  await runPin(map).click()
+  await expect(visiblePopup(page)).toBeVisible()
+  await page.keyboard.press('Escape')
+  await expect(visiblePopup(page)).toHaveCount(0)
 })
 
-// Mobile (Android-like) viewport: the map is a tab and the panel is a bottom
-// sheet with the preview mode toggle. Clicking a pin must not crash.
+test('the open pin reads as selected, and is labelled even when the budget is off', async ({ page }) => {
+  const map = await openMap(page)
+  // Two pins ~9km apart frame at a zoom below the label threshold, so neither
+  // wears its name until one is opened.
+  await expect(map.locator('.mpin-label')).toHaveCount(0)
+  await runPin(map).click()
+  await expect(map.locator('.mpin--sel')).toHaveCount(1)
+  await expect(map.locator('.mpin--sel .mpin-label')).toHaveText('Long Run Musical')
+
+  await screenshotStable(page, 'e2e/screenshots/map-pin-selected.png', { expectMarkers: true })
+})
+
+// Mobile (Android-like) viewport: the map is a tab and the popup is a bottom
+// sheet. Clicking a pin must not crash.
 test.describe('mobile', () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
   // isMobile is a Chromium-only emulation feature; Firefox rejects it outright.
@@ -148,22 +188,26 @@ test.describe('mobile', () => {
 
   test('clicking a pin opens the draggable bottom sheet without errors', async ({ page }) => {
     const map = await openMap(page)
-    await map.locator('.event-group-marker').click()
-    const panel = map.getByTestId('event-group-panel')
+    await runPin(map).click()
+    const panel = visiblePopup(page)
     await expect(panel).toBeVisible()
     await expect(panel.getByText('Long Run Musical')).toBeVisible()
     // The sheet opens at the peek height (dvh) with a drag handle.
-    await expect(panel.locator('.egp-handle')).toBeVisible()
+    await expect(panel.locator('.mp-handle')).toBeVisible()
     await expect(panel).toHaveAttribute('style', /height:\s*45dvh/)
+    // The narrow layout scans dates as a chip strip rather than rows.
+    await expect(panel.locator('.mp-chip')).toHaveCount(3)
+
+    await screenshotStable(page, 'e2e/screenshots/map-sheet-event-mobile.png', { expectMarkers: true })
   })
 
   test('dragging the handle resizes the sheet and keeps it on screen', async ({ page }) => {
     const map = await openMap(page)
-    await map.locator('.event-group-marker').click()
-    const panel = map.getByTestId('event-group-panel')
+    await runPin(map).click()
+    const panel = visiblePopup(page)
     await expect(panel).toBeVisible()
 
-    const handle = panel.locator('.egp-handle')
+    const handle = panel.locator('.mp-handle')
     const box = await handle.boundingBox()
     const cx = box.x + box.width / 2
     const cy = box.y + box.height / 2

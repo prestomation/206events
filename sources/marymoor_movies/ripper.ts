@@ -97,6 +97,11 @@ export function parsePanel(
     const heading = headingEl?.textContent?.trim();
     if (!heading) return null;
 
+    // The site posts a "20XX - Schedule TBD" placeholder heading in the
+    // off-season (outdoor movie season runs summer only) — that's an
+    // expected 0-events state, not a parse failure.
+    if (/schedule\s*tbd/i.test(heading)) return null;
+
     const parsed = parseHeading(heading);
     if (!parsed) {
         return {

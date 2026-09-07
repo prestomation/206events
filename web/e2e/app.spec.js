@@ -1,6 +1,11 @@
 import { test, expect } from '@playwright/test'
 import { installDataMocks } from './mock-routes.js'
 
+// The content column. Event titles now appear twice on the page — once in the
+// list and once as a map pin label (labelled pins, docs/map-design-system.md) —
+// so assertions about the LIST scope here rather than matching either copy.
+const list = (page) => page.locator('.a-content')
+
 // High-value, copy-resilient smoke paths for the 206.events web UI. Data is
 // fully mocked (see mock-routes.js); these exercise the real built bundle in a
 // real browser.
@@ -31,13 +36,13 @@ test('search filters the events list', async ({ page }) => {
 
   // Switch Discover into Events mode, then narrow with the single top-bar search.
   await page.getByText('Events', { exact: true }).first().click()
-  await expect(page.getByText('Jazz Night')).toBeVisible()
-  await expect(page.getByText('Movie Premiere')).toBeVisible()
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toBeVisible()
 
   await page.getByPlaceholder('Search events & venues…').fill('jazz')
   await expect(page.getByText(/Searching:/)).toBeVisible()
-  await expect(page.getByText('Jazz Night')).toBeVisible()
-  await expect(page.getByText('Movie Premiere')).toHaveCount(0)
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toHaveCount(0)
 })
 
 test('navigates between Discover, Following, and You views', async ({ page }) => {

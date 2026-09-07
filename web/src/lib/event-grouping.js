@@ -213,3 +213,131 @@ export function groupEvents(events) {
 
   return groups
 }
+
+// ---------------------------------------------------------------------------
+// Venue grouping — one map pin per PLACE, not per series.
+//
+// `groupEvents` above buckets by venue AND source feed, so three different
+// shows at Neumos (or one show listed by two feeds) produce three markers
+// stacked on one coordinate. The map surface treats a pin as a place, so this
+// second pass collapses those into a single venue whose popup lists every
+// series running there.
+//
+// `icsUrl` is deliberately NOT part of the key: a venue is a place, and which
+// feed happened to publish a show is not part of its identity.
+//
+// The coordinate alone is not enough either. A source with a ripper-level `geo`
+// stamps that ONE point on every event it publishes — `discover-slu` puts its
+// office coordinate on 43 events that actually happen at 17 different places
+// (MOHAI, REI, The Spheres, The Center for Wooden Boats…). Keying on the
+// coordinate alone merged that whole neighbourhood into a single pin and named
+// it after whichever location string happened to be most common, so the South
+// Lake Union Farmers Market showed up at "The Behnke Family Gallery". So the
+// key is coordinate + the name the events give the place: they are one venue
+// only when they agree about where they are (or none of them says).
+//
+// This runs on `groupEvents` output, never on raw events, so it inherits the
+// same post-`isMappable` scoping and changes nothing about membership.
+// ---------------------------------------------------------------------------
+
+// Leading "the" is noise for identity ("The Spheres" / "Spheres"), and the tail
+// after the first comma is the address or neighborhood rather than the place.
+const LEADING_THE = /^the\s+/
+
+/**
+ * Identity token for the place an event names, from its `location` string.
+ * Keeps only the leading segment, so "Seattle Center, 305 Harrison St" and a
+ * bare "Seattle Center" in another feed are recognised as one place. Returns
+ * '' when the event names nothing, which groups such events by coordinate
+ * alone — right for a single-venue source whose events carry no location.
+ */
+export function venueNameKey(location) {
+  return String(location ?? '')
+    .split(',')[0]
+    .toLowerCase()
+    .trim()
+    .replace(LEADING_THE, '')
+    .replace(/[^a-z0-9]/g, '')
+}
+
+// The place a series names: the first instance that carries a location.
+function seriesLocation(group) {
+  for (const inst of group.instances) {
+    const loc = String(inst?.location ?? '').trim()
+    if (loc) return loc
+  }
+  return ''
+}
+
+// First non-empty `location` string across a venue's instances, picking the
+// most common one so a single mislabelled instance can't rename the venue.
+// Ties resolve to first-seen, keeping the result deterministic.
+function modalLocation(series) {
+  const counts = new Map()
+  for (const g of series) {
+    for (const inst of g.instances) {
+      const loc = String(inst?.location ?? '').trim()
+      if (!loc) continue
+      counts.set(loc, (counts.get(loc) || 0) + 1)
+    }
+  }
+  let best = ''
+  let bestCount = 0
+  for (const [loc, n] of counts) {
+    if (n > bestCount) { best = loc; bestCount = n }
+  }
+  return best
+}
+
+/**
+ * Collapse temporal groups sharing a coordinate into one entry per venue.
+ *
+ * Returns Array<{ key, lat, lng, label, series, seriesCount, dateCount }>:
+ *   key         stable `${lat}|${lng}` grid token
+ *   label       the venue's modal location string ('' when none carry one)
+ *   series      the venue's groups, earliest first (ties: more dates first,
+ *               then input order) — deterministic for a given input
+ *   seriesCount series.length; 1 means the pin opens an event popup directly
+ *   dateCount   total instances across every series, for the pin's count badge
+ *
+ * Venue order is first-seen by input order, matching `groupEvents`.
+ */
+export function groupByVenue(groups) {
+  const buckets = new Map() // venue key -> { key, lat, lng, series[] }
+  const order = []
+
+  for (const g of groups) {
+    const key = `${quantizeCoord(g?.lat)}|${quantizeCoord(g?.lng)}|${venueNameKey(seriesLocation(g))}`
+    let bucket = buckets.get(key)
+    if (!bucket) {
+      bucket = { key, lat: g.lat, lng: g.lng, series: [] }
+      buckets.set(key, bucket)
+      order.push(key)
+    }
+    bucket.series.push(g)
+  }
+
+  return order.map((key) => {
+    const bucket = buckets.get(key)
+    // Decorate with the input index so the sort stays stable across engines
+    // (Array#sort is spec-stable in modern JS, but the map pipeline is hot
+    // enough that being explicit is cheaper than trusting it later).
+    const series = bucket.series
+      .map((g, i) => ({ g, i }))
+      .sort((a, b) => (
+        compareByDate(a.g.instances[0], b.g.instances[0])
+        || (b.g.count - a.g.count)
+        || (a.i - b.i)
+      ))
+      .map((x) => x.g)
+    return {
+      key: bucket.key,
+      lat: bucket.lat,
+      lng: bucket.lng,
+      label: modalLocation(series),
+      series,
+      seriesCount: series.length,
+      dateCount: series.reduce((n, g) => n + g.count, 0),
+    }
+  })
+}

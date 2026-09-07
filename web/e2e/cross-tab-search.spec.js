@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test'
 import { installDataMocks, overrideEventsIndex } from './mock-routes.js'
 import { screenshotStable } from './screenshot.js'
 
+// The content column. Event titles now appear twice on the page — once in the
+// list and once as a map pin label (labelled pins, docs/map-design-system.md) —
+// so assertions about the LIST scope here rather than matching either copy.
+const list = (page) => page.locator('.a-content')
+
 // Discover has two segmented tabs — Calendars (venues) and Events — and a
 // single search box. A query like "jazz" matches no venue names/tags but does
 // match events, so a user sitting on the default Calendars tab would otherwise
@@ -39,8 +44,8 @@ test('B: a new search lands on the tab that has results (venue-less query)', asy
   // "jazz" matches 0 calendars but 1 event → smart default flips to Events.
   await page.getByPlaceholder(SEARCH).fill('jazz')
   await expect(seg(page, 'Events')).toHaveClass(/on/)
-  await expect(page.getByText('Jazz Night')).toBeVisible()
-  await expect(page.getByText('Movie Premiere')).toHaveCount(0)
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Movie Premiere')).toHaveCount(0)
 })
 
 test('A: an empty Calendars tab offers a CTA to the matching Events', async ({ page }) => {
@@ -63,7 +68,7 @@ test('A: an empty Calendars tab offers a CTA to the matching Events', async ({ p
 
   await toEvents.click()
   await expect(seg(page, 'Events')).toHaveClass(/on/)
-  await expect(page.getByText('Jazz Night')).toBeVisible()
+  await expect(list(page).getByText('Jazz Night')).toBeVisible()
 })
 
 test('A (mirror): an empty Events tab offers a CTA to the matching Calendars', async ({ page }) => {
