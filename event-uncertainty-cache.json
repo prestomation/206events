@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-08-30": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-08-31": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -993,13 +985,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-08-31": {
       "unresolvable": true,
       "reason": "Commercial tour — booking times vary by individual reservation",
@@ -1825,13 +1810,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-08-31": {
       "unresolvable": true,
@@ -2666,13 +2644,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-08-31": {
       "unresolvable": true,
       "reason": "Season schedule page — each home game has a different start time",
@@ -3155,14 +3126,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour — booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-08-31": {
       "unresolvable": true,
@@ -3660,14 +3623,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-08-31": {
       "unresolvable": true,
       "reason": "Season schedule page — each game has a different start time",
@@ -3890,14 +3845,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:winery-concerts-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
     "events12:winery-concerts-2026-08-31": {
@@ -4124,14 +4071,6 @@
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
       "lastSeen": "2026-06-21"
     },
-    "events12:concerts-at-the-locks-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
-      "lastSeen": "2026-06-21"
-    },
     "events12:concerts-at-the-locks-2026-08-31": {
       "unresolvable": true,
       "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
@@ -4195,21 +4134,6 @@
       "source": "agent",
       "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
-    },
-    "events12:bus-to-the-mountains-2026-08-30": {
-      "unresolvable": true,
-      "reason": "General transit service page — specific departure times vary by date and destination",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://trailheaddirect.org/",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-marymoor-park-2026-08-30": {
-      "unresolvable": true,
-      "reason": "Concert listing with varying start times (5:30, 6:00, 6:30, 7:00 PM) per show",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.marymoorlive.com/shows/"
     },
     "19hz:19hz-2026/09/04-Slayyyter, Pearly Drops": {
       "unresolvable": true,
@@ -8653,14 +8577,6 @@
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
     },
-    "events12:taste-of-pike-place-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:taste-of-pike-place-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-05-25",
@@ -11508,14 +11424,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:zoo-concerts-2026-08-30": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:zoo-concerts-2026-08-31": {
       "unresolvable": true,
       "reason": "ZooTunes website returning 503; individual concert times not accessible",
@@ -13305,16 +13213,6 @@
       "resolvedAt": "2026-06-13",
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
-    },
-    "events12:on-the-water-2026-08-30": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
     },
     "events12:on-the-water-2026-08-31": {
       "fields": {
@@ -16280,12 +16178,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-08-31": {
       "unresolvable": true,
@@ -27333,18 +27225,6 @@
       "source": "agent",
       "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-and-debra-heesch-present-the-ghost-of-buena-vista-past-shadow-theater-songs-by-michelle-lassaline"
     },
-    "center-for-wooden-boats:sunday-public-sail-2026-08-30": {
-      "fields": {
-        "cost": {
-          "min": 0
-        },
-        "imageUrl": "http://static1.squarespace.com/static/5c48db894eddeca43abfade1/t/649e009687376922c0d4604a/1748628891009/CWB_PublicSail_June2023_Lavengro_14.jpg?format=1500w"
-      },
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "evidence": "https://www.cwb.org/public-sail",
-      "lastSeen": "2026-08-01"
-    },
     "center-for-wooden-boats:sunday-public-sail-2026-09-27": {
       "fields": {
         "cost": {
@@ -29220,16 +29100,6 @@
       "resolvedAt": "2026-07-10",
       "source": "agent",
       "reason": "Multi-day/drop-in event with no fixed daily start time or end time on page"
-    },
-    "mopop:mopop-the-brunch-bundle-at-mopop-august-30-2026-2026-08-30": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 18000,
-        "imageUrl": "https://cdn.prod.website-files.com/66a00e48c726b5c85469ae46/6a3d4f29460da95779f07daf_BRUPPK26_Web%20Hero_1200x600_2026.06.17.jpg"
-      },
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "evidence": "https://www.mopop.org/events/the-brunch-bundle-at-mopop-7-11-26"
     },
     "museum_of_flight:mof-beyond-the-horizon-emily-calandrelli-2026-09-11": {
       "fields": {
@@ -33435,22 +33305,6 @@
       "source": "agent",
       "evidence": "https://rainierbeachcommunityclub.org - 0 pre-paid online / 5 at door"
     },
-    "events12:live-theater-2026-08-30": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 7200,
-        "imageUrl": "https://taproottheatre.org/wp-content/uploads/2026/08/Joseph-featured-image.jpg",
-        "cost": {
-          "min": 35,
-          "max": 74
-        },
-        "setting": "indoor"
-      },
-      "resolvedAt": "2026-08-17",
-      "source": "agent",
-      "evidence": "https://www.taproottheatre.org/ — Note (2026-08-17): events12's generic 'live-theater-<date>' id is unstable — this build's settingGaps entry for this key links to https://www.seattlerep.org/plays/202627-season/freak-the-mighty instead (Seattle Rep's Bagley Wright mainstage), not Taproot's Joseph cited above. See sources/events12/ripper.ts (date-range placeholder expansion under the generic 'Live theater' <h3>, which bundles Seattle Rep / Taproot Theatre / Latitude Theatre / arts-people.com shows with no per-show id). Resolving 'setting: indoor' regardless of which show occupies this id: every show in that digest is a conventional indoor stage production. startTime/duration/imageUrl/cost above are left untouched from the 2026-07-30 resolution and may now be stale for whichever show currently occupies this id — flagged for follow-up, not fixed here.",
-      "lastSeen": "2026-08-17"
-    },
     "three-dollar-bill-cinema:6a5296035bf69209561aead2": {
       "fields": {
         "cost": {
@@ -33883,12 +33737,6 @@
       "source": "agent",
       "evidence": "https://www.discoverslu.com/events/photo-essentials-1-2026-2-2-2-2-2-2-2-2/"
     },
-    "events12:concerts-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source URL is an image file (events12.com/img/), not an event page"
-    },
     "events12:concerts-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-07-12",
@@ -33936,22 +33784,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "Source URL is an image file (events12.com/img/), not an event page"
-    },
-    "events12:dance-in-the-park-2026-08-30": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 10800,
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-08-17",
-      "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/dancingtildusk"
-    },
-    "events12:concerts-on-a-farm-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
     },
     "events12:concerts-on-a-farm-2026-08-31": {
       "unresolvable": true,
@@ -34108,12 +33940,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
-    },
-    "events12:tacoma-concerts-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
     },
     "events12:tacoma-concerts-2026-08-31": {
       "unresolvable": true,
@@ -36242,12 +36068,6 @@
       "source": "agent",
       "reason": "pub with both indoor dining and patio seating; mixed use, resolve per-event"
     },
-    "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-18",
-      "source": "agent",
-      "reason": "NWFF event series page uses JS-lazy-loaded images, no poster URL accessible"
-    },
     "northwest-film-forum:pazuzus-wings-exorcist-ii-double-feature-2026-09-05": {
       "fields": {
         "startTime": "16:00",
@@ -37697,12 +37517,6 @@
       "resolvedAt": "2026-07-20",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/node/690994406"
-    },
-    "events12:basketball-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-23",
-      "source": "agent",
-      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
     },
     "events12:basketball-2026-08-31": {
       "unresolvable": true,
@@ -41770,12 +41584,6 @@
       "source": "agent",
       "evidence": "https://www.taproottheatre.org/"
     },
-    "events12:party-on-a-ferry-boat-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
-    },
     "events12:party-on-a-ferry-boat-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-07-30",
@@ -41901,12 +41709,6 @@
       "resolvedAt": "2026-07-30",
       "source": "agent",
       "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
-    },
-    "events12:underground-tour-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "viator.com returned HTTP 403, event details unavailable"
     },
     "events12:underground-tour-2026-08-31": {
       "unresolvable": true,
@@ -44401,12 +44203,6 @@
       "source": "agent",
       "evidence": "https://www.burkemuseum.org/tickets (requires general museum admission; exact price not extractable via automated fetch of the ticketing widget)"
     },
-    "charlies-queer-books:charlies-queer-books-6013220260830": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-03",
-      "source": "agent",
-      "reason": "No pricing/RSVP-cost signal found on the event page (JS-rendered; no Eventbrite or checkout link present in the fetched HTML)"
-    },
     "lumen-field:tm-vvG1HZ_F5J-M3l": {
       "fields": {
         "cost": {
@@ -45571,19 +45367,6 @@
       "source": "agent",
       "reason": "Fairgrounds have mixed indoor/outdoor stages; festival uses multiple areas"
     },
-    "events12:sunflower-farms-2026-08-30": {
-      "fields": {
-        "startTime": "08:30",
-        "duration": 27000,
-        "setting": "outdoor",
-        "cost": {
-          "min": 17
-        }
-      },
-      "resolvedAt": "2026-08-17",
-      "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
-    },
     "events12:sunflower-farms-2026-08-31": {
       "fields": {
         "startTime": "08:30",
@@ -45758,23 +45541,6 @@
       "source": "agent",
       "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
     },
-    "events12:chamber-music-in-port-townsend-2026-08-30": {
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/5c7dbe4677b90397ce873422/c42863d1-ad96-4505-90e0-5c56e26b27a7/OMF-AD-Logo-White.png",
-        "cost": {
-          "min": 39
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.olympicmusicfestival.org/2026-concerts"
-    },
-    "events12:family-circus-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "JS-rendered site — schedule and pricing not accessible without browser"
-    },
     "events12:family-circus-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-08-07",
@@ -45822,19 +45588,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "reason": "JS-rendered site — schedule and pricing not accessible without browser"
-    },
-    "events12:evergreen-state-fair-2026-08-30": {
-      "fields": {
-        "startTime": "10:30",
-        "duration": 41400,
-        "imageUrl": "https://evergreenfair.org/ImageRepository/Document?documentID=6789",
-        "cost": {
-          "min": 15
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.evergreenfair.org/248/The-Evergreen-State-Fair"
     },
     "events12:evergreen-state-fair-2026-08-31": {
       "fields": {
@@ -46346,18 +46099,6 @@
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/sfcs-10-green-room/"
     },
-    "events12:art-fair-in-a-garden-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "Site is JS-rendered with no static fallback"
-    },
-    "events12:neah-bay-celebration-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "2026 schedule not yet published; directed to Facebook for updates"
-    },
     "events12:soccer-vs-bay-fc-2026-09-12": {
       "fields": {
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/65823d9021b93e044e237270/5001384e-e1ec-43a8-adf5-b1cb25229ae0/SRFC-primary.png"
@@ -46367,14 +46108,6 @@
       "evidence": "https://www.reignfc.com/schedule"
     },
     "events12:soccer-vs-boston-legacy-2026-09-25": {
-      "fields": {
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/65823d9021b93e044e237270/5001384e-e1ec-43a8-adf5-b1cb25229ae0/SRFC-primary.png"
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.reignfc.com/schedule"
-    },
-    "events12:soccer-vs-houston-dash-2026-08-30": {
       "fields": {
         "imageUrl": "https://images.squarespace-cdn.com/content/v1/65823d9021b93e044e237270/5001384e-e1ec-43a8-adf5-b1cb25229ae0/SRFC-primary.png"
       },
@@ -46461,13 +46194,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://www.unboundsymphony.org/summer-popup"
-    },
-    "events12:music-in-issaquah-park-2026-08-30": {
-      "unresolvable": true,
-      "reason": "downtownissaquah.com page content truncated before images could be extracted",
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://downtownissaquah.com/events/confluence-music-festival-2026/"
     },
     "venue:osm:node:2327741493": {
       "fields": {
@@ -48851,12 +48577,6 @@
       "resolvedAt": "2026-08-13",
       "source": "agent",
       "reason": "Source page (6amcity.com embed) not accessible; cost could not be determined"
-    },
-    "events12:harry-potter-live-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-13",
-      "source": "agent",
-      "reason": "Source page (stgpresents.org) returned empty content; could not extract show times"
     },
     "events12:harry-potter-live-2026-08-31": {
       "unresolvable": true,
@@ -51636,18 +51356,6 @@
       "source": "agent",
       "evidence": "https://www.hotstovesociety.com/store/event/make-and-take-gnocchi-with-chef-bridget-charters-1/"
     },
-    "events12:interactive-show-2026-08-30": {
-      "fields": {
-        "startTime": "20:00",
-        "cost": {
-          "min": 33
-        },
-        "imageUrl": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188799667%2F3004902641780%2F1%2Foriginal.20260714-010503?crop=focalpoint&fit=crop&w=1880&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.308&fp-y=0.383&s=2b35d0018868d5e55dfacaab486cb737"
-      },
-      "resolvedAt": "2026-08-20",
-      "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667"
-    },
     "events12:interactive-show-2026-08-31": {
       "fields": {
         "startTime": "20:00",
@@ -51839,12 +51547,6 @@
       "resolvedAt": "2026-08-20",
       "source": "agent",
       "reason": "On The Hiyu website is JavaScript-rendered and returns no content; specific event times and prices could not be verified"
-    },
-    "events12:fun-tours-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-20",
-      "source": "agent",
-      "reason": "Viator listing returns HTTP 403; daily tour has multiple departures with no single verifiable start time"
     },
     "events12:fun-tours-2026-08-31": {
       "unresolvable": true,
@@ -53014,28 +52716,6 @@
       "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify start time",
       "partialFingerprint": "97j37s"
     },
-    "events12:asian-festival-120012-2026-08-30": {
-      "fields": {
-        "startTime": "10:00",
-        "duration": 36000,
-        "cost": {
-          "min": 14,
-          "max": 35
-        },
-        "imageUrl": "https://images.squarespace-cdn.com/content/v1/671a9ce14a84f2359ce74a1d/b8972a2c-862c-46fa-bda5-047fb8427ced/Image_20260528115309_8_416.png?format=1500w"
-      },
-      "resolvedAt": "2026-08-29",
-      "source": "agent",
-      "evidence": "https://www.pandafests.com/pandafestevents/seattle2026",
-      "partialFingerprint": "17vxhec-until2026-08-30-tu"
-    },
-    "events12:interactive-show-120403-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-29",
-      "source": "agent",
-      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
-      "partialFingerprint": "12utjff-until2026-09-26-tu"
-    },
     "events12:interactive-show-120403-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
@@ -53246,17 +52926,6 @@
       "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
       "partialFingerprint": "12utjff-until2026-09-26-tu",
       "lastSeen": "2026-09-05"
-    },
-    "events12:live-theater-119957-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-29",
-      "source": "agent",
-      "reason": "latitudetheatre.org blocks the fetcher with a SiteGround sgcaptcha JS challenge (redirects to /.well-known/sgcaptcha/); page content inaccessible to verify time/duration/cost",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "fields": {
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      }
     },
     "events12:live-theater-119957-2026-08-31": {
       "unresolvable": true,
@@ -55008,13 +54677,6 @@
       "source": "agent",
       "evidence": "https://downtownissaquah.com/events/confluence-music-festival-2026/"
     },
-    "events12:concerts-120202-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Concerts' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1qghi99-until2026-09-07-tu"
-    },
     "events12:concerts-120202-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -55065,20 +54727,6 @@
       "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
       "partialFingerprint": "1qghi99-until2026-12-27-tu",
       "lastSeen": "2026-09-05"
-    },
-    "events12:dance-in-the-park-109594-2026-08-30": {
-      "fields": {
-        "setting": "outdoor",
-        "startTime": "18:00",
-        "duration": 10800,
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
-      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
     },
     "events12:dance-in-the-park-109594-2026-08-31": {
       "fields": {
@@ -55178,18 +54826,6 @@
       "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
       "partialFingerprint": "1fn83bb-until2026-09-08-tu"
     },
-    "events12:fun-tours-120200-2026-08-30": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
-      "partialFingerprint": "1y4mcyi-until2026-12-31-tu"
-    },
     "events12:fun-tours-120200-2026-08-31": {
       "fields": {
         "setting": "outdoor",
@@ -55275,19 +54911,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu",
       "lastSeen": "2026-09-05"
-    },
-    "events12:sunflower-farms-118543-2026-08-30": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 16
-        },
-        "startTime": "10:00"
-      },
-      "resolvedAt": "2026-08-26",
-      "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "partialFingerprint": "oju0is-until2026-09-28-tu"
     },
     "events12:sunflower-farms-118543-2026-08-31": {
       "fields": {
@@ -55424,13 +55047,6 @@
       "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
       "partialFingerprint": "1qghi99-until2026-12-27-tu",
       "lastSeen": "2026-09-05"
-    },
-    "events12:family-circus-115468-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1bmh4b5-until2026-09-07-tu"
     },
     "events12:family-circus-115468-2026-08-31": {
       "unresolvable": true,
@@ -57126,13 +56742,6 @@
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:sailboat-120161-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "vs4xxt-until2026-10-31-tu"
-    },
     "events12:sailboat-120161-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -57624,20 +57233,6 @@
       "partialFingerprint": "vs4xxt-until2026-10-31-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:bus-to-the-mountains-120038-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Bus to the mountains' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "6j1to2-until2026-08-30-tu"
-    },
-    "events12:chamber-music-in-port-townsend-100372-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Chamber music in Port Townsend' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "82rwyj-until2026-08-30-tk"
-    },
     "events12:gourmet-cooking-class-vs-chicken-paella-tapas-119075-2026-09-04": {
       "fields": {
         "cost": {
@@ -57662,13 +57257,6 @@
       "source": "agent",
       "reason": "events12 aggregates 'Gourmet cooking class vs. Italian gnocchi' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
       "partialFingerprint": "1vmda95-until2026-09-05-tk"
-    },
-    "events12:harry-potter-live-117523-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1k51vz4-until2026-09-12-tu"
     },
     "events12:harry-potter-live-117523-2026-08-31": {
       "unresolvable": true,
@@ -57768,13 +57356,6 @@
       "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
       "partialFingerprint": "1k51vz4-until2026-09-12-tu",
       "lastSeen": "2026-09-05"
-    },
-    "events12:party-on-a-ferry-boat-119803-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "z6ovsc-until2026-10-10-tu"
     },
     "events12:party-on-a-ferry-boat-119803-2026-08-31": {
       "unresolvable": true,
@@ -58099,13 +57680,6 @@
       "partialFingerprint": "z6ovsc-until2026-10-10-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:baseball-in-tacoma-120216-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "74kv5k-until2026-09-13-tu"
-    },
     "events12:baseball-in-tacoma-120216-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -58210,13 +57784,6 @@
       "partialFingerprint": "74kv5k-until2026-09-13-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:evergreen-state-fair-100089-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "5ptse-until2026-09-07-tu"
-    },
     "events12:evergreen-state-fair-100089-2026-08-31": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -58275,20 +57842,6 @@
       "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
       "partialFingerprint": "5ptse-until2026-09-07-tu",
       "lastSeen": "2026-09-05"
-    },
-    "events12:art-fair-in-a-garden-118574-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Art fair in a garden' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "12eg8fk-until2026-08-30-tu"
-    },
-    "events12:neah-bay-celebration-100132-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Neah Bay celebration' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "9gyx2a-until2026-08-30-tu"
     },
     "seatoday:cityspark-17845558": {
       "fields": {
@@ -58609,12 +58162,6 @@
       "source": "agent",
       "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
     },
-    "events12:music-in-issaquah-park-118576-2026-08-30": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
-    },
     "events12:soccer-vs-bay-fc-119759-2026-09-12": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -58622,12 +58169,6 @@
       "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
     },
     "events12:soccer-vs-boston-legacy-119759-2026-09-25": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 is a text aggregator with no per-event image; the upstream page does not surface a discoverable event photo."
-    },
-    "events12:soccer-vs-houston-dash-119759-2026-08-30": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
       "source": "agent",
@@ -59327,16 +58868,6 @@
       "resolvedAt": "2026-08-26",
       "source": "agent",
       "evidence": "sample event 'Sk8' — Hubbard Homestead's guided skateboarding sessions run in its temperature-controlled gym per Seattle's Child (seattleschild.com/events/rnts-free-skate-school-indoors); this seattle-gov-parks-recreation feed's programming ties to the indoor gym, not the park's outdoor skate spot"
-    },
-    "events12:on-the-water-118692-2026-08-30": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-26",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
     },
     "events12:on-the-water-118692-2026-08-31": {
       "fields": {
@@ -60650,12 +60181,12 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-26",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://schilterfamilyfarm.com/pages/sunflower-experience"
     },
     "events12:sunflower-farms-118543-2026-09-21": {
       "fields": {
@@ -62895,16 +62426,6 @@
       "source": "agent",
       "reason": "No pricing signal in Proxi API description (RSVP-based community birding tour); API has no per-event detail page"
     },
-    "cidbia:cidbia-6a90c8a42556ecc897220b0f-202608300230": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-28",
-      "source": "agent",
-      "evidence": "Same event/description as the 8/29 occurrence — produced cabaret show, ticketed but no price stated"
-    },
     "cidbia:cidbia-6a90cbd32556ecc897223758-202609050100": {
       "unresolvable": true,
       "resolvedAt": "2026-08-28",
@@ -64099,28 +63620,6 @@
       "resolvedAt": "2026-08-30",
       "source": "agent",
       "evidence": "http://seattle.greencitypartnerships.org/event/44671/"
-    },
-    "northwest-film-forum:mysterious-skin-4k-restoration-2026-08-30": {
-      "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/mysteriousskin1600-7.png",
-        "cost": {
-          "min": 15
-        }
-      },
-      "resolvedAt": "2026-08-31",
-      "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/mysterious-skin-4k-restoration/"
-    },
-    "northwest-film-forum:three-bewildered-people-in-the-night-2026-08-30": {
-      "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/threebewilderedpeople1600-1.png",
-        "cost": {
-          "min": 15
-        }
-      },
-      "resolvedAt": "2026-08-31",
-      "source": "agent",
-      "evidence": "https://nwfilmforum.org/films/three-bewildered-people-in-the-night/"
     },
     "seattle-makers:seattle-makers-154859": {
       "fields": {
@@ -72505,12 +72004,12 @@
           "paid": true
         },
         "duration": 7200,
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-119702-2026-09-21": {
       "fields": {
@@ -76310,12 +75809,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://fever.pxf.io/Kj6j5x",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://fever.pxf.io/Kj6j5x"
     },
     "events12:music-by-candlelight-arctic-club-hotel-119604-2026-09-27": {
       "fields": {
@@ -77732,12 +77231,12 @@
     },
     "events12:edmonds-art-tour-109054-2026-09-20": {
       "fields": {
-        "imageUrl": "https://static.wixstatic.com/media/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg/v1/fill/w_1315,h_1041,al_c/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg"
+        "imageUrl": "https://static.wixstatic.com/media/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg/v1/fill/w_1315,h_1041,al_c/91c7f3_98e3bdaf042e4b0d989dc1db4c5c73ff~mv2.jpg",
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://www.edmondsartstudiotour.com",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://www.edmondsartstudiotour.com"
     },
     "events12:wine-in-west-seattle-115320-2026-09-18": {
       "fields": {
@@ -79037,19 +78536,6 @@
       "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-tape-b-seattle-washington-12-05-2026/event/0F0064F89A47AE5C",
       "partialFingerprint": "1v12aie"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "fields": {
-        "startTime": "12:00",
-        "duration": 21600,
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-06",
-      "source": "agent",
-      "evidence": "https://udistrictseattle.com/bobafest/about",
-      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
-    },
     "climate-pledge-arena:tm-vvG1HZ_8UqqUNb": {
       "fields": {
         "cost": {
@@ -79094,9 +78580,10 @@
       "fields": {
         "cost": {
           "min": 26.99
-        }
+        },
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/09/KALOS_Credit_-Deborah-Kay-825x510.jpg"
       },
-      "resolvedAt": "2026-09-06",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
       "evidence": "https://www.seafolklore.org/events/kalos-cd-release-concert-at-fremont-abbey/"
     },
@@ -79145,6 +78632,1662 @@
       "resolvedAt": "2026-09-06",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/node/2404211190"
+    },
+    "northwest-film-forum:pazuzus-wings-exorcist-ii-double-feature-2027-09-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No poster image found on event page (JS-loaded content not accessible)"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50388": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50388"
+    },
+    "seattle-center:eureka-day": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day"
+    },
+    "seattle-center:tyler-childers": {
+      "fields": {
+        "duration": 16200
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/tyler-childers"
+    },
+    "venue:loc:cal anderson park shelter house": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/cal-anderson-park"
+    },
+    "venue:loc:discovery park, north parking lot": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/discovery-park"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261119-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261120-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261121-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261121-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261122-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261122-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261125-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261127-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261127-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261128-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261128-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261128-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261129-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261129-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261203-1230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261205-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261205-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261205-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261206-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261206-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261212-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261212-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261213-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261213-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261219-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261219-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261220-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261220-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261222-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261222-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261223-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261223-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261224-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261226-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261226-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261227-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261227-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261229-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261229-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261230-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261230-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20261231-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20270102-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20270102-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20270103-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-chicka-chicka-boom-boom-the-holiday-show-20270103-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-donor-benefits-behind-the-scenes-shops-tours-20260911-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-donor-benefits-behind-the-scenes-shops-tours-20261009-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-donor-benefits-behind-the-scenes-shops-tours-20261113-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-donor-benefits-behind-the-scenes-shops-tours-20261211-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-donor-benefits-behind-the-scenes-shops-tours-20270108-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-donor-benefits-behind-the-scenes-shops-tours-20270212-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261015-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261016-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261017-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261017-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261018-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261018-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261021-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261023-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261024-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261024-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261025-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261025-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261030-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261031-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261101-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-i-ll-be-your-superhero-20261101-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261001-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261002-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261003-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261003-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261004-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261004-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261006-1230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261009-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261010-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261010-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261011-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261011-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261017-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261017-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261018-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261018-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261023-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261024-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261024-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261025-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261025-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261030-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261031-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261101-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-leonardo-a-wonderful-show-about-a-terrible-monster-20261101-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-nami-s-in-our-own-voice-workshops-20261016-1905": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-nami-s-in-our-own-voice-workshops-20261017-1505": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-nami-s-in-our-own-voice-workshops-20261025-1605": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270128-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270129-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270130-1200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270130-1600": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270131-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270131-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270202-1230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270205-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270206-1200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270206-1600": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270207-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270207-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270212-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270213-1200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270213-1600": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270214-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-twelve-kinds-of-ice-20270214-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270218-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270219-1800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270220-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270220-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270221-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270221-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270225-1230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270226-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270227-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270227-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270228-1100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270228-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270305-1700": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270306-1000": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-where-the-mountain-meets-the-moon-the-musical-20270306-1400": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "seattle-childrens-theatre:sct-workshop-an-exploration-of-shadow-puppetry-20261011-1200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.sct.org/tickets-shows/calendar/"
+    },
+    "northwest-film-forum:a-rimbaud-2026-10-20": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/09/arimbaudposter-1200x1778.jpg"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/a-rimbaud/"
+    },
+    "northwest-film-forum:begotten-4k-restoration-2026-10-23": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/09/begottenposter.png"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/begotten-4k-restoration/"
+    },
+    "sam:free-third-saturday-seattle-asian-art-museum-dec-19-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/whats-on/events/free-third-saturday-saam"
+    },
+    "tabletop-village:44ioi8o8rhgsmp4arrps62e1u5@google.com-2027-03-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "Weekly in-store gaming event; pricing not listed on events page"
+    },
+    "tabletop-village:9um495b7hb74pbhtt5030vbuvo_R20260321T200000@google.com-2027-03-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "Weekly in-store gaming event; pricing not listed on events page"
+    },
+    "seattle-japanese-garden:6a98b720cd2adf3f49d18170": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "Event page returned 404; pricing not verifiable"
+    },
+    "seattle-makers:leather-working-basics-leather-mini-briefcase": {
+      "fields": {
+        "cost": {
+          "min": 125.0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/leather-working-basics-leather-mini-b"
+    },
+    "seattle_universal_math_museum:6a951e0c12c0ec3745bd273d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "Volunteer night event; pricing not listed on event page - likely free but unverified"
+    },
+    "seattle_universal_math_museum:6a9910f111cc1f2fb2c3c9c3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "Volunteer night event; pricing not listed on event page - likely free but unverified"
+    },
+    "seattle-makers:embroidery-machine-basics": {
+      "fields": {
+        "cost": {
+          "min": 110.0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/embroidery-machine-basics-53/"
+    },
+    "seattle-public-theater:6a9c9b7448b64e1227777a21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/cozy-little-murders"
+    },
+    "seattle-public-theater:6a9c9c1609c79913a00c85d6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/illuminating-the-dark"
+    },
+    "seattle-public-theater:6a9c9c911d5e817c649f1f13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/haunted-holiday"
+    },
+    "seattle-public-theater:6a9cc363c0cf6f23027e745a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel-"
+    },
+    "seattle-public-theater:6a9cc41b59715534a58235f6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--twxkt"
+    },
+    "seattle-public-theater:6a9cc41e59715534a582364f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--7y8bk"
+    },
+    "seattle-public-theater:6a9cc42033c9a756f906c1c5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--hc48b"
+    },
+    "seattle-public-theater:6a9cc519cbebe24f5eb43f2f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--7y8bk-pp7cf"
+    },
+    "seattle-public-theater:6a9cc51e83dd80245ec96e1f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--twxkt-zrmlj"
+    },
+    "seattle-public-theater:6a9cc521f7a67332f7f2c9b7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm"
+    },
+    "seattle-public-theater:6a9cc52633c9a756f906f9e7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--hc48b-zrrb9"
+    },
+    "seattle-public-theater:6a9cc66618ae982af51d2ab6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-sj5zp"
+    },
+    "seattle-public-theater:6a9cc669f6f7e140a5661e8e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-6c572"
+    },
+    "seattle-public-theater:6a9cc66cc0cf6f23027f25d9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-np2p4"
+    },
+    "seattle-public-theater:6a9cc67148b64e12278104d4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--hc48b-zrrb9-y9ge3"
+    },
+    "seattle-public-theater:6a9cc7e71d5e817c64a972e8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-6c572-fbngd"
+    },
+    "seattle-public-theater:6a9cc7eaa6d4d62bb83dee5b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-6c572-xgrrs"
+    },
+    "seattle-public-theater:6a9cc7ec43bc6a532c722bdb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-6c572-nksnj"
+    },
+    "seattle-public-theater:6a9cc7efb011ab6ffa6e50dd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlepublictheater.org/calendar-2/-neel-neha-and-neel--h2ntm-np2p4-9p9ek"
+    },
+    "seattle-pride:seattle-pride-history-cafe-preserving-lgbtq-history": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on page; only Seattle Pride logo available"
+    },
+    "open-books:open-books-other-people-s-poems-2026-10-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on Open Books calendar page"
+    },
+    "open-books:open-books-poetry-in-conversation-feat-kelli-russell-agodon-2026-10-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on Open Books calendar page"
+    },
+    "open-books:open-books-poetry-in-conversation-feat-lue-hughes-2026-9-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on Open Books calendar page"
+    },
+    "open-books:open-books-poetry-in-conversation-feat-rick-barot-2026-11-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on Open Books calendar page"
+    },
+    "open-books:open-books-poetry-office-hours-feat-kelli-russell-agodon-2026-11-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on Open Books calendar page"
+    },
+    "open-books:open-books-reading-with-ellie-black-rivka-clifton-and-charlie-lou-evans-2026-10-9": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on Open Books calendar page"
+    },
+    "open-books:open-books-reading-with-joshua-marie-wilkinson-and-gabriel-palacios-2026-10-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event-specific image on Open Books calendar page"
     }
   }
 }
