@@ -80366,11 +80366,347 @@
     },
     "northwest-film-forum:the-best-of-betty-boop-2026-09-10": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bestofbettyboop1600.png"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bestofbettyboop1600.png",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-07",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/films/the-best-of-betty-boop/"
+    },
+    "side-rail-collective:6a98ab13e89b815fbe96789d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/members-and-friends-night"
+    },
+    "side-rail-collective:6a98aba29ea7cd12f6a91c66": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup"
+    },
+    "side-rail-collective:6a98abdec2bfa02b84e1bea2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup-xeajy"
+    },
+    "side-rail-collective:6a98ac121b204d1312b56c70": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup-xeajy-5hd3d"
+    },
+    "side-rail-collective:6a98ac2ea000cc7eff36d747": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup-xeajy-5hd3d-9jxm4"
+    },
+    "side-rail-collective:6a98ac621b204d1312b577bb": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/kiln-firing"
+    },
+    "side-rail-collective:6a98adbf4d4e2127b0c6d7e7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/kiln-firing-6lk2f"
+    },
+    "side-rail-collective:6a9dcfca2018962f1e974693": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/gift-wrap-block-printing-members-only"
+    },
+    "side-rail-collective:6a9dd13ee6b43a4b0310655b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/gift-wrap-block-printing-members-only-668st"
+    },
+    "side-rail-collective:6a9dd1e2631a0e5a07ae494d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/gift-wrap-block-printing-members-only-668st-tlplm"
+    },
+    "side-rail-collective:6a9dd217b011ab6ffaa73ebf": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/gift-wrap-block-printing-members-only-668st-tlplm-sex4b"
+    },
+    "side-rail-collective:6a9dd251f0c7a604d55375a5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/full-house-members-only"
+    },
+    "side-rail-collective:6a9dd859d0287a01d28408b5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/full-house-members-only-j25j8"
+    },
+    "side-rail-collective:6a9dd87918ae982af55821c8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/full-house-members-only-j25j8-rt635"
+    },
+    "side-rail-collective:6a9dd89da6d4d62bb8773943": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/full-house-members-only-j25j8-rt635-5h2nk"
+    },
+    "seatoday:cityspark-17825540": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://discotech.me/seattle/ora/",
+      "partialFingerprint": "1d12b8g"
+    },
+    "seatoday:cityspark-17845587": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/inner-engineering-seattle-isha-yoga-meditation-classes/events/315857572/",
+      "partialFingerprint": "1l920aj"
+    },
+    "seatoday:cityspark-17845630": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://redmondridgeroa.com/fall-garage-sale/",
+      "partialFingerprint": "1hpec70"
+    },
+    "seatoday:cityspark-19132323": {
+      "fields": {
+        "cost": {
+          "min": 7.0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.siff.net/programs-and-events/community-screenings",
+      "partialFingerprint": "1qlt8y8"
+    },
+    "seatoday:cityspark-19514558": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.mi-reporter.com/news/mid-autumn-festival-carnival-to-celebrate-chinese-cultural-heritage/",
+      "partialFingerprint": "tk2tbo"
+    },
+    "seatoday:cityspark-19553028": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://collectorscornernw.com/",
+      "partialFingerprint": "1ep6b81"
+    },
+    "seatoday:cityspark-19676540": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://fryemuseum.org/calendar/event/sculpting-light-family-workshop-inspired-tom-lloyd",
+      "partialFingerprint": "3ddpo8"
+    },
+    "seattle-swing-dance-club:0e6152eo7ooomlmllbfm46fvi8": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No event page URL available from the styledcalendar widget source; could not locate a page publishing pricing for this specific workshop weekend online"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2SpkcPl": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://climatepledgearena.com/tours/"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3Ox158": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-buffalo-sabres-seattle-washington-12-06-2026/event/0F0064C4A088A2D0"
+    },
+    "seattle-makers:seattle-makers-165946": {
+      "fields": {
+        "cost": {
+          "min": 125.0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/leather-working-basics-leather-mini-briefcase/"
+    },
+    "seattle-makers:seattle-makers-165952": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/embroidery-machine-basics-53/"
+    },
+    "sol-yoga-seattle:6a9839c8bd36d7265d615dc4": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/sol-sound-bath-95aty-2zzxj-k9jry-n3rgs-5m8ad-9jdsj-6fd7h-crfxa-gf8zw-at4z8-dltr3-2rkak-z4565-nt65e-3mg44-cgs4n-s9jtt-tt825-c7jg6-2jds5-ytpjk"
+    },
+    "stg:tm-vvG1HZ_2pUaGLW": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/john-craigie-with-special-guest-marley-seattle-washington-12-06-2026/event/0F0064F5B624C7FD"
+    },
+    "stg:tm-vvG1HZ_2UsmyJS": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-06-2026/event/0F0064FDB1BB99B3"
+    },
+    "wamu-theater:tm-vvG1HZ_o3idyCz": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-triumph-not-seattle-washington-12-06-2026/event/0F006514AC0F93B8"
+    },
+    "wamu-theater:tm-vvG1HZ_oG1_C2O": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-seattle-washington-12-06-2026/event/0F0065130A64E3E0"
+    },
+    "tabletop-village:_6cq3ic2564rjib9o7513cb9k8d0k8ba28l1j8b9h68q3eh26891kad1j84_R20260322T010000@google.com-2027-03-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
     }
   }
 }
