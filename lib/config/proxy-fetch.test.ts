@@ -221,6 +221,62 @@ describe("createBrowserbaseFetch", () => {
         await Promise.all(calls);
         expect(maxInFlight).toBeLessThanOrEqual(4);
     });
+
+    it("holds the cap under heavy simultaneous contention", async () => {
+        // A review pass suggested acquireBrowserbaseSlot has a check-then-act
+        // race (multiple callers passing the `<` check before any increment).
+        // It cannot: the check and the increment are adjacent synchronous
+        // statements with no await between them, and JS runs a task to
+        // completion, so nothing can interleave there. This pins that — 50
+        // callers started in the same tick, which is the exact shape the
+        // suggested race would need.
+        process.env.BROWSERBASE_API_KEY = "my-api-key";
+
+        let inFlight = 0;
+        let maxInFlight = 0;
+        const releases: Array<() => void> = [];
+        mockFetch.mockImplementation(async () => {
+            inFlight++;
+            maxInFlight = Math.max(maxInFlight, inFlight);
+            await new Promise<void>((resolve) => releases.push(resolve));
+            inFlight--;
+            return fakeResponse(JSON.stringify({
+                statusCode: 200,
+                content: "ok",
+                contentType: "text/plain",
+            }));
+        });
+
+        let settled = 0;
+        const calls = Array.from({ length: 50 }, (_, i) =>
+            createBrowserbaseFetch()(`https://example.com/stress/${i}`)
+                .then((r) => { settled++; return r; }));
+
+        // Drain in waves until every call settles, asserting the cap at each
+        // step rather than only at the end — a leak would show as inFlight
+        // creeping past 4. Loop on `settled`, not on the queue: at the first
+        // check no call has reached the mock yet, so a queue-based condition
+        // would exit immediately and deadlock on the Promise.all below.
+        while (settled < 50) {
+            await new Promise((resolve) => setTimeout(resolve, 0));
+            expect(inFlight).toBeLessThanOrEqual(4);
+            releases.splice(0).forEach((r) => r());
+        }
+
+        await Promise.all(calls);
+        expect(maxInFlight).toBe(4);
+
+        // Every slot handed back: a later acquire must not be starved. The
+        // limiter is module-level, so leaving it occupied here would hang every
+        // subsequent test in this file — that this returns proves it drained.
+        mockFetch.mockImplementation(async () => fakeResponse(JSON.stringify({
+            statusCode: 200,
+            content: "ok",
+            contentType: "text/plain",
+        })));
+        await Promise.all(Array.from({ length: 8 }, (_, i) =>
+            createBrowserbaseFetch()(`https://example.com/after/${i}`)));
+    });
 });
 
 describe("createBrowserbaseFetch with an injected cache", () => {
