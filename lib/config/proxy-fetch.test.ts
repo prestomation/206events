@@ -180,6 +180,47 @@ describe("createBrowserbaseFetch", () => {
         const body = JSON.parse(mockFetch.mock.calls[0][1].body);
         expect(body.url).toBe("https://example.com/path");
     });
+
+    it("caps concurrent live calls to the Browserbase API at the configured limit", async () => {
+        process.env.BROWSERBASE_API_KEY = "my-api-key";
+
+        let inFlight = 0;
+        let maxInFlight = 0;
+        const releases: Array<() => void> = [];
+        mockFetch.mockImplementation(async () => {
+            inFlight++;
+            maxInFlight = Math.max(maxInFlight, inFlight);
+            await new Promise<void>((resolve) => releases.push(resolve));
+            inFlight--;
+            return fakeResponse(JSON.stringify({
+                statusCode: 200,
+                content: "ok",
+                contentType: "text/plain",
+            }));
+        });
+
+        // Each call needs its own fetch function (createBrowserbaseFetch has no
+        // per-instance cache), but the concurrency limiter is module-level, so
+        // it caps across all of them regardless of URL/instance.
+        const calls = Array.from({ length: 10 }, (_, i) =>
+            createBrowserbaseFetch()(`https://example.com/${i}`));
+
+        // Let every call reach (and block inside) the mocked fetch.
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        await new Promise((resolve) => setTimeout(resolve, 0));
+
+        expect(maxInFlight).toBeLessThanOrEqual(4);
+        expect(inFlight).toBeLessThanOrEqual(4);
+
+        // Release everything and let the queue drain.
+        while (releases.length > 0 || inFlight > 0) {
+            releases.splice(0).forEach((r) => r());
+            await new Promise((resolve) => setTimeout(resolve, 0));
+        }
+
+        await Promise.all(calls);
+        expect(maxInFlight).toBeLessThanOrEqual(4);
+    });
 });
 
 describe("createBrowserbaseFetch with an injected cache", () => {
