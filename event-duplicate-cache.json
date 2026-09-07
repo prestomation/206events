@@ -19254,6 +19254,26 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-07",
       "note": "Same event at Gage Academy of Art, 2107 Westlake Ave, Sept 12. craft-map defaults to noon; discover-slu has accurate 10 AM-4 PM. Both verified same event."
+    },
+    "craft-map-seattle-craft-map-seattle.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]::discover-slu-discover-slu.ics 2026 Drawing Jam|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same event: Drawing Jam at Gage Academy of Art. Time resolved to 10am via discoverslu.com."
+    },
+    "craft-map-seattle-craft-map-seattle.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same event: Drawing Jam at Gage Academy of Art, Sep 12."
+    },
+    "craft-map-seattle-craft-map-seattle.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same event: Drawing Jam at Gage Academy of Art, Sep 12."
+    },
+    "craft-map-seattle-craft-map-seattle.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Drawing Jam 2026|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same event: Drawing Jam at Gage Academy of Art, Sep 12."
     }
   }
 }
