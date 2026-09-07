@@ -34,6 +34,47 @@ override an outdoor venue for one event, and vice versa.
 
 ## Procedure
 
+### 0. Sweep this queue's prior open PRs (mandatory)
+
+**Before reading the queue**, close out the open PRs left by earlier setting
+drains. The full rule is *Step 0* under "Queue Draining — Work Until Empty" in
+`AGENTS.md`; the short version:
+
+List open PRs whose branch or title marks them as a drain of this queue
+(`setting-resolver-*`, "settingGaps"), plus any multi-queue "Queue drain" PR — those
+usually touch this cache too. For each, run the supersession check:
+
+```sh
+python3 scripts/drain-pr-sweep.py <pr-merge-base-sha> <pr-head-ref>
+```
+
+- **`SUPERSEDED`** → close the PR, with a comment naming what superseded it.
+  Nothing is lost — the queue re-surfaces anything still outstanding.
+- **`HAS-NOVEL-WORK`** → close it too (a stale drain branch conflicts in the
+  cache and can't be rebased), but first read the keys it lists, along with
+  their resolutions and evidence, and carry them into **this** run's batch.
+  That investigation is the valuable part; re-deriving it wastes the run.
+  Two labels are *not* to be carried blindly: a `!=main` suffix means `main`
+  holds a different — often newer — value for that field, and
+  `<unresolvable-but-main-resolved>` means `main` has since answered what the
+  PR gave up on. Check those before overwriting anything.
+- **`NOT-APPLICABLE`** → the PR changes no cache the script reads, so nothing
+  was examined and nothing is shown to be superseded. **Don't close on this
+  verdict** — sweep it by `grep` against `main` instead. This is a normal shape
+  here, not an edge case: a venue-photo or uniform-`cost:` PR edits source YAML
+  only.
+- **Opened by an in-flight run** (green CI, under a day old) → leave it, and
+  exclude its keys from your batch so the two runs don't collide.
+
+Also check by `grep` whether any non-cache change riding along in a stale PR (a
+ripper fix, a source-YAML edit) landed on `main`; if it didn't and it's still
+worth having, port it fresh onto `main` rather than reviving the branch.
+
+Skipping this step is how the same events get re-investigated run after run
+while the earlier PR sits open and unmergeable.
+
+### Then work the queue
+
 1. **Read the queue**: fetch `https://206.events/build-errors.json` and read
    `settingGaps.venueGaps` (each has `venueKey`, `label`, `channels`,
    `eventCount`, and a sample event) and `settingGaps.eventGaps`
