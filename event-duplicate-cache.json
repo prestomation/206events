@@ -19244,6 +19244,16 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-07",
       "note": "Same show (Two Runner) at The Sunset Tavern; Tractor co-presents and lists it on their calendar; 30-min difference is doors vs show time"
+    },
+    "seattle-food-trucks-1201-eastlake.ics Food Trucks @ 1201 Eastlake|2026-10-07T11:00:00-07:00[America/Los_Angeles]::seattle-food-trucks-1551-eastlake.ics Food Trucks @ 1551 Eastlake|2026-10-07T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-07",
+      "note": "Different locations: 1201 Eastlake Ave E vs 1551 Eastlake Ave E — separate food truck venues on the same street, not the same event"
+    },
+    "craft-map-seattle-craft-map-seattle.ics Drawing Jam 2026|2026-09-12T12:00:00-07:00[America/Los_Angeles]::discover-slu-discover-slu.ics 2026 Drawing Jam|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same event at Gage Academy of Art, 2107 Westlake Ave, Sept 12. craft-map defaults to noon; discover-slu has accurate 10 AM-4 PM. Both verified same event."
     }
   }
 }
