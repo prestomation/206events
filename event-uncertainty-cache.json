@@ -60197,12 +60197,12 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-26",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://schilterfamilyfarm.com/pages/sunflower-experience"
     },
     "events12:sunflower-farms-118543-2026-09-22": {
       "fields": {
@@ -72021,12 +72021,12 @@
           "paid": true
         },
         "duration": 7200,
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-119702-2026-09-22": {
       "fields": {
@@ -80524,6 +80524,137 @@
       "resolvedAt": "2026-09-07",
       "source": "agent",
       "evidence": "Seattle Architecture Foundation event page"
+    },
+    "craft-map-seattle:drawing-jam-2026-seattle-wa-2026-09-12": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 21600
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/drawing-jam/"
+    },
+    "craft-map-seattle:stitch-n-bitch-free-cozy-craft-club-night-supplies-included-seattle-wa-2026-09-26": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/stitch-n-bitch-free-cozy-craft-club-night-supplies-included-seattle-wa"
+    },
+    "craft-map-seattle:produce-on-pike-weekly-farmers-market-seattle-wa-2026-09-09": {
+      "fields": {
+        "startTime": "15:00",
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events"
+    },
+    "craft-map-seattle:first-thursday-sunset-markets-seattle-wa-2026-10-01": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/first-thursday-sunset-markets-tickets-1988035930986"
+    },
+    "craft-map-seattle:talipapa-market-cultural-festival-2026-seattle-wa-2026-09-25": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/talipapa-market-cultural-festival-2026-tickets-1997983188501"
+    },
+    "craft-map-seattle:choma-fest-global-experience-seattle-wa-2026-09-26": {
+      "fields": {
+        "startTime": "13:00",
+        "duration": 23400
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/choma-fest-global-experience-tickets-1997169774558"
+    },
+    "craft-map-seattle:masked-kinky-crafting-seattle-wa-2026-09-20": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/masked-kinky-crafting-tickets-1998915800970"
+    },
+    "craft-map-seattle:2026-makers-market-seattle-wa-2026-09-26": {
+      "fields": {
+        "startTime": "11:00",
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/2026-makers-market-tickets-1998931060612"
+    },
+    "craft-map-seattle:kinky-crafting-seattle-wa-2026-10-07": {
+      "fields": {
+        "startTime": "19:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/kinky-crafting-tickets-1998915754832"
+    },
+    "craft-map-seattle:spooky-craft-club-free-art-supply-library-craft-costume-making-seattle-wa-2026-10-31": {
+      "fields": {
+        "startTime": "13:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/spooky-craft-club-free-art-supply-library-craft-costume-making-tickets-1999435625780"
+    },
+    "craft-map-seattle:seattle-first-bite-night-2026-holiday-shopping-local-food-seattle-wa-2026-11-13": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/seattle-first-bite-night-2026-holiday-shopping-local-food-tickets-1992402925785"
+    },
+    "craft-map-seattle:urban-craft-uprising-winter-show-preview-night-seattle-handmade-market-seattle-wa-2026-12-04": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/urban-craft-uprising-winter-show-preview-night-seattle-handmade-market-tickets-1992734353093"
+    },
+    "craft-map-seattle:grown-folks-book-fair-seattle-wa-2026-09-30": {
+      "fields": {
+        "startTime": "18:00",
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/grown-folks-book-fair-tickets-1994479662360"
+    },
+    "craft-map-seattle:art-walk-open-figure-class-market-seattle-wa-2026-10-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "No RSVP required event; no specific start time found on thecraftmap.com or asylumcollective.org"
+    },
+    "venue:osm:node:2158750789": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2158750789"
     }
   }
 }
