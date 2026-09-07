@@ -1057,6 +1057,11 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'ball field 3 @ 8011 fauntleroy way sw, west seattle': { lat: 47.5311632, lng: -122.3931989 }, // Fauntleroy Park playfields
   'ballard beer box': { lat: 47.6688337, lng: -122.3896468 }, // 2446 NW Market St, Seattle — prefix covers address/city suffix
   'barley pop! brewing': { lat: 47.9244355, lng: -122.0967319 }, // 1208 10th St, Snohomish, WA — prefix covers suite suffix
+  // Laterus Winery (Maltby/Snohomish) — Nominatim fails on the raw
+  // "9206 200th Street Southeast, #Suite b 6" because of the suite suffix.
+  // Forward-geocoded from the clean address; the returned house number (9206)
+  // matches the source, confirming the hit.
+  'laterus winery': { lat: 47.8156043, lng: -122.1076431, osmType: 'way', osmId: 6123058 },
   'beacon food forest': { lat: 47.5674923, lng: -122.3133592 }, // 15th Ave S & S Dakota St, Seattle — prefix covers address/state suffix
   'bellevue arts museum': { lat: 47.6147893, lng: -122.2015344 }, // 510 Bellevue Way NE — prefix covers the source "510 belllevue way ne" (3-l typo)
   'big howe playfields': { lat: 47.6364871, lng: -122.3730551 }, // Howe Park, Queen Anne — prefix covers ", seattle, wa" suffix
