@@ -1,6 +1,6 @@
 ---
 name: Asylum Collective
-status: candidate
+status: investigating
 platform: Squarespace
 url: https://www.asylumcollective.org/calendar
 tags: [Arts, Nightlife, Pioneer Square]
