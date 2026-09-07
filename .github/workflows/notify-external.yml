@@ -1,6 +1,7 @@
 # Notifies Discord of external interactions and releases on this repo.
 # The actual logic lives in prestomation/.github as a reusable workflow.
-# Set the DISCORD_WEBHOOK_URL repo secret to point to the right Discord channel.
+# The webhook URL is passed as the 'webhook-url' input, reusing the existing
+# DISCORD_WEBHOOK_CALENDAR secret (no separate secret needed).
 
 name: Discord Notify External
 
@@ -21,5 +22,5 @@ on:
 jobs:
   notify:
     uses: prestomation/.github/.github/workflows/notify-discord.yml@main
-    secrets:
-      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    with:
+      webhook-url: ${{ secrets.DISCORD_WEBHOOK_CALENDAR }}
