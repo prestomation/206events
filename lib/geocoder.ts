@@ -1390,6 +1390,42 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'behnke gallery': { lat: 47.6182381, lng: -122.3354570 }, // 1077 Lenora St, Seattle, WA 98121 (cross-checked against cornish/seattle-university duplicate listings)
   'pigott building': { lat: 47.6106523, lng: -122.3171370 }, // 901 12th Ave, Seattle, WA 98122 — Seattle University campus building (cross-checked against cornish/seattle-university duplicate listings)
   'firn': { lat: 47.5984171, lng: -122.3338243, osmType: 'node', osmId: 13458644701 }, // Firn is the lounge inside Populus Seattle, 100 S King St, Seattle, WA 98104 — reuses the venue's own OSM-verified node (sources/external/populus-seattle.yaml) rather than a fresh street-address geocode; identified via the confirmed 19hz/external-populus-seattle duplicate listings
+
+  // --- 2026-09-07 geo-resolver batch: "has street address" and "venue name only"
+  // unresolvable entries. Addresses verified against each venue's own site,
+  // Yelp, or a Nominatim exact-name match (never reverse-geocoded), then
+  // forward-geocoded. Street intersections resolved via Overpass shared-node
+  // queries (way ∩ way) rather than guessed from the grid. ---
+  '16th sw & sw 98th, west seattle': { lat: 47.5155392, lng: -122.355162 }, // Overpass-confirmed intersection node: 16th Ave SW & SW 98th St, Seattle
+  '17th ave ne & ne 47th st': { lat: 47.6630688, lng: -122.3095098 }, // Overpass-confirmed intersection node: 17th Ave NE & NE 47th St, Seattle (University District)
+  '8th ave ne & ne 105th st, seattle, wa 98125': { lat: 47.7049291, lng: -122.320497 }, // Overpass-confirmed intersection node: 8th Ave NE & NE 105th St, Seattle (Pinehurst)
+  'ne 66th st and 14th ave ne': { lat: 47.6765227, lng: -122.313146 }, // Overpass-confirmed intersection node: NE 66th St & 14th Ave NE, Seattle (Ravenna)
+  'meet your guide at the corner:, western ave and virginia st, seattle, wa': { lat: 47.6103443, lng: -122.3436686 }, // Overpass-confirmed intersection node: Western Ave & Virginia St, Seattle (Pike Place Market waterfront)
+  '2236 sw orchard, west seattle': { lat: 47.53763, lng: -122.3625349 }, // 2236 SW Orchard St, Seattle, WA 98106 (Delridge)
+  '502 main st, edmonds, wa 98020': { lat: 47.8104092, lng: -122.3773781 }, // 502 Main St, Edmonds, WA 98020
+  '621 tacoma ave s, tacoma, wa 98402': { lat: 47.2572452, lng: -122.4451185 }, // 621 Tacoma Ave S, Tacoma, WA 98402
+  '999 se pioneer way, oak harbor, wa 98277': { lat: 48.28895, lng: -122.645945 }, // 999 SE Pioneer Way, Oak Harbor, WA 98277
+  'alki masonic hall, seattle, wa': { lat: 47.5600035, lng: -122.3824681 }, // Alki Masonic Center, 4736 40th Ave SW, Seattle, WA 98116
+  'seattle swing dance club, seattle, wa': { lat: 47.5600035, lng: -122.3824681 }, // Same address as Alki Masonic Center, 4736 40th Ave SW — Seattle Swing Dance Club's listed venue per Yelp
+  'arthur murray dance studio north seattle, seattle, wa': { lat: 47.7272812, lng: -122.3439519 }, // Arthur Murray North Seattle (Shoreline studio), 13510 Aurora Ave N Suite C, Seattle, WA 98133
+  'boxley’s': { lat: 47.4958828, lng: -121.7874313 }, // Boxley's jazz club, 228 W North Bend Way, North Bend, WA 98045 (not Winthrop — verified via search)
+  'china harbor restaurant, seattle, wa': { lat: 47.6374749, lng: -122.3398766 }, // China Harbor, 2040 Westlake Ave N, Seattle, WA 98109
+  'corner store studio, seattle, wa': { lat: 47.6882109, lng: -122.3608343 }, // Corner Store Studio, 301 NW 82nd St, Seattle, WA 98117 (Greenwood)
+  'freehold theatre lab/studio, maynard avenue south, seattle, wa, usa': { lat: 47.5981323, lng: -122.3251805 }, // Freehold Theatre Lab/Studio, 517 Maynard Ave S, Seattle, WA 98104
+  'fremont, seattle, wa (event spans participating businesses across the neighborhood)': { lat: 47.6512, lng: -122.3501 }, // Fremont neighborhood centroid (matches SEATTLE_NEIGHBORHOOD_CENTROIDS.fremont) — event explicitly spans multiple businesses across the neighborhood
+  'greenlake (across from jellyfish brewing)': { lat: 47.6781854, lng: -122.3277255 }, // Jellyfish Brewing, 6808 E Green Lake Way N, Seattle, WA 98115 — event is described as directly across the street
+  'salsa con todo / swing dance sct, seattle, wa': { lat: 47.6524374, lng: -122.3561097 }, // Salsa Con Todo, 211 N 36th St, Seattle, WA 98103 (Fremont)
+  'seattle children’s research institute, seattle, wa, united states': { lat: 47.6161042, lng: -122.3347007 }, // Jack R. MacDonald Building, 1900 9th Ave, Seattle, WA 98101 — SCRI's primary named research building; SCRI operates several nearby buildings within ~500m
+  'south lake union discovery center lawn, wa': { lat: 47.618658, lng: -122.338605 }, // South Lake Union Discovery Center, 101 Westlake Ave N, Seattle, WA 98109
+  'space needle park': { lat: 47.6205, lng: -122.3493 }, // Space Needle / Seattle Center grounds (matches SEATTLE_NEIGHBORHOOD_CENTROIDS['seattle center']) — no venue is formally named "Space Needle Park"; colloquial reference to the lawn near the Needle
+  'tango en vie / seattle changing room, seattle, wa': { lat: 47.6382083, lng: -122.3403755 }, // Tango en Vie / Seattle Changing Room, 2110 Westlake Ave N, Seattle, WA 98109
+  'tango-experts studio, seattle, wa': { lat: 47.6841024, lng: -122.3556935 }, // Tango Experts studio, 7601 Greenwood Ave N, Seattle, WA 98103
+  "targy's tavern": { lat: 47.6378861, lng: -122.365163 }, // Targy's Tavern, 600 W Crockett St, Seattle, WA 98119 (Queen Anne)
+  'the golf club at redmond ridge, seattle, wa': { lat: 47.704064, lng: -122.0263397 }, // The Golf Club at Redmond Ridge, 11825 Trilogy Pkwy NE, Redmond, WA 98053
+  'the polish home, seattle, wa': { lat: 47.6169487, lng: -122.3084505 }, // Polish Home Association, 1714 18th Ave, Seattle, WA 98122
+  'tom mccall waterfront park': { lat: 45.5201241, lng: -122.6705385 }, // Governor Tom McCall Waterfront Park, Portland, OR — source covers broader PNW events, not a Seattle venue
+  'washington state convention center, arch and summit buildings, wa': { lat: 47.6113891, lng: -122.3325491 }, // Seattle Convention Center — Arch building, 705 Pike St, Seattle, WA 98101 (Summit building is the adjoining structure at 900 Pine St, ~250m away)
+  'west seattle water taxi pier': { lat: 47.5888294, lng: -122.3800709 }, // Seacrest Park water taxi dock, Harbor Ave SW, Seattle, WA 98116
 };
 
 /**
