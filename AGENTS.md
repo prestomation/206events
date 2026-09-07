@@ -16,6 +16,70 @@
 
 Commit and push progress incrementally (every ~50–100 resolutions) so work is not lost if the session does end. Then continue draining the rest of the queue in the same session.
 
+### Step 0 (mandatory): sweep this queue's prior open PRs first
+
+**Before reading the queue, sweep the open PRs from previous drains of the same
+queue.** A drain PR writes hundreds of keys into `event-uncertainty-cache.json`
+or `event-duplicate-cache.json`, and the *next* drain run rewrites the same
+files. So a drain PR that doesn't merge quickly becomes both **conflicted** (a
+content conflict in a 9,000-entry JSON nobody will hand-resolve) and
+**pointless** (the queue re-surfaced the same gaps and a later run already
+resolved them). Left alone, this loop burns a whole run re-investigating events
+a previous run already answered.
+
+You are the only actor that can tell "already resolved on `main`" from "still
+outstanding", because you are about to load the cache anyway. So the sweep lives
+here, not in a separate cleanup routine.
+
+1. **List candidates.** Open PRs whose branch name or title marks them as a
+   drain of this queue (e.g. `cost-resolver-*`, `photo-resolver/*`,
+   `geo-resolver-*`, "Queue drain", "Drain … queue"). Include ones that look
+   like a multi-queue drain — they usually touch your cache too.
+
+2. **Run the supersession check** on each:
+
+   ```sh
+   python3 scripts/drain-pr-sweep.py <pr-base-sha> <pr-head-ref>
+   ```
+
+   It reports, per cache, how many keys the PR adds/modifies/prunes, how many are
+   already on `main`, and how many of the remainder are past-dated (worthless)
+   versus still live — ending in `SUPERSEDED` or `HAS-NOVEL-WORK`.
+
+3. **Act on the verdict:**
+
+   | Verdict | Action |
+   |---|---|
+   | `SUPERSEDED` | **Close the PR**, with a comment naming the commit/PR that superseded it. Nothing is lost — the queue re-surfaces anything still outstanding. |
+   | `HAS-NOVEL-WORK` | **Close it too, and carry its unlanded items into this run's batch.** Read its resolutions and evidence first — that investigation is the valuable part and saves you re-fetching the same pages. Do **not** rebase the branch: it conflicts in the cache, and its diff is worth less than its findings. |
+   | Opened by an in-flight run (green CI, less than a day old) | Leave it. Exclude its keys from this run's batch so the two don't collide. |
+
+   A non-cache change riding along in a stale drain PR (a ripper fix, a
+   `KNOWN_VENUE_COORDS` entry, an `imageUrl:` in a source YAML) is often still
+   valuable even when the cache half is superseded — check whether it landed on
+   `main` (`grep`, not the PR body) and, if not, port it fresh onto `main` rather
+   than reviving the branch.
+
+4. Only now read the queue and start resolving.
+
+### Merge hygiene for drain PRs
+
+These are not optional polish — every stalled drain PR in this repo's history
+failed on one of them:
+
+- **Enable auto-merge in the same turn you open the PR**, before CI finishes. A
+  green build fires **no** webhook, so a session that waits to confirm green
+  waits forever and the PR sits ready-but-unmerged. A cache-only diff has no
+  failure mode CI wouldn't catch, so let the checks prove you wrong.
+- **Verify a `build / build` check actually attached to the PR's head sha**
+  before ending the session. Rapid follow-up pushes race `pr-preview.yml`'s
+  `cancel-in-progress` concurrency group; a head commit with zero checks can
+  never satisfy branch protection, and nothing re-triggers it but a new push.
+  A green run on an *earlier* commit does not count.
+- **Never close-and-reopen a PR on a live branch.** The new PR number does not
+  inherit the old one's check runs, and the branch can end up permanently
+  without a build. Push to the existing PR instead.
+
 ## Skills
 
 Agent skills live in `skills/` in this repo. These define the operational procedures for maintaining 206.events:
