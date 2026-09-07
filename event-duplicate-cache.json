@@ -19171,9 +19171,9 @@
       "note": "Same Kraken game at Climate Pledge Arena; venue feed vs NHL schedule"
     },
     "external-sunn-health-bar.ics Fremont Sunday Market|2026-09-13T14:00:00Z[UTC]::recurring-fremont-sunday-market.ics Fremont Sunday Market|2026-09-13T10:00:00-07:00[America/Los_Angeles]": {
-      "decision": "confirmed",
+      "decision": "rejected",
       "resolvedAt": "2026-09-07",
-      "note": "Same market; 14:00 UTC = 10:00 AM PT, matching the recurring entry; sunn-health-bar posts nearby events"
+      "note": "Time mismatch: 14:00Z UTC = 7:00 AM PDT, not 10:00 AM PDT — 3-hour gap; different time slots, not the same event"
     },
     "external-tinte-cellars.ics Art Attack (GEORGETOWN)|2026-09-12T12:00:00Z[UTC]::recurring-georgetown-artwalk.ics Georgetown Art Attack|2026-09-12T12:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
