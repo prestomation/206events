@@ -36840,8 +36840,7 @@
       },
       "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://townhallseattle.org/event/becky-chambers/ — \"$45 – $55 (Includes Book)\" (re-verified live 2026-09-07)",
-      "partialFingerprint": "1gxo238"
+      "evidence": "https://townhallseattle.org/event/becky-chambers/ — \"$45 – $55 (Includes Book)\" (re-verified live 2026-09-07). No partialFingerprint on purpose: the value carried over from an earlier branch was computed by a different formula, so it could never match and permanently voided this resolution."
     },
     "reubens-brews:reubens-gratituesday-seattle-public-library-foundation-07-21-2026": {
       "fields": {
