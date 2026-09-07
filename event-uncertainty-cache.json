@@ -78665,11 +78665,11 @@
     },
     "venue:loc:cal anderson park shelter house": {
       "fields": {
-        "setting": "covered"
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://www.seattle.gov/parks/find/parks/cal-anderson-park"
+      "evidence": "https://my.seattle.gov/parks/rentals-and-permits/indoor-event-rentals/cal-anderson-shelterhouse"
     },
     "venue:loc:discovery park, north parking lot": {
       "fields": {
