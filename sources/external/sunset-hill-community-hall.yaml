@@ -1,0 +1,15 @@
+geo:
+  lat: 47.6763696
+  lng: -122.3960649
+  label: "Sunset Hill Community Hall, 3003 NW 66th Street, Seattle, WA 98117"
+  osmType: way
+  osmId: 217236517
+name: sunset-hill-community-hall
+sourceRole: venue
+friendlyname: Sunset Hill Community Hall
+description: A rented community hall in Ballard hosting drop-in dance classes, yoga, comedy improv, open mics, and other neighborhood programming.
+icsUrl: https://sunsethillcommunity.org/events/?ical=1
+infoUrl: https://sunsethillcommunity.org/events/
+tags:
+  - Ballard
+  - Community
