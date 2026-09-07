@@ -54083,7 +54083,7 @@
       },
       "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/events/local-sightings-2026-closing-night-again-again/ — \"$15 General Admission\" (Local Sightings 2026 festival, uniform pricing) (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
+      "evidence": "https://nwfilmforum.org/events/local-sightings-2026-closing-night-again-again/ — \"$15 General Admission\" (Local Sightings 2026 festival, uniform pricing) (reapplied from superseded #1269; this key was previously marked whole-entry unresolvable for an unrelated reason — see note below) (note: this key previously carried a whole-entry unresolvable flag whose reason concerned a missing poster image, not cost — that image gap is not re-verified here, only the cost field; a future photo-resolver pass may re-surface it)"
     },
     "northwest-film-forum:local-sightings-2026-assets-liabilities-2026-09-25": {
       "fields": {
