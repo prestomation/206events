@@ -10758,9 +10758,9 @@
           "paid": true
         }
       },
-      "resolvedAt": "2026-09-04",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/seattle-reign-fc-vs-san-diego-seattle-washington-09-06-2026/event/0F006454A553CF03 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
+      "evidence": "https://www.ticketmaster.com/seattle-reign-fc-vs-san-diego-seattle-washington-09-06-2026/event/0F006454A553CF03",
       "partialFingerprint": "1295561"
     },
     "lumen-field:tm-vvG1HZ_GnVrnQP": {
@@ -80288,6 +80288,238 @@
       "resolvedAt": "2026-09-07",
       "source": "agent",
       "reason": "No event-specific image on Open Books calendar page"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3Ox158": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-buffalo-sabres-seattle-washington-12-06-2026/event/0F0064C4A088A2D0"
+    },
+    "stg:tm-vvG1HZ_2UsmyJS": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-outsiders-touring-seattle-washington-12-06-2026/event/0F0064FDB1BB99B3"
+    },
+    "stg:tm-vvG1HZ_2pUaGLW": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/john-craigie-with-special-guest-marley-seattle-washington-12-06-2026/event/0F0064F5B624C7FD"
+    },
+    "wamu-theater:tm-vvG1HZ_oG1_C2O": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-seattle-washington-12-06-2026/event/0F0065130A64E3E0"
+    },
+    "wamu-theater:tm-vvG1HZ_o3idyCz": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/wamu-theater-amplified-access-triumph-not-seattle-washington-12-06-2026/event/0F006514AC0F93B8"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2SpkcPl": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/all-access-pass-climate-pledge-arena-seattle-washington-12-06-2026/event/0F0064FCD61AD96B"
+    },
+    "seatoday:cityspark-17845587": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/surya-kriya/17845587/2026-09-20T00"
+    },
+    "seatoday:cityspark-17845630": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/fall-garage-sale-redmond-ridge-roa/17845630/2026-09-20T00"
+    },
+    "seatoday:cityspark-19676540": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/sculpting-with-light-a-family-workshop-inspired-by-tom-lloyd/19676540/2026-09-20T00"
+    },
+    "seatoday:cityspark-19553028": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/psa-drop-off-event-the-seattle-shop/19553028/2026-09-20T00"
+    },
+    "seatoday:cityspark-19514558": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/mercer-island-mid-autumn-festival-2026/19514558/2026-09-20T00"
+    },
+    "seatoday:cityspark-17825540": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/miley-serious-at-ora/17825540/2026-09-20T00"
+    },
+    "seatoday:cityspark-19132323": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/community-screening-north-by-northwest/19132323/2026-09-20T00"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50389": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50389"
+    },
+    "seattle-center:eureka-day-x50310": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-x50310"
+    },
+    "seattle-center:serenade-x47353": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x47353"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "reason": "Past event (2026-08-01); u-district-partnership keeps past-dated events on page year-round (per SKILL.md). Do not prune with --date-in-key-older-than flag."
+    },
+    "northwest-film-forum:the-best-of-betty-boop-2026-09-10": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bestofbettyboopposter-1200x1855.jpeg"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "NWFF event page"
+    },
+    "SAF:187258072": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258113/abd5/waterfront_seattle.png"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
+    },
+    "SAF:187258119": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258160/291b/Hidden_Spaces_fountain_-_Evan_Chakroff.jpg"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
+    },
+    "SAF:187258180": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258225/3ea2/SAF_MtBakerTour_JustinJakubisn__4_of_16_.jpg"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
+    },
+    "SAF:187258242": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258303/4ea8/F5_and_skyline_-_credit_ZGF_Architects.jpg"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
+    },
+    "SAF:187258284": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258363/cf02/SAF_QueenAnne_202409-16_Web.jpg"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
+    },
+    "SAF:187258415": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258486/d431/Museum_of_Pop_Culture_-_credit_MoPop.png"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
+    },
+    "SAF:187258464": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258525/c6ff/Ballard_brick_building__front_view_-_Evan_Chakroff.jpg"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
+    },
+    "SAF:187258522": {
+      "fields": {
+        "imageUrl": "https://seattlearchitecture.org/imager/b/original/187258577/727f/UU-Church_Carousel-1.png"
+      },
+      "resolvedAt": "2026-09-07",
+      "source": "agent",
+      "evidence": "Seattle Architecture Foundation event page"
     }
   }
 }
