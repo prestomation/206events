@@ -1,6 +1,6 @@
 ---
 name: "Seattle Indies"
-status: added
+status: proxy
 platform: WordPress/Tribe Events ICS
 url: https://seattleindies.org/events/
 tags: [Gaming, Tech, Community]
@@ -35,3 +35,10 @@ Staged at `proxy: outofband` — the ladder entry point — and deliberately lef
 (Mode A) tests the ladder from the residential environment and merges the
 lowest rung that works, climbing to `browserbase` if `outofband` also fails, or
 closes the PR if neither does.
+
+## 2026-09-07 — verified at `outofband`
+
+Out-of-band generate run verified the `outofband` rung from the residential
+environment: `curl` of the Tribe Events ICS feed returns `HTTP 200` with 30
+real `VEVENT`s (no JS challenge). Lowest working rung — merged at
+`proxy: outofband`.
