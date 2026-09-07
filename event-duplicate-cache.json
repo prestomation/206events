@@ -19139,6 +19139,26 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-06",
       "note": "Different addresses 321m apart (1201 vs 1551 Eastlake Ave) - two distinct food truck pod locations, not the same event"
+    },
+    "19hz-all-events.ics Satin Jackets, Manatee Commune, Justin Hartinger|2026-10-10T20:00:00-07:00[America/Los_Angeles]::nectar-lounge-nectar-lounge.ics SATIN JACKETS with Pressha and Justin Hartinger|2026-10-10T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same Tixr event ID 187393, same date (2026-10-10), same venue (Nectar Lounge); lineup listing varies between sources but title is same show"
+    },
+    "19hz-all-events.ics Satin Jackets, Manatee Commune, Justin Hartinger|2026-10-10T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics SATIN JACKETS with Pressha and Justin Hartinger|2026-10-10T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same Nectar Lounge event on 2026-10-10, same performer (Satin Jackets); both match the Tixr listing ID 187393"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Tyler Childers - Snipe Hunt|2026-10-02T18:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Tyler Childers|2026-10-02T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same event (Tyler Childers Snipe Hunt Tour) at Climate Pledge Arena on 2026-10-02; time difference is doors (18:30) vs show (19:00)"
+    },
+    "queer-social-club-all-events.ics GenX Queer Coworking|2026-09-18T13:30:00.272-07:00[America/Los_Angeles]::seattle-pride-all-events.ics GenX Queer Coworking|2026-09-18T13:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-07",
+      "note": "Same event (GenX Queer Coworking) on 2026-09-18 at Redmond Library; queer-social-club is the venue source, seattle-pride is an aggregator listing the same event"
     }
   }
 }
