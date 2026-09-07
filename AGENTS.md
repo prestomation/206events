@@ -33,20 +33,29 @@ here, not in a separate cleanup routine.
 
 1. **List candidates.** Open PRs whose branch name or title marks them as a
    drain of this queue (e.g. `cost-resolver-*`, `photo-resolver/*`,
-   `geo-resolver-*`, "Queue drain", "Drain … queue"). Include ones that look
-   like a multi-queue drain — they usually touch your cache too.
+   "Queue drain", "Drain … queue"). Include ones that look like a multi-queue
+   drain — they usually touch your cache too.
+
+   **Geo drains are the exception:** they edit `lib/geocoder.ts`, not a drain
+   cache, so `drain-pr-sweep.py` has nothing to compare and always returns
+   `SUPERSEDED`. Sweep `geo-resolver-*` PRs by `grep` instead — see
+   `skills/geo-resolver/SKILL.md` step 0.
 
 2. **Run the supersession check** on each:
 
    ```sh
    git fetch origin <pr-head-ref>
-   python3 scripts/drain-pr-sweep.py "$(git merge-base main <pr-head-ref>)" <pr-head-ref>
+   python3 scripts/drain-pr-sweep.py \
+     "$(git merge-base origin/main <pr-head-ref>)" <pr-head-ref>
    ```
 
    Pass the **merge-base**, not GitHub's `base.sha` — that field is the base
-   branch's *tip*, which makes every count meaningless. On a shallow clone,
-   `git fetch --deepen=400 origin main` first, or `git merge-base` returns
-   nothing.
+   branch's *tip*, which makes every count meaningless. Use `origin/main`:
+   a web session's checkout is detached and often has no local `main`, and
+   `git merge-base main …` then prints nothing, leaving the script to complain
+   about a missing argument instead of the real problem. On a shallow clone,
+   run `git fetch --deepen=400 origin main` first or the merge-base isn't in
+   the history.
 
    It reports, per cache, how many keys the PR adds/modifies/prunes, how many
    `main` already carries, and how many of the remainder are past-dated

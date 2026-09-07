@@ -151,8 +151,13 @@ def unlanded_fields(pr_entry, main_entry, container="entries"):
                 else ["decision"])
     # An `unresolvable` verdict only counts as unlanded if main neither shares
     # it nor has since resolved the entry outright.
-    if (pr_entry.get("unresolvable") and not main_entry.get("unresolvable")
-            and not main_entry.get("fields")):
+    # Landed only when main shares the verdict. Main holding *some* field is
+    # not enough — it is routinely a value from a different queue (a photo
+    # drain's imageUrl) while the uncertainty this entry marks unresolvable is
+    # still open, and treating that as landed strands the event in the queue
+    # forever. Main having genuinely resolved it instead surfaces here as one
+    # key to glance at, which is the cheaper error.
+    if pr_entry.get("unresolvable") and not main_entry.get("unresolvable"):
         return ["<unresolvable>"]
     out = []
     for field, value in (pr_entry.get("fields") or {}).items():
@@ -234,8 +239,14 @@ def selftest():
          {"fields": {"cost": {"min": 175}}}, {"fields": {"cost": {"paid": True}}}, ["cost"]),
         ("main guessed free where the PR found a price",
          {"fields": {"cost": {"min": 45, "max": 55}}}, {"fields": {"cost": {"min": 0}}}, ["cost"]),
-        ("unresolvable, main since resolved it",
-         {"unresolvable": True}, {"fields": {"cost": {"min": 5}}}, []),
+        # Flagged on purpose: main resolving *a* field doesn't prove it
+        # resolved the one this entry gave up on. One key to eyeball beats
+        # silently stranding the event.
+        ("unresolvable, main has an unrelated field",
+         {"unresolvable": True}, {"fields": {"imageUrl": "u"}}, ["<unresolvable>"]),
+        ("unresolvable, main marked it unresolvable too plus a photo",
+         {"unresolvable": True},
+         {"unresolvable": True, "fields": {"imageUrl": "u"}}, []),
         ("unresolvable, main agrees", {"unresolvable": True}, {"unresolvable": True}, []),
     ]
     # The duplicate cache has its own entry shape, checked separately.
@@ -353,13 +364,20 @@ def main():
     # a YAML edit must not have SUPERSEDED read as "the whole PR is dead".
     # Surface those files explicitly rather than leaving it to a reminder the
     # SUPERSEDED branch never printed.
-    cache_paths = {path for path, _ in CACHES.values()}
-    changed = subprocess.run(
-        ["git", "diff", "--name-only", f"{base}..{head}"],
-        capture_output=True, text=True).stdout.split()
-    other_files = [f for f in changed if f not in cache_paths]
-
     names = list(CACHES) if args.cache == "both" else [args.cache]
+    analysed_paths = {CACHES[n][0] for n in names}
+    diff = subprocess.run(
+        ["git", "diff", "--name-only", f"{base}..{head}"],
+        capture_output=True, text=True)
+    if diff.returncode != 0:
+        # Don't let a failed diff silently upgrade the verdict's wording to
+        # "every change this PR carries".
+        die(f"git diff {base[:8]}..{head[:8]} failed: {diff.stderr.strip()}")
+    # splitlines(), not split(): a path containing a space is one file.
+    # Anything not analysed above is listed, including the *other* cache when
+    # --cache narrowed the run to one.
+    other_files = [f for f in diff.stdout.splitlines()
+                   if f and f not in analysed_paths]
     live, prunes = [], 0
     for name in names:
         cache_live, cache_prunes = sweep_one(
