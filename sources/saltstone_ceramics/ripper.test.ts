@@ -141,6 +141,26 @@ const SHORTHAND_TIME_RANGE = {
     images: [{ src: "https://cdn.shopify.com/bipoc.jpg" }],
 };
 
+const SHORTHAND_CROSSES_NOON = {
+    id: 16,
+    title: "Make a Clay Ghost - October 4th from 11-5pm",
+    handle: "make-a-clay-ghost-october-4th-11-5pm",
+    product_type: "retail-class",
+    body_html: "<p>Only the end time states am/pm, and the range crosses noon.</p>",
+    variants: [{ price: "65.00", available: true }],
+    images: [{ src: "https://cdn.shopify.com/ghost.jpg" }],
+};
+
+const SHORTHAND_NOON_START = {
+    id: 17,
+    title: "Lunch Break Throwing: Sunday October 4th, 12-1pm",
+    handle: "lunch-break-throwing-october-4th-12-1pm",
+    product_type: "retail-class",
+    body_html: "<p>A bare 12 before the end's pm means noon, not midnight.</p>",
+    variants: [{ price: "20.00", available: true }],
+    images: [{ src: "https://cdn.shopify.com/lunch.jpg" }],
+};
+
 const NO_VARIANTS_OR_IMAGES = {
     id: 12,
     title: "Bare Bones Class: Sunday September 20th, 6:30pm - 8:30pm",
@@ -380,6 +400,26 @@ describe('Saltstone Ceramics Ripper', () => {
         expect(events[0].date.hour()).toBe(18);
         expect(events[0].date.minute()).toBe(30);
         expect(events[0].duration.toHours()).toBe(2);
+    });
+
+    test('a shorthand range that crosses noon keeps the start hour AM ("11-5pm")', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([SHORTHAND_CROSSES_NOON]);
+        const events = await ripper.parseEvents(jsonData, testDate, {}) as RipperCalendarEvent[];
+
+        expect(events).toHaveLength(1);
+        expect(events[0].date.hour()).toBe(11);
+        expect(events[0].duration.toHours()).toBe(6);
+    });
+
+    test('a bare "12" before the end\'s meridiem means noon, not midnight ("12-1pm")', async () => {
+        const ripper = new SaltstoneCeramicsRipper();
+        const jsonData = buildJsonData([SHORTHAND_NOON_START]);
+        const events = await ripper.parseEvents(jsonData, testDate, {}) as RipperCalendarEvent[];
+
+        expect(events).toHaveLength(1);
+        expect(events[0].date.hour()).toBe(12);
+        expect(events[0].duration.toHours()).toBe(1);
     });
 
     test('parses all retail-class events from the live sample fixture with no errors', async () => {

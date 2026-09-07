@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Open Mic at Skylark Cafe & Club- Live Music | Scratch Kitchen | West Seattle</title>	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">	
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding-bottom: 50px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .navbar-menu li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-menu li a:hover {
+            color: #007bff;
+        }
+
+        .navbar-menu li a.active {
+            color: #007bff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 1rem;
+            }
+
+            .navbar-menu {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .desktop-only {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-menu {
+                gap: 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Demo content below navbar */
+        .demo-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .demo-content h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .demo-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+		
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 555px;
+      cursor: pointer;
+      background: #f0f0f0;
+    }
+    
+    .map-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .map-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .map-overlay:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    
+    .map-play-button {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #333;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .map-play-button:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+    
+    .map-loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+      color: #666;
+    }
+    
+    #map {
+      width: 100%;
+      height: 555px;
+      display: none;
+    }
+
+        /* Table Styles */
+        table {
+            width: 50%;
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        table th {
+            background-color: #e5e6fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #666;
+            vertical-align: top;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        table td:first-child {
+            width: 20%;
+            font-weight: 500;
+            color: #333;
+        }
+
+        table td:last-child {
+            width: 80%;
+        }
+
+        table td a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+
+        table td a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        table td b {
+            color: #333;
+            font-weight: 600;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Mobile Responsive for Table */
+        @media (max-width: 768px) {
+            table {
+                margin: 1rem;
+                width: calc(100% - 2rem);
+                max-width: none;
+            }
+
+            table th,
+            table td {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            table td:first-child {
+                width: 25%;
+            }
+
+            table td:last-child {
+                width: 75%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table {
+                margin: 0.5rem;
+                width: calc(100% - 1rem);
+            }
+
+            table th,
+            table td {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            table td:first-child {
+                width: 30%;
+            }
+
+            table td:last-child {
+                width: 70%;
+            }
+        }
+
+        /* Email line styling to match table */
+        .email-line {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .email-line a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .email-line a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+		
+/* Footer icon styles */
+.icon-footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.icon-footer a {
+    color: #000;
+    margin: 0 20px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.icon-footer a:hover {
+    color: #04AA6D;
+}
+
+/* Responsive styles for footer */
+@media screen and (max-width: 768px) {
+    .icon-footer {
+        padding: 15px 0;
+    }
+    
+    .icon-footer a {
+        margin: 0 15px;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .icon-footer a {
+        margin: 0 12px;
+        font-size: 20px;
+    }
+}		
+    </style>
+</head>
+<body>
+		
+	
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="https://badslava.com/open-mics.php?city=Seattle&state=WA&type=Comedy" >Comedy</a></li>
+                <li><a href="https://badslava.com/open-mics.php?city=Seattle&state=WA&type=Music" >Music</a></li>
+                <li><a href="https://badslava.com/open-mics.php?city=Seattle&state=WA&type=Poetry" >Poetry</a></li>
+                <li><a href="https://badslava.com/trivia-nights.php?city=Seattle&state=WA" >Trivia</a></li>				
+                <li><a href="https://badslava.com/bingo-nights.php?city=Seattle&state=WA" >Bingo</a></li>
+                <li><a href="https://badslava.com/book-clubs.php?city=Seattle&state=WA" >Book</a></li>
+                <li><a href="https://badslava.com/chess-clubs.php?city=Seattle&state=WA" >Chess</a></li>
+                <li><a href="https://badslava.com/dance-nights.php?city=Seattle&state=WA" >Dance</a></li>
+                <li><a href="https://badslava.com/game-nights.php?city=Seattle&state=WA" >Game</a></li>
+                <li class="desktop-only"><a href="https://badslava.com/karaoke-nights.php?city=Seattle&state=WA" >Karaoke</a></li>
+            </ul>
+        </div>
+    </nav>	
+	
+
+		
+	
+<div class="email-line">Email <a href="mailto:slava@badslava.com">slava@badslava.com</a> if there's wrong info on this page</div>	
+	
+<table>
+<tr><td><b>Venue Name: </b><br><a href="https://badslava.com/about.php?id=1959">Skylark Cafe & Club- Live Music | Scratch Kitchen | West Seattle</a></td></tr><tr><td><b>Venue Address: </b><br><a href = 'http://maps.google.com/maps?f=q&hl=en&q=3803 Delridge Wy SW+Seattle+WA'>3803 Delridge Wy SW Seattle WA</a></td></tr><tr><td><b>Google Maps: </b><br><a href = 'http://maps.google.com/maps?f=q&hl=en&q=3803 Delridge Wy SW+Seattle+WA'>http://maps.google.com/maps?f=q&hl=en&q=1959</a></td></tr><tr><td><b>Venue Website: </b><br><a href="http://www.skylarkcafe.com/">http://www.skylarkcafe.com/</a></td></tr><tr><td><b>Venue Instagram: </b><br><a href="https://www.instagram.com/skylarkcafe/">https://www.instagram.com/skylarkcafe/</a></td></tr><tr><td><b>Venue Phone: </b><br>(206) 935-2111</td></tr><tr><td><b>Event Type: </b><br>Open Mic</td></tr><tr><td><b>Event Day: </b><br>Wednesday</td></tr><tr><td><b>Event Time: </b><br>7:30pm</td></tr><tr><td><b>Event Frequency: </b><br>Weekly</td></tr><tr><td><b>Event Cost: </b><br>Free</td></tr>	
+		
+</table> 
+
+<table>
+	<tr><td>
+Open Mics in the United States<br> 
+<a href="https://badslava.com/open-mics.php?city=New%20York&state=NY">New York</a> | 
+<a href="https://badslava.com/open-mics.php?city=Los%20Angeles&state=CA">Los Angeles</a> | 
+<a href="https://badslava.com/open-mics.php?city=Chicago&state=IL">Chicago</a> | 
+<a href="https://badslava.com/open-mics.php?city=Houston&state=TX">Houston</a> | 
+<a href="https://badslava.com/open-mics.php?city=Phoenix&state=AZ">Phoenix</a> | 
+<a href="https://badslava.com/open-mics.php?city=Philadelphia&state=PA">Philadelphia</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Antonio&state=TX">San Antonio</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Diego&state=CA">San Diego</a> | 
+<a href="https://badslava.com/open-mics.php?city=Dallas&state=TX">Dallas</a> |  
+<a href="https://badslava.com/open-mics.php?city=Jacksonville&state=FL">Jacksonville</a> | 
+<a href="https://badslava.com/open-mics.php?city=Fort%20Worth&state=TX">Fort Worth</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Jose&state=CA">San Jose</a> | 
+<a href="https://badslava.com/open-mics.php?city=Austin&state=TX">Austin</a> | 
+<a href="https://badslava.com/open-mics.php?city=Charlotte&state=NC">Charlotte</a> | 
+<a href="https://badslava.com/open-mics.php?city=Columbus&state=OH">Columbus</a> | 
+<a href="https://badslava.com/open-mics.php?city=Indianapolis&state=IN">Indianapolis</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Francisco&state=CA">San Francisco</a> | 
+<a href="https://badslava.com/open-mics.php?city=Seattle&state=WA">Seattle</a> | 
+<a href="https://badslava.com/open-mics.php?city=Denver&state=CO">Denver</a> | 
+<a href="https://badslava.com/open-mics.php?city=Oklahoma%20City&state=OK">Oklahoma City</a> | 
+<a href="https://badslava.com/open-mics.php?city=Nashville&state=TN">Nashville</a> | 
+<a href="https://badslava.com/open-mics.php?city=El%20Paso&state=TX">El Paso</a> | 
+<a href="https://badslava.com/open-mics.php?city=Washington&state=DC">Washington</a> | 
+<a href="https://badslava.com/open-mics.php?city=Las%20Vegas&state=NV">Las Vegas</a> | 
+<a href="https://badslava.com/open-mics.php?city=Boston&state=MA">Boston</a> | 
+<a href="https://badslava.com/open-mics.php?city=Portland&state=OR">Portland</a> | 
+<a href="https://badslava.com/open-mics.php?city=Louisville&state=KY">Louisville</a> | 
+<a href="https://badslava.com/open-mics.php?city=Memphis&state=TN">Memphis</a> | 
+<a href="https://badslava.com/open-mics.php?city=Detroit&state=MI">Detroit</a> | 
+<a href="https://badslava.com/open-mics.php?city=Baltimore&state=MD">Baltimore</a> | 
+<a href="https://badslava.com/open-mics.php?city=Milwaukee&state=WI">Milwaukee</a> | 
+<a href="https://badslava.com/open-mics.php?city=Albuquerque&state=NM">Albuquerque</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tucson&state=AZ">Tucson</a> | 
+<a href="https://badslava.com/open-mics.php?city=Fresno&state=CA">Fresno</a> | 
+<a href="https://badslava.com/open-mics.php?city=Sacramento&state=CA">Sacramento</a> | 
+<a href="https://badslava.com/open-mics.php?city=Mesa&state=AZ">Mesa</a> | 
+<a href="https://badslava.com/open-mics.php?city=Kansas%20City&state=MO">Kansas City</a> | 
+<a href="https://badslava.com/open-mics.php?city=Atlanta&state=GA">Atlanta</a> | 
+<a href="https://badslava.com/open-mics.php?city=Colorado%20Springs&state=CO">Colorado Springs</a> | 
+<a href="https://badslava.com/open-mics.php?city=Omaha&state=NE">Omaha</a> | 
+<a href="https://badslava.com/open-mics.php?city=Raleigh&state=NC">Raleigh</a> | 
+<a href="https://badslava.com/open-mics.php?city=Miami&state=FL">Miami</a> | 
+<a href="https://badslava.com/open-mics.php?city=Virginia%20Beach&state=VA">Virginia Beach</a> | 
+<a href="https://badslava.com/open-mics.php?city=Long%20Beach&state=CA">Long Beach</a> | 
+<a href="https://badslava.com/open-mics.php?city=Oakland&state=CA">Oakland</a> | 
+<a href="https://badslava.com/open-mics.php?city=Minneapolis&state=MN">Minneapolis</a> |  
+<a href="https://badslava.com/open-mics.php?city=Bakersfield&state=CA">Bakersfield</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tulsa&state=OK">Tulsa</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tampa&state=FL">Tampa</a> | 
+<a href="https://badslava.com/open-mics.php?city=Arlington&state=TX">Arlington</a> | 
+<br><br>
+Open Mics Worldwide<br>
+<a href="https://badslava.com/open-mics.php?city=Amsterdam&state=DS">Amsterdam</a> |
+<a href="https://badslava.com/open-mics.php?city=Antwerp&state=BE">Antwerp</a> |		
+<a href="https://badslava.com/open-mics.php?city=Auckland&state=NZ">Auckland</a> | 
+<a href="https://badslava.com/open-mics.php?city=Barcelona&state=ES">Barcelona</a> | 
+<a href="https://badslava.com/open-mics.php?city=Berlin&state=RM">Berlin</a> | 
+<a href="https://badslava.com/open-mics.php?city=Birmingham&state=UK">Birmingham</a> | 
+<a href="https://badslava.com/open-mics.php?city=Brisbane&state=AU">Brisbane</a> | 
+<a href="https://badslava.com/open-mics.php?city=Bristol&state=UK">Bristol</a> | 
+<a href="https://badslava.com/open-mics.php?city=Brussels&state=BE">Brussels</a> | 		
+<a href="https://badslava.com/open-mics.php?city=Budapest&state=HU">Budapest</a> | 
+<a href="https://badslava.com/open-mics.php?city=Buenos Aires&state=AG">Buenos Aires</a> | 
+<a href="https://badslava.com/open-mics.php?city=Calgary&state=AB">Calgary</a> |
+<a href="https://badslava.com/open-mics.php?city=Cape Town&state=ZA">Cape Town</a> |
+<a href="https://badslava.com/open-mics.php?city=Cologne&state=RM">Cologne</a> |
+<a href="https://badslava.com/open-mics.php?city=Copenhagen&state=DK">Copenhagen</a> |
+<a href="https://badslava.com/open-mics.php?city=Cork&state=IE">Cork</a> |
+<a href="https://badslava.com/open-mics.php?city=Dublin&state=IE">Dublin</a> | 
+<a href="https://badslava.com/open-mics.php?city=Edinburgh&state=UK">Edinburgh</a> | 
+<a href="https://badslava.com/open-mics.php?city=Glasgow&state=UK">Glasgow</a> |  
+<a href="https://badslava.com/open-mics.php?city=Guadalajara&state=MX">Guadalajara</a> |		
+<a href="https://badslava.com/open-mics.php?city=Hamburg&state=RM">Hamburg</a> |  
+<a href="https://badslava.com/open-mics.php?city=Helsinki&state=FI">Helsinki</a> |
+<a href="https://badslava.com/open-mics.php?city=Johannesburg&state=ZA">Johannesburg</a> | 
+<a href="https://badslava.com/open-mics.php?city=Krakow&state=PL">Krakow</a> | 
+<a href="https://badslava.com/open-mics.php?city=Leeds&state=UK">Leeds</a> | 
+<a href="https://badslava.com/open-mics.php?city=Lisbon&state=PT">Lisbon</a> | 
+<a href="https://badslava.com/open-mics.php?city=Liverpool&state=UK">Liverpool</a> | 
+<a href="https://badslava.com/open-mics.php?city=London&state=UK">London</a> | 
+<a href="https://badslava.com/open-mics.php?city=Madrid&state=ES">Madrid</a> | 
+<a href="https://badslava.com/open-mics.php?city=Manchester&state=UK">Manchester</a> | 
+<a href="https://badslava.com/open-mics.php?city=Melbourne&state=AU">Melbourne</a> | 		
+<a href="https://badslava.com/open-mics.php?city=Mexico City&state=MX">Mexico City</a> | 
+<a href="https://badslava.com/open-mics.php?city=Montreal&state=QC">Montreal</a> | 
+<a href="https://badslava.com/open-mics.php?city=Munich&state=RM">Munich</a> | 
+<a href="https://badslava.com/open-mics.php?city=Oslo&state=NO">Oslo</a> | 
+<a href="https://badslava.com/open-mics.php?city=Ottawa&state=ON">Ottawa</a> | 
+<a href="https://badslava.com/open-mics.php?city=Perth&state=AU">Perth</a> | 
+<a href="https://badslava.com/open-mics.php?city=Porto&state=PT">Porto</a> | 
+<a href="https://badslava.com/open-mics.php?city=Prague&state=CZ">Prague</a> | 
+<a href="https://badslava.com/open-mics.php?city=Santiago&state=CL">Santiago</a> | 
+<a href="https://badslava.com/open-mics.php?city=Seoul&state=KR">Seoul</a> | 
+<a href="https://badslava.com/open-mics.php?city=Singapore&state=SG">Singapore</a> | 
+<a href="https://badslava.com/open-mics.php?city=Stockholm&state=SE">Stockholm</a> | 
+<a href="https://badslava.com/open-mics.php?city=Sydney&state=AU">Sydney</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tokyo&state=JP">Tokyo</a> | 
+<a href="https://badslava.com/open-mics.php?city=Toronto&state=ON">Toronto</a> | 
+<a href="https://badslava.com/open-mics.php?city=Valencia&state=SP">Valencia</a> | 
+<a href="https://badslava.com/open-mics.php?city=Vancouver&state=BC">Vancouver</a> |
+<a href="https://badslava.com/open-mics.php?city=Vienna&state=AT">Vienna</a> | 
+<a href="https://badslava.com/open-mics.php?city=Warsaw&state=PL">Warsaw</a> | 
+	</td></tr>
+</table>	
+	
+<div class="icon-footer">
+  <a href="https://badslava.com/"><i class="fas fa-home"></i></a>
+  <a href="https://badslava.com/questions.php"><i class="fas fa-user"></i></a>
+  <a href="mailto:slava@badslava.com"><i class="fas fa-envelope"></i></a>
+  <a href="https://badslava.com/search.php"><i class="fas fa-search"></i></a>
+</div>
+	
+<script>
+(function () {
+  // Countries to block (ISO-3166-1 alpha-2)
+  var BLOCK = { "CN": true, "SG": true };
+  var KEY = "geo_country_v1";
+
+  function loadGA() {
+    // ---- GA4 (gtag.js) ----
+    var s1 = document.createElement("script");
+    s1.async = true;
+    s1.src = "https://www.googletagmanager.com/gtag/js?id=G-NZE25F6CYB";
+    document.head.appendChild(s1);
+
+    s1.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+
+      gtag("js", new Date());
+      gtag("config", "G-NZE25F6CYB");
+    };
+  }
+
+  function decide(country) {
+    country = (country || "UNKNOWN").toUpperCase();
+    try { sessionStorage.setItem(KEY, country); } catch(e) {}
+
+    if (BLOCK[country]) {
+      // Blocked: do not load GA scripts
+      console.log("Analytics blocked for country: " + country);
+      return;
+    }
+    console.log("Analytics loaded for country: " + country);
+    loadGA();
+  }
+
+  // Use cached country if present
+  try {
+    var cached = sessionStorage.getItem(KEY);
+    if (cached) {
+      decide(cached);
+      return;
+    }
+  } catch(e) {}
+
+  // Geo lookup with timeout
+  var timeoutId = setTimeout(function() {
+    console.log("Geo lookup timed out, blocking analytics");
+    // If lookup fails/times out, block by default for safety
+  }, 3000);
+
+  fetch("https://ipapi.co/json/", { method: "GET" })
+    .then(function (r) { 
+      if (!r.ok) throw new Error("Geo API failed");
+      return r.json(); 
+    })
+    .then(function (j) {
+      clearTimeout(timeoutId);
+      var c = (j && j.country_code) ? String(j.country_code) : "UNKNOWN";
+      decide(c);
+    })
+    .catch(function (err) {
+      clearTimeout(timeoutId);
+      console.log("Geo lookup failed:", err);
+      // On error, block by default for safety
+    });
+})();
+</script>
+	
+</body>
+</html>

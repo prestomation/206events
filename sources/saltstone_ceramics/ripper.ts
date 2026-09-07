@@ -102,10 +102,21 @@ function parseSchedule(title: string, today: LocalDate): ParsedSchedule | null {
     if (times.length < 2) {
         const shorthand = title.match(TIME_RANGE_SHORTHAND);
         if (shorthand) {
-            const [, startHour, startMin, endHour, endMin, meridiem] = shorthand;
+            const [, startHour, startMin, endHour, endMin, meridiemRaw] = shorthand;
+            const meridiem = meridiemRaw.toLowerCase().replace(/\./g, "");
+            const startHourNum = parseInt(startHour, 10);
+            const endHourNum = parseInt(endHour, 10);
+            // The start hour shares the end's meridiem when it's smaller on a
+            // 12-hour clock ("6:30-8:30pm" -> both pm) or is itself 12 (a bare
+            // "12" preceding "pm"/"am" means noon/midnight, e.g. "12-1pm" ->
+            // 12pm-1pm). Otherwise the range crosses noon/midnight and the
+            // start is on the opposite side ("11-5pm" -> 11am-5pm).
+            const startMeridiem = startHourNum === 12 || startHourNum < endHourNum
+                ? meridiem
+                : meridiem === "pm" ? "am" : "pm";
             const normalized = title.replace(
                 TIME_RANGE_SHORTHAND,
-                `${startHour}${startMin ? ":" + startMin : ""}${meridiem}-${endHour}${endMin ? ":" + endMin : ""}${meridiem}`
+                `${startHour}${startMin ? ":" + startMin : ""}${startMeridiem}-${endHour}${endMin ? ":" + endMin : ""}${meridiem}`
             );
             times = [...normalized.matchAll(TIME_PATTERN)];
             if (times.length >= 2) title = normalized;

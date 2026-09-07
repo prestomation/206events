@@ -4,6 +4,32 @@ Resolve missing geocode entries in the 206.events geo-cache.
 
 ## Workflow
 
+### 0. Sweep this queue's prior open PRs (mandatory)
+
+**Before reading the queue**, close out the open PRs left by earlier geo-resolver
+runs. The full rule is *Step 0* under "Queue Draining — Work Until Empty" in
+`AGENTS.md`.
+
+Geo drains edit `lib/geocoder.ts` rather than a drain cache, so
+`scripts/drain-pr-sweep.py` does not apply here — check supersession by `grep`
+instead. For each open `geo-resolver-*` PR, diff it against its merge-base and
+look up every key it touches:
+
+```sh
+git diff <pr-merge-base-sha> <pr-head-ref> -- lib/geocoder.ts
+grep -n "'<venue key>'" lib/geocoder.ts        # already on main?
+```
+
+A later run very often landed the same `KNOWN_VENUE_COORDS` entries, or solved
+the same class of location string with different (usually stricter) logic. If
+every entry and every behavior change is already on `main`, close the PR naming
+what superseded it. If one or two entries are genuinely unlanded, close the PR
+and port just those lines fresh onto `main` — don't rebase a months-old branch
+through a `lib/geocoder.ts` that has moved on.
+
+Skipping this step is how the same venues get re-geocoded run after run while
+the earlier PR sits open and unmergeable.
+
 ### 1. Check live geo stats and errors
 
 ```bash
