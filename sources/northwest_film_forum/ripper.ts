@@ -1,4 +1,4 @@
-import { Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { Duration, LocalDate, LocalDateTime, LocalTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
@@ -262,6 +262,48 @@ export function extractDatedTimeList(html: string): LocalDateTime[] {
 }
 
 /**
+ * Extracts every "<Weekday> <Mon> <Day>: <time>[, <time>...]" showing from a
+ * multi-showtime listing, e.g. a Halloween double-bill:
+ *   "Fri Oct 30: 8.00pm PDT" / "Sat Oct 31: 5.00pm PDT, 8.00pm PDT"
+ * Unlike extractAllDayDates, each showing already carries a real
+ * (dot-separated, e.g. "8.00pm") time of day, so the resulting events need
+ * no UncertaintyError. The listing carries no year, so it's inferred
+ * relative to `now`. Returns one (date, time) pair per showing in document
+ * order — a date with more than one showing yields multiple pairs sharing
+ * the same date. Public for testing.
+ */
+export function extractMultiShowtimeLines(html: string, now: ZonedDateTime): { date: LocalDate; time: LocalTime }[] {
+    const results: { date: LocalDate; time: LocalTime }[] = [];
+    const lineRe = /(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+([A-Z][a-z]{2})\s+(\d{1,2}):\s*([^<\n]+)/g;
+    let lm: RegExpExecArray | null;
+    while ((lm = lineRe.exec(html)) !== null) {
+        const month = ABBR_MONTHS[lm[1]];
+        if (!month) continue;
+        const day = Number(lm[2]);
+        const year = inferYear(month, day, now);
+        if (year === null) continue;
+        let date: LocalDate;
+        try {
+            date = LocalDate.of(year, month, day);
+        } catch {
+            continue;
+        }
+
+        const timeRe = /(\d{1,2})\.(\d{2})\s*(am|pm)/gi;
+        let tm: RegExpExecArray | null;
+        while ((tm = timeRe.exec(lm[3])) !== null) {
+            let hour = Number(tm[1]);
+            const minute = Number(tm[2]);
+            const ampm = tm[3].toLowerCase();
+            if (ampm === "pm" && hour !== 12) hour += 12;
+            if (ampm === "am" && hour === 12) hour = 0;
+            results.push({ date, time: LocalTime.of(hour, minute) });
+        }
+    }
+    return results;
+}
+
+/**
  * Extracts the ticket/registration URL from the nearest schema.org
  * `itemprop="offers"` block. A missing or empty offers URL is the
  * generic signal this site uses for informational, non-attendable pages
@@ -327,6 +369,12 @@ export function extractDuration(html: string): Duration {
  *     discussion group) whose dates *and* times come from explicit
  *     `<time datetime="...">` elements. No UncertaintyError needed since
  *     the time of day is known for each occurrence.
+ *   - `[event, event, ...]` — a multi-showtime listing (e.g. a Halloween
+ *     double-bill with several dates, some with more than one showing per
+ *     night) whose dates and times come from free-text "Fri Oct 30: 8.00pm
+ *     PDT" lines. No UncertaintyError needed since the time of day is known
+ *     for each showing; a date with multiple showings gets a distinct id
+ *     per showtime (see "Stable Event IDs" in AGENTS.md).
  *   - `[error]` — a ticketed/registerable page whose date genuinely could
  *     not be extracted by any strategy; a real gap worth surfacing.
  * Never returns null and never drops a real event without a trace.
@@ -403,6 +451,32 @@ export function parseDetailPage(
                 id: `${slug}-${dt.toLocalDate().toString()}`,
                 ripped: new Date(),
                 date,
+                duration: extractDuration(html),
+                summary: title,
+                location: location ?? undefined,
+                url,
+            };
+        });
+    }
+
+    const multiShowtimes = extractMultiShowtimeLines(html, now);
+    if (multiShowtimes.length > 0) {
+        const showingsPerDate = new Map<string, number>();
+        for (const s of multiShowtimes) {
+            const key = s.date.toString();
+            showingsPerDate.set(key, (showingsPerDate.get(key) ?? 0) + 1);
+        }
+        return multiShowtimes.map((s): RipperCalendarEvent => {
+            const dateKey = s.date.toString();
+            // Multiple showings on the same date need distinct ids; a
+            // single-showing date keeps the plain date id undisturbed.
+            const slot = (showingsPerDate.get(dateKey) ?? 0) > 1
+                ? `-${s.time.toString().replace(":", "")}`
+                : "";
+            return {
+                id: `${slug}-${dateKey}${slot}`,
+                ripped: new Date(),
+                date: s.date.atTime(s.time).atZone(TIMEZONE),
                 duration: extractDuration(html),
                 summary: title,
                 location: location ?? undefined,

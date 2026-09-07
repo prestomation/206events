@@ -3,7 +3,7 @@ import { ZonedDateTime, ZoneId } from "@js-joda/core";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { extractHumanitixLinks, extractNavMenuUrls, extractDachaEvents, parseDachaEvents, DachaEventPage } from "./ripper.js";
+import { extractHumanitixLinks, extractNavMenuUrls, extractActiveSubmenuUrls, extractDachaEvents, parseDachaEvents, DachaEventPage } from "./ripper.js";
 import '@js-joda/timezone';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -80,6 +80,43 @@ describe("DachaTheatreRipper", () => {
 
         it("returns empty array when no flyout menu blob is present", () => {
             const urls = extractNavMenuUrls("<html><body>no menu here</body></html>", baseUrl);
+            expect(urls).toHaveLength(0);
+        });
+    });
+
+    describe("extractActiveSubmenuUrls", () => {
+        const baseUrl = "https://www.dachatheatre.com/dice.html";
+
+        it("extracts the active nav item's own submenu link", () => {
+            const html = `
+                <li id="pg1" class="wsite-menu-item-wrap">
+                    <a href="/about.html" class="wsite-menu-item">About</a>
+                    <div class="wsite-menu-wrap" style="display:none">
+                        <ul class="wsite-menu">
+                            <li id="wsite-nav-1" class="wsite-menu-subitem-wrap ">
+                                <a href="/members.html" class="wsite-menu-subitem"><span class="wsite-menu-title">Members</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="active" class="wsite-menu-item-wrap">
+                    <a href="/dice.html" class="wsite-menu-item">Dice: AYLI</a>
+                    <div class="wsite-menu-wrap" style="display:none">
+                        <ul class="wsite-menu">
+                            <li id="wsite-nav-2" class="wsite-menu-subitem-wrap ">
+                                <a href="/dicecasts.html" class="wsite-menu-subitem"><span class="wsite-menu-title">Dice AYLI: Seattle Casts</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            `;
+            const urls = extractActiveSubmenuUrls(html, baseUrl);
+            expect(urls).toContain("https://www.dachatheatre.com/dicecasts.html");
+            expect(urls).not.toContain("https://www.dachatheatre.com/members.html");
+        });
+
+        it("returns empty array when there is no active nav item", () => {
+            const urls = extractActiveSubmenuUrls("<html><body>no nav here</body></html>", baseUrl);
             expect(urls).toHaveLength(0);
         });
     });

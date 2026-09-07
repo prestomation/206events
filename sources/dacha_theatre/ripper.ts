@@ -89,6 +89,46 @@ export function extractNavMenuUrls(html: string, baseUrl: string): string[] {
     return urls;
 }
 
+// Extract the current show's own submenu links (e.g. a "Seattle Casts" page
+// carrying the Humanitix link) from a nav page's rendered flyout menu. Weebly
+// renders the full site nav (including every past production's submenu) on
+// every page, so this only reads the <li id="active" ...> block — the one
+// belonging to the page we're currently on — to avoid crawling the site's
+// entire show history.
+export function extractActiveSubmenuUrls(html: string, baseUrl: string): string[] {
+    const seen = new Set<string>();
+    const urls: string[] = [];
+    const activeRegex = /<li id="active" class="wsite-menu-item-wrap">/g;
+    let activeMatch: RegExpExecArray | null;
+    while ((activeMatch = activeRegex.exec(html)) !== null) {
+        const tagRegex = /<li\b|<\/li>/g;
+        tagRegex.lastIndex = activeMatch.index + activeMatch[0].length;
+        let depth = 1;
+        let end = -1;
+        let tagMatch: RegExpExecArray | null;
+        while ((tagMatch = tagRegex.exec(html)) !== null) {
+            if (tagMatch[0] === "</li>") {
+                depth--;
+                if (depth === 0) { end = tagMatch.index; break; }
+            } else {
+                depth++;
+            }
+        }
+        if (end === -1) continue;
+        const block = html.slice(activeRegex.lastIndex, end);
+        const hrefRegex = /href="([^"]+\.html)"/g;
+        let hrefMatch: RegExpExecArray | null;
+        while ((hrefMatch = hrefRegex.exec(block)) !== null) {
+            const resolved = new URL(hrefMatch[1], baseUrl).toString();
+            if (!seen.has(resolved)) {
+                seen.add(resolved);
+                urls.push(resolved);
+            }
+        }
+    }
+    return urls;
+}
+
 // Extract event page data from a Humanitix per-production HTML page.
 export function extractDachaEvents(html: string, url: string): { page?: DachaEventPage; parseError?: RipperError } {
     // Extract title from first <h1>
@@ -314,18 +354,32 @@ export default class DachaTheatreRipper implements IRipper {
         // the nav menu) rather than embedding a direct Humanitix link. Follow
         // that one level of indirection before giving up.
         if (humanitixUrls.length === 0) {
-            const navUrls = extractNavMenuUrls(homeHtml, ripper.config.url.toString());
             const seen = new Set<string>();
-            for (const navUrl of navUrls) {
+            const visitedNavPages = new Set<string>([ripper.config.url.toString()]);
+            const pagesToVisit = extractNavMenuUrls(homeHtml, ripper.config.url.toString());
+            for (let i = 0; i < pagesToVisit.length; i++) {
+                const navUrl = pagesToVisit[i];
+                if (visitedNavPages.has(navUrl)) continue;
+                visitedNavPages.add(navUrl);
                 const navRes = await fetchFn(navUrl, {
                     headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" },
                 });
                 if (!navRes.ok) continue;
                 const navHtml = await navRes.text();
+                let foundHere = false;
                 for (const link of extractHumanitixLinks(navHtml)) {
                     if (!seen.has(link)) {
                         seen.add(link);
                         humanitixUrls.push(link);
+                        foundHere = true;
+                    }
+                }
+                // No direct Humanitix link on this nav page — the show's own
+                // submenu (e.g. a "Seattle Casts" ticket page) may carry it.
+                // Follow one more level, scoped to this page's active nav item.
+                if (!foundHere) {
+                    for (const subUrl of extractActiveSubmenuUrls(navHtml, navUrl)) {
+                        if (!visitedNavPages.has(subUrl)) pagesToVisit.push(subUrl);
                     }
                 }
             }

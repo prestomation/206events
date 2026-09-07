@@ -13,6 +13,7 @@ import {
     extractDateOnlyStartDates,
     extractAllDayDates,
     extractDatedTimeList,
+    extractMultiShowtimeLines,
     extractOffersUrl,
     extractLocation,
     extractDuration,
@@ -32,6 +33,7 @@ const CLOSURE_URL = "https://nwfilmforum.org/events/nwff-summer-break-2026/";
 const WORKSHOP_URL = "https://nwfilmforum.org/education/workshops/camp2-2026/";
 const MULTIDATE_URL = "https://nwfilmforum.org/events/two-angels-in-the-night-a-gregg-araki-double-feature/";
 const RECURRING_URL = "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/";
+const MULTI_SHOWTIME_URL = "https://nwfilmforum.org/events/2026-collide-o-scope-halloween-show/";
 const FIXED_NOW = ZonedDateTime.of(2026, 7, 18, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
 
 describe("extractDetailUrls", () => {
@@ -254,6 +256,38 @@ describe("extractDatedTimeList", () => {
     });
 });
 
+describe("extractMultiShowtimeLines", () => {
+    it("extracts one showing per single-showing date and two for a double-showing date", () => {
+        const results = extractMultiShowtimeLines(readSample("sample-data-multi-showtime.html"), FIXED_NOW);
+        expect(results.map(r => `${r.date.toString()}T${r.time.toString()}`)).toEqual([
+            "2026-10-30T20:00", "2026-10-31T17:00", "2026-10-31T20:00",
+        ]);
+    });
+
+    it("rolls over to next year when the month/day has already passed relative to now", () => {
+        const lateNow = ZonedDateTime.of(2026, 12, 15, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
+        const results = extractMultiShowtimeLines(readSample("sample-data-multi-showtime.html"), lateNow);
+        expect(results.map(r => r.date.toString())).toEqual(["2027-10-30", "2027-10-31", "2027-10-31"]);
+    });
+
+    it("returns an empty array for a page with no multi-showtime listing", () => {
+        expect(extractMultiShowtimeLines(readSample("sample-data-film.html"), FIXED_NOW)).toEqual([]);
+    });
+
+    it("does not misfire on an 'All Day' listing (no digit.digit time present)", () => {
+        expect(extractMultiShowtimeLines(readSample("sample-data-multidate-pass.html"), FIXED_NOW)).toEqual([]);
+    });
+
+    it("does not double-count a recurring listing's <time datetime> markup", () => {
+        expect(extractMultiShowtimeLines(readSample("sample-data-recurring-times.html"), FIXED_NOW)).toEqual([]);
+    });
+
+    it("ignores an unrelated colon-time mention on a non-matching line (e.g. '4:30pm')", () => {
+        const html = `<div class="col-1">Special Pre-Shows Begin at 4:30pm and 7:30pm!</div>`;
+        expect(extractMultiShowtimeLines(html, FIXED_NOW)).toEqual([]);
+    });
+});
+
 describe("extractOffersUrl", () => {
     it("extracts the ticket/registration URL from a /films/ page", () => {
         expect(extractOffersUrl(readSample("sample-data-film.html")))
@@ -397,6 +431,28 @@ describe("parseDetailPage", () => {
 
         const last = results[results.length - 1] as RipperCalendarEvent;
         expect(last.date.toLocalDate().toString()).toBe("2026-12-09");
+    });
+
+    it("returns one event per showing for a multi-showtime listing, with a slot suffix only on the double-showing date", () => {
+        const results = parseDetailPage(readSample("sample-data-multi-showtime.html"), MULTI_SHOWTIME_URL, FIXED_NOW);
+        expect(results.length).toBe(3);
+        for (const result of results) {
+            expect("date" in result).toBe(true);
+        }
+        const [fri, sat1, sat2] = results as RipperCalendarEvent[];
+
+        expect(fri.id).toBe("2026-collide-o-scope-halloween-show-2026-10-30");
+        expect(fri.date.toLocalDate().toString()).toBe("2026-10-30");
+        expect(fri.date.hour()).toBe(20);
+        expect(fri.summary).toBe("2026 Collide-O-Scope Halloween Show");
+
+        expect(sat1.id).toBe("2026-collide-o-scope-halloween-show-2026-10-31-1700");
+        expect(sat1.date.toLocalDate().toString()).toBe("2026-10-31");
+        expect(sat1.date.hour()).toBe(17);
+
+        expect(sat2.id).toBe("2026-collide-o-scope-halloween-show-2026-10-31-2000");
+        expect(sat2.date.toLocalDate().toString()).toBe("2026-10-31");
+        expect(sat2.date.hour()).toBe(20);
     });
 
     it("returns an empty array (not a crash) for a page with no title", () => {
