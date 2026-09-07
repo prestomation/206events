@@ -10758,10 +10758,10 @@
           "paid": true
         }
       },
-      "resolvedAt": "2026-09-04",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/seattle-reign-fc-vs-san-diego-seattle-washington-09-06-2026/event/0F006454A553CF03 (Ticketmaster event, dynamically/tiered priced, no priceRanges published yet; Ticketmaster blocks automated fetch of listing pages)",
-      "partialFingerprint": "1295561"
+      "evidence": "https://www.ticketmaster.com/seattle-reign-fc-vs-san-diego-seattle-washington-09-06-2026/event/0F006454A553CF03 (Ticketmaster returns HTTP 403 to automated fetches; NWSL match confirmed paid/ticketed via secondary marketplaces but no primary face-value price published; refreshing stale fingerprint from a prior 2026-09-04 resolution)",
+      "partialFingerprint": "19efjkj"
     },
     "lumen-field:tm-vvG1HZ_GnVrnQP": {
       "unresolvable": true,
@@ -80526,14 +80526,10 @@
       "evidence": "https://www.siderailcollective.com/calendar/full-house-members-only-j25j8-rt635-5h2nk"
     },
     "seatoday:cityspark-17825540": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://discotech.me/seattle/ora/",
+      "reason": "CitySpark description text is dated \"September 20-2025\" (stale, reused for the 2026-09-20 occurrence); the venue (Ora Nightclub) no longer lists this show on its current site and no cover charge is published anywhere",
       "partialFingerprint": "1d12b8g"
     },
     "seatoday:cityspark-17845587": {
