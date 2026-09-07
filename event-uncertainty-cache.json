@@ -36834,12 +36834,14 @@
     "charlies-queer-books:charlies-queer-books-5825020261017": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 45.0,
+          "max": 55.0
         }
       },
-      "resolvedAt": "2026-07-18",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://charliesqueerbooks.com/events"
+      "evidence": "https://townhallseattle.org/event/becky-chambers/ — \"$45 – $55 (Includes Book)\" (re-verified live 2026-09-07)",
+      "partialFingerprint": "1gxo238"
     },
     "reubens-brews:reubens-gratituesday-seattle-public-library-foundation-07-21-2026": {
       "fields": {

@@ -1,4 +1,4 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime, DateTimeFormatter } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse } from "node-html-parser";
@@ -12,6 +12,16 @@ import '@js-joda/timezone';
 // short-lived session token (no login involved — same call an anonymous
 // browser tab makes), and `event/v2/list` returns the dated event list for
 // that store/session.
+// Deterministic string hash for uncertainty fingerprints — same formula as
+// sources/kenyon_hall/ripper.ts and friends.
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
+
 const API_BASE = "https://api.bookmanager.com/customer";
 // Public webstore identifier, visible in the site's own asset URLs
 // (cdn1.bookmanager.com/i/9932925/...). Equivalent to an Eventbrite
@@ -89,8 +99,12 @@ export default class CharliesQueerBooksRipper implements IRipper {
 
         for (const row of rows) {
             const result = this.parseRow(row);
-            if ('date' in result) events.push(result);
-            else errors.push(result);
+            if ('date' in result) {
+                events.push(result);
+                if (result.cost === undefined) errors.push(this.buildCostUncertainty(row, result));
+            } else {
+                errors.push(result);
+            }
         }
 
         return [{
@@ -205,11 +219,55 @@ export default class CharliesQueerBooksRipper implements IRipper {
             event.geocodeSource = 'ripper';
         }
 
-        // Bookmanager exposes ticket SKUs when an event is paid; absence means free.
-        const hasPaidTickets = Array.isArray(row.tickets) && row.tickets.length > 0;
-        event.cost = hasPaidTickets ? { paid: true } : { min: 0 };
+        const cost = this.parseCost(row, event.description);
+        if (cost) event.cost = cost;
 
         return event;
+    }
+
+    // Public for testing.
+    //
+    // The absence of a BookManager ticket SKU does NOT mean an event is free:
+    // Charlie's routinely hosts ticketed off-site events (e.g. at Town Hall
+    // Seattle) sold through the partner venue, with the price stated only in
+    // the description. Publishing those as `{ min: 0 }` states a guess as a
+    // fact and — worse — hides the gap from the costGaps queue so nobody ever
+    // corrects it. So a price is read from the description when one is stated,
+    // a ticket SKU means "paid, amount unknown", and anything else is left
+    // undetermined for buildCostUncertainty to flag.
+    parseCost(row: BookManagerEventRow, description?: string): EventCost | undefined {
+        const text = description ?? '';
+        const range = text.match(/\$([\d,]+(?:\.\d+)?)\s*[-–—]\s*\$?([\d,]+(?:\.\d+)?)/);
+        if (range) {
+            const min = parseFloat(range[1].replace(/,/g, ''));
+            const max = parseFloat(range[2].replace(/,/g, ''));
+            return max > min ? { min, max } : { min };
+        }
+        const single = text.match(/\$([\d,]+(?:\.\d+)?)/);
+        if (single) return { min: parseFloat(single[1].replace(/,/g, '')) };
+
+        // Deliberately narrow phrases rather than a bare /free/ match, which
+        // false-positives on prose like "in her free time".
+        if (/\bfree (with rsvp|admission|entry|to attend)\b|\badmission is free\b|\bit is free\b|\bit's free\b/i.test(text)) {
+            return { min: 0 };
+        }
+
+        const hasPaidTickets = Array.isArray(row.tickets) && row.tickets.length > 0;
+        if (hasPaidTickets || /buy tickets/i.test(row.ticket_label ?? '')) return { paid: true };
+
+        return undefined;
+    }
+
+    private buildCostUncertainty(row: BookManagerEventRow, event: RipperCalendarEvent): UncertaintyError {
+        return {
+            type: "Uncertainty",
+            reason: "Charlie's Queer Books listing stated no price and offers no ticket SKU",
+            source: "charlies-queer-books",
+            unknownFields: ["cost"],
+            event,
+            partialFingerprint: simpleHash(
+                `${(row.tickets ?? []).join(',')}|${row.ticket_label ?? ''}|${event.description ?? ''}`),
+        };
     }
 
     private parseTime(time?: string): [number, number] | null {
