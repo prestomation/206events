@@ -37,8 +37,8 @@ here, not in a separate cleanup routine.
    drain — they usually touch your cache too.
 
    **Geo drains are the exception:** they edit `lib/geocoder.ts`, not a drain
-   cache, so `drain-pr-sweep.py` has nothing to compare and always returns
-   `SUPERSEDED`. Sweep `geo-resolver-*` PRs by `grep` instead — see
+   cache, so `drain-pr-sweep.py` has nothing to compare and returns
+   `NOT-APPLICABLE`. Sweep `geo-resolver-*` PRs by `grep` instead — see
    `skills/geo-resolver/SKILL.md` step 0.
 
 2. **Run the supersession check** on each:

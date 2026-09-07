@@ -62,6 +62,15 @@ python3 scripts/drain-pr-sweep.py <pr-merge-base-sha> <pr-head-ref>
   cache and can't be rebased), but first read the keys it lists, along with
   their resolutions and evidence, and carry them into **this** run's batch.
   That investigation is the valuable part; re-deriving it wastes the run.
+  Two labels are *not* to be carried blindly: a `!=main` suffix means `main`
+  holds a different — often newer — value for that field, and
+  `<unresolvable-but-main-resolved>` means `main` has since answered what the
+  PR gave up on. Check those before overwriting anything.
+- **`NOT-APPLICABLE`** → the PR changes no cache the script reads, so nothing
+  was examined and nothing is shown to be superseded. **Don't close on this
+  verdict** — sweep it by `grep` against `main` instead. This is a normal shape
+  here, not an edge case: a venue-photo or uniform-`cost:` PR edits source YAML
+  only.
 - **Opened by an in-flight run** (green CI, under a day old) → leave it, and
   exclude its keys from your batch so the two runs don't collide.
 

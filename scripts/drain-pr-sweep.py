@@ -88,13 +88,17 @@ def die(msg):
 
 def read_cache(ref, path, container):
     """Load one cache file at a git ref. Returns {} when the file is absent."""
-    try:
-        blob = subprocess.run(
-            ["git", "show", f"{ref}:{path}"],
-            capture_output=True, text=True, check=True,
-        ).stdout
-    except subprocess.CalledProcessError:
-        return {}
+    present = subprocess.run(["git", "cat-file", "-e", f"{ref}:{path}"],
+                             capture_output=True)
+    if present.returncode != 0:
+        return {}  # genuinely absent at this ref
+    shown = subprocess.run(["git", "show", f"{ref}:{path}"],
+                           capture_output=True, text=True)
+    if shown.returncode != 0:
+        # The blob exists but couldn't be read. Falling back to {} would make
+        # every key look pruned and print SUPERSEDED with exit 0.
+        die(f"cannot read {path} at {ref}: {shown.stderr.strip()}")
+    blob = shown.stdout
     try:
         return json.loads(blob).get(container, {})
     except json.JSONDecodeError as exc:
@@ -169,8 +173,20 @@ def unlanded_fields(pr_entry, main_entry, container="entries"):
     out = []
     for field, value in (pr_entry.get("fields") or {}).items():
         main_value = (main_entry.get("fields") or {}).get(field, _MISSING)
-        if main_value is _MISSING or _norm(main_value) != _norm(value):
+        if main_value is _MISSING:
             out.append(field)
+        elif _norm(main_value) != _norm(value):
+            # Finding 5: distinguish "main lacks this" from "main has a
+            # different, possibly newer value". The carry rule is mechanical,
+            # and blindly copying over main's newer imageUrl/cost is a
+            # regression — this suffix is the cue to look before carrying.
+            out.append(f"{field}!=main")
+    # A fingerprint correction is the whole point of some drain PRs: a stale
+    # fingerprint makes the entry a permanent cache miss, so the event never
+    # leaves the queue. Ignoring these fields reports such a PR as superseded.
+    for field in ("partialFingerprint", "fingerprint"):
+        if field in pr_entry and _norm(pr_entry[field]) != _norm(main_entry.get(field)):
+            out.append(f"{field}!=main" if field in main_entry else field)
     return out
 
 
@@ -246,9 +262,19 @@ def selftest():
          {"fields": {"cost": {"min": 18}}, "evidence": "a", "resolvedAt": "2026-08-23"},
          {"fields": {"cost": {"min": 18}}, "evidence": "b", "resolvedAt": "2026-09-01"}, []),
         ("main is weaker — paid-unknown vs a real price",
-         {"fields": {"cost": {"min": 175}}}, {"fields": {"cost": {"paid": True}}}, ["cost"]),
+         {"fields": {"cost": {"min": 175}}}, {"fields": {"cost": {"paid": True}}},
+         ["cost!=main"]),
         ("main guessed free where the PR found a price",
-         {"fields": {"cost": {"min": 45, "max": 55}}}, {"fields": {"cost": {"min": 0}}}, ["cost"]),
+         {"fields": {"cost": {"min": 45, "max": 55}}}, {"fields": {"cost": {"min": 0}}},
+         ["cost!=main"]),
+        ("field main lacks entirely is not suffixed",
+         {"fields": {"cost": {"min": 5}}}, {"fields": {"imageUrl": "u"}}, ["cost"]),
+        ("stale fingerprint correction is not superseded",
+         {"fields": {}, "partialFingerprint": "new"},
+         {"fields": {}, "partialFingerprint": "old"}, ["partialFingerprint!=main"]),
+        ("matching fingerprint is landed",
+         {"fields": {}, "partialFingerprint": "same"},
+         {"fields": {}, "partialFingerprint": "same"}, []),
         # Flagged on purpose: main resolving *a* field doesn't prove it
         # resolved the one this entry gave up on. One key to eyeball beats
         # silently stranding the event.
@@ -365,6 +391,8 @@ def main():
     # that fails for it. Getting this wrong is not a cosmetic miss: with
     # base.sha the diff runs backwards and the "unlanded" keys are main's own
     # newer values, so carrying them into a batch would revert main.
+    main_hint = args.main if "/" in args.main else f"origin/{args.main}"
+
     def is_ancestor(a, b):
         return subprocess.run(["git", "merge-base", "--is-ancestor", a, b],
                               capture_output=True).returncode == 0
@@ -378,7 +406,7 @@ def main():
             print(f"  WARNING: base is not an ancestor of {label} — this is not "
                   "the true merge-base (GitHub's `base.sha` is the base branch's "
                   "tip, not the merge-base). Re-derive it with "
-                  f"`git merge-base origin/{args.main} {args.head}` (deepen a "
+                  f"`git merge-base {main_hint} {args.head}` (deepen a "
                   "shallow clone first) and re-run. Every count below is "
                   "unreliable, and the 'unlanded' keys may be main's own newer "
                   "values seen in reverse — do not carry them into a batch.")
