@@ -54,8 +54,11 @@ CACHES = {
 # see. Month/day are validated, so an arbitrary digit run only registers as a
 # date if it genuinely looks like one.
 _DATE_PATTERNS = (
-    re.compile(r"(20\d\d)-(\d\d)-(\d\d)"),                  # 2026-09-11
-    re.compile(r"(20\d\d)/(\d\d)/(\d\d)"),                  # 2026/09/04
+    # Month/day may be unpadded in the wild (`…-2026-8-15-rupaul`), so accept
+    # 1-2 digits and zero-pad below; without that these read as undated and
+    # never age out of the "still live" bucket.
+    re.compile(r"(20\d\d)-(\d\d?)-(\d\d?)(?!\d)"),          # 2026-09-11, 2026-8-15
+    re.compile(r"(20\d\d)/(\d\d?)/(\d\d?)(?!\d)"),          # 2026/09/04
     # Compact suffix glued onto an upstream id of arbitrary length
     # (`57740` + `20260827`), optionally carrying a 4-digit time
     # (`202608280230`). Anchored on the end of the digit run, not its start.
@@ -69,10 +72,10 @@ def key_date(key):
     for pattern in _DATE_PATTERNS:
         for m in pattern.finditer(key):
             y, mo, d = m.groups()
-            if not ("01" <= mo <= "12" and "01" <= d <= "31"):
+            if not (1 <= int(mo) <= 12 and 1 <= int(d) <= 31):
                 continue
             if m.start() > best_pos:
-                best_pos, best = m.start(), f"{y}-{mo}-{d}"
+                best_pos, best = m.start(), f"{y}-{int(mo):02d}-{int(d):02d}"
     return best
 
 
@@ -122,7 +125,7 @@ def _norm(v):
     return v
 
 
-def unlanded_fields(pr_entry, main_entry):
+def unlanded_fields(pr_entry, main_entry, container="entries"):
     """Which of this PR's assertions `main` lacks or contradicts.
 
     Compares **per field**, not whole entries. Whole-entry equality is far too
@@ -138,6 +141,14 @@ def unlanded_fields(pr_entry, main_entry):
     """
     if main_entry is None:
         return ["<absent>"]
+    # The duplicate cache stores a different shape — {decision, resolvedAt,
+    # note} — with the whole assertion in `decision`. Without this branch every
+    # duplicate key already on main reads as landed no matter what it decided,
+    # so a PR flipping a wrong `rejected` to `confirmed` would be closed as
+    # superseded and the correction thrown away.
+    if container == "resolutions":
+        return ([] if pr_entry.get("decision") == main_entry.get("decision")
+                else ["decision"])
     # An `unresolvable` verdict only counts as unlanded if main neither shares
     # it nor has since resolved the entry outright.
     if (pr_entry.get("unresolvable") and not main_entry.get("unresolvable")
@@ -168,7 +179,7 @@ def sweep_one(name, base, head, main, today, list_n):
     modified = {k for k in set(h) & set(b) if h[k] != b[k]}
     touched = added | modified
 
-    unlanded = {k: unlanded_fields(h[k], m.get(k)) for k in touched}
+    unlanded = {k: unlanded_fields(h[k], m.get(k), container) for k in touched}
     unlanded = {k: v for k, v in unlanded.items() if v}
     absent = sum(1 for v in unlanded.values() if v == ["<absent>"])
 
@@ -227,6 +238,15 @@ def selftest():
          {"unresolvable": True}, {"fields": {"cost": {"min": 5}}}, []),
         ("unresolvable, main agrees", {"unresolvable": True}, {"unresolvable": True}, []),
     ]
+    # The duplicate cache has its own entry shape, checked separately.
+    dup_cases = [
+        ("duplicate: same decision",
+         {"decision": "confirmed"}, {"decision": "confirmed"}, []),
+        ("duplicate: PR corrects main's decision",
+         {"decision": "confirmed"}, {"decision": "rejected"}, ["decision"]),
+        ("duplicate: note differs, decision agrees",
+         {"decision": "rejected", "note": "a"}, {"decision": "rejected", "note": "b"}, []),
+    ]
 
     bad = 0
     for key, want in date_cases.items():
@@ -239,6 +259,17 @@ def selftest():
         bad += got != want
         print(f"{'ok  ' if got == want else 'FAIL'} unlanded {str(got):16} "
               f"want {str(want):16} {label}")
+    for label, pr, main_entry, want in dup_cases:
+        got = unlanded_fields(pr, main_entry, "resolutions")
+        bad += got != want
+        print(f"{'ok  ' if got == want else 'FAIL'} unlanded {str(got):16} "
+              f"want {str(want):16} {label}")
+    for key, want in {"brick-park-psq:brickpark-2026-8-15-rupaul": "2026-08-15",
+                      "x:y-2026-09-11": "2026-09-11"}.items():
+        got = key_date(key)
+        bad += got != want
+        print(f"{'ok  ' if got == want else 'FAIL'} key_date {str(got):12} "
+              f"want {str(want):12} {key}")
     print("selftest: " + ("PASS" if not bad else f"{bad} FAILURE(S)"))
     return EXIT_SUPERSEDED if not bad else EXIT_ERROR
 
@@ -262,11 +293,29 @@ def main():
 
     if args.selftest:
         return selftest()
+    # Compared lexically against ISO key dates, so a non-padded --today
+    # (2026-9-7) would silently mark every dated key past and report a
+    # queue full of live work as SUPERSEDED.
+    try:
+        if args.today != date.fromisoformat(args.today).isoformat():
+            raise ValueError
+    except ValueError:
+        die(f"--today must be a zero-padded ISO date (YYYY-MM-DD), got {args.today!r}")
     if not args.base or not args.head:
         ap.print_usage(sys.stderr)
         die("both <merge-base-sha> and <head-ref> are required")
 
-    base, head, mainref = (rev_parse(r) for r in (args.base, args.head, args.main))
+    base, head = rev_parse(args.base), rev_parse(args.head)
+    # A detached web-session checkout often has no local `main` at all, only
+    # origin/main — resolve that rather than dying with an unhelpful remedy.
+    mainref = rev_parse(args.main, fatal=False)
+    if mainref is None and "/" not in args.main:
+        mainref = rev_parse(f"origin/{args.main}", fatal=False)
+        if mainref:
+            print(f"NOTE: no local '{args.main}'; using origin/{args.main}.")
+    if mainref is None:
+        die(f"cannot resolve '{args.main}' or 'origin/{args.main}' — "
+            f"fetch it first, or pass --main <ref>")
 
     # A stale local `main` understates how much of the PR already landed, which
     # is the one direction of error that matters here (it makes a superseded PR
@@ -300,6 +349,16 @@ def main():
               f"`git merge-base {args.main} {args.head}` (deepen a shallow "
               "clone first) and re-run; the counts below are unreliable.")
 
+    # Only the cache JSONs are analysed above, so a PR carrying a ripper fix or
+    # a YAML edit must not have SUPERSEDED read as "the whole PR is dead".
+    # Surface those files explicitly rather than leaving it to a reminder the
+    # SUPERSEDED branch never printed.
+    cache_paths = {path for path, _ in CACHES.values()}
+    changed = subprocess.run(
+        ["git", "diff", "--name-only", f"{base}..{head}"],
+        capture_output=True, text=True).stdout.split()
+    other_files = [f for f in changed if f not in cache_paths]
+
     names = list(CACHES) if args.cache == "both" else [args.cache]
     live, prunes = [], 0
     for name in names:
@@ -309,6 +368,17 @@ def main():
         prunes += cache_prunes
 
     print()
+    if other_files:
+        print(f"NOT ANALYSED: this PR also touches {len(other_files)} non-cache "
+              f"file(s). This script only reads the drain caches, so the verdict")
+        print("below says nothing about these. Check each against main by grep,")
+        print("and port fresh anything still wanted:")
+        for f in other_files[:15]:
+            print(f"      {f}")
+        if len(other_files) > 15:
+            print(f"      … {len(other_files) - 15} more")
+        print()
+
     if prunes:
         # Deliberately does NOT drive the verdict. A key this PR pruned that is
         # back on main usually means a later run re-resolved it on purpose (the
@@ -329,9 +399,13 @@ def main():
         print("landed on main; if not, port it fresh rather than reviving the branch.")
         return EXIT_NOVEL
 
-    print("VERDICT: SUPERSEDED — every change this PR carries is already on main,")
-    print("or is past-dated. Close it, naming what superseded it. Nothing is lost:")
+    scope = "every cache change this PR carries is" if other_files else \
+            "every change this PR carries is"
+    print(f"VERDICT: SUPERSEDED — {scope} already on main, or is")
+    print("past-dated. Close it, naming what superseded it. Nothing is lost:")
     print("the queue re-surfaces anything genuinely outstanding.")
+    if other_files:
+        print("Resolve the NOT ANALYSED files above before you close it.")
     return EXIT_SUPERSEDED
 
 
