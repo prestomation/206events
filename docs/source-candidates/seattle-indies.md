@@ -5,7 +5,7 @@ platform: WordPress/Tribe Events ICS
 url: https://seattleindies.org/events/
 tags: [Gaming, Tech, Community]
 firstSeen: 2026-06-20
-lastChecked: 2026-06-20
+lastChecked: 2026-09-07
 pr: 691
 ---
 
@@ -21,3 +21,17 @@ Investigated 2026-06-20:
 - Not covered anywhere else in the repo
 
 Implemented as `sources/external/seattle-indies.yaml` with `geo: null`, `sourceRole: venue`, tags `Gaming`, `Tech`, `Community`.
+
+## 2026-09-07 — staged for proxy testing
+
+The ICS feed began returning `HTTP 403` from GitHub Actions runners (surfaced
+in `externalCalendarFailures`, and tracked in `pendingProxyVerification`). It
+returns `HTTP 200` from a residential IP, so this is the usual "CI's IP is
+blocked, everywhere else works" pattern rather than a dead feed.
+
+Staged at `proxy: outofband` — the ladder entry point — and deliberately left
+**unmerged** with the `requires-proxy-testing` label, per
+`skills/source-discovery/SKILL.md`. The out-of-band job's proxy-escalation
+(Mode A) tests the ladder from the residential environment and merges the
+lowest rung that works, climbing to `browserbase` if `outofband` also fails, or
+closes the PR if neither does.
