@@ -63,9 +63,10 @@ test('the map plots the canonical pin once and drops the suppressed duplicate', 
   // Isolated fixture: a canonical + its suppressed cross-source duplicate at the
   // SAME coordinate, 2 days out (in window). This asserts BOTH map filters, which
   // are separate code paths:
-  //   - the rendered pins (EventsMap `isMappable`): if the suppressed copy were
-  //     shown, the two same-coord markers would collapse into a 2-cluster icon;
-  //     suppressed, there is exactly one plain marker and no cluster.
+  //   - the rendered pins (EventsMap `isMappable`): both copies sit at one
+  //     coordinate, so venue grouping gives ONE pin either way — but that pin's
+  //     date count would read "2" if the suppressed copy were shown. Suppressed,
+  //     it carries no count at all (a lone date prints no badge).
   //   - the live count badge (shell.jsx `shownCount`): reads "1 EVENTS", not 2.
   const date = futureJoda(2)
   const coord = { lat: 47.6235, lng: -122.3517 }
@@ -87,9 +88,10 @@ test('the map plots the canonical pin once and drops the suppressed duplicate', 
   const map = page.locator('.events-map-container:visible').first()
   await expect(map.locator('.events-map')).toBeVisible()
 
-  // Rendered pins: exactly one plain marker, and NO cluster (a shown duplicate
-  // would cluster the two same-coord markers into a `.cluster-icon` "2").
-  await expect(map.locator('img.leaflet-marker-icon')).toHaveCount(1)
+  // Rendered pins: one venue pin carrying no date count (a shown duplicate would
+  // make it "2"), and no cluster.
+  await expect(map.locator('.mpin')).toHaveCount(1)
+  await expect(map.locator('.mpin-count')).toHaveCount(0)
   await expect(map.locator('.cluster-icon')).toHaveCount(0)
 
   // Live count badge tracks the same suppression.

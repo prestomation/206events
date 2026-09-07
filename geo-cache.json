@@ -289,6 +289,1054 @@
       "geocodedAt": "2026-06-30",
       "source": "nominatim",
       "firstSeen": "2026-06-30"
+    },
+    "marine dr ne & market st ne, olympia, wa 98501": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle convention center, 705 pike st, seattle, wa 98101": {
+      "lat": 47.6113891,
+      "lng": -122.3325491,
+      "osmId": 10593034789,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "evergreen state fairgrounds, 14405 179th ave se, monroe, wa 98272": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "point defiance park, 5400 n pearl st, tacoma, wa 98407": {
+      "lat": 47.3050982,
+      "lng": -122.5209595,
+      "osmId": 370123994,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "ellensburg rodeo grounds, 1010 e 8th ave, ellensburg, wa 98926": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "paramount theatre, 911 pine st, seattle, wa 98101": {
+      "lat": 47.6132449,
+      "lng": -122.331356,
+      "osmId": 115042486,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "multiple locations": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "t-mobile park, 1250 1st ave s, seattle, wa 98134": {
+      "lat": 47.5913974,
+      "lng": -122.332507,
+      "osmId": 18550612,
+      "osmType": "relation",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "washington state fair events center, 110 9th ave sw, puyallup, wa 98371": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "museum of history and industry, 860 terry ave n, seattle, wa 98109": {
+      "lat": 47.6275114,
+      "lng": -122.3367506,
+      "osmId": 4346366056,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "w seattle, 1112 4th ave, seattle, wa 98101": {
+      "lat": 47.6073974,
+      "lng": -122.3336573,
+      "osmId": 232080299,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "museum of pop culture, 325 5th ave n, seattle, wa 98109": {
+      "lat": 47.6212529,
+      "lng": -122.3477201,
+      "osmId": 531925175,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "cal anderson park, 1635 11th ave, seattle, wa 98122": {
+      "lat": 47.61704,
+      "lng": -122.31917,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "waterfront market at ruston, 5101 yacht club rd, tacoma, wa 98407": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle center, 305 harrison st, seattle, wa 98109": {
+      "lat": 47.6214962,
+      "lng": -122.3508725,
+      "osmId": 231764919,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "the royal room, 5000 rainier ave s, seattle, wa 98118": {
+      "lat": 47.5569023,
+      "lng": -122.2842722,
+      "osmId": 2429623367,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "999 se pioneer way, oak harbor, wa 98277": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "howard amon park, 500 amon park dr, richland, wa 99352": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "bremerton boardwalk, 243 2nd st, bremerton, wa 98337": {
+      "lat": 47.5640832,
+      "lng": -122.6237632,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "base camp studios 2, 1901 3rd ave, seattle, wa 98101": {
+      "lat": 47.611589,
+      "lng": -122.3399327,
+      "osmId": 2327741493,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle's tall ship, 2201 alaskan wy, seattle, wa 98121": {
+      "lat": 47.6107103,
+      "lng": -122.347917,
+      "osmId": 2127063768,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "great northern & cascade railway, 101 5th st n, skykomish, wa 98288": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle": {
+      "lat": 47.6038321,
+      "lng": -122.330062,
+      "osmId": 237385,
+      "osmType": "relation",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "lumen field, 800 occidental ave s, seattle, wa 98134": {
+      "lat": 47.5953459,
+      "lng": -122.3316443,
+      "osmId": 5838734,
+      "osmType": "relation",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "hilton motif seattle, 1415 5th ave, seattle, wa 98101": {
+      "lat": 47.6100228,
+      "lng": -122.3355342,
+      "osmId": 232078049,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "502 main st, edmonds, wa 98020": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "husky stadium, 3800 montlake blvd ne, seattle, wa 98195": {
+      "lat": 47.6503736,
+      "lng": -122.301976,
+      "osmId": 5636648,
+      "osmType": "relation",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle parks": {
+      "lat": 47.6215646,
+      "lng": -122.351542,
+      "osmId": 4755066,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "cheney stadium, 2502 s tyler st, tacoma, wa 98405": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "washington 1000, 1000 olive way, seattle, wa 98101": {
+      "lat": 47.6156948,
+      "lng": -122.3315107,
+      "osmId": 1271656387,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle aquarium, 1483 alaskan way pier 59, seattle, wa 98101": {
+      "lat": 47.6076,
+      "lng": -122.3432,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "central cinema, 1411 21st ave, seattle, wa 98122": {
+      "lat": 47.6132215,
+      "lng": -122.3051662,
+      "osmId": 1766895957,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "marymoor park, 6046 west lake sammamish pkwy ne, redmond, wa 98052": {
+      "lat": 47.6586619,
+      "lng": -122.1111053,
+      "osmId": 6641326,
+      "osmType": "relation",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "south lake union discovery center, 101 westlake ave n, seattle, wa 98109": {
+      "lat": 47.618658,
+      "lng": -122.338605,
+      "osmId": 1145703944,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "civic park playground, 316 7th ave n, edmonds, wa 98020": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "lighthouse park, 609 front st, mukilteo, wa 98275": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "northwest maritime center, 431 water st, port townsend, wa 98368": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "hotel andra, 2000 4th ave, seattle, wa 98121": {
+      "lat": 47.6134358,
+      "lng": -122.3400536,
+      "osmId": 41842296,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle area": {
+      "lat": 47.7089377,
+      "lng": -122.3547833,
+      "osmId": 219470095,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "elysian fields, 542 1st ave s, seattle, wa 98104": {
+      "lat": 47.5969985,
+      "lng": -122.333929,
+      "osmId": 2351730647,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "gage academy of art, 2107 westlake ave, seattle, wa 98121": {
+      "lat": 47.6165495,
+      "lng": -122.3384993,
+      "osmId": 6582458903,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "el corazon, 109 eastlake ave e, seattle, wa 98109": {
+      "lat": 47.6187293,
+      "lng": -122.3293154,
+      "osmId": 818597264,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "pratt fine arts center, 1902 south main st, seattle, wa 98144": {
+      "lat": 47.6003101,
+      "lng": -122.3073502,
+      "osmId": 2374041904,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "victory hall at the boxyard, 1201 1st ave s, seattle, wa 98134": {
+      "lat": 47.5920086,
+      "lng": -122.33477,
+      "osmId": 2350575295,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "el centro de la raza, 2524 16th ave s, seattle, wa 98144": {
+      "lat": 47.580325,
+      "lng": -122.3112932,
+      "osmId": 228721661,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "modeles home furnishings, 3220 w mcgraw st, seattle, wa 98199": {
+      "lat": 47.6396931,
+      "lng": -122.399273,
+      "osmId": 458623724,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "star brass works lounge, 5813 airport way s, seattle, wa 98108": {
+      "lat": 47.5504917,
+      "lng": -122.3183959,
+      "osmId": 4458597189,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "bellevue downtown park, 10201 ne 4th st, bellevue, wa 98004": {
+      "lat": 47.611941,
+      "lng": -122.204388,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "peter kirk pool, 340 kirkland ave, kirkland, wa 98033": {
+      "lat": 47.6756693,
+      "lng": -122.2017048,
+      "osmId": 325831609,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "town square park, 480 sw 152nd st, burien, wa 98166": {
+      "lat": 47.4670571,
+      "lng": -122.3402137,
+      "osmId": 6341617762,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "evergreen playfield, 22205 56th ave w, mountlake terrace, wa 98043": {
+      "lat": 47.7977989,
+      "lng": -122.3084192,
+      "osmId": 428095724,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "issaquah salmon hatchery, 125 w sunset way, issaquah, wa 98027": {
+      "lat": 47.5295674,
+      "lng": -122.038626,
+      "osmId": 222426017,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "mary olson farm, 28728 green river rd, kent, wa 98030": {
+      "lat": 47.3515939,
+      "lng": -122.2079239,
+      "osmId": 786444632,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "serenity equine rescue & rehabilitation, 28818 se 216th way, maple valley, wa 98038": {
+      "lat": 47.411396,
+      "lng": -121.9589779,
+      "osmId": 656680061,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "velvet & oak boutique, 908 1st st, snohomish, wa 98290": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "fort nisqually living history museum, 5519 five mile dr, tacoma, wa 98407": {
+      "lat": 47.3043457,
+      "lng": -122.532591,
+      "osmId": 1448327657,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "chambers creek regional park, 6320 grandview dr w, university place, wa 98467": {
+      "lat": 47.2057007,
+      "lng": -122.5750529,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "sprinker recreation center , 521 military rd s, tacoma, wa 98444": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "rainier arts center, 3515 s alaska st, seattle, wa 98118": {
+      "lat": 47.5603914,
+      "lng": -122.2880165,
+      "osmId": 2429600152,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "meydenbauer center, 11000 ne 6th st, bellevue, wa 98004": {
+      "lat": 47.6155891,
+      "lng": -122.1996004,
+      "osmId": 108384167,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "town hall seattle, 1119 8th ave, seattle, wa 98101": {
+      "lat": 47.6090191,
+      "lng": -122.3299377,
+      "osmId": 140675988,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "occidental hall, 589 occidental ave s, seattle, wa 98134": {
+      "lat": 47.5960708,
+      "lng": -122.3335749,
+      "osmId": 2351730672,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "spanaway park, 14905 bresemann blvd s, spanaway, wa 98387": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "palouse to cascades state park – hyak trailhead, iron horse trail, snoqualmie pass, wa 98068": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "lynnwood event center, 3711 196th st sw, lynnwood, wa 98036": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "national nordic museum, 2655 nw market st, seattle, wa 98107": {
+      "lat": 47.6682856,
+      "lng": -122.3917729,
+      "osmId": 438457488,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "whidbey island center for the arts, 565 camano ave, langley, wa 98260": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "the 5th avenue theatre, 1308 5th ave, seattle, wa 98101": {
+      "lat": 47.609168,
+      "lng": -122.3339845,
+      "osmId": 2404244806,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "village theatre, 303 front st n, issaquah, wa 98027": {
+      "lat": 47.5330451,
+      "lng": -122.0368435,
+      "osmId": 1639982913,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "siff cinema downtown, 2100 4th ave, seattle, wa 98121": {
+      "lat": 47.6142012,
+      "lng": -122.3413502,
+      "osmId": 360389738,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "fishermen's terminal, 3919 18th ave w, seattle, wa 98119": {
+      "lat": 47.6557074,
+      "lng": -122.3801098,
+      "osmId": 2462428286,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "skål beer hall, 5429 ballard ave nw, seattle, wa 98107": {
+      "lat": 47.668145,
+      "lng": -122.3858361,
+      "osmId": 2275830186,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "520 bar & grill, 10146 main st, bellevue, wa 98004": {
+      "lat": 47.6102672,
+      "lng": -122.204395,
+      "osmId": 12064246681,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "the woodmark hotel, 1200 carillon point, kirkland, wa 98003": {
+      "lat": 47.6570963,
+      "lng": -122.2068635,
+      "osmId": 3333009652,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "tacoma": {
+      "lat": 47.4475673,
+      "lng": -122.3080159,
+      "osmId": 50898115,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "all national parks": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "chandler’s cove, 901 fairview ave n, seattle, wa 98109": {
+      "lat": 47.6277096,
+      "lng": -122.3332299,
+      "osmId": 7833353903,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "climate pledge arena, 334 1st ave n, seattle, wa 98109": {
+      "lat": 47.6219014,
+      "lng": -122.3539905,
+      "osmId": 25123756,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "key bank, 4701 california ave sw, seattle, wa 98116": {
+      "lat": 47.5609672,
+      "lng": -122.387125,
+      "osmId": 1178215983,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "northwest railway museum, snoqualmie depot, 38625 se king st, snoqualmie, wa 98065": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "st. benedict school, 4811 wallingford ave n, seattle, wa 98103": {
+      "lat": 47.663944,
+      "lng": -122.3370263,
+      "osmId": 323016186,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "bold hat productions, 3503 phinney ave n, seattle, wa 98103": {
+      "lat": 47.6516209,
+      "lng": -122.35469,
+      "osmId": 2144365457,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "lewis river golf course, 3209 old lewis river rd, woodland, wa 98674": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "northwest film forum, 1515 12th ave, seattle, wa 98122": {
+      "lat": 47.6144138,
+      "lng": -122.317071,
+      "osmId": 1244813813,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "chateau ste. michelle, 14111 ne 145th st, woodinville, wa 98072": {
+      "lat": 47.7292858,
+      "lng": -122.1493659,
+      "osmId": 451928777,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle (0 miles)": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "pier 62, 1951 alaskan way, seattle, wa 98101": {
+      "lat": 47.6085444,
+      "lng": -122.3448627,
+      "osmId": 57391649,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "columbia city night market, 4850 37th ave s, seattle, wa 98118": {
+      "lat": 47.5585641,
+      "lng": -122.2860114,
+      "osmId": 2429600872,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "green lake community center, 7201 east green lake dr n, seattle, wa 98115": {
+      "lat": 47.6803,
+      "lng": -122.3285,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "rainier beach urban farm and wetlands, 5513 s cloverdale st, seattle, wa 98118": {
+      "lat": 47.5260258,
+      "lng": -122.2619035,
+      "osmId": 2368739015,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "belred light rail station, 13102 ne spring blvd, bellevue, wa 98005": {
+      "lat": 47.6243584,
+      "lng": -122.1621606,
+      "osmId": 791557112,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "lake boren park, 13058 se 84th way, newcastle, wa 98056": {
+      "lat": 47.5272089,
+      "lng": -122.1664838,
+      "osmId": 274191587,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "fleming arts center, 425 e sunset way, issaquah, wa 98027": {
+      "lat": 47.529926,
+      "lng": -122.029753,
+      "osmId": 428233671,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "bothell city hall, 18415 101st ave ne, bothell, wa 98011": {
+      "lat": 47.7614804,
+      "lng": -122.2063107,
+      "osmId": 622123201,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "morrill meadows park, 10600 se 248th st, kent, wa 98030": {
+      "lat": 47.3801576,
+      "lng": -122.1991059,
+      "osmId": 368386134,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "oxbow farm, 10819 carnation-duvall rd ne, carnation, wa 98014": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "first presbyterian church, 20 tacoma ave s, tacoma, wa 98402": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "rocky reach dam discovery center, 6151 us 97 alternate, wenatchee, wa 98801": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "edmonds (17 miles n)": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "meadow wood equestrian center, 18601 sky meadows ln, snohomish, wa 98290": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "asia pacific cultural center, 4851 s tacoma way, tacoma, wa 98409": {
+      "lat": 47.2121094,
+      "lng": -122.4829947,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "dune peninsula at point defiance park, 5361 yacht club rd, tacoma, wa 98407": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "union arts center, 700 union st, seattle, wa 98101": {
+      "lat": 47.6108495,
+      "lng": -122.3323262,
+      "osmId": 2404211190,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "montlake (3.5 miles ne)": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "northwest natural horsemanship center, 32925 se 46th st, fall city, wa 98024": {
+      "lat": 47.5614526,
+      "lng": -121.9127467,
+      "osmId": 6348122,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "the hall at fauntleroy, 9131 california ave sw, seattle, wa 98136": {
+      "lat": 47.5217017,
+      "lng": -122.3878878,
+      "osmId": 8377320043,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "schack art center, 2921 hoyt ave, everett, wa 98201": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "unexpected productions improv, 1428 post alley, seattle, wa 98101": {
+      "lat": 47.6079681,
+      "lng": -122.339856,
+      "osmId": 642736345,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "galaxy theatres, 4649 point fosdick dr, gig harbor, wa 98335": {
+      "lat": 47.3007227,
+      "lng": -122.5754135,
+      "osmId": 300093846,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "balcony theatre, 211 taylor st, port townsend, wa 98368": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "pike place market, 85 pike st, seattle, wa 98101": {
+      "lat": 47.6093968,
+      "lng": -122.3414102,
+      "osmId": 363400641,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "stoup brewing, 1158 broadway, seattle, wa 98122": {
+      "lat": 47.6127201,
+      "lng": -122.3202753,
+      "osmId": 411895611,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "remlinger farms, 32610 ne 32nd st, carnation, wa 98014": {
+      "lat": 47.6394597,
+      "lng": -121.9018759,
+      "osmId": 425957977,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "maris farms, 25001 sumner buckley hwy, buckley, wa 98321": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "prosser airport, 111 nunn rd, prosser, wa 99350": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "georgetown morgue, 5000 e marginal way s, seattle, wa 98134": {
+      "lat": 47.5572665,
+      "lng": -122.33857,
+      "osmId": 2349883332,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "hing hay park, 423 maynard ave s, seattle, wa 98104": {
+      "lat": 47.598935,
+      "lng": -122.325178,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "loyal heights community center, 2101 nw 77th st,, seattle, wa 98117": {
+      "lat": 47.6846824,
+      "lng": -122.382842,
+      "osmId": 53588546,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "bellevue arts museum, 510 bellevue way ne, bellevue, wa 98004": {
+      "lat": 47.6147893,
+      "lng": -122.2015344,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "the district, 3815 196th st sw, lynnwood, wa 98036": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "lemay america’s car museum, 2702 east d st, tacoma, wa 98421": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "tacoma art museum, 1701 pacific ave, tacoma, wa 98402": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "all state parks": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "fisher pavilion, 305 harrison st, seattle, wa 98109": {
+      "lat": 47.621462,
+      "lng": -122.3509886,
+      "osmId": 2494550791,
+      "osmType": "node",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "seattle center exhibition hall, 301 mercer st, seattle, wa 98109": {
+      "lat": 47.623953,
+      "lng": -122.3514885,
+      "osmId": 56629742,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "snohomish (30 miles ne)": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "enumclaw expo center, 45224 284th ave se, enumclaw, wa 98022": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "zuanich point park, 2600 n harbor loop dr, bellingham, wa 98225": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "wild waves theme & water park, 36201 enchanted pkwy s, federal way, wa 98003": {
+      "unresolvable": true,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "dragonfly sculpture bridge, 14735 ne 145th st, woodinville, wa 98072": {
+      "lat": 47.7327112,
+      "lng": -122.1450215,
+      "osmId": 37645816,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "weyerhaeuser headquarters, 33663 weyerhaeuser way s, federal way, wa 98001": {
+      "lat": 47.2998199,
+      "lng": -122.2957566,
+      "osmId": 1474073482,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "hangar 30 at magnuson park, 6310 ne 74th st, seattle, wa 98115": {
+      "lat": 47.682846,
+      "lng": -122.260988,
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
+    },
+    "washington hall, 153 14th ave, seattle, wa 98122": {
+      "lat": 47.602808,
+      "lng": -122.314587,
+      "osmId": 228870138,
+      "osmType": "way",
+      "geocodedAt": "2026-09-05",
+      "source": "nominatim",
+      "firstSeen": "2026-09-05"
     }
   }
 }

@@ -204,15 +204,43 @@ export class TicketmasterRipper implements IRipper {
                 // placeholder above and do NOT flag it as uncertain (it can
                 // never be resolved). Start time is only occasionally missing
                 // (date-only listings), so that case gets an UncertaintyError.
-                if (startTimeUnknown) {
-                    const unknownFields: UncertaintyField[] = ["startTime"];
-                    const start = event.dates?.start ?? {};
-                    const fingerprint = simpleHash(
-                        `${start.localDate ?? ''}|${start.localTime ?? ''}|${start.dateTime ?? ''}`
-                    );
+                // Cost is also occasionally missing (no priceRanges published
+                // yet, e.g. presale not started) — combine it into the same
+                // UncertaintyError as startTime when both are unknown so the
+                // cache carries one entry per event, not two.
+                const costUnknown = cost === undefined;
+                if (startTimeUnknown || costUnknown) {
+                    const unknownFields: UncertaintyField[] = [];
+                    if (startTimeUnknown) unknownFields.push("startTime");
+                    if (costUnknown) unknownFields.push("cost");
+                    let fingerprint: string;
+                    let reason: string;
+                    if (startTimeUnknown) {
+                        // Fingerprint formula is unchanged from the pre-existing
+                        // startTime-only case (keyed on the start-date fields) —
+                        // this is the join key for already-committed cache
+                        // resolutions, and must never change, even when cost is
+                        // also unknown and gets appended to unknownFields.
+                        const start = event.dates?.start ?? {};
+                        fingerprint = simpleHash(
+                            `${start.localDate ?? ''}|${start.localTime ?? ''}|${start.dateTime ?? ''}`
+                        );
+                        reason = costUnknown
+                            ? "Ticketmaster listing has date only (no start time) and no price range published; using 19:30 placeholder"
+                            : "Ticketmaster listing has date only (no start time); using 19:30 placeholder";
+                    } else {
+                        // Cost-only: fingerprint over the price-relevant fields
+                        // rather than the date, so it doesn't move on reschedule
+                        // alone. A ripper-parsed cost always takes precedence
+                        // over a cached resolution once priceRanges appears, so
+                        // this fingerprint mainly needs to survive re-fetches of
+                        // the same still-unpriced listing.
+                        fingerprint = simpleHash(`${eventId}|${status}`);
+                        reason = "Ticketmaster listing has no price range published yet";
+                    }
                     const uncertainty: UncertaintyError = {
                         type: "Uncertainty",
-                        reason: "Ticketmaster listing has date only (no start time); using 19:30 placeholder",
+                        reason,
                         source,
                         calendar: calendarName,
                         unknownFields,

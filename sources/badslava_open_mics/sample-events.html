@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Seattle Open Mics - Call Before You Haul!</title>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  	<script src="https://maps.googleapis.com/maps/api/js?key=REDACTED_GOOGLE_MAPS_API_KEY" type="text/javascript"></script>	
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding-bottom: 50px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .navbar-menu li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-menu li a:hover {
+            color: #007bff;
+        }
+
+        .navbar-menu li a.active {
+            color: #007bff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 1rem;
+            }
+
+            .navbar-menu {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .desktop-only {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-menu {
+                gap: 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Demo content below navbar */
+        .demo-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .demo-content h1 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .demo-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+		
+    .map-container {
+      position: relative;
+      width: 100%;
+      height: 555px;
+      cursor: pointer;
+      background: #f0f0f0;
+    }
+    
+    .map-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .map-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .map-overlay:hover {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    
+    .map-play-button {
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: #333;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .map-play-button:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+    
+    .map-loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+      color: #666;
+    }
+    
+    #map {
+      width: 100%;
+      height: 555px;
+      display: none;
+    }
+
+        /* Table Styles */
+        table {
+            width: 50%;
+            max-width: 600px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        table th {
+            background-color: #e5e6fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            color: #666;
+            vertical-align: top;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        table td:first-child {
+            width: 20%;
+            font-weight: 500;
+            color: #333;
+        }
+
+        table td:last-child {
+            width: 80%;
+        }
+
+        table td a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+
+        table td a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        table td b {
+            color: #333;
+            font-weight: 600;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Mobile Responsive for Table */
+        @media (max-width: 768px) {
+            table {
+                margin: 1rem;
+                width: calc(100% - 2rem);
+                max-width: none;
+            }
+
+            table th,
+            table td {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            table td:first-child {
+                width: 25%;
+            }
+
+            table td:last-child {
+                width: 75%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table {
+                margin: 0.5rem;
+                width: calc(100% - 1rem);
+            }
+
+            table th,
+            table td {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            table td:first-child {
+                width: 30%;
+            }
+
+            table td:last-child {
+                width: 70%;
+            }
+        }
+
+        /* Email line styling to match table */
+        .email-line {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .email-line a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .email-line a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+		
+/* Footer icon styles */
+.icon-footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.icon-footer a {
+    color: #000;
+    margin: 0 20px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.icon-footer a:hover {
+    color: #04AA6D;
+}
+
+/* Responsive styles for footer */
+@media screen and (max-width: 768px) {
+    .icon-footer {
+        padding: 15px 0;
+    }
+    
+    .icon-footer a {
+        margin: 0 15px;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .icon-footer a {
+        margin: 0 12px;
+        font-size: 20px;
+    }
+}		
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="https://badslava.com/open-mics.php?city=Seattle&state=WA&type=Comedy" class="active">Comedy</a></li>
+                <li><a href="https://badslava.com/open-mics.php?city=Seattle&state=WA&type=Music" >Music</a></li>
+                <li><a href="https://badslava.com/open-mics.php?city=Seattle&state=WA&type=Poetry" >Poetry</a></li>
+                <li><a href="https://badslava.com/trivia-nights.php?city=Seattle&state=WA" >Trivia</a></li>				
+                <li><a href="https://badslava.com/bingo-nights.php?city=Seattle&state=WA" >Bingo</a></li>
+                <li><a href="https://badslava.com/book-clubs.php?city=Seattle&state=WA" >Book</a></li>
+                <li><a href="https://badslava.com/chess-clubs.php?city=Seattle&state=WA" >Chess</a></li>
+                <li><a href="https://badslava.com/dance-nights.php?city=Seattle&state=WA" >Dance</a></li>
+                <li><a href="https://badslava.com/game-nights.php?city=Seattle&state=WA" >Game</a></li>
+                <li class="desktop-only"><a href="https://badslava.com/karaoke-nights.php?city=Seattle&state=WA" >Karaoke</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+		
+	
+<div class="email-line">Email <a href="mailto:slava@badslava.com">slava@badslava.com</a> if there's wrong info on this page</div>	
+	
+<table>
+<colgroup>
+    <col style="width: 20%;">
+    <col style="width: 80%;">
+</colgroup>
+<tr><th colspan='2'>Friday 09/04/26</th></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=14034"><b>Innervisions posters framing and records</b><br>4548 University Wy NE Seattle WA</a></td></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=53775"><b>Rickshaw Restaurant & Lounge</b><br>322 N 105th St Seattle WA</a></td></tr><tr><th colspan='2'>Saturday 09/05/26</th></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=10825"><b>Inside</b><br>1313 4th Ave Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=53776"><b>Halcyon Brewing Company</b><br>8564 Greenwood Ave N Seattle WA</a></td></tr><tr><th colspan='2'>Sunday 09/06/26</th></tr><tr><td>6:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=19274"><b>Rainier Arts Center</b><br>3515 S Alaska St Seattle WA</a></td></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=46154"><b>Pam's Caribbean Kitchen</b><br>1715 N 45th St Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=46155"><b>St. Andrews Pub</b><br>7406 Aurora Ave N Seattle WA</a></td></tr><tr><th colspan='2'>Monday 09/07/26</th></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=13687"><b>West Seattle Church of the Nazarene</b><br>4201 SW Juneau St Seattle WA</a></td></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=39264"><b>The Rendezvous</b><br>2322 2nd Ave Seattle WA</a></td></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=53773"><b>Saint John’s Bar and Eatery</b><br>719 E Pike St Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=13690"><b>Substation Seattle</b><br>645 NW 45th St Seattle WA</a></td></tr><tr><th colspan='2'>Tuesday 09/08/26</th></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=10805"><b>Otter on the Rocks</b><br>4210 SW Admiral Way Seattle WA</a></td></tr><tr><td>7:30pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=46149"><b>Cottontail</b><br>2219 4th Ave Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=19277"><b>Fremont Abbey Arts Center</b><br>4272 Fremont Ave N Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=46150"><b>Crawfish & Hotpot</b><br>9447 Rainier Ave S Seattle WA</a></td></tr><tr><td>9:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=46147"><b>The Growler Guys</b><br>8500 Lake City Way NE Seattle WA</a></td></tr><tr><th colspan='2'>Wednesday 09/09/26</th></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=53774"><b>Hill City Tap House</b><br>5303 Rainier Ave S Seattle WA</a></td></tr><tr><td>7:30pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=1959"><b>Skylark Cafe & Club- Live Music | Scratch Kitchen | West Seattle</b><br>3803 Delridge Wy SW Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=4435"><b>Hopvine Pub</b><br>507 15th Ave E Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=10569"><b>Unexpected Productions Improv Comedy at Pike Place Market</b><br>1428 Post Alley Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=14127"><b>Blue Moon</b><br>712 NE 45th St Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=31234"><b>The Crocodile</b><br>2505 1st Ave Seattle WA</a></td></tr><tr><td>9:45pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=4698"><b>The Couth Buzzard - Books & Community</b><br>8310 Greenwood Ave N Seattle WA</a></td></tr><tr><th colspan='2'>Thursday 09/10/26</th></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=19457"><b>BoneYard's Howlin' Bistro</b><br>2603 S Jackson St Seattle WA</a></td></tr><tr><td>7:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=46152"><b>Old Stove Brewing Ship Canal</b><br>600 W Nickerson St Seattle WA</a></td></tr><tr><td>8:00pm</td><td><a target="_blank" href="https://badslava.com/details.php?id=10814"><b>The Whit's End</b><br>6510 Phinney Ave N Seattle WA</a></td></tr>
+</table> 
+
+<table>
+	<tr><td>
+Open Mics in the United States<br> 
+<a href="https://badslava.com/open-mics.php?city=New%20York&state=NY">New York</a> | 
+<a href="https://badslava.com/open-mics.php?city=Los%20Angeles&state=CA">Los Angeles</a> | 
+<a href="https://badslava.com/open-mics.php?city=Chicago&state=IL">Chicago</a> | 
+<a href="https://badslava.com/open-mics.php?city=Houston&state=TX">Houston</a> | 
+<a href="https://badslava.com/open-mics.php?city=Phoenix&state=AZ">Phoenix</a> | 
+<a href="https://badslava.com/open-mics.php?city=Philadelphia&state=PA">Philadelphia</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Antonio&state=TX">San Antonio</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Diego&state=CA">San Diego</a> | 
+<a href="https://badslava.com/open-mics.php?city=Dallas&state=TX">Dallas</a> |  
+<a href="https://badslava.com/open-mics.php?city=Jacksonville&state=FL">Jacksonville</a> | 
+<a href="https://badslava.com/open-mics.php?city=Fort%20Worth&state=TX">Fort Worth</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Jose&state=CA">San Jose</a> | 
+<a href="https://badslava.com/open-mics.php?city=Austin&state=TX">Austin</a> | 
+<a href="https://badslava.com/open-mics.php?city=Charlotte&state=NC">Charlotte</a> | 
+<a href="https://badslava.com/open-mics.php?city=Columbus&state=OH">Columbus</a> | 
+<a href="https://badslava.com/open-mics.php?city=Indianapolis&state=IN">Indianapolis</a> | 
+<a href="https://badslava.com/open-mics.php?city=San%20Francisco&state=CA">San Francisco</a> | 
+<a href="https://badslava.com/open-mics.php?city=Seattle&state=WA">Seattle</a> | 
+<a href="https://badslava.com/open-mics.php?city=Denver&state=CO">Denver</a> | 
+<a href="https://badslava.com/open-mics.php?city=Oklahoma%20City&state=OK">Oklahoma City</a> | 
+<a href="https://badslava.com/open-mics.php?city=Nashville&state=TN">Nashville</a> | 
+<a href="https://badslava.com/open-mics.php?city=El%20Paso&state=TX">El Paso</a> | 
+<a href="https://badslava.com/open-mics.php?city=Washington&state=DC">Washington</a> | 
+<a href="https://badslava.com/open-mics.php?city=Las%20Vegas&state=NV">Las Vegas</a> | 
+<a href="https://badslava.com/open-mics.php?city=Boston&state=MA">Boston</a> | 
+<a href="https://badslava.com/open-mics.php?city=Portland&state=OR">Portland</a> | 
+<a href="https://badslava.com/open-mics.php?city=Louisville&state=KY">Louisville</a> | 
+<a href="https://badslava.com/open-mics.php?city=Memphis&state=TN">Memphis</a> | 
+<a href="https://badslava.com/open-mics.php?city=Detroit&state=MI">Detroit</a> | 
+<a href="https://badslava.com/open-mics.php?city=Baltimore&state=MD">Baltimore</a> | 
+<a href="https://badslava.com/open-mics.php?city=Milwaukee&state=WI">Milwaukee</a> | 
+<a href="https://badslava.com/open-mics.php?city=Albuquerque&state=NM">Albuquerque</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tucson&state=AZ">Tucson</a> | 
+<a href="https://badslava.com/open-mics.php?city=Fresno&state=CA">Fresno</a> | 
+<a href="https://badslava.com/open-mics.php?city=Sacramento&state=CA">Sacramento</a> | 
+<a href="https://badslava.com/open-mics.php?city=Mesa&state=AZ">Mesa</a> | 
+<a href="https://badslava.com/open-mics.php?city=Kansas%20City&state=MO">Kansas City</a> | 
+<a href="https://badslava.com/open-mics.php?city=Atlanta&state=GA">Atlanta</a> | 
+<a href="https://badslava.com/open-mics.php?city=Colorado%20Springs&state=CO">Colorado Springs</a> | 
+<a href="https://badslava.com/open-mics.php?city=Omaha&state=NE">Omaha</a> | 
+<a href="https://badslava.com/open-mics.php?city=Raleigh&state=NC">Raleigh</a> | 
+<a href="https://badslava.com/open-mics.php?city=Miami&state=FL">Miami</a> | 
+<a href="https://badslava.com/open-mics.php?city=Virginia%20Beach&state=VA">Virginia Beach</a> | 
+<a href="https://badslava.com/open-mics.php?city=Long%20Beach&state=CA">Long Beach</a> | 
+<a href="https://badslava.com/open-mics.php?city=Oakland&state=CA">Oakland</a> | 
+<a href="https://badslava.com/open-mics.php?city=Minneapolis&state=MN">Minneapolis</a> |  
+<a href="https://badslava.com/open-mics.php?city=Bakersfield&state=CA">Bakersfield</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tulsa&state=OK">Tulsa</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tampa&state=FL">Tampa</a> | 
+<a href="https://badslava.com/open-mics.php?city=Arlington&state=TX">Arlington</a> | 
+<br><br>
+Open Mics Worldwide<br>
+<a href="https://badslava.com/open-mics.php?city=Amsterdam&state=DS">Amsterdam</a> | 
+<a href="https://badslava.com/open-mics.php?city=Auckland&state=NZ">Auckland</a> | 
+<a href="https://badslava.com/open-mics.php?city=Bangkok&state=TH">Bangkok</a> | 
+<a href="https://badslava.com/open-mics.php?city=Belgrade&state=RS">Belgrade</a> | 
+<a href="https://badslava.com/open-mics.php?city=Berlin&state=RM">Berlin</a> | 
+<a href="https://badslava.com/open-mics.php?city=Bogota&state=OL">Bogota</a> | 
+<a href="https://badslava.com/open-mics.php?city=Brussels&state=BE">Brussels</a> | 
+<a href="https://badslava.com/open-mics.php?city=Bucharest&state=RO">Bucharest</a> | 
+<a href="https://badslava.com/open-mics.php?city=Budapest&state=HU">Budapest</a> | 
+<a href="https://badslava.com/open-mics.php?city=Buenos Aires&state=AG">Buenos Aires</a> | 
+<a href="https://badslava.com/open-mics.php?city=Copenhagen&state=DK">Copenhagen</a> | 
+<a href="https://badslava.com/open-mics.php?city=Dhaka&state=BD">Dhaka</a> | 
+<a href="https://badslava.com/open-mics.php?city=Dubai&state=AE">Dubai</a> | 
+<a href="https://badslava.com/open-mics.php?city=Dublin&state=IE">Dublin</a> | 
+<a href="https://badslava.com/open-mics.php?city=Hanoi&state=VN">Hanoi</a> | 
+<a href="https://badslava.com/open-mics.php?city=Harare&state=ZW">Harare</a> |  
+<a href="https://badslava.com/open-mics.php?city=Helsinki&state=FI">Helsinki</a> |
+<a href="https://badslava.com/open-mics.php?city=Istanbul&state=TR">Istanbul</a> | 
+<a href="https://badslava.com/open-mics.php?city=Jakarta&state=DO">Jakarta</a> | 
+<a href="https://badslava.com/open-mics.php?city=Johannesburg&state=ZA">Johannesburg</a> | 
+<a href="https://badslava.com/open-mics.php?city=Karachi&state=PK">Karachi</a> | 
+<a href="https://badslava.com/open-mics.php?city=Kuala Lumpur&state=MY">Kuala Lumpur</a> | 
+<a href="https://badslava.com/open-mics.php?city=Kyiv&state=UA">Kyiv</a> | 
+<a href="https://badslava.com/open-mics.php?city=Lagos&state=NG">Lagos</a> | 
+<a href="https://badslava.com/open-mics.php?city=Lima&state=PP">Lima</a> | 
+<a href="https://badslava.com/open-mics.php?city=Lisbon&state=PT">Lisbon</a> | 
+<a href="https://badslava.com/open-mics.php?city=London&state=UK">London</a> | 
+<a href="https://badslava.com/open-mics.php?city=Madrid&state=ES">Madrid</a> | 
+<a href="https://badslava.com/open-mics.php?city=Manila&state=PH">Manila</a> | 
+<a href="https://badslava.com/open-mics.php?city=Mexico City&state=MX">Mexico City</a> | 
+<a href="https://badslava.com/open-mics.php?city=Milan&state=IT">Milan</a> | 
+<a href="https://badslava.com/open-mics.php?city=Moscow&state=RU">Moscow</a> | 
+<a href="https://badslava.com/open-mics.php?city=Nairobi&state=KE">Nairobi</a> | 
+<a href="https://badslava.com/open-mics.php?city=New Delhi&state=DI">New Delhi</a> | 
+<a href="https://badslava.com/open-mics.php?city=Paris&state=FR">Paris</a> | 
+<a href="https://badslava.com/open-mics.php?city=Prague&state=CZ">Prague</a> | 
+<a href="https://badslava.com/open-mics.php?city=Rio de Janeiro&state=BR">Rio de Janeiro</a> | 
+<a href="https://badslava.com/open-mics.php?city=Santiago&state=CL">Santiago</a> | 
+<a href="https://badslava.com/open-mics.php?city=Seoul&state=KR">Seoul</a> | 
+<a href="https://badslava.com/open-mics.php?city=Shanghai&state=CN">Shanghai</a> | 
+<a href="https://badslava.com/open-mics.php?city=Singapore&state=SG">Singapore</a> | 
+<a href="https://badslava.com/open-mics.php?city=Sofia&state=BG">Sofia</a> | 
+<a href="https://badslava.com/open-mics.php?city=Stockholm&state=SE">Stockholm</a> | 
+<a href="https://badslava.com/open-mics.php?city=Sydney&state=AU">Sydney</a> | 
+<a href="https://badslava.com/open-mics.php?city=Taipei&state=TW">Taipei</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tel Aviv&state=RA">Tel Aviv</a> | 
+<a href="https://badslava.com/open-mics.php?city=Tokyo&state=JP">Tokyo</a> | 
+<a href="https://badslava.com/open-mics.php?city=Toronto&state=ON">Toronto</a> | 
+<a href="https://badslava.com/open-mics.php?city=Vienna&state=AT">Vienna</a> | 
+<a href="https://badslava.com/open-mics.php?city=Warsaw&state=PL">Warsaw</a> | 
+	</td></tr>
+</table>
+
+<table>
+	<tr><td>
+
+<!-- Map Container with lazy loading -->
+<div class="map-container" id="mapContainer" onclick="loadInteractiveMap()">
+    <img src="" alt="Map Preview" class="map-preview" id="mapPreview">
+    <div class="map-overlay" id="mapOverlay">
+        <button class="map-play-button" type="button">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+</div>
+
+<div class="map-loading" id="mapLoading">
+    <i class="fas fa-spinner fa-spin"></i> Loading interactive map...
+</div>
+
+<div id="map"></div>
+
+<script type="text/javascript">
+    var number_rows = 26;
+    var venue = ["Wednesday<br><br><b>The Couth Buzzard - Books & Community<\/b><br>8310 Greenwood Ave N<br>Seattle, WA<br>9:45pm<br>Free<br>Weekly<br>(206) 436-2960","Wednesday<br><br><b>Hopvine Pub<\/b><br>507 15th Ave E<br>Seattle, WA<br>8:00pm<br>Free<br>Weekly<br>(206) 328-3120","Wednesday<br><br><b>Skylark Cafe & Club- Live Music | Scratch Kitchen | West Seattle<\/b><br>3803 Delridge Wy SW<br>Seattle, WA<br>7:30pm<br>Free<br>Weekly<br>(206) 935-2111","Monday<br><br><b>West Seattle Church of the Nazarene<\/b><br>4201 SW Juneau St<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 932-4581","Wednesday<br><br><b>Unexpected Productions Improv Comedy at Pike Place Market<\/b><br>1428 Post Alley<br>Seattle, WA<br>8:00pm<br>Paid<br>Weekly<br>(206) 587-2414","Tuesday<br><br><b>Otter on the Rocks<\/b><br>4210 SW Admiral Way<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 396-7596","Thursday<br><br><b>The Whit's End<\/b><br>6510 Phinney Ave N<br>Seattle, WA<br>8:00pm<br>Free<br>Bi-Weekly<br>(206) 850-8888","Saturday<br><br><b>Inside<\/b><br>1313 4th Ave<br>Seattle, WA<br>8:00pm<br>Free<br>Monthly<br>(206) 209-9490","Monday<br><br><b>Substation Seattle<\/b><br>645 NW 45th St<br>Seattle, WA<br>8:00pm<br>Free<br>Monthly<br>(206) 782-1885","Tuesday<br><br><b>Cottontail<\/b><br>2219 4th Ave<br>Seattle, WA<br>7:30pm<br>Free<br>Weekly<br>","Wednesday<br><br><b>Blue Moon<\/b><br>712 NE 45th St<br>Seattle, WA<br>8:00pm<br>Free<br>Weekly<br>(206) 675-9116","Friday<br><br><b>Innervisions posters framing and records<\/b><br>4548 University Wy NE<br>Seattle, WA<br>7:00pm<br>Free<br>Monthly<br>(206) 384-3728","Sunday<br><br><b>Rainier Arts Center<\/b><br>3515 S Alaska St<br>Seattle, WA<br>6:00pm<br>Free<br>Weekly<br>(206) 725-7517","Tuesday<br><br><b>Fremont Abbey Arts Center<\/b><br>4272 Fremont Ave N<br>Seattle, WA<br>8:00pm<br>Free<br>Bi-Weekly<br>(206) 414-8325","Thursday<br><br><b>BoneYard's Howlin' Bistro<\/b><br>2603 S Jackson St<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 485-3085","Wednesday<br><br><b>The Crocodile<\/b><br>2505 1st Ave<br>Seattle, WA<br>8:00pm<br>Free<br>Weekly<br>(206) 420-6351","Monday<br><br><b>The Rendezvous<\/b><br>2322 2nd Ave<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 441-5823","Tuesday<br><br><b>The Growler Guys<\/b><br>8500 Lake City Way NE<br>Seattle, WA<br>9:00pm<br>Free<br>Weekly<br>(206) 522-2337","Tuesday<br><br><b>Crawfish & Hotpot<\/b><br>9447 Rainier Ave S<br>Seattle, WA<br>8:00pm<br>Free<br>Weekly<br>(206) 453-4319","Thursday<br><br><b>Old Stove Brewing Ship Canal<\/b><br>600 W Nickerson St<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 602-6120","Sunday<br><br><b>Pam's Caribbean Kitchen<\/b><br>1715 N 45th St<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 696-7010","Sunday<br><br><b>St. Andrews Pub<\/b><br>7406 Aurora Ave N<br>Seattle, WA<br>8:00pm<br>Free<br>Weekly<br>(206) 257-1734","Monday<br><br><b>Saint John\u2019s Bar and Eatery<\/b><br>719 E Pike St<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 245-1390","Wednesday<br><br><b>Hill City Tap House<\/b><br>5303 Rainier Ave S<br>Seattle, WA<br>7:00pm<br>Free<br>Bi-Weekly<br>(206) 687-7984","Friday<br><br><b>Rickshaw Restaurant & Lounge<\/b><br>322 N 105th St<br>Seattle, WA<br>7:00pm<br>Free<br>Weekly<br>(206) 789-0120","Saturday<br><br><b>Halcyon Brewing Company<\/b><br>8564 Greenwood Ave N<br>Seattle, WA<br>8:00pm<br>Free<br>Bi-Weekly<br>(206) 457-4178"];
+    var latitude = ["47.6895322","47.6233719","47.569963","47.550065","47.609297","47.581378","47.676339","47.608438","47.661299","47.6147373","47.661338","47.662706","47.560470","47.659190","47.599000","47.6147673","47.614681","47.6905963","47.5199248","47.6518447","47.661162","47.6832095","47.613953","47.553589","47.7052738","47.6918448"];
+    var longitude = ["-122.3551417","-122.3128834","-122.362207","-122.385899","-122.341036","-122.385569","-122.354076","-122.335578","-122.365369","-122.343796","-122.320125","-122.312744","-122.287970","-122.349680","-122.298430","-122.3491698","-122.346133","-122.3072574","-122.2632322","-122.3646137","-122.3366411","-122.3443061","-122.322508","-122.280557","-122.3544897","-122.3550953"];
+    var center_lat = 47.62799886923077252731673070229589939117431640625;
+    var center_lng = -122.335942592307702625475940294563770294189453125;
+    var markers_string = "&markers=color:red%7C47.6895322,-122.3551417&markers=color:red%7C47.6233719,-122.3128834&markers=color:red%7C47.569963,-122.362207&markers=color:red%7C47.550065,-122.385899&markers=color:red%7C47.609297,-122.341036&markers=color:red%7C47.581378,-122.385569&markers=color:red%7C47.676339,-122.354076&markers=color:red%7C47.608438,-122.335578&markers=color:red%7C47.661299,-122.365369&markers=color:red%7C47.6147373,-122.343796&markers=color:red%7C47.661338,-122.320125&markers=color:red%7C47.662706,-122.312744&markers=color:red%7C47.560470,-122.287970&markers=color:red%7C47.659190,-122.349680&markers=color:red%7C47.599000,-122.298430&markers=color:red%7C47.6147673,-122.3491698&markers=color:red%7C47.614681,-122.346133&markers=color:red%7C47.6905963,-122.3072574&markers=color:red%7C47.5199248,-122.2632322&markers=color:red%7C47.6518447,-122.3646137&markers=color:red%7C47.661162,-122.3366411&markers=color:red%7C47.6832095,-122.3443061&markers=color:red%7C47.613953,-122.322508&markers=color:red%7C47.553589,-122.280557&markers=color:red%7C47.7052738,-122.3544897&markers=color:red%7C47.6918448,-122.3550953";
+    var mapLoaded = false;
+    
+    // Generate responsive static map URL
+    function generateStaticMapUrl() {
+        var container = document.getElementById('mapContainer');
+        var containerWidth = container.offsetWidth;
+        var containerHeight = 555; // Keep height fixed at 555px
+        
+        // Limit to Google's max dimensions (640x640 for free tier, 2048x2048 for premium)
+        var mapWidth = Math.min(containerWidth, 640);
+        var mapHeight = Math.min(containerHeight, 640);
+        
+        var staticMapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=" + 
+                          center_lat + "," + center_lng + 
+                          "&zoom=10&size=" + mapWidth + "x" + mapHeight + 
+                          "&maptype=roadmap" + markers_string + 
+                          "&key=REDACTED_GOOGLE_MAPS_API_KEY";
+        
+        return staticMapUrl;
+    }
+    
+    // Load static map when page loads
+    window.addEventListener('load', function() {
+        document.getElementById('mapPreview').src = generateStaticMapUrl();
+    });
+    
+    // Regenerate map on window resize
+    window.addEventListener('resize', function() {
+        if (!mapLoaded) {
+            document.getElementById('mapPreview').src = generateStaticMapUrl();
+        }
+    });
+    
+
+    function loadInteractiveMap() {
+        if (mapLoaded) return;
+        
+        // Show loading indicator
+        document.getElementById('mapContainer').style.display = 'none';
+        document.getElementById('mapLoading').style.display = 'block';
+        
+        // Load Google Maps API dynamically
+        var script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=REDACTED_GOOGLE_MAPS_API_KEY&callback=initializeMap';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+        
+        mapLoaded = true;
+    }
+    
+    function initializeMap() {
+        // Hide loading indicator
+        document.getElementById('mapLoading').style.display = 'none';
+        document.getElementById('map').style.display = 'block';
+        
+        // Initialize the map
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: new google.maps.LatLng(latitude[0], longitude[0]),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker, i;
+
+        // Add markers
+        for (i = 0; i < number_rows; i++) {  
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latitude[i], longitude[i]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(venue[i]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    }
+</script>
+
+</td></tr>
+</table>
+	
+<div class="icon-footer">
+  <a href="https://badslava.com/"><i class="fas fa-home"></i></a>
+  <a href="https://badslava.com/questions.php"><i class="fas fa-user"></i></a>
+  <a href="mailto:slava@badslava.com"><i class="fas fa-envelope"></i></a>
+  <a href="https://badslava.com/search.php"><i class="fas fa-search"></i></a>
+</div>
+
+<script>
+(function () {
+  // Countries to block (ISO-3166-1 alpha-2)
+  var BLOCK = { "CN": true, "SG": true };
+  var KEY = "geo_country_v1";
+
+  function loadGA() {
+    // ---- GA4 (gtag.js) ----
+    var s1 = document.createElement("script");
+    s1.async = true;
+    s1.src = "https://www.googletagmanager.com/gtag/js?id=G-NZE25F6CYB";
+    document.head.appendChild(s1);
+
+    s1.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+
+      gtag("js", new Date());
+      gtag("config", "G-NZE25F6CYB");
+    };
+  }
+
+  function decide(country) {
+    country = (country || "UNKNOWN").toUpperCase();
+    try { sessionStorage.setItem(KEY, country); } catch(e) {}
+
+    if (BLOCK[country]) {
+      // Blocked: do not load GA scripts
+      console.log("Analytics blocked for country: " + country);
+      return;
+    }
+    console.log("Analytics loaded for country: " + country);
+    loadGA();
+  }
+
+  // Use cached country if present
+  try {
+    var cached = sessionStorage.getItem(KEY);
+    if (cached) {
+      decide(cached);
+      return;
+    }
+  } catch(e) {}
+
+  // Geo lookup with timeout
+  var timeoutId = setTimeout(function() {
+    console.log("Geo lookup timed out, blocking analytics");
+    // If lookup fails/times out, block by default for safety
+  }, 3000);
+
+  fetch("https://ipapi.co/json/", { method: "GET" })
+    .then(function (r) { 
+      if (!r.ok) throw new Error("Geo API failed");
+      return r.json(); 
+    })
+    .then(function (j) {
+      clearTimeout(timeoutId);
+      var c = (j && j.country_code) ? String(j.country_code) : "UNKNOWN";
+      decide(c);
+    })
+    .catch(function (err) {
+      clearTimeout(timeoutId);
+      console.log("Geo lookup failed:", err);
+      // On error, block by default for safety
+    });
+})();
+</script>
+	
+</body>
+</html>

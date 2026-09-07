@@ -148,6 +148,9 @@ describe("buildActions", () => {
         expect(descs).toContain("delete allowed-removals/old.ics");
         expect(descs).toContain("delete .github/workflows/notify-discord.yml");
         expect(descs).toContain("reset event-uncertainty-cache.json to the empty baseline");
+        // Seattle's coverage series is the lowest layer of the health chart's
+        // merge, so a copy that kept it would plot Seattle's numbers forever.
+        expect(descs).toContain("reset docs/event-history.json to the empty baseline");
         expect(descs).toContain("reset feature-sync.json to the empty baseline");
         expect(descs).toContain("empty the Seattle lookup tables in lib/geocoder.ts");
         // The external/ and recurring/ dirs themselves are never deleted,

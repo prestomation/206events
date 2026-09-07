@@ -80,6 +80,7 @@ const cityConfig = {
         "Ballard",
         "Beacon Hill",
         "Belltown",
+        "Bothell",
         "Capitol Hill",
         "Central District",
         "Columbia City",

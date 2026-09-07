@@ -174,18 +174,6 @@ export function App206(props) {
     else if (section === 'discover') setMapScope('all')
   }, [section])
 
-  // Map popups are hand-built DOM (outside React, see EventsMap.renderPopupHtml),
-  // so wire their photo into the lightbox via a delegated click listener rather
-  // than a per-popup React handler.
-  useEffect(() => {
-    const onClick = (e) => {
-      const img = e.target.closest && e.target.closest('.map-popup-image')
-      if (img && img.src) openLightbox(img.src, img.alt || '')
-    }
-    document.addEventListener('click', onClick)
-    return () => document.removeEventListener('click', onClick)
-  }, [openLightbox])
-
   const flash = useCallback((msg) => {
     setToast(msg)
     clearTimeout(toastT.current)
@@ -538,7 +526,7 @@ export function App206(props) {
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
     calendarAddMode, setCalendarAddMode,
     // derived
-    channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
+    channels, channelByIcsUrl, venueByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
     upcomingEvents: scopedUpcoming, allUpcomingEvents: upcomingEvents, eventsByIcsUrl,
     feedGroups, matchEvents, queryKeySet, inScope,
     // ui state
@@ -566,7 +554,7 @@ export function App206(props) {
     channelEvents, channelEventsLoading, channelEventsError,
     createWebcalUrl, createGoogleCalendarUrl, createHttpsUrl,
     calendarAddMode, setCalendarAddMode,
-    channels, channelByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
+    channels, channelByIcsUrl, venueByIcsUrl, categoryTags, neighborhoodTags, calendarsPerTag,
     scopedUpcoming, upcomingEvents, eventsByIcsUrl,
     feedGroups, matchEvents, queryKeySet, inScope,
     section, navSection, openCh, openEventObj, dateWindow, dateWindowPending, emphasis, setEmphasis, pickEmphasis,
@@ -584,7 +572,10 @@ export function App206(props) {
   ])
 
   let content
-  if (section === 'health') content = <div style={{ padding: 'var(--pad)' }}><Suspense fallback={<div aria-busy="true">Loading site health…</div>}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></Suspense></div>
+  // Padding lives in CSS (.a-healthpad), not inline, so the mobile media query
+  // can drop the horizontal half for the full-bleed coverage chart — an inline
+  // style would need !important to beat.
+  if (section === 'health') content = <div className="a-healthpad"><Suspense fallback={<div aria-busy="true">Loading site health…</div>}><HealthDashboard calendars={calendars} healthTab={healthTab} healthSource={healthSource} onTabChange={selectHealthTab} onSelectSource={selectHealthSource} debugMode={debugMode} onToggleDebug={toggleDebug} /></Suspense></div>
   else if (openEventObj) content = <EventDetail event={openEventObj} />
   else if (openCh) content = <ChannelDetail icsUrl={openCh} />
   else if (section === 'discover') content = <DiscoverView />

@@ -1,0 +1,25 @@
+# verified: 2026-09-02 via eventbrite public API (organizer 44465040643 —
+# "sanca-44465040643" — 3 live events at time of check: Carnevolar XIV:
+# Ascension nightly occurrences, Oct 29-31 2026, at Emerald City Trapeze
+# Arts; EVENTBRITE_TOKEN required in CI, reused from other Eventbrite
+# sources). SANCA (School of Acrobatics & New Circus Arts) operates two
+# Seattle locations — its own Georgetown studio (674 S Orcas St) and
+# Emerald City Trapeze Arts (2702 6th Ave S, SoDo), which SANCA has run
+# since 2023 — so geo is null and each event's venue address comes from
+# Eventbrite directly (confirmed present on all 3 live events).
+name: sanca
+sourceRole: venue
+type: eventbrite
+description: "SANCA (School of Acrobatics & New Circus Arts)"
+url: "https://www.eventbrite.com/o/sanca-44465040643"
+friendlyLink: https://sancaseattle.org/
+tags: ["Circus"]
+geo: null
+calendars:
+  - name: sanca
+    friendlyname: "SANCA"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "44465040643"
+      defaultLocation: "674 S Orcas St, Seattle, WA 98108"
+      defaultDurationHours: 2

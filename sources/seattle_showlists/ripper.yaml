@@ -211,9 +211,9 @@ calendars:
 
   # --- Queen Anne ---
   # KEXP Studio: now covered by dedicated ripper at sources/kexp/
+  # 2026-09-02: 1 event now; removing expectEmpty
   - name: kexp-gathering-space
     friendlyname: "KEXP Gathering Space"
-    expectEmpty: true
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/61/KEXP_Gathering_Space_04.jpg"
     geo:
       lat: 47.6231

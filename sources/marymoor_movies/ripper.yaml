@@ -16,3 +16,8 @@ calendars:
   - name: all-events
     friendlyname: "Outdoor Movies at Marymoor Park"
     timezone: America/Los_Angeles
+    # Outdoor movie season runs summer only; the site posts a
+    # "20XX - Schedule TBD" placeholder heading in the off-season
+    # (confirmed 2026-09-06) that the ripper correctly can't parse a date
+    # from. Expect 0 events until next summer's lineup is published.
+    expectEmpty: true

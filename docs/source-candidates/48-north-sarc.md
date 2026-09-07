@@ -20,3 +20,21 @@ Saturdays, etc). Caveat: scope is Washington/Oregon/British Columbia
 broadly, not Seattle-only — would need filtering to Puget Sound-area
 clubs/venues if implemented. No ICS URL captured yet; grab it from the
 "iCalendar/Outlook 365" export link on the page when implementing.
+
+**Re-checked 2026-09-02:** Captured the real ICS URL from the page's
+webcal links: `https://48north.com/?post_type=tribe_events&ical=1&eventDisplay=list&tribe_events_cat=sailboat-races`.
+Fetched it directly — valid VCALENDAR, 30 VEVENTs, but **no LOCATION or
+DESCRIPTION fields at all**, only `SUMMARY`/`URL`/`CATEGORIES` and an
+`ORGANIZER;CN="<club name>"`. The organizer names in the current feed:
+Anacortes YC, Bellingham YC, Center for Wooden Boats, Corinthian YC of
+Edmonds, Corinthian YC of Tacoma, Port Townsend Sailing Association,
+Rose City YC (Portland, OR), Royal Victoria YC (BC, Canada), Sloop
+Tavern YC (Ballard — the only Seattle-proper club), South Sound Sailing
+Society. Only 1 of 9 clubs in the current feed is Seattle-based; the
+rest are explicitly out-of-scope per AGENTS.md ("venues entirely
+outside Seattle — Edmonds, Everett, Kent — are not appropriate") or
+out of state/country entirely. Without per-event location data there's
+no reliable way to filter to Seattle-area events at parse time (would
+require guessing region from organizer name alone, and Seattle would be
+a small minority of the feed). Deprioritizing in favor of a
+Seattle-proper candidate.

@@ -27,7 +27,11 @@ import { CITY } from "../lib/config/city.js";
 // geocoding bug. Configured per city in city.config.ts.
 const VENUE_BBOX = CITY.venueSanityBbox;
 
-const VENUES_JSON_MAX_KB = 500;
+// Raised from 500 KB (2026-09-02): production venues.json had grown to
+// 499.4 KB from ongoing source additions, so the very next new venue tripped
+// this budget regardless of which PR added it. Bumped with headroom for
+// continued growth rather than just enough for one more venue.
+const VENUES_JSON_MAX_KB = 600;
 
 // Every doc in the index links directly to other files. All of these are
 // required to exist on disk for the discovery API to be usable.

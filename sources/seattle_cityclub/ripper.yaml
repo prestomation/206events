@@ -5,11 +5,7 @@ type: eventbrite
 # happen at rotating venues around the city, not one fixed address —
 # geo: null at the ripper level, same pattern as seattle-social-club /
 # seattle-downtown-community-council.
-# 2026-08-24: confirmed via Eventbrite organizer page: 1 upcoming event
-# ("Voter Guide Live with Seattle CityClub & KUOW", Sep 16 2026 at The
-# Collective Seattle). Low, intermittent volume expected (civic-forum
-# cadence), so expectEmpty stays set like sync-seattle.
-expectEmpty: true
+# 2026-09-02: 1 upcoming event now posted; removing expectEmpty
 description: "Seattle CityClub"
 url: "https://www.eventbrite.com/o/seattle-cityclub-12026318033"
 friendlyLink: "https://www.seattlecityclub.org/"

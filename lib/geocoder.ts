@@ -544,6 +544,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'kremwerk-timbre room-cherry complex': { lat: 47.6202, lng: -122.3374 },
   'kane hall, university of washington, 4069 spokane ln, seattle, 98105, united states': { lat: 47.6566, lng: -122.3092 },
   'langston hughes performing arts institute': { lat: 47.5969, lng: -122.3165 },
+  // Leschi South Marina per OSM (way 52135058); club's own site calls it
+  // "Leschi South Sailboat Moorage", 150 Lakeside Ave S, Seattle, WA 98144
+  'leschi south sailboat moorage': { lat: 47.6007789, lng: -122.2843483, osmType: 'way', osmId: 52135058 },
   'meadowbrook community center': { lat: 47.7133, lng: -122.2989 },
   // Corrected 2026-08-27: was pinned at 47.5983,-122.3237 (Chinatown-ID —
   // duplicate of the unrelated 'orient express restaurant & lounge' coords).
@@ -713,7 +716,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'columbia park': { lat: 47.560033, lng: -122.286900 },
   'concord international school': { lat: 47.523505, lng: -122.324305 },
   'federal way town square park': { lat: 47.317826, lng: -122.308114 },
-  'firn rooftop bar': { lat: 47.598643, lng: -122.333666 },
+  'firn rooftop bar': { lat: 47.5984171, lng: -122.3338243, osmType: 'node', osmId: 13458644701 }, // Populus Seattle's OSM-verified node (sources/external/populus-seattle.yaml)
   'freeway park': { lat: 47.609164, lng: -122.330511 },
   'fremont social': { lat: 47.651340, lng: -122.355990 },
   'gasworks park': { lat: 47.647548, lng: -122.332751 },
@@ -767,6 +770,12 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // between S King St and S Weller St in the CID (OSM way 260316654),
   // whose south endpoint (47.5975244) is the Weller St intersection.
   '6th ave s & s weller st, seattle, wa 98104': { lat: 47.5975, lng: -122.3264 },
+
+  // Nominatim's structured geocoder can't resolve the house number for this
+  // address and instead returns a generic "South King Street" road segment
+  // ~700m away near Yesler Terrace — use the OSM node for the venue itself
+  // (amenity=karaoke_box, node 13874560124) instead.
+  '714 s king st, seattle, wa 98104': { lat: 47.5984956, lng: -122.3226719 },
 
   // --- 2026-07-05 geo-resolver batch: more "venue name only" / address-format unresolvable entries ---
   // Addresses verified against each venue's own site/official listing, then
@@ -1367,6 +1376,20 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Matches sources/recurring/beacon-arts-street-fairs.yaml's own geo (same street,
   // repeated-name source variant from a different, non-recurring calendar).
   'south roberto maestas festival street, south roberto maestas festival street, seattle, wa': { lat: 47.5795585, lng: -122.3116428 },
+  // "Guildhall" is the tournament-room nickname some sources/external/zulus-games.yaml
+  // events use for the same venue as its main geo — Zulu's Games Event Center,
+  // 10131b Main St, Bothell, WA 98011 (OSM node 2367594038).
+  "zulu's guildhall": { lat: 47.7599233, lng: -122.2042918 },
+
+  // --- 2026-09-05 geo-resolver batch: "venue name only" unresolvable entries
+  // whose address was verified on the venue's own site, then forward-geocoded
+  // via Nominatim (never reverse-geocoded). ---
+  // ('vashon center for the arts' and 'bainbridge performing arts center'
+  // were already present above — a concurrent geo-resolver pass added them
+  // independently; skipped here to avoid a duplicate-key TS error.)
+  'behnke gallery': { lat: 47.6182381, lng: -122.3354570 }, // 1077 Lenora St, Seattle, WA 98121 (cross-checked against cornish/seattle-university duplicate listings)
+  'pigott building': { lat: 47.6106523, lng: -122.3171370 }, // 901 12th Ave, Seattle, WA 98122 — Seattle University campus building (cross-checked against cornish/seattle-university duplicate listings)
+  'firn': { lat: 47.5984171, lng: -122.3338243, osmType: 'node', osmId: 13458644701 }, // Firn is the lounge inside Populus Seattle, 100 S King St, Seattle, WA 98104 — reuses the venue's own OSM-verified node (sources/external/populus-seattle.yaml) rather than a fresh street-address geocode; identified via the confirmed 19hz/external-populus-seattle duplicate listings
 };
 
 /**

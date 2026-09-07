@@ -189,6 +189,11 @@ async function main() {
   // Required non-ICS data files. These are part of the public contract
   // that LLM crawlers and downstream consumers rely on, so the build must
   // fail if any of them go missing. Kept in sync with `index.json`'s links.
+  //
+  // Deliberately NOT including event-history.json: every file here is produced
+  // by the build itself, whereas the coverage series is written by a workflow
+  // step, so requiring it here would fail a plain local `npm run build` +
+  // check. The workflow asserts it separately, right after writing it.
   const REQUIRED_DATA_FILES = [
     "index.json",
     "llms.txt",

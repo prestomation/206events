@@ -1,0 +1,17 @@
+name: seattle-childrens-theatre
+sourceRole: venue
+description: "Seattle Children's Theatre"
+url: "https://www.sct.org/tickets-shows/calendar/"
+friendlyLink: https://www.sct.org
+tags: ["Theatre", "Uptown"]
+geo:
+  lat: 47.6204553
+  lng: -122.3522573
+  label: "Seattle Children's Theatre, 201 Thomas St, Seattle, WA 98109"
+  osmType: way
+  osmId: 56817917
+imageUrl: "https://www.sct.org/app/uploads/2026/08/2627-Season-CYO-Graphic_750x500-1024x683.png"
+calendars:
+  - name: seattle-childrens-theatre
+    friendlyname: "Seattle Children's Theatre"
+    timezone: America/Los_Angeles

@@ -1,0 +1,11 @@
+name: danceus-tango
+sourceRole: aggregator
+description: "DanceUS Seattle Argentine Tango Calendar"
+url: "https://www.danceus.org/events/argentine-tango/seattle-wa-tango-calendar/"
+friendlyLink: "https://www.danceus.org/events/argentine-tango/seattle-wa-tango-calendar/"
+geo: null
+tags: ["Dance"]
+calendars:
+  - name: danceus-tango
+    friendlyname: "DanceUS Seattle Argentine Tango Calendar"
+    timezone: America/Los_Angeles

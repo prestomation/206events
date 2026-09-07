@@ -17,3 +17,9 @@ web/.playwright/
 .env.local
 .env.*.local
 .claude/worktrees/
+
+# Build-time scratch copies of the coverage series (see build-calendars.yml).
+# The committed baseline is docs/event-history.json; these are the restored
+# cache and the fetched published copy that get merged into it.
+cached-event-history.json
+published-event-history.json
