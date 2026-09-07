@@ -1,0 +1,16 @@
+name: bad-alberts
+sourceRole: venue
+description: "Bad Albert's Tap & Grill"
+url: "https://badalberts.com/seattle-ballard-bad-albert-s-tap-and-grill-events"
+friendlyLink: https://badalberts.com
+tags: ["Nightlife", "Ballard"]
+geo:
+  lat: 47.6646073
+  lng: -122.3808628
+  label: "Bad Albert's Tap & Grill, 5100 Ballard Ave NW, Seattle, WA 98107"
+  osmType: node
+  osmId: 2138389815
+calendars:
+  - name: bad-alberts
+    friendlyname: "Bad Albert's Tap & Grill"
+    timezone: America/Los_Angeles
