@@ -39,12 +39,21 @@ here, not in a separate cleanup routine.
 2. **Run the supersession check** on each:
 
    ```sh
-   python3 scripts/drain-pr-sweep.py <pr-base-sha> <pr-head-ref>
+   git fetch origin <pr-head-ref>
+   python3 scripts/drain-pr-sweep.py "$(git merge-base main <pr-head-ref>)" <pr-head-ref>
    ```
 
-   It reports, per cache, how many keys the PR adds/modifies/prunes, how many are
-   already on `main`, and how many of the remainder are past-dated (worthless)
-   versus still live — ending in `SUPERSEDED` or `HAS-NOVEL-WORK`.
+   Pass the **merge-base**, not GitHub's `base.sha` — that field is the base
+   branch's *tip*, which makes every count meaningless. On a shallow clone,
+   `git fetch --deepen=400 origin main` first, or `git merge-base` returns
+   nothing.
+
+   It reports, per cache, how many keys the PR adds/modifies/prunes, how many
+   `main` already carries, and how many of the remainder are past-dated
+   (worthless) versus still live — ending in `SUPERSEDED` or `HAS-NOVEL-WORK`.
+   It compares **per field**, so a key `main` also has but with a weaker value
+   (`{"paid": true}`, or a `{"min": 0}` a ripper guessed) still counts as
+   unlanded — those are the entries most worth rescuing.
 
 3. **Act on the verdict:**
 
