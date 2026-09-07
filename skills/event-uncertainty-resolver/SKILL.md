@@ -232,6 +232,54 @@ The cache will grow with every resolution. Use the script's `stats`,
 `outstanding`, `resolve`, and `prune` subcommands; never `cat` the
 whole file.
 
+## ⚠️ Two ways to silently break a resolution
+
+Both of these were hit for real; neither surfaces as an error, so the only
+symptom is an entry that stays in the queue forever.
+
+### Never copy a `partialFingerprint` across a change to the ripper that computes it
+
+The fingerprint exists to invalidate a resolution when the ripper's parsed
+content changes: `lookupUncertaintyCache` treats a mismatch as a **miss**. So a
+fingerprint carried over from a different code path can never match, and
+permanently voids the resolution it is attached to — a wrong fingerprint is
+strictly worse than none, because none means "always apply" while wrong means
+"never apply".
+
+This bites when porting a resolution out of a stale PR: the recorded value was
+computed by that branch's formula. Either let the ripper stamp a fresh one on
+the next build, or omit `--fingerprint` entirely. Only reuse one when the
+hashed inputs are provably unchanged.
+
+*Seen in #1403 → fixed in #1407: a resolution ported from a branch that hashed
+`attendance|tickets|description` into a ripper that hashes
+`tickets|ticket_label|description`. The price never applied, and the event kept
+reporting `missing: cost` with a perfectly good resolution sitting in the cache.*
+
+### Never run a verification build with the cache file staged
+
+`generate-calendars` rewrites `event-uncertainty-cache.json` as it runs: it
+stamps `lastSeen` on every entry it consults, and re-serializes the file through
+JS `JSON.stringify`, which renormalizes `45.0` to `45` throughout. Those writes
+are **ephemeral by design** (`docs/github-native-caches.md`) — only PR-committed
+changes persist.
+
+Commit them by accident and a two-line fix lands as a hundred-plus-line diff in
+a 9,000-entry file that the next drain run also rewrites, which is exactly what
+makes these PRs conflict and rot. Build, read the result, then restore the file
+before committing:
+
+```sh
+cp event-uncertainty-cache.json /tmp/intended.json
+ONLY_SOURCE=<source> npm run generate-calendars   # read output/build-errors.json
+cp /tmp/intended.json event-uncertainty-cache.json
+git diff --stat   # should show only what you meant to change
+```
+
+Prefer a surgical raw-text edit over a JSON round-trip for the same reason: a
+`json.load` / `json.dump` cycle can renormalize numbers across the whole file
+even when you only touched one entry.
+
 ## How this fits with build-report
 
 The daily `build-report` skill is the entry point. If
