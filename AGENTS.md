@@ -69,7 +69,8 @@ here, not in a separate cleanup routine.
    | Verdict | Action |
    |---|---|
    | `SUPERSEDED` | **Close the PR**, with a comment naming the commit/PR that superseded it. Nothing is lost — the queue re-surfaces anything still outstanding. |
-   | `HAS-NOVEL-WORK` | **Close it too, and carry its unlanded items into this run's batch.** Read its resolutions and evidence first — that investigation is the valuable part and saves you re-fetching the same pages. Do **not** rebase the branch: it conflicts in the cache, and its diff is worth less than its findings. |
+   | `NOT-APPLICABLE` | The PR changes no cache the script reads, so nothing was examined. **Don't close on this** — sweep it by `grep` against `main` instead. Common and legitimate: photo-resolver venue photos and cost-resolver uniform prices are source-YAML-only. |
+   | `HAS-NOVEL-WORK` | **Close it too, and carry its unlanded items into this run's batch.** Read its resolutions and evidence first — that investigation is the valuable part and saves you re-fetching the same pages. Do **not** rebase the branch: it conflicts in the cache, and its diff is worth less than its findings. One exception to carrying: a key tagged `<unresolvable-but-main-resolved>` means `main` has since answered what that PR gave up on — check `main`'s value is sane, but never copy the `unresolvable` over it. |
    | Opened by an in-flight run (green CI, less than a day old) | Leave it. Exclude its keys from this run's batch so the two don't collide. |
 
    A non-cache change riding along in a stale drain PR (a ripper fix, a

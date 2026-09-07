@@ -28,7 +28,9 @@ past-dated and therefore worthless. Ends with a verdict:
     HAS-NOVEL-WORK  — close it too, but read the listed keys and carry that
                       investigation into the current run's batch.
 
-Exit status: 0 = SUPERSEDED, 1 = HAS-NOVEL-WORK, 2 = usage/git/JSON error.
+Exit status: 0 = SUPERSEDED (safe to close), 1 = not superseded — either
+HAS-NOVEL-WORK or NOT-APPLICABLE (this PR changes no cache this script reads,
+so nothing was examined), 2 = usage/git/JSON error.
 """
 
 import argparse
@@ -38,7 +40,7 @@ import subprocess
 import sys
 from datetime import date
 
-EXIT_SUPERSEDED, EXIT_NOVEL, EXIT_ERROR = 0, 1, 2
+EXIT_SUPERSEDED, EXIT_NOT_SUPERSEDED, EXIT_ERROR = 0, 1, 2
 
 CACHES = {
     "uncertainty": ("event-uncertainty-cache.json", "entries"),
@@ -158,7 +160,12 @@ def unlanded_fields(pr_entry, main_entry, container="entries"):
     # forever. Main having genuinely resolved it instead surfaces here as one
     # key to glance at, which is the cheaper error.
     if pr_entry.get("unresolvable") and not main_entry.get("unresolvable"):
-        return ["<unresolvable>"]
+        # Labelled distinctly when main has a real resolution: AGENTS.md's
+        # "carry unlanded items into this run's batch" is mechanical, and
+        # carrying an `unresolvable` over main's actual answer would be a
+        # regression. Listed only so the resolution can be eyeballed.
+        return (["<unresolvable-but-main-resolved>"] if main_entry.get("fields")
+                else ["<unresolvable>"])
     out = []
     for field, value in (pr_entry.get("fields") or {}).items():
         main_value = (main_entry.get("fields") or {}).get(field, _MISSING)
@@ -171,13 +178,16 @@ _MISSING = object()
 
 
 def sweep_one(name, base, head, main, today, list_n):
-    """Report one cache. Returns (live_unlanded_keys, unapplied_prune_count)."""
+    """Report one cache.
+
+    Returns (live_unlanded_keys, unapplied_prune_count, touched_anything).
+    """
     path, container = CACHES[name]
     b, h, m = (read_cache(r, path, container) for r in (base, head, main))
 
     if not h and not b:
         print(f"\n{path}: not present on this branch — nothing to check.")
-        return [], 0
+        return [], 0, False
 
     added = set(h) - set(b)
     pruned = set(b) - set(h)
@@ -208,7 +218,7 @@ def sweep_one(name, base, head, main, today, list_n):
     if len(live) > list_n:
         print(f"      … {len(live) - list_n} more (raise --list to see them)")
 
-    return live, unapplied_prunes
+    return live, unapplied_prunes, bool(touched or pruned)
 
 
 def selftest():
@@ -243,7 +253,10 @@ def selftest():
         # resolved the one this entry gave up on. One key to eyeball beats
         # silently stranding the event.
         ("unresolvable, main has an unrelated field",
-         {"unresolvable": True}, {"fields": {"imageUrl": "u"}}, ["<unresolvable>"]),
+         {"unresolvable": True}, {"fields": {"imageUrl": "u"}},
+         ["<unresolvable-but-main-resolved>"]),
+        ("unresolvable, main lacks any resolution",
+         {"unresolvable": True}, {"resolvedAt": "2026-09-01"}, ["<unresolvable>"]),
         ("unresolvable, main marked it unresolvable too plus a photo",
          {"unresolvable": True},
          {"unresolvable": True, "fields": {"imageUrl": "u"}}, []),
@@ -346,19 +359,29 @@ def main():
                               f"isn't understated.")
                 mainref = remote_sha
 
-    # The merge-base is by definition an ancestor of main's tip. If it isn't,
-    # the caller passed GitHub's `base.sha` (the base branch's tip) instead, and
-    # every count below is inflated by unrelated main commits.
-    ancestor = subprocess.run(
-        ["git", "merge-base", "--is-ancestor", base, mainref]).returncode == 0
+    # The merge-base is an ancestor of BOTH head and main. Testing only against
+    # main cannot catch the documented mistake — GitHub's `base.sha` is the base
+    # branch's tip, so it is always an ancestor of main; it is the *head* test
+    # that fails for it. Getting this wrong is not a cosmetic miss: with
+    # base.sha the diff runs backwards and the "unlanded" keys are main's own
+    # newer values, so carrying them into a batch would revert main.
+    def is_ancestor(a, b):
+        return subprocess.run(["git", "merge-base", "--is-ancestor", a, b],
+                              capture_output=True).returncode == 0
+
     print(f"base {base[:8]}  head {head[:8]}  main {mainref[:8]}")
     if stale_note:
         print(f"  NOTE: {stale_note}")
-    if not ancestor:
-        print("  WARNING: base is not an ancestor of main — this is probably not "
-              "the true merge-base. Re-derive it with "
-              f"`git merge-base {args.main} {args.head}` (deepen a shallow "
-              "clone first) and re-run; the counts below are unreliable.")
+    for label, ok in (("head", is_ancestor(base, head)),
+                      ("main", is_ancestor(base, mainref))):
+        if not ok:
+            print(f"  WARNING: base is not an ancestor of {label} — this is not "
+                  "the true merge-base (GitHub's `base.sha` is the base branch's "
+                  "tip, not the merge-base). Re-derive it with "
+                  f"`git merge-base origin/{args.main} {args.head}` (deepen a "
+                  "shallow clone first) and re-run. Every count below is "
+                  "unreliable, and the 'unlanded' keys may be main's own newer "
+                  "values seen in reverse — do not carry them into a batch.")
 
     # Only the cache JSONs are analysed above, so a PR carrying a ripper fix or
     # a YAML edit must not have SUPERSEDED read as "the whole PR is dead".
@@ -378,12 +401,13 @@ def main():
     # --cache narrowed the run to one.
     other_files = [f for f in diff.stdout.splitlines()
                    if f and f not in analysed_paths]
-    live, prunes = [], 0
+    live, prunes, touched_any = [], 0, False
     for name in names:
-        cache_live, cache_prunes = sweep_one(
+        cache_live, cache_prunes, cache_touched = sweep_one(
             name, base, head, mainref, args.today, args.list)
         live += cache_live
         prunes += cache_prunes
+        touched_any = touched_any or cache_touched
 
     print()
     if other_files:
@@ -408,6 +432,16 @@ def main():
         print("re-pruning; the routine prune pass re-derives real staleness anyway.")
         print()
 
+    if not touched_any:
+        print("VERDICT: NOT-APPLICABLE — this PR changes none of the caches this")
+        print("script reads, so nothing here was analysed and none of it is shown")
+        print("to be superseded. Several drain PRs are legitimately like this:")
+        print("photo-resolver venue photos and cost-resolver uniform prices are")
+        print("source-YAML-only, and geo drains edit lib/geocoder.ts. Sweep those")
+        print("by grep against main instead — see skills/geo-resolver/SKILL.md")
+        print("step 0 for the pattern. Do not close a PR on this verdict.")
+        return EXIT_NOT_SUPERSEDED
+
     if live:
         print(f"VERDICT: HAS-NOVEL-WORK — {len(live)} unlanded, still-live key(s).")
         print("Close the PR anyway (its branch conflicts in the cache), but read")
@@ -415,7 +449,7 @@ def main():
         print("this run's batch. Also check by grep whether any non-cache change")
         print("in the PR (ripper fix, KNOWN_VENUE_COORDS entry, YAML imageUrl:)")
         print("landed on main; if not, port it fresh rather than reviving the branch.")
-        return EXIT_NOVEL
+        return EXIT_NOT_SUPERSEDED
 
     scope = "every cache change this PR carries is" if other_files else \
             "every change this PR carries is"
