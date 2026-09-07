@@ -16541,9 +16541,9 @@
       "note": "Same event at Seattle University listed by both university feed and seatoday-sports"
     },
     "external-sunn-health-bar.ics Fremont Sunday Market|2026-09-06T14:00:00Z[UTC]::recurring-fremont-sunday-market.ics Fremont Sunday Market|2026-09-06T10:00:00-07:00[America/Los_Angeles]": {
-      "decision": "confirmed",
-      "resolvedAt": "2026-09-02",
-      "note": "Same weekly Fremont Sunday Market, listed by Sunn Health Bar and the recurring entry"
+      "decision": "rejected",
+      "resolvedAt": "2026-09-07",
+      "note": "Time mismatch: 14:00Z UTC = 7:00 AM PDT, not 10:00 AM PDT — 3-hour gap; Sunn Health Bar uses Tribe Events (14:00Z = 2 PM local), different time slot from 10 AM market opening"
     },
     "external-town-hall-seattle.ics El Grito 2026|2026-09-13T20:00:00Z[UTC]::orquesta-northwest-orquesta-northwest.ics \"El Grito\"|2026-09-13T14:00:00.177-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
