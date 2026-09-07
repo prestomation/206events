@@ -54035,23 +54035,23 @@
     "native_action_network:6a74cf7918fd0927e1955528": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 250.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://nativeactionnetwork.org/events/dorothy-grant-fur-felt-hat-making-worksho"
+      "evidence": "https://nativeactionnetwork.org/events/dorothy-grant-fur-felt-hat-making-workshop — \"a registration fee of $250 to cover material and instruction costs\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-folklore-society:seattle-folklore-society-winters-return-pint-dale-opland-freeman-2026-12-19": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 26.0
         },
         "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/08/Winters-Return-Wm-Tania-Mike-Felicia.jpeg"
       },
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://www.seafolklore.org/events/winters-return-pint-dale-opland-freeman/"
+      "evidence": "https://www.seafolklore.org/events/winters-return-pint-dale-opland-freeman/ | cost reapplied from superseded #1269: https://www.seafolklore.org/events/winters-return-pint-dale-opland-freeman/ — \"General Advance: $26\" (general-admission adult advance price)"
     },
     "northwest-film-forum:local-sightings-2026-feature-lifeweleave-2026-09-19": {
       "fields": {
@@ -54076,10 +54076,14 @@
       "evidence": "https://nwfilmforum.org/programs/local-sightings/"
     },
     "northwest-film-forum:local-sightings-2026-closing-night-again-again-2026-09-18": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-23",
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "reason": "No event-specific poster image found on NWFF event page"
+      "evidence": "https://nwfilmforum.org/events/local-sightings-2026-closing-night-again-again/ — \"$15 General Admission\" (Local Sightings 2026 festival, uniform pricing) (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "northwest-film-forum:local-sightings-2026-assets-liabilities-2026-09-25": {
       "fields": {
@@ -54412,222 +54416,222 @@
     "seattle-makers:seattle-makers-163823": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-18/ — members-only guided studio time (no public/non-member tier offered), \"$0.00\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163837": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 100.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/soldering-101-98/ — Members $70.00 / Non-members $100.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163840": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8f%ba-ceramics-guided-studio-and-test-out-times-19/ — members-only guided studio time (no public/non-member tier offered), \"$0.00\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163851": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 175.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/laser-cutter-certification-315/ — Members $115.00 / Non-members $175.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163854": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/%e2%9a%a1electronics-guided-studio-13/ — members-only guided studio time (no public/non-member tier offered), \"$0.00\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163856": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 115.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/screen-printing-certification-35/ — Members $85.00 / Non-members $115.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163874": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 85.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/sewing-machine-basics-52/ — Members $65.00 / Non-members $85.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163878": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 85.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/sewing-machine-basics-53/ — Members $65.00 / Non-members $85.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163898": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 20.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio/ — Members $0.00 / Non-members $20.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163901": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 20.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/screen-printing-guided-studio-thursdays-10/ — Members $0.00 / Non-members $20.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-163904": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 85.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/sewing-machine-basics-54/ — Members $65.00 / Non-members $85.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "seattle-makers:seattle-makers-164010": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 55.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://seattlemakers.org/events/"
+      "evidence": "https://seattlemakers.org/events/serger-coverstitch-certification-sewing-6/ — Members $30.00 / Non-members $55.00; non-member general-admission price used (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a7e574e8507fd0a8bbc88d6": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 25.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-presents-emily-scott-robinson — \"$25 Advance // $30 Day of show\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a83152d6ef51149b94b4ebd": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/vivienne-dimarco-the-warning-strobe-lights — \"Free Admission!\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a84915692818f5ec02c0333": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 12.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/movie-night-at-the-roach-motel — \"Tickets at door: $12-25 sliding scale\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a84a40dc8a58b7d5a591118": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 18.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/debbie-miller-amanda-winterhalter-friends — \"GA Seated $18 adv. / $23 door\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a84a93841cc96635190f02a": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 25.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/the-crocodile-presents-anthony-locascio-the-divine-comedy — \"Adv. $35.38 ($25.00 + $10.38 fee)\"; face value excluding fees = $25 (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a84cc4c753ecb41c8f24fa9": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 18.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/degenerate-fellows — \"GA Seated $18 adv. / $23 door\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a84dd284688ce403483fe80": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 20.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/nate-varrone-intersting-perspectives-tour — \"GA Seated $20 adv. // $25 door\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a85dbb0a068803a1b87ab73": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 12.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/desert-hollow — \"GA Seated $12 adv. // $17 door\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a85e875692b2770fd2b7baf": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 15.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/ticklemuffs-big-tour-featuring-zack-binder — 3pm show, cheapest tier Standing Room Only \"$15 adv. & door\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "rabbit_box:6a8624ddeafc255661322cfb": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 15.0
         }
       },
-      "resolvedAt": "2026-08-23",
+      "resolvedAt": "2026-09-07",
       "source": "agent",
-      "evidence": "https://therabbitbox.com/"
+      "evidence": "https://www.therabbitboxseattle.com/events/ticklemuffs-big-tour-featuring-zack-binder-jwwj6 — 7:30pm \"After Dark\" show, cheapest tier Standing Room Only \"$15 adv. & door\" (reapplied from superseded #1269, which found this specific price against the vaguer \"paid: true\" this key otherwise carried)"
     },
     "venue:loc:all national parks": {
       "fields": {
