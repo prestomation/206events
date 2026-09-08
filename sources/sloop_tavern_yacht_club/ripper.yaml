@@ -1,0 +1,16 @@
+name: sloop-tavern-yacht-club
+sourceRole: venue
+description: "Sloop Tavern Yacht Club"
+url: "https://www.styc.org/calendar/RSS"
+friendlyLink: "https://www.styc.org/races"
+tags: ["Sports", "Outdoors", "Ballard"]
+geo:
+  lat: 47.6826095
+  lng: -122.4059213
+  label: "Shilshole Bay Marina, Seattle, WA 98107"
+  osmType: relation
+  osmId: 539810
+calendars:
+  - name: sloop-tavern-yacht-club
+    friendlyname: "Sloop Tavern Yacht Club"
+    timezone: America/Los_Angeles
