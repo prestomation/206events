@@ -1395,6 +1395,33 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'behnke gallery': { lat: 47.6182381, lng: -122.3354570 }, // 1077 Lenora St, Seattle, WA 98121 (cross-checked against cornish/seattle-university duplicate listings)
   'pigott building': { lat: 47.6106523, lng: -122.3171370 }, // 901 12th Ave, Seattle, WA 98122 — Seattle University campus building (cross-checked against cornish/seattle-university duplicate listings)
   'firn': { lat: 47.5984171, lng: -122.3338243, osmType: 'node', osmId: 13458644701 }, // Firn is the lounge inside Populus Seattle, 100 S King St, Seattle, WA 98104 — reuses the venue's own OSM-verified node (sources/external/populus-seattle.yaml) rather than a fresh street-address geocode; identified via the confirmed 19hz/external-populus-seattle duplicate listings
+
+  // --- 2026-09-08 geo-resolver batch: "venue name only" unresolvable
+  // entries from geo-cache.py analyze. Addresses confirmed via web search
+  // against each venue's own site/listing (never reverse-geocoded), then
+  // forward-geocoded via Nominatim; Nominatim's own name-matched result was
+  // used as the coordinate where it returned one.
+  'targy\'s tavern': { lat: 47.6378861, lng: -122.3651630, osmType: 'node', osmId: 2291867144 }, // 600 W Crockett St, Seattle, WA 98119 (Queen Anne) — Nominatim direct name match ("Targy's")
+  'alki masonic hall, seattle, wa': { lat: 47.5600035, lng: -122.3824681, osmType: 'way', osmId: 541644905 }, // 4736 40th Ave SW, Seattle, WA 98116 — Nominatim direct name match ("Alki Masonic Center")
+  // Seattle Swing Dance Club (SSDC) meets at the same address as Alki Masonic
+  // Hall/Center above — confirmed via seattleswingdanceclub.com/contact.
+  'seattle swing dance club, seattle, wa': { lat: 47.5600035, lng: -122.3824681, osmType: 'way', osmId: 541644905 },
+  'china harbor restaurant, seattle, wa': { lat: 47.6374749, lng: -122.3398766 }, // 2040 Westlake Ave N, Seattle, WA 98109
+  'corner store studio, seattle, wa': { lat: 47.6882109, lng: -122.3608343 }, // 301 NW 82nd St, Seattle, WA 98117 (Greenwood)
+  'freehold theatre lab/studio, maynard avenue south, seattle, wa, usa': { lat: 47.5981323, lng: -122.3251805 }, // 517 Maynard Ave S, Seattle, WA 98104 (Chinatown-ID)
+  'the golf club at redmond ridge, seattle, wa': { lat: 47.7040640, lng: -122.0263397, osmType: 'way', osmId: 33014523 }, // 11825 Trilogy Pkwy NE, Redmond, WA 98053 — Nominatim direct name match
+  'the polish home, seattle, wa': { lat: 47.6169487, lng: -122.3084505, osmType: 'way', osmId: 229910960 }, // 1714 18th Ave, Seattle, WA 98122 (Capitol Hill/Madison Valley) — Nominatim direct name match ("Polish Home Association")
+  'south lake union discovery center lawn, wa': { lat: 47.6186580, lng: -122.3386050 }, // 101 Westlake Ave N, Seattle, WA 98109
+  'west seattle water taxi pier': { lat: 47.5888294, lng: -122.3800709 }, // Seacrest Park dock, West Seattle — King County Metro's water taxi terminal; Nominatim resolves the park by name, not the dock itself
+  'washington state convention center, arch and summit buildings, wa': { lat: 47.6113891, lng: -122.3325491, osmType: 'node', osmId: 10593034789 }, // 705 Pike St, Seattle, WA 98101 (Arch building; Summit building is one block away at 900 Pine St)
+  'arthur murray dance studio north seattle, seattle, wa': { lat: 47.7272812, lng: -122.3439519 }, // 13510 Aurora Ave N Suite C, Seattle, WA 98133 (Bitter Lake/Shoreline border)
+  'tango en vie / seattle changing room, seattle, wa': { lat: 47.6382083, lng: -122.3403755, osmType: 'node', osmId: 5080396725 }, // 2110 Westlake Ave N, Seattle, WA 98109 — Nominatim direct name match ("Seattle Changing Room", the studio Tango en Vie rents)
+  'tango-experts studio, seattle, wa': { lat: 47.6841024, lng: -122.3556935 }, // 7601 Greenwood Ave N, Seattle, WA 98103 (Greenwood) — tango-experts.com's listed address; Nominatim resolves the address to a different named tenant at the same node
+  'salsa con todo / swing dance sct, seattle, wa': { lat: 47.6524374, lng: -122.3561097, osmType: 'node', osmId: 2144365441 }, // 211 N 36th St, Seattle, WA 98103 (Fremont) — Nominatim direct name match
+  'greenlake (across from jellyfish brewing)': { lat: 47.6781854, lng: -122.3277255, osmType: 'node', osmId: 2463139396 }, // Jellyfish Brewing, 6808 E Green Lake Way N, Seattle, WA 98115 — event location is described relative to the brewery, so anchoring on it directly
+  // Portland, OR — same precedent as other out-of-area PNW venues already in
+  // this table (e.g. "aladdin theater (portland)", "twilight cafe & bar").
+  'tom mccall waterfront park': { lat: 45.5215710, lng: -122.6703160 }, // 98 SW Naito Pkwy, Portland, OR 97204
 };
 
 /**
