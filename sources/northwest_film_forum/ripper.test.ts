@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
+import { LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import "@js-joda/timezone";
 import {
     extractDetailUrls,
@@ -13,6 +13,7 @@ import {
     extractDateOnlyStartDates,
     extractAllDayDates,
     extractDatedTimeList,
+    extractMultiShowtimeDates,
     extractOffersUrl,
     extractLocation,
     extractDuration,
@@ -32,6 +33,7 @@ const CLOSURE_URL = "https://nwfilmforum.org/events/nwff-summer-break-2026/";
 const WORKSHOP_URL = "https://nwfilmforum.org/education/workshops/camp2-2026/";
 const MULTIDATE_URL = "https://nwfilmforum.org/events/two-angels-in-the-night-a-gregg-araki-double-feature/";
 const RECURRING_URL = "https://nwfilmforum.org/events/seattle-film-societys-film-discussion-group/";
+const MULTI_SHOWTIME_URL = "https://nwfilmforum.org/events/2026-collide-o-scope-halloween-show/";
 const FIXED_NOW = ZonedDateTime.of(2026, 7, 18, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
 
 describe("extractDetailUrls", () => {
@@ -254,6 +256,59 @@ describe("extractDatedTimeList", () => {
     });
 });
 
+describe("extractMultiShowtimeDates", () => {
+    it("extracts one or more concrete showtimes per day, including multiple on one night", () => {
+        const results = extractMultiShowtimeDates(readSample("sample-data-multi-showtime.html"), MULTI_SHOWTIME_URL, FIXED_NOW);
+        expect(results.map(dt => (dt instanceof LocalDateTime ? dt.toString() : dt))).toEqual([
+            "2026-10-30T20:00", "2026-10-31T17:00", "2026-10-31T20:00",
+        ]);
+    });
+
+    it("does not mistake unrelated prose times (e.g. pre-show notes) for showtimes", () => {
+        const html = `
+            <div class="col-1">Fri Oct 30: 8.00pm PDT<br />
+            Special Pre-Shows Begin at 4:30pm and 7:30pm!</div>
+        `;
+        const results = extractMultiShowtimeDates(html, MULTI_SHOWTIME_URL, FIXED_NOW);
+        expect(results.map(dt => (dt instanceof LocalDateTime ? dt.toString() : dt))).toEqual([
+            "2026-10-30T20:00",
+        ]);
+    });
+
+    it("rolls over to next year when the month/day has already passed relative to now", () => {
+        const lateNow = ZonedDateTime.of(2026, 12, 15, 10, 0, 0, 0, ZoneId.of("America/Los_Angeles"));
+        const results = extractMultiShowtimeDates(readSample("sample-data-multi-showtime.html"), MULTI_SHOWTIME_URL, lateNow);
+        expect(results.map(dt => (dt instanceof LocalDateTime ? dt.toString() : dt))).toEqual([
+            "2027-10-30T20:00", "2027-10-31T17:00", "2027-10-31T20:00",
+        ]);
+    });
+
+    it("returns an empty array for a page with no multi-showtime listing", () => {
+        expect(extractMultiShowtimeDates(readSample("sample-data-film.html"), FILM_URL, FIXED_NOW)).toEqual([]);
+    });
+
+    it("deduplicates a repeated showtime instead of double-counting it", () => {
+        const html = `
+            <div class="col-1">Fri Oct 30: 8.00pm PDT<br />
+            Fri Oct 30: 8.00pm PDT<br /></div>
+        `;
+        const results = extractMultiShowtimeDates(html, MULTI_SHOWTIME_URL, FIXED_NOW);
+        expect(results.map(dt => (dt instanceof LocalDateTime ? dt.toString() : dt))).toEqual([
+            "2026-10-30T20:00",
+        ]);
+    });
+
+    it("returns a ParseError for an invalid calendar date (e.g. Feb 30) instead of silently dropping it", () => {
+        const html = `<div class="col-1">Mon Feb 30: 7.00pm PDT</div>`;
+        const results = extractMultiShowtimeDates(html, MULTI_SHOWTIME_URL, FIXED_NOW);
+        expect(results.length).toBe(1);
+        expect(results[0] instanceof LocalDateTime).toBe(false);
+        const error = results[0] as RipperError;
+        expect(error.type).toBe("ParseError");
+        expect(error.context).toBe(MULTI_SHOWTIME_URL);
+    });
+});
+
 describe("extractOffersUrl", () => {
     it("extracts the ticket/registration URL from a /films/ page", () => {
         expect(extractOffersUrl(readSample("sample-data-film.html")))
@@ -397,6 +452,27 @@ describe("parseDetailPage", () => {
 
         const last = results[results.length - 1] as RipperCalendarEvent;
         expect(last.date.toLocalDate().toString()).toBe("2026-12-09");
+    });
+
+    it("returns one event per showtime for a multi-showtime listing, with a slot-suffixed id on multi-showing nights", () => {
+        const results = parseDetailPage(readSample("sample-data-multi-showtime.html"), MULTI_SHOWTIME_URL, FIXED_NOW);
+        expect(results.length).toBe(3);
+        for (const result of results) {
+            expect("date" in result).toBe(true);
+        }
+        const events = results as RipperCalendarEvent[];
+
+        expect(events[0].id).toBe("2026-collide-o-scope-halloween-show-2026-10-30-2000");
+        expect(events[0].date.toLocalDate().toString()).toBe("2026-10-30");
+        expect(events[0].date.hour()).toBe(20);
+        expect(events[0].summary).toBe("2026 Collide-O-Scope Halloween Show");
+        expect(events[0].location).toBe("Northwest Film Forum, 1515 12th Ave, Seattle WA 98122");
+
+        expect(events[1].id).toBe("2026-collide-o-scope-halloween-show-2026-10-31-1700");
+        expect(events[1].date.hour()).toBe(17);
+
+        expect(events[2].id).toBe("2026-collide-o-scope-halloween-show-2026-10-31-2000");
+        expect(events[2].date.hour()).toBe(20);
     });
 
     it("returns an empty array (not a crash) for a page with no title", () => {

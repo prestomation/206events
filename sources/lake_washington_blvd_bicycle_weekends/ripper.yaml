@@ -17,6 +17,12 @@ geo:
   osmType: relation
   osmId: 5141519
 calendars:
+  # 2026-09-08: build-health flagged this as an unexpected zero-event
+  # calendar. The hardcoded 2026 SCHEDULE in ripper.ts ends 2026-09-07
+  # (Labor Day weekend) — the season is over, so this will legitimately
+  # read 0 upcoming events until next year's dates are published and
+  # SCHEDULE is updated. Not a broken feed.
   - name: bicycle-weekends
     friendlyname: "Lake Washington Blvd Bicycle Weekends"
     timezone: America/Los_Angeles
+    expectEmpty: true

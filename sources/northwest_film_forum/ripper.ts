@@ -235,6 +235,68 @@ export function extractAllDayDates(html: string, url: string, now: ZonedDateTime
 }
 
 /**
+ * Extracts one or more concrete showtimes per day from a "multi-showtime"
+ * listing, e.g. a one-night (or few-night) special screening with more than
+ * one showing on some nights:
+ *   "Fri Oct 30: 8.00pm PDT", "Sat Oct 31: 5.00pm PDT, 8.00pm PDT"
+ * Unlike extractAllDayDates, each occurrence already carries a real time of
+ * day (period-separated, e.g. "8.00pm", not extractFreeTextDateTime's
+ * colon-separated "8:00pm"), so results need no UncertaintyError. The
+ * listing carries no year, so it's inferred relative to `now` the same way
+ * extractAllDayDates does. Deduplicates repeated (date, time) pairs and
+ * returns them in the order they first appear. An invalid (month, day) is
+ * surfaced as a ParseError rather than silently dropped. Public for testing.
+ */
+export function extractMultiShowtimeDates(html: string, url: string, now: ZonedDateTime): (LocalDateTime | RipperError)[] {
+    const dayRe = /(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+([A-Z][a-z]{2})\s+(\d{1,2}):\s*((?:\d{1,2}\.\d{2}\s*(?:am|pm)(?:\s*[A-Z]{2,4})?\s*,?\s*)+)/g;
+    const timeRe = /(\d{1,2})\.(\d{2})\s*(am|pm)/gi;
+    const results: (LocalDateTime | RipperError)[] = [];
+    const seen = new Set<string>();
+    let dm: RegExpExecArray | null;
+    while ((dm = dayRe.exec(html)) !== null) {
+        const month = ABBR_MONTHS[dm[1]];
+        if (!month) continue;
+        const day = Number(dm[2]);
+
+        const year = inferYear(month, day, now);
+        if (year === null) {
+            results.push({
+                type: "ParseError",
+                reason: `Invalid calendar date in multi-showtime listing: month=${month}, day=${day}`,
+                context: url,
+            });
+            continue;
+        }
+        let date: LocalDate;
+        try {
+            date = LocalDate.of(year, month, day);
+        } catch {
+            results.push({
+                type: "ParseError",
+                reason: `Invalid calendar date in multi-showtime listing: month=${month}, day=${day}`,
+                context: url,
+            });
+            continue;
+        }
+
+        timeRe.lastIndex = 0;
+        let tm: RegExpExecArray | null;
+        while ((tm = timeRe.exec(dm[3])) !== null) {
+            let hour = Number(tm[1]);
+            const minute = Number(tm[2]);
+            const ampm = tm[3].toLowerCase();
+            if (ampm === "pm" && hour !== 12) hour += 12;
+            if (ampm === "am" && hour === 12) hour = 0;
+            const key = `${date.toString()}T${hour}:${minute}`;
+            if (seen.has(key)) continue;
+            seen.add(key);
+            results.push(date.atTime(hour, minute));
+        }
+    }
+    return results;
+}
+
+/**
  * Extracts every explicit `<time datetime="YYYY-MM-DD HH:MM:SS">` timestamp
  * from a multi-date recurring listing, e.g. a monthly discussion group:
  *   "Wed Sep 09: <time datetime="2026-09-09 19:00:00">7.00pm PDT</time>"
@@ -437,6 +499,30 @@ export function parseDetailPage(
                 event,
             };
             results.push(event, uncertainty);
+        }
+        return results;
+    }
+
+    const multiShowtimeResults = extractMultiShowtimeDates(html, url, now);
+    if (multiShowtimeResults.length > 0) {
+        const results: (RipperCalendarEvent | RipperError)[] = [];
+        for (const dt of multiShowtimeResults) {
+            if (!(dt instanceof LocalDateTime)) {
+                results.push(dt);
+                continue;
+            }
+            const date = dt.atZone(TIMEZONE);
+            const hhmm = `${String(dt.hour()).padStart(2, "0")}${String(dt.minute()).padStart(2, "0")}`;
+            const event: RipperCalendarEvent = {
+                id: `${slug}-${dt.toLocalDate().toString()}-${hhmm}`,
+                ripped: new Date(),
+                date,
+                duration: extractDuration(html),
+                summary: title,
+                location: location ?? undefined,
+                url,
+            };
+            results.push(event);
         }
         return results;
     }

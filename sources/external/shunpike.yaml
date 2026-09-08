@@ -1,4 +1,9 @@
 # verified: 2026-05-18 ok
+# 2026-09-08: build-health flagged 0 events. Likely the same Browserbase
+# billing/credit exhaustion documented on on-the-hiyu.yaml and
+# seattledances.yaml — dacha-theatre's ParseError in this same build
+# confirms "Browserbase fetch failed: HTTP 402" is currently live. Out of
+# scope for build-report; no proxy/disable action taken here.
 geo: null
 name: shunpike
 sourceRole: venue

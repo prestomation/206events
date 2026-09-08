@@ -14,6 +14,12 @@ geo:
   osmId: 115683693
 imageUrl: "https://static1.squarespace.com/static/5fc167f58ef7301f8b143e09/t/62cb6687343ff45a4714c5aa/1657497223612/FBC-full-color-signature-Seattle-Earth.png?format=1500w"
 calendars:
+  # 2026-09-08: build-health flagged this as an unexpected zero-event
+  # calendar. Confirmed live via ?format=json — the Squarespace collection
+  # has only 5 items ever posted and 0 upcoming right now. A low-volume
+  # events calendar (separate from the taproom's regular hours), not a
+  # broken feed.
   - name: all-events
     friendlyname: "Fremont Brewing - Fremont"
     timezone: America/Los_Angeles
+    expectEmpty: true

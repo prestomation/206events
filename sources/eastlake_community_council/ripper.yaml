@@ -10,6 +10,11 @@ imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Seattle_Eastlake_
 cost: free
 geo: null
 calendars:
+  # 2026-09-08: build-health flagged this as an unexpected zero-event
+  # calendar. Confirmed live via ?format=json — the Squarespace collection
+  # has 170 items total (30 past) but 0 upcoming right now. A small
+  # neighborhood council with intermittent announcements, not a broken feed.
   - name: all-events
     friendlyname: "Eastlake Community Council"
     timezone: America/Los_Angeles
+    expectEmpty: true

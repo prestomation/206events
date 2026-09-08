@@ -16,9 +16,15 @@ geo:
   # complex, not Fisher Pavilion.
   osmChecked: 2026-08-17
 calendars:
+  # 2026-09-08: build-health flagged this as an unexpected zero-event
+  # calendar. Panda Fest Seattle 2026 (Aug 28-30) already happened; this is
+  # a single annual festival with no next occurrence announced yet, so it
+  # will legitimately read 0 upcoming events for months until next year's
+  # dates are posted — not a broken feed.
   - name: panda-fest-seattle
     friendlyname: "Panda Fest Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "107176020021"
       defaultLocation: "Seattle Center Fisher Pavilion, 305 Harrison St, Seattle, WA 98109"

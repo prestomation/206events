@@ -1,4 +1,9 @@
 # verified: 2026-08-30 ok — feed has 10 upcoming events
+# 2026-09-08: build-health flagged 0 events. Likely the same Browserbase
+# billing/credit exhaustion documented on on-the-hiyu.yaml and
+# seattledances.yaml — dacha-theatre's ParseError in this same build
+# confirms "Browserbase fetch failed: HTTP 402" is currently live. Out of
+# scope for build-report; no proxy/disable action taken here.
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/56/El_Centro_de_la_Raza_01.jpg"
 geo:
   lat: 47.580325
