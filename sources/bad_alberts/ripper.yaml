@@ -4,6 +4,9 @@ description: "Bad Albert's Tap & Grill"
 url: "https://badalberts.com/seattle-ballard-bad-albert-s-tap-and-grill-events"
 friendlyLink: https://badalberts.com
 tags: ["Nightlife", "Ballard"]
+imageUrl: "https://static.spotapps.co/website_images/ab_websites/78480_website/logo.png"
+# Events link to the generic events listing page, not per-event pages; no per-event photos available.
+skipEventPhotos: true
 geo:
   lat: 47.6646073
   lng: -122.3808628
