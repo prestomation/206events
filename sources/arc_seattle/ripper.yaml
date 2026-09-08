@@ -1,0 +1,16 @@
+name: arc-seattle
+sourceRole: venue
+description: "Associated Recreation Council (ARC)"
+url: "https://arcseattle.org/events/"
+friendlyLink: "https://arcseattle.org/events/"
+tags: ["Community", "Kids"]
+geo: null
+calendars:
+  # ARC runs a handful of dated public events across the year (Street
+  # Hockey Clinics, Pathway of Lights, Big Day of Play) at rotating Seattle
+  # Parks & Recreation venues, alongside year-round recurring programs with
+  # no single dated listing. Low-but-real volume; expectEmpty would hide a
+  # genuine outage (e.g. the page losing all dated events), so it's left off.
+  - name: arc-seattle
+    friendlyname: "ARC Seattle Events"
+    timezone: America/Los_Angeles
