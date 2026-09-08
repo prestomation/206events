@@ -38,3 +38,8 @@ no reliable way to filter to Seattle-area events at parse time (would
 require guessing region from organizer name alone, and Seattle would be
 a small minority of the feed). Deprioritizing in favor of a
 Seattle-proper candidate.
+
+**Re-checked 2026-09-08:** Deprioritizing this multi-club regional feed for
+good — implemented the one Seattle-proper club it names, Sloop Tavern YC,
+directly from its own calendar instead. See
+`docs/source-candidates/sloop-tavern-yacht-club.md` (`status: added`).
