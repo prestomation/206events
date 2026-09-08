@@ -290,7 +290,15 @@ export function extractMultiShowtimeDates(html: string, url: string, now: ZonedD
             const key = `${date.toString()}T${hour}:${minute}`;
             if (seen.has(key)) continue;
             seen.add(key);
-            results.push(date.atTime(hour, minute));
+            try {
+                results.push(date.atTime(hour, minute));
+            } catch {
+                results.push({
+                    type: "ParseError",
+                    reason: `Invalid showtime in multi-showtime listing: ${date.toString()} ${hour}:${minute}`,
+                    context: url,
+                });
+            }
         }
     }
     return results;

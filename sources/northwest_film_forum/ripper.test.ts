@@ -307,6 +307,16 @@ describe("extractMultiShowtimeDates", () => {
         expect(error.type).toBe("ParseError");
         expect(error.context).toBe(MULTI_SHOWTIME_URL);
     });
+
+    it("returns a ParseError (not a crash) for an out-of-range hour, e.g. a source typo like '13.00pm'", () => {
+        const html = `<div class="col-1">Fri Oct 30: 13.00pm PDT</div>`;
+        const results = extractMultiShowtimeDates(html, MULTI_SHOWTIME_URL, FIXED_NOW);
+        expect(results.length).toBe(1);
+        expect(results[0] instanceof LocalDateTime).toBe(false);
+        const error = results[0] as RipperError;
+        expect(error.type).toBe("ParseError");
+        expect(error.context).toBe(MULTI_SHOWTIME_URL);
+    });
 });
 
 describe("extractOffersUrl", () => {
