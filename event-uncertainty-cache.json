@@ -54080,11 +54080,12 @@
       "fields": {
         "cost": {
           "min": 15.0
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/againagain1600-2.png"
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/events/local-sightings-2026-closing-night-again-again/ — \"$15 General Admission\" (Local Sightings 2026 festival, uniform pricing) (reapplied from superseded #1269; this key was previously marked whole-entry unresolvable for an unrelated reason — see note below) (note: this key previously carried a whole-entry unresolvable flag whose reason concerned a missing poster image, not cost — that image gap is not re-verified here, only the cost field; a future photo-resolver pass may re-surface it)"
+      "evidence": "https://nwfilmforum.org/events/local-sightings-2026-closing-night-again-again/"
     },
     "northwest-film-forum:local-sightings-2026-assets-liabilities-2026-09-25": {
       "fields": {
@@ -80456,11 +80457,14 @@
     },
     "northwest-film-forum:the-best-of-betty-boop-2026-09-10": {
       "fields": {
-        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bestofbettyboopposter-1200x1855.jpeg"
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/bestofbettyboopposter-1200x1855.jpeg",
+        "cost": {
+          "min": 15.0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "NWFF event page"
+      "evidence": "https://nwfilmforum.org/films/the-best-of-betty-boop/"
     },
     "SAF:187258072": {
       "fields": {
@@ -80529,119 +80533,158 @@
     "craft-map-seattle:drawing-jam-2026-seattle-wa-2026-09-12": {
       "fields": {
         "startTime": "10:00",
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/drawing-jam/"
+      "evidence": "https://www.eventbrite.com/e/drawing-jam-2026-tickets-1998393282102"
     },
     "craft-map-seattle:stitch-n-bitch-free-cozy-craft-club-night-supplies-included-seattle-wa-2026-09-26": {
       "fields": {
         "startTime": "17:00",
-        "duration": 10800
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
       "evidence": "https://www.thecraftmap.com/fair/stitch-n-bitch-free-cozy-craft-club-night-supplies-included-seattle-wa"
     },
     "craft-map-seattle:produce-on-pike-weekly-farmers-market-seattle-wa-2026-09-09": {
       "fields": {
         "startTime": "15:00",
-        "duration": 14400
+        "duration": 14400,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "https://www.pikeplacemarket.org/events"
+      "evidence": "https://www.thecraftmap.com/fair/produce-on-pike-weekly-farmers-market-seattle-wa"
     },
     "craft-map-seattle:first-thursday-sunset-markets-seattle-wa-2026-10-01": {
       "fields": {
         "startTime": "17:00",
-        "duration": 14400
+        "duration": 14400,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/first-thursday-sunset-markets-tickets-1988035930986"
     },
     "craft-map-seattle:talipapa-market-cultural-festival-2026-seattle-wa-2026-09-25": {
       "fields": {
         "startTime": "17:00",
-        "duration": 14400
+        "duration": 14400,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/talipapa-market-cultural-festival-2026-tickets-1997983188501"
     },
     "craft-map-seattle:choma-fest-global-experience-seattle-wa-2026-09-26": {
       "fields": {
         "startTime": "13:00",
-        "duration": 23400
+        "duration": 23400,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/choma-fest-global-experience-tickets-1997169774558"
     },
     "craft-map-seattle:masked-kinky-crafting-seattle-wa-2026-09-20": {
       "fields": {
         "startTime": "14:00",
-        "duration": 7200
+        "duration": 7200,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/masked-kinky-crafting-tickets-1998915800970"
+      "evidence": "https://www.thecraftmap.com/fair/masked-kinky-crafting-seattle-wa"
     },
     "craft-map-seattle:2026-makers-market-seattle-wa-2026-09-26": {
       "fields": {
         "startTime": "11:00",
-        "duration": 14400
+        "duration": 14400,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/2026-makers-market-tickets-1998931060612"
     },
     "craft-map-seattle:kinky-crafting-seattle-wa-2026-10-07": {
       "fields": {
         "startTime": "19:00",
-        "duration": 7200
+        "duration": 7200,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/kinky-crafting-tickets-1998915754832"
+      "evidence": "https://www.thecraftmap.com/fair/kinky-crafting-seattle-wa"
     },
     "craft-map-seattle:spooky-craft-club-free-art-supply-library-craft-costume-making-seattle-wa-2026-10-31": {
       "fields": {
         "startTime": "13:00",
-        "duration": 18000
+        "duration": 18000,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/spooky-craft-club-free-art-supply-library-craft-costume-making-tickets-1999435625780"
+      "evidence": "https://www.thecraftmap.com/fair/spooky-craft-club-free-art-supply-library-craft-costume-making-seattle-wa"
     },
     "craft-map-seattle:seattle-first-bite-night-2026-holiday-shopping-local-food-seattle-wa-2026-11-13": {
       "fields": {
         "startTime": "17:00",
-        "duration": 10800
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/seattle-first-bite-night-2026-holiday-shopping-local-food-tickets-1992402925785"
     },
     "craft-map-seattle:urban-craft-uprising-winter-show-preview-night-seattle-handmade-market-seattle-wa-2026-12-04": {
       "fields": {
         "startTime": "17:00",
-        "duration": 14400
+        "duration": 14400,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
       "evidence": "https://www.eventbrite.com/e/urban-craft-uprising-winter-show-preview-night-seattle-handmade-market-tickets-1992734353093"
     },
     "craft-map-seattle:grown-folks-book-fair-seattle-wa-2026-09-30": {
       "fields": {
         "startTime": "18:00",
-        "duration": 9000
+        "duration": 9000,
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-07",
+      "resolvedAt": "2026-09-08",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/grown-folks-book-fair-tickets-1994479662360"
+      "evidence": "https://www.eventbrite.com/e/grown-folks-book-fair-tickets-1998781621636"
     },
     "craft-map-seattle:art-walk-open-figure-class-market-seattle-wa-2026-10-01": {
       "unresolvable": true,
@@ -80656,6 +80699,312 @@
       "resolvedAt": "2026-09-07",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/node/2158750789"
+    },
+    "charlies-queer-books:charlies-queer-books-992120260913": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/992120260913"
+    },
+    "charlies-queer-books:charlies-queer-books-1236120260917": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/1236120260917"
+    },
+    "charlies-queer-books:charlies-queer-books-1213620260927": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/1213620260927"
+    },
+    "charlies-queer-books:charlies-queer-books-6125820260924": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/6125820260924"
+    },
+    "charlies-queer-books:charlies-queer-books-6295220261003": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/6295220261003"
+    },
+    "charlies-queer-books:charlies-queer-books-6189320260925": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/6189320260925"
+    },
+    "seattle-makers:seattle-makers-165760": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8e%83-costume-making-session-%f0%9f%8e%83-3/"
+    },
+    "seattle-makers:seattle-makers-165769": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8e%83-costume-making-session-%f0%9f%8e%83-3/"
+    },
+    "seattle-makers:seattle-makers-165770": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8e%83-costume-making-session-%f0%9f%8e%83-3/"
+    },
+    "seattle-makers:seattle-makers-165771": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8e%83-costume-making-session-%f0%9f%8e%83-3/"
+    },
+    "seattle-makers:seattle-makers-165778": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8e%83-costume-making-session-%f0%9f%8e%83-3/"
+    },
+    "seattle-makers:seattle-makers-165775": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/%f0%9f%8e%83-halloween-costume-party-%f0%9f%8e%83/"
+    },
+    "seattle-makers:seattle-makers-165946": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/leather-working-basics-leather-mini-briefcase/"
+    },
+    "seattle-makers:seattle-makers-165952": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/embroidery-machine-basics-53/"
+    },
+    "tabletop-village:_6cq3ic2564rjib9o7513cb9k8d0k8ba28l1j8b9h68q3eh26891kad1j84_R20260322T010000@google.com-2027-03-06": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "tabletop-village:15chbht38q6a9ad3i3qsi3q1i2_R20260322T200000@google.com-2027-03-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "tabletop-village:52pk03h0lkcs281utei713784f_R20260322T180000@google.com-2027-03-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "tabletop-village:b0sgc8d59is19uq4r1s7qn6271_R20230129T210000@google.com-2027-03-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "seattle-swing-dance-club:0e6152eo7ooomlmllbfm46fvi8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://seattleswingdanceclub.com/seattlewcscalendar"
+    },
+    "sol-yoga-seattle:6a9839c8bd36d7265d615dc4": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/sol-sound-bath-95aty-2zzxj-k9jry-n3rgs-5m8ad-9jdsj-6fd7h-crfxa-gf8zw-at4z8-dltr3-2rkak-z4565-nt65e-3mg44-cgs4n-s9jtt-tt825-c7jg6-2jds5-ytpjk"
+    },
+    "side-rail-collective:6a98ab13e89b815fbe96789d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a98ac621b204d1312b577bb": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dcfca2018962f1e974693": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dd13ee6b43a4b0310655b": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dd1e2631a0e5a07ae494d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dd217b011ab6ffaa73ebf": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dd251f0c7a604d55375a5": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dd859d0287a01d28408b5": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dd87918ae982af55821c8": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a9dd89da6d4d62bb8773943": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "members-only event, no public admission pricing published"
+    },
+    "side-rail-collective:6a98aba29ea7cd12f6a91c66": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup"
+    },
+    "side-rail-collective:6a98abdec2bfa02b84e1bea2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup"
+    },
+    "side-rail-collective:6a98ac121b204d1312b56c70": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup"
+    },
+    "side-rail-collective:6a98ac2ea000cc7eff36d747": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/collage-meetup"
+    },
+    "side-rail-collective:6a98adbf4d4e2127b0c6d7e7": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-08",
+      "source": "agent",
+      "reason": "kiln firing session - members or fee-based access, no public admission price published"
     }
   }
 }
