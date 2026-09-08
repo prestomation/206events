@@ -3,6 +3,7 @@ sourceRole: venue
 description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
+proxy: "outofband"
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Maximus_Minimus_food_truck_Seattle_Washington.JPG"
 cost: free
 # Each event is a generic "Food Trucks @ <pod>" slot with no per-event image;
