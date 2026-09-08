@@ -19314,6 +19314,131 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-08",
       "note": "Same weekly waltz event at Sunset Hill Community Club, 3003 NW 66th St - title variants 'Waltz etcetera' vs 'Waltz Etc.' listed by two feeds of the same venue"
+    },
+    "events12-seattle-events.ics Football vs. Dallas Cowboys|2026-12-07T17:15:00-08:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. Dallas Cowboys|2026-12-07T17:15:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same Seahawks vs Cowboys NFL game at Lumen Field, listed by events12 and the venue Ticketmaster feed"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-09-14T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-09-14T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-08",
+      "note": "Different weekly programs at the same Stoup Brewing Capitol Hill on the same Monday night: Board Gayme Night (board games, 6:30-9:30pm per queersocialclub.com) vs Head in the Clouds Trivia (7:30-9:30pm per recurring config) — distinct start times and distinct content, not the same event"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-09-14T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-09-14T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same weekly Head in the Clouds trivia at Stoup Brewing Ballard (1108 NW 52nd St), listed by recurring HITC feed and venue own feed"
+    },
+    "seatoday-seatoday-all.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics Johnny Blue Skies & the Dark Clouds|2026-09-21T19:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Johnny Blue Skies & the Dark Clouds|2026-09-21T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics Operations Committee|2026-09-21T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Operations Committee|2026-09-21T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics Steve Early and Suzanne Gordon - 'Courage or Complicity?: How Veterans Are Responding to the Assault|2026-09-21T19:00:00-07:00[America/Los_Angeles]::third-place-books-third-place-books.ics Steve Early and Suzanne Gordon — 'Courage or Complicity?'|2026-09-21T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same Steve Early & Suzanne Gordon book event at Third Place Books Seward Park, listed by seatoday aggregator and the venue's own Eventbrite feed"
+    },
+    "seatoday-seatoday-all.ics Tracy Stanley Be Still My Hearts: An Earring and Pendant Class|2026-09-21T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Tracy Stanley Be Still My Hearts: An Earring and Pendant Class|2026-09-21T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-all.ics ¡Vamos al Acuario!|2026-09-21T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ¡Vamos al Acuario!|2026-09-21T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-arts.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-arts.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-arts.ics Steve Early and Suzanne Gordon - 'Courage or Complicity?: How Veterans Are Responding to the Assault|2026-09-21T19:00:00-07:00[America/Los_Angeles]::third-place-books-third-place-books.ics Steve Early and Suzanne Gordon — 'Courage or Complicity?'|2026-09-21T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same Steve Early & Suzanne Gordon book event at Third Place Books Seward Park, listed by seatoday aggregator and the venue's own Eventbrite feed"
+    },
+    "seatoday-seatoday-community.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-community.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-community.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Citizen|2026-09-21T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-community.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "seatoday-seatoday-community.ics Steve Early and Suzanne Gordon - 'Courage or Complicity?: How Veterans Are Responding to the Assault|2026-09-21T19:00:00-07:00[America/Los_Angeles]::third-place-books-third-place-books.ics Steve Early and Suzanne Gordon — 'Courage or Complicity?'|2026-09-21T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same Steve Early & Suzanne Gordon book event at Third Place Books Seward Park, listed by seatoday aggregator and the venue's own Eventbrite feed"
+    },
+    "seatoday-seatoday-learning.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 6th Annual Honoring Our Veterans Golf Tournament|2026-09-21T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-08",
+      "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
     }
   }
 }
