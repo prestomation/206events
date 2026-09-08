@@ -43,6 +43,19 @@ describe('extractFeedItems', () => {
     it('returns an empty array for empty XML', () => {
         expect(extractFeedItems('')).toEqual([]);
     });
+
+    it('stays fast on adversarial input with many unclosed <item> tags', () => {
+        // Regression test for a quadratic-time worst case: a global
+        // backtracking regex here would restart its lazy scan from every
+        // "<item>" occurrence, each rescanning to the end of the string.
+        // indexOf-based scanning stays linear regardless of how many
+        // "<item>" occurrences never find a matching "</item>".
+        const adversarial = '<item>'.repeat(50000);
+        const start = Date.now();
+        const items = extractFeedItems(adversarial);
+        expect(items).toEqual([]);
+        expect(Date.now() - start).toBeLessThan(1000);
+    });
 });
 
 describe('isNonPublicEvent', () => {

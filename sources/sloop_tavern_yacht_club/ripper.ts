@@ -69,12 +69,26 @@ export function decodeHtmlEntities(str: string): string {
     return current;
 }
 
+// Finds <item>...</item> boundaries with plain indexOf scans rather than a
+// global backtracking regex. A regex like /<item>([\s\S]*?)<\/item>/g is
+// O(n^2) worst-case on adversarial input with many "<item>" occurrences and
+// no closing tag (each failed lazy scan restarts from the next "<item>" and
+// rescans to the end of the string) — indexOf has no such restart-position
+// blowup, since each search starts where the last one left off. Field
+// extraction below then runs its own small (still delimiter-bounded, but
+// now single-item-sized rather than whole-feed-sized) regexes only against
+// one item's block, keeping the same worst case bounded and negligible.
 export function extractFeedItems(xml: string): RawStycItem[] {
     const items: RawStycItem[] = [];
-    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
-    let match: RegExpExecArray | null;
-    while ((match = itemRegex.exec(xml)) !== null) {
-        const block = match[1];
+    let searchFrom = 0;
+    while (true) {
+        const start = xml.indexOf('<item>', searchFrom);
+        if (start === -1) break;
+        const end = xml.indexOf('</item>', start + '<item>'.length);
+        if (end === -1) break;
+        const block = xml.slice(start + '<item>'.length, end);
+        searchFrom = end + '</item>'.length;
+
         const field = (re: RegExp): string | undefined => block.match(re)?.[1]?.trim();
         items.push({
             title: field(/<title>([\s\S]*?)<\/title>/),
