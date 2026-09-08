@@ -13,7 +13,6 @@ function simpleHash(s: string): string {
 }
 
 const BASE_URL = "https://arcseattle.org";
-const EVENTS_URL = `${BASE_URL}/events/`;
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
 const SOURCE = "arc-seattle";
 
@@ -22,6 +21,12 @@ const MONTHS: Record<string, number> = {
     May: 5, June: 6, July: 7, August: 8,
     September: 9, October: 10, November: 11, December: 12,
 };
+
+// Deterministic, filesystem/id-safe slug for folding free text (e.g. a
+// session's venue name) into an event id.
+function slugify(s: string): string {
+    return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
 
 export interface ParsedEventCard {
     href: string;
@@ -47,7 +52,7 @@ export default class ArcSeattleRipper implements IRipper {
             calendars[c.name] = { events: [], friendlyName: c.friendlyname, tags: c.tags || [] };
         }
 
-        const res = await fetch(EVENTS_URL, {
+        const res = await fetch(ripper.config.url.toString(), {
             headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" }
         });
         if (!res.ok) {
@@ -143,7 +148,7 @@ export default class ArcSeattleRipper implements IRipper {
         // single summary date on the listing card.
         const sessions = this.parseSessions(html);
         if (sessions.length > 0) {
-            return sessions.map((session, i) => this.buildSessionEvent(card, session, canonicalUrl, i));
+            return sessions.flatMap(session => this.buildSessionEvent(card, session, canonicalUrl));
         }
 
         const parsedDate = this.parseSingleDate(card.dateText);
@@ -209,23 +214,38 @@ export default class ArcSeattleRipper implements IRipper {
         return { year: parseInt(match[3], 10), month, day: parseInt(match[2], 10) };
     }
 
-    private buildSessionEvent(card: ParsedEventCard, session: ParsedSession, canonicalUrl: string, index: number): RipperCalendarEvent {
+    // The page states each session's date, start time, and location
+    // precisely, but never an end time — the 2-hour duration below is a
+    // guess, so it's flagged via UncertaintyError like every other guessed
+    // field in this ripper rather than published as fact.
+    private buildSessionEvent(card: ParsedEventCard, session: ParsedSession, canonicalUrl: string): RipperEvent[] {
         const slug = card.href.replace(/\/$/, "").split("/").pop() || card.title;
         const dateStamp = `${session.year}${String(session.month).padStart(2, "0")}${String(session.day).padStart(2, "0")}`;
         const timeStamp = `${String(session.hour).padStart(2, "0")}${String(session.minute).padStart(2, "0")}`;
+        const locationSlug = slugify(session.location);
 
-        return {
-            id: `arc-seattle-${slug}-${dateStamp}-${timeStamp}`,
+        const event: RipperCalendarEvent = {
+            id: `arc-seattle-${slug}-${dateStamp}-${timeStamp}-${locationSlug}`,
             ripped: new Date(),
             date: ZonedDateTime.of(LocalDateTime.of(session.year, session.month, session.day, session.hour, session.minute), TIMEZONE),
             duration: Duration.ofHours(2),
-            summary: index === 0 ? card.title : `${card.title} — ${session.location}`,
+            summary: `${card.title} — ${session.location}`,
             description: card.description,
             location: `${session.location}, Seattle, WA`,
             url: canonicalUrl,
             imageUrl: card.imageUrl,
             cost: { min: 0 },
         };
+
+        const unknownFields: UncertaintyField[] = ["duration"];
+        return [event, {
+            type: "Uncertainty",
+            reason: `No end time published for this session (start time and location are known) — "${session.location}" on ${dateStamp}`,
+            source: SOURCE,
+            unknownFields,
+            event,
+            partialFingerprint: simpleHash(`${dateStamp}|${timeStamp}|${session.location}`),
+        }];
     }
 
     // Single-occurrence events (Big Day of Play, Pathway of Lights) publish
@@ -251,14 +271,17 @@ export default class ArcSeattleRipper implements IRipper {
             cost: { min: 0 },
         };
 
-        const unknownFields: UncertaintyField[] = ["startTime", "duration"];
+        // location is derived from the page's <title> tag (a free-text
+        // heuristic, not a structured address field), so it's never fully
+        // trustworthy either — flag it alongside the guessed time/duration.
+        const unknownFields: UncertaintyField[] = ["startTime", "duration", "location"];
         return [event, {
             type: "Uncertainty",
-            reason: `No specific start time published on the page — only a date ("${card.dateText}")`,
+            reason: `No specific start time published on the page — only a date ("${card.dateText}"); location "${location}" is inferred from the page title`,
             source: SOURCE,
             unknownFields,
             event,
-            partialFingerprint: simpleHash(`${card.dateText}|${card.description}`),
+            partialFingerprint: simpleHash(`${card.dateText}|${card.description}|${location}`),
         }];
     }
 

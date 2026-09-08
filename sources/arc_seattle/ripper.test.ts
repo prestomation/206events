@@ -54,33 +54,40 @@ describe('ArcSeattleRipper', () => {
     });
 
     describe('parseEventDetail — multi-session events', () => {
-        it('splits Street Hockey Clinics into one event per session', () => {
-            const ripper = new ArcSeattleRipper();
-            const html = parse(loadSample('sample-event-street-hockey-clinics.html'));
-            const card: ParsedEventCard = {
+        function streetHockeyCard(): ParsedEventCard {
+            return {
                 href: 'https://arcseattle.org/events/street-hockey-clinics/',
                 title: 'Street Hockey Clinics',
                 dateText: 'Oct. 17th & 24th, 2026',
                 description: 'Free street hockey clinics for ages 6-14.',
             };
+        }
 
-            const events = ripper.parseEventDetail(card, html, card.href) as RipperCalendarEvent[];
+        function sessionEvents(ripper: ArcSeattleRipper): RipperCalendarEvent[] {
+            const html = parse(loadSample('sample-event-street-hockey-clinics.html'));
+            const results = ripper.parseEventDetail(streetHockeyCard(), html, streetHockeyCard().href);
+            return results.filter(r => 'date' in r) as RipperCalendarEvent[];
+        }
 
+        it('splits Street Hockey Clinics into one event per session', () => {
+            const events = sessionEvents(new ArcSeattleRipper());
             expect(events).toHaveLength(3);
-            expect(events.every(e => 'date' in e)).toBe(true);
+        });
+
+        it('flags each session\'s guessed duration as uncertain, since no end time is published', () => {
+            const ripper = new ArcSeattleRipper();
+            const html = parse(loadSample('sample-event-street-hockey-clinics.html'));
+            const results = ripper.parseEventDetail(streetHockeyCard(), html, streetHockeyCard().href);
+
+            const uncertainties = results.filter(r => 'type' in r && r.type === 'Uncertainty') as UncertaintyError[];
+            expect(uncertainties).toHaveLength(3);
+            for (const u of uncertainties) {
+                expect(u.unknownFields).toEqual(['duration']);
+            }
         });
 
         it('parses each session\'s own date, time, and location', () => {
-            const ripper = new ArcSeattleRipper();
-            const html = parse(loadSample('sample-event-street-hockey-clinics.html'));
-            const card: ParsedEventCard = {
-                href: 'https://arcseattle.org/events/street-hockey-clinics/',
-                title: 'Street Hockey Clinics',
-                dateText: 'Oct. 17th & 24th, 2026',
-                description: 'Free street hockey clinics for ages 6-14.',
-            };
-
-            const events = ripper.parseEventDetail(card, html, card.href) as RipperCalendarEvent[];
+            const events = sessionEvents(new ArcSeattleRipper());
 
             const southPark = events.find(e => e.location?.includes('South Park Community Center'));
             expect(southPark?.date.monthValue()).toBe(10);
@@ -98,36 +105,25 @@ describe('ArcSeattleRipper', () => {
             expect(hubbard?.date.hour()).toBe(10);
         });
 
-        it('gives each session a distinct, stable id', () => {
-            const ripper = new ArcSeattleRipper();
-            const html = parse(loadSample('sample-event-street-hockey-clinics.html'));
-            const card: ParsedEventCard = {
-                href: 'https://arcseattle.org/events/street-hockey-clinics/',
-                title: 'Street Hockey Clinics',
-                dateText: 'Oct. 17th & 24th, 2026',
-                description: 'Free street hockey clinics for ages 6-14.',
-            };
-
-            const events = ripper.parseEventDetail(card, html, card.href) as RipperCalendarEvent[];
+        it('gives each session a distinct, stable id that includes its location', () => {
+            const events = sessionEvents(new ArcSeattleRipper());
             const ids = events.map(e => e.id);
 
             expect(new Set(ids).size).toBe(3);
             for (const id of ids) {
-                expect(id).toMatch(/^arc-seattle-street-hockey-clinics-\d{8}-\d{4}$/);
+                expect(id).toMatch(/^arc-seattle-street-hockey-clinics-\d{8}-\d{4}-[a-z0-9-]+$/);
+            }
+        });
+
+        it('appends the session location to every session\'s summary, not just later ones', () => {
+            const events = sessionEvents(new ArcSeattleRipper());
+            for (const event of events) {
+                expect(event.summary).toBe(`Street Hockey Clinics — ${event.location?.split(',')[0]}`);
             }
         });
 
         it('marks every session as free', () => {
-            const ripper = new ArcSeattleRipper();
-            const html = parse(loadSample('sample-event-street-hockey-clinics.html'));
-            const card: ParsedEventCard = {
-                href: 'https://arcseattle.org/events/street-hockey-clinics/',
-                title: 'Street Hockey Clinics',
-                dateText: 'Oct. 17th & 24th, 2026',
-                description: 'Free street hockey clinics for ages 6-14.',
-            };
-
-            const events = ripper.parseEventDetail(card, html, card.href) as RipperCalendarEvent[];
+            const events = sessionEvents(new ArcSeattleRipper());
             for (const event of events) {
                 expect(event.cost).toEqual({ min: 0 });
             }
@@ -156,7 +152,7 @@ describe('ArcSeattleRipper', () => {
 
             const uncertainty = results.find(r => 'type' in r && r.type === 'Uncertainty') as UncertaintyError | undefined;
             expect(uncertainty).toBeDefined();
-            expect(uncertainty?.unknownFields).toContain('startTime');
+            expect(uncertainty?.unknownFields).toEqual(expect.arrayContaining(['startTime', 'duration', 'location']));
         });
 
         it('derives the location from "Event Name | ... at Venue" titles', () => {
