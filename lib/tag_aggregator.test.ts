@@ -526,6 +526,57 @@ END:VCALENDAR`;
       expect(events[0].date.toInstant().toEpochMilli()).toBe(expectedUtc.getTime());
     });
 
+    it('interprets a floating (zone-less) DTSTART as wall-clock time in the site timezone', () => {
+      // Most external feeds encode DTSTART with no TZID and no trailing "Z" —
+      // a "floating" RFC 5545 value with no zone info at all. ical.js's own
+      // toJSDate() for a floating value depends on the *build process's*
+      // ambient timezone, which must not leak into the displayed time: "5 PM"
+      // in the feed must render as 5 PM regardless of what timezone the build
+      // happens to run in.
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const y = tomorrow.getFullYear();
+      const m = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      const d = String(tomorrow.getDate()).padStart(2, '0');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:floating-event-1
+SUMMARY:Floating Time Event
+DTSTART:${y}${m}${d}T170000
+DTEND:${y}${m}${d}T190000
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events).toHaveLength(1);
+      expect(events[0].date.hour()).toBe(17);
+      expect(events[0].date.minute()).toBe(0);
+      expect(events[0].date.zone().id()).toBe('America/Los_Angeles');
+    });
+
+    it('displays a literal-UTC ("Z") DTSTART converted to the site timezone, not raw UTC digits', () => {
+      // Reproduces the #1420 "Race the 8" bug: a source that stamps a
+      // per-event UTC override (a bare "Z", no TZID) must have its instant
+      // converted to Pacific for display, not shown as if the UTC digits
+      // were already local time.
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:literal-utc-event-1
+SUMMARY:Race the 8 (and lose!?)
+DTSTART:20260909T000000Z
+DTEND:20260909T010000Z
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData, { windowMonths: 24 });
+      expect(events).toHaveLength(1);
+      // 00:00Z is 17:00 the previous day in Pacific (UTC-7 in September).
+      expect(events[0].date.toString()).toBe('2026-09-08T17:00-07:00[America/Los_Angeles]');
+    });
+
     it('resolves RRULE-expanded recurring instances against an embedded VTIMEZONE (not as UTC)', () => {
       // The RRULE-expansion branch converts each occurrence via a separate
       // next.toJSDate() call — this pins that ICAL.TimezoneService registration
@@ -560,9 +611,52 @@ END:VCALENDAR`;
       expect(events.length).toBeGreaterThan(0);
       // 09:00 in a fixed UTC-05:00 zone is 14:00Z for every occurrence — not
       // 09:00Z, which is what an unregistered/misresolved TZID would produce.
+      // Assert against the instant's UTC hour (not the displayed wall-clock
+      // hour, which is now shown in the site's own timezone, not UTC).
       for (const event of events) {
-        expect(event.date.hour()).toBe(14);
-        expect(event.date.minute()).toBe(0);
+        const instantDate = new Date(event.date.toInstant().toEpochMilli());
+        expect(instantDate.getUTCHours()).toBe(14);
+        expect(instantDate.getUTCMinutes()).toBe(0);
+      }
+    });
+
+    it('interprets a floating (zone-less) RRULE-expanded DTSTART as site-timezone wall-clock, across a DST boundary', () => {
+      // The RRULE-expansion branch resolves each occurrence via a separate
+      // `next` ICAL.Time — this pins that the floating-time fix applies there
+      // too, not just the single-event branch, and that wall-clock time
+      // (5 PM) stays put across a DST transition rather than the UTC instant.
+      //
+      // Pinned to a fixed "now" (rather than the real clock) so this
+      // deterministically straddles the Nov 1, 2026 fall-back transition —
+      // otherwise the DST-boundary coverage this test promises would
+      // silently evaporate whenever it happened to run outside a window
+      // that crosses a transition.
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-09-15T12:00:00Z'));
+      try {
+        const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:floating-weekly-1
+SUMMARY:Floating Weekly Event
+DTSTART:20260825T170000
+RRULE:FREQ=WEEKLY
+END:VEVENT
+END:VCALENDAR`;
+
+        const events = parseExternalCalendarEvents(icsData);
+        expect(events.length).toBeGreaterThan(0);
+        for (const event of events) {
+          expect(event.date.hour()).toBe(17);
+          expect(event.date.minute()).toBe(0);
+          expect(event.date.zone().id()).toBe('America/Los_Angeles');
+        }
+        // Confirm the window actually crossed the transition — both offsets
+        // must appear, or this test isn't exercising DST at all.
+        const offsets = new Set(events.map(e => e.date.offset().id()));
+        expect(offsets).toEqual(new Set(['-07:00', '-08:00']));
+      } finally {
+        vi.useRealTimers();
       }
     });
 
@@ -616,8 +710,9 @@ END:VEVENT
 END:VCALENDAR`;
 
       const events = parseExternalCalendarEvents(icsData);
+      const overrideMinuteMs = Math.floor(overrideDate.getTime() / 60000) * 60000;
       const atOverrideSlot = events.filter(
-        e => e.date.toString().startsWith(overrideDate.toISOString().slice(0, 16))
+        e => Math.floor(e.date.toInstant().toEpochMilli() / 60000) * 60000 === overrideMinuteMs
       );
       // Exactly one event for that slot — the override — not both it and
       // the generic weekly instance.
