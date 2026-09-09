@@ -1,0 +1,23 @@
+name: glitter-and-gold-studio
+sourceRole: venue
+type: eventbrite
+expectEmpty: true # Monthly listing; the next month's date sometimes isn't posted yet
+description: "Glitter and Gold Studio"
+url: "https://glitterandgoldstudio.com/"
+friendlyLink: https://glitterandgoldstudio.com/
+geo:
+  lat: 47.5752912
+  lng: -122.3347486
+  label: "3201 1st Avenue South, Suite 112, Seattle, WA 98134"
+  osmType: node
+  osmId: 2350316323
+tags: ["Community", "SoDo"]
+calendars:
+  - name: glitter-and-gold-studio
+    friendlyname: "Glitter and Gold Studio"
+    timezone: America/Los_Angeles
+    tags: ["Community", "SoDo"]
+    config:
+      organizerId: "57832351373"
+      defaultLocation: "3201 1st Avenue South, Suite 112, Seattle, WA 98134"
+      defaultDurationHours: 2

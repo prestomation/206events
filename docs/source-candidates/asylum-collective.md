@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.asylumcollective.org/calendar
 tags: [Arts, Nightlife, Pioneer Square]
 firstSeen: 2026-09-07
-lastChecked: 2026-09-07
+lastChecked: 2026-09-09
 pr:
 ---
 
@@ -20,3 +20,5 @@ check** — the 4 items returned in `past` are dated 2025 (`FEMME FATALE`,
 `ART WALK`). Per the new-source gate, do not implement while `upcoming`
 is empty. Re-check next cycle; if the calendar has been refreshed with
 future dates this is a 🔥 High-confidence Squarespace add.
+
+Re-checked 2026-09-09: `/calendar?format=json` still 0 upcoming events (4 `past`). No change.
