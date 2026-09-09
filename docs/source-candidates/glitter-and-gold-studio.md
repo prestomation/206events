@@ -6,7 +6,7 @@ url: https://www.eventbrite.com/e/monthly-open-sapphire-mining-night-at-glitter-
 tags: [Community, SoDo]
 firstSeen: 2026-08-07
 lastChecked: 2026-09-09
-pr:
+pr: 1423
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1vhb21g/montana_sapphire_mining_social_event_at_glitter/
