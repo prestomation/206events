@@ -625,28 +625,38 @@ END:VCALENDAR`;
       // `next` ICAL.Time — this pins that the floating-time fix applies there
       // too, not just the single-event branch, and that wall-clock time
       // (5 PM) stays put across a DST transition rather than the UTC instant.
-      const past = new Date();
-      past.setDate(past.getDate() - 21);
-      const y = past.getFullYear();
-      const m = String(past.getMonth() + 1).padStart(2, '0');
-      const d = String(past.getDate()).padStart(2, '0');
-
-      const icsData = `BEGIN:VCALENDAR
+      //
+      // Pinned to a fixed "now" (rather than the real clock) so this
+      // deterministically straddles the Nov 1, 2026 fall-back transition —
+      // otherwise the DST-boundary coverage this test promises would
+      // silently evaporate whenever it happened to run outside a window
+      // that crosses a transition.
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-09-15T12:00:00Z'));
+      try {
+        const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 UID:floating-weekly-1
 SUMMARY:Floating Weekly Event
-DTSTART:${y}${m}${d}T170000
+DTSTART:20260825T170000
 RRULE:FREQ=WEEKLY
 END:VEVENT
 END:VCALENDAR`;
 
-      const events = parseExternalCalendarEvents(icsData);
-      expect(events.length).toBeGreaterThan(0);
-      for (const event of events) {
-        expect(event.date.hour()).toBe(17);
-        expect(event.date.minute()).toBe(0);
-        expect(event.date.zone().id()).toBe('America/Los_Angeles');
+        const events = parseExternalCalendarEvents(icsData);
+        expect(events.length).toBeGreaterThan(0);
+        for (const event of events) {
+          expect(event.date.hour()).toBe(17);
+          expect(event.date.minute()).toBe(0);
+          expect(event.date.zone().id()).toBe('America/Los_Angeles');
+        }
+        // Confirm the window actually crossed the transition — both offsets
+        // must appear, or this test isn't exercising DST at all.
+        const offsets = new Set(events.map(e => e.date.offset().id()));
+        expect(offsets).toEqual(new Set(['-07:00', '-08:00']));
+      } finally {
+        vi.useRealTimers();
       }
     });
 
