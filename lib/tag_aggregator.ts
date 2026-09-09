@@ -1,28 +1,42 @@
 import { RipperCalendar, RipperCalendarEvent, RipperError, ExternalCalendar, toICS } from './config/schema.js';
-import { Instant, ZoneId, ZonedDateTime, Duration } from '@js-joda/core';
+import { Instant, LocalDateTime, ZoneId, ZonedDateTime, Duration } from '@js-joda/core';
 import '@js-joda/timezone';
 import { decodeEntities } from './text-normalize.js';
 import { CITY } from './config/city.js';
 // @ts-ignore — ical.js has no type declarations
 import ICAL from 'ical.js';
 
-// External ICS feeds carry every combination of DTSTART representation: a
-// TZID we can resolve, a bare "Z" (literal UTC, e.g. a per-event timezone
-// override picked by mistake in the source calendar), or a floating value
-// with neither. Whatever the source says, ical.js/toJSDate() above already
-// resolves it to the correct absolute instant — the only thing left to
-// decide is which wall-clock zone to *display* that instant in. Tagging it
-// "UTC" (as this used to do) shows the literal UTC digits instead of the
-// event's real local time whenever the source isn't already floating-local,
-// which is exactly what happened for a Seattle Streets Alliance event whose
-// organizer set an explicit UTC override: the site displayed "12 AM" for an
-// event that actually runs at 5 PM Pacific. Displaying in the site's own
-// timezone matches how ripper-sourced events are shown (see
-// lib/config/squarespace.ts, ticketmaster.ts) and is correct both for
-// floating-local sources (no shift — the instant already lands on the
-// right wall clock) and for sources with real zone/UTC info (properly
-// converted rather than shown as raw UTC).
 const DISPLAY_ZONE = ZoneId.of(CITY.city.timezone);
+
+// External ICS feeds carry every combination of DTSTART representation: a
+// TZID we can resolve, a bare "Z" (literal UTC — e.g. a per-event timezone
+// override picked by mistake in the source calendar), or a "floating" value
+// with neither (RFC 5545 §3.3.5 — most external feeds encode their events
+// this way, using the venue's own wall-clock digits with no zone info at
+// all).
+//
+// A TZID/Z value resolves to the correct absolute instant via ical.js
+// (registered VTIMEZONEs handle TZID; a literal "Z" is unambiguous) — for
+// those, only the *display* zone needs to be the site's own rather than a
+// hardcoded "UTC" (the latter is what produced issue #1420: a feed's literal
+// "Z" got shown as if its digits were already Seattle time).
+//
+// A floating value has no zone to resolve — ICAL.Time#toJSDate() stamps it
+// using the *build process's own ambient timezone* (UTC on this project's
+// CI runners today, but that's an environment detail, not something this
+// code should depend on). Since a floating DTSTART is meant to be read as
+// the venue's own wall-clock time, its y/m/d/h/mi/s fields are interpreted
+// directly in the site's timezone here instead of round-tripping through
+// ical.js's host-zone-dependent Date.
+function toDisplayZonedDateTime(icalTime: any, jsDate: Date): ZonedDateTime {
+  if (icalTime?.zone === ICAL.Timezone.localTimezone) {
+    return LocalDateTime.of(
+      icalTime.year, icalTime.month, icalTime.day,
+      icalTime.hour, icalTime.minute, icalTime.second || 0
+    ).atZone(DISPLAY_ZONE);
+  }
+  return ZonedDateTime.ofInstant(Instant.ofEpochMilli(jsDate.getTime()), DISPLAY_ZONE);
+}
 
 /**
  * Represents a calendar with its associated tags
@@ -231,7 +245,7 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
               continue;
             }
             if (startDate >= oneWeekAgo) {
-              const zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(startDate.getTime()), DISPLAY_ZONE);
+              const zonedDateTime = toDisplayZonedDateTime(next, startDate);
               events.push({
                 id: `${uid}-${next.toICALString()}`,
                 ripped: new Date(),
@@ -262,7 +276,7 @@ export function parseExternalCalendarEvents(icsData: string, opts?: { windowMont
           durationHours = Math.max(1, Math.ceil(ms / (1000 * 60 * 60)));
         }
 
-        const zonedDateTime = ZonedDateTime.ofInstant(Instant.ofEpochMilli(startDate.getTime()), DISPLAY_ZONE);
+        const zonedDateTime = toDisplayZonedDateTime(event.startDate, startDate);
         // A RECURRENCE-ID override shares its master's UID with every other
         // override of the same series (Google Calendar's convention), so a
         // bare `uid` id would collide across distinct override occurrences

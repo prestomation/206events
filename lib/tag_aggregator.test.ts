@@ -526,6 +526,57 @@ END:VCALENDAR`;
       expect(events[0].date.toInstant().toEpochMilli()).toBe(expectedUtc.getTime());
     });
 
+    it('interprets a floating (zone-less) DTSTART as wall-clock time in the site timezone', () => {
+      // Most external feeds encode DTSTART with no TZID and no trailing "Z" —
+      // a "floating" RFC 5545 value with no zone info at all. ical.js's own
+      // toJSDate() for a floating value depends on the *build process's*
+      // ambient timezone, which must not leak into the displayed time: "5 PM"
+      // in the feed must render as 5 PM regardless of what timezone the build
+      // happens to run in.
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const y = tomorrow.getFullYear();
+      const m = String(tomorrow.getMonth() + 1).padStart(2, '0');
+      const d = String(tomorrow.getDate()).padStart(2, '0');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:floating-event-1
+SUMMARY:Floating Time Event
+DTSTART:${y}${m}${d}T170000
+DTEND:${y}${m}${d}T190000
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events).toHaveLength(1);
+      expect(events[0].date.hour()).toBe(17);
+      expect(events[0].date.minute()).toBe(0);
+      expect(events[0].date.zone().id()).toBe('America/Los_Angeles');
+    });
+
+    it('displays a literal-UTC ("Z") DTSTART converted to the site timezone, not raw UTC digits', () => {
+      // Reproduces the #1420 "Race the 8" bug: a source that stamps a
+      // per-event UTC override (a bare "Z", no TZID) must have its instant
+      // converted to Pacific for display, not shown as if the UTC digits
+      // were already local time.
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:literal-utc-event-1
+SUMMARY:Race the 8 (and lose!?)
+DTSTART:20260909T000000Z
+DTEND:20260909T010000Z
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData, { windowMonths: 24 });
+      expect(events).toHaveLength(1);
+      // 00:00Z is 17:00 the previous day in Pacific (UTC-7 in September).
+      expect(events[0].date.toString()).toBe('2026-09-08T17:00-07:00[America/Los_Angeles]');
+    });
+
     it('resolves RRULE-expanded recurring instances against an embedded VTIMEZONE (not as UTC)', () => {
       // The RRULE-expansion branch converts each occurrence via a separate
       // next.toJSDate() call — this pins that ICAL.TimezoneService registration
