@@ -5,7 +5,7 @@
 # broken feed — same situation as greg-kucera-gallery.
 name: seattle-creates
 sourceRole: aggregator
-expectEmpty: true
+# 2026-09-09: build-report flagged expectEmpty-but-has-events; removing flag
 type: squarespace
 description: "Seattle Creates"
 url: "https://www.seattlecreates.org/events"

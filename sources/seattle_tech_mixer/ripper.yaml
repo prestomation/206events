@@ -3,7 +3,7 @@ sourceRole: venue
 # 2026-08-30: build-report flagged a zero-event calendar. Confirmed live:
 # the Eventbrite organizer page lists no upcoming events (only past ones).
 # Intermittent programming — not a broken source.
-expectEmpty: true
+# 2026-09-09: build-report flagged expectEmpty-but-has-events; removing flag
 type: eventbrite
 description: "Seattle Tech Mixer"
 url: "https://www.eventbrite.com/o/tech-seattle-68154040953"
