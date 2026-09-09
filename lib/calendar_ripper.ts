@@ -31,7 +31,7 @@ import {
   setProactiveRefreshKeys,
   pruneCache,
 } from "./fetch-cache.js";
-import { loadGeoCache, saveGeoCache, resolveEventCoords, resetGeocodeStats, getGeocodeStats, type GeoCache } from "./geocoder.js";
+import { loadGeoCache, saveGeoCache, resolveEventCoords, resolveExternalEventCoords, resetGeocodeStats, getGeocodeStats, type GeoCache } from "./geocoder.js";
 import {
   loadUncertaintyCache,
   saveUncertaintyCache,
@@ -1377,7 +1377,7 @@ END:VCALENDAR`;
       try {
         const externalEvents = parseExternalCalendarEvents(cachedIcs);
         for (const event of externalEvents) {
-          const result = await resolveEventCoords(geoCache, event.location, `external-${calendar.name}`);
+          const result = await resolveExternalEventCoords(geoCache, event.location, `external-${calendar.name}`, calendar.geo);
           geoCache = result.cache;
 
           let lat: number | undefined;
