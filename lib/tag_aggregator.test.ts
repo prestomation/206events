@@ -620,6 +620,36 @@ END:VCALENDAR`;
       }
     });
 
+    it('interprets a floating (zone-less) RRULE-expanded DTSTART as site-timezone wall-clock, across a DST boundary', () => {
+      // The RRULE-expansion branch resolves each occurrence via a separate
+      // `next` ICAL.Time — this pins that the floating-time fix applies there
+      // too, not just the single-event branch, and that wall-clock time
+      // (5 PM) stays put across a DST transition rather than the UTC instant.
+      const past = new Date();
+      past.setDate(past.getDate() - 21);
+      const y = past.getFullYear();
+      const m = String(past.getMonth() + 1).padStart(2, '0');
+      const d = String(past.getDate()).padStart(2, '0');
+
+      const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:floating-weekly-1
+SUMMARY:Floating Weekly Event
+DTSTART:${y}${m}${d}T170000
+RRULE:FREQ=WEEKLY
+END:VEVENT
+END:VCALENDAR`;
+
+      const events = parseExternalCalendarEvents(icsData);
+      expect(events.length).toBeGreaterThan(0);
+      for (const event of events) {
+        expect(event.date.hour()).toBe(17);
+        expect(event.date.minute()).toBe(0);
+        expect(event.date.zone().id()).toBe('America/Los_Angeles');
+      }
+    });
+
     it('respects the windowMonths option', () => {
       // Event 5 months from now — outside default 3-month window
       const fiveMonths = new Date();
