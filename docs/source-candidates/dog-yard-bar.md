@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.dogyardbar.com/events
 tags: [Pets, Nightlife]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-02
+lastChecked: 2026-09-09
 ---
 
 Seattle dog bar where patrons can bring their dogs, hosting themed events and social gatherings.
@@ -37,3 +37,5 @@ still a dead pipeline despite the live site. Keep as `candidate`.
 
 **Re-checked 2026-09-02:** `/events-all?format=json` still `itemCount: 123`,
 `upcoming: 0`. No change.
+
+Re-checked 2026-09-09: still 0 upcoming events. No change.

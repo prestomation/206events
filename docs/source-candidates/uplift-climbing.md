@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.upliftclimbing.com/events
 tags: [Sports]
 firstSeen: 2026-06-30
-lastChecked: 2026-08-24
+lastChecked: 2026-09-09
 ---
 **Uplift Climbing** — `https://www.upliftclimbing.com/events` — climbing gym in SODO hosting community climb nights (She Rocks, Rising Roots, Queer Mountaineers) and social events (BBQ potlucks).
 
@@ -18,3 +18,5 @@ Re-evaluate if the venue adopts a real Squarespace events collection or a cleare
 
 Re-checked 2026-08-24: `/events?format=json` still returns an empty page
 shell (`data-type="page"`, no events collection). No change.
+
+Re-checked 2026-09-09: still 0 upcoming events. No change.
