@@ -560,9 +560,12 @@ END:VCALENDAR`;
       expect(events.length).toBeGreaterThan(0);
       // 09:00 in a fixed UTC-05:00 zone is 14:00Z for every occurrence — not
       // 09:00Z, which is what an unregistered/misresolved TZID would produce.
+      // Assert against the instant's UTC hour (not the displayed wall-clock
+      // hour, which is now shown in the site's own timezone, not UTC).
       for (const event of events) {
-        expect(event.date.hour()).toBe(14);
-        expect(event.date.minute()).toBe(0);
+        const instantDate = new Date(event.date.toInstant().toEpochMilli());
+        expect(instantDate.getUTCHours()).toBe(14);
+        expect(instantDate.getUTCMinutes()).toBe(0);
       }
     });
 
@@ -616,8 +619,9 @@ END:VEVENT
 END:VCALENDAR`;
 
       const events = parseExternalCalendarEvents(icsData);
+      const overrideMinuteMs = Math.floor(overrideDate.getTime() / 60000) * 60000;
       const atOverrideSlot = events.filter(
-        e => e.date.toString().startsWith(overrideDate.toISOString().slice(0, 16))
+        e => Math.floor(e.date.toInstant().toEpochMilli() / 60000) * 60000 === overrideMinuteMs
       );
       // Exactly one event for that slot — the override — not both it and
       // the generic weekly instance.
