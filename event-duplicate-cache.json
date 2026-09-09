@@ -19439,6 +19439,256 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-08",
       "note": "Same seatoday event republished across its own topic sub-feeds (all/arts/community/sports/learning); identical 6amcity URL"
+    },
+    "19hz-all-events.ics James Anthony|2026-09-12T22:00:00-07:00[America/Los_Angeles]::the-cuff-complex-the-cuff-complex-events.ics Cuff Presents: James Anthony|2026-09-12T22:00:00.655-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same event at The Cuff Complex, 19hz aggregates with shorter title"
+    },
+    "19hz-all-events.ics Paul Goodyear|2026-09-18T22:00:00-07:00[America/Los_Angeles]::the-cuff-complex-the-cuff-complex-events.ics Cuff Presents: Paul Goodyear|2026-09-18T22:00:00.764-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same event at The Cuff Complex, 19hz aggregates with shorter title"
+    },
+    "danceus-swing-danceus-swing.ics Swing Sundays at Century Ballroom|2026-09-13T21:00:00-07:00[America/Los_Angeles]::external-seattle-dance-info.ics Sundays at Reverie Ballroom|2026-09-13T19:00:00Z[UTC]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-09",
+      "note": "Different venues (Century Ballroom vs Reverie Ballroom) and different times (9pm vs noon PDT)"
+    },
+    "external-Geekwire.ics Data and Privacy in the Age of AI|2026-09-20T19:00:00Z[UTC]::spl-southwest.ics AI, Privacy, and Data|2026-09-20T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Southwest Branch event, GeekWire reordered the title words"
+    },
+    "external-seattle-emergency-hubs.ics Emergency Preparedness: Amateur Radio Basics|2026-09-19T17:30:00Z[UTC]::spl-broadview.ics Emergency Preparedness|2026-09-19T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same event at Broadview Library, SPL title is shorter, Seattle Emergency Hubs adds subtitle"
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T19:00:00Z[UTC]::seatoday-seatoday-all.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same online Seattle University event, seatoday aggregates it"
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T19:00:00Z[UTC]::seatoday-seatoday-community.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same online Seattle University event, seatoday aggregates it"
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T19:00:00Z[UTC]::seatoday-seatoday-learning.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same online Seattle University event, seatoday aggregates it"
+    },
+    "queer-social-club-all-events.ics Trivia Tuesday - Ballard|2026-09-15T19:00:00.018-07:00[America/Los_Angeles]::recurring-rough-tumble-trivia-tuesday-ballard.ics Trivia Tuesday at Rough & Tumble - Ballard|2026-09-15T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same event at Rough & Tumble Ballard (5309 22nd Ave NW), title variant"
+    },
+    "seatoday-seatoday-all.ics Bilingual Family Story Time / La Hora de Cuentos Familiares Bilingües|2026-09-17T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Bilingual Family Story Time / La Hora de Cuentos Familiares Bilingües|2026-09-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Lake City event, seatoday aggregates it"
+    },
+    "seatoday-seatoday-all.ics Fall Quarter Registration for Free English (ESOL) Classes|2026-09-17T10:30:00-07:00[America/Los_Angeles]::spl-central-library.ics Fall Quarter Registration for Free English (ESOL) Classes|2026-09-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Central Library event, seatoday aggregates it"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-09",
+      "note": "Family Story Time is a generic SPL program title; same time occurs at multiple branches (Capitol Hill and Magnolia both listed), cannot determine which branch seatoday refers to"
+    },
+    "seatoday-seatoday-all.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-magnolia.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-09",
+      "note": "Family Story Time is a generic SPL program title; same time occurs at multiple branches, cannot determine which branch seatoday refers to"
+    },
+    "seatoday-seatoday-all.ics Finance & Audit Committee|2026-09-22T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Finance & Audit Committee|2026-09-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event appearing in both the 'all' and 'community' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Finance & Audit Committee|2026-09-22T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finance & Audit Committee|2026-09-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event appearing in both the 'all' and 'learning' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Girls Varsity Soccer @ Providence Classical Christian School|2026-09-22T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Girls Varsity Soccer @ Providence Classical Christian School|2026-09-22T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'learning' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Girls Varsity Soccer @ Providence Classical Christian School|2026-09-22T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Girls Varsity Soccer @ Providence Classical Christian School|2026-09-22T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'sports' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-17T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Northgate event, seatoday aggregates it (minor whitespace diff in title)"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Columbia Branch event, seatoday aggregates it"
+    },
+    "seatoday-seatoday-all.ics Kirkland Cadets Benefit Car Show|2026-09-12T07:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Kirkland Cadets Benefit Car Show|2026-09-12T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'community' sub-calendars, same URL and location"
+    },
+    "seatoday-seatoday-all.ics Kirkland Cadets Benefit Car Show|2026-09-12T07:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Kirkland Cadets Benefit Car Show|2026-09-12T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'food' sub-calendars, same URL and location"
+    },
+    "seatoday-seatoday-all.ics MEMBERSHIP & EVENTS COMMITTEE|2026-09-22T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics MEMBERSHIP & EVENTS COMMITTEE|2026-09-22T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'community' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-09-22T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-09-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'community' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Mill Creek Town Center Committee|2026-09-22T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-09-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'learning' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Nature Kids|2026-09-18T11:00:00-07:00[America/Los_Angeles]::spl-broadview.ics Nature Kids|2026-09-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Broadview event, seatoday aggregates it"
+    },
+    "seatoday-seatoday-all.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'community' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'learning' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Pickleball|2026-09-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Pickleball|2026-09-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'arts' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Pickleball|2026-09-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pickleball|2026-09-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'sports' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Roots, Routes & Revolution: Discovering the Stories of Our Ancestors|2026-09-19T09:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Roots, Routes & Revolution: Discovering the Stories of Our Ancestors|2026-09-19T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Central Library event, seatoday aggregates it"
+    },
+    "seatoday-seatoday-all.ics Screen Printing Open Session|2026-09-22T16:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-09-22T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same event at 305 Harrison St (Seattle Center), seatoday misidentifies venue as Book-It but address matches Vera Project"
+    },
+    "seatoday-seatoday-all.ics Seattle Waterfront Tour|2026-09-22T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Seattle Waterfront Tour|2026-09-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'community' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Waterfront Tour|2026-09-22T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Seattle Waterfront Tour|2026-09-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'sports' sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-09-17T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-09-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Broadview event, seatoday aggregates it"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-09-19T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Toddler Play Group|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Ballard event, seatoday aggregates it"
+    },
+    "seatoday-seatoday-all.ics ¡Vamos al Acuario!|2026-09-22T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ¡Vamos al Acuario!|2026-09-22T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'all' and 'community' sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Bilingual Family Story Time / La Hora de Cuentos Familiares Bilingües|2026-09-17T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Bilingual Family Story Time / La Hora de Cuentos Familiares Bilingües|2026-09-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Lake City event, seatoday-arts also aggregates it"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-09",
+      "note": "Family Story Time is a generic SPL program at multiple branches; cannot determine which branch this seatoday entry refers to"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-magnolia.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-09",
+      "note": "Family Story Time is a generic SPL program at multiple branches; cannot determine which branch this seatoday entry refers to"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-17T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-17T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Northgate event, seatoday-arts also aggregates it"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Columbia Branch event, seatoday-arts also aggregates it"
+    },
+    "seatoday-seatoday-arts.ics Pickleball|2026-09-16T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Pickleball|2026-09-16T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'arts' and 'sports' sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Roots, Routes & Revolution: Discovering the Stories of Our Ancestors|2026-09-19T09:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Roots, Routes & Revolution: Discovering the Stories of Our Ancestors|2026-09-19T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Central Library event, seatoday-arts also aggregates it"
+    },
+    "seatoday-seatoday-arts.ics Screen Printing Open Session|2026-09-22T16:00:00-07:00[America/Los_Angeles]::vera-project-vera-project.ics Screen Printing Open Session|2026-09-22T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same Vera Project event at 305 Harrison St, seatoday-arts aggregates it (venue name differs)"
+    },
+    "seatoday-seatoday-arts.ics Toddler Play Group|2026-09-19T10:00:00-07:00[America/Los_Angeles]::spl-ballard.ics Toddler Play Group|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Ballard event, seatoday-arts also aggregates it"
+    },
+    "seatoday-seatoday-community.ics Finance & Audit Committee|2026-09-22T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Finance & Audit Committee|2026-09-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'community' and 'learning' sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Kirkland Cadets Benefit Car Show|2026-09-12T07:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Kirkland Cadets Benefit Car Show|2026-09-12T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'community' and 'food' sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Mill Creek Town Center Committee|2026-09-22T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Mill Creek Town Center Committee|2026-09-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'community' and 'learning' sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same seatoday event in 'community' and 'learning' sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Roots, Routes & Revolution: Discovering the Stories of Our Ancestors|2026-09-19T09:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Roots, Routes & Revolution: Discovering the Stories of Our Ancestors|2026-09-19T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-09",
+      "note": "Same SPL Central Library event, seatoday-community also aggregates it"
     }
   }
 }

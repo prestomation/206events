@@ -24,4 +24,4 @@ calendars:
   - name: all-events
     friendlyname: "Pacific Place"
     timezone: America/Los_Angeles
-    expectEmpty: true
+    # 2026-09-09: build-report flagged as expectEmpty-but-has-events; removing flag
