@@ -6,7 +6,7 @@ url: https://www.shibuyahifi.com
 tags: [Nightlife, Music, Ballard]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-10
-pr:
+pr: 1430
 ---
 
 Seattle listening bar and nightlife venue featuring DJ sets and curated music experiences.
