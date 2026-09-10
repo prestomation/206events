@@ -59561,12 +59561,12 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-26",
+      "resolvedAt": "2026-09-10",
       "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://schilterfamilyfarm.com/pages/sunflower-experience"
     },
     "events12:sunflower-farms-118543-2026-09-24": {
       "fields": {
@@ -71371,12 +71371,12 @@
           "paid": true
         },
         "duration": 7200,
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-10",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-119702-2026-09-24": {
       "fields": {
@@ -80609,6 +80609,394 @@
       "resolvedAt": "2026-09-09",
       "source": "agent",
       "evidence": "https://nwfilmforum.org/events/2026-collide-o-scope-halloween-show/"
+    },
+    "discover-slu:discover-slu-art-of-arrival": {
+      "fields": {
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/art-of-arrival/",
+      "partialFingerprint": "1s8ldvs"
+    },
+    "discover-slu:discover-slu-seahawks-bbq": {
+      "fields": {
+        "startTime": "12:00",
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/seahawks-bbq/",
+      "partialFingerprint": "1ghfy8l"
+    },
+    "discover-slu:discover-slu-jimothy-scavenger-hunt": {
+      "fields": {
+        "startTime": "10:00",
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/jimothy-scavenger-hunt/",
+      "partialFingerprint": "1phmyvo"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_oPDW7yc": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1AAvx-b",
+      "partialFingerprint": "2a7ls4"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2rwXGJT": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1AAvx-b",
+      "partialFingerprint": "1ubbcw7"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_aMEGpa1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1AAvx-b",
+      "partialFingerprint": "15v0twz"
+    },
+    "stg:tm-vvG1HZ_3CoxUOH": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/",
+      "partialFingerprint": "kj08p8"
+    },
+    "stg:tm-vvG1HZ_350POmb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/",
+      "partialFingerprint": "gntmnt"
+    },
+    "stg:tm-vvG1HZ_33hNIsk": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.stgpresents.org/",
+      "partialFingerprint": "2bhlki"
+    },
+    "seattle-center:accelerate-2026-playground-closure-x50715": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events",
+      "partialFingerprint": "nw3k5s"
+    },
+    "seattle-center:serenade-x50706": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events",
+      "partialFingerprint": "8ntpzp"
+    },
+    "seattle-center:serenade-x50710": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events",
+      "partialFingerprint": "dc80r2"
+    },
+    "seattle-center:serenade-x50711": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events",
+      "partialFingerprint": "1dz2vfa"
+    },
+    "the-beer-junction:6a3b18cf35588b40269b4d0c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.thebeerjunction.com/upcoming-events/beer-junction-bike-club-wxej4-3y8be-5gmw7-fn9we-d5jtm-fhm6t"
+    },
+    "charlies-queer-books:charlies-queer-books-992320261013": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/992320261013",
+      "partialFingerprint": "6tp06z"
+    },
+    "crocodile:tm-Z7r9jZ1AAvx-o": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/event/Z7r9jZ1AAvx-o",
+      "partialFingerprint": "y847oh"
+    },
+    "watershed-pub:watershed-pub-speed_dating_by_pre_dating-2026-09-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.watershedpub.com/events#speed_dating_by_pre_dating"
+    },
+    "the-cuff-complex:6a9db62d2018962f1e902bc4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9db668b011ab6ffa9f4358": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9db67a34b87f3fbca1d729": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9db6a69268a110ee1bfb16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9de2cacd0b135e2acf308b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9de35fdc7a2505e5809128": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9de3c9ec55ce35eeb406ba": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9de4d143bc6a532cb26588": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9de56bfc1b435821cae96f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "the-cuff-complex:6a9de7d27ee32b5e2053fdce": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events"
+    },
+    "danceus-swing:danceus-165480871911716-2026-09-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/165480871911716/"
+    },
+    "danceus-swing:danceus-165480872789424-2026-09-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/165480872789424/"
+    },
+    "danceus-tango:danceus-tango-166059771866132-2026-09-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/166059771866132/"
+    },
+    "danceus-tango:danceus-tango-16605977262778-2026-09-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/16605977262778/"
+    },
+    "seatoday:cityspark-18726186": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "CitySpark API blocked from automated access; cannot verify pricing",
+      "partialFingerprint": "jw0uv5"
+    },
+    "seatoday:cityspark-19017591": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "CitySpark API blocked from automated access; cannot verify pricing",
+      "partialFingerprint": "14nw6hp"
+    },
+    "seatoday:cityspark-19170503": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "CitySpark API blocked from automated access; cannot verify pricing",
+      "partialFingerprint": "r711za"
+    },
+    "seatoday:cityspark-19523095": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "CitySpark API blocked from automated access; cannot verify pricing",
+      "partialFingerprint": "fnicpq"
+    },
+    "seatoday:cityspark-19684329": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "CitySpark API blocked from automated access; cannot verify pricing",
+      "partialFingerprint": "1azgxik"
+    },
+    "seatoday:cityspark-19861846": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "CitySpark API blocked from automated access; cannot verify pricing",
+      "partialFingerprint": "hmb8q5"
+    },
+    "cidbia:cidbia-6a98909dc56c055337e81a8a-202703090100": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "Proxi.co API returned no price data; event page is JS-rendered"
+    },
+    "tabletop-village:6l2vq12jl578brnhodf65l54ph_R20260324T010000@google.com-2027-03-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "Google Calendar ICS feed contains no pricing data for weekly game events"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "Event date (2026-08-01) has passed; start time can no longer be verified"
     }
   }
 }
