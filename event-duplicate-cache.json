@@ -19715,11 +19715,6 @@
       "resolvedAt": "2026-09-10",
       "note": "Same Dance Underground venue, same time, DanceUS title more descriptive"
     },
-    "discover-slu-discover-slu.ics America 250: Protecting Tribes' Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]::external-mohai.ics America 250: Protecting Tribes' Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]": {
-      "decision": "confirmed",
-      "resolvedAt": "2026-09-10",
-      "note": "Same MOHAI event, Discover SLU aggregating venue's own listing"
-    },
     "events12-seattle-events.ics Hockey vs. Vancouver Canucks|2026-09-19T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Seattle Kraken vs Vancouver Canucks|2026-09-19T18:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-10",
@@ -21380,14 +21375,14 @@
       "resolvedAt": "2026-09-10",
       "note": "Same 6amcity event (id 19170503) in multiple seatoday subcategory feeds"
     },
-    "discover-slu-discover-slu.ics America 250: Protecting Tribes’ Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]::external-mohai.ics America 250: Protecting Tribes’ Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]": {
-      "decision": "confirmed",
-      "note": "Same event title, same date/time, same venue — MOHAI and Discover SLU are co-listing",
-      "resolvedAt": "2026-09-10"
-    },
     "external-town-hall-seattle.ics El Grito 2026|2026-09-13T13:00:00-07:00[America/Los_Angeles]::orquesta-northwest-orquesta-northwest.ics ”El Grito“|2026-09-13T14:00:00.177-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "note": "Same El Grito celebration event, same date/time, cross-listed by Town Hall Seattle and Orquesta Northwest",
+      "resolvedAt": "2026-09-10"
+    },
+    "discover-slu-discover-slu.ics America 250: Protecting Tribes’ Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]::external-mohai.ics America 250: Protecting Tribes' Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "note": "Same event cross-listed by Discover SLU and MOHAI (discover-slu ICS uses curly apostrophe U+2019, MOHAI uses straight ASCII apostrophe)",
       "resolvedAt": "2026-09-10"
     }
   }
