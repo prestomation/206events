@@ -5,6 +5,7 @@ expectEmpty: true # Monthly listing; the next month's date sometimes isn't poste
 description: "Glitter and Gold Studio"
 url: "https://glitterandgoldstudio.com/"
 friendlyLink: https://glitterandgoldstudio.com/
+imageUrl: "https://glitterandgoldstudio.com/cdn/shop/files/custom_resized_copy_b2b38bb1-1a8e-41fb-a411-a36417bf7089.jpg?v=1662439171"
 geo:
   lat: 47.5752912
   lng: -122.3347486

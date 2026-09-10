@@ -6,6 +6,9 @@ url: "https://www.events12.com/seattle/"
 friendlyLink: "https://www.events12.com/seattle/"
 tags: ["Events"]
 geo: null
+# Verified 2026-09-10: events12 articles carry no per-event images (only the
+# article text and third-party event links). Retire event-photo backfill.
+skipEventPhotos: true
 calendars:
   - name: seattle-events
     friendlyname: "Events12 Seattle"
