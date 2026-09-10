@@ -1,7 +1,7 @@
 ---
 name: The Alley (West Seattle) — Resident Jazz Nights
 status: added
-platform: Custom HTML (static resident-bands page, no ripper needed)
+platform: Custom HTML (implemented as recurring YAML)
 url: https://thealleyws.com/resident-bands
 tags: ["Music", "West Seattle"]
 firstSeen: 2026-08-25
