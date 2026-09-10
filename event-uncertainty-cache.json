@@ -77144,7 +77144,7 @@
           "min": 0
         }
       },
-      "resolvedAt": "2026-09-06",
+      "resolvedAt": "2026-09-10",
       "source": "agent",
       "evidence": "https://madrona.us/monthlymeetings/"
     },
@@ -80997,6 +80997,110 @@
       "resolvedAt": "2026-09-10",
       "source": "agent",
       "reason": "Event date (2026-08-01) has passed; start time can no longer be verified"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_8BxDFPp": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/transsiberian-orchestra-the-ghosts-of-christmas-seattle-washington-11-29-2026/event/0F00650EA2EC8956"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_8BxEzNj": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/transsiberian-orchestra-the-ghosts-of-christmas-seattle-washington-11-29-2026/event/0F00650EA29F88DC"
+    },
+    "mccaw-hall:tm-vvG1HZ_3xv_ffj": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/warren-miller-days-off-ft-katie-seattle-washington-11-21-2026/event/0F0065288165451C"
+    },
+    "stg:tm-vvG1HZ_2dP1X5t": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/trivium-crown-in-the-grave-world-seattle-washington-12-09-2026/event/0F0064F0E52BE2E9"
+    },
+    "stg:tm-vvG1HZ_3K6crIg": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/isaiah-rashad-lil-sunnys-awful-road-seattle-washington-11-10-2026/event/0F006524C7B5EA35"
+    },
+    "stg:tm-vvG1HZ_GRlkqgv": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/tiny-habits-the-keepers-tour-seattle-washington-12-09-2026/event/0F0064CBEB19DD41"
+    },
+    "seatoday:cityspark-19871487": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/german-cars-and-coffee-volkswagen-vw-audi-bmw-porsche-mercedes/19871487/2026-09-12T00"
+    },
+    "tabletop-village:3fc1kpnu46mkk9rg2snk3epgn8@google.com-2027-03-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "ICS feed event, no per-event pricing accessible from tabletopvillage.com (Shopify store, no event detail pages)"
+    },
+    "tabletop-village:6n37huunc7vugo8nplsdnv2old@google.com-2027-03-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "ICS feed event, no per-event pricing accessible from tabletopvillage.com (Shopify store, no event detail pages)"
+    },
+    "tabletop-village:71l66g48p7akmkpk719sio9hl0@google.com-2027-03-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "reason": "ICS feed event, no per-event pricing accessible from tabletopvillage.com (Shopify store, no event detail pages)"
+    },
+    "venue:loc:madrona playground shelter house": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/madrona-playground"
+    },
+    "venue:loc:west hill upper woodland": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-10",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/west-seattle-golf-course"
     }
   }
 }
