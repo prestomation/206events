@@ -1,0 +1,14 @@
+name: shibuya-hifi
+sourceRole: venue
+description: "Shibuya Hifi"
+url: "https://www.shibuyahifi.com/event-pages-sitemap.xml"
+friendlyLink: https://www.shibuyahifi.com
+tags: ["Music", "Nightlife", "Ballard"]
+geo:
+  lat: 47.6645577
+  lng: -122.3792514
+  label: "Shibuya Hifi, 4912 Leary Ave NW, Seattle, WA 98107"
+calendars:
+  - name: shibuya-hifi
+    friendlyname: "Shibuya Hifi"
+    timezone: America/Los_Angeles
