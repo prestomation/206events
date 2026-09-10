@@ -18,10 +18,24 @@ interface WixEventJsonLd {
     };
 }
 
-/** Extract event URLs from the Wix event-pages sitemap XML. */
+/**
+ * Extract event URLs from the Wix event-pages sitemap XML, ordered by
+ * `<lastmod>` descending (most recently published/edited first).
+ *
+ * The sitemap lists every event page the venue has ever published — for a
+ * long-running weekly series that's hundreds of past sessions — in an order
+ * that is neither chronological by event date nor alphabetical. Recently
+ * published pages (highest `<lastmod>`) are overwhelmingly the upcoming
+ * ones, so sorting by `<lastmod>` before the caller caps the fetch count
+ * is what keeps that cap pointed at current events instead of an arbitrary
+ * slice of mostly-past ones.
+ */
 export function extractSitemapUrls(xml: string): string[] {
-    const matches = [...xml.matchAll(/<loc>(https:\/\/www\.shibuyahifi\.com\/event-details\/[^<]+)<\/loc>/g)];
-    return matches.map(m => m[1]);
+    const entries = [...xml.matchAll(
+        /<url>\s*<loc>(https:\/\/www\.shibuyahifi\.com\/event-details\/[^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g,
+    )].map(m => ({ url: m[1], lastmod: m[2] }));
+    entries.sort((a, b) => b.lastmod.localeCompare(a.lastmod));
+    return entries.map(e => e.url);
 }
 
 /** Extract the first schema.org/Event JSON-LD object from an event detail page. */

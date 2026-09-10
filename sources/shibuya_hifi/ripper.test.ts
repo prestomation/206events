@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { ZonedDateTime, ZoneId } from "@js-joda/core";
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
@@ -8,6 +8,8 @@ import {
     extractEventJsonLd,
     parseEventFromJsonLd,
 } from "./ripper.js";
+import ShibuyaHifiRipper from "./ripper.js";
+import { Ripper } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -41,13 +43,32 @@ describe("extractSitemapUrls", () => {
     it("ignores non-event-details URLs", () => {
         const xml = `<?xml version="1.0"?>
 <urlset>
-  <url><loc>https://www.shibuyahifi.com/event-details/my-show</loc></url>
-  <url><loc>https://www.shibuyahifi.com/event-list</loc></url>
-  <url><loc>https://other.com/event-details/not-this</loc></url>
+  <url><loc>https://www.shibuyahifi.com/event-details/my-show</loc><lastmod>2026-01-01</lastmod></url>
+  <url><loc>https://www.shibuyahifi.com/event-list</loc><lastmod>2026-01-01</lastmod></url>
+  <url><loc>https://other.com/event-details/not-this</loc><lastmod>2026-01-01</lastmod></url>
 </urlset>`;
         const urls = extractSitemapUrls(xml);
         expect(urls).toHaveLength(1);
         expect(urls[0]).toBe("https://www.shibuyahifi.com/event-details/my-show");
+    });
+
+    it("orders URLs by lastmod descending, regardless of document order", () => {
+        // The real Wix sitemap lists hundreds of past sessions in an order
+        // that is neither chronological nor alphabetical. A page fetched by
+        // document position alone can miss the actually-current events, so
+        // extractSitemapUrls must resolve order from <lastmod> itself.
+        const xml = `<?xml version="1.0"?>
+<urlset>
+  <url><loc>https://www.shibuyahifi.com/event-details/oldest</loc><lastmod>2025-01-01</lastmod></url>
+  <url><loc>https://www.shibuyahifi.com/event-details/newest</loc><lastmod>2026-09-09</lastmod></url>
+  <url><loc>https://www.shibuyahifi.com/event-details/middle</loc><lastmod>2026-05-01</lastmod></url>
+</urlset>`;
+        const urls = extractSitemapUrls(xml);
+        expect(urls).toEqual([
+            "https://www.shibuyahifi.com/event-details/newest",
+            "https://www.shibuyahifi.com/event-details/middle",
+            "https://www.shibuyahifi.com/event-details/oldest",
+        ]);
     });
 });
 
@@ -148,5 +169,74 @@ describe("sample data integration", () => {
         // Steely Dan (2026-09-10) and Kamasi Washington (2026-09-09) are future
         // relative to 2026-08-01; Tatsuro Yamashita (2026-03-14) is past.
         expect(results.length).toBe(2);
+    });
+});
+
+describe("rip()", () => {
+    afterEach(() => {
+        vi.unstubAllGlobals();
+    });
+
+    function eventJsonLd(name: string, startDate: string) {
+        return { "@type": "Event", name, startDate };
+    }
+
+    function eventHtml(name: string, startDate: string): string {
+        return `<html><head><script type="application/ld+json">${JSON.stringify(eventJsonLd(name, startDate))}</script></head></html>`;
+    }
+
+    it("finds a future event even when it sits past the fetch cap in raw sitemap document order", async () => {
+        // Mirrors the real venue's sitemap: hundreds of long-past sessions
+        // listed ahead of the current one in document order. Only sorting
+        // by <lastmod> before applying the 100-URL cap keeps this event
+        // reachable.
+        const staleEntries = Array.from({ length: 150 }, (_, i) =>
+            `<url><loc>https://www.shibuyahifi.com/event-details/stale-${i}</loc><lastmod>2024-01-01</lastmod></url>`,
+        ).join("\n");
+        const sitemap = `<?xml version="1.0"?>
+<urlset>
+${staleEntries}
+<url><loc>https://www.shibuyahifi.com/event-details/current-show</loc><lastmod>2026-09-09</lastmod></url>
+</urlset>`;
+
+        const mockFetch = vi.fn((url: string) => {
+            if (url.endsWith("event-pages-sitemap.xml")) {
+                return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(sitemap) });
+            }
+            if (url.includes("current-show")) {
+                return Promise.resolve({
+                    ok: true,
+                    status: 200,
+                    text: () => Promise.resolve(eventHtml("Current Show", "2099-01-01T20:00:00-08:00")),
+                });
+            }
+            // Stale entries would 200 with an event too, but should never be
+            // fetched at all once sorting keeps them out of the capped slice.
+            return Promise.resolve({
+                ok: true,
+                status: 200,
+                text: () => Promise.resolve(eventHtml("Stale Show", "2020-01-01T20:00:00-08:00")),
+            });
+        });
+        vi.stubGlobal("fetch", mockFetch);
+
+        const ripper: Ripper = {
+            config: {
+                name: "shibuya-hifi",
+                url: "https://www.shibuyahifi.com/event-pages-sitemap.xml",
+                proxy: false,
+                tags: ["Music"],
+                calendars: [
+                    { name: "shibuya-hifi", friendlyname: "Shibuya Hifi", timezone },
+                ],
+            } as any,
+        } as Ripper;
+
+        const [calendar] = await new ShibuyaHifiRipper().rip(ripper);
+
+        expect(calendar.events.some(e => e.summary === "Current Show")).toBe(true);
+        // Fewer than 150 fetch calls proves the cap was applied to the
+        // *sorted* list, not the raw 150+1 document order.
+        expect(mockFetch.mock.calls.length).toBeLessThan(102);
     });
 });
