@@ -1,0 +1,22 @@
+geo:
+  lat: 47.5626162
+  lng: -122.3873313
+  label: "The Alley, 4509 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 5829964363
+imageUrl: "https://img1.wsimg.com/isteam/ip/d4433523-7a92-4110-9d8a-ba8eba0e1f15/Alley%20Backdrop.png"
+name: the-alley-westside-jazz-trio
+sourceRole: venue
+friendlyname: The Westside Jazz Trio at The Alley
+description: Weekly live jazz at The Alley, a Prohibition-era-style cocktail bar in West Seattle, performing jazz standards, blues, and Latin favorites. No cover.
+timezone: America/Los_Angeles
+location: "4509 California Ave SW, Seattle, WA 98116"
+url: https://thealleyws.com/resident-bands
+tags:
+  - Music
+  - West Seattle
+cost: free
+schedules:
+  - schedule: every Monday
+    start_time: "20:00"
+    duration: PT2H
