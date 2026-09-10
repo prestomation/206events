@@ -19689,6 +19689,1641 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-09",
       "note": "Same SPL Central Library event, seatoday-community also aggregates it"
+    },
+    "NWMetalCalendar-NWMetal.ics  Shiner, Fotocrime, Nox Novacula|2026-10-09T19:00-07:00[America/Los_Angeles]::external-clock-out-lounge.ics Hierophant Booking Presents: Shiner w/ Fotocrime, Nox Novacula|2026-10-09T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Clock-Out Lounge show, different time fields (doors vs set)"
+    },
+    "chop-suey-all-events.ics Trans Music Showcase|2026-09-19T16:30:00-07:00[America/Los_Angeles]::external-seattle-dsa.ics Trans Music Showcase - Supporting Lambert House and Local Queer Youth|2026-09-19T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Chop Suey show, DSA adding context to title"
+    },
+    "cornish-all-events.ics National Portfolio Day - Seattle|2026-11-01T12:00:00-08:00::external-seattle-university.ics National Portfolio Day - Seattle|2026-11-01T12:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at Pigott Building, same URL seattleu.edu/event/SeattleNPD"
+    },
+    "danceus-swing-danceus-swing.ics Swing Sundays at Century Ballroom|2026-09-13T21:00:00-07:00[America/Los_Angeles]::external-seattle-dance-info.ics Sundays at Reverie Ballroom|2026-09-13T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different venues (Century Ballroom vs Reverie Ballroom) and different times"
+    },
+    "danceus-tango-danceus-tango.ics Saturday Milonga @ Dance Underground|2026-09-12T20:30:00-07:00[America/Los_Angeles]::recurring-dance-underground.ics Dance Underground|2026-09-12T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Dance Underground venue, same time, DanceUS title more descriptive"
+    },
+    "discover-slu-discover-slu.ics America 250: Protecting Tribes' Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]::external-mohai.ics America 250: Protecting Tribes' Treaty Rights|2026-09-29T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same MOHAI event, Discover SLU aggregating venue's own listing"
+    },
+    "events12-seattle-events.ics Hockey vs. Vancouver Canucks|2026-09-19T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Seattle Kraken vs Vancouver Canucks|2026-09-19T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Kraken vs Canucks game at Climate Pledge Arena, 1hr time diff is doors vs game start"
+    },
+    "events12-seattle-events.ics Oktoberfest in Fremont|2026-09-18T17:00:00-07:00[America/Los_Angeles]::external-washington-beer-blog.ics Fremont Oktoberfest|2026-09-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Fremont Oktoberfest, beer blog using all-day time"
+    },
+    "external-350-seattle.ics Table with us @ the Burke Gilman Hike-in 55th Anniversary Celebration|2026-09-12T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Burke-Gilman 55th Anniversary of the Hike-In|2026-09-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "350 Seattle is tabling at this Matthews Beach Park event, same event"
+    },
+    "external-Geekwire.ics Data and Privacy in the Age of AI|2026-09-20T12:00:00-07:00[America/Los_Angeles]::spl-southwest.ics AI, Privacy, and Data|2026-09-20T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Southwest Branch event, different title phrasing"
+    },
+    "external-center-for-active-living.ics American Mah Jongg|2026-09-09T12:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-09T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different venues (Center for Active Living vs The Missing Piece) and different times"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-09T07:00:00-07:00[America/Los_Angeles]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-09T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Kirkland Rotary ride, The Urbanist adds emoji to title"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-16T07:00:00-07:00[America/Los_Angeles]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-16T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Kirkland Rotary ride, The Urbanist adds emoji to title"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-23T07:00:00-07:00[America/Los_Angeles]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-23T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Kirkland Rotary ride, The Urbanist adds emoji to title"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-09-30T07:00:00-07:00[America/Los_Angeles]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-09-30T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Kirkland Rotary ride, The Urbanist adds emoji to title"
+    },
+    "external-everyday-rides-seattle.ics Eastside Coffee Outside|2026-10-07T07:00:00-07:00[America/Los_Angeles]::external-the-urbanist.ics ☕ Eastside Coffee Outside 🚲|2026-10-07T07:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Kirkland Rotary ride, The Urbanist adds emoji to title"
+    },
+    "external-go-latin-dance-seattle.ics Rumba Tropical Sonidera|2026-09-12T21:00:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Rumba Tropical Sonidera at Seattle Harbor|2026-09-12T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Seattle Harbor event, go-latin-dance aggregates salsavida listing"
+    },
+    "external-go-latin-dance-seattle.ics Rumba Tropical Sonidera|2026-09-19T21:00:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Rumba Tropical Sonidera at Seattle Harbor|2026-09-19T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Seattle Harbor event, go-latin-dance aggregates salsavida listing"
+    },
+    "external-go-latin-dance-seattle.ics Salsa Practica|2026-09-14T21:00:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Monday Salsa Practica at Reverie Ballroom|2026-09-14T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Reverie Ballroom practica, different title depth"
+    },
+    "external-go-latin-dance-seattle.ics Salsa Practica|2026-09-21T21:00:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Monday Salsa Practica at Reverie Ballroom|2026-09-21T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Reverie Ballroom practica, different title depth"
+    },
+    "external-go-latin-dance-seattle.ics Sueños de Salsa Salsa y Bachata|2026-09-09T20:45:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Sueños de Salsa Wednesday Social|2026-09-09T20:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same weekly social at Sueños de Salsa studio, title variant"
+    },
+    "external-go-latin-dance-seattle.ics Sueños de Salsa Salsa y Bachata|2026-09-16T20:45:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Sueños de Salsa Wednesday Social|2026-09-16T20:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same weekly social at Sueños de Salsa studio, title variant"
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-09-13T19:00:00-07:00[America/Los_Angeles]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-09-13T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Aria Ballroom Redmond Sunday social, two aggregators"
+    },
+    "external-impact-raves.ics 100% IMPACT!|2026-09-11T19:00:00-07:00[America/Los_Angeles]::kremwerk-kremwerk.ics Impact! 100%|2026-09-11T19:00:00.496-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Kremwerk event, title words reversed, impact-raves aggregates venue listing"
+    },
+    "external-myballard.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]::external-seattle-gov-neighborhoods.ics Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Parkinson's walk at 130 Nickerson St, year prefix in myballard title"
+    },
+    "external-seattle-city-of-lit.ics  It's About Time Writers Reading Series|2026-10-07T18:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics It's About Time Writers Reading Series|2026-10-07T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Ballard Branch event, City of Lit aggregates SPL listings"
+    },
+    "external-seattle-city-of-lit.ics  Poetry Potluck|2026-09-23T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Poetry Potluck|2026-09-23T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Ballard Branch Poetry Potluck, City of Lit cross-posts SPL events"
+    },
+    "external-seattle-city-of-lit.ics  Poetry Potluck|2026-10-21T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Poetry Potluck|2026-10-21T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Ballard Branch Poetry Potluck, City of Lit cross-posts SPL events"
+    },
+    "external-seattle-city-of-lit.ics  Seattle Reads: Sara Nović discusses \"True Biz\"|2026-09-25T19:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Seattle Reads: Sara Nović discusses \"True Biz\"|2026-09-25T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL/City of Lit event, two calendar sources"
+    },
+    "external-seattle-city-of-lit.ics  Seattle Reads: Sara Nović discusses \"True Biz\"|2026-09-26T11:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Seattle Reads: Sara Nović discusses \"True Biz\"|2026-09-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL/City of Lit event, two calendar sources"
+    },
+    "external-seattle-dance-info.ics Waltz etcetera|2026-09-14T19:00:00-07:00[America/Los_Angeles]::external-sunset-hill-community-hall.ics Waltz Etc.|2026-09-14T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Sunset Hill Community Club dance, abbreviated title variant"
+    },
+    "external-seattle-emergency-hubs.ics Emergency Preparedness: Amateur Radio Basics|2026-09-19T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Emergency Preparedness|2026-09-19T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Broadview Branch event, emergency hubs adds topic detail to title"
+    },
+    "external-seattle-gov-arts.ics Arts in Parks Virtual Information Session|2026-09-21T16:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Arts in Parks Virtual Information Session|2026-09-21T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Community Office Hours with Director Amy Nguyen|2026-09-25T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Community Office Hours with Director Amy Nguyen|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Creative Placemaking Committee (CPC)|2026-09-15T16:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Creative Placemaking Committee (CPC)|2026-09-15T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-09-22T12:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-09-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Public Art Advisory Committee (PAAC)|2026-09-22T09:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Public Art Advisory Committee (PAAC)|2026-09-22T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics Seattle Arts Commission|2026-09-08T16:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Seattle Arts Commission|2026-09-08T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics SmART Ventures Draft Review Session|2026-10-01T12:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics SmART Ventures Draft Review Session|2026-10-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics SmART Ventures Information Session|2026-10-01T11:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics SmART Ventures Information Session|2026-10-01T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-09-10T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-09-10T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-09-24T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-09-24T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics [Virtual] KSS Exhibitions Information Session|2026-09-15T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics [Virtual] KSS Exhibitions Information Session|2026-09-15T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics [Virtual] KSS Exhibitions Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics [Virtual] KSS Exhibitions Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-09-17T12:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-09-17T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-09-17T11:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-09-17T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle arts dept cross-posts to city-wide calendar"
+    },
+    "external-seattle-gov-city-wide.ics Beaver Pond Natural Area Smothering|2026-09-27T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Beaver Pond Natural Area Smothering|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same recurring bird walk event, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same recurring bird walk event, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same recurring bird walk event, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same recurring bird walk event, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same recurring bird walk event, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same recurring bird walk event, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics Board of Parks and Recreation Commissioners - Subcommittee Meetings|2026-09-24T18:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Board of Parks and Recreation Commissioners - Subcommittee Meetings|2026-09-24T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Clueless at Outdoors On The Ave|2026-09-25T19:30:00-07:00[America/Los_Angeles]::external-wallyhood.ics Outdoors on the Ave|2026-09-25T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Specific film screening vs general event series name; different start times, likely different listings"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-09-12T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-09-12T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-09-19T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-09-19T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-09-26T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-09-26T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-10T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide calendar cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-11T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-17T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-18T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-24T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-01T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-02T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-10T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks foundation events (same greencitypartnerships URL)"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-11T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks foundation events (same greencitypartnerships URL)"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-17T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks foundation events (same greencitypartnerships URL)"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-18T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks foundation events (same greencitypartnerships URL)"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-30T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-30T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Lake City parks event, seatoday aggregates it (& vs and in title)"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Lake City parks event, seatoday aggregates it (& vs and in title)"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Lake City parks event, seatoday aggregates it (& vs and in title)"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Lake City parks event, seatoday aggregates it (& vs and in title)"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks program, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks program, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks program, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks program, seatoday aggregates it"
+    },
+    "external-seattle-gov-city-wide.ics Grease at Outdoors On The Ave|2026-09-18T19:45:00-07:00[America/Los_Angeles]::external-wallyhood.ics Outdoors on the Ave|2026-09-18T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Specific film screening vs general event series; different start times"
+    },
+    "external-seattle-gov-city-wide.ics Green Lake Work Party|2026-09-13T09:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Green Lake Work Party|2026-09-13T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Green Lake Work Party|2026-09-13T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Green Lake Work Party|2026-09-13T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Green Lake restoration event"
+    },
+    "external-seattle-gov-city-wide.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Magnuson Park Advisory Committee|2026-09-09T18:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Magnuson Park Advisory Committee|2026-09-09T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Public Engagement Session: Denny-Blaine Park Supplemental Use Guidelines feedback session|2026-09-17T18:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Public Engagement Session: Denny-Blaine Park Supplemental Use Guidelines feedback session|2026-09-17T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Restoration work in Lincoln Park|2026-09-12T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Restoration work in Lincoln Park|2026-09-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Lincoln Park restoration event"
+    },
+    "external-seattle-gov-city-wide.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Duwamish Head Greenbelt Restoration|2026-09-29T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Duwamish Head Greenbelt Restoration|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "City-wide cross-posts parks events"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Government calendar cross-post"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Government calendar cross-post"
+    },
+    "external-seattle-gov-city-wide.ics Walk USA for Health Equity Finale|2026-09-24T13:30:00-07:00[America/Los_Angeles]::external-seattle-gov-neighborhoods.ics Walk USA for Health Equity|2026-09-24T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, slight title variation (Finale vs full title), same URL walkusaforhealthequity.org"
+    },
+    "external-seattle-gov-city-wide.ics Westcrest Park- Fallin' for Fungi!|2026-09-12T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Westcrest Park - Fallin' for Fungi!|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-neighborhoods.ics Nature and Health Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]::external-uw-campus-events.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event same URL, slight title variation"
+    },
+    "external-seattle-gov-neighborhoods.ics Nature and Health Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]::external-uw-sustainability.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event same URL, slight title variation"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-11T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-18T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-10T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-11T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-11T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-17T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-18T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-18T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post, title uses & vs and"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post, title uses & vs and"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post, title uses & vs and"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fitness and Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post, title uses & vs and"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Green Lake Work Party|2026-09-13T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Green Lake Work Party|2026-09-13T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-parks-recreation.ics Restoration work in Lincoln Park|2026-09-12T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Restoration work in Lincoln Park|2026-09-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-parks-recreation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Restore 29th Ave Pocket Forest|2026-09-15T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks cross-post"
+    },
+    "external-seattle-gov-parks-recreation.ics Westcrest Park- Fallin' for Fungi!|2026-09-12T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Westcrest Park - Fallin' for Fungi!|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Parks Foundation cross-posts city parks events"
+    },
+    "external-seattle-parks-foundation.ics Volunteer Park 2nd Saturday Work Party|2026-09-12T10:00:00-07:00[America/Los_Angeles]::volunteer-park-trust-all-events.ics 2nd Saturday Work Party|2026-09-12T10:00:00.171-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Volunteer Park work party event, slight title variation"
+    },
+    "external-seattle-university.ics Clinical Mental Health Counseling Programs Information Session|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Clinical Mental Health Counseling Programs Information Session|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics Clinical Mental Health Counseling Programs Information Session|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Clinical Mental Health Counseling Programs Information Session|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics Clinical Mental Health Counseling Programs Information Session|2026-09-09T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Clinical Mental Health Counseling Programs Information Session|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics College of Science & Engineering Virtual Information Session|2026-09-21T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Online Master's in Cybersecurity Leadership Information Session|2026-09-22T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University event cross-posted by seatoday"
+    },
+    "external-seattle-university.ics O'Brien Open 2026|2026-09-14T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics O'Brien Open 2026|2026-09-14T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University golf tournament cross-posted by seatoday"
+    },
+    "external-seattle-university.ics O'Brien Open 2026|2026-09-14T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics O'Brien Open 2026|2026-09-14T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University golf tournament cross-posted by seatoday"
+    },
+    "external-seattle-university.ics O'Brien Open 2026|2026-09-14T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics O'Brien Open 2026|2026-09-14T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Seattle University golf tournament cross-posted by seatoday"
+    },
+    "external-sunn-health-bar.ics Fremont Sunday Market|2026-09-13T07:00:00-07:00[America/Los_Angeles]::recurring-fremont-sunday-market.ics Fremont Sunday Market|2026-09-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, different start time reported (venue likely opens earlier than official market start)"
+    },
+    "external-taco-cortes.ics Columbia City Night Market - 2026|2026-09-19T18:00:00-07:00[America/Los_Angeles]::recurring-columbia-city-night-market.ics Columbia City Night Market|2026-09-19T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, minor title variation (- 2026 suffix)"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs 49ers|2026-10-11T13:25:00-07:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. San Francisco 49ers|2026-10-11T13:25:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same game, abbreviated team name"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs Bears|2026-11-02T17:15:00-08:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. Chicago Bears|2026-11-02T17:15:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same game, abbreviated team name"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs Cardinals|2026-11-08T13:25:00-08:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. Arizona Cardinals|2026-11-08T13:25:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same game, abbreviated team name"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs Chiefs|2026-10-25T17:20:00-07:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. Kansas City Chiefs|2026-10-25T17:20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same game, abbreviated team name"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs Cowboys|2026-12-07T17:15:00-08:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. Dallas Cowboys|2026-12-07T17:15:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same game, abbreviated team name"
+    },
+    "external-teku-tavern.ics Seattle Seahawks vs Patriots|2026-09-09T17:20:00-07:00[America/Los_Angeles]::lumen-field-lumen-field.ics Seattle Seahawks vs. New England Patriots|2026-09-09T17:20:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same game, abbreviated team name"
+    },
+    "external-tilth-alliance.ics Bat Night (in English)|2026-09-11T18:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics 🦇 Bat Night|2026-09-11T18:00:00.575-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Bat Night event at Rainier Beach Urban Farm, listed by both Tilth Alliance and Queer Social Club"
+    },
+    "external-tinte-cellars.ics Art Attack (GEORGETOWN)|2026-09-12T05:00:00-07:00[America/Los_Angeles]::recurring-georgetown-artwalk.ics Georgetown Art Attack|2026-09-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Georgetown Art Attack monthly event, different reported start times"
+    },
+    "external-town-hall-seattle.ics Alexis Nikole Nelson|2026-09-14T19:30:00-07:00[America/Los_Angeles]::seattle-arts-lectures-seattle-arts-lectures.ics Alexis Nikole Nelson|2026-09-14T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Seattle Arts Lectures event, cross-posted by Town Hall Seattle"
+    },
+    "external-town-hall-seattle.ics El Grito 2026|2026-09-13T13:00:00-07:00[America/Los_Angeles]::orquesta-northwest-orquesta-northwest.ics \"El Grito\"|2026-09-13T14:00:00.177-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Orquesta Northwest El Grito event at Town Hall Seattle, 1-hour time discrepancy"
+    },
+    "external-town-hall-seattle.ics Emily St. John Mandel|2026-09-22T19:30:00-07:00[America/Los_Angeles]::seattle-arts-lectures-seattle-arts-lectures.ics Emily St. John Mandel|2026-09-22T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Seattle Arts Lectures event, cross-posted by Town Hall Seattle"
+    },
+    "external-urban-league-seattle.ics Homebuyer Education Workshop [VIRTUAL]|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Homebuyer Education Workshop [VIRTUAL]|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Urban League event cross-posted by seatoday"
+    },
+    "external-urban-league-seattle.ics Homebuyer Education Workshop [VIRTUAL]|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Homebuyer Education Workshop [VIRTUAL]|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Urban League event cross-posted by seatoday"
+    },
+    "external-uw-botanic-gardens.ics Garden Ready for Fall Birds (Online)|2026-09-09T19:00:00-07:00[America/Los_Angeles]::external-uw-campus-events.ics Garden Ready for Fall Birds (Online)|2026-09-09T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Botanic Gardens event cross-posted to UW campus events calendar"
+    },
+    "external-uw-botanic-gardens.ics Gardening with the Seasons: Fall (online)|2026-09-17T19:00:00-07:00[America/Los_Angeles]::external-uw-campus-events.ics Gardening with the Seasons: Fall (online)|2026-09-17T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Botanic Gardens event cross-posted to UW campus events calendar"
+    },
+    "external-uw-botanic-gardens.ics Native Plants 101: Gardening with Bulbs (Online)|2026-09-16T19:00:00-07:00[America/Los_Angeles]::external-uw-campus-events.ics Native Plants 101: Gardening with Bulbs (Online)|2026-09-16T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Botanic Gardens event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics EMBA Online Application Strategies Workshop|2026-09-17T12:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics EMBA Online Application Strategies Workshop|2026-09-17T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics EMBA Online Application Strategies Workshop|2026-09-30T17:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics EMBA Online Application Strategies Workshop|2026-09-30T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-10-07T12:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-10-07T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-10-22T17:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-10-22T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-09-17T17:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-09-17T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-10-15T12:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics Find the Right Fit: Foster MBA Programs for Working Professionals|2026-10-15T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Info Session | Foster Undergraduate Study Abroad|2026-12-01T15:30:00-08:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics Info Session | Foster Undergraduate Study Abroad|2026-12-01T15:30:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Foster event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics EMBA Online Information Session|2026-09-22T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same UW Foster EMBA Info Session, 30-minute time discrepancy between sources"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics EMBA Online Information Session|2026-09-22T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same UW Foster EMBA Info Session, 30-minute time discrepancy between sources"
+    },
+    "external-uw-campus-events.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EMBA Online Information Session|2026-09-22T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same UW Foster EMBA Info Session, 30-minute time discrepancy between sources"
+    },
+    "external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics EMBA Online Information Session|2026-09-22T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same UW Foster EMBA Info Session, 30-minute time discrepancy between sources"
+    },
+    "external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics EMBA Online Information Session|2026-09-22T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same UW Foster EMBA Info Session, 30-minute time discrepancy between sources"
+    },
+    "external-uw-foster-school-of-business.ics EMBA Online Information Session|2026-09-22T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EMBA Online Information Session|2026-09-22T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same UW Foster EMBA Info Session, 30-minute time discrepancy between sources"
+    },
+    "external-uw-campus-events.ics Geographers in Practice|2026-11-19T18:00:00-08:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics Geographers in Practice|2026-11-19T18:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Husky Neighborhood Cleanup|2026-09-21T13:00:00-07:00[America/Los_Angeles]::external-uw-sustainability.ics Husky Neighborhood Cleanup|2026-09-21T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Husky Neighborhood Cleanup|2026-09-22T13:00:00-07:00[America/Los_Angeles]::external-uw-sustainability.ics Husky Neighborhood Cleanup|2026-09-22T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]::external-uw-sustainability.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Informatics Application Q&A / Application Workshop|2026-09-30T16:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Application Q&A / Application Workshop|2026-09-30T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-25T15:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-09-25T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-06T15:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-06T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-22T15:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-10-22T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-05T16:00:00-08:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-05T16:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-09T15:00:00-08:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for First-Year and Current HS Applicants|2026-11-09T15:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-09-09T16:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-09-09T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-09-17T15:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-09-17T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for Transfer Students|2026-09-23T16:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for Transfer Students|2026-09-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Informatics Program Overview for UW Seattle Students|2026-09-14T16:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Informatics Program Overview for UW Seattle Students|2026-09-14T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics MLIS Prospective Student Information Session|2026-12-09T12:00:00-08:00[America/Los_Angeles]::external-uw-information-school.ics MLIS Prospective Student Information Session|2026-12-09T12:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics MSIM Admission Advisor Q&A|2026-09-11T15:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics MSIM Admission Advisor Q&A|2026-09-11T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics MSIM International Q&A Information Session|2026-09-30T08:30:00-07:00[America/Los_Angeles]::external-uw-information-school.ics MSIM International Q&A Information Session|2026-09-30T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics PhD in Information Science Information Session|2026-09-15T12:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics PhD in Information Science Information Session|2026-09-15T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics PhD in Information Science Information Session|2026-11-18T12:00:00-08:00[America/Los_Angeles]::external-uw-information-school.ics PhD in Information Science Information Session|2026-11-18T12:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Pick Your Path Through MSIM|2026-10-16T12:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics Pick Your Path Through MSIM|2026-10-16T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Sesión Informativa para Estudiantes Potenciales del MLIS / MLIS Prospective Student Information Session (Spanish)|2026-11-05T16:00:00-08:00[America/Los_Angeles]::external-uw-information-school.ics Sesión Informativa para Estudiantes Potenciales del MLIS / MLIS Prospective Student Information Session (Spanish)|2026-11-05T16:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW iSchool event cross-posted to UW campus events calendar"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-cinema-media-studies.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-school-of-art.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]::external-uw-school-of-music.ics Join the College of Arts & Sciences Team for the Alaska Airlines Dawg Dash|2026-10-18T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW Dawg Dash event cross-posted across department calendars"
+    },
+    "external-uw-campus-events.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-campus-events.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-libraries-seattle.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-libraries-seattle.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-school-of-law.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Native American Heritage Day|2026-11-27T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-libraries-seattle.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-school-of-law.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Thanksgiving Day|2026-11-26T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-libraries-seattle.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-libraries-seattle.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-school-of-law.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Veterans Day|2026-11-11T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW academic calendar holiday cross-posted to department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics UW Scholars Abroad - Be a student again! (Rome, Italy)|2026-12-06T00:00:00-08:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics UW Scholars Abroad - Be a student again! (Rome, Italy)|2026-12-06T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "UW event cross-posted across department calendars"
+    },
+    "external-visit-ballard.ics Conor Byrne Open Mic Nights|2026-09-13T19:30:00-07:00[America/Los_Angeles]::recurring-conor-byrne-open-mic.ics Conor Byrne Pub — Sunday Open Mic|2026-09-13T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event: Conor Byrne Sunday open mic listed by both visit-ballard aggregator and recurring source"
+    },
+    "external-visit-ballard.ics Magic Monday Casual Commander Night | Reuben's Brews Ballard Taproom|2026-09-14T18:00:00-07:00[America/Los_Angeles]::reubens-brews-ballard.ics Magic Monday Casual Commander Night|2026-09-14T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at Reuben's Brews, listed by both visit-ballard aggregator and venue source"
+    },
+    "external-wallyhood.ics Wallingford Farmers Market|2026-09-09T15:00:00-07:00[America/Los_Angeles]::recurring-wallingford-farmers-market.ics Wallingford Farmers Market|2026-09-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same weekly farmers market, listed by both wallyhood neighborhood blog and dedicated recurring source"
+    },
+    "external-wallyhood.ics Yoga in the Park|2026-09-10T18:00:00-07:00[America/Los_Angeles]::yerbana-yerbana.ics Yerbana - YOGA IN THE PARK 2026|2026-09-10T18:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Yerbana yoga event at Gas Works Park, listed by both wallyhood blog and yerbana venue source"
+    },
+    "external-wallyhood.ics Yoga in the Park|2026-09-17T18:00:00-07:00[America/Los_Angeles]::yerbana-yerbana.ics Yerbana - YOGA IN THE PARK 2026|2026-09-17T18:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Yerbana yoga event at Gas Works Park, listed by both wallyhood blog and yerbana venue source"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-09-10T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-09-10T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different events at same venue: Thirsty Thursday is a beer promotion (3pm), Postcarding is a political action event (6pm)"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-09-17T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-09-17T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different events at same venue: Thirsty Thursday is a beer promotion (3pm), Postcarding is a political action event (6pm)"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-09-24T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-09-24T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different events at same venue: Thirsty Thursday is a beer promotion (3pm), Postcarding is a political action event (6pm)"
+    },
+    "seatoday-seatoday-all.ics Grandparents Day at Paint Kirkland|2026-09-13T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Grandparents Day at Paint Kirkland|2026-09-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "seatoday cross-subcategory: same event (identical 6amcity event ID) in both all and arts feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Engstrom Open Space|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Engstrom Open Space|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "seatoday cross-subcategory: same event (identical 6amcity event ID) in all and community feeds"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Engstrom Open Space|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Engstrom Open Space|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "seatoday cross-subcategory: same event (identical 6amcity event ID) in all and sports feeds"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Engstrom Open Space|2026-09-17T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Engstrom Open Space|2026-09-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "seatoday cross-subcategory: same event (identical 6amcity event ID) in community and sports feeds"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Ambiguous: seatoday Family Story Time doesn't specify branch, same time as Capitol Hill - but also matches Magnolia, can't determine which branch seatoday captured"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]::spl-magnolia.ics Family Story Time|2026-09-18T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Ambiguous: seatoday Family Story Time doesn't specify branch, same time as Magnolia - but also matches Capitol Hill, can't determine which branch seatoday captured"
+    },
+    "spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-21T10:00:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-21T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different SPL branches 8.3km apart (Delridge vs Rainier Beach), 30-min time difference - separate events running the same program"
+    },
+    "spl-high-point.ics Homework Help|2026-09-21T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-21T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different SPL branches 17.7km apart (High Point vs Northgate), 30-min time difference - separate events running the same program"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Anna Graves w/ K Van Petten|2026-10-11T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Anna Graves w/ K Van Petten AT The Sunset|2026-10-11T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same concert: Tractor Tavern presenting event AT the Sunset Tavern - cross-venue booking, same artist/date/time, both venues listing the show"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Bob Sumner, Laith & The Texas Birds|2026-10-08T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Bob Sumner w/ Laith & The Texas Birds @ The Sunset Tavern|2026-10-08T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same concert: Tractor Tavern presenting event AT the Sunset Tavern - cross-venue booking, same artist/date/time, both venues listing the show"
+    },
+    "discover-slu-discover-slu.ics 2026 South Lake Union Farmers Market|2026-09-10T10:00:00-07:00[America/Los_Angeles]::external-tats-truck.ics SOUTH LAKE UNION|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-10",
+      "note": "Different events: SLU Farmers Market vs a food truck location stop in South Lake Union"
+    },
+    "discover-slu-discover-slu.ics History Café: Preserving LGBTQ History|2026-09-16T18:30:00-07:00[America/Los_Angeles]::external-mohai.ics History Café: Preserving LGBTQ History|2026-09-16T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at MOHAI, listed by both discover-slu and venue"
+    },
+    "discover-slu-discover-slu.ics Summer Nights on the Terrace|2026-09-10T16:00:00-07:00[America/Los_Angeles]::external-mohai.ics Summer Nights on the Terrace (September 10)|2026-09-10T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same MOHAI event, discover-slu uses generic title, venue adds date in title"
+    },
+    "external-Geekwire.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event cross-posted to GeekWire and seatoday"
+    },
+    "external-Geekwire.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event cross-posted to GeekWire and seatoday-learning"
+    },
+    "external-myballard.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same walk event, myBallard and seatoday both aggregate"
+    },
+    "external-myballard.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same walk event, myBallard and seatoday-community both aggregate"
+    },
+    "external-myballard.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics 2026 Seattle Optimism Walk|2026-09-19T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same walk event, myBallard and seatoday-sports both aggregate"
+    },
+    "external-myballard.ics Ballard Bookworms Community Storytime|2026-09-13T10:30:00-07:00[America/Los_Angeles]::external-phinney-neighborhood-association.ics Ballard Bookworms Community Storytime|2026-09-13T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same community storytime at Ballard Locks, listed by myBallard and Phinney Neighborhood Association"
+    },
+    "external-nw-asian-weekly.ics CID Night Market|2026-09-26T13:00:00-07:00[America/Los_Angeles]::recurring-cid-night-market.ics CID Night Market|2026-09-26T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same CID Night Market at Hing Hay Park, NW Asian Weekly aggregates the recurring event"
+    },
+    "external-nw-asian-weekly.ics Diwali: Lights of India|2026-11-07T00:00:00-08:00[America/Los_Angeles]::seattle-center-festal-all-events.ics Diwali: Lights of India|2026-11-07T11:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Festal event at Seattle Center, NW Asian Weekly has all-day time"
+    },
+    "external-nw-asian-weekly.ics Diwali: Lights of India|2026-11-07T00:00:00-08:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: Diwali – Lights of India|2026-11-07T12:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Festal Diwali event at Seattle Center"
+    },
+    "external-nw-asian-weekly.ics Guest Curator Daniel Tam-Claiborne \"Diaspora & Belonging\"|2026-10-29T18:00:00-07:00[America/Los_Angeles]::external-seattle-city-of-lit.ics  Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-10-29T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same curator event at Little Saigon Creative, cross-listed by NW Asian Weekly and Seattle City of Lit"
+    },
+    "external-nw-asian-weekly.ics Guest Curator Daniel Tam-Claiborne \"Diaspora & Belonging\"|2026-10-29T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-10-29T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same curator event, NW Asian Weekly and SPL Authors & Books both list it"
+    },
+    "external-nw-asian-weekly.ics Live Aloha Hawaiian Cultural Festival|2026-09-13T00:00:00-07:00[America/Los_Angeles]::seattle-center-festal-all-events.ics Live Aloha Hawaiian Cultural Festival|2026-09-13T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Festal event at Seattle Center"
+    },
+    "external-nw-asian-weekly.ics Seattle Hmong New Year|2026-11-14T00:00:00-08:00[America/Los_Angeles]::seattle-center-festal-all-events.ics Seattle Hmong New Year|2026-11-14T11:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Festal event at Seattle Center"
+    },
+    "external-nw-asian-weekly.ics Seattle Hmong New Year|2026-11-14T00:00:00-08:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics Festal: Seattle Hmong New Year|2026-11-14T12:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Festal Seattle Hmong New Year event at Seattle Center"
+    },
+    "external-science-in-seattle.ics Brewology|2026-11-21T18:00:00-08:00[America/Los_Angeles]::pacific-science-center-special-events.ics Brewology|2026-11-21T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at Pacific Science Center, 1hr time difference (aggregator vs venue)"
+    },
+    "external-science-in-seattle.ics Nature & Health Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]::external-uw-campus-events.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same UW-hosted dinner event at Fremont Brewing, cross-listed by Science in Seattle and UW campus events"
+    },
+    "external-science-in-seattle.ics Nature & Health Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]::external-uw-sustainability.ics Nature and Health Fall Community Dinner|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event cross-listed by Science in Seattle and UW Sustainability"
+    },
+    "external-science-in-seattle.ics SIGNAL: Modular on the Spot: Seattle|2026-09-12T18:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics SIGNAL: Modular on the Spot|2026-09-12T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at Pacific Science Center, 1hr time difference between aggregators"
+    },
+    "external-science-in-seattle.ics SIGNAL: Modular on the Spot: Seattle|2026-09-12T18:00:00-07:00[America/Los_Angeles]::pacific-science-center-special-events.ics SIGNAL: Modular on the Spot: Seattle|2026-09-12T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, Science in Seattle aggregates Pacific Science Center venue listing"
+    },
+    "external-seattle-bach-choir.ics Actus Tragicus|2026-11-22T15:00:00-08:00[America/Los_Angeles]::greater-seattle-choral-consortium-seattle-events.ics Actus Tragicus — Bach and others|2026-11-22T15:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same concert at Trinity Parish Church, same URL - choral consortium aggregates the Bach Choir listing"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-09-15T18:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-09-15T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL event at Green Lake Branch, cross-listed by Seattle City of Lit and SPL"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-09-15T18:30:00-07:00[America/Los_Angeles]::spl-green-lake.ics Book Club: Let's Talk About Books|2026-09-15T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at SPL Green Lake Branch"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-10-06T18:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-10-06T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Book Club event, cross-listed by Seattle City of Lit and SPL"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-10-20T18:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-10-20T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Book Club event"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-10-24T14:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-10-24T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Book Club event at Columbia Branch"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-10-24T15:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-10-24T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Book Club event at Ballard Branch"
+    },
+    "external-seattle-city-of-lit.ics  Book Club: Let's Talk About Books|2026-11-03T18:30:00-08:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Book Club: Let's Talk About Books|2026-11-03T18:30:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Book Club event"
+    },
+    "external-seattle-city-of-lit.ics  FOLIO PRESENTS – The Shape-Shifters: Tara Campbell, Ren Cedar Fuller, and G.G. Silverman|2026-09-21T18:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics FOLIO PRESENTS – The Shape-Shifters: Tara Campbell, Ren Cedar Fuller, and G.G. Silverman|2026-09-21T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Folio event at Pike Place Market, cross-listed by Seattle City of Lit and Pike Place Market"
+    },
+    "external-seattle-city-of-lit.ics  Family Reading Party|2026-10-01T17:30:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Family Reading Party|2026-10-01T17:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Family Reading Party at Montlake Branch"
+    },
+    "external-seattle-city-of-lit.ics  Family Reading Party|2026-11-05T17:30:00-08:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Family Reading Party|2026-11-05T17:30:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL Family Reading Party at Montlake Branch"
+    },
+    "external-seattle-city-of-lit.ics  Folio Presents – My Name Is Allen White: Sally J. McMillan in Conversation with Lynn Olson|2026-09-22T18:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Folio Presents – My Name Is Allen White: Sally J. McMillan in Conversation with Lynn Olson|2026-09-22T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Folio literary event at Pike Place Market"
+    },
+    "external-seattle-city-of-lit.ics  Folio Presents: Hamlet – Behind the Scenes with Director Victor Pappas|2026-09-13T14:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Folio Presents: Hamlet – Behind the Scenes with Director Victor Pappas|2026-09-13T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Folio event at Pike Place Market"
+    },
+    "external-seattle-city-of-lit.ics  Folio Presents: Novel Study – Don Quixote by Miguel de Cervantes|2026-09-10T16:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Folio Presents: Novel Study – Don Quixote by Miguel de Cervantes|2026-09-10T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Folio event"
+    },
+    "external-seattle-city-of-lit.ics  Folio Presents: Reading The Declaration of Independence & Letter from Birmingham Jail|2026-09-17T18:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Folio Presents: Reading The Declaration of Independence %26 Letter from Birmingham Jail|2026-09-17T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same Folio event, %26 is URL-encoded &"
+    },
+    "external-seattle-city-of-lit.ics  Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-09-10T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-09-10T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL event at Douglass-Truth Branch"
+    },
+    "external-seattle-city-of-lit.ics  Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-09-10T18:00:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-09-10T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at Douglass-Truth Branch"
+    },
+    "external-seattle-city-of-lit.ics  Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-10-15T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-10-15T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL event at Ballard Branch"
+    },
+    "external-seattle-city-of-lit.ics  Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-10-29T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Guest Curator Daniel Tam-Claiborne presents \"Diaspora & Belonging\"|2026-10-29T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL event (non-library location)"
+    },
+    "external-seattle-city-of-lit.ics  How to Get Your Book Published|2026-10-31T14:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics How to Get Your Book Published|2026-10-31T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL event at Greenwood Branch"
+    },
+    "external-seattle-city-of-lit.ics  It's About Time Writers Reading Series|2026-09-10T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics It's About Time Writers Reading Series|2026-09-10T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL event at Ballard Branch"
+    },
+    "external-seattle-city-of-lit.ics  It's About Time Writers Reading Series|2026-09-10T18:00:00-07:00[America/Los_Angeles]::spl-ballard.ics It's About Time Writers Reading Series|2026-09-10T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event at SPL Ballard Branch"
+    },
+    "external-seattle-city-of-lit.ics  It's About Time Writers Reading Series|2026-10-08T18:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics It's About Time Writers Reading Series|2026-10-08T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same SPL event at Ballard Branch"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, government and seatoday aggregator both list it"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-city-wide.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-09T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks event, cross-posted"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, government and seatoday aggregator"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, government and seatoday aggregator"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, government and seatoday aggregator"
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event, government and seatoday aggregator"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-city-wide.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks Summer Art event, cross-posted to seatoday"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks Summer Art event, cross-posted to seatoday"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks Summer Art event, cross-posted to seatoday"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-09-17T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same parks Summer Art event, cross-posted to seatoday"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bike Lessons with Cascade Bike Club|2026-09-23T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fitness and Mobility and Utility Art|2026-09-23T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-seattle-gov-parks-recreation.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same event"
+    },
+    "external-wallyhood.ics Wallingford Farmers Market|2026-09-16T15:00:00-07:00[America/Los_Angeles]::recurring-wallingford-farmers-market.ics Wallingford Farmers Market|2026-09-16T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "Same weekly farmers market, additional date"
+    },
+    "seatoday-seatoday-all.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Games and Crafts|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "seatoday cross-subcategory"
+    },
+    "seatoday-seatoday-all.ics German Cars and Coffee! Volkswagen VW Audi BMW Porsche Mercedes|2026-09-12T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics German Cars and Coffee! Volkswagen VW Audi BMW Porsche Mercedes|2026-09-12T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-10",
+      "note": "seatoday cross-subcategory: same event in all and food feeds"
     }
   }
 }
