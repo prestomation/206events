@@ -6,7 +6,7 @@ url: https://thealleyws.com/resident-bands
 tags: [Music, "West Seattle"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-11
-pr:
+pr: 1446
 ---
 
 Small wine bar in West Seattle (4509 California Ave SW, Seattle, WA 98116)
