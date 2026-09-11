@@ -58878,7 +58878,8 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-08-26",
       "source": "agent",
@@ -70545,7 +70546,8 @@
           "paid": true
         },
         "duration": 7200,
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-05",
       "source": "agent",
@@ -80341,7 +80343,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "National Day of Service public cleanup event - free to attend"
+      "evidence": "National Day of Service public cleanup event - free to attend",
+      "partialFingerprint": "us9ja0"
     },
     "seatoday:cityspark-19884810": {
       "fields": {
@@ -80351,7 +80354,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "City of Seattle public engagement session - free to attend"
+      "evidence": "City of Seattle public engagement session - free to attend",
+      "partialFingerprint": "r5j835"
     },
     "seatoday:cityspark-17845653": {
       "fields": {
@@ -80361,7 +80365,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "Multi-day retail jewelry sale event - free to browse/attend"
+      "evidence": "Multi-day retail jewelry sale event - free to browse/attend",
+      "partialFingerprint": "7gesgr"
     },
     "discover-slu:discover-slu-free-ice-cream": {
       "fields": {
@@ -80387,7 +80392,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "gc1w39"
     },
     "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-11": {
       "fields": {
@@ -80396,7 +80402,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "v0g6ba"
     },
     "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-17": {
       "fields": {
@@ -80405,7 +80412,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "1c1ptoc"
     },
     "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-18": {
       "fields": {
@@ -80414,7 +80422,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "1qq43wd"
     },
     "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-24": {
       "fields": {
@@ -80423,7 +80432,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "wu5g2g"
     },
     "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-25": {
       "fields": {
@@ -80432,7 +80442,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "1bijqah"
     },
     "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-31": {
       "fields": {
@@ -80441,7 +80452,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "hml2gk"
     },
     "mopop:mopop-the-brunch-bundle-at-mopop-2026-11-01": {
       "fields": {
@@ -80450,7 +80462,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge",
+      "partialFingerprint": "1ya24ux"
     },
     "19hz:19hz-2026/10/30-BOO Seattle (Friday)": {
       "unresolvable": true,
@@ -80471,28 +80484,50 @@
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Event page on business.fremont.com has no venue/address listed; only Chamber PO Box shown",
-      "partialFingerprint": "4lrox0"
+      "partialFingerprint": "4lrox0",
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 25.0
+        }
+      }
     },
     "fremont-chamber-of-commerce:evo-25th-anniversary-party-1922065": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Event page on business.fremont.com has no venue/address listed",
-      "partialFingerprint": "1s6nhn7"
+      "partialFingerprint": "1s6nhn7",
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 25.0
+        }
+      }
     },
     "fremont-chamber-of-commerce:seattle-restaurant-week-1915845": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Seattle Restaurant Week is a citywide event with no single location",
-      "partialFingerprint": "ry9oyu"
+      "partialFingerprint": "ry9oyu",
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      }
     },
     "fremont-chamber-of-commerce:fremont-health-wellness-meet-up-1917075": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Event page has no location; Luma registration link needed for venue",
-      "partialFingerprint": "hlmvfw"
+      "partialFingerprint": "hlmvfw",
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      }
     },
     "craft-map-seattle:magnolia-flea-market-seattle-wa-2026-09-12": {
       "unresolvable": true,
@@ -80576,7 +80611,12 @@
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
-      "partialFingerprint": "12a4"
+      "partialFingerprint": "12a4",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "19hz:19hz-2026/11/28-Nouveau Arcade, KJ Sawka (Live)": {
       "unresolvable": true,
@@ -80597,49 +80637,84 @@
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Eventbrite page has no ticket price listed; no end time listed for open-to-close set",
-      "partialFingerprint": "1at00cn"
+      "partialFingerprint": "1at00cn",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "stg:tm-vvG1HZ_8ClI_yt": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
-      "partialFingerprint": "l8onkj"
+      "partialFingerprint": "l8onkj",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "wamu-theater:tm-vvG1HZ_C5fEhUk": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
-      "partialFingerprint": "12coooo"
+      "partialFingerprint": "12coooo",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "wamu-theater:tm-vvG1HZ_CT70hge": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
-      "partialFingerprint": "1ju89bd"
+      "partialFingerprint": "1ju89bd",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "wamu-theater:tm-vvG1HZ_CrKk0ii": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
-      "partialFingerprint": "1yswmp0"
+      "partialFingerprint": "1yswmp0",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "climate-pledge-arena:tm-vvG1HZ_G3ONn5q": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
-      "partialFingerprint": "qotldy"
+      "partialFingerprint": "qotldy",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "climate-pledge-arena:tm-vvG1HZ_2Sp6WPc": {
       "unresolvable": true,
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
-      "partialFingerprint": "9ojwow"
+      "partialFingerprint": "9ojwow",
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      }
     },
     "events12:music-by-candlelight-arctic-club-hotel-119604-2026-09-17-1200": {
       "fields": {
@@ -80647,7 +80722,8 @@
         "duration": 3600,
         "cost": {
           "min": 43.0
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
@@ -80677,6 +80753,813 @@
       "source": "agent",
       "reason": "Event page lists date only (Aug 1, 2026) with no start time or end time information",
       "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+    },
+    "SAF:187258584": {
+      "fields": {
+        "imageUrl": "https://www.seattlearchitecture.org/imager/b/original/187258635/514e/SAF_QueenAnne_202409-16_Web.jpg"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://seattlearchitecture.strangertickets.com/events/187258584/queen-anne-evolution-of-an-urban-neighborhood"
+    },
+    "burke-museum:burke-archaeology-family-day": {
+      "fields": {
+        "cost": {
+          "min": 24.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Page: includes full museum admission, FREE for Burke members; general adult admission is 24 dollars per burkemuseum.org/tickets"
+    },
+    "chophouse-row:6a8f705890544e0a54984dcf": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events/summer-sounds-september26-2026 - free live music in courtyard; only food/beverage vendors mentioned as paid, no entry ticket"
+    },
+    "cidbia:cidbia-6aa301ccf5517a12e70572f1-202610310230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30b62160004f13746c28b-202609201800": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API event description: No RSVPs needed, just come through and hang - informal free hangout, not tagged Ticketed"
+    },
+    "cidbia:cidbia-6aa30c08166bbf6b4005934a-202611010230": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30ccc166bbf6b40059ca1-202611012200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30ced916c53c1f95d3589-202611060330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30d08166bbf6b40059dea-202611070330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30d1d160004f13746d239-202611080330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30d3a916c53c1f95d3833-202611082200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30d50916c53c1f95d3a80-202611100330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30d68160004f13746d4d9-202611120330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30d78166bbf6b4005a076-202611130330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30d96160004f13746d656-202611140330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30db0166bbf6b4005a2a8-202611142200": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30dcb916c53c1f95d3cda-202611150330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
+    },
+    "cidbia:cidbia-6aa30e61166bbf6b4005a5d7-202609190000": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API event description: \"25 dollars per seat\" (Sake Pairing at Itsumono)"
+    },
+    "cidbia:cidbia-6aa30ec7166bbf6b4005a8d8-202609271730": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Proxi API event description has no price or RSVP-fee mention and is not tagged Ticketed; community book club"
+    },
+    "club-sake:club-sake-380898": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/visitors/ - visitors may attend up to 3 paddling sessions free before deciding on paid membership; no per-session ticket or fee found for this training session"
+    },
+    "club-sake:club-sake-380900": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/visitors/ - visitors may attend up to 3 paddling sessions free before deciding on paid membership; no per-session ticket or fee found for this training session"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/VWITHYH7RCGBQZCHOONUTQYO": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/VWITHYH7RCGBQZCHOONUTQYO - is a purchasable ticket product page (JS-rendered storefront), price not retrievable via automated fetch"
+    },
+    "cornish:cornish-53888528687034": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Freeway Park Association confirms all Freeway Park programming, including Planetary Dance, is free and open to all"
+    },
+    "danceus-swing:danceus-165480871911716-2026-09-16": {
+      "fields": {
+        "cost": {
+          "min": 99.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/1788243418450359/lindy-tue-seattle-wa/ - 99 dollar 5-week beginner Lindy Hop series"
+    },
+    "el-suenito-brewing:el-suenito-brewing-e4ada1aa-16ed-479e-b10f-9903d6fbbf4f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.elsuenitobrewing.com/event-details/queer-book-club-2026-09-16-19-00 - no ticket/RSVP fee found; standard free brewery book-club meetup format"
+    },
+    "events12:tour-artists-studios-100223-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "West Seattle Art Tour spans studios, homes, and workspaces citywide - a genuine mix of indoor and outdoor viewing spaces with no single dominant setting"
+    },
+    "events12:tour-artists-studios-100223-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "West Seattle Art Tour spans studios, homes, and workspaces citywide - a genuine mix of indoor and outdoor viewing spaces with no single dominant setting"
+    },
+    "futurewise:https://futurewise.org/october-comp-plan-happy-hour/": {
+      "fields": {
+        "imageUrl": "https://futurewise.org/wp-content/uploads/2026/09/CCCHappyHour10.2026.png"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://futurewise.org/october-comp-plan-happy-hour/"
+    },
+    "kremwerk:6a9c99bf34b87f3fbc65a22c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/18/girls-on-film - ticketed via external link, no price shown"
+    },
+    "kremwerk:6a9c9f256f1e0f337b71e470": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/23/pandoras-playpen - ticketed via tickets.kremwerk.com (JS-rendered, price not shown)"
+    },
+    "kremwerk:6a9caa877ee32b5e200db343": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/12/disco-dust-all-vinyl-disco-night - \"10 dollars early birds\""
+    },
+    "kremwerk:6a9fb4e0e44ade529f2dae9b": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/18/thee-baile - \"20 dollars at door\", 21+"
+    },
+    "kremwerk:6a9fb7fe0f6f890c6fbea114": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/17/sempa-producer-workshop - no price listed on page"
+    },
+    "kremwerk:6aa09f111656544e145f5d61": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/18/bodycode - ticketed via external link, no price shown"
+    },
+    "kremwerk:6aa0ae2bbc28e23aee1038c7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/10/disco-dust-all-vinyl-disco-night - ticketed, no price shown on this specific date's page"
+    },
+    "northwest-film-forum:local-sightings-2026-diy-movie-making-zach-2026-09-20": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/LSFF2026-1600-1200x675.png",
+        "cost": {
+          "min": 30.0,
+          "max": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/local-sightings-2026-diy-movie-making-zach/ - sliding scale Supporter 30 dollars / Sustainer 50 dollars (25 dollars member-only tier excluded per rubric)"
+    },
+    "northwest-film-forum:local-sightings-2026-writing-with-mia-2026-09-19": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/08/LSFF2026-1600-1200x675.png",
+        "cost": {
+          "min": 30.0,
+          "max": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/education/workshops/local-sightings-2026-writing-with-mia/ - sliding scale Supporter 30 dollars / Sustainer 50 dollars (25 dollars member-only tier excluded per rubric)"
+    },
+    "northwest-film-forum:screamplay-4k-restoration-2026-10-10": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/09/screamplayposterSMALL-1200x1778.png",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/screamplay-4k-restoration/ - General Admission 15 dollars (Student/Senior 10, Member 7 excluded per rubric)"
+    },
+    "northwest-film-forum:true-stories-2026-10-07": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/09/truestoriesposter.jpg",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/true-stories/ - 15 dollars General Admission, 10 dollars Student/Child/Senior, 7 dollars Member (rubric anchors on general admission)"
+    },
+    "northwest-film-forum:wtf-with-stuff-kokomo-city-2026-11-18": {
+      "fields": {
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/kokomocityposter-1200x1778.jpg",
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/films/wtf-with-stuff-kokomo-city/ - 15 dollars General Admission (10 Student/Child/Senior, 7 Member excluded per rubric)"
+    },
+    "pike-place-market:ppm-refract-artistry-in-glass": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://refractseattle.org/event/artistry-in-glass - listed as Free"
+    },
+    "plant-amnesty:6aa1d9d4e3e0720d16c132d3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://botanicgardens.uw.edu/education/adults/conferences-symposia/future-in-applied-arboriculture-conference/ - registration opens late 2026, price not yet announced"
+    },
+    "pono-ranch:6aa1dc4b8c140c2765c8195e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "ponoranch.com - cover varies by show (free to $10 range per aggregator listings), no price confirmed for this specific date"
+    },
+    "queer-social-club:6a9f2445caf4220199e4ab63": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/the-emerald-city-kings-ball-festival-2026 - links to Stranger Tickets, no price shown on page"
+    },
+    "queer-social-club:6a9f256a2074da52635882cb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/the-emerald-city-kings-ball-festival-2026-mbf95 - links to Stranger Tickets, no price shown on page"
+    },
+    "queer-social-club:6a9f25c4ae8f4b1b36968d00": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/the-emerald-city-kings-ball-festival-2026-mbf95-93m5h - links to Stranger Tickets, no price shown on page"
+    },
+    "queer-social-club:6a9f25e1de7da85647c70b85": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/t4t-all-trans-non-binary-variety-show-1 and kremwerk.com - ticketed via kremwerk ticket link, no price shown"
+    },
+    "queer-social-club:6a9f27551256401c3896ecd3": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/pack-transmasc-redlight-party - 0 ADV/5 DAY OF"
+    },
+    "queer-social-club:6a9f28a5caf4220199e6312e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/judy-in-heaven - tickets on sale via kremwerk.com, no price shown"
+    },
+    "queer-social-club:6a9f2fa93d40f31a3fec9035": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/sculpt-sip-live-nude-model-wine-intro-sculpting - ticketed via Eventbrite, no price shown"
+    },
+    "queer-social-club:6a9f32bd6b9f6e11d35a2a5c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/queer-craft-night-at-the-wash-pt-2 - RSVP via Partiful, no price shown"
+    },
+    "queer-social-club:6a9f33ffcaf4220199e92dfd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/-turning-point-us-gay- - ticketed via opendate.io, no price shown"
+    },
+    "queer-social-club:6a9f34bec289d1290b5b6d0b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lesbianqueer-car-motorcycle-meet-up - no ticket link or price of any kind on page; informal meetup"
+    },
+    "queer-social-club:6a9f3545bd56be0786eacf44": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/lesbianqueer-latinx-night - RSVP via Partiful, no price shown"
+    },
+    "queer-social-club:6a9f35b1b7ddfc2e2a135b60": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/hot-girl-bingo - \"20 dollars (includes 1 drink ticket + 4 bingo cards)\""
+    },
+    "queer-social-club:6a9f3997d8b7af0ea575ace3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/paint-and-sip-watercolor-series - ticketed via Eventbrite, no price shown"
+    },
+    "queer-social-club:6a9f3a99606ba939157510e8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/the-original-sapphic-soiree - page explicitly states 0 dollars / FREE"
+    },
+    "queer-social-club:6a9f3c23a3033a3467bd5ad1": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/thee-baile-1 and kremwerk.com - \"20 dollars at door\""
+    },
+    "rabbit_box:6aa0a200a14f9c034a9aa32c": {
+      "fields": {
+        "cost": {
+          "min": 15.0,
+          "max": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/jay-cates-birthday-concert-w-the-one-night-stand-new-jazz-band - GA Seated 15 adv / 20 door"
+    },
+    "rabbit_box:6aa34f34a2a2ab155cd12bf0": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/joel-rl-phelps-fallen-oaks - GA Seated 20 adv / 25 door"
+    },
+    "rabbit_box:6aa35b03045bad1b1fd93ca6": {
+      "fields": {
+        "cost": {
+          "min": 7.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/do-it-scared-a-very-open-mic-4-xz7ac - Sliding Scale 7 dollars and up"
+    },
+    "seattle-chamber-music:scms-5588": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/october-17-2026/ - ticketed via external purchase link, no price shown"
+    },
+    "seattle-chamber-music:scms-5631": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/november-22-2026/ - ticketed via external purchase link, no price shown"
+    },
+    "seattle-chamber-music:scms-5637": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/events/october-18-2026/ - same Espressivo! Quartet program as scms-5588, ticketed via external purchase link, no price shown"
+    },
+    "seattle-swing-dance-club:0rievn99jg099fviper2c1mu8o": {
+      "fields": {
+        "cost": {
+          "min": 5.0,
+          "max": 45.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Styled Calendar event description: workshop is $45 (includes the social), or just-social $5-10"
+    },
+    "seattle-swing-dance-club:21mfol3frso38q8eb66rc1sia9": {
+      "fields": {
+        "cost": {
+          "min": 30.0,
+          "max": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Styled Calendar event description: Sliding scale $30-40"
+    },
+    "seattle-swing-dance-club:6en6f1604stb0rbn21jctmltqp": {
+      "fields": {
+        "cost": {
+          "min": 30.0,
+          "max": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Styled Calendar event description: Sliding scale $30-40"
+    },
+    "seattle-swing-dance-club:e7vvsnv6pdqtv42nq1ap18ed94_20260920T020000Z": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Styled Calendar event description: Social Cover $15 (Lesson Included with cover)"
+    },
+    "tabletop-village:4lj3hu9flcv0ojh2iv8vd6l161_R20220610T220000@google.com-2027-03-10": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "tabletopvillage.com/pages/pokemon-league - 15 dollars non-member drop-in / 10 dollars member"
+    },
+    "tabletop-village:5i164ugulqqevcrm34608dkeeu_R20260326T010000@google.com-2027-03-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "tabletopvillage.com/collections/tournament - tournament entry fees vary by tournament type/division, no single price confirmed for this weekly"
+    },
+    "vashon-center-for-the-arts:vashon-115801AHBPTSQTDQHMNRHRHVGSVHBSVDL": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/1/c/4/4/2/1c442d78dcfd5a6d9c7214751545bc2d.jpg"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/artist-tak-ela-lamlin"
+    },
+    "vashon-center-for-the-arts:vashon-116001AMCMNDTGBKVLCLMSLHRCRNHTNMN": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/1/f/b/1/a/1fb1a1d285e9bf5f88e585db9716198e.jpg"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/artist-exhibition-walk-with-brooke-gassiot"
+    },
+    "vashon-center-for-the-arts:vashon-116201ADKQVMGGJJGJTVTCHCPNQPBTLVR": {
+      "fields": {
+        "imageUrl": "https://vashoncenterforthearts.org/cache/img/f/7/0/1/6/f7016a48e88a3c966fedae5a2bac8593.jpg"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://vashoncenterforthearts.org/events/vashon-art-bazaar"
+    },
+    "vashon-center-for-the-arts:vashon-116401ABVDPKRDKNTRQHTLMDTHDCJLPGJ": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "'Fake Class' is a generic placeholder-named entry on the upstream booking widget with no dedicated event page or image on vashoncenterforthearts.org"
+    },
+    "vashon-center-for-the-arts:vashon-116402ARKPRKTHJTRDPNCPTSSDHKBCCQC": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "'Fake Class' is a generic placeholder-named entry on the upstream booking widget with no dedicated event page or image on vashoncenterforthearts.org"
+    },
+    "vashon-center-for-the-arts:vashon-116403AGSGDNBJLQRLQDDLCQNBJQJCTBJ": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "'Fake Class' is a generic placeholder-named entry on the upstream booking widget with no dedicated event page or image on vashoncenterforthearts.org"
+    },
+    "vashon-center-for-the-arts:vashon-116404AGBCVVPPRRBVNHHQBRTVDJLBRDP": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "'Fake Class' is a generic placeholder-named entry on the upstream booking widget with no dedicated event page or image on vashoncenterforthearts.org"
+    },
+    "venue:loc:balcony theatre, 211 taylor st, port townsend, wa 98368": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "PTFF Balcony Theatre is a film-screening venue used by Port Townsend Film Festival - indoor theater space"
+    },
+    "venue:loc:green lake small craft center, 5900 w green lake way n, seattle, wa 98103": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://fremontartscouncil.org/luminata - Luminata lantern procession walks around Green Lake outdoors; the Small Craft Center is a boathouse facility in the park"
+    },
+    "venue:osm:node:2462428345": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "OSM node is a plain address point (24th Ave W); Magnolia Flea Market is confirmed a 40+ vendor outdoor street market"
+    },
+    "venue:osm:node:53080401": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "OSM node mismatches to a ferry terminal; the actual event (St. Ben's Bratwurst Festival) is on St. Benedict Catholic School Grounds - outdoor beer garden, bouncy houses, live music per wallyhood.org/everout.com"
+    },
+    "venue:osm:way:300093846": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/300093846 - amenity=cinema, building=yes (Galaxy Theatres Gig Harbor)"
+    },
+    "venue:osm:way:791557112": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "OSM way is a road segment near the venue; the actual event (BelRed Arts Night Market) is a public outdoor festival with vendor booths, food trucks, and performance stages per belredartsdistrict.org"
+    },
+    "visit-seattle:visit-seattle-2026-northwest-tea-festival": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "nwteafestival.org tickets page - 25 dollars admission (both days), children under 12 free"
     }
   }
 }

@@ -21934,6 +21934,41 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-11",
       "note": "Same show, same date/time, same performer lineup; the sunset-tavern feed mislabels the venue address as its own (5433 Ballard Ave) but the title and tractor-tavern's own listing (5213 Ballard Ave, the correct Tractor Tavern address) confirm it's the Tractor Tavern show."
+    },
+    "external-nw-asian-weekly.ics Ballots & Boba Mixer: Elections Town Hall|2026-09-16T17:30:00-07:00[America/Los_Angeles]::wing-luke-all-events.ics BALLOTS & BOBA: ELECTIONS TOWN HALL|2026-09-16T17:30:00.501-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same event at Wing Luke Museum — title case variant and minor timestamp difference; both link to the same event page"
+    },
+    "northwest-film-forum-northwest-film-forum.ics Truth To Fiction: The History of Concrete|2026-10-01T19:00:00-07:00[America/Los_Angeles]::seattle-film-society-seattle-film-society.ics The History of Concrete|2026-10-01T18:30:00.476-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same film screening at NW Film Forum (0m distance); SFS lists it as 'The History of Concrete' under the Truth To Fiction series"
+    },
+    "spl-broadview.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs Douglass-Truth), different event IDs, different rooms; each branch runs its own independent session"
+    },
+    "spl-broadview.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]::spl-high-point.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs High Point), different event IDs and times; independently run sessions"
+    },
+    "spl-broadview.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs Northgate), different event IDs; independently run sessions"
+    },
+    "spl-douglass-truth.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Douglass-Truth vs Northgate), different event IDs; independently run sessions"
+    },
+    "spl-high-point.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (High Point vs Northgate), different event IDs; independently run sessions"
     }
   }
 }

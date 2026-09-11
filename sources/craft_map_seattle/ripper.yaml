@@ -8,6 +8,7 @@ geo: null
 # Event pages on thecraftmap.com show only a generic site logo, no per-event images
 skipEventPhotos: true
 tags: ["MakersMarket"]
+cost: free
 calendars:
   - name: craft-map-seattle
     friendlyname: "The Craft Map - Seattle Craft Fairs"
