@@ -21969,6 +21969,16 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-11",
       "note": "Different SPL branches (High Point vs Northgate), different event IDs; independently run sessions"
+    },
+    "external-unexpected-productions.ics Duo Comedy Showcase 2026|2026-09-16T20:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Duo Comedy Improv Showcase|2026-09-16T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same show at Unexpected Productions, 1428 Post Alley — pike-place-market aggregates this venue's events; unexpected-productions is the first-party source"
+    },
+    "external-unexpected-productions.ics Loose Cannons 2026|2026-09-17T20:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Loose Cannons Improv|2026-09-17T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same show at Unexpected Productions, 1428 Post Alley — pike-place-market aggregates this venue's events; unexpected-productions is the first-party source"
     }
   }
 }
