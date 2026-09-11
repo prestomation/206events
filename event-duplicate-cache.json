@@ -21979,6 +21979,26 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-11",
       "note": "Same show at Unexpected Productions, 1428 Post Alley — pike-place-market aggregates this venue's events; unexpected-productions is the first-party source"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-01T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-01T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-08T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-08T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-22T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-22T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-29T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-29T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
     }
   }
 }
