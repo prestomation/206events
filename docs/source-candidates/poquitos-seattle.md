@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.vivapoquitos.com/upcoming-events
 tags: [Nightlife, "Capitol Hill"]
 firstSeen: 2026-07-18
-lastChecked: 2026-09-09
+lastChecked: 2026-09-11
 ---
 Mexican restaurant/bar on Capitol Hill hosting a recurring monthly
 **Copacabana Drag & Burlesque Brunch** (hosted by Clara Voyance), plus
@@ -33,3 +33,5 @@ Re-checked 2026-08-31: still 0 upcoming events (Squarespace `?format=json` upcom
 Re-checked 2026-09-02: still 0 upcoming events (`itemCount: 16`, upcoming array empty). No change.
 
 Re-checked 2026-09-09: still 0 upcoming events. No change.
+
+Re-checked 2026-09-11: still 0 upcoming events. No change.
