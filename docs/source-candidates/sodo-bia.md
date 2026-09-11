@@ -5,7 +5,7 @@ platform: WordPress / The Events Calendar (Tribe Events) — ICS export
 url: https://sodoseattle.org/events/
 tags: [Community, "SoDo"]
 firstSeen: 2026-08-04
-lastChecked: 2026-08-11
+lastChecked: 2026-09-11
 ---
 
 SODO's business improvement area organization (5 x N Corp / SODO BIA),
@@ -65,3 +65,8 @@ source-discovery's own rules a source blocked even from this environment
 isn't stageable yet — leaving as `candidate` rather than opening a
 `requires-proxy-testing` PR. Deprioritized again this cycle in favor of
 Saltstone Ceramics (unblocked, PR pending).
+
+Re-checked 2026-09-11: still blocked — the ICS URL 302/meta-refreshes to
+`/.well-known/sgcaptcha/` (HTTP 202, empty body) even with the project's
+standard UA. Not stageable (blocked even locally, not just from CI). No
+change.
