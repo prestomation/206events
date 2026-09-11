@@ -80295,8 +80295,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "Page fingerprint: Sunday, September 13 2:00-3:00pm (1 hour session)",
-      "partialFingerprint": "›Teacher: Ruthie V. & Merle Sunday, September 13 2:00-3:00pm Join us for a free public art-making session drawing, painting, or sculpting Merle, Seattle Artist League's beloved studio dog and longtime"
+      "evidence": "https://www.seattleartistleague.com/art-classes/free-pet-painting-drawing-workshop-w-ruthie-v-merle-sunday-afternoon-8-23/",
+      "partialFingerprint": "›Teacher: Ruthie V. & Merle Sunday, September 13 2:00-3:00pm Join us for a free public art-making session drawing, painting, or sculpting Merle, Seattle Artist League’s"
     },
     "danceus-swing:danceus-1788243418450359-2026-09-08": {
       "unresolvable": true,
@@ -80736,6 +80736,23 @@
       "source": "agent",
       "reason": "Event page shows no end time or duration; states more information to come",
       "partialFingerprint": "1iakrxm"
+    },
+    "events12:free-things-to-do-119028-2026-09-11": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://ballardlocks.org/tour-information.html",
+      "partialFingerprint": "13oc9ft-until2026-09-11-tu"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Event page lists date only (Aug 1, 2026) with no start time or end time information",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
     },
     "SAF:187258584": {
       "fields": {
