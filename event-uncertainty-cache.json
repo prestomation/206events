@@ -81109,7 +81109,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/ube-2/"
+      "evidence": "Page states: Tuesday, October 13, 2026 10 am - 2 pm",
+      "partialFingerprint": "jiwlbb"
     },
     "discover-slu:discover-slu-halloween-pet-portraits-3-2": {
       "fields": {
@@ -81117,7 +81118,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/halloween-pet-portraits-3-2/"
+      "evidence": "Page states: Tuesday, October 13, 2026 11 am - 2 pm",
+      "partialFingerprint": "1ou5qqw"
     },
     "seattle-artist-league:no-tears-critique-saturday-morning-begins-10-3": {
       "fields": {
@@ -81126,7 +81128,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "https://www.seattleartistleague.com/art-classes/no-tears-critique-saturday-morning-begins-10-3/"
+      "evidence": "Page fingerprint: Class Length: 10-1:00pm, Class Duration: 3 hours",
+      "partialFingerprint": "This class takes place at The Brick (5513 6th ave south), across the street from SAL. Teacher: Ruthie V. Class Duration: 3 hours, Class Length: 10-1:00pm Class Dates: 4-weeks: Saturday, October 3, 10,"
     },
     "seattle-artist-league:free-pet-painting-drawing-workshop-w-ruthie-v-merle-sunday-afternoon-8-23": {
       "fields": {
@@ -81135,7 +81138,8 @@
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "https://www.seattleartistleague.com/art-classes/free-pet-painting-drawing-workshop-w-ruthie-v-merle-sunday-afternoon-8-23/"
+      "evidence": "Page fingerprint: Sunday, September 13 2:00-3:00pm (1 hour session)",
+      "partialFingerprint": "›Teacher: Ruthie V. & Merle Sunday, September 13 2:00-3:00pm Join us for a free public art-making session drawing, painting, or sculpting Merle, Seattle Artist League's beloved studio dog and longtime"
     },
     "danceus-swing:danceus-1788243418450359-2026-09-08": {
       "unresolvable": true,
