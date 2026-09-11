@@ -81146,6 +81146,358 @@
       "reason": "Source page (danceus.org) shows placeholder time 12am-11:59pm; actual Tuesday class time not listed on the page",
       "resolvedAt": "2026-09-11",
       "source": "agent"
+    },
+    "book-larder:book-larder-9404029698266": {
+      "fields": {
+        "startTime": "18:30",
+        "duration": 5400
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Page: 06:30 pm - 08:00 pm on September 15, 2026 at Book Larder",
+      "partialFingerprint": "832f8e86"
+    },
+    "kenyon_hall:6aa0bf48e369427d23ab3292": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Page states: ALL ENTRY - FREE",
+      "partialFingerprint": "1vd10v1"
+    },
+    "badslava-open-mics:badslava-53775-20260911": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Badslava page states: Event Cost: Free"
+    },
+    "seatoday:cityspark-19889225": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "National Day of Service public cleanup event - free to attend"
+    },
+    "seatoday:cityspark-19884810": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "City of Seattle public engagement session - free to attend"
+    },
+    "seatoday:cityspark-17845653": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Multi-day retail jewelry sale event - free to browse/attend"
+    },
+    "discover-slu:discover-slu-free-ice-cream": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 7200
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "Page states: Thursday, September 17, 2026 12 pm; event ends when supplies run out, 2h estimate",
+      "partialFingerprint": "133kudv"
+    },
+    "danceus-swing:danceus-1788243418450359-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source page shows placeholder 12am times; real Tuesday Lindy 1 class time not listed",
+      "partialFingerprint": "12:00 AM"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-10": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-11": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-17": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-18": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-24": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-25": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-10-31": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "mopop:mopop-the-brunch-bundle-at-mopop-2026-11-01": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "MoPOP page: 10:00 AM - 3:00 PM at The Lounge"
+    },
+    "19hz:19hz-2026/10/30-BOO Seattle (Friday)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "BOO Seattle multi-day festival; no end time listed on FrontGate page",
+      "partialFingerprint": "4n6vh1"
+    },
+    "19hz:19hz-2026/10/31-BOO Seattle (Saturday)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "BOO Seattle multi-day festival; no end time listed on FrontGate page",
+      "partialFingerprint": "1k1upqj"
+    },
+    "fremont-chamber-of-commerce:evo-25th-anniversary-25-years-of-film-1922045": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Event page on business.fremont.com has no venue/address listed; only Chamber PO Box shown",
+      "partialFingerprint": "4lrox0"
+    },
+    "fremont-chamber-of-commerce:evo-25th-anniversary-party-1922065": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Event page on business.fremont.com has no venue/address listed",
+      "partialFingerprint": "1s6nhn7"
+    },
+    "fremont-chamber-of-commerce:seattle-restaurant-week-1915845": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Seattle Restaurant Week is a citywide event with no single location",
+      "partialFingerprint": "ry9oyu"
+    },
+    "fremont-chamber-of-commerce:fremont-health-wellness-meet-up-1917075": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Event page has no location; Luma registration link needed for venue",
+      "partialFingerprint": "hlmvfw"
+    },
+    "craft-map-seattle:magnolia-flea-market-seattle-wa-2026-09-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "TheCraftMap page lists date only; hours not shown (links to Eventbrite for details, but specific times unavailable)",
+      "partialFingerprint": "10x6xvg"
+    },
+    "craft-map-seattle:cd-art-walk-first-fridays-seattle-wa-2026-11-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "TheCraftMap page lists date only; hours not shown (links to Eventbrite for details, but specific times unavailable)",
+      "partialFingerprint": "6lwcqb"
+    },
+    "craft-map-seattle:belltown-artwalk-at-the-crystal-lounge-seattle-wa-2026-11-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "TheCraftMap page lists date only; hours not shown (links to Eventbrite for details, but specific times unavailable)",
+      "partialFingerprint": "1xpxkre"
+    },
+    "craft-map-seattle:bipgm-makers-markets-seattle-wa-2026-11-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "TheCraftMap page lists date only; hours not shown (links to Eventbrite for details, but specific times unavailable)",
+      "partialFingerprint": "1xp477e"
+    },
+    "craft-map-seattle:occidental-square-flea-seattle-wa-2026-12-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "TheCraftMap page lists date only; hours not shown (links to Eventbrite for details, but specific times unavailable)",
+      "partialFingerprint": "1jnoqpd"
+    },
+    "19hz:19hz-2026/09/11-Simmer: Two Year Anniversary": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "1ix8z72"
+    },
+    "19hz:19hz-2026/09/17-Unitive State": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "r0z6cj"
+    },
+    "19hz:19hz-2026/09/18-Virgo Party": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "17lbeo5"
+    },
+    "19hz:19hz-2026/09/18-The House That She Built": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "12a4"
+    },
+    "19hz:19hz-2026/09/24-Unitive State": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "1gq7ubr"
+    },
+    "19hz:19hz-2026/10/02-The Bassment": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "zv1zc3"
+    },
+    "19hz:19hz-2026/10/29-Joseph Capriati": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "12a4"
+    },
+    "19hz:19hz-2026/11/28-Nouveau Arcade, KJ Sawka (Live)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Source URLs are Instagram posts or Tixr (403); cannot retrieve duration/cost data",
+      "partialFingerprint": "19n8ahi"
+    },
+    "19hz:19hz-2026/11/13-Mild Minds (DJ Set)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Eventbrite page has no ticket price listed; age 21+ venue show with unknown end time",
+      "partialFingerprint": "f3qjz3"
+    },
+    "19hz:19hz-2026/11/25-Skream (Open to Close)": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Eventbrite page has no ticket price listed; no end time listed for open-to-close set",
+      "partialFingerprint": "1at00cn"
+    },
+    "stg:tm-vvG1HZ_8ClI_yt": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
+      "partialFingerprint": "l8onkj"
+    },
+    "wamu-theater:tm-vvG1HZ_C5fEhUk": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
+      "partialFingerprint": "12coooo"
+    },
+    "wamu-theater:tm-vvG1HZ_CT70hge": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
+      "partialFingerprint": "1ju89bd"
+    },
+    "wamu-theater:tm-vvG1HZ_CrKk0ii": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
+      "partialFingerprint": "1yswmp0"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3ONn5q": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
+      "partialFingerprint": "qotldy"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2Sp6WPc": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "Ticketmaster returns HTTP 403 from this environment; ticket prices not retrievable",
+      "partialFingerprint": "9ojwow"
+    },
+    "events12:music-by-candlelight-arctic-club-hotel-119604-2026-09-17-1200": {
+      "fields": {
+        "startTime": "18:15",
+        "duration": 3600,
+        "cost": {
+          "min": 43.0
+        }
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "FeverUp page: starts 6:15pm, from $43; Candlelight concerts are typically ~1h",
+      "partialFingerprint": "8kffbv-until2026-09-27-tk"
     }
   }
 }
