@@ -6,7 +6,8 @@ import { decode } from "html-entities";
 import '@js-joda/timezone';
 
 const LOCATION = "The Traveling Goat, 621 1/2 Queen Anne Ave N, Seattle, WA 98109";
-const TIMEZONE = ZoneId.of("America/Los_Angeles");
+// Fallback only — rip() passes the real zone from ripper.yaml's calendar config.
+const DEFAULT_TIMEZONE = ZoneId.of("America/Los_Angeles");
 
 // The site never states an end time — only a start time (sometimes). A
 // typical bar event (trivia, live music) runs a couple of hours.
@@ -49,7 +50,8 @@ export default class TravelingGoatRipper implements IRipper {
         if (!res.ok) throw new Error(`Events page returned HTTP ${res.status}`);
         const html = await res.text();
 
-        const events = this.parseEventsFromHtml(html, url);
+        const timezone = ZoneId.of(calConfig.timezone.toString());
+        const events = this.parseEventsFromHtml(html, url, timezone);
 
         return [{
             name: calConfig.name,
@@ -71,7 +73,17 @@ export default class TravelingGoatRipper implements IRipper {
     // events" heading. We walk those blocks in order and group them into
     // (date, title, description) triples rather than trying to select a
     // per-event container element.
-    public parseEventsFromHtml(html: string, sourceUrl: string): RipperEvent[] {
+    // `timezone` defaults to America/Los_Angeles so existing call sites/tests
+    // that don't care about DST edge cases keep working; rip() always passes
+    // the calendar's configured zone explicitly.
+    //
+    // Note on selector fragility: this queries the whole document for these
+    // two font-style classes rather than scoping to an events container,
+    // since no stable container id/class exists on this Wix page. If Wix
+    // reuses "font_2"/"font_8" elsewhere on this page in a future redesign,
+    // unrelated text could get misgrouped into a fake event — check here
+    // first if garbage events start appearing for this source.
+    public parseEventsFromHtml(html: string, sourceUrl: string, timezone: ZoneId = DEFAULT_TIMEZONE): RipperEvent[] {
         const root = parse(html);
         const blocks = root.querySelectorAll('h2.font_2, p.font_8');
 
@@ -103,7 +115,7 @@ export default class TravelingGoatRipper implements IRipper {
             const minute = time?.minute ?? DEFAULT_UNKNOWN_MINUTE;
             const date = ZonedDateTime.of(
                 localDate.year(), localDate.monthValue(), localDate.dayOfMonth(),
-                hour, minute, 0, 0, TIMEZONE,
+                hour, minute, 0, 0, timezone,
             );
 
             const id = this.generateEventId(title, localDate);
