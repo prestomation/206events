@@ -9,6 +9,8 @@ geo:
   lat: 47.6645577
   lng: -122.3792514
   label: "Shibuya Hifi, 4912 Leary Ave NW, Seattle, WA 98107"
+  osmType: node
+  osmId: 13273212602
 calendars:
   - name: shibuya-hifi
     friendlyname: "Shibuya Hifi"
