@@ -58878,12 +58878,12 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-26",
+      "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://www.loraleesfamilyfarm.com/ - open sunflower fields, outdoor farm experience"
     },
     "events12:sunflower-farms-118543-2026-09-25": {
       "fields": {
@@ -70545,12 +70545,12 @@
           "paid": true
         },
         "duration": 7200,
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://seattlearchitecture.org/tours/ - SAF architecture walking tours are outdoor, on-foot tours"
     },
     "events12:architectural-tour-119702-2026-09-25": {
       "fields": {
@@ -80714,11 +80714,12 @@
         "duration": 3600,
         "cost": {
           "min": 43.0
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-11",
       "source": "agent",
-      "evidence": "FeverUp page: starts 6:15pm, from $43; Candlelight concerts are typically ~1h",
+      "evidence": "Candlelight concert series is always an indoor string-quartet/ensemble format, held inside the Arctic Club Hotel",
       "partialFingerprint": "8kffbv-until2026-09-27-tk"
     },
     "SAF:187258584": {
@@ -81467,6 +81468,66 @@
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "evidence": "nwteafestival.org tickets page - 25 dollars admission (both days), children under 12 free"
+    },
+    "venue:loc:balcony theatre, 211 taylor st, port townsend, wa 98368": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "PTFF Balcony Theatre is a film-screening venue used by Port Townsend Film Festival - indoor theater space"
+    },
+    "venue:loc:green lake small craft center, 5900 w green lake way n, seattle, wa 98103": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://fremontartscouncil.org/luminata - Luminata lantern procession walks around Green Lake outdoors; the Small Craft Center is a boathouse facility in the park"
+    },
+    "venue:osm:node:2462428345": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "OSM node is a plain address point (24th Ave W); Magnolia Flea Market is confirmed a 40+ vendor outdoor street market"
+    },
+    "venue:osm:node:53080401": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "OSM node mismatches to a ferry terminal; the actual event (St. Ben's Bratwurst Festival) is on St. Benedict Catholic School Grounds - outdoor beer garden, bouncy houses, live music per wallyhood.org/everout.com"
+    },
+    "venue:osm:way:300093846": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/300093846 - amenity=cinema, building=yes (Galaxy Theatres Gig Harbor)"
+    },
+    "venue:osm:way:791557112": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "OSM way is a road segment near the venue; the actual event (BelRed Arts Night Market) is a public outdoor festival with vendor booths, food trucks, and performance stages per belredartsdistrict.org"
+    },
+    "events12:tour-artists-studios-100223-2026-09-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "West Seattle Art Tour spans studios, homes, and workspaces citywide - a genuine mix of indoor and outdoor viewing spaces with no single dominant setting"
+    },
+    "events12:tour-artists-studios-100223-2026-09-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "reason": "West Seattle Art Tour spans studios, homes, and workspaces citywide - a genuine mix of indoor and outdoor viewing spaces with no single dominant setting"
     }
   }
 }
