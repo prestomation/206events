@@ -1422,6 +1422,199 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Portland, OR — same precedent as other out-of-area PNW venues already in
   // this table (e.g. "aladdin theater (portland)", "twilight cafe & bar").
   'tom mccall waterfront park': { lat: 45.5215710, lng: -122.6703160 }, // 98 SW Naito Pkwy, Portland, OR 97204
+
+  // --- 2026-09-11 geo-resolver batch: 676 geocode errors / 320 unique
+  // unresolvable geo-cache keys (83% baseline coverage). Covers the
+  // "venue name only" and "has street address" buckets of geo-cache.py
+  // analyze plus additional active geocodeErrors entries the crude bucket
+  // heuristic missed (a digit past the string's first 8 characters). Every
+  // address was forward-geocoded via Nominatim from the venue's own address
+  // (never reverse-geocoded); several were verified against the venue's own
+  // site/listing where the source string alone was ambiguous or wrong (e.g.
+  // Mirkwood Public House is in Arlington, not Renton; Lumberyard Bar is in
+  // White Center, not Everett; Endurance Climbing Gym is in Burlington, not
+  // Lynnwood — the source strings themselves conflated two places). UW/SU
+  // room- and building-name entries use the shared campus-address
+  // approximation already established above for that source. Skipped:
+  // vague/rotating/RSVP/virtual locations (correctly unresolvable), bare
+  // street intersections with no venue, multi-stop walking-tour routes, and
+  // event-page URLs a ripper mistakenly emitted as the location (a ripper
+  // bug, not a geocoder gap).
+  '2236 sw orchard, west seattle': { lat: 47.53763, lng: -122.3625349 }, // 2236 SW Orchard St, Seattle, WA
+  '502 main st, edmonds, wa 98020': { lat: 47.8104092, lng: -122.3773781 }, // 502 Main St, Edmonds, WA
+  '621 tacoma ave s, tacoma, wa 98402': { lat: 47.2572452, lng: -122.4451185 }, // 621 Tacoma Ave S, Tacoma, WA
+  '999 se pioneer way, oak harbor, wa 98277': { lat: 48.28895, lng: -122.645944 }, // 999 SE Pioneer Way, Oak Harbor, WA
+  'alhadeff studio': { lat: 47.6233692, lng: -122.35961 }, // 210 Republican St, Seattle, WA
+  'alhadeff studio, 210 republican stree, seattle wa': { lat: 47.6233692, lng: -122.35961 }, // 210 Republican St, Seattle, WA
+  'america first field, 9256 south state street, sandy, utah, usa': { lat: 40.5829593, lng: -111.8932933 }, // America First Field, Sandy, UT
+  'art table, 915 e pine st 2nd floor, seattle, wa, 98122, united states': { lat: 47.6151211, lng: -122.3198707 }, // 915 E Pine St, Seattle, WA
+  'aurora borealis – borealis event center, 16708 aurora avenue north, shoreline, wa 98133, shoreline, wa, 98133, us': { lat: 47.7507236, lng: -122.3449407 }, // 16708 Aurora Ave N, Shoreline, WA
+  'barn (bainbridge artisan resource network), 8890 three tree lane ne, bainbridge island, wa, 98110, united states': { lat: 47.6441321, lng: -122.5229956 }, // road-level match (Three Tree Lane); Nominatim has no house-number-level POI for this address
+  'bellingham senior activity center, 140 e bellis fair parkway, bellingham, wa, 98226': { lat: 48.7864404, lng: -122.484836 }, // 140 E Bellis Fair Pkwy, Bellingham, WA
+  'benaroya research institute, 1201 ninth avenue, seattle, wa, 98101-2795, united states': { lat: 47.6100431, lng: -122.3292915 }, // Benaroya Research Institute, 1201 9th Ave, Seattle, WA
+  'beveridge place pub @ 6413 california sw, west seattle': { lat: 47.5454269, lng: -122.3874998 }, // Beveridge Place Pub, 6413 California Ave SW, Seattle, WA
+  'bijaema visitor center, 4192 eagle harbor drive ne, bainbridge island, wa, 98110': { lat: 47.6142886, lng: -122.5101423 }, // 4192 Eagle Harbor Dr NE, Bainbridge Island, WA
+  'bmo stadium, 3939 s figueroa street, los angeles, california, usa': { lat: 34.012814, lng: -118.2840892 }, // BMO Stadium, Los Angeles, CA
+  'boren avenue north, boren ave n, seattle, wa 98109, usa': { lat: 47.62329, lng: -122.3358532 }, // Boren Ave N, Seattle, WA
+  'c & p coffee @ 5612 california sw, west seattle': { lat: 47.5516607, lng: -122.3866497 }, // C & P Coffee Company, 5612 California Ave SW, Seattle, WA
+  'cafe ladro, 8403 main street, edmonds, wa': { lat: 47.8079939, lng: -122.3475204 }, // Cafe Ladro, 8403 Main St, Edmonds, WA
+  'castle climbing club, castle climbing club seattle, wa, seattle, washington, 98199': { lat: 47.545665, lng: -122.345514 }, // Castle Climbing Club, Seattle, WA
+  'center for active living @ 4217 sw oregon, west seattle': { lat: 47.5626534, lng: -122.3862787 }, // 4217 SW Oregon St, Seattle, WA
+  'chainline brewing company taproom at urban, 500 uptown ct suite 210, kirkland, wa 98033, usa': { lat: 47.6779107, lng: -122.1986062 }, // same Kirkland Urban complex as the existing "kirkland urban" entry below; 500 Uptown Ct has no individual Nominatim POI
+  'chief sealth ihs @ 2600 sw thistle, west seattle': { lat: 47.53017, lng: -122.3663877 }, // Chief Sealth International High School, 2600 SW Thistle St, Seattle, WA
+  'chinese reconciliation park, 1741 n. schuster parkway, tacoma, wa, 98402': { lat: 47.2746588, lng: -122.459626 }, // Chinese Reconciliation Park, Tacoma, WA
+  'city hall north, 15720 main street, 15728 main st, mill creek, wa': { lat: 47.855002, lng: -122.2219853 }, // Mill Creek City Hall, 15720 Main St, Mill Creek, WA
+  'clincal performance lab, suite 410': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'collector\'s corner nw (bellevue), 661 120th ave ne b15, bellevue, wa': { lat: 47.6159044, lng: -122.180816 }, // 661 120th Ave NE, Bellevue, WA
+  'columbia city night market rainier ave s & s edmunds st, seattle, wa 98118, usa': { lat: 47.5589037, lng: -122.2854783 }, // Rainier Ave S & S Edmunds St, Seattle, WA
+  'columns and sylvan theater (lndmk-4)': { lat: 47.6481, lng: -122.3006 }, // UW campus landmark LNDMK-4; Wikipedia-cited DMS coords for Sylvan Grove Theater and Columns (47°38'53"N 122°18'2"W), no direct Nominatim POI
+  'common house at puget ridge cohousing @ 7020 18th sw, west seattle': { lat: 47.5399228, lng: -122.3568351 }, // 7020 18th Ave SW, Seattle, WA
+  'communications building (cmu)': { lat: 47.6569564, lng: -122.3053803 }, // 4109 E Stevens Way NE, Seattle, WA
+  'crystal ballroom, seattle, wa': { lat: 47.6097167, lng: -122.3336001 }, // 1325 6th Ave, Seattle, WA
+  'dave & buster\'s auburn': { lat: 47.2996925, lng: -122.2435077 }, // Dave & Buster's, Auburn, WA
+  'daybreak star indian cultural center, in discovery park, 5011 bernie whitebear way, seattle, wa 98199': { lat: 47.6679292, lng: -122.4180263 }, // Daybreak Star Indian Cultural Center, Seattle, WA
+  'dick\'s sporting goods park, 6000 victory way, commerce city, colorado, usa': { lat: 39.8059455, lng: -104.8919219 }, // Dick's Sporting Goods Park, Commerce City, CO
+  'edgeworks climbing tacoma, 6102 north 9th street, tacoma, washington, 98406': { lat: 47.2572151, lng: -122.519502 }, // Edgeworks Climbing, 6102 N 9th St, Tacoma, WA
+  'edward d. hansen conference center, 2000 hewitt ave, everett, wa, 98201': { lat: 47.9785953, lng: -122.203016 }, // 2000 Hewitt Ave, Everett, WA
+  'elliott bay brewing @ 4720 california sw, west seattle': { lat: 47.5604072, lng: -122.3865765 }, // 4720 California Ave SW, Seattle, WA
+  'endurance climbing gym, endurance climbing gym burlington, wa, lynnwood, washington, 98087': { lat: 48.4562469, lng: -122.3318374 }, // 1625 S Walnut St, Burlington, WA
+  'enumclaw farmers market 1600, 1600 1st street, enumclaw, wa, enumclaw, wa, united states': { lat: 47.2035942, lng: -121.9866962 }, // 1600 1st St, Enumclaw, WA
+  'everybody\'s brewing, 177 e jewett blvd, white salmon, wa 98672, usa': { lat: 45.7272997, lng: -121.485299 }, // Everybody's Brewing, 177 E Jewett Blvd, White Salmon, WA
+  'fauntleroy church @ 9140 california sw, west seattle': { lat: 47.5210606, lng: -122.3870664 }, // Fauntleroy Church, 9140 California Ave SW, Seattle, WA
+  'faye g. allen grand atrium, mohai 860 terry ave n, seattle, wa, 98109, united states': { lat: 47.6275114, lng: -122.3367506 }, // MOHAI, 860 Terry Ave N, Seattle, WA
+  'fremont neighborhood businesses, seattle, wa 98103': { lat: 47.6504529, lng: -122.3499861 }, // Fremont, Seattle, WA
+  'fremont sunday market, fremont sunday market under the bridge, 701 n, northlake way, seattle, wa 98103, seattle, wa, 98103, united states': { lat: 47.6486539, lng: -122.3495489 }, // 701 N Northlake Way, Seattle, WA
+  'fremont troll, north 36th street, troll ave n, seattle, wa 98103': { lat: 47.6510483, lng: -122.347234 }, // Fremont Troll, Seattle, WA
+  'gallaghers where u brew, 180 w dayton st., suite 105, edmonds, washington 98020, united states': { lat: 47.8089416, lng: -122.3867089 }, // 180 W Dayton St, Edmonds, WA
+  'gallery b612: pioneer square, 1915 1st ave south': { lat: 47.5854742, lng: -122.334488 }, // 1915 1st Ave S, Seattle, WA
+  'good shepherd center, seattle , 4649 sunnyside avenue north, seattle, washington, 98103': { lat: 47.6642701, lng: -122.3311925 }, // Good Shepherd Center, 4649 Sunnyside Ave N, Seattle, WA
+  'grace church @ 10323 28th sw, west seattle': { lat: 47.5103603, lng: -122.369159 }, // 10323 28th Ave SW, Seattle, WA
+  'greenwood masonic temple, seattle, wa': { lat: 47.6866763, lng: -122.3549383 }, // 7910 Greenwood Ave N, Seattle, WA
+  'harding 141': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'heirloom east bay, 9990 crow canyon road, castro valley, ca, 94552': { lat: 37.7016303, lng: -122.0535589 }, // 9990 Crow Canyon Rd, Castro Valley, CA
+  'henry art gallery, 15th ave ne & 41st st, seattle, wa': { lat: 47.6565246, lng: -122.3117328 }, // Henry Art Gallery, Seattle, WA
+  'high point library @ 3411 sw raymond, west seattle': { lat: 47.5480967, lng: -122.375868 }, // High Point Library, 3411 SW Raymond St, Seattle, WA
+  'high point library @ `3411 sw raymond, west seattle': { lat: 47.5480967, lng: -122.375868 }, // High Point Library, 3411 SW Raymond St, Seattle, WA
+  'highland park corner store @ 7789 highland park way sw, west seattle': { lat: 47.5321137, lng: -122.347104 }, // 7789 Highland Park Way SW, Seattle, WA
+  'historic edmonds opera house, 515 dayton st, edmonds, wa 98020, usa': { lat: 47.809887, lng: -122.3768215 }, // 515 Dayton St, Edmonds, WA
+  'holocaust center for humanity, 2045 2nd avenue seattle, wa 98121, seattle, washington, 98121, united states': { lat: 47.6120245, lng: -122.3424302 }, // 2045 2nd Ave, Seattle, WA
+  'hotel murano, 1320 broadway, tacoma, wa, 98402': { lat: 47.2504627, lng: -122.4402694 }, // Hotel Murano, 1320 Broadway, Tacoma, WA
+  'industrious, 4311 11th avenue northeast #5th floor, seattle, wa, 98105, united states': { lat: 47.6605235, lng: -122.3169394 }, // 4311 11th Ave NE, Seattle, WA
+  'inner alchemy sanctuary & studio @ 3618 sw alaska, west seattle': { lat: 47.5612838, lng: -122.3782993 }, // 3618 SW Alaska St, Seattle, WA
+  'inner alchemy treasures & transformation shop @ 4312 sw oregon, west seattle': { lat: 47.5630568, lng: -122.3873826 }, // 4312 SW Oregon St, Seattle, WA
+  'itsumono, south jackson street, seattle, wa, usa': { lat: 47.599351, lng: -122.3258497 }, // 610 S Jackson St, Seattle, WA
+  // Reused from the venue's own dedicated source (already forward-geocoded and
+  // committed there): 19hz lists this venue by bare name only, with no address,
+  // which is why it separately misses here.
+  'neptune theatre': { lat: 47.6608, lng: -122.3133 }, // sources/stg/ripper.yaml stg-neptune calendar — 1303 NE 45th St, Seattle, WA 98105
+  // Reused from sources/recurring/dance-underground.yaml (same venue, already
+  // forward-geocoded and verified there); danceus_tango lists it by bare name only.
+  'dance underground, seattle, wa': { lat: 47.6213759, lng: -122.3145606 }, // 340 14th Ave E, Seattle, WA 98112
+  // Reused from sources/recurring/jazztime-seattle-thursday-night-swing.yaml
+  // (same venue, already forward-geocoded and verified there); danceus_swing
+  // lists it by bare name only. Note the literal en dash (–) in the source string.
+  'jazztime seattle – the studio, seattle, wa': { lat: 47.6719513, lng: -122.292971 }, // 5751 33rd Ave NE, Seattle, WA 98105
+  'jack hyde park -  2000 ruston way tacoma, wa': { lat: 47.274448, lng: -122.46041 }, // 2000 Ruston Way, Tacoma, WA
+  'jack sprat, 2808 calder ave ne on, ne turing st, redmond, wa 98052, usa': { lat: 47.6348113, lng: -122.1348121 }, // 2808 NE Turing St, Redmond, WA
+  'john c. little, sr. park plaza 6961 37th ave s, seattle, wa': { lat: 47.5399358, lng: -122.2884337 }, // coords embedded in the source's own Google Maps link (external-350-seattle), no reverse-geocoding involved
+  'joshua green foundation theater, mohai 860 terry ave n, seattle, wa, 98109, united states': { lat: 47.6275114, lng: -122.3367506 }, // MOHAI, 860 Terry Ave N, Seattle, WA
+  'kenyon hall @ 7904 35th sw, west seattle': { lat: 47.5316606, lng: -122.3761768 }, // Kenyon Hall, 7904 35th Ave SW, Seattle, WA
+  'kikaha - 1930 east d street,  tacoma, wa. 98093': { lat: 47.2448704, lng: -122.4310072 }, // 1930 E D St, Tacoma, WA
+  'kirkland police department, kirkland, wa': { lat: 47.7069031, lng: -122.1849156 }, // 11750 NE 118th St, Kirkland, WA
+  'kirkland urban, 425 urban plz ste, kirkland, wa': { lat: 47.6779107, lng: -122.1986062 }, // Kirkland Urban, 425 Urban Plaza, Kirkland, WA
+  'kubota foundation - 10915 51st ave s, tukwila, wa 98178': { lat: 47.5045558, lng: -122.2704968 }, // 10915 51st Ave S, Tukwila, WA
+  'lake city court community room &amp; courtyard (12536 33rd ave ne, seattle, wa 98125': { lat: 47.7202563, lng: -122.2917911 }, // 12536 33rd Ave NE, Seattle, WA
+  'lavida dance studio, 11961 124th ave ne, totem square plaza, kirkland, wa, 98034, united states': { lat: 47.7061384, lng: -122.1776819 }, // 11961 124th Ave NE, Kirkland, WA
+  'leml 351': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'lumberyard bar': { lat: 47.5165204, lng: -122.354974 }, // 9630 16th Ave SW, Seattle, WA
+  'lynnwood event center, 3711 196th st sw, lynnwood, wa, 98036': { lat: 47.8214542, lng: -122.2837643 }, // Lynnwood Event Center, 3711 196th St SW, Lynnwood, WA
+  'lynnwood library, 19200 44th ave w, lynnwood, wa': { lat: 47.8241522, lng: -122.2931896 }, // 19200 44th Ave W, Lynnwood, WA
+  'machinists union hall @ 9125 15th place s., south park': { lat: 47.5216716, lng: -122.3142078 }, // 9125 15th Pl S, Seattle, WA
+  'magnuson park building 30': { lat: 47.682846, lng: -122.260988 }, // same historic Navy hangar as the existing "hangar 30 at magnuson park" entry
+  'mama be well healing studio @ 4034 california sw, west seattle': { lat: 47.5672386, lng: -122.3865543 }, // 4034 California Ave SW, Seattle, WA
+  'matthew knight arena, seattle, wa': { lat: 44.0448264, lng: -123.0663684 }, // Matthew Knight Arena, Eugene, OR
+  'mcmenamins olympic club, 112 n tower ave, centralia, wa 98531, usa': { lat: 46.7167828, lng: -122.953939 }, // McMenamins Olympic Club, 112 N Tower Ave, Centralia, WA
+  'media production center - imac stations': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'microsoft lakefront pavilion, mohai - 860 terry ave n, seattle, wa, 98109, united states': { lat: 47.6275114, lng: -122.3367506 }, // MOHAI, 860 Terry Ave N, Seattle, WA
+  'mill creek city hall north, 15720 main st, mill creek, wa': { lat: 47.855002, lng: -122.2219853 }, // Mill Creek City Hall, 15720 Main St, Mill Creek, WA
+  'mirkwood public house': { lat: 48.198972, lng: -122.1262542 }, // 117 E Division St, Arlington, WA
+  'mission cantina @ 2325 california sw, west seattle': { lat: 47.5822532, lng: -122.386715 }, // 2325 California Ave SW, Seattle, WA
+  'montlake, washington - this is the info table - sellers are all over montlake neighborhood!, 2305 24th ave e, seattle, wa': { lat: 47.6397008, lng: -122.3023474 }, // 2305 24th Ave E, Seattle, WA
+  'museum of glass gift shop, 1801 dock st, tacoma, wa, 98402, united states': { lat: 47.2458241, lng: -122.4338197 }, // Museum of Glass, 1801 Dock St, Tacoma, WA
+  'mystic mvmt, 619 4th street, bremerton, wa, 98337': { lat: 47.5656679, lng: -122.6288084 }, // 619 4th St, Bremerton, WA
+  'north seatac park & ball fields, des moines memorial drive south and, s 136th st, seatac, wa 98168, usa': { lat: 47.4848071, lng: -122.3097222 }, // North SeaTac Park, SeaTac, WA
+  'north seattle college, education bldg (9600 college way n, seattle, wa 98103), 9600 college way n, seattle, wa, 98103, united states': { lat: 47.6987081, lng: -122.3325518 }, // North Seattle College, 9600 College Way N, Seattle, WA
+  'northwest art alliance, 665 po box, clinton, wa 98236': { lat: 47.9756209, lng: -122.3465929 }, // Clinton, WA
+  'northwestern medicine field at martin stadium, 2235 campus drive, evanston, illinois, usa': { lat: 42.0584391, lng: -87.6707922 }, // Martin Stadium, Evanston, IL
+  'odd otter, 716 pacific avenue, tacoma, wa, 98402': { lat: 47.2566804, lng: -122.4396535 }, // 716 Pacific Ave, Tacoma, WA
+  'olympic hall, room 100, south seattle college,6000 16th ave sw. seattle, wa 98106': { lat: 47.5481933, lng: -122.3523391 }, // South Seattle College, 6000 16th Ave SW, Seattle, WA
+  'pacific science center, 200 second avenue north, seattle, wa, 98109, united states': { lat: 47.6194061, lng: -122.350778 }, // Pacific Science Center, 200 2nd Ave N, Seattle, WA
+  'peaks & pints tacoma craft beer bar, bottle shop & restaurant, 3816 n 26th st b, tacoma, wa 98407, usa': { lat: 47.270757, lng: -122.48821 }, // 3816 N 26th St, Tacoma, WA
+  'phinney center concert hall, brick building, 6532 phinney ave n, seattle': { lat: 47.6797, lng: -122.3549 }, // same Phinney Neighborhood Center building as the existing phinney center campus entries below
+  'phinney neighborhood association - community hall (brick building)': { lat: 47.6797, lng: -122.3549 }, // same Phinney Neighborhood Center building as the existing phinney center campus entries below
+  'phinney neighborhood association - room 7 (blue building, upper floor)': { lat: 47.6797, lng: -122.3549 }, // same Phinney Neighborhood Center building as the existing phinney center campus entries below
+  'phinney neighborhood center: 6532 phinney ave. n, seattle 98103 lower brick building / community hall, 6532 phinney ave n, seattle, 98103, united states': { lat: 47.6797, lng: -122.3549 }, // same Phinney Neighborhood Center building as the existing phinney center campus entries below
+  'pinnacle beerworks, 18 n mission st, wenatchee, wa 98801, usa': { lat: 47.4248498, lng: -120.3137088 }, // 18 N Mission St, Wenatchee, WA
+  'podcast studio (leml 116)': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'port of seattle terminal 5, seattle, wa': { lat: 47.5722691, lng: -122.3641991 }, // 3443 West Marginal Way SW, Seattle, WA
+  'private: garfield high school, 400 23rd ave,, seattle, wa, 98122, united states': { lat: 47.6055267, lng: -122.3012677 }, // Garfield High School, 400 23rd Ave, Seattle, WA
+  'pybus public market, 3 n worthen st, wenatchee, wa 98801, usa': { lat: 47.4252414, lng: -120.3072779 }, // Pybus Public Market, 3 N Worthen St, Wenatchee, WA
+  'renegade craft @ , seattle center exhibition hall, 301 mercer st., seattle, wa 98109': { lat: 47.623953, lng: -122.3514885 }, // Seattle Center Exhibition Hall, 301 Mercer St, Seattle, WA
+  'renegade craft @, hangar 30 @ magnuson park, 6310 ne 74th st., seattle, wa 98115': { lat: 47.682846, lng: -122.260988 }, // same historic Navy hangar as the existing "hangar 30 at magnuson park" entry
+  'rice university, 6100 main st, houston, tx 77005, usa': { lat: 29.7167915, lng: -95.4047811 }, // Rice University, Houston, TX
+  'roberto maestas festival street, 1660 s roberto maestas festival st, seattle, wa 98144, seattle, wa, 98144, united states': { lat: 47.5795518, lng: -122.3113214 }, // 1660 S Roberto Maestas Festival St, Seattle, WA
+  'schack art center, 2921 hoyt ave, everett, wa 98201': { lat: 47.9786093, lng: -122.209672 }, // Schack Art Center, 2921 Hoyt Ave, Everett, WA
+  'schack art center, 2921 hoyt avenue, everett, wa, 98201, united states': { lat: 47.9786093, lng: -122.209672 }, // Schack Art Center, 2921 Hoyt Ave, Everett, WA
+  'screening room (leml 111)': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'seattle aquarium, 1483 alaskan way, pier 59, seattle, wa': { lat: 47.6076, lng: -122.3432 }, // same venue as the existing seattle aquarium entry (different punctuation variant)
+  'seattle changing room, seattle, wa': { lat: 47.6386053, lng: -122.34052 }, // 2110 Westlake Ave N, Seattle, WA
+  'seattle children’s research institute, seattle, wa, united states': { lat: 47.6161042, lng: -122.3347007 }, // 1900 9th Ave, Seattle, WA
+  'seattle university casey building, casey commons (5th floor casey building)': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'skagit county fairgrounds, 479 w taylor st, mount vernon, wa, 98273': { lat: 48.4081451, lng: -122.3401183 }, // Skagit County Fairgrounds, Mount Vernon, WA
+  'skylark café & club @ 3803 delridge way sw, seattle, wa 98106, usa': { lat: 47.5700038, lng: -122.3625235 }, // 3803 Delridge Way SW, Seattle, WA
+  'sober af zero proof bottle shop, 5222 south tacoma way, tacoma, washington, 98409': { lat: 47.2089623, lng: -122.4841504 }, // 5222 S Tacoma Way, Tacoma, WA
+  'solstice park @ 7400 fauntleroy way sw, west seattle': { lat: 47.536859, lng: -122.39188 }, // 7400 Fauntleroy Way SW, Seattle, WA
+  'space needle park': { lat: 47.6205131, lng: -122.3493036 }, // Space Needle, Seattle, WA
+  'st. john the baptist episcopal church @ 3050 california sw, west seattle': { lat: 47.575874, lng: -122.3861912 }, // 3050 California Ave SW, Seattle, WA
+  'stack family lakeview terrace, mohai 860 terry ave n, seattle, wa, 98109, united states': { lat: 47.6275114, lng: -122.3367506 }, // MOHAI, 860 Terry Ave N, Seattle, WA
+  'stan sayres -  3808 lake washington blvd s, seattle, wa 98118': { lat: 47.5701091, lng: -122.2774992 }, // 3808 Lake Washington Blvd S, Seattle, WA
+  'stanford school of business, 645 knight way, stanford, ca 94305, usa': { lat: 37.4285388, lng: -122.1622184 }, // 645 Knight Way, Stanford, CA
+  'stroum jewish community center, 3810 e mercer way, seattle, washington, 98040, united states': { lat: 47.5755543, lng: -122.2082835 }, // Stroum Jewish Community Center, 3810 E Mercer Way, Mercer Island, WA
+  'studio/control room (leml 108/109)': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'sullivan hall, c5': { lat: 47.6106523, lng: -122.317137 }, // 901 12th Ave, Seattle, WA
+  'tacoma art museum, 1701 pacific ave, tacoma, wa 98402': { lat: 47.2476026, lng: -122.4366494 }, // Tacoma Art Museum, 1701 Pacific Ave, Tacoma, WA
+  'tacoma art museum, 1701 pacific avenue, tacoma, wa, 98402, united states': { lat: 47.2476026, lng: -122.4366494 }, // Tacoma Art Museum, 1701 Pacific Ave, Tacoma, WA
+  'the church of jesus christ of latter-day saints, 200 south 177th place, seattle, wa': { lat: 47.4445163, lng: -122.3321367 }, // 200 S 177th Pl, Burien, WA
+  'the great hall, 1119 eighth avenue (enter on eighth avenue), seattle, 98101, united states': { lat: 47.6090191, lng: -122.3299377 }, // Town Hall Seattle, 1119 8th Ave, Seattle, WA
+  'the kenney @ 7125 fauntleroy way sw, west seattle': { lat: 47.5385971, lng: -122.3915594 }, // 7125 Fauntleroy Way SW, Seattle, WA
+  'the liberal arts quadrangle - the quad (lndmk-1)': { lat: 47.6572845, lng: -122.3072131 }, // UW campus landmark LNDMK-1 (hyphen variant)
+  'the liberal arts quadrangle – the quad (lndmk-1)': { lat: 47.6572845, lng: -122.3072131 }, // UW campus landmark LNDMK-1
+  'the masonic temple (greenwood hall), seattle, wa': { lat: 47.6866763, lng: -122.3549383 }, // 7910 Greenwood Ave N, Seattle, WA
+  'the masonic temple (lodge), seattle, wa': { lat: 47.6866763, lng: -122.3549383 }, // 7910 Greenwood Ave N, Seattle, WA
+  'the mount @ 4831 35th sw, west seattle': { lat: 47.5583785, lng: -122.3774153 }, // 4831 35th Ave SW, Seattle, WA
+  'the skylark @ 3803 delridge way sw, seattle, wa 98106, usa': { lat: 47.5700038, lng: -122.3625235 }, // 3803 Delridge Way SW, Seattle, WA
+  'the skylark @ 3803 delridge way sw, west seattle': { lat: 47.5700038, lng: -122.3625235 }, // 3803 Delridge Way SW, Seattle, WA
+  'the wyncote nw forum, 1119 8th ave (entrance off seneca st.), seattle, 98101, united states': { lat: 47.6090191, lng: -122.3299377 }, // Town Hall Seattle, 1119 8th Ave, Seattle, WA
+  'town hall seattle, 1119 8th ave (entrance off seneca st.) , seattle, wa  98101': { lat: 47.6090191, lng: -122.3299377 }, // Town Hall Seattle, 1119 8th Ave, Seattle, WA
+  'traver gallery, 1100 w. ewing street suite 160, seattle, 98119, 98119, united states': { lat: 47.6567842, lng: -122.3703778 }, // 1100 W Ewing St, Seattle, WA
+  'u-neek and crucible brewing company, 909 se everett mall way suite d440, everett, wa 98208, usa': { lat: 47.9110703, lng: -122.2201455 }, // 909 SE Everett Mall Way, Everett, WA
+  'unexpected productions, 1428 post alley at the gum wall in pike place market, seattle, wa, 98101, united states': { lat: 47.608338, lng: -122.340263 }, // 1428 Post Alley, Seattle, WA
+  'usc marshall school of business, , usc hotel, 3540 s figueroa st, los angeles, ca 90007, usa': { lat: 34.0186312, lng: -118.2819594 }, // 3540 S Figueroa St, Los Angeles, CA
+  'vfw hall @ 3601 sw alaska, west seattle': { lat: 47.5608882, lng: -122.3778724 }, // 3601 SW Alaska St, Seattle, WA
+  'vibe coworks, 19225 8th avenue northeast, #201, poulsbo, wa': { lat: 47.7375481, lng: -122.6394761 }, // 19225 8th Ave NE, Poulsbo, WA
+  'view ridge neighborhood, seattle, washington, 98115': { lat: 47.6795427, lng: -122.2740144 }, // View Ridge, Seattle, WA
+  'village green west seattle @ 2615 sw barton, west seattle': { lat: 47.5207039, lng: -122.3670332 }, // 2615 SW Barton St, Seattle, WA
+  'west seattle (admiral) library @ 2306 42nd sw, west seattle': { lat: 47.5827314, lng: -122.3847038 }, // 2306 42nd Ave SW, Seattle, WA
+  'west seattle coworking @ 9030 35th sw, west seattle': { lat: 47.5217961, lng: -122.3763514 }, // 9030 35th Ave SW, Seattle, WA
+  'west seattle eagles banquet room @ 4426 california sw, west seattle': { lat: 47.5638301, lng: -122.3865617 }, // 4426 California Ave SW, Seattle, WA
+  'west seattle junction @ california ave sw & sw alaska st, seattle, wa 98116, usa': { lat: 47.5612096, lng: -122.3871937 }, // California Ave SW & SW Alaska St, Seattle, WA
+  'westside unitarian universalist congregation @ 7141 california sw, west seattle': { lat: 47.5386409, lng: -122.3876755 }, // 7141 California Ave SW, Seattle, WA
+  'white center hub @ 8th sw & sw 108th, white center': { lat: 47.5066566, lng: -122.344322 }, // 8th Ave SW & SW 108th St, White Center, WA
+  'william h. foege genome sciences (gnom)': { lat: 47.651867, lng: -122.3132345 }, // 3720 15th Ave NE, Seattle, WA
+  'wing luke museum, 719 south king street, se, wa, 98104': { lat: 47.5982461, lng: -122.3228705 }, // Wing Luke Museum, 719 S King St, Seattle, WA
+  'ws golf course @ 4470 35th sw, west seattle': { lat: 47.5621733, lng: -122.3728582 }, // 4470 35th Ave SW, Seattle, WA
+  'wsu campus, 205 e spokane falls blvd, spokane, wa, 99202, united states': { lat: 47.6604773, lng: -117.4065903 }, // 205 E Spokane Falls Blvd, Spokane, WA
+  'youngstown cultural arts center @ 4408 delridge way sw, west seattle': { lat: 47.5635848, lng: -122.3630355 }, // Youngstown Cultural Arts Center, 4408 Delridge Way SW, Seattle, WA
 };
 
 /**
