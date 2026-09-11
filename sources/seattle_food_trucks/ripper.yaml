@@ -189,6 +189,8 @@ calendars:
       lng: -122.32871
       label: "6100 4th Ave S, Seattle, WA 98108"
       osmChecked: 2026-07-12
+      osmType: way
+      osmId: 231288121
   - name: kaiser-permanente-northgate
     friendlyname: "Food Trucks @ Kaiser Permanente - Northgate"
     timezone: America/Los_Angeles
