@@ -1,0 +1,21 @@
+# verified: 2026-09-11 ok
+geo:
+  lat: 47.5626236
+  lng: -122.3869793
+  label: "The Alley, 4509 California Ave SW, Seattle, WA 98116"
+name: the-alley-sunday-jazz
+sourceRole: venue
+friendlyname: Sunday Night Jazz at The Alley
+description: Live jazz every Sunday evening at this intimate West Seattle wine bar, currently featuring the DLux Jazz Trio with a rotating lineup of local musicians. No cover.
+timezone: America/Los_Angeles
+location: "4509 California Ave SW, Seattle, WA 98116"
+url: https://thealleyws.com/resident-bands
+imageUrl: "https://img1.wsimg.com/isteam/ip/d4433523-7a92-4110-9d8a-ba8eba0e1f15/Alley%20Backdrop.png"
+tags:
+  - Music
+  - "West Seattle"
+cost: free
+schedules:
+  - schedule: every Sunday
+    start_time: "20:00"
+    duration: PT2H
