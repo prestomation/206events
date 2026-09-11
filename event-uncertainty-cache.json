@@ -77142,9 +77142,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://madrona.us/wp-content/uploads/2023/08/cropped-cropped-newnotreelogoroy.png"
       },
-      "resolvedAt": "2026-09-10",
+      "resolvedAt": "2026-09-11",
       "source": "agent",
       "evidence": "https://madrona.us/monthlymeetings/"
     },
@@ -81101,6 +81102,46 @@
       "resolvedAt": "2026-09-10",
       "source": "agent",
       "evidence": "https://www.seattle.gov/parks/find/parks/west-seattle-golf-course"
+    },
+    "discover-slu:discover-slu-ube-2": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/ube-2/"
+    },
+    "discover-slu:discover-slu-halloween-pet-portraits-3-2": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/halloween-pet-portraits-3-2/"
+    },
+    "seattle-artist-league:no-tears-critique-saturday-morning-begins-10-3": {
+      "fields": {
+        "startTime": "10:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartistleague.com/art-classes/no-tears-critique-saturday-morning-begins-10-3/"
+    },
+    "seattle-artist-league:free-pet-painting-drawing-workshop-w-ruthie-v-merle-sunday-afternoon-8-23": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-11",
+      "source": "agent",
+      "evidence": "https://www.seattleartistleague.com/art-classes/free-pet-painting-drawing-workshop-w-ruthie-v-merle-sunday-afternoon-8-23/"
+    },
+    "danceus-swing:danceus-1788243418450359-2026-09-08": {
+      "unresolvable": true,
+      "reason": "Source page (danceus.org) shows placeholder time 12am-11:59pm; actual Tuesday class time not listed on the page",
+      "resolvedAt": "2026-09-11",
+      "source": "agent"
     }
   }
 }
