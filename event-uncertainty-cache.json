@@ -81139,6 +81139,7 @@
     },
     "danceus-swing:danceus-1788243418450359-2026-09-08": {
       "unresolvable": true,
+      "reason": "Source page (danceus.org) shows placeholder time 12am-11:59pm; actual Tuesday class time not listed on the page",
       "resolvedAt": "2026-09-11",
       "source": "agent"
     }
