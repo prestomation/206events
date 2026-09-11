@@ -48,6 +48,8 @@ calendars:
       lng: -122.33699
       label: "401 Pine St, Seattle, WA 98101"
       osmChecked: 2026-07-12
+      osmType: node
+      osmId: 3211770170
   - name: mcgraw-square
     friendlyname: "Food Trucks @ McGraw Square"
     timezone: America/Los_Angeles
