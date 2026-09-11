@@ -7,6 +7,10 @@ weatherSetting: "mixed"
 geo: null
 # Event pages on thecraftmap.com show only a generic site logo, no per-event images
 skipEventPhotos: true
+# Sampled 5/5 listed fairs (flea markets, art walks, makers markets) — all
+# explicitly free entry ("FREE ENTRY", "NO COVER", or described as a free
+# community gathering). No per-event price ever observed; treat as uniform.
+cost: free
 tags: ["MakersMarket"]
 calendars:
   - name: craft-map-seattle
