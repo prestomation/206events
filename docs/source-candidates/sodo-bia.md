@@ -1,6 +1,6 @@
 ---
 name: "SODO Business Improvement Area (SODO BIA)"
-status: candidate
+status: blocked
 platform: WordPress / The Events Calendar (Tribe Events) — ICS export
 url: https://sodoseattle.org/events/
 tags: [Community, "SoDo"]
@@ -66,7 +66,14 @@ isn't stageable yet — leaving as `candidate` rather than opening a
 `requires-proxy-testing` PR. Deprioritized again this cycle in favor of
 Saltstone Ceramics (unblocked, PR pending).
 
-Re-checked 2026-09-11: still blocked — the ICS URL 302/meta-refreshes to
-`/.well-known/sgcaptcha/` (HTTP 202, empty body) even with the project's
-standard UA. Not stageable (blocked even locally, not just from CI). No
-change.
+Re-checked 2026-09-11: still blocked — the ICS URL returns HTTP 202 with
+an HTML meta-refresh redirecting to `/.well-known/sgcaptcha/`, same
+SiteGround JS-challenge symptom as prior checks (the exact status code
+has varied across checks — 202 on 2026-08-05, 403 on 2026-08-11, 202
+again today — but the sgcaptcha challenge itself has been consistent
+every time since 2026-08-05). Three consecutive checks (08-05, 08-11,
+09-11) now show this blocked even from this environment, not just CI,
+which is the README's definition of `blocked` rather than `candidate` —
+flipping `status:` accordingly. Not stageable for `requires-proxy-testing`
+per source-discovery's own rules (a source blocked even locally isn't
+stageable); would need a fresh look if the WAF rule ever lifts.

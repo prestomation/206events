@@ -14,6 +14,16 @@ arts organizations** — SAM, STG (Paramount/Moore/Neptune), museums,
 theaters, dance, film, comedy, etc. across the city (28-50 events/day
 in the September 2026 view).
 
+**Previously evaluated** in `docs/discovery-log/2026-04-23.md` (before
+the per-candidate-file system existed, so no file was created then):
+`❌ Not Viable: TeenTix — Aggregator/calendar at teentix.org/calendar.
+No public ICS feed. Would need custom scraper.` This is the first
+per-candidate file for it — reopening as `investigating` rather than
+re-closing as `notviable` because this pass narrowed the gap further
+(confirmed the exact platform and that per-day event detail may exist
+behind a not-yet-located endpoint) without fully resolving it either
+way; see below.
+
 Investigated 2026-09-11:
 - Site runs on Craft CMS (`cdn.craft.cloud` asset URLs, `SEOmatic`
   generator meta tag), not WordPress/Squarespace/Tribe/Eventbrite.
