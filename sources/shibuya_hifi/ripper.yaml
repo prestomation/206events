@@ -1,4 +1,5 @@
 name: shibuya-hifi
+proxy: "outofband"
 sourceRole: venue
 description: "Shibuya Hifi"
 url: "https://www.shibuyahifi.com/event-pages-sitemap.xml"
