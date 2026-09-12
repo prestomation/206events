@@ -81705,7 +81705,7 @@
       },
       "resolvedAt": "2026-09-12",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-12-11-2026/event/0F006320B1A55F22"
+      "evidence": "https://www.ticketmaster.com/the-hip-hop-nutcracker-featuring-kurtis-seattle-washington-12-11-2026/event/0F0064C8F4D40FA5"
     },
     "stg:tm-vvG1HZ_GNVgZXP": {
       "fields": {
@@ -81714,7 +81714,8 @@
         }
       },
       "resolvedAt": "2026-09-12",
-      "source": "agent"
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-hip-hop-nutcracker-featuring-kurtis-seattle-washington-12-12-2026/event/0F0064C8F4D90FAB"
     },
     "stg:tm-vvG1HZ_FnsSQsW": {
       "fields": {
@@ -81723,7 +81724,8 @@
         }
       },
       "resolvedAt": "2026-09-12",
-      "source": "agent"
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-pineapple-thief-far-and-wide-seattle-washington-12-11-2026/event/0F00648AB1CDAC7D"
     },
     "t-mobile-park:tm-vvG1HZ_7HoIcf_": {
       "unresolvable": true,
