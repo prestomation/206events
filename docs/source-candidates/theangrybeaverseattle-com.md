@@ -6,7 +6,7 @@ url: https://theangrybeaverseattle.com/events
 tags: ["Nightlife", "Greenwood"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-12
-pr: TBD
+pr: 1455
 ---
 
 Neighborhood bar at 8412 Greenwood Ave N, Seattle (Greenwood), running
