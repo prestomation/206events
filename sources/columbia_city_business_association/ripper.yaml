@@ -1,0 +1,11 @@
+name: columbia-city-business-association
+sourceRole: aggregator
+description: "Columbia City Business Association"
+url: "https://columbiacityseattle.com/calendar"
+friendlyLink: https://columbiacityseattle.com/calendar
+tags: ["Community", "Columbia City"]
+geo: null
+calendars:
+  - name: columbia-city-business-association
+    friendlyname: "Columbia City Business Association"
+    timezone: America/Los_Angeles
