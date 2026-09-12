@@ -22004,6 +22004,76 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
       "note": "Same-source intra-source: seatoday puts events into multiple category calendars (all, food, sports, community). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics CLOUD TECTONICS|2026-09-25T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLOUD TECTONICS|2026-09-25T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-food.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+    },
+    "seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
     }
   }
 }
