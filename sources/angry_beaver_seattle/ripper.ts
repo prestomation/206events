@@ -1,6 +1,6 @@
 import { JSONRipper } from "../../lib/config/jsonscrapper.js";
 import { Duration, LocalDate, LocalTime, ZonedDateTime } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
+import { RipperEvent, RipperCalendarEvent, UncertaintyField } from "../../lib/config/schema.js";
 
 // The Angry Beaver (Greenwood) runs its event promos through SpotHopper, a
 // restaurant/bar marketing platform. Its public JSON API
@@ -62,9 +62,15 @@ export default class AngryBeaverSeattleRipper extends JSONRipper {
                 continue;
             }
 
-            const startTime = event.all_day || !event.start_time
+            // SpotHopper always sends start_time on every live event we've
+            // seen, but the field is optional in its schema. Rather than
+            // silently publishing a guessed midnight time as fact, flag it
+            // via the uncertainty system (see AGENTS.md "Event Uncertainty
+            // System") so the resolver can confirm the real time.
+            const timeUnknown = !event.all_day && !event.start_time;
+            const startTime = event.all_day || timeUnknown
                 ? LocalTime.MIDNIGHT
-                : LocalTime.parse(event.start_time);
+                : LocalTime.parse(event.start_time!);
             const duration = event.all_day
                 ? Duration.ofDays(1)
                 : Duration.ofMinutes(event.duration_minutes && event.duration_minutes > 0 ? event.duration_minutes : 60);
@@ -82,6 +88,17 @@ export default class AngryBeaverSeattleRipper extends JSONRipper {
             };
 
             events.push(calendarEvent);
+
+            if (timeUnknown) {
+                const unknownFields: UncertaintyField[] = ["startTime"];
+                events.push({
+                    type: "Uncertainty",
+                    reason: `SpotHopper event ${event.id} ("${event.name}") did not include a start_time`,
+                    source: "angry-beaver-seattle",
+                    unknownFields,
+                    event: calendarEvent,
+                });
+            }
         }
 
         return events;

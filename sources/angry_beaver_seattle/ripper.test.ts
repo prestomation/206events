@@ -116,14 +116,20 @@ describe('Angry Beaver Seattle Ripper', () => {
         expect(events[0].duration.toDays()).toBe(1);
     });
 
-    test('falls back to midnight when start_time is missing on a non-all_day event', async () => {
+    test('emits a placeholder midnight event plus an UncertaintyError when start_time is missing on a non-all_day event', async () => {
         const ripper = new AngryBeaverSeattleRipper();
         const jsonData = buildJsonData([MISSING_START_TIME]);
-        const events = await ripper.parseEvents(jsonData, testDate, {}) as RipperCalendarEvent[];
+        const events = await ripper.parseEvents(jsonData, testDate, {});
 
-        expect(events).toHaveLength(1);
-        expect(events[0].date.hour()).toBe(0);
-        expect(events[0].date.minute()).toBe(0);
+        const calendarEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        const uncertainties = events.filter(e => 'type' in e && (e as any).type === 'Uncertainty') as any[];
+        expect(calendarEvents).toHaveLength(1);
+        expect(calendarEvents[0].date.hour()).toBe(0);
+        expect(calendarEvents[0].date.minute()).toBe(0);
+        expect(uncertainties).toHaveLength(1);
+        expect(uncertainties[0].unknownFields).toEqual(['startTime']);
+        expect(uncertainties[0].source).toBe('angry-beaver-seattle');
+        expect(uncertainties[0].event.id).toBe(calendarEvents[0].id);
     });
 
     test('falls back to a 60-minute duration when duration_minutes is missing or zero', async () => {
