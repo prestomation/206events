@@ -21999,6 +21999,11 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-11",
       "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "seatoday-seatoday-all.ics Rosé & Heirlooms at Bar Dojo, Fire & the Feast, MARKET, and Salt & Iron|2026-09-14T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Rosé & Heirlooms at Bar Dojo, Fire & the Feast, MARKET, and Salt & Iron|2026-09-14T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Same-source intra-source: seatoday puts events into multiple category calendars (all, food, sports, community). Not a cross-source duplicate."
     }
   }
 }

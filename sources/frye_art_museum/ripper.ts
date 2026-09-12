@@ -224,6 +224,14 @@ export default class FryeArtMuseumRipper implements IRipper {
     }
 
     public parseDate(dateText: string): { year: number; month: number; day: number } | null {
+        // Handle ampersand date ranges: "September 19 & 20, 2026" → use start date (September 19, 2026)
+        const ampMatch = dateText.match(/^(\w+)\s+(\d{1,2})\s*&\s*\d{1,2},\s*(\d{4})$/);
+        if (ampMatch) {
+            const month = MONTHS[ampMatch[1]];
+            if (!month) return null;
+            return { year: parseInt(ampMatch[3], 10), month, day: parseInt(ampMatch[2], 10) };
+        }
+
         // Handle date ranges with en/em-dash: "June 5–June 7, 2026" → use start date (June 5, 2026)
         if (/[–—]/.test(dateText)) {
             const yearMatch = dateText.match(/(\d{4})/);

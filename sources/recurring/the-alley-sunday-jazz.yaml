@@ -3,6 +3,8 @@ geo:
   lat: 47.5626236
   lng: -122.3869793
   label: "The Alley, 4509 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 5829964363
 name: the-alley-sunday-jazz
 sourceRole: venue
 friendlyname: Sunday Night Jazz at The Alley
