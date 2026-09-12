@@ -1,0 +1,17 @@
+name: angry-beaver-seattle
+sourceRole: venue
+description: "The Angry Beaver"
+url: "https://www.spothopperapp.com/api/spots/67355/events"
+friendlyLink: https://theangrybeaverseattle.com/events
+tags: ["Nightlife"]
+geo:
+  lat: 47.6902592
+  lng: -122.3551066
+  label: "The Angry Beaver, 8412 Greenwood Ave N, Seattle, WA 98103"
+  osmType: node
+  osmId: 2131146507
+calendars:
+  - name: events
+    friendlyname: "The Angry Beaver"
+    timezone: America/Los_Angeles
+    tags: ["Greenwood"]
