@@ -259,11 +259,9 @@ export default class PikePlaceMarketRipper implements IRipper {
 
         const startDateStr = eventData['startDate'] as string | undefined;
         if (!startDateStr) {
-            return [{
-                type: "ParseError" as const,
-                reason: "No startDate in schema.org Event data",
-                context: url,
-            }];
+            // Recurring event pages sometimes show no concrete date between occurrences;
+            // skip silently the same way we skip past-dated events.
+            return [];
         }
 
         const title = this.decodeHtmlEntities((eventData['name'] as string | undefined)?.trim() || '');

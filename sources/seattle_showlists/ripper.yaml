@@ -298,6 +298,7 @@ calendars:
   # --- SoDo ---
   - name: the-mountain-room
     friendlyname: "The Mountain Room"
+    imageUrl: "https://static.wixstatic.com/media/2c42df_75dc3835ce554b76a61435e5739c3ed3~mv2.png"
     geo:
       lat: 47.5755
       lng: -122.3207
