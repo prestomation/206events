@@ -172,7 +172,7 @@ export default class BurkeMuseumRipper extends HTMLRipper {
                 // Skip events with vague/recurring dates we can't parse, and
                 // postponed events with no rescheduled date yet — neither has
                 // an actionable date, so a ParseError would just be noise.
-                if (/monthly event|see each.*listing|event is postponed/i.test(dateTimeText)) {
+                if (/monthly event|see each.*listing|event is postponed|please check each event/i.test(dateTimeText)) {
                     continue;
                 }
 

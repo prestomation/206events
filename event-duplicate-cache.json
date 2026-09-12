@@ -22005,75 +22005,130 @@
       "resolvedAt": "2026-09-12",
       "note": "Same-source intra-source: seatoday puts events into multiple category calendars (all, food, sports, community). Not a cross-source duplicate."
     },
+    "external-phinney-neighborhood-association.ics Farmers Market|2026-09-18T15:00:00-07:00[America/Los_Angeles]::recurring-phinney-farmers-market.ics Phinney Farmers Market|2026-09-18T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event: Phinney Farmers Market listed by both PNA and Seattle Farmers Markets org"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event: exact title+time match in city-wide and seatoday feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event in parks-recreation and seatoday feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-university.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event: exact title+time match in Seattle U and seatoday feeds"
+    },
+    "external-seattle-university.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event"
+    },
+    "external-seattle-university.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event"
+    },
+    "external-washington-beer-blog.ics Cider Summit Seattle 2026|2026-09-11T14:00:00-07:00[America/Los_Angeles]::seattle-humane-seattle-humane.ics Cider Summit|2026-09-11T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event at South Lake Union Discovery Center (0m); 1h time difference likely gates-open vs first-session"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-09-18T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-09-18T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event: free drag show at Unicorn 1118 E Pike St, listed by venue and queer-social-club"
+    },
     "seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics CLOUD TECTONICS|2026-09-25T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLOUD TECTONICS|2026-09-25T07:30:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
-    },
-    "seatoday-seatoday-all.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
-      "decision": "rejected",
-      "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-food.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     },
     "seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
-      "note": "Intra-source seatoday: same event appears in multiple category channels (all/food/community/sports/learning). Not a cross-source duplicate."
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     }
   }
 }

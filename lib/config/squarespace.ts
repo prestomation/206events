@@ -85,18 +85,28 @@ export class SquarespaceRipper implements IRipper {
         try {
             allEvents = await this.fetchUpcomingEvents(baseUrl);
         } catch (error) {
-            return ripper.config.calendars.map(c => ({
-                name: c.name,
-                friendlyname: c.friendlyname,
-                events: [],
-                errors: [{
-                    type: "ParseError" as const,
-                    reason: `Failed to fetch events from Squarespace: ${error}`,
-                    context: baseUrl.toString()
-                }],
-                parent: ripper.config,
-                tags: c.tags || []
-            }));
+            // A 404 on a source that is already expectEmpty means the events
+            // collection is gone (e.g. after a site restructure) — treat it
+            // the same as returning zero events so the parse-error count stays
+            // clean. For sources that should have events, keep surfacing the error.
+            const expectEmpty = ripper.config.expectEmpty ||
+                ripper.config.calendars.some(c => c.expectEmpty);
+            if (expectEmpty && error instanceof Error && error.message.startsWith('404')) {
+                allEvents = [];
+            } else {
+                return ripper.config.calendars.map(c => ({
+                    name: c.name,
+                    friendlyname: c.friendlyname,
+                    events: [],
+                    errors: [{
+                        type: "ParseError" as const,
+                        reason: `Failed to fetch events from Squarespace: ${error}`,
+                        context: baseUrl.toString()
+                    }],
+                    parent: ripper.config,
+                    tags: c.tags || []
+                }));
+            }
         }
 
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
