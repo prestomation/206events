@@ -1,0 +1,18 @@
+name: traveling-goat
+sourceRole: venue
+description: "The Traveling Goat"
+url: "https://www.travelinggoatseattle.com/events"
+friendlyLink: https://www.travelinggoatseattle.com/events
+imageUrl: "https://static.wixstatic.com/media/fd24f9_0f9a8f8bcced420fbc7ad220fc1bccfe~mv2.jpg"
+tags: ["Music", "Nightlife", "Trivia", "QueenAnne"]
+cost: free
+geo:
+  lat: 47.625159
+  lng: -122.3570891
+  label: "The Traveling Goat, 621 1/2 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: node
+  osmId: 2400860565
+calendars:
+  - name: all-events
+    friendlyname: "The Traveling Goat"
+    timezone: America/Los_Angeles

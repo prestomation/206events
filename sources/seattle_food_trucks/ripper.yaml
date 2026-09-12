@@ -48,6 +48,8 @@ calendars:
       lng: -122.33699
       label: "401 Pine St, Seattle, WA 98101"
       osmChecked: 2026-07-12
+      osmType: node
+      osmId: 3211770170
   - name: mcgraw-square
     friendlyname: "Food Trucks @ McGraw Square"
     timezone: America/Los_Angeles
@@ -189,6 +191,8 @@ calendars:
       lng: -122.32871
       label: "6100 4th Ave S, Seattle, WA 98108"
       osmChecked: 2026-07-12
+      osmType: way
+      osmId: 231288121
   - name: kaiser-permanente-northgate
     friendlyname: "Food Trucks @ Kaiser Permanente - Northgate"
     timezone: America/Los_Angeles

@@ -21384,6 +21384,751 @@
       "decision": "confirmed",
       "note": "Same event cross-listed by Discover SLU and MOHAI (discover-slu ICS uses curly apostrophe U+2019, MOHAI uses straight ASCII apostrophe)",
       "resolvedAt": "2026-09-10"
+    },
+    "19hz-all-events.ics Black Swan: MCMLXXXV|2026-09-18T22:00:00-07:00[America/Los_Angeles]::massive-calendar.ics Black Swan: A Ballerina Rave|2026-09-18T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Both land Fri 2026-09-18 22:00 at Massive, but the linked pages disagree on theme: posh.vip's own page titles this 'BLACK SWAN - BABE NIGHT' (not 'MCMLXXXV' as 19hz's title has it), while the tixr listing is 'A Ballerina Rave'. Two differently-themed 'Black Swan' installments at the same venue same night is plausible for a recurring party brand; rejecting rather than guessing they're one event. Flagging as ambiguous."
+    },
+    "19hz-all-events.ics Flammable: Jaderade, Streeter|2026-09-13T22:00:00-07:00[America/Los_Angeles]::chop-suey-all-events.ics Flammable|2026-09-13T22:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same venue (Chop Suey) same date/time; 19hz appends the FB lineup (Jaderade, Streeter) to Chop Suey's own recurring 'Flammable' night name."
+    },
+    "19hz-all-events.ics In Heaven x Judy On Duty|2026-09-12T22:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics JUDY IN HEAVEN|2026-09-12T22:00:00.493-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same venue (Timbre Room) same date/time; 'In Heaven x Judy On Duty' and 'JUDY IN HEAVEN' are two aggregators' names for the same combined night."
+    },
+    "19hz-all-events.ics Skittlez|2026-09-24T21:30:00-07:00[America/Los_Angeles]::vice-seattle-all-events.ics NWPLUR PRESENTS: SKITTLEZ|2026-09-24T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "posh.vip link is literally 'nwplur-presents-skittlez', matching vice-seattle's own 'NWPLUR PRESENTS: SKITTLEZ' title exactly; same venue/time."
+    },
+    "NWMetalCalendar-NWMetal.ics Hammerfall, Evergrey, Elvenking|2026-10-08T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Hammerfall with Evergrey|2026-10-08T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "El Corazon's own listing ('Hammerfall with Evergrey') vs. an aggregator adding the opener (Elvenking); same venue, times 30min apart (door vs set)."
+    },
+    "badslava-open-mics-all-events.ics Open Mic at Fremont Abbey Arts Center|2026-09-15T20:00:00-07:00[America/Los_Angeles]::recurring-fremont-abbey-open-mic.ics Fremont Abbey Open Mic|2026-09-15T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same venue (Fremont Abbey) same date/time; badslava's generic 'Open Mic at X' label vs. the venue's own recurring open-mic name."
+    },
+    "badslava-open-mics-all-events.ics Open Mic at Skylark Cafe & Club|2026-09-16T19:30:00-07:00[America/Los_Angeles]::recurring-skylark-cafe-open-mic.ics Skylark Cafe — Wednesday Open Mic|2026-09-16T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same venue (Skylark Cafe) same date/time; same pattern as Fremont Abbey."
+    },
+    "badslava-open-mics-all-events.ics Open Mic at The Growler Guys|2026-09-15T21:00:00-07:00[America/Los_Angeles]::dark-room-comedy-dark-room-comedy.ics Comedy Night at The Growler Guys|2026-09-15T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Verified via fetch: eventbrite's 'Comedy Night at The Growler Guys' is itself an open mic ('anyone can sign up for a short set') — same weekly slot as badslava's 'Open Mic at The Growler Guys', same venue/time."
+    },
+    "cidbia-cidbia-events.ics Show Up, Seattle! Day of Service|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-west-seattle-blog.ics Show Up, Seattle! 2026 Day of Service|2026-09-26T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "West Seattle Blog's entry is a citywide PSA for the whole 'Show Up, Seattle!' day of service ('various locations', no specific site — confirmed via fetch) while CIDBIA's is one specific project site (Donnie Chin Park). Different granularity, not the same occurrence."
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Washington Capitals|2026-12-10T18:30:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Washington Capitals|2026-12-10T18:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same NHL game: Kraken vs. Capitals, same arena, same date; 'Hockey vs. Washington Capitals' is events12's generic team-matchup title."
+    },
+    "coo-partnerships-all-events.ics The Future of Affordable Housing Panel - Town Hall|2026-10-01T19:30:00.460-07:00[America/Los_Angeles]::external-town-hall-seattle.ics The Future of Affordable Housing|2026-10-01T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Town Hall Seattle panel, same date/time; coo-partnerships appends 'Panel - Town Hall' to the venue's own shorter title."
+    },
+    "cornish-all-events.ics John Anderson - Cornish Arts Incubator|2026-09-23T18:00:00-07:00::external-seattle-university.ics John Anderson - Cornish Arts Incubator|2026-09-23T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Cornish Arts Incubator recital, same date/time, same performer name, cross-posted by Seattle University's events calendar."
+    },
+    "cornish-all-events.ics John Anderson - Cornish Arts Incubator|2026-09-26T15:00:00-07:00::external-seattle-university.ics John Anderson - Cornish Arts Incubator|2026-09-26T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same performer/series/date/time as #12, different occurrence date."
+    },
+    "cornish-all-events.ics Marissa Rae Niederhauser - Cornish Arts Incubator|2026-09-19T15:30:00-07:00::external-seattle-university.ics Marissa Rae Niederhauser - Cornish Arts Incubator|2026-09-19T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Cornish Arts Incubator recital, same date/time, same performer name."
+    },
+    "cornish-all-events.ics Marissa Rae Niederhauser - Cornish Arts Incubator|2026-09-20T19:00:00-07:00::external-seattle-university.ics Marissa Rae Niederhauser - Cornish Arts Incubator|2026-09-20T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same performer/series/date/time as #14, different occurrence date."
+    },
+    "events12-seattle-events.ics Edmonds art tour|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Edmonds Art Studio Tour|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Edmonds Art Studio Tour date; events12's shorthand 'Edmonds art tour' vs. seatoday's full event name, same day."
+    },
+    "events12-seattle-events.ics Edmonds art tour|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Edmonds Art Studio Tour|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same event as #16, matched against seatoday's -arts sub-calendar instead of -all (both mirror the same upstream 6amcity listing)."
+    },
+    "events12-seattle-events.ics Edmonds art tour|2026-09-20T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Edmonds Art Studio Tour|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Edmonds Art Studio Tour, second occurrence date."
+    },
+    "events12-seattle-events.ics Edmonds art tour|2026-09-20T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Edmonds Art Studio Tour|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same event as #18, matched against seatoday's -arts sub-calendar."
+    },
+    "external-Geekwire.ics Clarion West Deep Dive: Mycology, Decay and Metaphors for Community|2026-09-24T19:00:00-07:00[America/Los_Angeles]::external-seattle-city-of-lit.ics  Mycology, Decay, and Metaphors for Community: A Deep Dive with T. Kingfisher|2026-09-24T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Clarion West / T. Kingfisher talk at Seattle Central Library, same date/time; GeekWire and Seattle City of Literature both list it with different title phrasing."
+    },
+    "external-Geekwire.ics Technology, Innovation Law, and Ethics (TILE) Institute 2026 Symposium|2026-09-29T10:00:00-07:00[America/Los_Angeles]::external-seattle-university.ics Technology, Innovation Law, and Ethics (TILE) Institute 2026 Symposium |2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title, same date/time, same Seattle University venue — GeekWire cross-posting SU's own listing."
+    },
+    "external-center-for-active-living.ics American Mah Jongg|2026-09-16T12:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-16T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different venues (The Missing Piece game store vs. WSCenter's Center for Active Living, 210m apart) and different start times (12:30 vs 14:00) — two separate weekly Mah Jongg meetups, not the same session."
+    },
+    "external-go-latin-dance-seattle.ics Sueños de Salsa Salsa y Bachata|2026-09-23T20:45:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Sueños de Salsa Wednesday Social|2026-09-23T20:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same dance studio (Sueños de Salsa), same date/time (dist=0m) — weekly social night listed by two Latin-dance aggregators under different names."
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-09-20T19:00:00-07:00[America/Los_Angeles]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-09-20T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same venue (Aria Ballroom), same date/time (dist=0m) — weekly Sunday salsa/bachata social listed by two aggregators under different names."
+    },
+    "external-myballard.ics Dirty Couch Brewing Grand Opening|2026-09-12T12:00:00-07:00[America/Los_Angeles]::external-washington-beer-blog.ics Dirty Couch Brewing Grand Opening in Ballard|2026-09-12T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same grand-opening event, same date/time, same brewery name."
+    },
+    "external-phinney-neighborhood-association.ics Farmers Market|2026-09-11T15:00:00-07:00[America/Los_Angeles]::recurring-phinney-farmers-market.ics Phinney Farmers Market|2026-09-11T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same farmers market, same date/time (dist=140m, same park) — Phinney Neighborhood Association's own listing vs. the citywide farmers-market recurring entry."
+    },
+    "external-seattle-dance-info.ics Retaliation Swing 2026|2026-09-17T19:00:00-07:00[America/Los_Angeles]::seattle-swing-dance-club-all-events.ics Retaliation Swing|2026-09-17T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same annual swing dance event ('Retaliation Swing'), same date; seattle-swing-dance-club's feed lacks a specific time (00:00 default)."
+    },
+    "external-seattle-emergency-hubs.ics Tsunami Preparedness discussion - VIRTUAL!|2026-09-14T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics VIRTUAL Tsunami Preparedness Workshop|2026-09-14T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical event name/time, same virtual workshop, listed by both the hosting org and the city's citywide calendar."
+    },
+    "external-seattle-emergency-hubs.ics Tsunami Preparedness discussion - VIRTUAL!|2026-09-30T17:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics VIRTUAL Tsunami Preparedness Workshop|2026-09-30T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same pair as #28, second occurrence date."
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-10-08T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-10-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time/location ('Online'), same city program cross-posted to two seattle.gov category feeds (arts + city-wide)."
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same seattle.gov event syndicated to two category feeds (city-wide + parks-recreation)."
+    },
+    "external-seattle-gov-city-wide.ics Carrie Jennings at Outdoors On The Ave|2026-09-25T18:00:00-07:00[America/Los_Angeles]::external-wallyhood.ics Outdoors on the Ave|2026-09-25T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same 'Outdoors on the Ave' summer concert series occurrence (Square at U District Station), same date/time; seattle-gov names the specific performer (Carrie Jennings), wallyhood lists only the series name."
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-10-03T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-10-03T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same seattle.gov event ('Coffee Klatch') syndicated to two category feeds."
+    },
+    "external-seattle-gov-city-wide.ics Coffee Klatch|2026-10-10T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Coffee Klatch|2026-10-10T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #33, second occurrence date."
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-24T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same seattle.gov 'Daybreak Community & Land Tending' event cross-posted to Seattle Parks Foundation's calendar."
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-08T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same event syndicated to two seattle.gov category feeds (same greencitypartnerships.org event id)."
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-09T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #36, second occurrence date."
+    },
+    "external-seattle-gov-city-wide.ics Fitness & Mobility and Utility Art|2026-10-07T12:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Fitness & Mobility and Utility Art|2026-10-07T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time/location, same seattle.gov event syndicated to two category feeds."
+    },
+    "external-seattle-gov-city-wide.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same seattle.gov event cross-posted to Seattle Parks Foundation's calendar."
+    },
+    "external-seattle-gov-city-wide.ics Hockey Teeth at Outdoors On The Ave|2026-09-18T18:00:00-07:00[America/Los_Angeles]::external-wallyhood.ics Outdoors on the Ave|2026-09-18T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same 'Outdoors on the Ave' series occurrence, same date/time; seattle-gov names the performer (Hockey Teeth), wallyhood lists only the series name."
+    },
+    "external-seattle-gov-city-wide.ics Legally Blonde at Outdoors On The Ave|2026-09-11T19:45:00-07:00[America/Los_Angeles]::external-wallyhood.ics Outdoors on the Ave|2026-09-11T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same 'Outdoors on the Ave' series occurrence (same date, same location); seattle-gov's 19:45 is the feature start, wallyhood's 18:00 the gathering time for the same evening's program."
+    },
+    "external-seattle-gov-city-wide.ics Morgan Smith & Co. at Outdoors On The Ave|2026-09-11T18:00:00-07:00[America/Los_Angeles]::external-wallyhood.ics Outdoors on the Ave|2026-09-11T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same 'Outdoors on the Ave' series occurrence, same date/time exactly."
+    },
+    "external-seattle-gov-city-wide.ics Robert Leslie at Outdoors On The Ave|2026-10-02T16:30:00-07:00[America/Los_Angeles]::external-wallyhood.ics Outdoors on the Ave|2026-10-02T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same 'Outdoors on the Ave' series occurrence, same date/time exactly."
+    },
+    "external-seattle-gov-city-wide.ics Seattle Renters' Commission meeting|2026-10-07T18:00:00-07:00[America/Los_Angeles]::external-seattle-gov-neighborhoods.ics Seattle Renters' Commission meeting|2026-10-07T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time/location, same seattle.gov meeting syndicated to two category feeds (city-wide + neighborhoods)."
+    },
+    "external-seattle-gov-city-wide.ics Strength & Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Strength and Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Bataan Park 'Strength & Mobility' session, same date/time, same park (612m geocode variance, not a different location) — seattle.gov city-wide feed vs. seatoday's -all sub-calendar."
+    },
+    "external-seattle-gov-city-wide.ics Strength & Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Strength and Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #45, matched against seatoday's -community sub-calendar."
+    },
+    "external-seattle-gov-city-wide.ics Strength & Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Strength and Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #45, matched against seatoday's -sports sub-calendar."
+    },
+    "external-seattle-gov-city-wide.ics Strength & Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Strength and Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Bataan Park session, second occurrence date, seatoday -all."
+    },
+    "external-seattle-gov-city-wide.ics Strength & Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Strength and Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #48, seatoday -community sub-calendar."
+    },
+    "external-seattle-gov-city-wide.ics Strength & Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Strength and Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #48, seatoday -sports sub-calendar."
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same 'Summer Art' session at John C. Little Sr. Park Plaza, same date/time — seattle.gov city-wide vs. seatoday -all."
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #51, seatoday -arts sub-calendar."
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #51, seatoday -community sub-calendar."
+    },
+    "external-seattle-gov-city-wide.ics The Night Shift: After-Hours Arts & Music Series|2026-09-25T15:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics The Night Shift: After-Hours Arts %26 Music Series|2026-09-25T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Pike Place Market 'Night Shift' series event, same date/time (114m geocode variance within the market) — seattle.gov's ampersand vs. pike-place-market's URL-encoded '%26'."
+    },
+    "external-seattle-gov-neighborhoods.ics 12th Annual All Montlake Yard Sale|2026-09-20T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics 12th Annual All Montlake Yard Sale|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same Montlake Yard Sale event, seattle.gov neighborhoods feed vs. seatoday -all."
+    },
+    "external-seattle-gov-neighborhoods.ics 12th Annual All Montlake Yard Sale|2026-09-20T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 12th Annual All Montlake Yard Sale|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #55, seatoday -community sub-calendar."
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-24T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same seattle.gov event cross-posted between parks-recreation and Seattle Parks Foundation."
+    },
+    "external-seattle-gov-parks-recreation.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Habitat Restoration and Beaver Talk on Lake Washington Blvd|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same event cross-posted between parks-recreation and Seattle Parks Foundation."
+    },
+    "external-seattle-gov-parks-recreation.ics Strength & Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Strength and Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Bataan Park session as #45-47, matched against parks-recreation feed instead of city-wide."
+    },
+    "external-seattle-gov-parks-recreation.ics Strength & Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Strength and Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #59, seatoday -community."
+    },
+    "external-seattle-gov-parks-recreation.ics Strength & Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Strength and Mobility|2026-09-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #59, seatoday -sports."
+    },
+    "external-seattle-gov-parks-recreation.ics Strength & Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Strength and Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Bataan Park session, second occurrence date, parks-recreation vs seatoday -all."
+    },
+    "external-seattle-gov-parks-recreation.ics Strength & Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Strength and Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #62, seatoday -community."
+    },
+    "external-seattle-gov-parks-recreation.ics Strength & Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Strength and Mobility|2026-09-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #62, seatoday -sports."
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same 'Summer Art' session as #51-53, parks-recreation feed vs seatoday -all."
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #65, seatoday -arts."
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #65, seatoday -community."
+    },
+    "external-seattle-parks-foundation.ics Rainier Beach Farm Fest|2026-09-19T10:00:00-07:00[America/Los_Angeles]::external-tilth-alliance.ics Farm Fest at Rainier Beach Urban Farm & Wetlands|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same Rainier Beach Urban Farm event, same date/time/address — Seattle Parks Foundation vs. Tilth Alliance, different phrasing of the same farm-fest name."
+    },
+    "external-uw-campus-events.ics 2026 International Invasive Species and Climate Change Conference (IISCCC) - Day 1|2026-12-01T10:00:00-08:00[America/Los_Angeles]::external-uw-sustainability.ics 2026 International Invasive Species and Climate Change Conference (IISCCC) - Day 1|2026-12-01T10:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time/location ('Online (Zoom)'), same NAISMA conference day cross-posted between two UW calendars."
+    },
+    "external-uw-campus-events.ics 2026 International Invasive Species and Climate Change Conference (IISCCC) - Day 2|2026-12-02T10:00:00-08:00[America/Los_Angeles]::external-uw-sustainability.ics 2026 International Invasive Species and Climate Change Conference (IISCCC) - Day 2|2026-12-02T10:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #69, Day 2 of the same conference."
+    },
+    "external-uw-campus-events.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Identical title/time, same UW SafeCampus training cross-posted to seatoday's -all sub-calendar."
+    },
+    "external-uw-campus-events.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #71, seatoday -arts."
+    },
+    "external-uw-campus-events.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #71, seatoday -community."
+    },
+    "external-uw-campus-events.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #71, seatoday -learning."
+    },
+    "external-uw-campus-events.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics SafeCampus Violence Prevention and Response Training|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #71, seatoday -sports."
+    },
+    "external-visit-ballard.ics SEA-Nordic Film Festival|2026-09-15T18:00:00-07:00[America/Los_Angeles]::national-nordic-museum-national-nordic-museum.ics 2026 SEA-Nordic Film Festival: BLUSH (2022) & Show Me Love (1998)|2026-09-15T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same National Nordic Museum screening, same date/time/address; visitballard's generic festival name vs. the museum's specific film titles for that night's program."
+    },
+    "external-west-seattle-blog.ics Show Up, Seattle! 2026 Day of Service|2026-09-26T00:00:00-07:00[America/Los_Angeles]::rainier-beach-community-club-rainier-beach-community-club.ics Show Up, Seattle! Day of Service|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as the CIDBIA/West Seattle Blog pair: WSB's listing is a citywide PSA with no specific site ('various locations', confirmed via fetch), while Rainier Beach Community Club's is one specific project site. Different granularity, not the same occurrence."
+    },
+    "kremwerk-kremwerk.ics THEE BAILE|2026-09-18T22:00:00.452-07:00[America/Los_Angeles]::queer-social-club-all-events.ics THEE BAILE|2026-09-18T22:00:00.342-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same show ('THEE BAILE'), essentially identical timestamp (sub-second apart), Kremwerk/Cherry/Timbre Room share one venue complex address — Kremwerk's own listing vs. queer-social-club's aggregation."
+    },
+    "queer-social-club-all-events.ics Trivia Thursday - Columbia City|2026-09-17T19:00:00.903-07:00[America/Los_Angeles]::recurring-rough-tumble-trivia-thursday-columbia-city.ics Trivia Thursday at Rough & Tumble - Columbia City|2026-09-17T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same venue/time (dist=0m), Rough & Tumble's own recurring trivia name vs. queer-social-club's aggregated listing."
+    },
+    "seatoday-seatoday-all.ics 2026 Seattle Modern Home Tour|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics 2026 Seattle Modern Home Tour|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event mirrored across its own -all/-arts sub-calendars (one upstream 6amcity listing)."
+    },
+    "seatoday-seatoday-all.ics Bird ID Walk | Luther Burbank Park|2026-09-24T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bird ID Walk | Luther Burbank Park|2026-09-24T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event mirrored across -all/-community."
+    },
+    "seatoday-seatoday-all.ics Bird ID Walk | Luther Burbank Park|2026-09-24T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bird ID Walk | Luther Burbank Park|2026-09-24T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event mirrored across -all/-sports."
+    },
+    "seatoday-seatoday-all.ics Christine's Birthday Celebration: Multi-Day Jewelry Sale at Stórica Studio|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Christine's Birthday Celebration: Multi-Day Jewelry Sale at Stórica Studio|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event mirrored across -all/-community."
+    },
+    "seatoday-seatoday-all.ics Edmonds Art Studio Tour|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Edmonds Art Studio Tour|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Edmonds Art Studio Tour) mirrored across -all/-arts."
+    },
+    "seatoday-seatoday-all.ics Edmonds Art Studio Tour|2026-09-20T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Edmonds Art Studio Tour|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same as #84, second occurrence date."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Eric-Paul Riege) mirrored across -all/-arts."
+    },
+    "seatoday-seatoday-all.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event mirrored across -all/-community."
+    },
+    "seatoday-seatoday-all.ics National CleanUp Day|2026-09-19T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics National CleanUp Day|2026-09-19T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (National CleanUp Day) mirrored across -all/-community."
+    },
+    "seatoday-seatoday-all.ics Operations Committee|2026-09-24T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Operations Committee|2026-09-24T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Operations Committee) mirrored across -all/-community."
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Summer Art) mirrored across -all/-arts."
+    },
+    "seatoday-seatoday-all.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event mirrored across -all/-community."
+    },
+    "seatoday-seatoday-all.ics Tai Chi: Chen-Style Class (Fall Into Fun)|2026-09-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tai Chi: Chen-Style Class (Fall Into Fun)|2026-09-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Tai Chi) mirrored across -all/-community."
+    },
+    "seatoday-seatoday-all.ics Tai Chi: Chen-Style Class (Fall Into Fun)|2026-09-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi: Chen-Style Class (Fall Into Fun)|2026-09-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event mirrored across -all/-sports."
+    },
+    "seatoday-seatoday-all.ics ¡Vamos al Acuario!|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics ¡Vamos al Acuario!|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Vamos al Acuario) mirrored across -all/-community."
+    },
+    "seatoday-seatoday-arts.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Eric-Paul Riege: ojo|-|ólǫ́|2026-09-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Eric-Paul Riege) mirrored across -arts/-community."
+    },
+    "seatoday-seatoday-arts.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-09-24T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Summer Art) mirrored across -arts/-community."
+    },
+    "seatoday-seatoday-community.ics Bird ID Walk | Luther Burbank Park|2026-09-24T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Bird ID Walk | Luther Burbank Park|2026-09-24T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Bird ID Walk) mirrored across -community/-sports."
+    },
+    "seatoday-seatoday-community.ics Tai Chi: Chen-Style Class (Fall Into Fun)|2026-09-24T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi: Chen-Style Class (Fall Into Fun)|2026-09-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same seatoday event (Tai Chi) mirrored across -community/-sports."
+    },
+    "spl-broadview.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs. Columbia, ~20km apart) — separate occurrences of the same recurring 'Homework Help' program name, not the same session."
+    },
+    "spl-broadview.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs. Douglass-Truth, ~15km apart) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-broadview.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-high-point.ics Homework Help|2026-09-22T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs. High Point, ~21km apart, and different start times 16:30 vs 16:00) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-broadview.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-22T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs. Northgate, ~4km apart, and different start times 16:30 vs 15:30) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-columbia.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Columbia vs. Douglass-Truth, ~6km apart) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-columbia.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-high-point.ics Homework Help|2026-09-22T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Columbia vs. High Point, ~6km apart, and different start times 16:30 vs 16:00) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-columbia.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-22T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Columbia vs. Northgate, ~17km apart, and different start times 16:30 vs 15:30) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-09-23T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-09-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Douglass-Truth vs. Greenwood, ~10km apart) — separate occurrences of the recurring 'Family Story Time' program, not the same session."
+    },
+    "spl-douglass-truth.ics Homework Help|2026-09-22T16:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-22T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Douglass-Truth vs. Northgate, ~11km apart, and different start times 16:30 vs 15:30) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-high-point.ics Homework Help|2026-09-22T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-22T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (High Point vs. Northgate, ~18km apart, and different start times 16:00 vs 15:30) — separate occurrences of the recurring 'Homework Help' program, not the same session."
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-09-22T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "In-person (Lake City Branch) vs. virtual/online session, different start times (17:30 vs 18:00) — a physical branch program and its separate virtual counterpart are different occurrences, not one event."
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Abby Webster & Her Imaginary Band w/ Alex Dunn (trio), Trinity Jane|2026-10-27T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Abby Webster w/ Alex Dunn (trio), Trinity Jane|2026-10-27T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same show, same date/time, same performer lineup; the sunset-tavern feed mislabels the venue address as its own (5433 Ballard Ave) but the title and tractor-tavern's own listing (5213 Ballard Ave, the correct Tractor Tavern address) confirm it's the Tractor Tavern show."
+    },
+    "external-nw-asian-weekly.ics Ballots & Boba Mixer: Elections Town Hall|2026-09-16T17:30:00-07:00[America/Los_Angeles]::wing-luke-all-events.ics BALLOTS & BOBA: ELECTIONS TOWN HALL|2026-09-16T17:30:00.501-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same event at Wing Luke Museum — title case variant and minor timestamp difference; both link to the same event page"
+    },
+    "northwest-film-forum-northwest-film-forum.ics Truth To Fiction: The History of Concrete|2026-10-01T19:00:00-07:00[America/Los_Angeles]::seattle-film-society-seattle-film-society.ics The History of Concrete|2026-10-01T18:30:00.476-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same film screening at NW Film Forum (0m distance); SFS lists it as 'The History of Concrete' under the Truth To Fiction series"
+    },
+    "spl-broadview.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs Douglass-Truth), different event IDs, different rooms; each branch runs its own independent session"
+    },
+    "spl-broadview.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]::spl-high-point.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs High Point), different event IDs and times; independently run sessions"
+    },
+    "spl-broadview.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Broadview vs Northgate), different event IDs; independently run sessions"
+    },
+    "spl-douglass-truth.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (Douglass-Truth vs Northgate), different event IDs; independently run sessions"
+    },
+    "spl-high-point.ics Homework Help|2026-09-23T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-23T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different SPL branches (High Point vs Northgate), different event IDs; independently run sessions"
+    },
+    "external-unexpected-productions.ics Duo Comedy Showcase 2026|2026-09-16T20:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Duo Comedy Improv Showcase|2026-09-16T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same show at Unexpected Productions, 1428 Post Alley — pike-place-market aggregates this venue's events; unexpected-productions is the first-party source"
+    },
+    "external-unexpected-productions.ics Loose Cannons 2026|2026-09-17T20:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Loose Cannons Improv|2026-09-17T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-11",
+      "note": "Same show at Unexpected Productions, 1428 Post Alley — pike-place-market aggregates this venue's events; unexpected-productions is the first-party source"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-01T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-01T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-08T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-08T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-22T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-22T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "external-washington-beer-blog.ics Thirsty Thursday at the Bev|2026-10-29T15:00:00-07:00[America/Los_Angeles]::west-seattle-indivisible-all-events.ics Postcarding At The Bev!|2026-10-29T18:00:00.723-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-11",
+      "note": "Different events at same bar: Thirsty Thursday is a recurring beer social (3pm), Postcarding At The Bev! is a political postcard-writing session (6pm) — different titles, different times, different organizers"
+    },
+    "seatoday-seatoday-all.ics Rosé & Heirlooms at Bar Dojo, Fire & the Feast, MARKET, and Salt & Iron|2026-09-14T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Rosé & Heirlooms at Bar Dojo, Fire & the Feast, MARKET, and Salt & Iron|2026-09-14T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Same-source intra-source: seatoday puts events into multiple category calendars (all, food, sports, community). Not a cross-source duplicate."
+    },
+    "external-phinney-neighborhood-association.ics Farmers Market|2026-09-18T15:00:00-07:00[America/Los_Angeles]::recurring-phinney-farmers-market.ics Phinney Farmers Market|2026-09-18T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event: Phinney Farmers Market listed by both PNA and Seattle Farmers Markets org"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event: exact title+time match in city-wide and seatoday feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event in parks-recreation and seatoday feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same BirdWalk event"
+    },
+    "external-seattle-university.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event: exact title+time match in Seattle U and seatoday feeds"
+    },
+    "external-seattle-university.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event"
+    },
+    "external-seattle-university.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event"
+    },
+    "external-washington-beer-blog.ics Cider Summit Seattle 2026|2026-09-11T14:00:00-07:00[America/Los_Angeles]::seattle-humane-seattle-humane.ics Cider Summit|2026-09-11T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event at South Lake Union Discovery Center (0m); 1h time difference likely gates-open vs first-session"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-09-18T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-09-18T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-12",
+      "note": "Same event: free drag show at Unicorn 1118 E Pike St, listed by venue and queer-social-club"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics CLOUD TECTONICS|2026-09-25T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLOUD TECTONICS|2026-09-25T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-food.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Espresso Class at Seattle Coffee Gear|2026-09-25T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "seatoday-seatoday-food.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Love is My Religion: A Conversation with Sr. Lucy Kurien of Maher|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-12",
+      "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
     }
   }
 }

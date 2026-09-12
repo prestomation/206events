@@ -1,11 +1,12 @@
 ---
 name: Columbia City Seattle Calendar
-status: candidate
+status: added
 platform: Wild Apricot
 url: https://columbiacityseattle.com/calendar
 tags: [Community, Columbia City]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-12
+pr: 1452
 ---
 
 Columbia City neighborhood community calendar with local events and activities.
@@ -36,3 +37,24 @@ rather than public-facing events. Leaving as `candidate` rather than
 `notviable` — worth a closer look at the WA widget's actual API calls
 (browser network tab) if this becomes a priority, since the org clearly
 does publish genuine public events.
+
+Implemented 2026-09-12: added as `sources/columbia_city_business_association/`
+(custom HTML ripper, `sourceRole: aggregator`, `geo: null`). The listing now
+has 3 upcoming events — 2 CCBA Membership Meetings plus a genuinely
+public-facing "Sound Transit Safety Fair" — confirming the earlier note that
+real public events do appear here, not just internal meetings.
+
+Deliberately does **not** follow each event's link to its detail page for a
+richer description/end-time, even though the detail pages carry a nice
+inline JS data blob with exact start/end timestamps (a first implementation
+attempt used that approach). Wild Apricot rate-limits this host hard: a
+detail-page request succeeds only when it's the first request from an IP in
+some cooldown window (observed to be longer than 20s, possibly much longer)
+— a second request moments later reliably gets HTTP 429, reproduced with
+both `curl` and Node's `fetch`, with and without spacing/backoff. Fetching
+just the single `/calendar` listing page (which already server-renders
+title, formatted start time, and location per event) avoids the multi-request
+pattern entirely and is what actually survived a real `ONLY_SOURCE` build.
+Trade-off: no per-event description, and duration is unknown (flagged as an
+`UncertaintyError`, defaulted to 60 minutes) since the listing has no end
+time.

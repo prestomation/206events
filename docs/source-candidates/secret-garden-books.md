@@ -5,7 +5,7 @@ platform: IndieCommerce
 url: https://secretgardenbooks.com/upcoming-events
 tags: [Literary, Books]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-04
+lastChecked: 2026-09-11
 ---
 
 Phinney Ridge independent bookstore hosting author readings, book clubs, and literary events.
@@ -24,3 +24,5 @@ environment (previously untested with a direct fetch). Per the
 implementing or marking `blocked` outright — may be an intermittent WAF
 rule rather than a hard block; re-test with a plain fetch next cycle
 before staging for proxy testing.
+
+Re-checked 2026-09-11: `/upcoming-events` still returns HTTP 403 from this environment. No change.
