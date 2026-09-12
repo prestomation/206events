@@ -33849,11 +33849,12 @@
     },
     "cascade-bicycle-club:cascade-lake-chelan-tour-2026": {
       "fields": {
-        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-11/Lake%20Chelan%20wave.jpg?h=ddb1ad0c&itok=zFCwDf8H"
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-11/Lake%20Chelan%20wave.jpg?h=ddb1ad0c&itok=zFCwDf8H",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-09-12",
       "source": "agent",
-      "evidence": "https://cascade.org/rides-events/lake-chelan-tour-2026 (image found on event page)"
+      "evidence": "https://cascade.org/rides-events/lake-chelan-tour-2026"
     },
     "cascade-bicycle-club:cascade-lake-union-family-ride-2026": {
       "fields": {
@@ -58891,12 +58892,12 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-26",
+      "resolvedAt": "2026-09-12",
       "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://bobscorn.com/sunflower-experience/"
     },
     "events12:sunflower-farms-118543-2026-09-26": {
       "fields": {
@@ -70560,12 +70561,12 @@
           "paid": true
         },
         "duration": 7200,
-        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg"
+        "imageUrl": "https://seattlearchitecture.org/wp-content/uploads/bb-plugin/cache/Ballard-Branch-Seattle-Public-Library-Bohlin-Cywinski-Jackson-1024x576-landscape-430a3cc92e707a0a967be3358579cb6e-.jpg",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-12",
       "source": "agent",
-      "evidence": "https://seattlearchitecture.org/tours/",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://seattlearchitecture.org/tours/"
     },
     "events12:architectural-tour-119702-2026-09-26": {
       "fields": {
@@ -81560,6 +81561,113 @@
       "resolvedAt": "2026-09-11",
       "source": "agent",
       "evidence": "nwteafestival.org tickets page - 25 dollars admission (both days), children under 12 free"
+    },
+    "seatoday:cityspark-19891136": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://westseattleblog.com/event/puget-soundkeepers-volunteer-cleanup-at-alki-beach/",
+      "partialFingerprint": "2bknao"
+    },
+    "seatoday:cityspark-19891137": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://pugetsoundkeeper.org",
+      "partialFingerprint": "1szotqn"
+    },
+    "traveling-goat:it-s-negroni-week-sept-21-27-2026-09-20": {
+      "fields": {
+        "startTime": "16:00"
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.travelinggoatseattle.com/events",
+      "partialFingerprint": "It's Negroni Week! Sept 21-27|Sep 20, 2026"
+    },
+    "danceus-swing:danceus-165480872035224-2026-09-17": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/165480872035224/swing-it-saturdays-at-polish-cultural-center-seattle-wa/"
+    },
+    "northwest-film-forum:sfcs-10-witch-2026-11-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/series/sfcs-at-10/"
+    },
+    "the-cuff-complex:6aa24eb5c3189b43fca3f628": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://cuffcomplex.com/events"
+    },
+    "greater-seattle-choral-consortium:gscc-2988-2026-11-21-1500": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://seattlesings.org"
+    },
+    "west-seattle-nursery:6aa046dd5ab945172c8e1d06": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes"
+    },
+    "west-seattle-nursery:6aa0487db77da0037f2d6e04": {
+      "fields": {
+        "cost": {
+          "min": 125.0
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://westseattleblog.com/event/create-your-own-bonsai-with-bonsai-x-at-west-seattle-nursery/"
+    },
+    "venue:osm:node:2349883332": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.com"
+    },
+    "venue:osm:way:411895611": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://stoupbrewing.com"
     }
   }
 }

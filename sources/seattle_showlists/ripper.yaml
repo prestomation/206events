@@ -295,6 +295,18 @@ calendars:
     config:
       venue: "Skylark"
 
+  # --- SoDo ---
+  - name: the-mountain-room
+    friendlyname: "The Mountain Room"
+    geo:
+      lat: 47.5755
+      lng: -122.3207
+      label: "The Mountain Room, 3100 Airport Way S, Seattle, WA 98134"
+    timezone: America/Los_Angeles
+    tags: ["SoDo", "Music"]
+    config:
+      venue: "The Mountain Room"
+
   # --- White Center ---
   - name: tims-tavern
     friendlyname: "Tim's Tavern"
