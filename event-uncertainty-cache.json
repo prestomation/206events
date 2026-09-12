@@ -79872,7 +79872,7 @@
           "paid": true
         }
       },
-      "resolvedAt": "2026-09-10",
+      "resolvedAt": "2026-09-12",
       "source": "agent",
       "evidence": "https://www.stgpresents.org/",
       "partialFingerprint": "2bhlki"
@@ -81590,7 +81590,7 @@
       },
       "resolvedAt": "2026-09-12",
       "source": "agent",
-      "evidence": "https://www.travelinggoatseattle.com/events",
+      "evidence": "https://www.travelinggoatseattle.com",
       "partialFingerprint": "It's Negroni Week! Sept 21-27|Sep 20, 2026"
     },
     "danceus-swing:danceus-165480872035224-2026-09-17": {
@@ -81668,6 +81668,68 @@
       "resolvedAt": "2026-09-12",
       "source": "agent",
       "evidence": "https://stoupbrewing.com"
+    },
+    "museum_of_flight:mof-stem-starters-let-s-have-a-blast-all-about-rockets-2026-10-13": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8536/stem-starters-lets-have-a-blast-all-about-rockets",
+      "partialFingerprint": "wp793s"
+    },
+    "museum_of_flight:mof-stem-starters-let-s-have-a-blast-all-about-rockets-2026-10-18-1030": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8544/stem-starters-lets-have-a-blast-all-about-rockets",
+      "partialFingerprint": "12mr9zr"
+    },
+    "museum_of_flight:mof-stem-starters-let-s-have-a-blast-all-about-rockets-2026-10-18-1300": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8544/stem-starters-lets-have-a-blast-all-about-rockets",
+      "partialFingerprint": "12mr9zr"
+    },
+    "stg:tm-vvG1HZ_GNVU8Xl": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-12-11-2026/event/0F006320B1A55F22"
+    },
+    "stg:tm-vvG1HZ_GNVgZXP": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent"
+    },
+    "stg:tm-vvG1HZ_FnsSQsW": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent"
+    },
+    "t-mobile-park:tm-vvG1HZ_7HoIcf_": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Ticketmaster event page returns 403; cannot verify start time or cost without direct access",
+      "partialFingerprint": "9ojxfl"
     }
   }
 }
