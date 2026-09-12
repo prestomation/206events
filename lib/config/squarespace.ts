@@ -162,6 +162,9 @@ export class SquarespaceRipper implements IRipper {
 
             const res = await this.fetchFn(urlString);
             if (!res.ok) {
+                // 404 means the events collection no longer exists — treat as empty,
+                // the same way a collection with no upcoming events is treated.
+                if (res.status === 404) return [];
                 throw new Error(`${res.status} ${res.statusText}`);
             }
 
