@@ -302,6 +302,8 @@ calendars:
       lat: 47.5755
       lng: -122.3207
       label: "The Mountain Room, 3100 Airport Way S, Seattle, WA 98134"
+      osmType: node
+      osmId: 9996173588
     timezone: America/Los_Angeles
     tags: ["SoDo", "Music"]
     config:

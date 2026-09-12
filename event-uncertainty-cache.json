@@ -81607,11 +81607,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/06/thewitchposter-1200x1778.jpg"
       },
       "resolvedAt": "2026-09-12",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/series/sfcs-at-10/"
+      "evidence": "https://nwfilmforum.org/films/sfcs-10-witch/"
     },
     "the-cuff-complex:6aa24eb5c3189b43fca3f628": {
       "fields": {
@@ -81730,6 +81731,131 @@
       "source": "agent",
       "reason": "Ticketmaster event page returns 403; cannot verify start time or cost without direct access",
       "partialFingerprint": "9ojxfl"
+    },
+    "venue:osm:node:2429641161": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.thecraftmap.com/fair/talipapa-market-cultural-festival-2026-seattle-wa"
+    },
+    "plant-amnesty:6aa451d9736ef226df3cb402": {
+      "fields": {
+        "cost": {
+          "min": 100.0,
+          "max": 125.0
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes/master-pruner-workshop-summer-fruit-tree-m8adj-warsc"
+    },
+    "queer-social-club:6aa43cba864c8746bf0a97dd": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/te-conoci-bailando"
+    },
+    "tabletop-village:_68oj8e9j6gr4cb9o712k8b9k60qk6b9o68rj0b9p651j8e258923gd1l84_R20260327T020000@google.com-2027-03-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Tabletop Village events page does not list pricing; Discord-only"
+    },
+    "tabletop-village:1g980d2qv88j5e9ifkc0ino6oc_R20260703T010000@google.com-2027-03-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Tabletop Village events page does not list pricing; Discord-only"
+    },
+    "tabletop-village:4rst5btadvlfacggop9bfplvsj_R20260417T010000@google.com-2027-03-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Tabletop Village events page does not list pricing; Discord-only"
+    },
+    "cidbia:cidbia-6aa433bc7823bdc0ed5ad100-202610031700": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "seattlechinatownid.com returns 403; Diwa Film Festival pricing not findable elsewhere"
+    },
+    "cidbia:cidbia-6aa433d74d7c629d3891b961-202610041930": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "seattlechinatownid.com returns 403; Diwa Film Festival pricing not findable elsewhere"
+    },
+    "traveling-goat:cass-tay-730p-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:guess-what-trivia-7p-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:guess-what-trivia-7p-2026-09-21": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:guess-what-trivia-7p-2026-09-28": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:guess-what-trivia-7p-2026-10-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:guess-what-trivia-7p-2026-10-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:guess-what-trivia-7p-2026-10-19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:storm-happy-hour-7p-2026-09-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:the-traveling-goat-presents-alexei-kendall-bray-730p-2026-10-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:the-traveling-goat-presents-earl-brooks-730p-2026-09-24": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
+    },
+    "traveling-goat:the-traveling-goat-presents-jules-morrow-730p-2026-10-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-12",
+      "source": "agent",
+      "reason": "Traveling Goat events page does not provide individual event images"
     }
   }
 }
