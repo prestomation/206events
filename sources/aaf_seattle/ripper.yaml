@@ -1,0 +1,12 @@
+name: aaf-seattle
+sourceRole: venue
+type: squarespace
+description: "AAF Seattle"
+url: "https://www.aafseattle.com/calendar"
+friendlyLink: https://www.aafseattle.com/calendar
+tags: ["Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "AAF Seattle"
+    timezone: America/Los_Angeles
