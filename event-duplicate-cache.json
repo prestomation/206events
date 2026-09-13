@@ -22138,37 +22138,37 @@
     "external-seattle-dance-info.ics Waltz etcetera|2026-09-21T19:00:00-07:00[America/Los_Angeles]::external-sunset-hill-community-hall.ics Waltz Etc.|2026-09-21T19:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
-      "note": "'Waltz Etc.' is short for 'Waltz etcetera'; same venue (3003 NW 66th St), same time"
+      "note": "Same weekly dance event at Sunset Hill Community Club; sunset-hill-community-hall is venue source"
     },
     "external-seattle-gov-city-wide.ics Celebrate Town & Country's Ballard Market's 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]::external-visit-ballard.ics Celebrate Town & Country Ballard Market's 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
-      "note": "Same Ballard Market 40th birthday event, seattle.gov city-wide calendar vs visit-ballard"
+      "note": "Same birthday celebration at Town & Country Ballard Market; visit-ballard is the venue-specific source"
     },
     "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
-      "note": "Same event, identical title and date, listed by seattle.gov city-wide and Seattle Parks Foundation"
+      "note": "Same park stewardship event; seattle-parks-foundation is more specific source"
     },
     "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
-      "note": "Same event, identical title and date, listed by seattle.gov parks-recreation and Seattle Parks Foundation"
+      "note": "Same park stewardship event; seattle-parks-foundation is more specific source"
     },
     "external-seattle-university.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
-      "note": "Same Seattle University event, same venue (Student Center Hearth), same time"
+      "note": "Same Seattle University event; external-seattle-university is venue source"
     },
     "external-seattle-university.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
-      "note": "Same Seattle University sustainability fair, seatoday-community vs university feed"
+      "note": "Same Seattle University event; external-seattle-university is venue source"
     },
     "external-seattle-university.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
-      "note": "Same Seattle University sustainability fair, seatoday-learning vs university feed"
+      "note": "Same Seattle University event; external-seattle-university is venue source"
     },
     "seatoday-seatoday-all.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
@@ -22184,6 +22184,141 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
       "note": "Same CitySpark event (ID 19894861) appearing in seatoday-arts and seatoday-community calendars"
+    },
+    "19hz-all-events.ics Audiodrome|2026-10-10T21:00:00-07:00[America/Los_Angeles]::recurring-pony-seattle-audiodrome.ics Audiodrome at Pony|2026-10-10T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same weekly event at Pony bar; recurring-pony-seattle-audiodrome is venue source, 19hz is aggregator"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Nashville Predators|2026-12-12T19:00:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Nashville Predators|2026-12-12T19:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same NHL game; climate-pledge-arena is venue source"
+    },
+    "external-uw-college-of-arts-sciences.ics UW Scholars Abroad - Be a student again! (Rome, Italy)|2026-12-13T00:00:00-08:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics UW Scholars Abroad - Be a student again! (Rome, Italy)|2026-12-13T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same UW program listed in two UW college calendars; keep uw-college-of-arts-sciences"
+    },
+    "lumen-field-lumen-field.ics Seattle Seahawks vs. New York Giants|2026-12-13T13:25:00-08:00[America/Los_Angeles]::sound_transit-sound-transit.ics Seahawks vs. New York|2026-12-13T13:25:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same NFL game; lumen-field is venue source, sound-transit is aggregator"
+    },
+    "seatoday-seatoday-all.ics Bellevue Demonstration Garden Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Bellevue Demonstration Garden Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Bellevue Demonstration Garden Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Bellevue Demonstration Garden Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Dried Flower Bouquets & Garlands Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Dried Flower Bouquets & Garlands Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Halloween Costume Swap|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Halloween Costume Swap|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Hold Me Tight Seattle Couples Workshop|2026-09-26T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Hold Me Tight Seattle Couples Workshop|2026-09-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Homebuyer Education Workshop [VIRTUAL]|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Homebuyer Education Workshop [VIRTUAL]|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Issaquah Open Studio Tour|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Issaquah Open Studio Tour|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Issaquah Open Studio Tour|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Issaquah Open Studio Tour|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics National Public Lands Day|2026-09-26T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics National Public Lands Day|2026-09-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics RPD+ K-Pop Play Day 2|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics RPD+ K-Pop Play Day 2|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics RPD+ K-Pop Play Day 2|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics RPD+ K-Pop Play Day 2|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Pioneer Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-arts.ics Issaquah Open Studio Tour|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Issaquah Open Studio Tour|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-arts.ics RPD+ K-Pop Play Day 2|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics RPD+ K-Pop Play Day 2|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-community.ics Bellevue Demonstration Garden Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Bellevue Demonstration Garden Workshop|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-community.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-community.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Pioneer Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Pioneer Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-learning.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Habitat Gardening for Pollinators in a Changing World|2026-09-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event in multiple seatoday tag calendars"
     }
   }
 }

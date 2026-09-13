@@ -78598,7 +78598,7 @@
       },
       "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/seattles-tribute-to-the-50th-anniversary-seattle-washington-11-28-2026/event/0F0065249B8E8C46 — price not yet published",
+      "evidence": "STG/Ticketmaster concert tribute show — ticketed event at major venue, definitively paid; TM page returns 403 from CI",
       "partialFingerprint": "2bhlki"
     },
     "seattle-center:accelerate-2026-playground-closure-x50715": {
@@ -79644,21 +79644,23 @@
       "fields": {
         "cost": {
           "min": 25.0
-        }
+        },
+        "imageUrl": ""
       },
-      "resolvedAt": "2026-09-11",
+      "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "Proxi API event description: \"25 dollars per seat\" (Sake Pairing at Itsumono)"
+      "evidence": "Proxi.co API has no image for this event; no other source available"
     },
     "cidbia:cidbia-6aa30ec7166bbf6b4005a8d8-202609271730": {
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": ""
       },
-      "resolvedAt": "2026-09-11",
+      "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "Proxi API event description has no price or RSVP-fee mention and is not tagged Ticketed; community book club"
+      "evidence": "Proxi.co API has no image for this event; no other source available"
     },
     "club-sake:club-sake-380898": {
       "fields": {
@@ -80303,11 +80305,12 @@
     },
     "traveling-goat:it-s-negroni-week-sept-21-27-2026-09-20": {
       "fields": {
-        "startTime": "16:00"
+        "startTime": "16:00",
+        "imageUrl": ""
       },
-      "resolvedAt": "2026-09-12",
+      "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "https://www.travelinggoatseattle.com",
+      "evidence": "No event-specific image for Negroni Week bar promo; venue photo already on ripper",
       "partialFingerprint": "It's Negroni Week! Sept 21-27|Sep 20, 2026"
     },
     "danceus-swing:danceus-165480872035224-2026-09-17": {
@@ -80904,6 +80907,163 @@
       "resolvedAt": "2026-09-13",
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/free-game-night-15/"
+    },
+    "seatoday:cityspark-19895607": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/4559765581010870/"
+    },
+    "seatoday:cityspark-19655760": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1064159646085795/"
+    },
+    "seatoday:cityspark-19523141": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1017566024587088/"
+    },
+    "seatoday:cityspark-18317496": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://kingcounty.mastergardenerfoundation.org/event/seed-saving/"
+    },
+    "seatoday:cityspark-19769395": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.issaquahwa.gov/calendar.aspx?EID=14711"
+    },
+    "seatoday:cityspark-19671019": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/events/rpd-k-pop-play-day-2"
+    },
+    "seatoday:cityspark-19625020": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1384923640271151/"
+    },
+    "seatoday:cityspark-18827073": {
+      "fields": {
+        "cost": {
+          "min": 0
+        },
+        "imageUrl": "https://www.bothellwa.gov/ImageRepository/Document?documentID=18921"
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.bothellwa.gov/sustainamania — official Bothell city event page header image"
+    },
+    "climate-pledge-arena:tm-0F0064C4A094A2E8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-nashville-predators-seattle-washington-12-12-2026/event/0F0064C4A094A2E8"
+    },
+    "climate-pledge-arena:tm-0F0064FCD624D978": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/all-access-pass-climate-pledge-arena-seattle-washington-12-12-2026/event/0F0064FCD624D978"
+    },
+    "lumen-field:tm-0F006482E69E74E3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-seahawks-vs-new-york-giants-seattle-washington-12-13-2026/event/0F006482E69E74E3"
+    },
+    "stg:tm-vvG1HZ_unhi9gD": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "STG/Ticketmaster comedy show (Christopher Titus) — ticketed event at major venue, definitively paid; TM page returns 403 from CI"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "reason": "Past event (Aug 1, 2026); udistrictseattle.com/bobafest shows no start time for past event; no longer actionable"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2SpauPz": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "All Access Pass arena tours — ticketed event at Climate Pledge Arena; definitively paid; TM page returns 403 from CI"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OP15I": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "Kraken vs Nashville Predators — NHL game at Climate Pledge Arena; definitively paid; TM page returns 403 from CI"
+    },
+    "lumen-field:tm-vvG1HZ_F5JEEKN": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "Seahawks vs New York Giants — NFL game at Lumen Field; definitively paid; TM page returns 403 from CI"
     }
   }
 }
