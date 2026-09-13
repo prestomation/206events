@@ -78598,7 +78598,7 @@
       },
       "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/seattles-tribute-to-the-50th-anniversary-seattle-washington-11-28-2026/event/0F0065249B8E8C46 — price not yet published",
+      "evidence": "STG/Ticketmaster concert tribute show — ticketed event at major venue, definitively paid; TM page returns 403 from CI",
       "partialFingerprint": "2bhlki"
     },
     "seattle-center:accelerate-2026-playground-closure-x50715": {
@@ -80305,9 +80305,9 @@
       "fields": {
         "startTime": "16:00"
       },
-      "resolvedAt": "2026-09-12",
+      "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "https://www.travelinggoatseattle.com",
+      "evidence": "Traveling Goat Seattle opens at 4pm every day per travelinggoatseattle.com; Negroni Week is a bar promotion starting at normal opening time",
       "partialFingerprint": "It's Negroni Week! Sept 21-27|Sep 20, 2026"
     },
     "danceus-swing:danceus-165480872035224-2026-09-17": {
@@ -81014,6 +81014,52 @@
       "resolvedAt": "2026-09-13",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-seahawks-vs-new-york-giants-seattle-washington-12-13-2026/event/0F006482E69E74E3"
+    },
+    "stg:tm-vvG1HZ_unhi9gD": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "STG/Ticketmaster comedy show (Christopher Titus) — ticketed event at major venue, definitively paid; TM page returns 403 from CI"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "reason": "Past event (Aug 1, 2026); udistrictseattle.com/bobafest shows no start time for past event; no longer actionable"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_2SpauPz": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "All Access Pass arena tours — ticketed event at Climate Pledge Arena; definitively paid; TM page returns 403 from CI"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_G3OP15I": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "Kraken vs Nashville Predators — NHL game at Climate Pledge Arena; definitively paid; TM page returns 403 from CI"
+    },
+    "lumen-field:tm-vvG1HZ_F5JEEKN": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "Seahawks vs New York Giants — NFL game at Lumen Field; definitively paid; TM page returns 403 from CI"
     }
   }
 }
