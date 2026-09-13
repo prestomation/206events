@@ -6,7 +6,7 @@ url: https://www.aafseattle.com/calendar
 tags: [Community]
 firstSeen: 2026-09-13
 lastChecked: 2026-09-13
-pr:
+pr: 1464
 ---
 
 American Advertising Federation Seattle chapter — professional org for the
