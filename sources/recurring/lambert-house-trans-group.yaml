@@ -1,0 +1,22 @@
+# verified: 2026-09-13 ok
+geo:
+  lat: 47.6182094
+  lng: -122.3124281
+  label: "Lambert House, 1818 15th Ave, Seattle, WA 98122"
+  osmType: way
+  osmId: 160311967
+name: lambert-house-trans-group
+sourceRole: venue
+friendlyname: Trans Group at Lambert House
+description: Weekly support group for trans and gender-questioning LGBTQ+ youth at Lambert House's Capitol Hill Drop-In Center. Offered hybrid, in-person and online via Zoom.
+timezone: America/Los_Angeles
+location: "1818 15th Ave, Seattle, WA 98122"
+url: https://www.lamberthouse.org/events-calendar
+tags:
+  - Queer
+  - Youth
+  - "Capitol Hill"
+schedules:
+  - schedule: every Monday
+    start_time: "19:00"
+    duration: PT1H30M
