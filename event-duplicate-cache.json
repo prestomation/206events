@@ -22129,6 +22129,61 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-12",
       "note": "Intra-seatoday: same event in different category channels of the same aggregator source"
+    },
+    "external-myballard.ics Celebrate Town & Country Ballard Market's 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]::external-visit-ballard.ics Celebrate Town & Country Ballard Market's 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same event at same venue (1400 NW 56th St), same date; myballard and visit-ballard both cover it"
+    },
+    "external-seattle-dance-info.ics Waltz etcetera|2026-09-21T19:00:00-07:00[America/Los_Angeles]::external-sunset-hill-community-hall.ics Waltz Etc.|2026-09-21T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "'Waltz Etc.' is short for 'Waltz etcetera'; same venue (3003 NW 66th St), same time"
+    },
+    "external-seattle-gov-city-wide.ics Celebrate Town & Country's Ballard Market's 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]::external-visit-ballard.ics Celebrate Town & Country Ballard Market's 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same Ballard Market 40th birthday event, seattle.gov city-wide calendar vs visit-ballard"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same event, identical title and date, listed by seattle.gov city-wide and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same event, identical title and date, listed by seattle.gov parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-university.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same Seattle University event, same venue (Student Center Hearth), same time"
+    },
+    "external-seattle-university.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same Seattle University sustainability fair, seatoday-community vs university feed"
+    },
+    "external-seattle-university.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics SUstainability Fair|2026-09-25T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same Seattle University sustainability fair, seatoday-learning vs university feed"
+    },
+    "seatoday-seatoday-all.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event (ID 19894861) appearing in seatoday-all and seatoday-arts calendars"
+    },
+    "seatoday-seatoday-all.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event (ID 19894861) appearing in seatoday-all and seatoday-community calendars"
+    },
+    "seatoday-seatoday-arts.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Town Center Pop-Up Event|2026-09-12T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same CitySpark event (ID 19894861) appearing in seatoday-arts and seatoday-community calendars"
     }
   }
 }

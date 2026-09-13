@@ -4,6 +4,8 @@ description: "The Angry Beaver"
 url: "https://www.spothopperapp.com/api/spots/67355/events"
 friendlyLink: https://theangrybeaverseattle.com/events
 tags: ["Nightlife"]
+imageUrl: "https://static.spotapps.co/website_images/ab_websites/67355_website_v1/logo_new_2.png"
+skipEventPhotos: true
 geo:
   lat: 47.6902592
   lng: -122.3551066
