@@ -511,7 +511,10 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'bell street park': { lat: 47.6149, lng: -122.3445 },
   'christos on alki': { lat: 47.5807935, lng: -122.4057853 }, // 2508 Alki Ave SW, Seattle, WA
   'crown hill': { lat: 47.6963634, lng: -122.3726828 }, // Crown Hill neighborhood centroid
-  'kite hill at gas works park': { lat: 47.6455976, lng: -122.3349284, osmType: 'relation', osmId: 1047789 },
+  // "at" variant of the existing 'kite hill @ gas works park' entry below — same
+  // coords, so both spellings resolve to the same point instead of one landing
+  // on the whole park's centroid via a fresh geocode.
+  'kite hill at gas works park': { lat: 47.647548, lng: -122.332751 },
   'otherworld wine': { lat: 47.6143407, lng: -122.3139472 }, // 1406 E Pike St, Seattle, WA
   'start at christos on alki': { lat: 47.5807935, lng: -122.4057853 }, // 2508 Alki Ave SW, Seattle, WA
   'belltown yacht club': { lat: 47.6155, lng: -122.3487 },
