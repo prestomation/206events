@@ -80904,6 +80904,116 @@
       "resolvedAt": "2026-09-13",
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/free-game-night-15/"
+    },
+    "seatoday:cityspark-19895607": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/4559765581010870/"
+    },
+    "seatoday:cityspark-19655760": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1064159646085795/"
+    },
+    "seatoday:cityspark-19523141": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1017566024587088/"
+    },
+    "seatoday:cityspark-18317496": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://kingcounty.mastergardenerfoundation.org/event/seed-saving/"
+    },
+    "seatoday:cityspark-19769395": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.issaquahwa.gov/calendar.aspx?EID=14711"
+    },
+    "seatoday:cityspark-19671019": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://bellevuewa.gov/events/rpd-k-pop-play-day-2"
+    },
+    "seatoday:cityspark-19625020": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.facebook.com/events/1384923640271151/"
+    },
+    "seatoday:cityspark-18827073": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.bothellwa.gov/calendar.aspx?EID=2558"
+    },
+    "climate-pledge-arena:tm-0F0064C4A094A2E8": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-nashville-predators-seattle-washington-12-12-2026/event/0F0064C4A094A2E8"
+    },
+    "climate-pledge-arena:tm-0F0064FCD624D978": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/all-access-pass-climate-pledge-arena-seattle-washington-12-12-2026/event/0F0064FCD624D978"
+    },
+    "lumen-field:tm-0F006482E69E74E3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-seahawks-vs-new-york-giants-seattle-washington-12-13-2026/event/0F006482E69E74E3"
     }
   }
 }
