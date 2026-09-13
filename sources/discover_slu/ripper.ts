@@ -1,4 +1,4 @@
-import { Duration, LocalDateTime, ZonedDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
+import { Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId, ChronoUnit } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
@@ -21,6 +21,22 @@ const MONTH_MAP: Record<string, number> = {
     july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
     jan: 1, feb: 2, mar: 3, apr: 4, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12,
 };
+
+// js-joda DayOfWeek.value(): MONDAY=1 ... SUNDAY=7
+const WEEKDAY_MAP: Record<string, number> = {
+    mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6, sun: 7,
+};
+
+/**
+ * Extract the weekday a recurring listing repeats on, from a lead-in like
+ * "Every Sat, Jun 6 - Nov 21, 2026". Returns null when the meta text doesn't
+ * name a specific weekday (e.g. "Weekly June 4 - October 29" or a one-off date).
+ */
+function extractExpectedWeekday(text: string): number | null {
+    const match = text.match(/every\s+(sun|mon|tue|wed|thu|fri|sat)/i);
+    if (!match) return null;
+    return WEEKDAY_MAP[match[1].toLowerCase()] ?? null;
+}
 
 /**
  * Parse the "event-day" heading like "Sunday July 9, 2026" to extract the specific date.
@@ -105,6 +121,7 @@ export function parseEventsFromHtml(
     html: HTMLElement,
     seenEvents: Set<string>,
     defaultYear: number,
+    weekdayMismatches: Map<string, { title: string; url: string }> = new Map(),
 ): RipperEvent[] {
     const events: RipperEvent[] = [];
     let currentDate: { year: number; month: number; day: number } | null = null;
@@ -142,10 +159,10 @@ export function parseEventsFromHtml(
                 const eventId = `discover-slu-${slug}`;
 
                 if (seenEvents.has(eventId)) continue;
-                seenEvents.add(eventId);
 
                 const metaDateEl = card.querySelector(".feature__meta--date");
                 if (!metaDateEl && !dateForCards) {
+                    seenEvents.add(eventId);
                     events.push({
                         type: "ParseError",
                         reason: `No date tag found for "${title}"`,
@@ -165,6 +182,22 @@ export function parseEventsFromHtml(
                     year = dateForCards.year;
                     month = dateForCards.month;
                     day = dateForCards.day;
+
+                    // The site occasionally buckets a weekly recurring listing (e.g.
+                    // "Every Sat, ...") under the wrong day heading at the edge of a
+                    // fetch window — the same card also appears, correctly, under a
+                    // later heading that matches its stated weekday. Skip the
+                    // mismatched occurrence (without marking it seen) so the correct
+                    // one further down the document still gets picked up.
+                    const expectedWeekday = extractExpectedWeekday(metaDateText);
+                    if (expectedWeekday !== null && LocalDate.of(year, month, day).dayOfWeek().value() !== expectedWeekday) {
+                        // Track it in case no correctly-bucketed occurrence ever
+                        // shows up (across this call or a later week's fetch) —
+                        // rip() reports anything still unresolved once it's done,
+                        // rather than letting it disappear without a trace.
+                        weekdayMismatches.set(eventId, { title, url: eventUrl });
+                        continue;
+                    }
                 } else {
                     // Fallback when no preceding day heading: extract date from meta text
                     const dateFallback = metaDateText.match(/^([A-Za-z]+)\s+(\d{1,2})/);
@@ -175,6 +208,7 @@ export function parseEventsFromHtml(
                             day = parseInt(dateFallback[2]);
                             year = defaultYear;
                         } else {
+                            seenEvents.add(eventId);
                             events.push({
                                 type: "ParseError",
                                 reason: `Could not parse date from "${metaDateText}" for "${title}"`,
@@ -183,6 +217,7 @@ export function parseEventsFromHtml(
                             continue;
                         }
                     } else {
+                        seenEvents.add(eventId);
                         events.push({
                             type: "ParseError",
                             reason: `Could not parse date from "${metaDateText}" for "${title}"`,
@@ -191,6 +226,9 @@ export function parseEventsFromHtml(
                         continue;
                     }
                 }
+
+                seenEvents.add(eventId);
+                weekdayMismatches.delete(eventId);
 
                 const eventDate = ZonedDateTime.of(
                     LocalDateTime.of(year!, month!, day!, timeInfo.hour, timeInfo.minute),
@@ -248,6 +286,7 @@ export function parseEventsFromHtml(
 
 export default class DiscoverSLURipper implements IRipper {
     private seenEvents = new Set<string>();
+    private weekdayMismatches = new Map<string, { title: string; url: string }>();
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
@@ -289,7 +328,7 @@ export default class DiscoverSLURipper implements IRipper {
                 }
 
                 const weekHtml = parse(data.events_html);
-                const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year());
+                const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year(), this.weekdayMismatches);
                 allEvents.push(...events);
 
                 const nextDate = new Date(data.start_date);
@@ -308,6 +347,17 @@ export default class DiscoverSLURipper implements IRipper {
                 });
                 break;
             }
+        }
+
+        // Anything still here never appeared under a day heading matching its
+        // stated weekday in any week we fetched — surface it instead of letting
+        // it silently disappear.
+        for (const [eventId, { title, url }] of this.weekdayMismatches) {
+            allEvents.push({
+                type: "ParseError",
+                reason: `"${title}" (${url}) was never listed under a day heading matching its stated weekday within the lookahead window; skipped rather than publishing a wrong date`,
+                context: eventId,
+            });
         }
 
         const cal = ripper.config.calendars[0];
