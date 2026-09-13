@@ -22319,6 +22319,21 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
       "note": "Same CitySpark event in multiple seatoday tag calendars"
+    },
+    "external-myballard.ics Celebrate Town & Country Ballard Market’s 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]::external-visit-ballard.ics Celebrate Town & Country Ballard Market’s 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same Town & Country Ballard Market 40th birthday event, same address (1400 NW 56th St), same date/time; myballard.com and visitballard.com both republish it"
+    },
+    "external-seattle-gov-city-wide.ics Celebrate Town & Country’s Ballard Market’s 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]::external-visit-ballard.ics Celebrate Town & Country Ballard Market’s 40th Birthday!|2026-09-19T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same Town & Country Ballard Market 40th birthday event, same address (1400 NW 56th St), same date/time; seattle.gov city-wide calendar and visitballard.com both republish it"
+    },
+    "seatoday-seatoday-all.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics LevelUp with AI: Building and Evolving Custom GPTs|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-13",
+      "note": "Same seatoday event (identical 6amcity.com URL) surfaced in both its all-events feed and its learning-category feed"
     }
   }
 }
