@@ -1,8 +1,8 @@
 ---
 name: "AAF Seattle"
-status: candidate
+status: added
 platform: Squarespace
-url: https://www.aafseattle.org/calendar
+url: https://www.aafseattle.com/calendar
 tags: [Community]
 firstSeen: 2026-09-13
 lastChecked: 2026-09-13
@@ -32,6 +32,9 @@ Investigated 2026-09-13:
 - Seattle-based chapter serving the Seattle-area ad/marketing community —
   passes the Seattle-focus gate. Not a religious org.
 
-Not yet implemented — next cycle should follow the built-in Squarespace
-pattern (see `lib/config/squarespace.ts`), `sourceRole: venue` (first-party
-org calendar), `geo: null` (events at rotating locations/venues).
+Implemented 2026-09-13: `sources/aaf_seattle/ripper.yaml`, built-in
+`squarespace` type, `sourceRole: venue`, `geo: null`. Note: the primary
+domain is `aafseattle.com`, not `.org` as originally recorded above —
+the `.org` domain doesn't resolve; the site's own Squarespace config
+confirms `primaryDomain: www.aafseattle.com`. Verified 13 events in a
+local `ONLY_SOURCE=aaf-seattle` build.
