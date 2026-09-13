@@ -1,7 +1,6 @@
 name: glitter-and-gold-studio
 sourceRole: venue
 type: eventbrite
-expectEmpty: true # Monthly listing; the next month's date sometimes isn't posted yet
 description: "Glitter and Gold Studio"
 url: "https://glitterandgoldstudio.com/"
 friendlyLink: https://glitterandgoldstudio.com/
