@@ -177,6 +177,44 @@ describe('Discover SLU Ripper', () => {
         expect(events.length).toBe(0);
     });
 
+    test('skips a weekly recurring listing bucketed under the wrong weekday heading, using the correct one instead', () => {
+        // Reproduces a real upstream bug: discoverslu.com's AJAX response bucketed
+        // "2026 South Lake Union Farmers Market" ("Every Sat, ...") under a
+        // "Sunday" day-heading at the start of the window, then again — correctly —
+        // under "Saturday" later in the same document. Naive first-seen dedup would
+        // lock in the wrong (Sunday) date; the fix must skip the mismatch and keep
+        // the Saturday occurrence.
+        const html = parse(`
+            <div class="site-width"><h2 class="event-day">Sunday September 13, 2026</h2></div>
+            <div class="site-width"><div class="grid"><div class="grid__item">
+                <div class="feature full">
+                    <div class="text"><h3><a href="/events/2026-slu-farmers-market-3/">2026 South Lake Union Farmers Market</a></h3>
+                    <div class="feature__meta-container">
+                        <div class="feature__meta feature__meta--date">Every Sat, Jun 6 - Nov 21, 2026 10 am - 3 pm</div>
+                        <div class="feature__meta feature__meta--location">The Spheres</div>
+                    </div></div>
+                </div>
+            </div></div></div>
+            <div class="site-width"><h2 class="event-day">Saturday September 19, 2026</h2></div>
+            <div class="site-width"><div class="grid"><div class="grid__item">
+                <div class="feature full">
+                    <div class="text"><h3><a href="/events/2026-slu-farmers-market-3/">2026 South Lake Union Farmers Market</a></h3>
+                    <div class="feature__meta-container">
+                        <div class="feature__meta feature__meta--date">Every Sat, Jun 6 - Nov 21, 2026 10 am - 3 pm</div>
+                        <div class="feature__meta feature__meta--location">The Spheres</div>
+                    </div></div>
+                </div>
+            </div></div></div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].date.dayOfMonth()).toBe(19);
+        expect(validEvents[0].date.dayOfWeek().toString()).toBe('SATURDAY');
+    });
+
     test('emits ParseError for card with no date source', () => {
         const html = parse(`
             <div class="site-width">
