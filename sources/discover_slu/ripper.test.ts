@@ -207,12 +207,44 @@ describe('Discover SLU Ripper', () => {
             </div></div></div>
         `);
         const seenEvents = new Set<string>();
-        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const weekdayMismatches = new Map<string, { title: string; url: string }>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026, weekdayMismatches);
         const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
         expect(validEvents.length).toBe(1);
         expect(validEvents[0].date.dayOfMonth()).toBe(19);
         expect(validEvents[0].date.dayOfWeek().toString()).toBe('SATURDAY');
+        // The correct occurrence resolved it, so nothing should be left pending.
+        expect(weekdayMismatches.size).toBe(0);
+    });
+
+    test('records a weekday mismatch instead of publishing a wrong date, when no correct occurrence is found', () => {
+        // Only the mis-bucketed "Sunday" occurrence exists in this document —
+        // no matching "Saturday" heading anywhere. The event must not be
+        // emitted with the wrong date; it should be tracked as an unresolved
+        // mismatch so a caller (rip()) can report it instead of losing it.
+        const html = parse(`
+            <div class="site-width"><h2 class="event-day">Sunday September 13, 2026</h2></div>
+            <div class="site-width"><div class="grid"><div class="grid__item">
+                <div class="feature full">
+                    <div class="text"><h3><a href="/events/2026-slu-farmers-market-3/">2026 South Lake Union Farmers Market</a></h3>
+                    <div class="feature__meta-container">
+                        <div class="feature__meta feature__meta--date">Every Sat, Jun 6 - Nov 21, 2026 10 am - 3 pm</div>
+                        <div class="feature__meta feature__meta--location">The Spheres</div>
+                    </div></div>
+                </div>
+            </div></div></div>
+        `);
+        const seenEvents = new Set<string>();
+        const weekdayMismatches = new Map<string, { title: string; url: string }>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026, weekdayMismatches);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(0);
+        expect(weekdayMismatches.size).toBe(1);
+        const [[eventId, info]] = weekdayMismatches;
+        expect(eventId).toBe('discover-slu-2026-slu-farmers-market-3');
+        expect(info.title).toBe('2026 South Lake Union Farmers Market');
     });
 
     test('emits ParseError for card with no date source', () => {

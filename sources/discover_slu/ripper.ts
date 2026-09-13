@@ -121,6 +121,7 @@ export function parseEventsFromHtml(
     html: HTMLElement,
     seenEvents: Set<string>,
     defaultYear: number,
+    weekdayMismatches: Map<string, { title: string; url: string }> = new Map(),
 ): RipperEvent[] {
     const events: RipperEvent[] = [];
     let currentDate: { year: number; month: number; day: number } | null = null;
@@ -190,6 +191,11 @@ export function parseEventsFromHtml(
                     // one further down the document still gets picked up.
                     const expectedWeekday = extractExpectedWeekday(metaDateText);
                     if (expectedWeekday !== null && LocalDate.of(year, month, day).dayOfWeek().value() !== expectedWeekday) {
+                        // Track it in case no correctly-bucketed occurrence ever
+                        // shows up (across this call or a later week's fetch) —
+                        // rip() reports anything still unresolved once it's done,
+                        // rather than letting it disappear without a trace.
+                        weekdayMismatches.set(eventId, { title, url: eventUrl });
                         continue;
                     }
                 } else {
@@ -222,6 +228,7 @@ export function parseEventsFromHtml(
                 }
 
                 seenEvents.add(eventId);
+                weekdayMismatches.delete(eventId);
 
                 const eventDate = ZonedDateTime.of(
                     LocalDateTime.of(year!, month!, day!, timeInfo.hour, timeInfo.minute),
@@ -279,6 +286,7 @@ export function parseEventsFromHtml(
 
 export default class DiscoverSLURipper implements IRipper {
     private seenEvents = new Set<string>();
+    private weekdayMismatches = new Map<string, { title: string; url: string }>();
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
@@ -320,7 +328,7 @@ export default class DiscoverSLURipper implements IRipper {
                 }
 
                 const weekHtml = parse(data.events_html);
-                const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year());
+                const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year(), this.weekdayMismatches);
                 allEvents.push(...events);
 
                 const nextDate = new Date(data.start_date);
@@ -339,6 +347,17 @@ export default class DiscoverSLURipper implements IRipper {
                 });
                 break;
             }
+        }
+
+        // Anything still here never appeared under a day heading matching its
+        // stated weekday in any week we fetched — surface it instead of letting
+        // it silently disappear.
+        for (const [eventId, { title, url }] of this.weekdayMismatches) {
+            allEvents.push({
+                type: "ParseError",
+                reason: `"${title}" (${url}) was never listed under a day heading matching its stated weekday within the lookahead window; skipped rather than publishing a wrong date`,
+                context: eventId,
+            });
         }
 
         const cal = ripper.config.calendars[0];
