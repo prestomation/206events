@@ -77825,11 +77825,12 @@
         "duration": 14400,
         "cost": {
           "min": 0
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-08",
+      "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/2026-makers-market-tickets-1998931060612"
+      "evidence": "https://everout.com/seattle/events/yesler-makers-market/e216758/"
     },
     "craft-map-seattle:kinky-crafting-seattle-wa-2026-10-07": {
       "fields": {
@@ -78598,8 +78599,8 @@
       },
       "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "STG/Ticketmaster concert tribute show — ticketed event at major venue, definitively paid; TM page returns 403 from CI",
-      "partialFingerprint": "2bhlki"
+      "evidence": "https://www.ticketmaster.com/seattles-tribute-to-the-50th-anniversary-seattle-washington-11-28-2026/event/0F0065249B8E8C46",
+      "partialFingerprint": "1a128yy"
     },
     "seattle-center:accelerate-2026-playground-closure-x50715": {
       "fields": {
@@ -80304,14 +80305,11 @@
       "partialFingerprint": "1szotqn"
     },
     "traveling-goat:it-s-negroni-week-sept-21-27-2026-09-20": {
-      "fields": {
-        "startTime": "16:00",
-        "imageUrl": ""
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "No event-specific image for Negroni Week bar promo; venue photo already on ripper",
-      "partialFingerprint": "It's Negroni Week! Sept 21-27|Sep 20, 2026"
+      "reason": "No specific start time published (page gives only the date range Sept 21-27 for this week-long cocktail promo); no event-specific photo either, only a lazy-load placeholder gif (venue-level imageUrl already covers the ripper)",
+      "partialFingerprint": "It’s Negroni Week! Sept 21-27|Sep 20, 2026"
     },
     "danceus-swing:danceus-165480872035224-2026-09-17": {
       "fields": {
@@ -81064,6 +81062,74 @@
       "resolvedAt": "2026-09-13",
       "source": "agent",
       "evidence": "Seahawks vs New York Giants — NFL game at Lumen Field; definitively paid; TM page returns 403 from CI"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50390": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50390",
+      "partialFingerprint": "uisb32"
+    },
+    "seattle-center:eureka-day-x50311": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-x50311",
+      "partialFingerprint": "uisb32"
+    },
+    "tabletop-village:4lj3hu9flcv0ojh2iv8vd6l161_R20220610T220000@google.com-2027-03-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "reason": "No pricing published anywhere for Pokemon League (not on tabletopvillage.com/collections/tournament, the Pokemon.com league page, or web search); store-specific and undisclosed"
+    },
+    "tabletop-village:70jn8l1at8qjls7981j5qs4rnr_R20260328T010000@google.com-2027-03-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/collections/tournament"
+    },
+    "tabletop-village:782ebrph990d6kbt5fmk04do31_R20260328T010000@google.com-2027-03-12": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/collections/tournament"
+    },
+    "venue:loc:bellevue arts museum, 510 bellevue way ne, bellevue, wa 98004": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.bellevuearts.org/"
+    },
+    "venue:loc:lemay america’s car museum, 2702 east d st, tacoma, wa 98421": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.americascarmuseum.org/about-ACM"
+    },
+    "venue:loc:tacoma art museum, 1701 pacific ave, tacoma, wa 98402": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-13",
+      "source": "agent",
+      "evidence": "https://www.tacomaartmuseum.org/"
     }
   }
 }
