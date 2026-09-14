@@ -1,0 +1,22 @@
+# verified: 2026-09-14 ok
+imageUrl: "https://raygunlounge.jetspace.studio/wp-content/uploads/2018/11/webheader-mockup.png"
+geo:
+  lat: 47.6150856
+  lng: -122.3251369
+  label: "Raygun Lounge, 501 E Pine St, Seattle, WA 98122"
+  osmType: node
+  osmId: 2703661948
+name: raygun-lounge-poc-gaming
+sourceRole: venue
+friendlyname: Raygun Lounge — Seattle POC Board Gaming
+description: Seattle POC Gamers' drop-in tabletop board game night at this Capitol Hill barcade. Drinks and board games every first and third Saturday.
+timezone: America/Los_Angeles
+location: 501 E Pine St, Seattle, WA 98122
+url: https://raygunlounge.com/gamers-of-color/
+tags:
+  - Gaming
+  - Capitol Hill
+schedules:
+  - schedule: 1st and 3rd Saturday
+    start_time: "19:00"
+    duration: PT4H
