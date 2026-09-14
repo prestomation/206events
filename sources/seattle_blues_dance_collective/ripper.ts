@@ -113,18 +113,29 @@ export default class SeattleBluesDanceCollectiveRipper extends JSONRipper {
 
             const res = await fetchFn(url);
             if (!res.ok) {
-                throw new Error(`Seattle Blues Dance Collective events API returned ${res.status} ${res.statusText}`);
+                // The current month must succeed; a later month failing to
+                // load (e.g. a transient error) shouldn't fail the whole
+                // ripper — the overlapping windows mean most of its events
+                // were likely already captured by an earlier month anyway.
+                if (i === 0) throw new Error(`Seattle Blues Dance Collective events API returned ${res.status} ${res.statusText}`);
+                continue;
             }
             const jsonData = await res.json();
+            const rawEvents: SbdcEvent[] = Array.isArray(jsonData) ? jsonData : [];
             const parsed = await this.parseEvents(jsonData, ZonedDateTime.now(timezone), {});
 
-            for (const item of parsed) {
-                if ("date" in item) {
-                    if (seenUids.has(item.id!)) continue;
-                    seenUids.add(item.id!);
+            // Dedup on the raw uid (present whether or not the item parsed
+            // successfully) rather than the parsed event's id, so a
+            // malformed listing that recurs across overlapping monthly
+            // windows is reported as a ParseError once, not up to 6 times.
+            parsed.forEach((item, idx) => {
+                const uid = rawEvents[idx]?.uid;
+                if (uid) {
+                    if (seenUids.has(uid)) return;
+                    seenUids.add(uid);
                 }
                 results.push(item);
-            }
+            });
         }
 
         return [{

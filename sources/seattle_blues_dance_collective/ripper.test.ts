@@ -177,6 +177,20 @@ describe('SeattleBluesDanceCollectiveRipper - rip()', () => {
         expect(result[0].errors).toEqual([]);
     });
 
+    test('deduplicates a malformed entry that recurs across overlapping months by uid', async () => {
+        const malformed = [{ uid: 'broken-1', date: 'not-a-date', time: '6:00 PM - 8:00 PM', title: 'Broken Listing' }];
+        const mockFetch = vi.fn().mockImplementation(() => jsonResponse(malformed));
+        vi.stubGlobal('fetch', mockFetch);
+
+        const ripper = new SeattleBluesDanceCollectiveRipper();
+        const result = await ripper.rip(makeRipper());
+
+        expect(mockFetch).toHaveBeenCalledTimes(6);
+        // Same broken uid appears in every overlapping month's response, but
+        // should only be reported once, not once per month.
+        expect(result[0].errors).toHaveLength(1);
+    });
+
     test('requests distinct month/year per lookahead step', async () => {
         vi.useFakeTimers();
         vi.setSystemTime(new Date('2026-11-20T12:00:00-08:00'));
@@ -191,12 +205,28 @@ describe('SeattleBluesDanceCollectiveRipper - rip()', () => {
         expect(requestedMonths).toEqual(['11', '12', '1', '2', '3', '4']);
     });
 
-    test('throws when the API returns a non-OK status', async () => {
+    test('throws when the first (current) month returns a non-OK status', async () => {
         const mockFetch = vi.fn().mockResolvedValue({ ok: false, status: 503, statusText: 'Service Unavailable' });
         vi.stubGlobal('fetch', mockFetch);
 
         const ripper = new SeattleBluesDanceCollectiveRipper();
         await expect(ripper.rip(makeRipper())).rejects.toThrow(/503/);
+    });
+
+    test('tolerates a later month failing without discarding already-fetched events', async () => {
+        const jsonData = loadSampleJson();
+        const mockFetch = vi.fn()
+            .mockImplementationOnce(() => jsonResponse(jsonData))
+            .mockImplementationOnce(() => Promise.resolve({ ok: false, status: 500, statusText: 'Internal Server Error' }))
+            .mockImplementation(() => jsonResponse([]));
+        vi.stubGlobal('fetch', mockFetch);
+
+        const ripper = new SeattleBluesDanceCollectiveRipper();
+        const result = await ripper.rip(makeRipper());
+
+        expect(mockFetch).toHaveBeenCalledTimes(6); // still attempts every month
+        expect(result[0].events.length).toBe(jsonData.length);
+        expect(result[0].errors).toEqual([]);
     });
 
     test('throws when no calendars are configured', async () => {
