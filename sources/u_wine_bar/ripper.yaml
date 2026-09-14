@@ -1,0 +1,16 @@
+name: u-wine-bar
+sourceRole: venue
+description: "U Wine Bar"
+url: "https://www.uwinebar.com/catalog/events/12713"
+friendlyLink: "https://www.uwinebar.com/"
+tags: ["Gaming", "Wallingford"]
+geo:
+  lat: 47.6609496
+  lng: -122.3424229
+  label: "U Wine Bar, 4455 Stone Way N, Seattle, WA 98103"
+  osmType: node
+  osmId: 1855132856
+calendars:
+  - name: all-events
+    friendlyname: "U Wine Bar"
+    timezone: America/Los_Angeles
