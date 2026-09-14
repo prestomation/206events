@@ -3,6 +3,10 @@
 # the Eventbrite organizer page. Small org running monthly-ish "Vibes After
 # Five" mixers — intermittent, not broken. See skills/build-report/SKILL.md.
 # 2026-08-08: 1 upcoming event found; removed expectEmpty.
+# 2026-09-14: build-health flagged 0 events again. Confirmed via the live
+# Eventbrite organizer page: no upcoming events listed. Small org with
+# intermittent "Vibes After Five" mixers — re-adding expectEmpty; remove
+# again whenever a future build finds an upcoming event.
 name: sync-seattle
 sourceRole: venue
 type: eventbrite
@@ -16,6 +20,7 @@ calendars:
   - name: sync-seattle
     friendlyname: "Sync Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "45161572473"
       defaultLocation: "Seattle, WA"

@@ -30,6 +30,11 @@ calendars:
   - name: westlake-park
     friendlyname: "Westlake Park Events"
     timezone: America/Los_Angeles
+    # 2026-09-14: build-health flagged 0 events. Confirmed via the live Tribe
+    # Events API (venue=53732): 0 events at this venue right now, while other
+    # DSA venues (First & Pike, Pioneer Park) do have upcoming events — a
+    # genuine programming gap, not a broken feed.
+    expectEmpty: true
     config:
       venue_id: 53732
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/7/7d/Westlake_Park%2C_Seattle_%2853825632367%29.jpg"

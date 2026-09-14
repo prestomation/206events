@@ -1,0 +1,23 @@
+# verified: 2026-09-14 the-octopus-bar.com/events lists this as a weekly
+# Monday program following trivia ("KJ Pat Clark grabs the mic")
+imageUrl: "https://theoctopusbar.com/asset/69fcb30e946af/masthead-events.jpg"
+geo:
+  lat: 47.6612626
+  lng: -122.332721
+  label: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2061048100
+name: octopus-bar-monday-karaoke
+sourceRole: venue
+friendlyname: "Monday Karaoke at The Octopus Bar"
+description: Karaoke hosted by KJ Pat Clark every Monday night at The Octopus Bar in Wallingford, with food from The Salty Shack.
+timezone: America/Los_Angeles
+location: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+url: https://theoctopusbar.com/events
+tags:
+  - Nightlife
+  - Wallingford
+schedules:
+  - schedule: every Monday
+    start_time: "21:00"
+    duration: PT2H

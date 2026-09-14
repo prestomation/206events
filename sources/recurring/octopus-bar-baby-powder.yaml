@@ -1,0 +1,25 @@
+# verified: 2026-09-14 the-octopus-bar.com/events lists this as "every first
+# Friday from 10PM-1AM"
+imageUrl: "https://theoctopusbar.com/asset/69fcb30e946af/masthead-events.jpg"
+geo:
+  lat: 47.6612626
+  lng: -122.332721
+  label: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2061048100
+name: octopus-bar-baby-powder
+sourceRole: venue
+friendlyname: "Baby Powder at The Octopus Bar"
+description: Free club night for dancers with deep house, deep soulful, and amapiano DJs, every first Friday at The Octopus Bar in Wallingford.
+timezone: America/Los_Angeles
+location: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+url: https://theoctopusbar.com/events
+tags:
+  - Dance
+  - Nightlife
+  - Wallingford
+cost: free
+schedules:
+  - schedule: 1st Friday
+    start_time: "22:00"
+    duration: PT3H
