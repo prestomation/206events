@@ -6,7 +6,7 @@ url: https://raygunlounge.com/calendar/
 tags: [Gaming, Capitol Hill]
 firstSeen: 2026-07-19
 lastChecked: 2026-09-14
-pr: TBD
+pr: 1468
 ---
 
 Capitol Hill dive bar with a well-stocked tabletop-game library (pinball,
