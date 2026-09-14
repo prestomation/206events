@@ -1,0 +1,24 @@
+# verified: 2026-09-14 the-octopus-bar.com/events lists this as a weekly
+# Sunday program ("Seattle restaurant and bar employees get 25% off... with
+# karaoke at 9PM")
+imageUrl: "https://theoctopusbar.com/asset/69fcb30e946af/masthead-events.jpg"
+geo:
+  lat: 47.6612626
+  lng: -122.332721
+  label: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2061048100
+name: octopus-bar-industry-night
+sourceRole: venue
+friendlyname: "Industry Night + Karaoke at The Octopus Bar"
+description: Karaoke and 25% off drinks for Seattle restaurant and bar employees, every Sunday at The Octopus Bar in Wallingford.
+timezone: America/Los_Angeles
+location: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+url: https://theoctopusbar.com/events
+tags:
+  - Nightlife
+  - Wallingford
+schedules:
+  - schedule: every Sunday
+    start_time: "21:00"
+    duration: PT4H

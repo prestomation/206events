@@ -65,6 +65,11 @@ calendars:
       osmId: 2158761201
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
+    # 2026-09-14: build-health flagged 0 events. Confirmed via the live
+    # window.upcomingShows feed and data-venue-title markup: no Vermillion
+    # shows currently listed on showlists.net — a genuine programming gap,
+    # not a broken feed.
+    expectEmpty: true
     config:
       venue: "Vermillion"
 

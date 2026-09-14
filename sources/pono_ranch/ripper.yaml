@@ -16,3 +16,7 @@ calendars:
   - name: pono-ranch
     friendlyname: "Pono Ranch"
     timezone: America/Los_Angeles
+    # 2026-09-14: build-health flagged 0 events. Confirmed via the live
+    # Squarespace events JSON (?format=json): 0 upcoming items — a small
+    # venue with intermittent live-music bookings, not a broken feed.
+    expectEmpty: true

@@ -1,0 +1,26 @@
+# verified: 2026-09-14 the-octopus-bar.com/events lists this as a weekly
+# Sunday program ("free, low-pressure figure-drawing session every Sunday
+# from 6-8PM")
+imageUrl: "https://theoctopusbar.com/asset/69fcb30e946af/masthead-events.jpg"
+geo:
+  lat: 47.6612626
+  lng: -122.332721
+  label: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+  osmType: node
+  osmId: 2061048100
+name: octopus-bar-sip-and-sketch
+sourceRole: venue
+friendlyname: "Sip + Sketch Sundays at The Octopus Bar"
+description: Free, low-pressure figure-drawing session every Sunday at The Octopus Bar in Wallingford; bring supplies or add a $10 kit.
+timezone: America/Los_Angeles
+location: "The Octopus Bar, 2121 N 45th St, Seattle, WA 98103"
+url: https://theoctopusbar.com/events
+tags:
+  - Arts
+  - Nightlife
+  - Wallingford
+cost: free
+schedules:
+  - schedule: every Sunday
+    start_time: "18:00"
+    duration: PT2H
