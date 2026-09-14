@@ -22334,6 +22334,221 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-13",
       "note": "Same seatoday event (identical 6amcity.com URL) surfaced in both its all-events feed and its learning-category feed"
+    },
+    "craft-map-seattle-craft-map-seattle.ics Seattle Queer Crafts | Monthly Meet Up|2026-09-26T12:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Seattle Queer Crafts | Monthly Meet Up|2026-09-26T14:00:00.938-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event, same venue (Capitol Hill SPL), two feeds"
+    },
+    "danceus-tango-danceus-tango.ics Saturday Milonga @ Dance Underground|2026-09-19T20:30:00-07:00[America/Los_Angeles]::recurring-dance-underground.ics Dance Underground|2026-09-19T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same weekly milonga event at Dance Underground, venue feed vs danceus aggregator"
+    },
+    "external-seattle-gov-arts.ics Community Office Hours with Director Amy Nguyen|2026-10-30T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Community Office Hours with Director Amy Nguyen|2026-10-30T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle city government event in two city calendar feeds"
+    },
+    "external-seattle-gov-arts.ics Creative Placemaking Committee (CPC)|2026-10-20T16:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Creative Placemaking Committee (CPC)|2026-10-20T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle city government committee meeting in two city calendar feeds"
+    },
+    "external-seattle-gov-arts.ics Cultural Investments Committee (CIC)|2026-10-27T12:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Cultural Investments Committee (CIC)|2026-10-27T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle city government committee meeting in two city calendar feeds"
+    },
+    "external-seattle-gov-arts.ics Public Art Advisory Committee (PAAC)|2026-10-27T09:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Public Art Advisory Committee (PAAC)|2026-10-27T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle city government committee meeting in two city calendar feeds"
+    },
+    "external-seattle-gov-arts.ics Seattle Arts Commission|2026-10-13T16:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics Seattle Arts Commission|2026-10-13T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle Arts Commission meeting in two city calendar feeds"
+    },
+    "external-seattle-gov-arts.ics The Creative Advantage Office Hours|2026-10-22T15:00:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics The Creative Advantage Office Hours|2026-10-22T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle city government office hours in two city calendar feeds"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Draft Review Session|2026-10-15T12:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics smART Ventures Draft Review Session|2026-10-15T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle city government event in two city calendar feeds"
+    },
+    "external-seattle-gov-arts.ics smART Ventures Information Session|2026-10-15T11:30:00-07:00[America/Los_Angeles]::external-seattle-gov-city-wide.ics smART Ventures Information Session|2026-10-15T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Seattle city government event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Beaver Pond Natural Area Smothering|2026-09-27T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Beaver Pond Natural Area Smothering|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks volunteer event, city-wide feed and parks foundation feed"
+    },
+    "external-seattle-gov-city-wide.ics Board of Parks and Recreation Commissioners - Subcommittee Meetings|2026-10-22T18:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Board of Parks and Recreation Commissioners - Subcommittee Meetings|2026-10-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same city government meeting in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Cheasty Forest at Hanford Steps|2026-10-25T13:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Cheasty Forest at Hanford Steps|2026-10-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks volunteer event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-01T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event, city-wide feed and parks foundation feed"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-02T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event, city-wide feed and parks foundation feed"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-15T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-15T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-16T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-16T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-22T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-23T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-23T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-29T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-30T11:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Duwamish Head Greenbelt Restoration|2026-09-29T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Duwamish Head Greenbelt Restoration|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks volunteer event, city-wide feed and parks foundation feed"
+    },
+    "external-seattle-gov-city-wide.ics Gateway Park North Duwamish Alive!|2026-10-17T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Gateway Park North Duwamish Alive!|2026-10-17T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Kingfisher Natural Area Migration Walk|2026-10-24T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Kingfisher Natural Area Migration Walk|2026-10-24T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-city-wide.ics Planting Native Flowers on the B-G Trail|2026-10-31T09:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Planting Native Flowers on the B-G Trail|2026-10-31T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event in two city calendar feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Beaver Pond Natural Area Smothering|2026-09-27T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Beaver Pond Natural Area Smothering|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks volunteer event, parks-recreation feed and parks foundation feed"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-01T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event, parks-recreation feed and parks foundation feed"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-02T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks event, parks-recreation feed and parks foundation feed"
+    },
+    "external-seattle-gov-parks-recreation.ics Duwamish Head Greenbelt Restoration|2026-09-29T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Duwamish Head Greenbelt Restoration|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same parks volunteer event, parks-recreation feed and parks foundation feed"
+    },
+    "external-seattle-parks-foundation.ics Show Up, Seattle! Day of Service|2026-09-26T09:00:00-07:00[America/Los_Angeles]::external-west-seattle-blog.ics Show Up, Seattle! 2026 Day of Service|2026-09-26T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same citywide volunteer day event, parks foundation and west seattle blog feeds"
+    },
+    "external-sunn-health-bar.ics Fremont Sunday Market|2026-09-20T07:00:00-07:00[America/Los_Angeles]::recurring-fremont-sunday-market.ics Fremont Sunday Market|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Fremont Sunday Market, venue recurring entry vs Sunn Health Bar calendar listing"
+    },
+    "external-visit-ballard.ics Conor Byrne Open Mic Nights|2026-09-20T19:30:00-07:00[America/Los_Angeles]::recurring-conor-byrne-open-mic.ics Conor Byrne Pub — Sunday Open Mic|2026-09-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Sunday open mic at Conor Byrne Pub, venue recurring entry vs visit ballard aggregator"
+    },
+    "external-visit-ballard.ics Magic Monday Casual Commander Night | Reuben's Brews Ballard Taproom|2026-09-21T18:00:00-07:00[America/Los_Angeles]::reubens-brews-ballard.ics Magic Monday Casual Commander Night|2026-09-21T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Magic Monday event at Reuben's Brews, venue feed vs visit ballard aggregator"
+    },
+    "seatoday-seatoday-all.ics Hold Me Tight Seattle Couples Workshop|2026-09-27T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Hold Me Tight Seattle Couples Workshop|2026-09-27T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday all-events and learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Sunday Talks|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sunday Talks|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday all-events and learning category feeds"
+    },
+    "seatoday-seatoday-all.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday all-events and arts category feeds"
+    },
+    "seatoday-seatoday-all.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday all-events and community category feeds"
+    },
+    "seatoday-seatoday-all.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday all-events and learning category feeds"
+    },
+    "seatoday-seatoday-all.ics [NEW WORKSHOP] Reiki Healing Practitioner (Level 2) w/Cacao Ceremony|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics [NEW WORKSHOP] Reiki Healing Practitioner (Level 2) w/Cacao Ceremony|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday all-events and learning category feeds"
+    },
+    "seatoday-seatoday-arts.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday arts and community category feeds"
+    },
+    "seatoday-seatoday-arts.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday arts and learning category feeds"
+    },
+    "seatoday-seatoday-community.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Wood Carving from an Indigenous Perspective|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same event in seatoday community and learning category feeds"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Genevieve Artadi ft. Louis Cole & Chiquita Magic|2026-12-13T20:00:00-08:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Genevieve Artadi ft. Louis Cole & Chiquita Magic|2026-12-13T20:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-14",
+      "note": "Same Tractor Tavern concert listed on Sunset Tavern and Tractor Tavern feeds"
     }
   }
 }
