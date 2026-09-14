@@ -6,7 +6,7 @@ url: https://seattlebluesdance.com
 tags: ["Dance", "Music"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-14
-pr:
+pr: 1471
 ---
 
 Nonprofit that curates blues-dance socials, classes, and live-music nights
