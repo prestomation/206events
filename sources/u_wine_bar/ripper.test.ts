@@ -61,6 +61,10 @@ describe('UWineBarRipper - parseTitle', () => {
         expect(ripper.parseTitle('')).toBeNull();
     });
 
+    test('throws for a date-shaped but out-of-range date, distinct from "no date at all"', () => {
+        expect(() => ripper.parseTitle('13/45/26 Bogus Event')).toThrow();
+    });
+
 });
 
 describe('UWineBarRipper - HTML entity decoding', () => {
@@ -172,6 +176,17 @@ describe('UWineBarRipper - parseEventsFromHtml', () => {
 
 describe('UWineBarRipper - parseEventsFromHtml edge cases', () => {
     const ripper = new UWineBarRipper();
+
+    test('reports a ParseError (not a silent skip) for a date-shaped but invalid date', () => {
+        const html = `
+            <li class="product">
+                <h4 class="name" itemprop="name" title="13/45/26 Bogus Event">13/45/26 Bogus Event</h4>
+            </li>
+        `;
+        const results = ripper.parseEventsFromHtml(html, 'https://example.com');
+        expect(results.length).toBe(1);
+        expect(results[0]).toMatchObject({ type: 'ParseError' });
+    });
 
     test('returns an empty array for a page with no products', () => {
         const html = '<html><body><div class="products-container"></div></body></html>';

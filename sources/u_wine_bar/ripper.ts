@@ -84,7 +84,17 @@ export default class UWineBarRipper implements IRipper {
             if (!rawTitle) continue; // not a product with a name — shouldn't happen
 
             const title = decode(rawTitle).replace(/\s+/g, ' ').trim();
-            const parsed = this.parseTitle(title);
+            let parsed: ReturnType<UWineBarRipper['parseTitle']>;
+            try {
+                parsed = this.parseTitle(title);
+            } catch (err) {
+                // Date-shaped but invalid (e.g. a typo'd "13/45/26") — distinct
+                // from "no leading date at all" (a Weekly template, see below).
+                // A real parse failure must surface as a ParseError, not vanish
+                // silently the same way an intentionally-filtered title does.
+                events.push({ type: 'ParseError', reason: err instanceof Error ? err.message : String(err), context: title });
+                continue;
+            }
             if (!parsed) continue; // no leading date — a recurring "Weekly" template product, not a dated instance
 
             const linkEl = product.querySelector('a[itemprop="url"]');
@@ -134,10 +144,16 @@ export default class UWineBarRipper implements IRipper {
     }
 
     // Public for testing. Parses a product title into its leading date, an
-    // optional time, and the remaining event name. Returns null when the
-    // title has no leading "M/D/YY" date at all (the two "... Weekly"
-    // recurring product templates) — the caller treats that as "not a dated
-    // event instance", not an error.
+    // optional time, and the remaining event name.
+    //
+    // Returns null when the title has no leading "M/D/YY" date at all (the
+    // two "... Weekly" recurring product templates) — the caller treats
+    // that as "not a dated event instance", not an error.
+    //
+    // Throws when the title *does* have a date-shaped leading token but the
+    // values are out of range (e.g. a typo'd "13/45/26") — a genuine parse
+    // failure, deliberately distinct from the "no date at all" null case so
+    // the caller can report a ParseError instead of silently dropping it.
     public parseTitle(title: string): { date: LocalDate; hour: number | null; minute: number | null; name: string } | null {
         const dateMatch = title.match(DATE_RE);
         if (!dateMatch) return null;
@@ -149,7 +165,7 @@ export default class UWineBarRipper implements IRipper {
         try {
             date = LocalDate.of(year, month, day);
         } catch {
-            return null;
+            throw new Error(`Malformed date in title "${title}"`);
         }
 
         const rest = title.slice(dateMatch[0].length);
