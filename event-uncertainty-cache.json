@@ -80858,6 +80858,12 @@
       "resolvedAt": "2026-09-14",
       "source": "agent",
       "evidence": "https://www.spl.org/hours-and-locations/capitol-hill-branch"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-14",
+      "source": "agent",
+      "reason": "Source page does not list event times; event is past and annual"
     }
   }
 }
