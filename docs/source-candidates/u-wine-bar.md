@@ -6,7 +6,7 @@ url: https://www.uwinebar.com/catalog/events/12713
 tags: [Gaming, Wallingford]
 firstSeen: 2026-09-14
 lastChecked: 2026-09-14
-pr: TBD
+pr: 1467
 ---
 
 Newly-opened board game / TCG wine bar at 4455 Stone Way N, Wallingford,
