@@ -1,0 +1,15 @@
+name: seattle-blues-dance-collective
+sourceRole: aggregator
+description: "Seattle Blues Dance Collective"
+# The site's calendar page is client-rendered, but it calls its own public
+# JSON API directly: GET /events.json?month=<1-12>&year=<yyyy>. `url` here is
+# the base endpoint; ripper.ts appends month/year per request. See ripper.ts
+# for why a several-month loop is used instead of a single query.
+url: "https://seattlebluesdance.com/events.json"
+friendlyLink: https://seattlebluesdance.com/
+tags: ["Dance", "Music"]
+geo: null
+calendars:
+  - name: events
+    friendlyname: "Seattle Blues Dance Collective"
+    timezone: America/Los_Angeles
