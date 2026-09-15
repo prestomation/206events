@@ -1525,6 +1525,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'jack hyde park -  2000 ruston way tacoma, wa': { lat: 47.274448, lng: -122.46041 }, // 2000 Ruston Way, Tacoma, WA
   'jack sprat, 2808 calder ave ne on, ne turing st, redmond, wa 98052, usa': { lat: 47.6348113, lng: -122.1348121 }, // 2808 NE Turing St, Redmond, WA
   'john c. little, sr. park plaza 6961 37th ave s, seattle, wa': { lat: 47.5399358, lng: -122.2884337 }, // coords embedded in the source's own Google Maps link (external-350-seattle), no reverse-geocoding involved
+  'john stanford center for educational excellence': { lat: 47.5812961, lng: -122.3303244 }, // 2445 3rd Ave S, Seattle, WA — coords embedded in the source's own Squarespace map data (seattle-council-ptsa), no reverse-geocoding involved
   'joshua green foundation theater, mohai 860 terry ave n, seattle, wa, 98109, united states': { lat: 47.6275114, lng: -122.3367506 }, // MOHAI, 860 Terry Ave N, Seattle, WA
   'kenyon hall @ 7904 35th sw, west seattle': { lat: 47.5316606, lng: -122.3761768 }, // Kenyon Hall, 7904 35th Ave SW, Seattle, WA
   'kikaha - 1930 east d street,  tacoma, wa. 98093': { lat: 47.2448704, lng: -122.4310072 }, // 1930 E D St, Tacoma, WA
