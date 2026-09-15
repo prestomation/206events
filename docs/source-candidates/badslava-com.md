@@ -1,15 +1,13 @@
 ---
-name: Open Mic at Saint John's Bar and Eatery
-status: candidate
-platform: Unknown
-url: https://badslava.com/details.php?id=53773
-tags: ["music", "comedy"]
+name: Badslava Seattle Open Mics
+status: added
+platform: Custom HTML
+url: https://badslava.com/seattle-open-mics.php
+tags: ["Music", "OpenMic"]
 firstSeen: 2026-08-25
-lastChecked: 2026-08-25
+lastChecked: 2026-09-15
+pr: 1430
 ---
 
-Discovered via aggregator gap analysis. 10 events in the Seattle
-metro sample. Source domain: badslava.com.
-
-Sample event: "Open Mic at Saint John's Bar and Eatery" (2026-08-25T02:00:00.000Z)
-Description: Weekly free open mic at Saint John's Bar and Eatery.
+Discovered via aggregator gap analysis. Implemented as
+`sources/badslava_open_mics` in PR #1430.

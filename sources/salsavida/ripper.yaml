@@ -1,0 +1,11 @@
+name: salsavida
+sourceRole: aggregator
+description: "Salsa Vida Seattle Social Dance Calendar"
+url: "https://www.salsavida.com/guides/washington/seattle/"
+friendlyLink: "https://www.salsavida.com/guides/washington/seattle/"
+geo: null
+tags: ["Dance"]
+calendars:
+  - name: salsavida
+    friendlyname: "Salsa Vida Seattle Social Dance Calendar"
+    timezone: America/Los_Angeles
