@@ -6,7 +6,7 @@ url: https://www.magnoliayogaandhealingarts.com/class-schedule
 tags: [Wellness, Magnolia]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-15
-pr:
+pr: 1481
 ---
 
 Magnolia neighborhood yoga studio offering classes and healing arts sessions.
