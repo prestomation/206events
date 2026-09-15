@@ -22549,6 +22549,31 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-14",
       "note": "Same Tractor Tavern concert listed on Sunset Tavern and Tractor Tavern feeds"
+    },
+    "seatoday-seatoday-all.ics Carpinito Brothers Pumpkin Patch & Farm Fun Yard|2026-09-26T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Carpinito Brothers Pumpkin Patch & Farm Fun Yard|2026-09-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same seatoday event in all.ics and community.ics feeds"
+    },
+    "seatoday-seatoday-all.ics Carpinito Brothers Pumpkin Patch & Farm Fun Yard|2026-09-27T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Carpinito Brothers Pumpkin Patch & Farm Fun Yard|2026-09-27T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same seatoday event in all.ics and community.ics feeds"
+    },
+    "seatoday-seatoday-all.ics Green Issaquah: Restoration Event at Park Pointe|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Green Issaquah: Restoration Event at Park Pointe|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same seatoday event in all.ics and community.ics feeds"
+    },
+    "seatoday-seatoday-all.ics Green Issaquah: Restoration Event at Park Pointe|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Green Issaquah: Restoration Event at Park Pointe|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same seatoday event in all.ics and sports.ics feeds"
+    },
+    "seatoday-seatoday-community.ics Green Issaquah: Restoration Event at Park Pointe|2026-09-19T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Green Issaquah: Restoration Event at Park Pointe|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same seatoday event in community.ics and sports.ics feeds"
     }
   }
 }
