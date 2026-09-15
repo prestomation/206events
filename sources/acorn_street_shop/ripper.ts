@@ -1,4 +1,4 @@
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { parse as parseHtml, HTMLElement } from "node-html-parser";
 import { ZonedDateTime, LocalDateTime, Duration, ZoneId } from "@js-joda/core";
@@ -37,6 +37,81 @@ const MONTH_ABBR: Record<string, number> = {
 
 const ONCLICK_FIELDS_PATTERN = /year=(\d{4})&month=([A-Za-z]{3})&day=(\d{1,2})&eventId=(\d+)/;
 const TIME_PATTERN = /^(\d{1,2}):(\d{2})\s*(am|pm)(?:\s+to\s+(\d{1,2}):(\d{2})\s*(am|pm))?$/i;
+
+// A class's onclick link (events.htm?...&eventId=N) 302s to a Rain POS
+// "product" page (/module/class/<id>/<slug>) whose *widget* renders
+// client-side (Angular-style `{{...}}` bindings — no time/price visible in
+// the raw response), but the same page also embeds a server-rendered
+// `var event_data = JSON.stringify({...})` blob carrying every upcoming
+// section (date, time range, price) for that class product. Verified live
+// across 8 distinct class titles (Beginning Knitting 101, Intermediate
+// Knitting, Advanced Beginner Workshop, Introduction to Portuguese
+// Knitting, Introduction to Felted Repair and Darning, Fundamentals of
+// Hand Embroidery, Swiss Darning, The Stacktangle Scarf) — every one
+// carries a "price" (plain USD integer string, no decimals/ranges seen)
+// and per-section "time" as "H:MMam - H:MMpm".
+//
+// A *free* recurring event (Knit Night!, vendor pop-ups, Stitch n Bitch)
+// uses a different, non-commerce "Event Details" template (When/Where/
+// Details rows) that never carries this blob — there's no product to
+// price, so its absence is itself the free/no-cost signal (see rip()).
+const EVENT_DATA_MARKER = "var event_data = JSON.stringify(";
+
+export interface AcornEventSection {
+    event_id: string;
+    time: string; // "2:30pm - 4:30pm"
+}
+
+export interface AcornEventDataGroup {
+    price: string; // plain USD integer string, e.g. "80"
+    sections: AcornEventSection[];
+}
+
+// Extracts the class-product page's embedded `event_data` blob (see
+// EVENT_DATA_MARKER above). Returns null when the marker isn't present at
+// all (the "Event Details"/free template) or the JSON can't be parsed
+// (malformed/unexpected markup — degrade to "unknown", never throw).
+export function extractEventDataBlob(html: string): Record<string, AcornEventDataGroup> | null {
+    const idx = html.indexOf(EVENT_DATA_MARKER);
+    if (idx === -1) return null;
+
+    const start = idx + EVENT_DATA_MARKER.length;
+    let depth = 0;
+    let i = start;
+    for (; i < html.length; i++) {
+        const c = html[i];
+        if (c === '{') depth++;
+        else if (c === '}') {
+            depth--;
+            if (depth === 0) { i++; break; }
+        }
+    }
+    if (depth !== 0) return null; // Unbalanced — bail rather than slice garbage.
+
+    try {
+        return JSON.parse(html.slice(start, i));
+    } catch {
+        return null;
+    }
+}
+
+// Converts the class-product page's "2:30pm - 4:30pm" section time into the
+// " to "-separated form TIME_PATTERN (and parseCalendarEntry) already
+// understand, so the fetched detail data reuses the exact same, already
+// tested time-range math instead of a second parallel implementation.
+export function normalizeDetailTime(time: string): string {
+    return time.replace(/\s*-\s*/, ' to ').trim();
+}
+
+// What rip() learned about one eventId from its detail page, keyed by the
+// occurrence's own event_id. `free` means the page was the non-commerce
+// "Event Details" template (no event_data blob at all — see
+// EVENT_DATA_MARKER above), which never carries a price.
+export interface AcornDetailInfo {
+    time?: string;   // raw "H:MMam - H:MMpm" from a matched section, if any
+    price?: string;
+    free?: boolean;
+}
 
 // Builds one month's request URL, preserving whatever query params are
 // already on the configured base URL (e.g. pageComponentId) and setting
@@ -156,16 +231,18 @@ export function parseCalendarEntry(entry: AcornCalendarEntry, zone: ZoneId): Rip
         summary: entry.title,
         location: VENUE_LOCATION,
         url: entry.detailUrl,
-        // No admission price is present in the static month-view HTML (or
-        // the class detail page — it's rendered client-side); leave unset
-        // so buildCostGaps (lib/discovery.ts) queues it for the
-        // cost-resolver rather than guessing. No imageUrl either: the
-        // month-view carries none, and unlike a venue-wide "no photos
+        // Cost isn't known from the raw month-view entry alone — rip()
+        // fills it in afterwards from the class-product page's event_data
+        // blob (see extractEventDataBlob), or leaves it unset so
+        // buildCostGaps (lib/discovery.ts) queues it for the cost-resolver
+        // when the detail fetch didn't resolve a price. No imageUrl either:
+        // the month-view carries none, and unlike a venue-wide "no photos
         // exist" case (skipEventPhotos), individual class detail pages DO
         // carry distinct per-event photos (verified live: og:image differs
         // per class) — fetching them here would multiply live requests
-        // per build, so that backfill is left to the normal photoGaps
-        // queue / photo-resolver skill instead.
+        // per build for a field that's cosmetic rather than core data, so
+        // that backfill is left to the normal photoGaps queue /
+        // photo-resolver skill instead.
     };
 
     return event;
@@ -220,6 +297,45 @@ export default class AcornStreetShopRipper implements IRipper {
             }
         }
 
+        // Enrich with detail-page data (exact end time + price) so most
+        // events need neither a duration-uncertainty nor a cost-gap entry.
+        // One fetch per distinct eventId, deduped further by every sibling
+        // event_id a class-product page's event_data blob resolves in the
+        // same request (see extractEventDataBlob) — a handful of distinct
+        // class titles plus one fetch per free-template recurring event,
+        // not one fetch per calendar occurrence.
+        const detailByEventId = new Map<string, AcornDetailInfo>();
+        const attemptedEventIds = new Set<string>();
+
+        for (const entry of entries) {
+            if (isPrivateBooking(entry.title)) continue;
+            if (attemptedEventIds.has(entry.eventId)) continue;
+            attemptedEventIds.add(entry.eventId);
+
+            try {
+                const res = await fetchFn(entry.detailUrl, { headers: REQUEST_HEADERS });
+                if (!res.ok) continue;
+
+                const detailHtml = await res.text();
+                const blob = extractEventDataBlob(detailHtml);
+                if (blob) {
+                    for (const group of Object.values(blob)) {
+                        for (const section of group.sections) {
+                            detailByEventId.set(section.event_id, { time: section.time, price: group.price });
+                            attemptedEventIds.add(section.event_id);
+                        }
+                    }
+                } else {
+                    // No event_data blob at all → the non-commerce "Event
+                    // Details" template, which never carries a price.
+                    detailByEventId.set(entry.eventId, { free: true });
+                }
+            } catch {
+                // Network hiccup — leave this eventId undetermined; the
+                // existing uncertainty/cost-gap flow below still applies.
+            }
+        }
+
         const events: RipperCalendarEvent[] = [];
         const errors: RipperError[] = [];
 
@@ -228,24 +344,52 @@ export default class AcornStreetShopRipper implements IRipper {
             // (AGENTS.md: "Parse Methods Must Never Return Null").
             if (isPrivateBooking(entry.title)) continue;
 
-            const result = parseCalendarEntry(entry, zone);
+            const detail = detailByEventId.get(entry.eventId);
+            // A matched section's own time range is authoritative for this
+            // specific occurrence — reuse it in place of the month-view's
+            // start-only text so parseCalendarEntry computes an exact
+            // duration instead of defaulting to one hour.
+            const parseEntry = detail?.time ? { ...entry, timeRaw: normalizeDetailTime(detail.time) } : entry;
+
+            const result = parseCalendarEntry(parseEntry, zone);
             if (!('date' in result)) {
                 errors.push(result);
                 continue;
             }
             if (result.date.isBefore(now)) continue; // Past event — intentional skip
 
+            if (detail?.free) {
+                result.cost = { min: 0 };
+            } else if (detail?.price !== undefined) {
+                const priceNum = Number(detail.price);
+                if (!Number.isNaN(priceNum)) result.cost = { min: priceNum };
+            }
+
             events.push(result);
 
-            // No "to <end time>" in the raw listing text means we defaulted
-            // the duration (see parseCalendarEntry) — flag it per
-            // docs/event-uncertainty.md rather than silently guessing.
-            if (!/\bto\b/i.test(entry.timeRaw)) {
+            // No "to <end time>" in the (possibly detail-enriched) time text
+            // means duration still defaulted (see parseCalendarEntry), and
+            // no cost was resolved above — flag whichever is still unknown
+            // per docs/event-uncertainty.md rather than silently guessing.
+            // The fingerprint always hashes the raw month-view entry (never
+            // parseEntry) so it stays stable regardless of what the detail
+            // fetch did or didn't find.
+            const unknownFields: UncertaintyField[] = [];
+            const reasons: string[] = [];
+            if (!/\bto\b/i.test(parseEntry.timeRaw)) {
+                unknownFields.push("duration");
+                reasons.push(`Listing gave only a start time ("${entry.timeRaw}"), no end time — duration defaulted to 1 hour`);
+            }
+            if (result.cost === undefined) {
+                unknownFields.push("cost");
+                reasons.push("No admission price found on the source or detail page");
+            }
+            if (unknownFields.length > 0) {
                 const uncertainty: UncertaintyError = {
                     type: "Uncertainty",
-                    reason: `Listing gave only a start time ("${entry.timeRaw}"), no end time — duration defaulted to 1 hour`,
+                    reason: reasons.join("; "),
                     source: "acorn-street-shop",
-                    unknownFields: ["duration"],
+                    unknownFields,
                     event: result,
                     partialFingerprint: fingerprint(entry),
                 };

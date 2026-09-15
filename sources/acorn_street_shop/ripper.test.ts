@@ -10,6 +10,8 @@ import AcornStreetShopRipper, {
     parseCalendarEntry,
     isPrivateBooking,
     buildMonthUrl,
+    extractEventDataBlob,
+    normalizeDetailTime,
     AcornCalendarEntry,
 } from './ripper.js';
 
@@ -302,6 +304,174 @@ describe('AcornStreetShopRipper.rip()', () => {
         // an UncertaintyError's carried event.
         const errorText = JSON.stringify(errors);
         expect(errorText).not.toContain('Private Class with Whoever');
+
+        vi.unstubAllGlobals();
+    });
+});
+
+describe('extractEventDataBlob', () => {
+    const classPageHtml = `<html><body>
+        <script attr="nomove">
+        var event_data = JSON.stringify({"#60":{"class_id_str":"#60","title":"Beginning Knitting 101","price":"80","sections":[{"event_id":"4523431","date":"September 15, 2026","time":"2:30pm - 4:30pm"}]}});
+        </script>
+        </body></html>`;
+
+    it('parses the class-product page event_data blob', () => {
+        const blob = extractEventDataBlob(classPageHtml);
+        expect(blob).not.toBeNull();
+        expect(blob!['#60'].price).toBe('80');
+        expect(blob!['#60'].sections).toEqual([
+            { event_id: '4523431', date: 'September 15, 2026', time: '2:30pm - 4:30pm' },
+        ]);
+    });
+
+    it('returns null when the marker is absent (the free "Event Details" template)', () => {
+        const freeTemplateHtml = `<html><body><div class="component-header">Event Details</div><h1>Knit Night!</h1></body></html>`;
+        expect(extractEventDataBlob(freeTemplateHtml)).toBeNull();
+    });
+
+    it('returns null rather than throwing on malformed JSON after the marker', () => {
+        const broken = `var event_data = JSON.stringify({"#60": this is not json});`;
+        expect(extractEventDataBlob(broken)).toBeNull();
+    });
+
+    it('returns null on an unbalanced/truncated blob rather than slicing garbage', () => {
+        const truncated = `var event_data = JSON.stringify({"#60":{"price":"80"`;
+        expect(extractEventDataBlob(truncated)).toBeNull();
+    });
+
+    it('handles multiple class-variant groups sharing one page (verified live shape)', () => {
+        const multiGroup = `var event_data = JSON.stringify({"#60":{"price":"80","sections":[{"event_id":"1","time":"2:30pm - 4:30pm"}]},"#61":{"price":"80","sections":[{"event_id":"2","time":"12:30pm - 3:30pm"}]}});`;
+        const blob = extractEventDataBlob(multiGroup);
+        expect(Object.keys(blob!)).toEqual(['#60', '#61']);
+    });
+});
+
+describe('normalizeDetailTime', () => {
+    it('converts "H:MMam - H:MMpm" into the " to "-separated form TIME_PATTERN expects', () => {
+        expect(normalizeDetailTime('2:30pm - 4:30pm')).toBe('2:30pm to 4:30pm');
+    });
+
+    it('handles a dash with no surrounding spaces', () => {
+        expect(normalizeDetailTime('2:30pm-4:30pm')).toBe('2:30pm to 4:30pm');
+    });
+
+    it('trims incidental whitespace', () => {
+        expect(normalizeDetailTime('  10:30am - 12:30pm  ')).toBe('10:30am to 12:30pm');
+    });
+});
+
+describe('AcornStreetShopRipper.rip() — detail-page cost/duration enrichment', () => {
+    const now = ZonedDateTime.now(ZONE);
+    const targetMonth = now.toLocalDate().plusMonths(2); // Always-future month, as the existing rip() test does.
+    const monthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][targetMonth.monthValue() - 1];
+
+    function gridHtml(): string {
+        const base = `https://www.acornstreet.com/module/events.htm?pageComponentId=1870456&year=${targetMonth.year()}&month=${monthAbbr}&day=15`;
+        return `
+            <div class="calCell calRowTop">
+              <div class="calEvent" onclick="location='${base}&eventId=5000001';">
+                <b>2:30 pm</b><br>
+                Beginning Knitting 101
+              </div>
+              <div class="calEvent" onclick="location='${base}&eventId=5000002';">
+                <b>6:00 pm to 8:00 pm</b><br>
+                Knit Night!
+              </div>
+              <div class="calEvent" onclick="location='${base}&eventId=5000003';">
+                <b>1:00 pm</b><br>
+                Advanced Beginner Workshop
+              </div>
+            </div>`;
+    }
+
+    // "Beginning Knitting 101" (5000001) resolves via a class-product page
+    // carrying a matching event_data blob (price + exact end time).
+    // "Knit Night!" (5000002) is already duration-complete from the grid and
+    // its detail page has no event_data blob at all (the free template).
+    // "Advanced Beginner Workshop" (5000003) has a detail fetch that fails
+    // (HTTP 500), so it must fall back to the pre-existing default-duration
+    // + cost-gap behavior, now with cost also flagged in the same entry.
+    function detailHtmlFor(eventId: string): { ok: boolean; body?: string } {
+        if (eventId === '5000001') {
+            return {
+                ok: true,
+                body: `var event_data = JSON.stringify({"#1":{"price":"80","sections":[{"event_id":"5000001","time":"2:30pm - 4:30pm"}]}});`,
+            };
+        }
+        if (eventId === '5000002') {
+            return { ok: true, body: `<div class="component-header">Event Details</div><h1>Knit Night!</h1>` };
+        }
+        return { ok: false };
+    }
+
+    function makeMockFetch() {
+        return vi.fn().mockImplementation((url: string) => {
+            const params = new URL(url).searchParams;
+            const eventId = params.get('eventId');
+            // The month-grid endpoint is requested without an eventId (see buildMonthUrl).
+            if (!eventId) {
+                const isTargetMonth = params.get('year') === String(targetMonth.year()) && params.get('month') === String(targetMonth.monthValue());
+                return Promise.resolve({
+                    ok: true,
+                    text: () => Promise.resolve(isTargetMonth ? gridHtml() : '<div class="calCell"></div>'),
+                });
+            }
+            // A detail-page fetch (carries eventId).
+            const detail = detailHtmlFor(eventId!);
+            return Promise.resolve({
+                ok: detail.ok,
+                status: detail.ok ? 200 : 500,
+                statusText: detail.ok ? 'OK' : 'Internal Server Error',
+                text: () => Promise.resolve(detail.body ?? ''),
+            });
+        });
+    }
+
+    it('resolves exact duration and price from a class-product page event_data blob', async () => {
+        vi.stubGlobal('fetch', makeMockFetch());
+        const result = await new AcornStreetShopRipper().rip(makeRipperConfig());
+        const { events, errors } = result[0];
+
+        const knitting = events.find(e => e.summary === 'Beginning Knitting 101');
+        expect(knitting).toBeDefined();
+        expect(knitting!.date.hour()).toBe(14);
+        expect(knitting!.date.minute()).toBe(30);
+        expect(knitting!.duration.equals(Duration.ofHours(2))).toBe(true);
+        expect(knitting!.cost).toEqual({ min: 80 });
+
+        // Fully resolved — no uncertainty entry should remain for this event.
+        const knittingUncertainty = errors.find(e => 'event' in e && (e as any).event.summary === 'Beginning Knitting 101');
+        expect(knittingUncertainty).toBeUndefined();
+
+        vi.unstubAllGlobals();
+    });
+
+    it('treats a matched detail page with no event_data blob as free (the non-commerce template)', async () => {
+        vi.stubGlobal('fetch', makeMockFetch());
+        const result = await new AcornStreetShopRipper().rip(makeRipperConfig());
+        const { events } = result[0];
+
+        const knitNight = events.find(e => e.summary === 'Knit Night!');
+        expect(knitNight).toBeDefined();
+        expect(knitNight!.cost).toEqual({ min: 0 });
+
+        vi.unstubAllGlobals();
+    });
+
+    it('falls back to default duration and flags both duration+cost when the detail fetch fails', async () => {
+        vi.stubGlobal('fetch', makeMockFetch());
+        const result = await new AcornStreetShopRipper().rip(makeRipperConfig());
+        const { events, errors } = result[0];
+
+        const workshop = events.find(e => e.summary === 'Advanced Beginner Workshop');
+        expect(workshop).toBeDefined();
+        expect(workshop!.duration.equals(Duration.ofHours(1))).toBe(true);
+        expect(workshop!.cost).toBeUndefined();
+
+        const uncertainty = errors.find(e => 'event' in e && (e as any).event.summary === 'Advanced Beginner Workshop') as any;
+        expect(uncertainty).toBeDefined();
+        expect(uncertainty.unknownFields.sort()).toEqual(['cost', 'duration']);
 
         vi.unstubAllGlobals();
     });
