@@ -6,7 +6,7 @@ url: https://www.otterpolo.com/practices
 tags: [Sports]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-15
-pr:
+pr: 1477
 ---
 
 Discovered via aggregator gap analysis. Seattle Otters is a masters
