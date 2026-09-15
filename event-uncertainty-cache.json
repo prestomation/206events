@@ -81347,7 +81347,10 @@
     "discnw:2026-fall-gx-ms-youth-clinic": {
       "fields": {
         "startTime": "09:00",
-        "duration": 10800
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-15",
       "source": "agent",
@@ -81371,7 +81374,10 @@
     "discnw:2026-fall-friz-fest-hat-tournament": {
       "fields": {
         "startTime": "09:30",
-        "duration": 23400
+        "duration": 23400,
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-15",
       "source": "agent",
@@ -81388,7 +81394,10 @@
     "discnw:2026-fall-friz-fest-party": {
       "fields": {
         "startTime": "17:00",
-        "duration": 16200
+        "duration": 16200,
+        "cost": {
+          "min": 22.5
+        }
       },
       "resolvedAt": "2026-09-15",
       "source": "agent",
@@ -81398,7 +81407,10 @@
     "discnw:2026-fall-gx-middle-school-hat-tournament": {
       "fields": {
         "startTime": "12:00",
-        "duration": 18000
+        "duration": 18000,
+        "cost": {
+          "min": 5.0
+        }
       },
       "resolvedAt": "2026-09-15",
       "source": "agent",
@@ -81415,7 +81427,10 @@
     "discnw:2026-turkey-bowl": {
       "fields": {
         "startTime": "09:15",
-        "duration": 20700
+        "duration": 20700,
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-15",
       "source": "agent",
