@@ -1,0 +1,12 @@
+name: seattle-council-ptsa
+sourceRole: venue
+type: squarespace
+description: "Seattle Council PTSA"
+url: "https://scptsa.org/upcoming-events"
+friendlyLink: https://scptsa.org/upcoming-events
+tags: ["Community", "Political"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Council PTSA"
+    timezone: America/Los_Angeles
