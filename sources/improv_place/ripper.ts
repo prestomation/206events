@@ -12,6 +12,7 @@ import '@js-joda/timezone';
 // props.pageProps.initialData.data.upcoming.entries.
 const NEXT_DATA_REGEX = /<script\b(?=[^>]*\bid=["']__NEXT_DATA__["'])[^>]*>([\s\S]*?)<\/script>/i;
 const DEFAULT_DURATION = Duration.ofHours(1);
+const DEFAULT_LOCATION = "Seattle, WA";
 const FRIENDLY_URL = "https://theimprovplace.org/";
 
 interface LumaGeoAddressInfo {
@@ -56,7 +57,7 @@ function resolveLocation(geo: LumaGeoAddressInfo | undefined): { location: strin
     if (geo?.short_address) return { location: geo.short_address, uncertain: false };
 
     const fallback = [geo?.sublocality, geo?.city_state ?? geo?.city].filter(Boolean).join(", ");
-    return { location: fallback || "Seattle, WA", uncertain: true };
+    return { location: fallback || DEFAULT_LOCATION, uncertain: true };
 }
 
 /**
