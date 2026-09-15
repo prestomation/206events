@@ -6,7 +6,7 @@ url: https://www.washingtontechnology.org/events
 tags: [Tech]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-15
-pr:
+pr: 1490
 ---
 
 Washington Technology Industry Association events, conferences, and tech networking.

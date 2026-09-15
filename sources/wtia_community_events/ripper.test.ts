@@ -155,6 +155,14 @@ describe('parseIsoDurationMinutes', () => {
         expect(parseIsoDurationMinutes('P0Y0M0DT0H0M0S')).toBeUndefined();
     });
 
+    it('returns undefined (rather than approximating) when the year component is nonzero', () => {
+        expect(parseIsoDurationMinutes('P1Y0M0DT3H0M0S')).toBeUndefined();
+    });
+
+    it('returns undefined (rather than approximating) when the month component is nonzero', () => {
+        expect(parseIsoDurationMinutes('P0Y1M0DT3H0M0S')).toBeUndefined();
+    });
+
     it('returns undefined for an unparseable string', () => {
         expect(parseIsoDurationMinutes('not a duration')).toBeUndefined();
     });

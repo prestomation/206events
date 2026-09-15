@@ -59,9 +59,7 @@ export function extractNextDataJson(html: string): string | undefined {
 // Externally-submitted entries report their length as an ISO-8601 duration
 // string (e.g. "P0Y0M0DT3H0M0S") rather than an end_at timestamp. js-joda's
 // Duration.parse rejects the Y/M(onth) components even when zero, so this
-// hand-rolls the same subset PT-style parsing already does, treating a
-// non-zero Y/M as an (unobserved in practice) approximation rather than
-// failing the whole event.
+// hand-rolls the same subset PT-style parsing already does.
 const ISO_DURATION_REGEX = /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?)?$/;
 
 export function parseIsoDurationMinutes(raw: string | undefined): number | undefined {
@@ -70,9 +68,15 @@ export function parseIsoDurationMinutes(raw: string | undefined): number | undef
     if (!match) return undefined;
 
     const [, years, months, days, hours, minutes, seconds] = match;
+    // A nonzero year/month component has never been observed in practice for
+    // this calendar's event lengths. Approximating one (365-day years,
+    // 30-day months) would publish a guessed multi-week/month duration as
+    // fact — exactly what the Event Uncertainty System exists to prevent —
+    // so treat it as unparseable instead and let the caller fall through to
+    // the standard duration-uncertainty flow.
+    if (Number(years ?? 0) > 0 || Number(months ?? 0) > 0) return undefined;
+
     const totalMinutes =
-        Number(years ?? 0) * 365 * 24 * 60 +
-        Number(months ?? 0) * 30 * 24 * 60 +
         Number(days ?? 0) * 24 * 60 +
         Number(hours ?? 0) * 60 +
         Number(minutes ?? 0) +
