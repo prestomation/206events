@@ -54937,12 +54937,13 @@
       "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-storm-vs-las-vegas-aces": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
-      "partialFingerprint": "3zag50",
-      "lastSeen": "2026-08-28"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-las-vegas-aces",
+      "partialFingerprint": "194ahbp"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46406": {
       "unresolvable": true,
@@ -58612,13 +58613,12 @@
     },
     "seattle-center:seattle-storm-vs-dallas-wings": {
       "fields": {
-        "duration": 16200
+        "duration": 9000
       },
-      "resolvedAt": "2026-08-27",
+      "resolvedAt": "2026-09-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-dallas-wings",
-      "partialFingerprint": "1hygp73",
-      "lastSeen": "2026-08-28"
+      "partialFingerprint": "o2coeo"
     },
     "craft-map-seattle:seasonal-arts-and-crafts-for-families-2nd-saturdays-11am-in-seattle-seattle-wa-2026-09-12": {
       "fields": {
@@ -61025,11 +61025,13 @@
       "partialFingerprint": "1inh66n"
     },
     "seattle-center:kehlani": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-02",
+      "fields": {
+        "duration": 15300
+      },
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "reason": "Seattle Center event calendar listing does not publish an end time for this Climate Pledge Arena concert.",
-      "partialFingerprint": "k97yvr"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/kehlani",
+      "partialFingerprint": "1e5bzo6"
     },
     "seattle-humane:seattle-humane-cider-summit-2026-09-11": {
       "fields": {
@@ -81341,6 +81343,132 @@
       "resolvedAt": "2026-09-15",
       "source": "agent",
       "evidence": "Tabletop Village events page does not list pricing for POKEMON League/Family Day"
+    },
+    "discnw:2026-fall-gx-ms-youth-clinic": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-gx-ms-youth-clinic",
+      "partialFingerprint": "1tj50jk"
+    },
+    "discnw:2026-usau-club-regionals-volunteer": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Page gives only the dates (Sep 26-27), no specific clock time for the volunteer shift",
+      "partialFingerprint": "kqdm8j"
+    },
+    "discnw:2026-fall-hs-bx-seattle-invite": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Page states only \"Oct 4th-5th Valley Ridge Park, SeaTac\" with no time of day",
+      "partialFingerprint": "10ivfzh"
+    },
+    "discnw:2026-fall-friz-fest-hat-tournament": {
+      "fields": {
+        "startTime": "09:30",
+        "duration": 23400
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-friz-fest-hat-tournament",
+      "partialFingerprint": "1ypx6ti"
+    },
+    "discnw:2026-fall-friz-fest-disc-golf-tournament": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Rounds start on a rolling basis \"between 9:30 AM and 3:00 PM\" per tee time — no single deterministic start",
+      "partialFingerprint": "lncriw"
+    },
+    "discnw:2026-fall-friz-fest-party": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 16200
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-friz-fest-party",
+      "partialFingerprint": "wqu8ly"
+    },
+    "discnw:2026-fall-gx-middle-school-hat-tournament": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 18000
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-gx-middle-school-hat-tournament",
+      "partialFingerprint": "tlefut"
+    },
+    "discnw:2026-fall-hs-bx-jv-jamboree": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Page states \"Time and Location: TBD\"",
+      "partialFingerprint": "nkgnbp"
+    },
+    "discnw:2026-turkey-bowl": {
+      "fields": {
+        "startTime": "09:15",
+        "duration": 20700
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-turkey-bowl",
+      "partialFingerprint": "1e93yy3"
+    },
+    "seattle-center:seattle-kraken-vs-vancouver-canucks-preseason": {
+      "fields": {
+        "duration": 9900
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vancouver-canucks-preseason",
+      "partialFingerprint": "fkop12"
+    },
+    "seattle-center:serenade-x50718": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x50718",
+      "partialFingerprint": "8ntpzp"
+    },
+    "seattle-center:serenade-x47355": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x47355",
+      "partialFingerprint": "1v5n5ra"
+    },
+    "charlies-queer-books:charlies-queer-books-992120261011": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "BookManager API row has no ticket SKU, empty ticket_label, and the description mentions no price — no pricing signal published for this recurring book club",
+      "partialFingerprint": "6b8bn8"
+    },
+    "charlies-queer-books:charlies-queer-books-991720261011": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "BookManager API row has no ticket SKU, empty ticket_label, and the description mentions no price — no pricing signal published for this recurring book club",
+      "partialFingerprint": "1fslgrp"
+    },
+    "seatoday:cityspark-19905687": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Detail page is a JS-only embed (empty on fetch); the underlying CitySpark v1/events list API (which the ripper itself uses) returns Free/Price/PriceHigh/IsTicketed already null for this event, and the event no longer surfaces in that same API across multiple date/pagination probes to find a richer record",
+      "partialFingerprint": "g8xb6l"
     }
   }
 }
