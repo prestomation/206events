@@ -1,0 +1,14 @@
+name: ai-house
+sourceRole: venue
+description: "AI House"
+url: "https://luma.com/aihouse"
+friendlyLink: https://luma.com/aihouse
+tags: ["Tech", "Belltown"]
+geo:
+  lat: 47.614787
+  lng: -122.355809
+  label: "AI House, 2801 Alaskan Wy, Seattle, WA 98121"
+calendars:
+  - name: calendar
+    friendlyname: "AI House"
+    timezone: America/Los_Angeles
