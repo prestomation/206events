@@ -51,6 +51,7 @@ calendars:
   - name: seatoday-nightlife
     friendlyname: "SEAtoday - Nightlife"
     timezone: America/Los_Angeles
+    expectEmpty: true  # Nightlife category tag is intermittently empty in the CitySpark feed
     tags: ["Nightlife"]
     config:
       filterTags: [14]  # Nightlife
