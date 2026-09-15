@@ -1,14 +1,6 @@
 {
   "version": 1,
   "entries": {
-    "events12:free-things-to-do-2026-09-07": {
-      "unresolvable": true,
-      "reason": "General visitor information page, no specific event start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
-      "lastSeen": "2026-06-21"
-    },
     "events12:free-things-to-do-2026-09-08": {
       "unresolvable": true,
       "reason": "General visitor information page, no specific event start time",
@@ -929,13 +921,6 @@
       "evidence": "https://www.nws.usace.army.mil/Missions/Civil-Works/Locks-and-Dams/Chittenden-Locks/Touring-the-Locks/",
       "lastSeen": "2026-06-21"
     },
-    "events12:taste-of-seattle-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
     "events12:taste-of-seattle-2026-09-08": {
       "unresolvable": true,
       "reason": "Commercial tour — booking times vary by individual reservation",
@@ -1705,13 +1690,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.viator.com/tours/Seattle/Chef-Guided-Food-Tour-of-Pike-Place-Market/d704-23161P1"
-    },
-    "events12:dining-cruise-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Commercial tour — booking times vary by individual reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
     "events12:dining-cruise-2026-09-08": {
       "unresolvable": true,
@@ -2490,13 +2468,6 @@
       "source": "agent",
       "evidence": "https://www.getyourguide.com/seattle-l198/seattle-mimosa-brunch-cruise-t941363/"
     },
-    "events12:soccer-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each home game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.soundersfc.com/schedule/"
-    },
     "events12:soccer-2026-09-08": {
       "unresolvable": true,
       "reason": "Season schedule page — each home game has a different start time",
@@ -2923,14 +2894,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.soundersfc.com/schedule/"
-    },
-    "events12:sailboat-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Commercial sailing tour — booking times vary by reservation",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
-      "lastSeen": "2026-06-21"
     },
     "events12:sailboat-2026-09-08": {
       "unresolvable": true,
@@ -3364,14 +3327,6 @@
       "evidence": "https://www.viator.com/tours/Seattle/Seattle-Sailing-Harbor-Tour/d704-318046P2",
       "lastSeen": "2026-06-21"
     },
-    "events12:baseball-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Season schedule page — each game has a different start time",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
-      "lastSeen": "2026-06-21"
-    },
     "events12:baseball-2026-09-08": {
       "unresolvable": true,
       "reason": "Season schedule page — each game has a different start time",
@@ -3532,14 +3487,6 @@
       "evidence": "https://www.mlb.com/mariners/schedule/2026-05",
       "lastSeen": "2026-06-21"
     },
-    "events12:winery-concerts-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Concert listing without individual show times on the listing page",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
-      "lastSeen": "2026-06-21"
-    },
     "events12:winery-concerts-2026-09-08": {
       "unresolvable": true,
       "reason": "Concert listing without individual show times on the listing page",
@@ -3698,14 +3645,6 @@
       "resolvedAt": "2026-05-17",
       "source": "agent",
       "evidence": "https://www.ste-michelle.com/visit-us/summer-concerts/list",
-      "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-the-locks-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Source URL is a JPEG image of a schedule — times vary by concert date and cannot be parsed",
-      "resolvedAt": "2026-05-17",
-      "source": "agent",
-      "evidence": "https://www.nws.usace.army.mil/portals/27/Concerts%20at%20the%20Locks%202026_1.jpg",
       "lastSeen": "2026-06-21"
     },
     "19hz:19hz-2026/09/11-ABGT700": {
@@ -6869,12 +6808,6 @@
       "resolvedAt": "2026-05-20",
       "source": "agent"
     },
-    "waterfront-park:waterfront-park-6890-202609071500": {
-      "unresolvable": true,
-      "reason": "No hours listed on roar-events.com for The Pink Party",
-      "resolvedAt": "2026-05-20",
-      "source": "agent"
-    },
     "discover-slu:discover-slu-honey-scavenger-hunt": {
       "unresolvable": true,
       "reason": "Week-long scavenger hunt with clues going live at 10am; no end time listed on event page",
@@ -8130,14 +8063,6 @@
       "resolvedAt": "2026-05-24",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-08-23-2026/event/0F0063748EA46A55"
-    },
-    "events12:taste-of-pike-place-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-05-25",
-      "source": "agent",
-      "reason": "Source provides date range only (May 25 - Dec 31, 2026); Viator page 403s and events12 listing has no specific tour departure time",
-      "partialFingerprint": "1pdtewq-until2026-12-31-tu",
-      "lastSeen": "2026-06-21"
     },
     "events12:taste-of-pike-place-2026-09-08": {
       "unresolvable": true,
@@ -10915,14 +10840,6 @@
       "source": "agent",
       "partialFingerprint": "1a43ra"
     },
-    "events12:zoo-concerts-2026-09-07": {
-      "unresolvable": true,
-      "reason": "ZooTunes website returning 503; individual concert times not accessible",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "15ey7g3-until2026-10-09-tu",
-      "lastSeen": "2026-06-21"
-    },
     "events12:zoo-concerts-2026-09-08": {
       "unresolvable": true,
       "reason": "ZooTunes website returning 503; individual concert times not accessible",
@@ -11178,13 +11095,6 @@
       "source": "agent",
       "partialFingerprint": "15ey7g3-until2026-10-09-tu",
       "lastSeen": "2026-06-21"
-    },
-    "events12:concerts-at-marymoor-park-2026-09-07": {
-      "unresolvable": true,
-      "reason": "Individual concert dates and times must be checked against Marymoor show schedule; events12 range expansion does not map to actual concert days",
-      "resolvedAt": "2026-06-11",
-      "source": "agent",
-      "partialFingerprint": "cw48eo-until2026-09-11-tu"
     },
     "events12:concerts-at-marymoor-park-2026-09-08": {
       "unresolvable": true,
@@ -12599,16 +12509,6 @@
       "resolvedAt": "2026-06-13",
       "source": "agent",
       "evidence": "https://www.couthbuzzard.com/event-calendar"
-    },
-    "events12:on-the-water-2026-09-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-06-13",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR"
     },
     "events12:on-the-water-2026-09-08": {
       "fields": {
@@ -15455,12 +15355,6 @@
       "resolvedAt": "2026-06-23",
       "source": "agent",
       "evidence": "https://www.seattlechambermusic.org/events/ - ticketed performance"
-    },
-    "events12:baseball-in-tacoma-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-06-23",
-      "source": "agent",
-      "reason": "events12 generates one entry per day for the Tacoma Rainiers season; wertacoma.com returns HTTP 403 and individual game times cannot be determined"
     },
     "events12:baseball-in-tacoma-2026-09-08": {
       "unresolvable": true,
@@ -28130,13 +28024,6 @@
       "source": "agent",
       "evidence": "https://www.folioseattle.org/event-details/baroque-threads-a-journey-from-venice-to-persia"
     },
-    "19hz:19hz-2026/09/07-16volt, Acumen Nation": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-10",
-      "source": "agent",
-      "reason": "Ticketing page (Tixr/DICE/Ticketmaster) blocked; end time not published on event page",
-      "lastSeen": "2026-07-12"
-    },
     "19hz:19hz-2026/10/02-Experts Only: Base Camp Pre-Party": {
       "unresolvable": true,
       "resolvedAt": "2026-07-10",
@@ -32911,18 +32798,6 @@
       "source": "agent",
       "evidence": "https://www.discoverslu.com/events/photo-essentials-1-2026-2-2-2-2-2-2-2-2/"
     },
-    "events12:concerts-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source URL is an image file (events12.com/img/), not an event page"
-    },
-    "events12:concerts-on-a-farm-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
-    },
     "events12:concerts-on-a-farm-2026-09-08": {
       "unresolvable": true,
       "resolvedAt": "2026-07-12",
@@ -33030,12 +32905,6 @@
       "resolvedAt": "2026-07-12",
       "source": "agent",
       "reason": "Source page only states box office opens 2 hours before showtime; no specific start time listed"
-    },
-    "events12:tacoma-concerts-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-12",
-      "source": "agent",
-      "reason": "dunepeninsula.com calendar is JS-rendered; specific concert times not accessible without JavaScript"
     },
     "events12:tacoma-concerts-2026-09-08": {
       "unresolvable": true,
@@ -36540,12 +36409,6 @@
       "resolvedAt": "2026-07-20",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/node/690994406"
-    },
-    "events12:basketball-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-23",
-      "source": "agent",
-      "reason": "events12 date-range placeholder for Storm season — not an individual game with a known start time"
     },
     "events12:basketball-2026-09-08": {
       "unresolvable": true,
@@ -40452,12 +40315,6 @@
       "source": "agent",
       "reason": "Ticketmaster returned HTTP 403, start time unavailable"
     },
-    "events12:party-on-a-ferry-boat-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-07-30",
-      "source": "agent",
-      "reason": "onthehiyu.com source blocked (HTTP 403), event details unavailable"
-    },
     "events12:party-on-a-ferry-boat-2026-09-08": {
       "unresolvable": true,
       "resolvedAt": "2026-07-30",
@@ -43058,16 +42915,6 @@
       "source": "agent",
       "reason": "End time not listed on DiscoverSLU page; booking system is JS-rendered"
     },
-    "queen-anne-book-company:queen-anne-book-company-2026-09-07-james-ponti-art-attack-sherlock-society-3": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-08-04",
-      "source": "agent",
-      "evidence": "https://qabookco.com/event/2026-09-07/james-ponti-art-attack-sherlock-society-3"
-    },
     "seatoday:cityspark-19542068": {
       "fields": {
         "cost": {
@@ -44140,18 +43987,6 @@
       "source": "agent",
       "reason": "Fairgrounds have mixed indoor/outdoor stages; festival uses multiple areas"
     },
-    "events12:sunflower-farms-2026-09-07": {
-      "fields": {
-        "startTime": "08:30",
-        "duration": 27000,
-        "cost": {
-          "min": 17
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
-    },
     "events12:sunflower-farms-2026-09-08": {
       "fields": {
         "startTime": "08:30",
@@ -44223,25 +44058,6 @@
       "resolvedAt": "2026-08-07",
       "source": "agent",
       "evidence": "https://www.mountainviewblueberryfarm.com/sunflower-festival"
-    },
-    "events12:family-circus-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "reason": "JS-rendered site — schedule and pricing not accessible without browser"
-    },
-    "events12:evergreen-state-fair-2026-09-07": {
-      "fields": {
-        "startTime": "10:30",
-        "duration": 41400,
-        "imageUrl": "https://evergreenfair.org/ImageRepository/Document?documentID=6789",
-        "cost": {
-          "min": 15
-        }
-      },
-      "resolvedAt": "2026-08-07",
-      "source": "agent",
-      "evidence": "https://www.evergreenfair.org/248/The-Evergreen-State-Fair"
     },
     "stg:tm-vvG1HZ_58tOGMs": {
       "fields": {
@@ -47023,23 +46839,11 @@
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/dancingtildusk/"
     },
-    "events12:dance-in-the-park-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-13",
-      "source": "agent",
-      "reason": "Source (danceforjoy.biz/dancingtildusk) does not list an event on this date; series runs only on specific Tuesdays and Thursdays"
-    },
     "seatoday:cityspark-19622677": {
       "unresolvable": true,
       "resolvedAt": "2026-08-13",
       "source": "agent",
       "reason": "Source page (6amcity.com embed) not accessible; cost could not be determined"
-    },
-    "events12:harry-potter-live-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-13",
-      "source": "agent",
-      "reason": "Source page (stgpresents.org) returned empty content; could not extract show times"
     },
     "events12:harry-potter-live-2026-09-08": {
       "unresolvable": true,
@@ -49853,12 +49657,6 @@
       "source": "agent",
       "reason": "On The Hiyu website is JavaScript-rendered and returns no content; specific event times and prices could not be verified"
     },
-    "events12:fun-tours-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-20",
-      "source": "agent",
-      "reason": "Viator listing returns HTTP 403; daily tour has multiple departures with no single verifiable start time"
-    },
     "events12:fun-tours-2026-09-08": {
       "unresolvable": true,
       "resolvedAt": "2026-08-20",
@@ -50979,14 +50777,6 @@
       "reason": "Ticketmaster event page returns HTTP 403 to fetcher tools; cannot verify start time",
       "partialFingerprint": "97j37s"
     },
-    "events12:interactive-show-120403-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-29",
-      "source": "agent",
-      "reason": "Eventbrite 'All In' immersive/speakeasy event — exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier is shown on the public page",
-      "partialFingerprint": "12utjff-until2026-09-26-tu",
-      "lastSeen": "2026-09-05"
-    },
     "events12:interactive-show-120403-2026-09-08": {
       "unresolvable": true,
       "resolvedAt": "2026-08-29",
@@ -51139,22 +50929,6 @@
       "partialFingerprint": "12utjff-until2026-09-26-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:live-theater-119957-2026-09-07": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
-      "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
-    },
     "events12:live-theater-119957-2026-09-08": {
       "fields": {
         "startTime": "19:30",
@@ -51252,228 +51026,88 @@
       "lastSeen": "2026-09-05"
     },
     "events12:live-theater-119957-2026-09-14": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-15": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-16": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-17": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-18": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-19": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-20": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-21": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-22": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-23": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-24": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-25": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-26": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "events12:live-theater-119957-2026-09-27": {
-      "fields": {
-        "startTime": "19:30",
-        "duration": 9000,
-        "cost": {
-          "paid": true
-        },
-        "setting": "indoor",
-        "imageUrl": "https://res.cloudinary.com/seattlerep/image/upload/c_fill,g_auto,h_1080,w_1080/f_auto/q_auto/v1773418958/FY27/Show%20Vertical%20Thumbs/1FR-vertthumb"
-      },
-      "resolvedAt": "2026-09-05",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty",
-      "partialFingerprint": "8mclbx-until2026-10-03-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre; previous cache entry was for a different show at Seattle Rep"
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2027-08-28": {
       "unresolvable": true,
@@ -52822,36 +52456,6 @@
       "reason": "Steamship Sunday Cruise page has date only; default retained.",
       "partialFingerprint": "sun9ur"
     },
-    "events12:concerts-120202-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-05",
-      "source": "agent",
-      "reason": "Generic recurring 'Concerts' category placeholder spanning a multi-month date range (raw date, not a single event); linked 'url' is a static events12.com image, not a real event/detail page, so no per-day time can be verified",
-      "partialFingerprint": "1qghi99-until2026-12-27-tu",
-      "lastSeen": "2026-09-05"
-    },
-    "events12:family-circus-115468-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Family circus' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1bmh4b5-until2026-09-07-tu",
-      "lastSeen": "2026-09-05"
-    },
-    "events12:dance-in-the-park-109594-2026-09-07": {
-      "fields": {
-        "startTime": "18:00",
-        "duration": 10800,
-        "cost": {
-          "min": 0
-        },
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.danceforjoy.biz/dancingtildusk/",
-      "partialFingerprint": "1fn83bb-until2026-09-08-tu"
-    },
     "events12:dance-in-the-park-109594-2026-09-08": {
       "fields": {
         "startTime": "18:00",
@@ -52865,20 +52469,6 @@
       "source": "agent",
       "evidence": "https://www.danceforjoy.biz/dancingtildusk/ — outdoor park dance series (Dancing Til Dusk)",
       "partialFingerprint": "1fn83bb-until2026-09-08-tu",
-      "lastSeen": "2026-09-05"
-    },
-    "events12:sunflower-farms-118543-2026-09-07": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "min": 16
-        },
-        "startTime": "10:00"
-      },
-      "resolvedAt": "2026-08-26",
-      "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "partialFingerprint": "oju0is-until2026-09-28-tu",
       "lastSeen": "2026-09-05"
     },
     "events12:sunflower-farms-118543-2026-09-08": {
@@ -52963,19 +52553,6 @@
       "source": "agent",
       "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
       "partialFingerprint": "oju0is-until2026-09-28-tu",
-      "lastSeen": "2026-09-05"
-    },
-    "events12:fun-tours-120200-2026-09-07": {
-      "fields": {
-        "setting": "outdoor",
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-25",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR",
-      "partialFingerprint": "1y4mcyi-until2026-12-31-tu",
       "lastSeen": "2026-09-05"
     },
     "events12:fun-tours-120200-2026-09-08": {
@@ -54473,14 +54050,6 @@
       "partialFingerprint": "1y4mcyi-until2026-12-31-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:sailboat-120161-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Sailboat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "vs4xxt-until2026-10-31-tu",
-      "lastSeen": "2026-09-05"
-    },
     "events12:sailboat-120161-2026-09-08": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -54913,14 +54482,6 @@
       "partialFingerprint": "vs4xxt-until2026-10-31-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:harry-potter-live-117523-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "1k51vz4-until2026-09-12-tu",
-      "lastSeen": "2026-09-05"
-    },
     "events12:harry-potter-live-117523-2026-09-08": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -54959,14 +54520,6 @@
       "source": "agent",
       "reason": "events12 aggregates 'Harry Potter live' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
       "partialFingerprint": "1k51vz4-until2026-09-12-tu",
-      "lastSeen": "2026-09-05"
-    },
-    "events12:party-on-a-ferry-boat-119803-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "z6ovsc-until2026-10-10-tu",
       "lastSeen": "2026-09-05"
     },
     "events12:party-on-a-ferry-boat-119803-2026-09-08": {
@@ -55233,13 +54786,6 @@
       "partialFingerprint": "z6ovsc-until2026-10-10-tu",
       "lastSeen": "2026-09-05"
     },
-    "events12:baseball-in-tacoma-120216-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "74kv5k-until2026-09-13-tu"
-    },
     "events12:baseball-in-tacoma-120216-2026-09-08": {
       "unresolvable": true,
       "resolvedAt": "2026-08-24",
@@ -55286,14 +54832,6 @@
       "source": "agent",
       "reason": "events12 aggregates 'Baseball in Tacoma' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
       "partialFingerprint": "74kv5k-until2026-09-13-tu",
-      "lastSeen": "2026-09-05"
-    },
-    "events12:evergreen-state-fair-100089-2026-09-07": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
-      "source": "agent",
-      "reason": "events12 aggregates 'Evergreen State Fair' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "5ptse-until2026-09-07-tu",
       "lastSeen": "2026-09-05"
     },
     "seatoday:cityspark-17845558": {
@@ -56305,16 +55843,6 @@
       "resolvedAt": "2026-08-26",
       "source": "agent",
       "evidence": "sample event 'Sk8' — Hubbard Homestead's guided skateboarding sessions run in its temperature-controlled gym per Seattle's Child (seattleschild.com/events/rnts-free-skate-school-indoors); this seattle-gov-parks-recreation feed's programming ties to the indoor gym, not the park's outdoor skate spot"
-    },
-    "events12:on-the-water-118692-2026-09-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-08-26",
-      "source": "agent",
-      "evidence": "https://www.viator.com/tours/Seattle/Seattle-Harbor-Cruise/d704-2960HARBOR — Viator/Argosy Cruises tour booking page, price varies by date/tier and requires selecting a date to see (403s automated fetches)"
     },
     "events12:on-the-water-118692-2026-09-08": {
       "fields": {
@@ -57645,12 +57173,12 @@
         "cost": {
           "paid": true
         },
-        "startTime": "10:00"
+        "startTime": "10:00",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-08-26",
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "https://rutledgecornmaze.com/pricing-and-hours/ — opens 10:00 am daily (Mon-Sun)",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://www.loraleesfamilyfarm.com/"
     },
     "seatoday:cityspark-18572476": {
       "fields": {
@@ -61532,26 +61060,6 @@
       "source": "agent",
       "reason": "event page is JS-rendered; no static image URL available"
     },
-    "danceus-tango:danceus-tango-166059771866132-2026-09-07": {
-      "fields": {
-        "cost": {
-          "min": 25
-        }
-      },
-      "resolvedAt": "2026-09-03",
-      "source": "agent",
-      "evidence": "https://www.danceus.org/event/166059771866132/argentine-tango-for-absolute-beginners-seattle-wa/"
-    },
-    "danceus-tango:danceus-tango-16605977262778-2026-09-07": {
-      "fields": {
-        "cost": {
-          "min": 25
-        }
-      },
-      "resolvedAt": "2026-09-03",
-      "source": "agent",
-      "evidence": "https://www.danceus.org/event/16605977262778/tango-nuevo-all-levels-class-seattle-wa/"
-    },
     "climate-pledge-arena:tm-vvG1HZ_G3OLQ5Z": {
       "fields": {
         "cost": {
@@ -65322,16 +64830,6 @@
       "source": "agent",
       "evidence": "https://tabletopvillage.com/pages/events"
     },
-    "tabletop-village:6l2vq12jl578brnhodf65l54ph_R20260324T010000@google.com-2026-09-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-09-03",
-      "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events"
-    },
     "tabletop-village:6l2vq12jl578brnhodf65l54ph_R20260324T010000@google.com-2026-09-14": {
       "fields": {
         "cost": {
@@ -69063,15 +68561,6 @@
       "source": "agent",
       "evidence": "https://seattlearchitecture.org/tours/ — SAF walking architecture tours are outdoors"
     },
-    "events12:art-walks-118595-2026-09-07": {
-      "fields": {
-        "setting": "outdoor"
-      },
-      "resolvedAt": "2026-09-05",
-      "source": "agent",
-      "evidence": "https://www.seattle.gov/arts/experience/art-walks",
-      "lastSeen": "2026-09-05"
-    },
     "events12:art-walks-118595-2026-09-08": {
       "fields": {
         "setting": "outdoor"
@@ -71234,20 +70723,6 @@
       "evidence": "https://wildwaves.com/frightfest/",
       "lastSeen": "2026-09-05"
     },
-    "events12:concerts-at-the-fair-117301-2026-09-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        },
-        "startTime": "19:30",
-        "duration": 7200,
-        "imageUrl": "https://www.datocms-assets.com/118003/1559833471-grandstandconcertwavinghands.jpg"
-      },
-      "resolvedAt": "2026-09-05",
-      "source": "agent",
-      "evidence": "https://www.thefair.com/washington-state-fair/concert-series/",
-      "lastSeen": "2026-09-05"
-    },
     "events12:concerts-at-the-fair-117301-2026-09-08": {
       "fields": {
         "cost": {
@@ -71848,19 +71323,6 @@
       "resolvedAt": "2026-09-05",
       "source": "agent",
       "evidence": "https://www.unionartscenter.org/hamlet/",
-      "lastSeen": "2026-09-05"
-    },
-    "events12:puyallup-fair-100258-2026-09-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        },
-        "startTime": "10:00",
-        "duration": 43200
-      },
-      "resolvedAt": "2026-09-05",
-      "source": "agent",
-      "evidence": "https://www.thefair.com/washington-state-fair/",
       "lastSeen": "2026-09-05"
     },
     "events12:puyallup-fair-100258-2026-09-08": {
@@ -72586,17 +72048,6 @@
       "evidence": "https://ptfilm.org/",
       "lastSeen": "2026-09-05"
     },
-    "events12:ellensburg-rodeo-100031-2026-09-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-09-05",
-      "source": "agent",
-      "evidence": "https://ellensburgrodeo.com/",
-      "lastSeen": "2026-09-05"
-    },
     "events12:fantasy-festival-near-portland-119403-2026-09-18": {
       "fields": {
         "cost": {
@@ -72677,19 +72128,6 @@
       "resolvedAt": "2026-09-13",
       "source": "agent",
       "evidence": "https://nordicmuseum.org — Nordic Museum is an indoor venue; candlelight concert inside museum"
-    },
-    "events12:video-game-convention-100179-2026-09-07": {
-      "fields": {
-        "cost": {
-          "paid": true
-        },
-        "startTime": "10:00",
-        "duration": 28800,
-        "imageUrl": "https://west.paxsite.com/content/dam/sitebuilder/rna/pax/west/metadata/seo/heros/hero-miscellaneous-pax-west.png/_jcr_content/renditions/original./031809964/hero-miscellaneous-pax-west.png"
-      },
-      "resolvedAt": "2026-09-06",
-      "source": "agent",
-      "evidence": "https://west.paxsite.com"
     },
     "events12:lego-building-convention-100218-2026-09-12": {
       "fields": {
@@ -73671,17 +73109,6 @@
       "reason": "Sunrise launch times vary by weather/wind; Night Glow Sat ~6pm but not confirmed",
       "lastSeen": "2026-09-05"
     },
-    "events12:blackberry-festival-100085-2026-09-07": {
-      "fields": {
-        "startTime": "11:00",
-        "duration": 25200,
-        "imageUrl": "https://static.wixstatic.com/media/6f2f9d_63f0c613151942ae81cb23e275768761%7Emv2.png/v1/fit/w_2500,h_1330,al_c/6f2f9d_63f0c613151942ae81cb23e275768761%7Emv2.png"
-      },
-      "resolvedAt": "2026-09-05",
-      "source": "agent",
-      "evidence": "https://www.blackberryfestival.org",
-      "lastSeen": "2026-09-05"
-    },
     "events12:cider-tasting-101179-2026-09-11": {
       "fields": {
         "startTime": "15:00",
@@ -74086,17 +73513,19 @@
     },
     "events12:tour-art-studios-120170-2026-09-26": {
       "fields": {
-        "imageUrl": "https://static1.squarespace.com/static/63717bbb35aaac2541d76b42/t/63d8a49274e10b1fa29fab0c/1675142290094/sac.png?format=1500w"
+        "imageUrl": "https://static1.squarespace.com/static/63717bbb35aaac2541d76b42/t/63d8a49274e10b1fa29fab0c/1675142290094/sac.png?format=1500w",
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-15",
       "source": "agent",
       "evidence": "https://www.snohoart.com/snohomish-studio-tour"
     },
     "events12:tour-art-studios-120170-2026-09-27": {
       "fields": {
-        "imageUrl": "https://static1.squarespace.com/static/63717bbb35aaac2541d76b42/t/63d8a49274e10b1fa29fab0c/1675142290094/sac.png?format=1500w"
+        "imageUrl": "https://static1.squarespace.com/static/63717bbb35aaac2541d76b42/t/63d8a49274e10b1fa29fab0c/1675142290094/sac.png?format=1500w",
+        "setting": "indoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-15",
       "source": "agent",
       "evidence": "https://www.snohoart.com/snohomish-studio-tour"
     },
@@ -79075,26 +78504,16 @@
       "evidence": "Proxi API tags this NANAY theatrical showing Ticketed but exposes no price field; friendly URL is a generic listing page with no per-event ticket link"
     },
     "cidbia:cidbia-6aa30e61166bbf6b4005a5d7-202609190000": {
-      "fields": {
-        "cost": {
-          "min": 25.0
-        },
-        "imageUrl": ""
-      },
-      "resolvedAt": "2026-09-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "Proxi.co API has no image for this event; no other source available"
+      "reason": "seattlechinatownid.com returns 403; cannot access event page for photo"
     },
     "cidbia:cidbia-6aa30ec7166bbf6b4005a8d8-202609271730": {
-      "fields": {
-        "cost": {
-          "min": 0
-        },
-        "imageUrl": ""
-      },
-      "resolvedAt": "2026-09-13",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "evidence": "Proxi.co API has no image for this event; no other source available"
+      "reason": "seattlechinatownid.com returns 403; cannot access event page for photo"
     },
     "club-sake:club-sake-380898": {
       "fields": {
@@ -80859,11 +80278,172 @@
       "source": "agent",
       "evidence": "https://www.spl.org/hours-and-locations/capitol-hill-branch"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-14",
+    "seattle-center:serenade-x47354": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "reason": "Source page does not list event times; event is past and annual"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x47354"
+    },
+    "seattle-center:jungle-world-tour": {
+      "fields": {
+        "duration": 16200
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/jungle-world-tour"
+    },
+    "seattle-center:eureka-day-x50312": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-x50312"
+    },
+    "events12:music-by-candlelight-arctic-club-hotel-119604-2026-09-27-1200": {
+      "fields": {
+        "cost": {
+          "min": 43.0
+        },
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://feverup.com/en/seattle/candlelight"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50391": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "No end time found on Seattle Center event page"
+    },
+    "events12:free-things-to-do-119028-2026-09-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ballard Locks tour page does not list a specific start time for free activities - tours run at 2pm Wed-Fri but this event is on Tuesday and may be general free access"
+    },
+    "events12:live-theater-119957-2026-10-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-05": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-07": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-08": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-09": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-10": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-11": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-12": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-13": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-16": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-17": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "events12:live-theater-119957-2026-10-18": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Ticketing page (click4tix) does not list specific start times or costs for Much Ado About Nothing at Noveltease Theatre"
+    },
+    "u-wine-bar:sip-sculpt-bag-charms-key-chains-2026-09-14": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Event page at uwinebar.com does not list a specific start time"
+    },
+    "u-wine-bar:magic-presents-all-leylines-eve-chaos-draft-2026-10-31": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Event page at uwinebar.com does not list a specific start time"
+    },
+    "seatoday:cityspark-19901658": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "CityeSpark 6amcity.com embedded event page is JavaScript-rendered; cost not accessible"
+    },
+    "seatoday:cityspark-19898940": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "CitySpark 6amcity.com embedded event page is JavaScript-rendered; cost not accessible"
+    },
+    "seatoday:cityspark-19898941": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "CitySpark 6amcity.com embedded event page is JavaScript-rendered; cost not accessible"
     }
   }
 }
