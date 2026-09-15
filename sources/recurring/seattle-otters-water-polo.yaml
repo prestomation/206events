@@ -1,0 +1,28 @@
+# verified: 2026-09-15 ok
+geo:
+  lat: 47.6065326
+  lng: -122.3023574
+  label: "Medgar Evers Pool, 500 23rd Ave, Seattle, WA 98122"
+  # Confirmed via Nominatim: "Medgar Evers Pool", leisure/sports_centre,
+  # osm way 52201947 — exact name and address match.
+  osmChecked: "2026-09-15"
+name: seattle-otters-water-polo
+sourceRole: venue
+friendlyname: Seattle Otters Water Polo
+description: Masters water polo club hosting drop-in scrimmage practices at Medgar Evers Pool. Open to adults with prior high-school or club-level water polo experience; current USA Water Polo registration required. $17 per practice, punch cards available. Check otterpolo.com/practices before attending — occasional dates are skipped.
+timezone: America/Los_Angeles
+location: 500 23rd Ave, Seattle, WA 98122
+url: https://www.otterpolo.com/practices
+tags:
+  - Sports
+  - Central District
+cost: 17
+schedules:
+  - schedule: every Tuesday
+    start_time: "20:00"
+    duration: PT1H30M
+    months: [9, 10, 11, 12]
+  - schedule: every Thursday
+    start_time: "20:00"
+    duration: PT1H30M
+    months: [9, 10, 11, 12]
