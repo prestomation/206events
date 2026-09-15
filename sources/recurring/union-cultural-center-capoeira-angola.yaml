@@ -1,0 +1,28 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.5982279
+  lng: -122.3222172
+  label: "Union Cultural Center, 803 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2434527420
+name: union-cultural-center-capoeira-angola
+sourceRole: venue
+friendlyname: Capoeira Angola at Union Cultural Center
+description: Ongoing Capoeira Angola classes with Mestre Silvinho blending movement, music, and Afro-Brazilian tradition.
+timezone: America/Los_Angeles
+location: 803 S King St, Seattle, WA 98104
+url: https://www.unionculturalcenter.org/workshop-event-program/capoeira-angola
+imageUrl: "https://cdn.prod.website-files.com/65b8486da385a8f671a1a76e/68efc4a1eceba184a9b9c0a6_Capoiera%20Angola.jpg"
+tags:
+  - Dance
+  - International District
+schedules:
+  - schedule: every Tuesday
+    start_time: "19:00"
+    duration: PT2H
+  - schedule: every Thursday
+    start_time: "19:00"
+    duration: PT2H
+  - schedule: every Sunday
+    start_time: "16:00"
+    duration: PT2H

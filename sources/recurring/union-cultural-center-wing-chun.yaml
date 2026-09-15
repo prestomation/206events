@@ -1,0 +1,22 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.5982279
+  lng: -122.3222172
+  label: "Union Cultural Center, 803 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2434527420
+name: union-cultural-center-wing-chun
+sourceRole: venue
+friendlyname: Wing Chun at Union Cultural Center
+description: Weekly Wing Chun (Wong Shun Leung lineage) martial arts class led by Darren Lam.
+timezone: America/Los_Angeles
+location: 803 S King St, Seattle, WA 98104
+url: https://www.unionculturalcenter.org/workshop-event-program/wing-chu
+imageUrl: "https://cdn.prod.website-files.com/65b8486da385a8f671a1a76e/68b0dba0d768c1eead67f9c9_PHOTO-2025-08-27-06-06-23.jpg"
+tags:
+  - Sports
+  - International District
+schedules:
+  - schedule: every Saturday
+    start_time: "10:00"
+    duration: PT2H

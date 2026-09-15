@@ -1,0 +1,23 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.5982279
+  lng: -122.3222172
+  label: "Union Cultural Center, 803 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2434527420
+name: union-cultural-center-capoeira-rodas
+sourceRole: venue
+friendlyname: Capoeira Rodas at Union Cultural Center
+description: Monthly community Capoeira roda (circle) led by Mestre Silvinho; donations welcome.
+timezone: America/Los_Angeles
+location: 803 S King St, Seattle, WA 98104
+url: https://www.unionculturalcenter.org/workshop-event-program/capoeira-rodas
+imageUrl: "https://cdn.prod.website-files.com/65b8486da385a8f671a1a76e/67f2ace46455127fcc48e67b_035A1409.jpg"
+cost: free
+tags:
+  - Dance
+  - International District
+schedules:
+  - schedule: 1st Sunday
+    start_time: "16:00"
+    duration: PT2H

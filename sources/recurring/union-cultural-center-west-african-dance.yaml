@@ -1,0 +1,22 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.5982279
+  lng: -122.3222172
+  label: "Union Cultural Center, 803 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2434527420
+name: union-cultural-center-west-african-dance
+sourceRole: venue
+friendlyname: West African Dance at Union Cultural Center
+description: Weekly West African dance class led by master drummer and dancer Manimou Camara.
+timezone: America/Los_Angeles
+location: 803 S King St, Seattle, WA 98104
+url: https://www.unionculturalcenter.org/workshop-event-program/west-african-dance
+imageUrl: "https://cdn.prod.website-files.com/65b8486da385a8f671a1a76e/69b1acf2aa07397d842637ea_035A8186-2.jpg"
+tags:
+  - Dance
+  - International District
+schedules:
+  - schedule: every Wednesday
+    start_time: "19:30"
+    duration: PT1H30M
