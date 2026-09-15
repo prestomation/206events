@@ -6,7 +6,7 @@ url: https://nordicmuseum.org/calendar
 tags: [Arts, Museums, Ballard]
 firstSeen: 2026-09-15
 lastChecked: 2026-09-15
-pr:
+pr: 1488
 ---
 
 Seattle's National Nordic Museum, 2655 NW Market Street, Ballard —
