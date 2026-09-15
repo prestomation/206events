@@ -4,7 +4,7 @@ status: added
 pr: 1479
 platform: Luma
 url: https://luma.com/aihouse
-tags: [Tech]
+tags: [Tech, Belltown]
 firstSeen: 2026-09-15
 lastChecked: 2026-09-15
 ---
