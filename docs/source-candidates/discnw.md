@@ -1,12 +1,12 @@
 ---
 name: DiscNW (Northwest Ultimate Association)
-status: candidate
+status: added
 platform: Custom HTML
 url: https://www.discnw.org/en_us/e
 tags: [Sports]
 firstSeen: 2026-07-28
-lastChecked: 2026-08-11
-pr:
+lastChecked: 2026-09-15
+pr: 1482
 ---
 
 Regional ultimate frisbee and disc golf governing body running leagues,
@@ -59,3 +59,18 @@ Deprioritized again in favor of a cleaner data source this cycle
 (Saltstone Ceramics, PR pending). Left as `candidate` — worth a closer
 look at only the small number of genuine one-off tournament pages if
 revisited, rather than the full event list.
+
+Implemented 2026-09-15 (PR #1482): the "is this really an event" concern
+turned out to have a clean solution — the AJAX list's date field reliably
+distinguishes the two categories: genuine one-off events span 0-1 days,
+while every league/registration/administrative listing spans weeks to a
+year. `sources/discnw/ripper.ts` keeps only items with a date span ≤ 1 day
+(`MAX_EVENT_SPAN_DAYS`), which currently selects clinics, tournaments, hat
+tournaments, and the annual "Friz Fest" while excluding all season-long
+noise — no badge-type parsing needed. Also added a Washington-state
+location filter (DiscNW is a regional WA/OR/BC body, not Seattle-only) so
+an out-of-state one-off (e.g. a future Corvallis, OR clinic) can't slip
+through the span filter alone. No time-of-day is ever published, so every
+kept event is paired with an `UncertaintyError` (noon/2hr placeholder) per
+the event-uncertainty system. 9 events confirmed live via
+`ONLY_SOURCE=discnw`.
