@@ -37,6 +37,10 @@ interface RunSignUpRace {
     external_race_url?: string | null;
     address?: RunSignUpAddress;
     events?: RunSignUpEvent[];
+    // The race's own logo/banner image — already present in every race
+    // response sampled live, so no extra fetch is needed to backfill
+    // event photos (see RipperCalendarEvent.imageUrl below).
+    logo_url?: string | null;
 }
 
 interface RunSignUpRaceResponse {
@@ -174,6 +178,7 @@ export function parseRace(raceId: number, response: RunSignUpRaceResponse, now: 
             location: buildLocation(race.address),
             url: race.external_race_url || race.url,
             ...(cost ? { cost } : {}),
+            ...(race.logo_url ? { imageUrl: race.logo_url } : {}),
         });
     }
 

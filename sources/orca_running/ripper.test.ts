@@ -94,6 +94,7 @@ describe('parseRace', () => {
         // 07:20 start from the fixture
         expect(saturday!.date.hour()).toBe(7);
         expect(saturday!.date.minute()).toBe(20);
+        expect(saturday!.imageUrl).toBe('https://d368g9lw5ileu7.cloudfront.net/uploads/generic/genericImage-websiteLogo-40602-1787096621.0413-0.bQHo4T.png');
     });
 
     it('drops past events and keeps only future ones', () => {
@@ -139,6 +140,19 @@ describe('parseRace', () => {
         expect(event.description).toBe('Includes: 5K, 10K');
         expect(event.cost).toEqual({ min: 34, max: 44 });
         expect(event.url).toBe('https://runsignup.com/Race/WA/Seattle/TestPumpkin');
+    });
+
+    it('leaves imageUrl unset when the race response has no logo_url', () => {
+        const response = {
+            race: {
+                name: 'No Logo Race',
+                url: 'https://runsignup.com/Race/WA/Seattle/NoLogo',
+                events: [{ name: '5K', start_time: '10/11/2026 09:00' }],
+            },
+        };
+        const results = parseRace(1, response, now);
+        const event = results[0] as RipperCalendarEvent;
+        expect(event.imageUrl).toBeUndefined();
     });
 
     it('falls back to a default duration when no end_time is present', () => {
