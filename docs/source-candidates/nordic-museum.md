@@ -1,11 +1,12 @@
 ---
 name: "National Nordic Museum"
-status: investigating
+status: added
 platform: Custom HTML (FusionCMS)
 url: https://nordicmuseum.org/calendar
 tags: [Arts, Museums, Ballard]
 firstSeen: 2026-09-15
 lastChecked: 2026-09-15
+pr:
 ---
 
 Seattle's National Nordic Museum, 2655 NW Market Street, Ballard —
@@ -45,3 +46,15 @@ Investigated 2026-09-15:
   438457488).
 - Not a religious org; not found under `sources/` or `sources/external/`.
 - 🟡 Medium-ish confidence custom HTML source — implementing.
+
+**Implemented 2026-09-15:** custom `HTMLRipper` (`sources/nordic_museum/`)
+following the `frye_art_museum`/`museum_of_flight` list-page +
+per-event-detail-page pattern. Single-date cards parse directly; the
+multi-day SEA-Nordic Film Festival summary card is skipped with a
+`ParseError` (its individual screenings already have their own dated
+cards); recurring-phrase cards ("Every Thursday", bounded
+"Every Thursday, Sept 24-Nov 19", "First and third Wednesday of every
+month") synthesize concrete occurrences up to 63 days out. 42 upcoming
+events, 1 intentional `ParseError`, 9 non-fatal `Uncertainty` entries
+(ambiguous multi-section class times, one detail page missing its
+Contact/address block) verified via `ONLY_SOURCE=nordic-museum`.
