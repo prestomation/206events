@@ -54620,11 +54620,10 @@
     },
     "events12:party-on-a-ferry-boat-119803-2026-09-20": {
       "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "reason": "events12 aggregates 'Party on a ferry boat' as a date-range without per-day times; upstream page does not expose per-occurrence schedule/cost.",
-      "partialFingerprint": "z6ovsc-until2026-10-10-tu",
-      "lastSeen": "2026-09-05"
+      "reason": "onthehiyu.com is JS-rendered; Browserbase fetch fails with HTTP 402 in CI; cannot verify cost",
+      "partialFingerprint": "z6ovsc-until2026-09-20-tk"
     },
     "events12:party-on-a-ferry-boat-119803-2026-09-21": {
       "unresolvable": true,
@@ -80535,6 +80534,813 @@
       "resolvedAt": "2026-09-15",
       "source": "agent",
       "reason": "Ticketmaster returns 403; cannot determine start time or ticket prices for Mariners Ballpark Tour"
+    },
+    "seattle-blues-dance-collective:sbdc-19e8da712c8a60f3b23f71f7610600dc0d12a305958309ce393ab210deeae68d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-2579e2edfa3e6b095d846283cba3d4def3fd9deb34fd2e062ce2178993f60e06": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-47cc021aa249eee7cd5e4be6032099ca884663a30df7271b5945fa6fd2829f3e": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-56c04f53e3aff7a4217c396078252dc49f3cfdb2f0c4f0c8023e6ecebee325f4": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-625c80203768eccc16fded231b04503027062e52259f2f48a146dc1999798a69": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-aeb560bf3dcfcee2ad7a82b7df396ced633b32bdee63f1aa3f6050f546b79d8d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-bde99c2d03f6bb6d7b7c05f4ba6bd9451987e32405c05a3a23f0d397c4dc114f": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-ce5521c8bd2421af638c4ff593a0880b0ef0e0beb88dfa25f3ceaa467a3dc69a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-db4dbc833284cd7a6363c8ab1edd51fe2bd72a0571e75ae691f87b767e28c02a": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent"
+    },
+    "seattle-blues-dance-collective:sbdc-05a530f6cbdd7b3520db5b3f015144576a568718f7e0f44265c77ef3fc3a84f5": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-130edf6aca3e8bb18bdb6f1ec37e76ec4355185319e48451069b144b3b50978a": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-1933f1aeb5128b317c511b8964233191fbbc3812cf48e2a8ddcd5574c7d2f775": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-1b4353adb8082305536a309f9c705a54bb66bd990932a1027d807ea69912986a": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-1c7121206e1f98a5891bf066532ee8dea1a80f7edc9bfc33f53d70248be0855f": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-1e461be533b160dd01567bf30780c1433e34d6bd15c2bd2cd024b4dc13085105": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-200d386f7d43aa92e2f1bff1be3651817da5236f30d8680aae45c459c13a2bb9": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-21a6c3a49eb6fed8247a8a80063f0760c6c2eac77d50c286bb9a464334cda628": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-221f3246df14616e51b1bc78dc65986113c464f12372527914b86e66da949812": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-22ecb1cab6693e5adb354371dd69a75ae015bef19e434138eb4767e772d751e5": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-24881c9cfc9f516152cc901faa13f99ab4ead9485043e792e7f568a6da15555e": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-26e750fb242145fceedcac743e3e979b1d7ee7d79bfd127dc49f74f3818847d2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-27a6c052ad29ed7b4056cf5695a10f51eeeaa85da4e70abd38edf0c4e00dd9f4": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-2bec92d9e6dcf59e088a23e3a86d99f792cd7c15f6bc0a52a768bd3879f4e080": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-32397b6df956cb61d7162a19b934cecdb46f8a8b523af19c6133c4dc5674f251": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-33b0b3d72b60e59f108c88c8c5fd7559678c671fdefa3932a4af73a68ee1c4f2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-33ebb0783025717f3cd4dd0fdc731b574b363979cb6b1b284d0dbff97cc60e1d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-367eb81ce704f084f8cd74fec037a8d4338795fdc8782921d8ff96bc7cfd06e7": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-36969cbd37daad563ce84dc3678d5e6993afe3a78fd7c51f7309b8fcd19c14ee": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-373d24df4b386f39eaf71a3de09550988c96b3bf4b70350f2c8aadfe8426237e": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-3c5894bbc3135c12565a4acf159788923b974c5e2b12c15434bf33044091fe2a": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-3e05327d04161510662e5e2120ef950add1f0cc4afe5e09ff692600c431f0cb4": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-3f6afb0e031f4cd2b55bed78de67a4bc88c1e817a44cdf7c0fcbc66ae2ffaa51": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-439b22982db75dedb2189745f6132189da1ecb9d0d0299214ac0d0d990f6cc27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-43a26d98e8243795db20503d42280579bdc45e589cb953e96969dcead09de7fd": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-4b7744c11ea5244b150120e6082548ca59054ebdccc9024aaa45fdfa19437e63": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-4b7f7154d50b919a305647f8ef2f80fc7ce4a38d576a685bbc7e6e19b135a82f": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-4b9341df3b79353e78560c11cabca43d4cacedc258c2fe0970a4034d40ca7b6d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-5d10818d911c9e02d6756b4cf583e0fc07948dba7ceb553bd93935040fb120a9": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-6125b75d118533a59808f017b77a79d23d1fc28ca05cb80d330b13f353540cc1": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-61ffb2d200f948a3f5437e38518dcc65341003a191448c89e3625296f4773081": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-6540851526770e80c89dd7f348574b776bd5cbb67e32210cb4b9050ca26a1bd6": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-6bbedc04979a5a5976adb73ef152a05e0ce42377a0154c23aa15d50d292bedf3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-6c69a59740a0cb6f0d155636974cc6b7788f649b594eb8a22d80e72bb74ab44e": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-6fe4e63d7355f528de8cb846f5f3ef863ddd7c4e2042fd44c70c39cf51ef9368": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-7366b60a926ec6ea2fe4044eae69534f5877ca1df953084e98488791492dfc6e": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-76301101fbbd357c9b8a9d84a3a600020dbcda11c8a82bf1bc96869247c40d27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-77f48b1d134410836cfa193222a3833dd4649dd1ee3c4b42aef4011b0ca5908e": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-7c652b112ef0537c3b0adf22b3ad1a49bf5ba0aeb515b3e8bac04be2a84aaedc": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-80b627cd3a658663103cf0641ba371ba5bb50cbb2a2f641fa3423a8b6fa52cf8": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-859b600ca7c76a5a35f6a82e2ca5ea63af395650fbf14ad11518355f86c38549": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-9155760f985d9ef61063a93b75b485fddf664d3972abde2cc7e95d7d99a949b8": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-949d818e3ee18358ed36e2b19060a385574859ae4ee0abc85ae8468089d9137c": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-96b037e6fcb241deea6b3dcd6dc5fd125c6097987a7695b2940fed7311b98553": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-9b5659015ef40ecf5b8b5a5bc761a62bdab2bdd16601c8569d99f3050f8fe9b5": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-9e60b30efc98608070ae135a76930de662de3774e9266781f14e3215a146cefc": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-a6ac4b87ded30ab67941b93521e9b5c1907da7382071ec926a686190e9ebd404": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-b9f79a12935bc1e1bab3b5eed077202d7bd0a37fb4795c02fa149da9fbab8c67": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-be805506ea468207ac6c764506e11333618119252d61ad12f2218531442e9e48": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-bf130278e12545749df20ff600d25899855d0f946bbab1c690a12d69e66b4622": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-c8730e691b6020def289ec64a0103fd19e6c0a3d448e4a241b21d3c8ad3c84b2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-c9255945d8f990fd9f75ac9a67a125c3ac566db21712d1a1811f08bfa7cab809": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-ca08ffd1e4eba2e2ebfee62c0004e3687094ab7e1050e4b553ce5dd4b610c933": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-ca1e382108ca5c1e8a529c050941fbb697c2be7aee58b95fb92f27c09d63b064": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-cc6de6f1ad62524f8dcb7d472934a2204b04edf5547fef87a86d8f49efe86fe0": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-cd987a78940067a7240917c31522612302161e797703a6fa8afd638a9a21842d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-d5e29322da61bc35f4ef024692bfd996d3f830de00d9229971df666ae03eb421": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-d873f47025bf022b4715c34975dff19308cea226548cdff5835388183dd74060": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-e0801abd7e6a0f34e82bf943f7901e54b8f56578fe3b4a8a6d83c0855f8aa6a8": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-e32526f9e5b9bda59a4c4227b9ca58ffeb9caa124954fe161f00debb1cf9baf6": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-e5f64a679129e4f6de0345acfb0ef7e6adf063cd1e24ca89d01bda1e41cc4519": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-ee0c9b322adad5e60a53f1be4988eb0b9f51b045e40adf47ee0a8778ef104641": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-fa4647594f83245b302c155feefbb68a7abbe9c041cc7cac9b864af29833b31c": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "seattle-blues-dance-collective:sbdc-fd01fb7028628242f5521869f7f7e7c3fd73145426a9af8a66d0ccc33b7269f0": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "SBDC API does not expose per-event pricing; seattlebluesdance.com calendar is JS-rendered"
+    },
+    "u-wine-bar:gundam-tcg-store-tournament-2026-10-04": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 0"
+    },
+    "u-wine-bar:kamigawa-neon-dynasty-throwback-draft-2026-09-16": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: 5 general admission"
+    },
+    "u-wine-bar:mystery-booster-1-convention-edition-throwback-draft-2026-09-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page returned 404 (event Sep 9, already past)"
+    },
+    "u-wine-bar:one-piece-tcg-store-tournament-2026-10-03": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 0"
+    },
+    "u-wine-bar:radiance-pre-rift-1-with-wine-and-soap-pairing-2026-10-15": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 0"
+    },
+    "u-wine-bar:radiance-pre-rift-2-with-wine-and-soap-pairing-2026-10-17": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 0"
+    },
+    "u-wine-bar:radiance-pre-rift-3-with-wine-and-soap-pairing-2026-10-17": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 0"
+    },
+    "u-wine-bar:reality-fracture-prerelease-1-2026-09-25": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 0"
+    },
+    "u-wine-bar:reality-fracture-prerelease-2-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 5"
+    },
+    "u-wine-bar:reality-fracture-prerelease-3-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 5"
+    },
+    "u-wine-bar:reality-fracture-prerelease-4-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 5"
+    },
+    "u-wine-bar:reality-fracture-prerelease-5-2026-09-27": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: Last Chance 0 (GA tier sold out)"
+    },
+    "u-wine-bar:reality-fracture-prerelease-6-2026-09-27": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 5"
+    },
+    "u-wine-bar:reality-fracture-prerelease-7-2026-09-28": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 5"
+    },
+    "u-wine-bar:reality-fracture-prerelease-8-2026-09-30": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 5"
+    },
+    "u-wine-bar:reality-fracture-prerelease-9-2026-10-01": {
+      "fields": {
+        "cost": {
+          "min": 40.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: Last Chance 0 (GA tier sold out)"
+    },
+    "u-wine-bar:secrets-of-strixhaven-throwback-draft-2026-09-23": {
+      "fields": {
+        "cost": {
+          "min": 22.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "U Wine Bar event page: General Admission 2"
+    },
+    "seattle-public-theater:6aa5f93d5b3ccc41ed592ca3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fa2659b8ca1786f06efc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fa29b2101626f0d24e16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fa2bd2843432410f2c1a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fab25a77421307ae285f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fab52be1b2711bba5765": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fab720f06e253b49879a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fbc0d136d12bc8e1df93": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fbc272d99b13efd76058": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fbc42935963420fa5a98": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "seattle-public-theater:6aa5fbc5f2bb7f5daf36dc03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Seattle Public Theater ticketing page does not display prices for The Flight Before Xmas"
+    },
+    "kremwerk:6aa5d21bd136d12bc8df2a38": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Kremwerk event page links to external ticketing but does not display BARCODE admission price"
+    },
+    "kremwerk:6aa5d577a43ba72fc629858f": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Kremwerk event page: Cherry tier 0 for Queer Cinema Club Rocky Horror"
+    },
+    "cidbia:cidbia-6a9200ac1a58f6cd34353657-202703131800": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "seattlechinatownid.com/local-events returns HTTP 403; community cleanup events are typically free but cannot confirm"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Seattle Boba Fest occurred August 1, 2026 (already past); cost for historical event unresolvable"
+    },
+    "tabletop-village:15chbht38q6a9ad3i3qsi3q1i2_R20260322T200000@google.com-2027-03-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Tabletop Village events page does not list pricing for WEEKLIES Grand Archive"
+    },
+    "tabletop-village:52pk03h0lkcs281utei713784f_R20260322T180000@google.com-2027-03-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Tabletop Village events page does not list pricing for WEEKLIES Lorcana League"
+    },
+    "tabletop-village:b0sgc8d59is19uq4r1s7qn6271_R20230129T210000@google.com-2027-03-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "Tabletop Village events page does not list pricing for POKEMON League/Family Day"
     }
   }
 }
