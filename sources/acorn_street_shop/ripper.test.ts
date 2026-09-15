@@ -12,6 +12,7 @@ import AcornStreetShopRipper, {
     buildMonthUrl,
     extractEventDataBlob,
     normalizeDetailTime,
+    extractOgImage,
     AcornCalendarEntry,
 } from './ripper.js';
 
@@ -121,6 +122,10 @@ describe('isPrivateBooking', () => {
 
     it('flags a "reserved for" classroom booking regardless of case', () => {
         expect(isPrivateBooking('Classroom RESERVED for Mary & Tyler')).toBe(true);
+    });
+
+    it('flags a bare "Class room reserved" with no "for <name>" suffix (live-verified variant)', () => {
+        expect(isPrivateBooking('Class room reserved')).toBe(true);
     });
 
     it('does not flag a normal public class title', () => {
@@ -347,6 +352,18 @@ describe('extractEventDataBlob', () => {
     });
 });
 
+describe('extractOgImage', () => {
+    it('extracts the og:image content URL', () => {
+        const html = `<html><head><meta property="og:image" content="https://media.rainpos.com/6563/IMG_4966.jpg"></head></html>`;
+        expect(extractOgImage(html)).toBe('https://media.rainpos.com/6563/IMG_4966.jpg');
+    });
+
+    it('returns undefined when no og:image tag is present (the free "Event Details" template)', () => {
+        const html = `<html><head><div class="component-header">Event Details</div></head></html>`;
+        expect(extractOgImage(html)).toBeUndefined();
+    });
+});
+
 describe('normalizeDetailTime', () => {
     it('converts "H:MMam - H:MMpm" into the " to "-separated form TIME_PATTERN expects', () => {
         expect(normalizeDetailTime('2:30pm - 4:30pm')).toBe('2:30pm to 4:30pm');
@@ -396,7 +413,8 @@ describe('AcornStreetShopRipper.rip() — detail-page cost/duration enrichment',
         if (eventId === '5000001') {
             return {
                 ok: true,
-                body: `var event_data = JSON.stringify({"#1":{"price":"80","sections":[{"event_id":"5000001","time":"2:30pm - 4:30pm"}]}});`,
+                body: `<meta property="og:image" content="https://media.rainpos.com/6563/IMG_4966.jpg">`
+                    + `<script>var event_data = JSON.stringify({"#1":{"price":"80","sections":[{"event_id":"5000001","time":"2:30pm - 4:30pm"}]}});</script>`,
             };
         }
         if (eventId === '5000002') {
@@ -439,6 +457,7 @@ describe('AcornStreetShopRipper.rip() — detail-page cost/duration enrichment',
         expect(knitting!.date.minute()).toBe(30);
         expect(knitting!.duration.equals(Duration.ofHours(2))).toBe(true);
         expect(knitting!.cost).toEqual({ min: 80 });
+        expect(knitting!.imageUrl).toBe('https://media.rainpos.com/6563/IMG_4966.jpg');
 
         // Fully resolved — no uncertainty entry should remain for this event.
         const knittingUncertainty = errors.find(e => 'event' in e && (e as any).event.summary === 'Beginning Knitting 101');
@@ -455,6 +474,8 @@ describe('AcornStreetShopRipper.rip() — detail-page cost/duration enrichment',
         const knitNight = events.find(e => e.summary === 'Knit Night!');
         expect(knitNight).toBeDefined();
         expect(knitNight!.cost).toEqual({ min: 0 });
+        // The free template never carries an og:image — no guessed photo.
+        expect(knitNight!.imageUrl).toBeUndefined();
 
         vi.unstubAllGlobals();
     });

@@ -103,6 +103,18 @@ export function normalizeDetailTime(time: string): string {
     return time.replace(/\s*-\s*/, ' to ').trim();
 }
 
+const OG_IMAGE_PATTERN = /<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i;
+
+// A class-product page's og:image is the class's own photo (verified live:
+// distinct per class — a knitting class and a darning class carry different
+// images). The non-commerce "Event Details" template (Knit Night!, vendor
+// pop-ups, Stitch n Bitch) carries no og:image at all — confirmed on both
+// pages checked live — so those events keep falling through to the normal
+// photoGaps queue rather than getting a guessed image here.
+export function extractOgImage(html: string): string | undefined {
+    return html.match(OG_IMAGE_PATTERN)?.[1];
+}
+
 // What rip() learned about one eventId from its detail page, keyed by the
 // occurrence's own event_id. `free` means the page was the non-commerce
 // "Event Details" template (no event_data blob at all — see
@@ -111,6 +123,7 @@ export interface AcornDetailInfo {
     time?: string;   // raw "H:MMam - H:MMpm" from a matched section, if any
     price?: string;
     free?: boolean;
+    image?: string;
 }
 
 // Builds one month's request URL, preserving whatever query params are
@@ -140,7 +153,7 @@ export interface AcornCalendarEntry {
 // problem — filtering belongs in the caller (see "Parse Methods Must Never
 // Return Null" in AGENTS.md), not here.
 export function isPrivateBooking(title: string): boolean {
-    return /^private\b/i.test(title) || /reserved for/i.test(title);
+    return /^private\b/i.test(title) || /\breserved\b/i.test(title);
 }
 
 // Extracts every `.calEvent` block on a rendered month-view page. One page
@@ -231,18 +244,13 @@ export function parseCalendarEntry(entry: AcornCalendarEntry, zone: ZoneId): Rip
         summary: entry.title,
         location: VENUE_LOCATION,
         url: entry.detailUrl,
-        // Cost isn't known from the raw month-view entry alone — rip()
-        // fills it in afterwards from the class-product page's event_data
-        // blob (see extractEventDataBlob), or leaves it unset so
-        // buildCostGaps (lib/discovery.ts) queues it for the cost-resolver
-        // when the detail fetch didn't resolve a price. No imageUrl either:
-        // the month-view carries none, and unlike a venue-wide "no photos
-        // exist" case (skipEventPhotos), individual class detail pages DO
-        // carry distinct per-event photos (verified live: og:image differs
-        // per class) — fetching them here would multiply live requests
-        // per build for a field that's cosmetic rather than core data, so
-        // that backfill is left to the normal photoGaps queue /
-        // photo-resolver skill instead.
+        // Neither cost nor imageUrl is known from the raw month-view entry
+        // alone — rip() fills both in afterwards from the same class-product
+        // page fetch (event_data blob for price, og:image for the photo; see
+        // extractEventDataBlob / extractOgImage), or leaves them unset so
+        // buildCostGaps / buildPhotoGaps (lib/discovery.ts) queue whichever
+        // the detail fetch didn't resolve (the non-commerce "Event Details"
+        // template used for free social events carries neither).
     };
 
     return event;
@@ -318,17 +326,19 @@ export default class AcornStreetShopRipper implements IRipper {
 
                 const detailHtml = await res.text();
                 const blob = extractEventDataBlob(detailHtml);
+                const image = extractOgImage(detailHtml);
                 if (blob) {
                     for (const group of Object.values(blob)) {
                         for (const section of group.sections) {
-                            detailByEventId.set(section.event_id, { time: section.time, price: group.price });
+                            detailByEventId.set(section.event_id, { time: section.time, price: group.price, image });
                             attemptedEventIds.add(section.event_id);
                         }
                     }
                 } else {
                     // No event_data blob at all → the non-commerce "Event
-                    // Details" template, which never carries a price.
-                    detailByEventId.set(entry.eventId, { free: true });
+                    // Details" template, which never carries a price (and,
+                    // verified live, never carries an og:image either).
+                    detailByEventId.set(entry.eventId, { free: true, image });
                 }
             } catch {
                 // Network hiccup — leave this eventId undetermined; the
@@ -364,6 +374,7 @@ export default class AcornStreetShopRipper implements IRipper {
                 const priceNum = Number(detail.price);
                 if (!Number.isNaN(priceNum)) result.cost = { min: priceNum };
             }
+            if (detail?.image) result.imageUrl = detail.image;
 
             events.push(result);
 
