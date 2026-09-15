@@ -59,6 +59,7 @@ export const TAG_CATEGORIES = {
         'Theatre',
         'Trivia',
         'Wellness',
+        'Wine',
     ],
     'Markets': [
         'FarmersMarket',
