@@ -1,0 +1,26 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.5982279
+  lng: -122.3222172
+  label: "Union Cultural Center, 803 S King St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2434527420
+name: union-cultural-center-samba-no-pe
+sourceRole: venue
+friendlyname: "Samba Raiz: Samba no Pé (Beginner) at Union Cultural Center"
+description: Beginner Brazilian samba class led by dance artist Deise Costa.
+timezone: America/Los_Angeles
+location: 803 S King St, Seattle, WA 98104
+url: https://www.unionculturalcenter.org/workshop-event-program/samba-raiz
+imageUrl: "https://cdn.prod.website-files.com/65b8486da385a8f671a1a76e/68eeab82ae89a1408048041e_Screenshot%202025-10-10%20at%201.40.06%E2%80%AFPM.jpg"
+tags:
+  - Dance
+  - International District
+schedules:
+  # The page also lists a second class immediately after this one ("Samba de
+  # Roda com Saia" starting 7:30 PM), but states no end time for it — left
+  # unimplemented rather than guessed. This class's own end (7:30 PM) is
+  # confirmed by that next class's stated start time.
+  - schedule: every Monday
+    start_time: "18:30"
+    duration: PT1H
