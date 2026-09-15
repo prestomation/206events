@@ -1,0 +1,12 @@
+name: wtia-community-events
+sourceRole: aggregator
+description: "WTIA & Community Events"
+url: "https://luma.com/wtia"
+friendlyLink: "https://www.washingtontechnology.org/events/"
+imageUrl: "https://images.lumacdn.com/calendars/ex/2444bb59-0564-48d9-8ecb-32a6278ab425.png"
+tags: ["Tech"]
+geo: null
+calendars:
+  - name: calendar
+    friendlyname: "WTIA & Community Events"
+    timezone: America/Los_Angeles
