@@ -6,7 +6,7 @@ url: https://www.orcarunning.com/races/
 tags: [Running, Outdoors]
 firstSeen: 2026-09-15
 lastChecked: 2026-09-15
-pr:
+pr: 1478
 ---
 
 PNW race organizer (half marathons, 5K/10K fun runs, an overnight ultra)
