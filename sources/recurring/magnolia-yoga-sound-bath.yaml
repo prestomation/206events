@@ -1,0 +1,19 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.6604169
+  lng: -122.3986444
+  label: "Magnolia Yoga and Healing Arts, 3150 West Government Way, Seattle, WA 98199"
+name: magnolia-yoga-sound-bath
+sourceRole: venue
+friendlyname: "Magnolia Yoga: Sound Bath"
+description: Sound bath relaxation session, on the last Friday of the month, at this Magnolia neighborhood yoga studio.
+timezone: America/Los_Angeles
+location: 3150 West Government Way, Seattle, WA 98199
+url: https://www.magnoliayogaandhealingarts.com/sound-bath
+tags:
+  - Wellness
+  - Magnolia
+schedules:
+  - schedule: last Friday
+    start_time: "18:00"
+    duration: PT1H15M

@@ -1,0 +1,22 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.6604169
+  lng: -122.3986444
+  label: "Magnolia Yoga and Healing Arts, 3150 West Government Way, Seattle, WA 98199"
+name: magnolia-yoga-hatha-yoga-i
+sourceRole: venue
+friendlyname: "Magnolia Yoga: Hatha Yoga I"
+description: Slow-paced Hatha yoga class focusing on foundational postures and breathwork at this Magnolia neighborhood yoga studio.
+timezone: America/Los_Angeles
+location: 3150 West Government Way, Seattle, WA 98199
+url: https://www.magnoliayogaandhealingarts.com/class-types
+tags:
+  - Wellness
+  - Magnolia
+schedules:
+  - schedule: every Monday
+    start_time: "19:30"
+    duration: PT1H
+  - schedule: every Wednesday
+    start_time: "07:00"
+    duration: PT1H

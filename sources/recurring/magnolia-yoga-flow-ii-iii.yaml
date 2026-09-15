@@ -1,0 +1,19 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.6604169
+  lng: -122.3986444
+  label: "Magnolia Yoga and Healing Arts, 3150 West Government Way, Seattle, WA 98199"
+name: magnolia-yoga-flow-ii-iii
+sourceRole: venue
+friendlyname: "Magnolia Yoga: Flow II/III"
+description: Intermediate-to-advanced vinyasa flow class at this Magnolia neighborhood yoga studio.
+timezone: America/Los_Angeles
+location: 3150 West Government Way, Seattle, WA 98199
+url: https://www.magnoliayogaandhealingarts.com/class-types
+tags:
+  - Wellness
+  - Magnolia
+schedules:
+  - schedule: every Sunday
+    start_time: "09:30"
+    duration: PT1H
