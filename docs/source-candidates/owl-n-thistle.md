@@ -6,7 +6,7 @@ url: https://www.owlnthistle.com/live-music-schedule
 tags: [Music, "Pioneer Square"]
 firstSeen: 2026-09-15
 lastChecked: 2026-09-15
-pr: TBD
+pr: 1484
 ---
 
 Irish pub at Post Alley in Pioneer Square with nightly live music. Best
