@@ -1,0 +1,645 @@
+{
+  "race": {
+    "race_id": 33861,
+    "name": "The Brooks Orca Half Marathon presented by REI",
+    "last_date": "09/20/2025",
+    "last_end_date": "09/21/2025",
+    "next_date": "09/19/2026",
+    "next_end_date": "09/20/2026",
+    "is_draft_race": "F",
+    "is_private_race": "F",
+    "is_registration_open": "T",
+    "created": "5/2/2016 19:39",
+    "last_modified": "9/8/2026 18:54",
+    "description": "<p>The Brooks Orca Half is a half marathon along the shores of West Seattle, starting at Lincoln Park and finishing at Don Armeni Boat Launch. The half course is point to point, with two small out and back sections in the beginning and a longer one towards the end.\u00a0 The 8-miler course is point to po",
+    "url": "https://runsignup.com/Race/WA/Seattle/OrcaHalf",
+    "external_race_url": "https://www.orcarunning.com/orca-half/",
+    "external_results_url": null,
+    "fb_page_id": "OrcaRunning",
+    "fb_event_id": null,
+    "address": {
+      "street": "1222 Harbor Ave SW",
+      "street2": null,
+      "city": "Seattle",
+      "state": "WA",
+      "zipcode": "98116",
+      "country_code": "US"
+    },
+    "timezone": "America/Los_Angeles",
+    "logo_url": "https://d368g9lw5ileu7.cloudfront.net/uploads/generic/genericImage-websiteLogo-40602-1787096621.0413-0.bQHo4T.png",
+    "can_use_registration_api": "F",
+    "real_time_notifications_enabled": "T",
+    "events": [
+      {
+        "event_id": 1055599,
+        "race_event_days_id": 370209,
+        "name": "Orca Half Marathon Saturday",
+        "details": null,
+        "start_time": "9/19/2026 07:20",
+        "end_time": "9/19/2026 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/24/2025 03:00",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/24/2025 03:00",
+            "registration_closes": "9/29/2025 02:59",
+            "race_fee": "$78.00",
+            "processing_fee": "$6.81"
+          },
+          {
+            "registration_opens": "10/6/2025 03:00",
+            "registration_closes": "11/1/2025 02:59",
+            "race_fee": "$81.00",
+            "processing_fee": "$7.05"
+          },
+          {
+            "registration_opens": "11/1/2025 03:00",
+            "registration_closes": "1/1/2026 02:59",
+            "race_fee": "$86.00",
+            "processing_fee": "$7.45"
+          },
+          {
+            "registration_opens": "1/1/2026 03:00",
+            "registration_closes": "4/1/2026 02:59",
+            "race_fee": "$91.00",
+            "processing_fee": "$7.85"
+          },
+          {
+            "registration_opens": "4/1/2026 03:00",
+            "registration_closes": "6/1/2026 02:59",
+            "race_fee": "$96.00",
+            "processing_fee": "$8.25"
+          },
+          {
+            "registration_opens": "6/1/2026 03:00",
+            "registration_closes": "8/1/2026 02:59",
+            "race_fee": "$101.00",
+            "processing_fee": "$8.65"
+          },
+          {
+            "registration_opens": "8/1/2026 10:01",
+            "registration_closes": "9/20/2026 02:59",
+            "race_fee": "$106.00",
+            "processing_fee": "$9.05"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 898181,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 1275
+      },
+      {
+        "event_id": 1055600,
+        "race_event_days_id": 370209,
+        "name": "Orca Half Marathon Sunday",
+        "details": null,
+        "start_time": "9/20/2026 07:20",
+        "end_time": "9/20/2026 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/24/2025 03:00",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/24/2025 03:00",
+            "registration_closes": "9/29/2025 02:59",
+            "race_fee": "$78.00",
+            "processing_fee": "$6.81"
+          },
+          {
+            "registration_opens": "10/6/2025 03:00",
+            "registration_closes": "11/1/2025 02:59",
+            "race_fee": "$81.00",
+            "processing_fee": "$7.05"
+          },
+          {
+            "registration_opens": "11/1/2025 03:00",
+            "registration_closes": "1/1/2026 02:59",
+            "race_fee": "$86.00",
+            "processing_fee": "$7.45"
+          },
+          {
+            "registration_opens": "1/1/2026 03:00",
+            "registration_closes": "4/1/2026 02:59",
+            "race_fee": "$91.00",
+            "processing_fee": "$7.85"
+          },
+          {
+            "registration_opens": "4/1/2026 03:00",
+            "registration_closes": "6/1/2026 02:59",
+            "race_fee": "$96.00",
+            "processing_fee": "$8.25"
+          },
+          {
+            "registration_opens": "6/1/2026 03:00",
+            "registration_closes": "8/1/2026 02:59",
+            "race_fee": "$101.00",
+            "processing_fee": "$8.65"
+          },
+          {
+            "registration_opens": "8/1/2026 03:00",
+            "registration_closes": "9/20/2026 14:59",
+            "race_fee": "$106.00",
+            "processing_fee": "$9.05"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 898182,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 650
+      },
+      {
+        "event_id": 1055601,
+        "race_event_days_id": 370209,
+        "name": "Orca 8-Miler (Sunday)",
+        "details": null,
+        "start_time": "9/20/2026 07:20",
+        "end_time": "9/20/2026 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/24/2025 03:00",
+        "event_type": "running_race",
+        "distance": "8 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/24/2025 03:00",
+            "registration_closes": "9/29/2025 02:59",
+            "race_fee": "$63.00",
+            "processing_fee": "$5.61"
+          },
+          {
+            "registration_opens": "10/6/2025 03:00",
+            "registration_closes": "11/1/2025 02:59",
+            "race_fee": "$66.00",
+            "processing_fee": "$5.85"
+          },
+          {
+            "registration_opens": "11/1/2025 03:00",
+            "registration_closes": "1/1/2026 02:59",
+            "race_fee": "$71.00",
+            "processing_fee": "$6.25"
+          },
+          {
+            "registration_opens": "1/1/2026 03:00",
+            "registration_closes": "4/1/2026 02:59",
+            "race_fee": "$76.00",
+            "processing_fee": "$6.65"
+          },
+          {
+            "registration_opens": "4/1/2026 03:00",
+            "registration_closes": "6/1/2026 02:59",
+            "race_fee": "$81.00",
+            "processing_fee": "$7.05"
+          },
+          {
+            "registration_opens": "6/1/2026 03:00",
+            "registration_closes": "8/1/2026 02:59",
+            "race_fee": "$86.00",
+            "processing_fee": "$7.45"
+          },
+          {
+            "registration_opens": "8/1/2026 03:00",
+            "registration_closes": "9/20/2026 11:00",
+            "race_fee": "$91.00",
+            "processing_fee": "$7.85"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 898183,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 550
+      },
+      {
+        "event_id": 1055603,
+        "race_event_days_id": 370209,
+        "name": "Blowhole Challenge",
+        "details": null,
+        "start_time": "9/19/2026 07:20",
+        "end_time": "9/20/2026 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/24/2025 03:00",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/24/2025 03:00",
+            "registration_closes": "9/29/2025 02:59",
+            "race_fee": "$138.00",
+            "processing_fee": "$11.61"
+          },
+          {
+            "registration_opens": "10/6/2025 03:00",
+            "registration_closes": "11/1/2025 02:59",
+            "race_fee": "$140.00",
+            "processing_fee": "$11.77"
+          },
+          {
+            "registration_opens": "11/1/2025 03:00",
+            "registration_closes": "1/1/2026 02:59",
+            "race_fee": "$149.00",
+            "processing_fee": "$12.49"
+          },
+          {
+            "registration_opens": "1/1/2026 03:00",
+            "registration_closes": "4/1/2026 02:59",
+            "race_fee": "$157.00",
+            "processing_fee": "$13.13"
+          },
+          {
+            "registration_opens": "4/1/2026 03:00",
+            "registration_closes": "6/1/2026 02:59",
+            "race_fee": "$166.00",
+            "processing_fee": "$13.85"
+          },
+          {
+            "registration_opens": "6/1/2026 03:00",
+            "registration_closes": "8/1/2026 02:59",
+            "race_fee": "$175.00",
+            "processing_fee": "$14.57"
+          },
+          {
+            "registration_opens": "8/1/2026 03:00",
+            "registration_closes": "9/19/2026 14:59",
+            "race_fee": "$183.00",
+            "processing_fee": "$15.21"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 898185,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 65
+      },
+      {
+        "event_id": 1055602,
+        "race_event_days_id": 370209,
+        "name": "Virtual Half Marathon or 8 Miler",
+        "details": null,
+        "start_time": "9/19/2026 07:20",
+        "end_time": "9/19/2026 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "10/6/2025 03:00",
+        "event_type": "virtual_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "10/6/2025 03:00",
+            "registration_closes": "9/1/2026 02:59",
+            "race_fee": "$60.00",
+            "processing_fee": "$5.37"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 898184,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 50
+      },
+      {
+        "event_id": 898181,
+        "race_event_days_id": 320387,
+        "name": "Orca Half Marathon Saturday",
+        "details": null,
+        "start_time": "9/20/2025 07:20",
+        "end_time": "9/20/2025 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/16/2024 14:59",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/16/2024 14:59",
+            "registration_closes": "9/23/2024 02:59",
+            "race_fee": "$77.00",
+            "processing_fee": "$6.73"
+          },
+          {
+            "registration_opens": "10/7/2024 03:00",
+            "registration_closes": "11/1/2024 02:59",
+            "race_fee": "$80.00",
+            "processing_fee": "$6.97"
+          },
+          {
+            "registration_opens": "11/1/2024 03:00",
+            "registration_closes": "1/1/2025 02:59",
+            "race_fee": "$85.00",
+            "processing_fee": "$7.37"
+          },
+          {
+            "registration_opens": "1/1/2025 03:00",
+            "registration_closes": "4/1/2025 02:59",
+            "race_fee": "$92.00",
+            "processing_fee": "$7.93"
+          },
+          {
+            "registration_opens": "4/1/2025 03:00",
+            "registration_closes": "6/1/2025 02:59",
+            "race_fee": "$97.00",
+            "processing_fee": "$8.33"
+          },
+          {
+            "registration_opens": "6/1/2025 03:00",
+            "registration_closes": "8/1/2025 02:59",
+            "race_fee": "$102.00",
+            "processing_fee": "$8.73"
+          },
+          {
+            "registration_opens": "8/1/2025 10:01",
+            "registration_closes": "9/20/2025 02:59",
+            "race_fee": "$107.00",
+            "processing_fee": "$9.13"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 765202,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 1275
+      },
+      {
+        "event_id": 898182,
+        "race_event_days_id": 320387,
+        "name": "Orca Half Marathon Sunday",
+        "details": null,
+        "start_time": "9/21/2025 07:20",
+        "end_time": "9/21/2025 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/16/2024 11:36",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/16/2024 11:36",
+            "registration_closes": "9/23/2024 02:59",
+            "race_fee": "$77.00",
+            "processing_fee": "$6.73"
+          },
+          {
+            "registration_opens": "10/7/2024 03:00",
+            "registration_closes": "11/1/2024 02:59",
+            "race_fee": "$80.00",
+            "processing_fee": "$6.97"
+          },
+          {
+            "registration_opens": "11/1/2024 03:00",
+            "registration_closes": "1/1/2025 02:59",
+            "race_fee": "$85.00",
+            "processing_fee": "$7.37"
+          },
+          {
+            "registration_opens": "1/1/2025 03:00",
+            "registration_closes": "4/1/2025 02:59",
+            "race_fee": "$92.00",
+            "processing_fee": "$7.93"
+          },
+          {
+            "registration_opens": "4/1/2025 03:00",
+            "registration_closes": "6/1/2025 02:59",
+            "race_fee": "$97.00",
+            "processing_fee": "$8.33"
+          },
+          {
+            "registration_opens": "6/1/2025 03:00",
+            "registration_closes": "8/1/2025 02:59",
+            "race_fee": "$102.00",
+            "processing_fee": "$8.73"
+          },
+          {
+            "registration_opens": "8/1/2025 03:00",
+            "registration_closes": "9/21/2025 14:59",
+            "race_fee": "$107.00",
+            "processing_fee": "$9.13"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 765205,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 700
+      },
+      {
+        "event_id": 898183,
+        "race_event_days_id": 320387,
+        "name": "Orca 8-Miler (Sunday)",
+        "details": null,
+        "start_time": "9/21/2025 07:20",
+        "end_time": "9/21/2025 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/16/2024 09:00",
+        "event_type": "running_race",
+        "distance": "8 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/16/2024 09:00",
+            "registration_closes": "9/23/2024 02:59",
+            "race_fee": "$62.00",
+            "processing_fee": "$5.53"
+          },
+          {
+            "registration_opens": "10/7/2024 03:00",
+            "registration_closes": "11/1/2024 02:59",
+            "race_fee": "$65.00",
+            "processing_fee": "$5.77"
+          },
+          {
+            "registration_opens": "11/1/2024 03:00",
+            "registration_closes": "1/1/2025 02:59",
+            "race_fee": "$70.00",
+            "processing_fee": "$6.17"
+          },
+          {
+            "registration_opens": "1/1/2025 03:00",
+            "registration_closes": "4/1/2025 02:59",
+            "race_fee": "$77.00",
+            "processing_fee": "$6.73"
+          },
+          {
+            "registration_opens": "4/1/2025 03:00",
+            "registration_closes": "6/1/2025 02:59",
+            "race_fee": "$82.00",
+            "processing_fee": "$7.13"
+          },
+          {
+            "registration_opens": "6/1/2025 03:00",
+            "registration_closes": "8/1/2025 02:59",
+            "race_fee": "$87.00",
+            "processing_fee": "$7.53"
+          },
+          {
+            "registration_opens": "8/1/2025 03:00",
+            "registration_closes": "9/21/2025 11:00",
+            "race_fee": "$92.00",
+            "processing_fee": "$7.93"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 765206,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 453
+      },
+      {
+        "event_id": 898184,
+        "race_event_days_id": 320387,
+        "name": "Virtual Half Marathon",
+        "details": null,
+        "start_time": "9/20/2025 07:20",
+        "end_time": "9/20/2025 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "10/7/2024 09:28",
+        "event_type": "virtual_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "10/7/2024 09:28",
+            "registration_closes": "9/2/2025 02:59",
+            "race_fee": "$57.00",
+            "processing_fee": "$5.13"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 765203,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 50
+      },
+      {
+        "event_id": 898185,
+        "race_event_days_id": 320387,
+        "name": "Blowhole Challenge",
+        "details": null,
+        "start_time": "9/20/2025 07:20",
+        "end_time": "9/21/2025 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "9/16/2024 09:00",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "9/16/2024 09:00",
+            "registration_closes": "9/23/2024 02:59",
+            "race_fee": "$137.00",
+            "processing_fee": "$11.53"
+          },
+          {
+            "registration_opens": "10/7/2024 03:00",
+            "registration_closes": "11/1/2024 02:59",
+            "race_fee": "$140.00",
+            "processing_fee": "$11.77"
+          },
+          {
+            "registration_opens": "11/1/2024 03:00",
+            "registration_closes": "1/1/2025 02:59",
+            "race_fee": "$149.00",
+            "processing_fee": "$12.49"
+          },
+          {
+            "registration_opens": "1/1/2025 03:00",
+            "registration_closes": "4/1/2025 02:59",
+            "race_fee": "$158.00",
+            "processing_fee": "$13.21"
+          },
+          {
+            "registration_opens": "4/1/2025 03:00",
+            "registration_closes": "6/1/2025 02:59",
+            "race_fee": "$166.00",
+            "processing_fee": "$13.85"
+          },
+          {
+            "registration_opens": "6/1/2025 03:00",
+            "registration_closes": "8/1/2025 02:59",
+            "race_fee": "$175.00",
+            "processing_fee": "$14.57"
+          },
+          {
+            "registration_opens": "8/1/2025 03:00",
+            "registration_closes": "8/18/2025 14:59",
+            "race_fee": "$184.00",
+            "processing_fee": "$15.29"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 765207,
+        "giveaway": "Participant Shirt",
+        "participant_cap": 72
+      },
+      {
+        "event_id": 905168,
+        "race_event_days_id": 320387,
+        "name": "Half Marathon Charity Bib Saturday",
+        "details": null,
+        "start_time": "9/20/2025 07:20",
+        "end_time": "9/20/2025 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "10/7/2024 03:00",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "10/7/2024 03:00",
+            "registration_closes": "9/2/2025 02:59",
+            "race_fee": "$0.00",
+            "processing_fee": "$0.00"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 765204,
+        "giveaway": "Participant Shirt"
+      },
+      {
+        "event_id": 905169,
+        "race_event_days_id": 320387,
+        "name": "Half Marathon Charity Bib Sunday",
+        "details": null,
+        "start_time": "9/21/2025 07:20",
+        "end_time": "9/21/2025 13:00",
+        "age_calc_base_date": null,
+        "registration_opens": "10/7/2024 03:00",
+        "event_type": "running_race",
+        "distance": "13.1 Miles",
+        "volunteer": "F",
+        "require_dob": "T",
+        "require_phone": "T",
+        "registration_periods": [
+          {
+            "registration_opens": "10/7/2024 03:00",
+            "registration_closes": "9/2/2025 02:59",
+            "race_fee": "$0.00",
+            "processing_fee": "$0.00"
+          }
+        ],
+        "sub_event_ids": [],
+        "previous_year_event_id": 796561,
+        "giveaway": "Participant Shirt"
+      }
+    ]
+  }
+}

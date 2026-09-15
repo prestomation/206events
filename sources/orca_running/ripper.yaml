@@ -1,0 +1,18 @@
+name: orca_running
+sourceRole: venue
+description: "Orca Running"
+url: "https://www.orcarunning.com/races/"
+friendlyLink: "https://www.orcarunning.com/races/"
+geo: null
+tags: ["Running", "Outdoors"]
+calendars:
+  - name: orca-running
+    friendlyname: "Orca Running (Seattle Races)"
+    timezone: America/Los_Angeles
+    config:
+      # RunSignUp race IDs for Orca Running's Seattle-proper annual races
+      # (the org also puts on races in Kirkland, Redmond, Poulsbo, Blaine,
+      # Bainbridge Island, etc. that fall outside 206.events' Seattle scope
+      # and are intentionally left out). Confirmed via the public
+      # https://runsignup.com/Rest/race/<id>?format=json endpoint.
+      raceIds: [33861, 184601, 77302, 182055]
