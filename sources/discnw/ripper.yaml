@@ -1,0 +1,11 @@
+name: discnw
+description: "DiscNW (Northwest Ultimate Association)"
+url: "https://www.discnw.org/en_us/e"
+friendlyLink: https://www.discnw.org/en_us/e
+sourceRole: aggregator
+geo: null
+tags: ["Sports"]
+calendars:
+  - name: discnw
+    friendlyname: "DiscNW Ultimate Frisbee Events"
+    timezone: America/Los_Angeles
