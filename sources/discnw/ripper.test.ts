@@ -1,8 +1,13 @@
 import { describe, it, expect, afterEach, vi } from 'vitest';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import { ZoneRegion } from '@js-joda/core';
 import '@js-joda/timezone';
 import DiscNWRipper, { parseDateRange } from './ripper.js';
 import { Ripper, RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const timezone = ZoneRegion.of('America/Los_Angeles');
 
@@ -279,6 +284,30 @@ describe('DiscNWRipper.rip', () => {
         expect(cal.errors[0].type).toBe('ParseError');
     });
 
+    it('drops a short-span event located outside Washington state', async () => {
+        // DiscNW is a regional (WA/OR/BC) governing body, not Seattle-only —
+        // per AGENTS.md a source must primarily serve Seattle audiences, so
+        // an otherwise-genuine one-day event outside WA (e.g. a Corvallis, OR
+        // clinic) must still be excluded even though its date span is short.
+        const outOfStateBlock = makeBlock({
+            href: '/en_us/e/2026-corvallis-one-day-clinic',
+            title: '2026 Corvallis One-Day Clinic',
+            location: 'Corvallis, OR',
+            dateText: futureDateStr(10),
+            badge: 'clinic',
+        });
+        const html = `<div class="striped-blocks">${outOfStateBlock}</div>`;
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+            ok: true,
+            status: 200,
+            text: () => Promise.resolve(html),
+        }));
+
+        const calendars = await new DiscNWRipper().rip(mockRipper());
+        expect(calendars[0].events).toHaveLength(0);
+        expect(calendars[0].errors).toHaveLength(0);
+    });
+
     it('dedups events sharing the same detail-page URL', async () => {
         const block = makeBlock({
             href: '/en_us/e/2026-turkey-bowl',
@@ -301,5 +330,52 @@ describe('DiscNWRipper.rip', () => {
     it('throws on a non-ok response', async () => {
         vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 500, statusText: 'Internal Server Error' }));
         await expect(new DiscNWRipper().rip(mockRipper())).rejects.toThrow(/500/);
+    });
+
+    it('parses the real captured AJAX fragment end-to-end', async () => {
+        // sample-data.html is the real response captured live from
+        // https://www.discnw.org/en_us/e/embedded/0/map_size/none on
+        // 2026-09-15 (see that file's header comment). This exercises the
+        // real markup shape — including the 3-<li> "multi-division league"
+        // blocks the position-based (not icon-based) meta parsing exists to
+        // handle — rather than only the hand-trimmed fixtures above.
+        const html = readFileSync(join(__dirname, 'sample-data.html'), 'utf-8');
+        vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+            ok: true,
+            status: 200,
+            text: () => Promise.resolve(html),
+        }));
+
+        const calendars = await new DiscNWRipper().rip(mockRipper());
+        const cal = calendars[0];
+
+        // No ParseErrors — every block in the real fragment should parse
+        // cleanly (whether or not it survives the span/state filters).
+        expect(cal.errors.filter(e => e.type === 'ParseError')).toHaveLength(0);
+
+        // The long-running league/registration/practice listings must be
+        // filtered out...
+        const summaries = cal.events.map(e => e.summary);
+        expect(summaries).not.toContain('2026 Fall Mixed Hat League');
+        expect(summaries).not.toContain('Application for Eligibility Review - 2026 to 2027');
+        expect(summaries).not.toContain('2026 Corvallis G.O.A.T.s Fall Fling'); // out-of-state too
+
+        // ...while genuine short single/multi-day events survive.
+        expect(summaries).toContain('2026 Fall Friz Fest Hat Tournament');
+        expect(summaries.length).toBeGreaterThan(0);
+
+        // Every surviving event is located in Washington state.
+        for (const event of cal.events) {
+            expect(event.location).toMatch(/,\s*WA$/i);
+        }
+
+        // Every kept event is paired with an Uncertainty error for the
+        // missing start time.
+        const uncertainEventIds = new Set(
+            cal.errors.filter(e => e.type === 'Uncertainty').map(e => (e as any).event.id)
+        );
+        for (const event of cal.events) {
+            expect(uncertainEventIds.has(event.id)).toBe(true);
+        }
     });
 });

@@ -89,6 +89,15 @@ function fingerprint(title: string, dateText: string): string {
     return (h >>> 0).toString(36);
 }
 
+// Everything parseBlock derives from one block, including the raw date
+// range — kept alongside the event so rip() can apply the date-span
+// filter without re-parsing the block's HTML a second time.
+interface ParsedBlock {
+    event: RipperEvent;
+    range: DateRange | null;
+    dateText: string;
+}
+
 export default class DiscNWRipper implements IRipper {
 
     // Parses one <div class="striped-block"> event listing into an event.
@@ -97,6 +106,13 @@ export default class DiscNWRipper implements IRipper {
     // Must Never Return Null". Date-span filtering and dedup are the
     // caller's job (rip()), not this method's.
     public parseBlock(blockHtml: string, timezone: ZoneId): RipperEvent {
+        return this.parseBlockDetailed(blockHtml, timezone).event;
+    }
+
+    // Same parse as parseBlock, but also surfaces the raw DateRange/dateText
+    // it derived along the way so rip() can apply the date-span filter
+    // without a second parse(blockHtml) pass over the same HTML.
+    private parseBlockDetailed(blockHtml: string, timezone: ZoneId): ParsedBlock {
         const root = parse(blockHtml);
 
         // The type badge ("league", "tournament", "hat tournament", ...)
@@ -109,18 +125,26 @@ export default class DiscNWRipper implements IRipper {
         const href = titleLink?.getAttribute('href');
         if (!title || !href) {
             return {
-                type: "ParseError",
-                reason: "Could not find event title/url",
-                context: blockHtml.slice(0, 200),
+                event: {
+                    type: "ParseError",
+                    reason: "Could not find event title/url",
+                    context: blockHtml.slice(0, 200),
+                },
+                range: null,
+                dateText: '',
             };
         }
 
         const id = href.split('/').filter(Boolean).pop();
         if (!id) {
             return {
-                type: "ParseError",
-                reason: "Could not derive a stable event id from the detail-page URL",
-                context: href,
+                event: {
+                    type: "ParseError",
+                    reason: "Could not derive a stable event id from the detail-page URL",
+                    context: href,
+                },
+                range: null,
+                dateText: '',
             };
         }
 
@@ -132,21 +156,29 @@ export default class DiscNWRipper implements IRipper {
         const metaItems = root.querySelectorAll('.event-meta-list li');
         const location = cleanText(metaItems[0]?.text);
 
-        const dateText = cleanText(metaItems[1]?.text);
+        const dateText = cleanText(metaItems[1]?.text) ?? '';
         if (!dateText) {
             return {
-                type: "ParseError",
-                reason: "Could not find event date",
-                context: title,
+                event: {
+                    type: "ParseError",
+                    reason: "Could not find event date",
+                    context: title,
+                },
+                range: null,
+                dateText: '',
             };
         }
 
         const range = parseDateRange(dateText);
         if (!range) {
             return {
-                type: "ParseError",
-                reason: `Could not parse event date: "${dateText}"`,
-                context: title,
+                event: {
+                    type: "ParseError",
+                    reason: `Could not parse event date: "${dateText}"`,
+                    context: title,
+                },
+                range: null,
+                dateText,
             };
         }
 
@@ -168,7 +200,7 @@ export default class DiscNWRipper implements IRipper {
             location,
             url: `${BASE_URL}${href}`,
         };
-        return event;
+        return { event, range, dateText };
     }
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
@@ -192,21 +224,27 @@ export default class DiscNWRipper implements IRipper {
 
         for (const block of blocks) {
             const blockHtml = block.outerHTML;
-            const parsed = this.parseBlock(blockHtml, timezone);
+            const { event: parsed, range, dateText } = this.parseBlockDetailed(blockHtml, timezone);
             if ('type' in parsed) {
                 errors.push(parsed);
                 continue;
             }
+            if (!range) continue; // parseBlockDetailed already validated this — defensive only
 
             // Date-span filter: most listings are season-long
             // leagues/registrations, not discrete attendable events — see
             // MAX_EVENT_SPAN_DAYS.
-            const metaItems = parse(blockHtml).querySelectorAll('.event-meta-list li');
-            const dateText = cleanText(metaItems[1]?.text) ?? '';
-            const range = parseDateRange(dateText);
-            if (!range) continue; // parseBlock already validated this — defensive only
             const spanDays = range.start.until(range.end, ChronoUnit.DAYS);
             if (spanDays > MAX_EVENT_SPAN_DAYS) continue;
+
+            // DiscNW is a regional (WA/OR/BC) governing body, not a
+            // Seattle-only one — per AGENTS.md, sources must primarily
+            // serve Seattle audiences, so drop listings located outside
+            // Washington state (e.g. the recurring Corvallis, OR "G.O.A.T.s"
+            // events). This still allows the occasional non-Seattle WA city
+            // (SeaTac, Kirkland, ...), consistent with "a few events outside
+            // city limits is OK."
+            if (!/,\s*WA$/i.test(parsed.location ?? '')) continue;
 
             // Only future events.
             if (parsed.date.toLocalDate().isBefore(today)) continue;
