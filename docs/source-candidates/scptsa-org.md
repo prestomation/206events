@@ -6,7 +6,7 @@ url: https://scptsa.org/upcoming-events
 tags: ["Community", "Political"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-15
-pr:
+pr: 1493
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
