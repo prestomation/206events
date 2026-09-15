@@ -1,6 +1,7 @@
 ---
 name: "AI House"
-status: candidate
+status: added
+pr: 1479
 platform: Luma
 url: https://luma.com/aihouse
 tags: [Tech]
@@ -37,5 +38,5 @@ scraper reading the page's embedded `__NEXT_DATA__` blob — same pattern as
 Luma's `upcoming.entries` shape. Fixed venue → ripper-level `geo`,
 `sourceRole: venue`.
 
-**Implemented 2026-09-15 (PR TBD):** `sources/ai_house/`. 14 events, 0 parse
+**Implemented 2026-09-15 (PR #1479):** `sources/ai_house/`. 14 events, 0 parse
 errors confirmed via `ONLY_SOURCE=ai-house`.

@@ -24,7 +24,6 @@ interface LumaEvent {
 }
 
 interface LumaCalendarEntry {
-    api_id?: string;
     event?: LumaEvent;
 }
 
