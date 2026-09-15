@@ -6,7 +6,7 @@ url: https://www.seattlebookclub.com/apps/events/calendar
 tags: [Books]
 firstSeen: 2026-07-10
 lastChecked: 2026-09-15
-pr:
+pr: 1480
 ---
 
 Independent Seattle bookstore/shop. Runs reading socials, author talks, and
