@@ -1,0 +1,27 @@
+name: northwest-trail-runs
+sourceRole: venue
+description: "Northwest Trail Runs"
+url: "https://nwtrailruns.com/events/"
+friendlyLink: "https://nwtrailruns.com/events/"
+geo: null
+tags: ["Running", "Outdoors"]
+calendars:
+  - name: northwest-trail-runs
+    friendlyname: "Northwest Trail Runs (Seattle Races)"
+    timezone: America/Los_Angeles
+    config:
+      # Event-page slugs for Northwest Trail Runs' Seattle-proper races only.
+      # The org also puts on races in Redmond, Kenmore, Sammamish, North
+      # Bend, Issaquah/Bellevue (Cougar Mountain), and Orcas Island that fall
+      # outside 206.events' Seattle scope and are intentionally left out —
+      # see docs/source-candidates/northwest-trail-runs.md for the full
+      # season lineup these slugs were picked from.
+      #
+      # Each slug is a stable, reused permalink — nwtrailruns.com updates
+      # the same page's content year over year rather than publishing a new
+      # URL per running — confirmed via https://nwtrailruns.com/events/<slug>/.
+      eventSlugs:
+        - carkeek-cooler-trail-run
+        - ravenna-refresher-trail-run
+        - seward-solstice-run
+        - interlaken-icicle-dash
