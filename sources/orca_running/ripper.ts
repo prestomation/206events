@@ -188,7 +188,13 @@ export default class OrcaRunningRipper implements IRipper {
         const calConfig = ripper.config.calendars[0];
         if (!calConfig) throw new Error("No calendars configured");
 
-        const raceIds: number[] = (calConfig.config as { raceIds?: number[] } | undefined)?.raceIds ?? [];
+        const raceIds = (calConfig.config as { raceIds?: unknown } | undefined)?.raceIds;
+        if (!Array.isArray(raceIds) || raceIds.length === 0 || !raceIds.every((id): id is number => typeof id === "number")) {
+            // A missing/malformed raceIds config would otherwise silently
+            // produce 0 events with no diagnosable cause — fail loudly
+            // instead, the same way a missing calendar config does above.
+            throw new Error(`calendar "${calConfig.name}" config.raceIds must be a non-empty number[]`);
+        }
         const now = ZonedDateTime.now(TIMEZONE);
 
         const results: (RipperCalendarEvent | RipperError)[] = [];

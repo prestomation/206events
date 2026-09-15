@@ -1,7 +1,7 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { ZonedDateTime, ZoneId, LocalDateTime } from '@js-joda/core';
-import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
-import { parseRace, parseRunSignUpDateTime, parseRaceFee, currentFee } from './ripper.js';
+import { Ripper, RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
+import OrcaRunningRipper, { parseRace, parseRunSignUpDateTime, parseRaceFee, currentFee } from './ripper.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -183,5 +183,63 @@ describe('parseRace', () => {
             },
         };
         expect(parseRace(1, response, now)).toEqual([]);
+    });
+});
+
+describe('OrcaRunningRipper.rip', () => {
+    afterEach(() => {
+        vi.unstubAllGlobals();
+    });
+
+    function mockRipper(config?: Record<string, unknown>): Ripper {
+        return {
+            config: {
+                name: 'orca_running',
+                url: 'https://www.orcarunning.com/races/',
+                proxy: false,
+                calendars: [
+                    {
+                        name: 'orca-running',
+                        friendlyname: 'Orca Running (Seattle Races)',
+                        timezone: 'America/Los_Angeles',
+                        config,
+                    },
+                ],
+            } as any,
+        } as Ripper;
+    }
+
+    it('throws when raceIds is missing from config', async () => {
+        await expect(new OrcaRunningRipper().rip(mockRipper(undefined))).rejects.toThrow(/raceIds/);
+    });
+
+    it('throws when raceIds is present but empty or malformed', async () => {
+        await expect(new OrcaRunningRipper().rip(mockRipper({ raceIds: [] }))).rejects.toThrow(/raceIds/);
+        await expect(new OrcaRunningRipper().rip(mockRipper({ raceIds: ['33861'] }))).rejects.toThrow(/raceIds/);
+    });
+
+    it('fetches each configured race and returns a ParseError for one that 404s alongside a successful one', async () => {
+        // A far-future date so this test doesn't start failing once real
+        // wall-clock time (used internally by rip()) catches up to it.
+        const okResponse = {
+            race: {
+                name: 'Future Fun Run',
+                url: 'https://runsignup.com/Race/WA/Seattle/FutureFunRun',
+                events: [{ name: '5K', start_time: '1/1/2099 09:00', end_time: '1/1/2099 11:00' }],
+            },
+        };
+        const fetchMock = vi.fn()
+            .mockResolvedValueOnce({ ok: true, status: 200, json: () => Promise.resolve(okResponse) })
+            .mockResolvedValueOnce({ ok: false, status: 404, statusText: 'Not Found' });
+        vi.stubGlobal('fetch', fetchMock);
+
+        const calendars = await new OrcaRunningRipper().rip(mockRipper({ raceIds: [1, 999999] }));
+        const cal = calendars[0];
+
+        expect(fetchMock).toHaveBeenCalledTimes(2);
+        expect(cal.events).toHaveLength(1);
+        expect(cal.events[0].summary).toBe('Future Fun Run');
+        expect(cal.errors).toHaveLength(1);
+        expect(cal.errors[0]).toMatchObject({ type: 'ParseError', context: '999999' });
     });
 });
