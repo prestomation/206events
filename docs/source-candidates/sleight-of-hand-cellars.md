@@ -1,5 +1,5 @@
 ---
-name: "Sleight of Hand Cellars SODO"
+name: "Sleight of Hand Cellars SoDo"
 status: added
 platform: Squarespace
 url: https://www.sofhcellars.com/events

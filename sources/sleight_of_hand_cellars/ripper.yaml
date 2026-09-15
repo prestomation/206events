@@ -1,7 +1,7 @@
 name: sleight-of-hand-cellars
 sourceRole: venue
 type: squarespace
-description: "Sleight of Hand Cellars SODO"
+description: "Sleight of Hand Cellars SoDo"
 url: "https://www.sofhcellars.com/events"
 friendlyLink: https://www.sofhcellars.com/events
 tags: ["Wine", "SoDo"]
@@ -11,5 +11,5 @@ geo:
   label: "Sleight of Hand Cellars, 3861 1st Ave S, Seattle, WA 98134"
 calendars:
   - name: sleight-of-hand-cellars
-    friendlyname: "Sleight of Hand Cellars SODO"
+    friendlyname: "Sleight of Hand Cellars SoDo"
     timezone: America/Los_Angeles
