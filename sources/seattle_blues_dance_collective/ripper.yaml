@@ -7,6 +7,11 @@ description: "Seattle Blues Dance Collective"
 # for why a several-month loop is used instead of a single query.
 url: "https://seattlebluesdance.com/events.json"
 friendlyLink: https://seattlebluesdance.com/
+imageUrl: "https://seattlebluesdance.com/static/images/social-preview.png"
+# Verified: the events.json API response (date/description/location/time/
+# title/uid) carries no image field at all, across every event sampled —
+# there's no per-event photo to harvest, only this org-wide social image.
+skipEventPhotos: true
 tags: ["Dance", "Music"]
 geo: null
 calendars:
