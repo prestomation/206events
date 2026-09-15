@@ -19,12 +19,20 @@ describe('extractRepairBankLocation', () => {
         expect(extractRepairBankLocation(body)).toBe('South Transfer Station, 130 S Kenyon St, Seattle, WA 98108');
     });
 
-    it('falls back to the shop address when no Address: line is present', () => {
-        const body = '<p>Furniture Repair Bank volunteer repair day. Bring your gloves!</p>';
+    it('takes the first Address: line when a body mentions more than one', () => {
+        // Documents current first-match-wins behavior; not exercised by real
+        // data today (every observed body has exactly one Address: line).
+        const body = '<p>Address: 1938B Occidental Ave S, Seattle, WA 98134</p>' +
+            '<p>Drop off donations at Address: 555 Other St, Seattle, WA 98101</p>';
         expect(extractRepairBankLocation(body)).toBe('1938B Occidental Ave S, Seattle, WA 98134');
     });
 
-    it('falls back to the shop address for an empty body', () => {
-        expect(extractRepairBankLocation('')).toBe('1938B Occidental Ave S, Seattle, WA 98134');
+    it('returns undefined when no Address: line is present', () => {
+        const body = '<p>Furniture Repair Bank volunteer repair day. Bring your gloves!</p>';
+        expect(extractRepairBankLocation(body)).toBeUndefined();
+    });
+
+    it('returns undefined for an empty body', () => {
+        expect(extractRepairBankLocation('')).toBeUndefined();
     });
 });

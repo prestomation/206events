@@ -1,7 +1,7 @@
 ---
 name: "Furniture Repair Bank"
 status: added
-pr:
+pr: 1492
 platform: Squarespace (custom location parsing)
 url: https://www.repairbank.org/repair-bank-events
 tags: ["Volunteer", "Community"]
