@@ -22574,6 +22574,71 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-15",
       "note": "Same seatoday event in community.ics and sports.ics feeds"
+    },
+    "NWMetalCalendar-NWMetal.ics Shiner, Fotocrime, Nox Novacula|2026-10-09T19:00-07:00[America/Los_Angeles]::external-clock-out-lounge.ics Hierophant Booking Presents: Shiner w/ Fotocrime, Nox Novacula|2026-10-09T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same show at Clock Out Lounge; NWMetal lists 7pm (doors), Clock Out Lounge lists 9pm (showtime)"
+    },
+    "barboza-barboza.ics In Color with Jack Gray|2026-09-28T19:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics In Color|2026-09-28T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same show at Barboza; seatoday uses truncated title"
+    },
+    "barboza-barboza.ics In Color with Jack Gray|2026-09-28T19:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics In Color|2026-09-28T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same show at Barboza; seatoday arts sub-feed"
+    },
+    "barboza-barboza.ics In Color with Jack Gray|2026-09-28T19:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics In Color|2026-09-28T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same show at Barboza; seatoday learning sub-feed"
+    },
+    "external-seattle-city-of-lit.ics  It's About Time Writers Reading Series|2026-11-12T18:00:00-08:00[America/Los_Angeles]::spl-authors-books-authors-books.ics It's About Time Writers Reading Series|2026-11-12T18:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same event at SPL Ballard; listed by both Seattle City of Lit and SPL calendars"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-09-21T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-09-21T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-15",
+      "note": "Different events: Board Gayme Night (Queer Social Club) vs Trivia Night (Head in the Clouds), 1hr apart at same venue"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-09-21T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-09-21T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same trivia event; recurring hitc entry and Stoup's own calendar both list it"
+    },
+    "seatoday-seatoday-all.ics Carpinito Bros Pumpkin Patch: Opening Day|2026-09-25T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Carpinito Bros Pumpkin Patch: Opening Day|2026-09-25T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Same seatoday event in all + community sub-feeds"
+    },
+    "seatoday-seatoday-all.ics Monthly General Membership Meeting|2026-09-28T18:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Monthly General Membership Meeting|2026-09-28T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "same event from two sources/sub-feeds"
+    },
+    "seatoday-seatoday-all.ics PARENT LAB:  Using Play and Art to Strengthen the Parent/Child Connection|2026-09-28T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics PARENT LAB:  Using Play and Art to Strengthen the Parent/Child Connection|2026-09-28T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "same event from two sources/sub-feeds"
+    },
+    "seatoday-seatoday-all.ics PARENT LAB:  Using Play and Art to Strengthen the Parent/Child Connection|2026-09-28T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics PARENT LAB:  Using Play and Art to Strengthen the Parent/Child Connection|2026-09-28T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "same event from two sources/sub-feeds"
+    },
+    "seatoday-seatoday-arts.ics PARENT LAB:  Using Play and Art to Strengthen the Parent/Child Connection|2026-09-28T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics PARENT LAB:  Using Play and Art to Strengthen the Parent/Child Connection|2026-09-28T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "same event from two sources/sub-feeds"
+    },
+    "seattle-blues-dance-collective-events.ics Hillman City Sway|2026-09-24T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-black-and-tan-hall.ics Hillman City Sway|2026-09-24T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "same event from two sources/sub-feeds"
     }
   }
 }
