@@ -1,0 +1,967 @@
+{
+  "events": [
+    {
+      "id": 219800,
+      "product_id": "8214024028345",
+      "title": "Books and Bagels",
+      "location_type": "venue",
+      "location": "Backyard Bagel",
+      "location_url": "https://www.google.com/maps/place/backyard+bagel/data=!4m2!3m1!1s0x549015b1d92a59d1:0xba1ee2577046161e?sa=X&amp;ved=1t:242&amp;ictx=111",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "recurring",
+      "start_at": "2025-09-13T16:00:00.000Z",
+      "end_at": "2025-09-13T17:30:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/IMG_5346.jpg?v=1758048931",
+      "ticket_types": [
+        {
+          "id": 716777,
+          "title": "Default Title",
+          "price": 25,
+          "inventory": 18,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 25,
+      "max_price": 25,
+      "min_price_formatted": "$25.00",
+      "max_price_formatted": "$25.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<p><strong>Enjoy a bagel with a great book. Your ticket includes a book, drip coffee, bagel + schmear,\u00a0<span style=\"text-decoration: underline;\">and you get to skip the Saturday line</span>. This is a quiet reading event.</strong></p>\n<p>Start your weekend off right with a delicious bagel and a cozy spot to read at Backyard Bagel. Your ticket includes a spot on the patio, a bagel &amp; schmear of your choice, coffee, and a book. A small curated selection of books will be available to choose your favorite to take home.</p>\n<p><strong>What do we do</strong>? We settle in with our bagels and coffee, then everyone reads their own book for about one hour. Finally, Sam leads a casual discussion to talk about what everyone is reading\u2014no prep required!</p>\n<p>The patio will be closed off just for this event to ensure a quiet reading spot. It's covered and there is a heater, but please dress for the weather and wear layers.</p>\n<p>You will select your bagel &amp; schmear via a survey sent the day prior to the event. If you don't respond, you will get a naked bagel with plain schmear. Please check out Backyard Bagel's menu ahead of time here: https://www.backyardbagel.co/menu</p>\n<p>\u00a0</p>\n<p>**The patio is pretty quiet, but we cannot guarantee silence. Please bring headphones if that would be helpful.</p>"
+    },
+    {
+      "id": 305151,
+      "product_id": "8652133400761",
+      "title": "Books at Bambino",
+      "location_type": "venue",
+      "location": "Cafe Bambino",
+      "location_url": "https://www.google.com/maps/place/Cafe+Bambino/@47.6758994,-122.3647567,17z/data=!3m1!4b1!4m6!3m5!1s0x5490143154820163:0x35e065af0cd8e7ed!8m2!3d47.6758958!4d-122.3621818!16s%2Fg%2F1wnbxqhx?entry=ttu&amp;g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-09-26T16:30:00.000Z",
+      "end_at": "2026-09-26T18:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/bambino.jpg?v=1781636792",
+      "ticket_types": [
+        {
+          "id": 862159,
+          "title": "General Admission",
+          "price": 19,
+          "inventory": 14,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 19,
+      "max_price": 19,
+      "min_price_formatted": "$19.00",
+      "max_price_formatted": "$19.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h4>Enjoy a fall Saturday morning with a coffee and a book on Cafe Bambino's covered patio.</h4>\n<p><span style=\"text-decoration: underline; color: rgb(43, 0, 255);\"><em>What will we do?</em></span><span style=\"color: rgb(43, 0, 255);\"><em>\u00a0</em></span>We'll gather together as a group and everyone brings their own book. We'll grab our beverage from the coffee bar, then settle in for about an hour of quiet reading. The host will bring everyone together for the last 15 minutes for a loosely facilitated discussion about what everyone is reading.</p>\n<p><strong><em><span style=\"color: rgb(43, 0, 255);\">Tickets include</span> </em></strong>one espresso beverage of choice. We'll meet at Cafe Bambino and enjoy a delicious drink and each other's company and shared love of reading.</p>\n<p><strong>We'll be sitting on their covered patio!</strong></p>"
+    },
+    {
+      "id": 304083,
+      "product_id": "8651029446841",
+      "title": "Books A La Mode",
+      "location_type": "venue",
+      "location": "A La Mode Pies- West Seattle",
+      "location_url": "https://www.google.com/maps/place/A+la+Mode+Pies+West+Seattle/@47.5609444,-122.3862935,17z/data=!3m1!4b1!4m6!3m5!1s0x549040f970400001:0x954d6310aa61bc5f!8m2!3d47.5609444!4d-122.3862935!16s%2Fg%2F11cs34w64_?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-09-30T02:00:00.000Z",
+      "end_at": "2026-09-30T03:30:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/Untitleddesign_16.png?v=1784591055",
+      "ticket_types": [
+        {
+          "id": 861360,
+          "title": "GA with Pie",
+          "price": 27,
+          "inventory": 95,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861361,
+          "title": "GA with Pie + Ice Cream",
+          "price": 33,
+          "inventory": 12,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 27,
+      "max_price": 33,
+      "min_price_formatted": "$27.00",
+      "max_price_formatted": "$33.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<p>Can you think of a more delectable combo than a slice of pie and a book? Join us for this delicious evening at A La Mode Pies in West Seattle for quiet reading, book chatting, and of course, PIE. We'll eat pie while reading our own book for about an hour, then enjoy a loosely facilitated book chat among book lovers.</p>\n<p>Each ticket comes with your choice of a slice of pie or cheesecake, with the option to add ice cream too. One secondhand book of choice from Seattle Book Club is also included. There is a specialty drink menu that is available for purchase.</p>"
+    },
+    {
+      "id": 295236,
+      "product_id": "8645651726521",
+      "title": "A Two-Part Book Club Event Series featuring Cool Machine by Colson Whitehead",
+      "location_type": "venue",
+      "location": "U Wine Bar",
+      "location_url": "https://www.google.com/maps/place/U+Wine+Bar/@47.6609329,-122.3450269,17z/data=!3m1!4b1!4m6!3m5!1s0x54901551947f5efd:0x3d7e0ae65b2933bd!8m2!3d47.6609293!4d-122.3424466!16s%2Fg%2F11wc0f238h?entry=ttu&amp;g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-09-03T02:30:00.000Z",
+      "end_at": "2026-09-03T04:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/coolmachine.jpg?v=1786417244",
+      "ticket_types": [
+        {
+          "id": 851704,
+          "title": "General Admission (No Book)",
+          "price": 55,
+          "inventory": 4,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 851705,
+          "title": "GA with Book",
+          "price": 75,
+          "inventory": 4,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 55,
+      "max_price": 75,
+      "min_price_formatted": "$55.00",
+      "max_price_formatted": "$75.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h4>Join us to read the newly released novel <i>Cool Machine\u00a0</i>by Colson Whitehead (author of The Nickel Boys)</h4>\n<h3>This event series includes\u00a0<strong>two events:\u00a0</strong>\n</h3>\n<ul>\n<li style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"text-decoration: underline;\">Wednesday September 2nd</span>: meet and receive your hardcover copy of <em>Cool Machine.</em> Enjoy a glass of wine and good conversation as we talk about diving into this book. Then we will read quietly together for an hour and begin the book together as a group.</span></li>\n<li style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"text-decoration: underline;\">Wednesday September 23rd</span>: reconvene to have a traditional book club discussion about reading <em>Cool Machine</em><strong>. </strong>We'll craft\u00a0 and drink wine in addition to our discussion.</span></li>\n</ul>\n<h3><span style=\"color: rgb(43, 0, 255);\"><strong>Your ticket includes:\u00a0</strong></span></h3>\n<ul>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">a new hardcover copy of<em> Cool Machine </em>(if you choose the GA w/ book ticket)</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">admission to two 90-minute events at U Wine Bar hosted by Sam of SBC</span></blockquote>\n</li>\n<li style=\"text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">two glasses of wine or N/A beverage of choice (one at each event)</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">craft supplies for our crafting project on night 2</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">a group of book lovers to read with and get to know, including a WhatsApp group</span></blockquote>\n</li>\n</ul>\n<blockquote>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(43, 0, 255);\"><strong>FAQ:</strong></span><br><strong>What if I don't drink?</strong> No worries, U Wine has lots of great N/A options that you are welcome to have as your free beverage instead!</span></p>\n</blockquote>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><strong><span style=\"color: rgb(0, 0, 0);\">What if I already have the book or want to read it on my e-reader? </span></strong><span style=\"color: rgb(0, 0, 0);\">Choose a general admission ticket: no book and lower price, everything else is the same!</span></p>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">-</span></p>\n<h3 style=\"text-align: center;\">\n<span style=\"color: rgb(43, 0, 255);\">More about <em>Cool</em></span><em><span style=\"color: rgb(43, 0, 255);\"> Machine:</span></em>\n</h3>\n<p><span style=\"color: rgb(43, 0, 255);\">(currently 4.32 on Goodreads!)</span></p>\n<p><meta charset=\"utf-8\"><span>1981. New York City is beginning to emerge from financial ruin and decline, energized by rampant real estate development and a Wall Street unchained by Reagan-era predatory capitalism. Up in Harlem, successful business owner/master fence Ray Carney has just been named Sterling Furniture\u2019s Dealer of the Month. When the banks won\u2019t give his beloved wife Elizabeth a loan for her new travel agency, however, Carney gambles on one last heist, and finds himself entangled with a legendary criminal mastermind.</span><br><br><span>1983. To some, Carney\u2019s friend and partner in crime Pepper is a stone-cold sociopath. To others, a top thief with questionable people skills. Either way, he\u2019s feeling his age in his troubled gut and his aching bones. When he takes on a bodyguard gig as a favor to Elizabeth, he\u2019s plunged into the alien territory of the East Village art and club scene. Luckily for him, whether you\u2019re uptown or down, everyone speaks the same language of violence\u2014Pepper is a native speaker.</span><br><br><span>1986. Carney has always been haunted by his inability to save his cousin Freddie. Now, twenty years after Freddie\u2019s death, he has a chance to rescue Freddie\u2019s son from the violent forces of the city. But coming out of retirement and teaming up with Pepper again will mean risking the safety and security he\u2019s spent decades building for his family, with only one shot to get it right.</span><br><br><span>With his usual pitch-perfect prose Whitehead paints a portrait of a city in transition, where shimmering skyscrapers rise to the heavens as displaced people huddle in abandoned tunnels below. In a dazzling display of protean imagination,\u00a0</span><i>Cool Machine</i><span>\u00a0roves all over the city, from Windows on the World to the Meadowlands, to show that in New York, and in the lives of Whitehead\u2019s vivid characters, it\u2019s what\u2019s below the surface that reveals the truth.</span></p>\n<p><em>***this is part of a trilogy but was written to be read as a standalone</em></p>"
+    },
+    {
+      "id": 304084,
+      "product_id": "8651029807289",
+      "title": "Brews and Books at Figurehead Brewing",
+      "location_type": "venue",
+      "location": "Figurehead Brewing (Fremont)",
+      "location_url": "https://maps.app.goo.gl/BqtexMgtyYgiqAsa7?g_st=ipc",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-09-17T02:30:00.000Z",
+      "end_at": "2026-09-17T04:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/IMG_4818.jpg?v=1756489101",
+      "ticket_types": [
+        {
+          "id": 861362,
+          "title": "Beer",
+          "price": 21,
+          "inventory": 85,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861363,
+          "title": "Wine",
+          "price": 24,
+          "inventory": 7,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861364,
+          "title": "N/A Beverage",
+          "price": 21,
+          "inventory": 6,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 21,
+      "max_price": 24,
+      "min_price_formatted": "$21.00",
+      "max_price_formatted": "$24.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<p class=\"summary\"><strong>Enjoy a book with a drink at Figurehead Brewing. This is a small gathering for book lovers to read their current book. </strong>Your ticket includes admission, one drink of choice, and a new (secondhand) book to take home!</p>\n<p><strong>What do we do?</strong> Settle in with your included drink from the bar then dive into an hour of dedicated reading time. A casual discussion will be held about what everyone is reading for the last 20-ish minutes of the event. <span style=\"text-decoration: underline;\"><strong>We will meet on the outdoor patio starting in April!</strong></span></p>\n<p>A (fantastic!) Ramen food truck is at the brewery\u00a0if you would like to purchase something to eat.</p>\n<p>The brewery is <span style=\"text-decoration: underline;\">not</span> silent! If noise bothers you while reading, please bring headphones; ear plugs will also be available for your use.</p>\n<p>*<strong>Please choose your ticket type\u00a0with which drink you want at the top of the page.</strong></p>\n<p><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>"
+    },
+    {
+      "id": 304085,
+      "product_id": "8651030233273",
+      "title": "Reading Retreat at the Spa",
+      "location_type": "venue",
+      "location": "The Ladies Room",
+      "location_url": "https://www.ladiesroom206.com/",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-09-25T01:00:00.000Z",
+      "end_at": "2026-09-25T03:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/spa.jpg?v=1779142938",
+      "ticket_types": [
+        {
+          "id": 861365,
+          "title": "General Admission",
+          "price": 76,
+          "inventory": 0,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861366,
+          "title": "VIP",
+          "price": 83,
+          "inventory": 1,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 76,
+      "max_price": 83,
+      "min_price_formatted": "$76.00",
+      "max_price_formatted": "$83.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h4 class=\"summary\">\n<strong>Book club meets the spa: enjoy quiet reading time <em>and</em> full use of the spa facilities at The Ladies Room. An ultimate evening of self care </strong>(women only).</h4>\n<div class=\"Layout-module__module___2eUcs undefined\" data-testid=\"aboutThisEvent\">\n<div class=\"event-details__main-inner\">\n<div class=\"eds-l-mar-bot-12 structured-content\">\n<div class=\"has-user-generated-content event-description\">\n<div class=\"has-user-generated-content event-description__content event-description__content--expanded\" id=\"event-description\">\n<div class=\"eds-l-mar-vert-6 eds-l-sm-mar-vert-4 eds-text-bm structured-content-rich-text\">\n<div class=\"eds-text--left\">\n<p>Seattle Book Club and The Ladies Room are teaming up to bring the ultimate self-care experience: Reading Retreat at the Spa.</p>\n<p>The Ladies Room will be reserved only for attendees of this event where we will enjoy reading time and full use of the spa facilities, including soaking pools, saunas, and steam rooms (yes, you can read in the hot tub!).</p>\n<p>A book discussion will be facilitated by Sam from Seattle Book Club at the end where we\u2019ll talk about what we\u2019re all reading, and tea will be provided. There will be a curated selection of books to choose a book to take home, which is included in your ticket.</p>\n<p>*This event is women &amp; femmes only.</p>\n<p>The <strong>VIP ticket</strong> includes eye gels and other surprise goodies to use while at the spa (or later!).\u00a0</p>\n<p><meta charset=\"utf-8\"><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>\n<span style=\"text-decoration: underline;\"></span>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>"
+    },
+    {
+      "id": 304145,
+      "product_id": "8651064803513",
+      "title": "Brewery and Book Hang: Featuring portrait artist Sie-ce",
+      "location_type": "venue",
+      "location": "Old Stove Gardens",
+      "location_url": "https://www.google.com/maps/place/old+stove+gardens/data=!4m2!3m1!1s0x549015079ace3e2b:0x3d644a0c1553e4c8?sa=X&amp;ved=1t:242&amp;ictx=111",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-09-13T21:30:00.000Z",
+      "end_at": "2026-09-13T23:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/maxi-scan-dog.png?v=1781566107",
+      "ticket_types": [
+        {
+          "id": 861384,
+          "title": "Admission with Mini Portrait",
+          "price": 25,
+          "inventory": 95,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861385,
+          "title": "Admission with Maxi Portrait",
+          "price": 29,
+          "inventory": 8,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861386,
+          "title": "Admission with Photo Booth Portrait",
+          "price": 43,
+          "inventory": 8,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861387,
+          "title": "Admission with 5x7 Portrait",
+          "price": 49,
+          "inventory": 10,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 861395,
+          "title": "Admission Only (no portrait)",
+          "price": 16,
+          "inventory": 19,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 16,
+      "max_price": 49,
+      "min_price_formatted": "$16.00",
+      "max_price_formatted": "$49.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h2 style=\"text-align: center;\">\u00a0Seattle Book Club is pleased to collaborate with portrait artist Sie-ce to bring you a dog and book lovers dream afternoon!</h2>\n<p><strong>Meet us at Old Stove Gardens with your pup to read a book, drink a beer, and get the cutest pet portrait ever.</strong></p>\n<p><strong>Tickets include</strong> a portrait of your pet** (please choose which portrait via the dropdown menu next to Ticket Type), reading time, and a book conversation lead by Sam of Seattle Book Club. Beer, food, and other beverages and food will be available for purchase at Old Stove. **You can choose to attend without purchasing a portrait, and you can also choose to attend without a dog. Want a portrait of your dog/cat/lizard at home? No problem, just bring a picture!</p>\n<p><em>**Dogs must be leashed and well-behaved. Maximum of two subjects in your portrait.\u00a0</em></p>"
+    },
+    {
+      "id": 218484,
+      "product_id": null,
+      "title": "Book Club at the Spa",
+      "location_type": "venue",
+      "location": "The Ladies Room",
+      "location_url": "https://www.ladiesroom206.com/",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2025-09-18T23:00:00.000Z",
+      "end_at": "2025-09-19T01:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/IMG_4264.jpg?v=1757087292",
+      "ticket_types": [
+        {
+          "id": 677484,
+          "title": "General Admission",
+          "price": 72,
+          "inventory": 91,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 72,
+      "max_price": 72,
+      "min_price_formatted": "$72.00",
+      "max_price_formatted": "$72.00",
+      "timezone": "America/New_York",
+      "description": null
+    },
+    {
+      "id": 308662,
+      "product_id": "8658205606073",
+      "title": "Reading Retreat at the Spa",
+      "location_type": "venue",
+      "location": "The Ladies Room",
+      "location_url": "https://www.ladiesroom206.com/",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-10-30T01:00:00.000Z",
+      "end_at": "2026-10-30T03:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/spa.jpg?v=1779142938",
+      "ticket_types": [
+        {
+          "id": 864631,
+          "title": "General Admission",
+          "price": 76,
+          "inventory": 6,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 864632,
+          "title": "VIP",
+          "price": 83,
+          "inventory": 8,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 76,
+      "max_price": 83,
+      "min_price_formatted": "$76.00",
+      "max_price_formatted": "$83.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h4 class=\"summary\">\n<strong>Book club meets the spa: enjoy quiet reading time <em>and</em> full use of the spa facilities at The Ladies Room. An ultimate evening of self care </strong>(women only).</h4>\n<div class=\"Layout-module__module___2eUcs undefined\" data-testid=\"aboutThisEvent\">\n<div class=\"event-details__main-inner\">\n<div class=\"eds-l-mar-bot-12 structured-content\">\n<div class=\"has-user-generated-content event-description\">\n<div class=\"has-user-generated-content event-description__content event-description__content--expanded\" id=\"event-description\">\n<div class=\"eds-l-mar-vert-6 eds-l-sm-mar-vert-4 eds-text-bm structured-content-rich-text\">\n<div class=\"eds-text--left\">\n<p>Seattle Book Club and The Ladies Room are teaming up to bring the ultimate self-care experience: Reading Retreat at the Spa.</p>\n<p>The Ladies Room will be reserved only for attendees of this event where we will enjoy reading time and full use of the spa facilities, including soaking pools, saunas, and steam rooms (yes, you can read in the hot tub!).</p>\n<p>A book discussion will be facilitated by Sam from Seattle Book Club at the end where we\u2019ll talk about what we\u2019re all reading, and tea will be provided. There will be a curated selection of books to choose a book to take home, which is included in your ticket.</p>\n<p>*This event is women &amp; femmes only.</p>\n<p>The <strong>VIP ticket</strong> includes eye gels and other surprise goodies to use while at the spa (or later!).\u00a0</p>\n<p><meta charset=\"utf-8\"><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>\n<span style=\"text-decoration: underline;\"></span>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>"
+    },
+    {
+      "id": 308666,
+      "product_id": "8658215502009",
+      "title": "Brews and Books at Figurehead Brewing",
+      "location_type": "venue",
+      "location": "Figurehead Brewing (Fremont)",
+      "location_url": "https://maps.app.goo.gl/BqtexMgtyYgiqAsa7?g_st=ipc",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-10-16T02:30:00.000Z",
+      "end_at": "2026-10-16T04:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/IMG_4818.jpg?v=1756489101",
+      "ticket_types": [
+        {
+          "id": 864644,
+          "title": "Beer",
+          "price": 21,
+          "inventory": 89,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 864645,
+          "title": "Wine",
+          "price": 24,
+          "inventory": 8,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 864646,
+          "title": "N/A Beverage",
+          "price": 21,
+          "inventory": 6,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 21,
+      "max_price": 24,
+      "min_price_formatted": "$21.00",
+      "max_price_formatted": "$24.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<p class=\"summary\"><strong>Enjoy a book with a drink at Figurehead Brewing. This is a small gathering for book lovers to read their current book. </strong>Your ticket includes admission, one drink of choice, and a new (secondhand) book to take home!</p>\n<p><strong>What do we do?</strong> Settle in with your included drink from the bar then dive into an hour of dedicated reading time. A casual discussion will be held about what everyone is reading for the last 20-ish minutes of the event. <span style=\"text-decoration: underline;\"><strong>We will meet on the outdoor patio starting in April!</strong></span></p>\n<p>A (fantastic!) Ramen food truck is at the brewery\u00a0if you would like to purchase something to eat.</p>\n<p>The brewery is <span style=\"text-decoration: underline;\">not</span> silent! If noise bothers you while reading, please bring headphones; ear plugs will also be available for your use.</p>\n<p>*<strong>Please choose your ticket type\u00a0with which drink you want at the top of the page.</strong></p>\n<p><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>"
+    },
+    {
+      "id": 322727,
+      "product_id": "8713203187897",
+      "title": "A Two-Part Book Club Event Series featuring Interview with the Vampire by Anne Rice",
+      "location_type": "venue",
+      "location": "U Wine Bar",
+      "location_url": "https://www.google.com/maps/place/U+Wine+Bar/@47.6609329,-122.3450269,17z/data=!3m1!4b1!4m6!3m5!1s0x54901551947f5efd:0x3d7e0ae65b2933bd!8m2!3d47.6609293!4d-122.3424466!16s%2Fg%2F11wc0f238h?entry=ttu&amp;g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-10-08T02:30:00.000Z",
+      "end_at": "2026-10-08T04:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/Screenshot_2026-09-14_at_9.19.49_PM.png?v=1789451216",
+      "ticket_types": [
+        {
+          "id": 877456,
+          "title": "General Admission (No Book)",
+          "price": 53,
+          "inventory": 8,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 877457,
+          "title": "GA with Book",
+          "price": 69,
+          "inventory": 8,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 53,
+      "max_price": 69,
+      "min_price_formatted": "$53.00",
+      "max_price_formatted": "$69.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h4>Join us to read the classic gothic horror novel\u00a0<em>Interview with the Vampire </em>by Anne Rice, and put yourself in a spooky mood for the month of October.</h4>\n<h3>This event series includes\u00a0<strong>two</strong> events (one ticket gives you access to both events):\u00a0</h3>\n<ul>\n<li style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"text-decoration: underline;\">Wednesday October 7th</span>: meet and receive your copy of the book<em>.</em> Enjoy a glass of wine and good conversation as we talk about reading and beginning our book club together. Finally, we will read quietly for an hour and begin the book together as a group.</span></li>\n<li style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"text-decoration: underline;\">Wednesday October 28th</span>: reconvene to have a traditional book club discussion about reading <em>Cool Machine</em><strong>. </strong>We'll craft\u00a0 and drink wine in addition to our discussion.</span></li>\n</ul>\n<h3><span style=\"color: rgb(43, 0, 255);\"><strong>Your ticket includes:\u00a0</strong></span></h3>\n<ul>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">a new paperback copy of <em>Interview with the Vampire\u00a0</em>(if you choose the GA w/ book ticket)</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">admission to two 90-minute events at U Wine Bar hosted by Sam of SBC</span></blockquote>\n</li>\n<li style=\"text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">two glasses of wine or N/A beverage of choice (one at each event)</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">craft supplies for our crafting project on night 2</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">a group of book lovers to read with and get to know, including a WhatsApp group chat</span></blockquote>\n</li>\n</ul>\n<blockquote>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(43, 0, 255);\"><strong>FAQ:</strong></span><br><strong>What if I don't drink?</strong> No worries, U Wine has lots of great N/A options that you are welcome to have as your free beverage instead!</span></p>\n</blockquote>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><strong><span style=\"color: rgb(0, 0, 0);\">What if I already have the book or want to read it on my e-reader? </span></strong><span style=\"color: rgb(0, 0, 0);\">Choose a general admission ticket: no book and lower price, everything else is the same!</span></p>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">-</span><span style=\"color: rgb(43, 0, 255);\"></span></p>"
+    },
+    {
+      "id": 320446,
+      "product_id": "8695693279417",
+      "title": "The Neuroscience of Tarot: Author Talk and Tarot Workshop",
+      "location_type": "venue",
+      "location": "Hotel Sorrento",
+      "location_url": "https://www.google.com/maps/place/Hotel+Sorrento/@47.6089954,-122.3294899,16z/data=!3m1!4b1!4m9!3m8!1s0x54906ab622b32229:0x4debc102dee8015f!5m2!4m1!1i2!8m2!3d47.6089918!4d-122.326915!16s%2Fm%2F0b6fr7t?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-10-24T02:00:00.000Z",
+      "end_at": "2026-10-24T04:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/9780738777368.jpg?v=1769708652",
+      "ticket_types": [
+        {
+          "id": 876299,
+          "title": "General Admission",
+          "price": 46,
+          "inventory": 17,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        },
+        {
+          "id": 876300,
+          "title": "VIP",
+          "price": 66,
+          "inventory": 8,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 46,
+      "max_price": 66,
+      "min_price_formatted": "$46.00",
+      "max_price_formatted": "$66.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h4 style=\"text-align: center;\">Join us for a special Seattle Book Club event with Dr. <span>Siddharth Ramakrishnan, author of <em>The Neuroscience of Tarot.</em></span>\n</h4>\n<p><span>This two-hour event will feature an interactive workshop lead by neuroscientist Dr. Ramakrishnan.</span><span> Tarot imagery will be used to help us gain understanding of the power of our own brains to come up with intuitive decisions. As a group we'll work through exercises and pull tarot cards to learn about our intuition and how we use that in reading cards for others.\u00a0</span></p>\n<p><span>This will be an intimate event in the historic, (allegedly haunted), and beautiful Hotel Sorrento. All guests will have a chance to participate (to your comfort level), use tarot cards, and meet Dr. Ramakrishnan.\u00a0</span></p>\n<p><span>One beverage of choice from the bar is included in your ticket. Additional beverages and food will be available for purchase.</span></p>\n<p><span>VIP tickets also include a signed copy of <em>The Neuroscience of Tarot</em> and preferred seating.</span></p>\n<p><strong>Please see ticket options and choose yours above at the top of the page.</strong></p>"
+    },
+    {
+      "id": 309906,
+      "product_id": "8664812847289",
+      "title": "Barre and Books",
+      "location_type": "venue",
+      "location": "Pure Barre- Green Lake",
+      "location_url": "https://www.google.com/maps/place/Pure+Barre/@47.6800293,-122.326749,17z/data=!3m1!4b1!4m6!3m5!1s0x5490146d03f5dceb:0x6eab2316ef0bc245!8m2!3d47.6800257!4d-122.3241741!16s%2Fg%2F11b5pkx6z6?entry=ttu&amp;g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D",
+      "organizer": null,
+      "custom_fields": {},
+      "date_type": "one-time",
+      "start_at": "2026-09-19T20:30:00.000Z",
+      "end_at": "2026-09-19T22:00:00.000Z",
+      "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/PureBarreWA_Uni_022026-303.jpg?v=1774983988",
+      "ticket_types": [
+        {
+          "id": 867107,
+          "title": "General Admission",
+          "price": 29,
+          "inventory": 16,
+          "group_size": 1,
+          "variant_id": null,
+          "event_date": null
+        }
+      ],
+      "min_price": 29,
+      "max_price": 29,
+      "min_price_formatted": "$29.00",
+      "max_price_formatted": "$29.00",
+      "timezone": "America/Los_Angeles",
+      "description": "<h2 style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">Join us for a special pop-up event with Pure Barre!</span></h2>\n<p>This 90-minute event will combine a great barre workout with relaxing reading time to create your perfect Saturday afternoon.</p>\n<p>We'll start with 30 minutes of Pure Barre's signature Align class, which focuses on strength building, flexibility, and balance for a restorative full body workout. Next we'll settle in for quiet reading time, and end with a group book chat.</p>\n<p>Wear your workout clothes (with sticky socks if you have them) and bring whatever book you're currently reading. Option to bring a pillow or something else comfy for maximum comfort during your reading time (mats will be provided to sit on). Sam from Seattle Book Club will be there to sweat and read with you, and Emily from Pure Barre will lead the class.\u00a0</p>\n<p>\u00a0</p>\n<h4 style=\"text-align: center;\"><span style=\"color: rgb(43, 0, 255);\">Guests new to Pure Barre will be given <span style=\"text-decoration: underline;\">one free week of unlimited classes</span> at Pure Barre Green Lake and/or University District as a gift for attending!</span></h4>\n<p>\u00a0</p>\n<p>Tickets are limited to create an intimate event; they include admission and a gift card for one week of unlimited classes at Pure Barre (gift card only valid for guests new to PB, not current members). Grippy socks are required for class, a limited amount will be available to borrow.</p>"
+    }
+  ],
+  "schedule": [
+    {
+      "title": "Books at Bambino",
+      "start": "2026-09-26T16:30:00.000Z",
+      "end": "2026-09-26T18:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-books-at-bambino-1",
+      "source_data": {
+        "id": 305151,
+        "product_id": "8652133400761",
+        "title": "Books at Bambino",
+        "location_type": "venue",
+        "location": "Cafe Bambino",
+        "location_url": "https://www.google.com/maps/place/Cafe+Bambino/@47.6758994,-122.3647567,17z/data=!3m1!4b1!4m6!3m5!1s0x5490143154820163:0x35e065af0cd8e7ed!8m2!3d47.6758958!4d-122.3621818!16s%2Fg%2F1wnbxqhx?entry=ttu&amp;g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-09-26T16:30:00.000Z",
+        "end_at": "2026-09-26T18:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/bambino.jpg?v=1781636792",
+        "ticket_types": [
+          {
+            "id": 862159,
+            "title": "General Admission",
+            "price": 19,
+            "inventory": 14,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 19,
+        "max_price": 19,
+        "min_price_formatted": "$19.00",
+        "max_price_formatted": "$19.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<h4>Enjoy a fall Saturday morning with a coffee and a book on Cafe Bambino's covered patio.</h4>\n<p><span style=\"text-decoration: underline; color: rgb(43, 0, 255);\"><em>What will we do?</em></span><span style=\"color: rgb(43, 0, 255);\"><em>\u00a0</em></span>We'll gather together as a group and everyone brings their own book. We'll grab our beverage from the coffee bar, then settle in for about an hour of quiet reading. The host will bring everyone together for the last 15 minutes for a loosely facilitated discussion about what everyone is reading.</p>\n<p><strong><em><span style=\"color: rgb(43, 0, 255);\">Tickets include</span> </em></strong>one espresso beverage of choice. We'll meet at Cafe Bambino and enjoy a delicious drink and each other's company and shared love of reading.</p>\n<p><strong>We'll be sitting on their covered patio!</strong></p>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "Books A La Mode",
+      "start": "2026-09-30T02:00:00.000Z",
+      "end": "2026-09-30T03:30:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-books-a-la-mode",
+      "source_data": {
+        "id": 304083,
+        "product_id": "8651029446841",
+        "title": "Books A La Mode",
+        "location_type": "venue",
+        "location": "A La Mode Pies- West Seattle",
+        "location_url": "https://www.google.com/maps/place/A+la+Mode+Pies+West+Seattle/@47.5609444,-122.3862935,17z/data=!3m1!4b1!4m6!3m5!1s0x549040f970400001:0x954d6310aa61bc5f!8m2!3d47.5609444!4d-122.3862935!16s%2Fg%2F11cs34w64_?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-09-30T02:00:00.000Z",
+        "end_at": "2026-09-30T03:30:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/Untitleddesign_16.png?v=1784591055",
+        "ticket_types": [
+          {
+            "id": 861360,
+            "title": "GA with Pie",
+            "price": 27,
+            "inventory": 95,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 861361,
+            "title": "GA with Pie + Ice Cream",
+            "price": 33,
+            "inventory": 12,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 27,
+        "max_price": 33,
+        "min_price_formatted": "$27.00",
+        "max_price_formatted": "$33.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<p>Can you think of a more delectable combo than a slice of pie and a book? Join us for this delicious evening at A La Mode Pies in West Seattle for quiet reading, book chatting, and of course, PIE. We'll eat pie while reading our own book for about an hour, then enjoy a loosely facilitated book chat among book lovers.</p>\n<p>Each ticket comes with your choice of a slice of pie or cheesecake, with the option to add ice cream too. One secondhand book of choice from Seattle Book Club is also included. There is a specialty drink menu that is available for purchase.</p>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "Brews and Books at Figurehead Brewing",
+      "start": "2026-09-17T02:30:00.000Z",
+      "end": "2026-09-17T04:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-brews-and-books-at-figurehead-brewing-2",
+      "source_data": {
+        "id": 304084,
+        "product_id": "8651029807289",
+        "title": "Brews and Books at Figurehead Brewing",
+        "location_type": "venue",
+        "location": "Figurehead Brewing (Fremont)",
+        "location_url": "https://maps.app.goo.gl/BqtexMgtyYgiqAsa7?g_st=ipc",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-09-17T02:30:00.000Z",
+        "end_at": "2026-09-17T04:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/IMG_4818.jpg?v=1756489101",
+        "ticket_types": [
+          {
+            "id": 861362,
+            "title": "Beer",
+            "price": 21,
+            "inventory": 85,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 861363,
+            "title": "Wine",
+            "price": 24,
+            "inventory": 7,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 861364,
+            "title": "N/A Beverage",
+            "price": 21,
+            "inventory": 6,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 21,
+        "max_price": 24,
+        "min_price_formatted": "$21.00",
+        "max_price_formatted": "$24.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<p class=\"summary\"><strong>Enjoy a book with a drink at Figurehead Brewing. This is a small gathering for book lovers to read their current book. </strong>Your ticket includes admission, one drink of choice, and a new (secondhand) book to take home!</p>\n<p><strong>What do we do?</strong> Settle in with your included drink from the bar then dive into an hour of dedicated reading time. A casual discussion will be held about what everyone is reading for the last 20-ish minutes of the event. <span style=\"text-decoration: underline;\"><strong>We will meet on the outdoor patio starting in April!</strong></span></p>\n<p>A (fantastic!) Ramen food truck is at the brewery\u00a0if you would like to purchase something to eat.</p>\n<p>The brewery is <span style=\"text-decoration: underline;\">not</span> silent! If noise bothers you while reading, please bring headphones; ear plugs will also be available for your use.</p>\n<p>*<strong>Please choose your ticket type\u00a0with which drink you want at the top of the page.</strong></p>\n<p><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "Reading Retreat at the Spa",
+      "start": "2026-09-25T01:00:00.000Z",
+      "end": "2026-09-25T03:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-reading-retreat-at-the-spa-5",
+      "source_data": {
+        "id": 304085,
+        "product_id": "8651030233273",
+        "title": "Reading Retreat at the Spa",
+        "location_type": "venue",
+        "location": "The Ladies Room",
+        "location_url": "https://www.ladiesroom206.com/",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-09-25T01:00:00.000Z",
+        "end_at": "2026-09-25T03:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/spa.jpg?v=1779142938",
+        "ticket_types": [
+          {
+            "id": 861365,
+            "title": "General Admission",
+            "price": 76,
+            "inventory": 0,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 861366,
+            "title": "VIP",
+            "price": 83,
+            "inventory": 1,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 76,
+        "max_price": 83,
+        "min_price_formatted": "$76.00",
+        "max_price_formatted": "$83.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<h4 class=\"summary\">\n<strong>Book club meets the spa: enjoy quiet reading time <em>and</em> full use of the spa facilities at The Ladies Room. An ultimate evening of self care </strong>(women only).</h4>\n<div class=\"Layout-module__module___2eUcs undefined\" data-testid=\"aboutThisEvent\">\n<div class=\"event-details__main-inner\">\n<div class=\"eds-l-mar-bot-12 structured-content\">\n<div class=\"has-user-generated-content event-description\">\n<div class=\"has-user-generated-content event-description__content event-description__content--expanded\" id=\"event-description\">\n<div class=\"eds-l-mar-vert-6 eds-l-sm-mar-vert-4 eds-text-bm structured-content-rich-text\">\n<div class=\"eds-text--left\">\n<p>Seattle Book Club and The Ladies Room are teaming up to bring the ultimate self-care experience: Reading Retreat at the Spa.</p>\n<p>The Ladies Room will be reserved only for attendees of this event where we will enjoy reading time and full use of the spa facilities, including soaking pools, saunas, and steam rooms (yes, you can read in the hot tub!).</p>\n<p>A book discussion will be facilitated by Sam from Seattle Book Club at the end where we\u2019ll talk about what we\u2019re all reading, and tea will be provided. There will be a curated selection of books to choose a book to take home, which is included in your ticket.</p>\n<p>*This event is women &amp; femmes only.</p>\n<p>The <strong>VIP ticket</strong> includes eye gels and other surprise goodies to use while at the spa (or later!).\u00a0</p>\n<p><meta charset=\"utf-8\"><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>\n<span style=\"text-decoration: underline;\"></span>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "Reading Retreat at the Spa",
+      "start": "2026-10-30T01:00:00.000Z",
+      "end": "2026-10-30T03:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-reading-retreat-at-the-spa-6",
+      "source_data": {
+        "id": 308662,
+        "product_id": "8658205606073",
+        "title": "Reading Retreat at the Spa",
+        "location_type": "venue",
+        "location": "The Ladies Room",
+        "location_url": "https://www.ladiesroom206.com/",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-10-30T01:00:00.000Z",
+        "end_at": "2026-10-30T03:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/spa.jpg?v=1779142938",
+        "ticket_types": [
+          {
+            "id": 864631,
+            "title": "General Admission",
+            "price": 76,
+            "inventory": 6,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 864632,
+            "title": "VIP",
+            "price": 83,
+            "inventory": 8,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 76,
+        "max_price": 83,
+        "min_price_formatted": "$76.00",
+        "max_price_formatted": "$83.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<h4 class=\"summary\">\n<strong>Book club meets the spa: enjoy quiet reading time <em>and</em> full use of the spa facilities at The Ladies Room. An ultimate evening of self care </strong>(women only).</h4>\n<div class=\"Layout-module__module___2eUcs undefined\" data-testid=\"aboutThisEvent\">\n<div class=\"event-details__main-inner\">\n<div class=\"eds-l-mar-bot-12 structured-content\">\n<div class=\"has-user-generated-content event-description\">\n<div class=\"has-user-generated-content event-description__content event-description__content--expanded\" id=\"event-description\">\n<div class=\"eds-l-mar-vert-6 eds-l-sm-mar-vert-4 eds-text-bm structured-content-rich-text\">\n<div class=\"eds-text--left\">\n<p>Seattle Book Club and The Ladies Room are teaming up to bring the ultimate self-care experience: Reading Retreat at the Spa.</p>\n<p>The Ladies Room will be reserved only for attendees of this event where we will enjoy reading time and full use of the spa facilities, including soaking pools, saunas, and steam rooms (yes, you can read in the hot tub!).</p>\n<p>A book discussion will be facilitated by Sam from Seattle Book Club at the end where we\u2019ll talk about what we\u2019re all reading, and tea will be provided. There will be a curated selection of books to choose a book to take home, which is included in your ticket.</p>\n<p>*This event is women &amp; femmes only.</p>\n<p>The <strong>VIP ticket</strong> includes eye gels and other surprise goodies to use while at the spa (or later!).\u00a0</p>\n<p><meta charset=\"utf-8\"><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>\n<span style=\"text-decoration: underline;\"></span>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "Brews and Books at Figurehead Brewing",
+      "start": "2026-10-16T02:30:00.000Z",
+      "end": "2026-10-16T04:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-brews-and-books-at-figurehead-brewing-3",
+      "source_data": {
+        "id": 308666,
+        "product_id": "8658215502009",
+        "title": "Brews and Books at Figurehead Brewing",
+        "location_type": "venue",
+        "location": "Figurehead Brewing (Fremont)",
+        "location_url": "https://maps.app.goo.gl/BqtexMgtyYgiqAsa7?g_st=ipc",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-10-16T02:30:00.000Z",
+        "end_at": "2026-10-16T04:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/IMG_4818.jpg?v=1756489101",
+        "ticket_types": [
+          {
+            "id": 864644,
+            "title": "Beer",
+            "price": 21,
+            "inventory": 89,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 864645,
+            "title": "Wine",
+            "price": 24,
+            "inventory": 8,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 864646,
+            "title": "N/A Beverage",
+            "price": 21,
+            "inventory": 6,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 21,
+        "max_price": 24,
+        "min_price_formatted": "$21.00",
+        "max_price_formatted": "$24.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<p class=\"summary\"><strong>Enjoy a book with a drink at Figurehead Brewing. This is a small gathering for book lovers to read their current book. </strong>Your ticket includes admission, one drink of choice, and a new (secondhand) book to take home!</p>\n<p><strong>What do we do?</strong> Settle in with your included drink from the bar then dive into an hour of dedicated reading time. A casual discussion will be held about what everyone is reading for the last 20-ish minutes of the event. <span style=\"text-decoration: underline;\"><strong>We will meet on the outdoor patio starting in April!</strong></span></p>\n<p>A (fantastic!) Ramen food truck is at the brewery\u00a0if you would like to purchase something to eat.</p>\n<p>The brewery is <span style=\"text-decoration: underline;\">not</span> silent! If noise bothers you while reading, please bring headphones; ear plugs will also be available for your use.</p>\n<p>*<strong>Please choose your ticket type\u00a0with which drink you want at the top of the page.</strong></p>\n<p><em>*We always accept book donations at our events! Feel free to bring your gently used books with you\u2013thank you!</em></p>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "A Two-Part Book Club Event Series featuring Interview with the Vampire by Anne Rice",
+      "start": "2026-10-08T02:30:00.000Z",
+      "end": "2026-10-08T04:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-a-two-part-book-club-event-series-featuring-cool-machine-by-colson-whitehead",
+      "source_data": {
+        "id": 322727,
+        "product_id": "8713203187897",
+        "title": "A Two-Part Book Club Event Series featuring Interview with the Vampire by Anne Rice",
+        "location_type": "venue",
+        "location": "U Wine Bar",
+        "location_url": "https://www.google.com/maps/place/U+Wine+Bar/@47.6609329,-122.3450269,17z/data=!3m1!4b1!4m6!3m5!1s0x54901551947f5efd:0x3d7e0ae65b2933bd!8m2!3d47.6609293!4d-122.3424466!16s%2Fg%2F11wc0f238h?entry=ttu&amp;g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-10-08T02:30:00.000Z",
+        "end_at": "2026-10-08T04:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/Screenshot_2026-09-14_at_9.19.49_PM.png?v=1789451216",
+        "ticket_types": [
+          {
+            "id": 877456,
+            "title": "General Admission (No Book)",
+            "price": 53,
+            "inventory": 8,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 877457,
+            "title": "GA with Book",
+            "price": 69,
+            "inventory": 8,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 53,
+        "max_price": 69,
+        "min_price_formatted": "$53.00",
+        "max_price_formatted": "$69.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<h4>Join us to read the classic gothic horror novel\u00a0<em>Interview with the Vampire </em>by Anne Rice, and put yourself in a spooky mood for the month of October.</h4>\n<h3>This event series includes\u00a0<strong>two</strong> events (one ticket gives you access to both events):\u00a0</h3>\n<ul>\n<li style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"text-decoration: underline;\">Wednesday October 7th</span>: meet and receive your copy of the book<em>.</em> Enjoy a glass of wine and good conversation as we talk about reading and beginning our book club together. Finally, we will read quietly for an hour and begin the book together as a group.</span></li>\n<li style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"text-decoration: underline;\">Wednesday October 28th</span>: reconvene to have a traditional book club discussion about reading <em>Cool Machine</em><strong>. </strong>We'll craft\u00a0 and drink wine in addition to our discussion.</span></li>\n</ul>\n<h3><span style=\"color: rgb(43, 0, 255);\"><strong>Your ticket includes:\u00a0</strong></span></h3>\n<ul>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">a new paperback copy of <em>Interview with the Vampire\u00a0</em>(if you choose the GA w/ book ticket)</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">admission to two 90-minute events at U Wine Bar hosted by Sam of SBC</span></blockquote>\n</li>\n<li style=\"text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">two glasses of wine or N/A beverage of choice (one at each event)</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">craft supplies for our crafting project on night 2</span></blockquote>\n</li>\n<li style=\"color: rgb(0, 0, 0); text-align: left;\">\n<blockquote><span style=\"color: rgb(0, 0, 0);\">a group of book lovers to read with and get to know, including a WhatsApp group chat</span></blockquote>\n</li>\n</ul>\n<blockquote>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><span style=\"color: rgb(0, 0, 0);\"><span style=\"color: rgb(43, 0, 255);\"><strong>FAQ:</strong></span><br><strong>What if I don't drink?</strong> No worries, U Wine has lots of great N/A options that you are welcome to have as your free beverage instead!</span></p>\n</blockquote>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><strong><span style=\"color: rgb(0, 0, 0);\">What if I already have the book or want to read it on my e-reader? </span></strong><span style=\"color: rgb(0, 0, 0);\">Choose a general admission ticket: no book and lower price, everything else is the same!</span></p>\n<p style=\"color: rgb(0, 0, 0); text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">-</span><span style=\"color: rgb(43, 0, 255);\"></span></p>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "The Neuroscience of Tarot: Author Talk and Tarot Workshop",
+      "start": "2026-10-24T02:00:00.000Z",
+      "end": "2026-10-24T04:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-the-neuroscience-of-tarot-author-talk-and-workshop",
+      "source_data": {
+        "id": 320446,
+        "product_id": "8695693279417",
+        "title": "The Neuroscience of Tarot: Author Talk and Tarot Workshop",
+        "location_type": "venue",
+        "location": "Hotel Sorrento",
+        "location_url": "https://www.google.com/maps/place/Hotel+Sorrento/@47.6089954,-122.3294899,16z/data=!3m1!4b1!4m9!3m8!1s0x54906ab622b32229:0x4debc102dee8015f!5m2!4m1!1i2!8m2!3d47.6089918!4d-122.326915!16s%2Fm%2F0b6fr7t?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-10-24T02:00:00.000Z",
+        "end_at": "2026-10-24T04:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/9780738777368.jpg?v=1769708652",
+        "ticket_types": [
+          {
+            "id": 876299,
+            "title": "General Admission",
+            "price": 46,
+            "inventory": 17,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          },
+          {
+            "id": 876300,
+            "title": "VIP",
+            "price": 66,
+            "inventory": 8,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 46,
+        "max_price": 66,
+        "min_price_formatted": "$46.00",
+        "max_price_formatted": "$66.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<h4 style=\"text-align: center;\">Join us for a special Seattle Book Club event with Dr. <span>Siddharth Ramakrishnan, author of <em>The Neuroscience of Tarot.</em></span>\n</h4>\n<p><span>This two-hour event will feature an interactive workshop lead by neuroscientist Dr. Ramakrishnan.</span><span> Tarot imagery will be used to help us gain understanding of the power of our own brains to come up with intuitive decisions. As a group we'll work through exercises and pull tarot cards to learn about our intuition and how we use that in reading cards for others.\u00a0</span></p>\n<p><span>This will be an intimate event in the historic, (allegedly haunted), and beautiful Hotel Sorrento. All guests will have a chance to participate (to your comfort level), use tarot cards, and meet Dr. Ramakrishnan.\u00a0</span></p>\n<p><span>One beverage of choice from the bar is included in your ticket. Additional beverages and food will be available for purchase.</span></p>\n<p><span>VIP tickets also include a signed copy of <em>The Neuroscience of Tarot</em> and preferred seating.</span></p>\n<p><strong>Please see ticket options and choose yours above at the top of the page.</strong></p>",
+        "is_available": true
+      }
+    },
+    {
+      "title": "Barre and Books",
+      "start": "2026-09-19T20:30:00.000Z",
+      "end": "2026-09-19T22:00:00.000Z",
+      "timezone": "America/Los_Angeles",
+      "url": "http://www.seattlebookclub.com/products/copy-of-barre-and-books",
+      "source_data": {
+        "id": 309906,
+        "product_id": "8664812847289",
+        "title": "Barre and Books",
+        "location_type": "venue",
+        "location": "Pure Barre- Green Lake",
+        "location_url": "https://www.google.com/maps/place/Pure+Barre/@47.6800293,-122.326749,17z/data=!3m1!4b1!4m6!3m5!1s0x5490146d03f5dceb:0x6eab2316ef0bc245!8m2!3d47.6800257!4d-122.3241741!16s%2Fg%2F11b5pkx6z6?entry=ttu&amp;g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D",
+        "organizer": null,
+        "custom_fields": {},
+        "date_type": "one-time",
+        "start_at": "2026-09-19T20:30:00.000Z",
+        "end_at": "2026-09-19T22:00:00.000Z",
+        "image_url": "https://cdn.shopify.com/s/files/1/0703/3946/1305/files/PureBarreWA_Uni_022026-303.jpg?v=1774983988",
+        "ticket_types": [
+          {
+            "id": 867107,
+            "title": "General Admission",
+            "price": 29,
+            "inventory": 16,
+            "group_size": 1,
+            "variant_id": null,
+            "event_date": null
+          }
+        ],
+        "min_price": 29,
+        "max_price": 29,
+        "min_price_formatted": "$29.00",
+        "max_price_formatted": "$29.00",
+        "timezone": "America/Los_Angeles",
+        "description": "<h2 style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0);\">Join us for a special pop-up event with Pure Barre!</span></h2>\n<p>This 90-minute event will combine a great barre workout with relaxing reading time to create your perfect Saturday afternoon.</p>\n<p>We'll start with 30 minutes of Pure Barre's signature Align class, which focuses on strength building, flexibility, and balance for a restorative full body workout. Next we'll settle in for quiet reading time, and end with a group book chat.</p>\n<p>Wear your workout clothes (with sticky socks if you have them) and bring whatever book you're currently reading. Option to bring a pillow or something else comfy for maximum comfort during your reading time (mats will be provided to sit on). Sam from Seattle Book Club will be there to sweat and read with you, and Emily from Pure Barre will lead the class.\u00a0</p>\n<p>\u00a0</p>\n<h4 style=\"text-align: center;\"><span style=\"color: rgb(43, 0, 255);\">Guests new to Pure Barre will be given <span style=\"text-decoration: underline;\">one free week of unlimited classes</span> at Pure Barre Green Lake and/or University District as a gift for attending!</span></h4>\n<p>\u00a0</p>\n<p>Tickets are limited to create an intimate event; they include admission and a gift card for one week of unlimited classes at Pure Barre (gift card only valid for guests new to PB, not current members). Grippy socks are required for class, a limited amount will be available to borrow.</p>",
+        "is_available": true
+      }
+    }
+  ]
+}
