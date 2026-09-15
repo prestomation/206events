@@ -6,7 +6,7 @@ url: https://www.unionculturalcenter.org/classes-and-events
 tags: [Dance, Sports, "International District"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-15
-pr:
+pr: 1489
 ---
 
 Nonprofit cultural center at 803 S King St, Seattle, WA 98104
