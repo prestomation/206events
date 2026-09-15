@@ -81484,6 +81484,228 @@
       "source": "agent",
       "reason": "Detail page is a JS-only embed (empty on fetch); the underlying CitySpark v1/events list API (which the ripper itself uses) returns Free/Price/PriceHigh/IsTicketed already null for this event, and the event no longer surfaces in that same API across multiple date/pagination probes to find a richer record",
       "partialFingerprint": "g8xb6l"
+    },
+    "rabbit_box:6aa354b6cdb43e543312e114": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-rolling-bay-music-club-presents-lance-gardner"
+    },
+    "rabbit_box:6aa820b5ebce227c33627929": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/rabbit-box-jam-hosted-by-lamont-hendrix-1"
+    },
+    "rabbit_box:6aa82e354c23717444de772e": {
+      "fields": {
+        "cost": {
+          "min": 18.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/warrendunes-litvar"
+    },
+    "rabbit_box:6aa84e205b562d637c5c727a": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "No price, ticket link, cover charge, or RSVP info anywhere on the event page"
+    },
+    "rabbit_box:6aa861267ef21127f6db061f": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/keenan-trevon-flowers-after-dark-tour"
+    },
+    "pono_ranch:6aa860a54bcf635e61b7d996": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/drake-night-fear-of-missing-out"
+    },
+    "pono_ranch:6aa861ae41871234e47cc1be": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/justin-bieber-night"
+    },
+    "pono_ranch:6aa865d9b3b4aa335da09793": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/half-n-half-rave-at-pono-ranch"
+    },
+    "queer_social_club:6aa85c7e09384949606987cc": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "No pricing or ticket/RSVP info on either the Queer Social Club listing or the linked King's Books event page"
+    },
+    "queer_social_club:6aa8698e8cfbfa43fe75376c": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/modern-palaestra-nude-wrestling-for-queer-men"
+    },
+    "sleight_of_hand_cellars:6a669aa573c0646610c5b762": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/9/17/nima-at-30-a-tool-artist-night"
+    },
+    "sleight_of_hand_cellars:6a669c16cf427d5cd22a6dc2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/9/24/nevermind-at-35-a-nirvana-artist-night"
+    },
+    "sleight_of_hand_cellars:6a8623f3e6fabe3435d631f0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/9/17/the-guest-list-concert-ticket-giveaway-night-two-5k9n6"
+    },
+    "sleight_of_hand_cellars:6a89c988871f597d4f8a8bab": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/23/washed-in-black-a-pearl-jam-tribute-sodo"
+    },
+    "sleight_of_hand_cellars:6a89ca5b5e6e0f3d7b278007": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/10/fall-release-party-sodo"
+    },
+    "sleight_of_hand_cellars:6a960997b764c74a78428c19": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2"
+    },
+    "sleight_of_hand_cellars:6a960a076def2d15a4bc127a": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b"
+    },
+    "sleight_of_hand_cellars:6a960a7da5f3017e3ba1ef08": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x"
+    },
+    "sleight_of_hand_cellars:6a960aa572457d3a164c45ef": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x-p2ccd"
+    },
+    "sleight_of_hand_cellars:6a960adbf3b6916636f4133b": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x-p2ccd-d3d24"
+    },
+    "sleight_of_hand_cellars:6a960ac1162bdc599e147bef": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x-p2ccd"
+    },
+    "sleight_of_hand_cellars:6aa2ff04514ed31021189094": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/10/the-lumberjax-live-at-sofh-sodo"
+    },
+    "sleight_of_hand_cellars:6aa303cc4d0ca36a88decf96": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/30/sleightly-buzzed-first-friday-comedy-oct-30"
     }
   }
 }
