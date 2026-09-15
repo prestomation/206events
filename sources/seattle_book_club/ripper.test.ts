@@ -14,6 +14,14 @@ function loadSampleSchedule(): any[] {
     return data.schedule;
 }
 
+// Every sample entry parses as an event (never a ParseError); this narrows
+// the union so callers can access `.event`/`.durationUncertain` directly.
+function parseSampleEvent(raw: any): { event: RipperCalendarEvent; durationUncertain: boolean } {
+    const result = parseEvent(raw, TIMEZONE);
+    if ('type' in result) throw new Error(`Expected a parsed event, got ${result.type}: ${result.reason}`);
+    return result;
+}
+
 function makeRipper(overrides: Record<string, any> = {}) {
     return {
         config: {
@@ -45,9 +53,14 @@ describe('parseEvent - from sample JSON', () => {
         expect(results.length).toBe(schedule.length);
     });
 
+    test('every sample entry has a known end time (duration not uncertain)', () => {
+        const results = schedule.map(parseSampleEvent);
+        expect(results.every(r => !r.durationUncertain)).toBe(true);
+    });
+
     test('event has required fields', () => {
-        const results = schedule.map(raw => parseEvent(raw, TIMEZONE)) as RipperCalendarEvent[];
-        for (const event of results) {
+        const events = schedule.map(raw => parseSampleEvent(raw).event);
+        for (const event of events) {
             expect(event.id).toBeTruthy();
             expect(event.summary).toBeTruthy();
             expect(event.date).toBeTruthy();
@@ -55,39 +68,55 @@ describe('parseEvent - from sample JSON', () => {
         }
     });
 
-    test('gives each occurrence a stable id derived from the source product id and date', () => {
-        const results = schedule.map(raw => parseEvent(raw, TIMEZONE)) as RipperCalendarEvent[];
-        const bambino = results.find(e => e.summary === 'Books at Bambino');
-        expect(bambino?.id).toBe('seattle-book-club-305151-2026-09-26');
+    test('gives each occurrence a stable id derived from the source product id, date, and time slot', () => {
+        const events = schedule.map(raw => parseSampleEvent(raw).event);
+        const bambino = events.find(e => e.summary === 'Books at Bambino');
+        expect(bambino?.id).toBe('seattle-book-club-305151-2026-09-26-0930');
+    });
+
+    test('disambiguates same-day, same-product occurrences by time slot', () => {
+        const sameDayMorning = parseSampleEvent({
+            title: 'Reading Retreat at the Spa',
+            start: '2026-09-25T18:00:00.000Z',
+            end: '2026-09-25T19:00:00.000Z',
+            source_data: { id: 304085 },
+        }).event;
+        const sameDayEvening = parseSampleEvent({
+            title: 'Reading Retreat at the Spa',
+            start: '2026-09-25T21:00:00.000Z',
+            end: '2026-09-25T22:00:00.000Z',
+            source_data: { id: 304085 },
+        }).event;
+        expect(sameDayMorning.id).not.toBe(sameDayEvening.id);
     });
 
     test('appends city/state to the bare venue name for geocoding', () => {
-        const results = schedule.map(raw => parseEvent(raw, TIMEZONE)) as RipperCalendarEvent[];
-        const bambino = results.find(e => e.summary === 'Books at Bambino');
+        const events = schedule.map(raw => parseSampleEvent(raw).event);
+        const bambino = events.find(e => e.summary === 'Books at Bambino');
         expect(bambino?.location).toBe('Cafe Bambino, Seattle, WA');
     });
 
     test('derives a min/max cost range from ticket prices', () => {
-        const results = schedule.map(raw => parseEvent(raw, TIMEZONE)) as RipperCalendarEvent[];
-        const pies = results.find(e => e.summary === 'Books A La Mode');
+        const events = schedule.map(raw => parseSampleEvent(raw).event);
+        const pies = events.find(e => e.summary === 'Books A La Mode');
         expect(pies?.cost).toEqual({ min: 27, max: 33 });
     });
 
     test('collapses a single ticket price to a min-only cost', () => {
-        const results = schedule.map(raw => parseEvent(raw, TIMEZONE)) as RipperCalendarEvent[];
-        const bambino = results.find(e => e.summary === 'Books at Bambino');
+        const events = schedule.map(raw => parseSampleEvent(raw).event);
+        const bambino = events.find(e => e.summary === 'Books at Bambino');
         expect(bambino?.cost).toEqual({ min: 19 });
     });
 
     test('derives duration from start/end', () => {
-        const results = schedule.map(raw => parseEvent(raw, TIMEZONE)) as RipperCalendarEvent[];
-        const bambino = results.find(e => e.summary === 'Books at Bambino');
+        const events = schedule.map(raw => parseSampleEvent(raw).event);
+        const bambino = events.find(e => e.summary === 'Books at Bambino');
         expect(bambino?.duration.toMinutes()).toBe(90);
     });
 
     test('carries the product image URL', () => {
-        const results = schedule.map(raw => parseEvent(raw, TIMEZONE)) as RipperCalendarEvent[];
-        const bambino = results.find(e => e.summary === 'Books at Bambino');
+        const events = schedule.map(raw => parseSampleEvent(raw).event);
+        const bambino = events.find(e => e.summary === 'Books at Bambino');
         expect(bambino?.imageUrl).toContain('cdn.shopify.com');
     });
 });
@@ -113,28 +142,26 @@ describe('parseEvent - malformed input', () => {
         expect(result).toMatchObject({ type: 'ParseError' });
     });
 
-    test('falls back to a default duration when end is missing', () => {
-        const result = parseEvent({ start: '2026-09-01T18:00:00.000Z', title: 'No end', source_data: { id: 1 } }, TIMEZONE);
-        expect('type' in result).toBe(false);
-        if (!('type' in result)) {
-            expect(result.duration.toHours()).toBe(1);
-        }
+    test('falls back to a default duration and flags it uncertain when end is missing', () => {
+        const result = parseSampleEvent({ start: '2026-09-01T18:00:00.000Z', title: 'No end', source_data: { id: 1 } });
+        expect(result.event.duration.toHours()).toBe(1);
+        expect(result.durationUncertain).toBe(true);
+    });
+
+    test('falls back to a default duration and flags it uncertain when end is invalid', () => {
+        const result = parseSampleEvent({ start: '2026-09-01T18:00:00.000Z', end: 'not-a-date', title: 'Bad end', source_data: { id: 1 } });
+        expect(result.event.duration.toHours()).toBe(1);
+        expect(result.durationUncertain).toBe(true);
     });
 
     test('leaves location undefined when the source gives no location', () => {
-        const result = parseEvent({ start: '2026-09-01T18:00:00.000Z', title: 'No location', source_data: { id: 1 } }, TIMEZONE);
-        expect('type' in result).toBe(false);
-        if (!('type' in result)) {
-            expect(result.location).toBeUndefined();
-        }
+        const result = parseSampleEvent({ start: '2026-09-01T18:00:00.000Z', title: 'No location', source_data: { id: 1 } });
+        expect(result.event.location).toBeUndefined();
     });
 
     test('leaves cost undefined when the source gives no price', () => {
-        const result = parseEvent({ start: '2026-09-01T18:00:00.000Z', title: 'No price', source_data: { id: 1 } }, TIMEZONE);
-        expect('type' in result).toBe(false);
-        if (!('type' in result)) {
-            expect(result.cost).toBeUndefined();
-        }
+        const result = parseSampleEvent({ start: '2026-09-01T18:00:00.000Z', title: 'No price', source_data: { id: 1 } });
+        expect(result.event.cost).toBeUndefined();
     });
 });
 
@@ -190,6 +217,28 @@ describe('SeattleBookClubRipper - rip()', () => {
         // Same broken entry appears in every overlapping month's response, but
         // should only be reported once, not once per month.
         expect(result[0].errors).toHaveLength(1);
+    });
+
+    test('surfaces a missing end time as an Uncertainty error alongside the event', async () => {
+        vi.useFakeTimers();
+        vi.setSystemTime(new Date('2026-09-15T12:00:00-07:00'));
+
+        const schedule = [
+            { title: 'Drop-in Reading Hour', start: '2026-09-20T18:00:00.000Z', source_data: { id: 42 } },
+        ];
+        const mockFetch = vi.fn().mockImplementation(() => jsonResponse({ events: [], schedule }));
+        vi.stubGlobal('fetch', mockFetch);
+
+        const ripper = new SeattleBookClubRipper();
+        const result = await ripper.rip(makeRipper());
+
+        expect(result[0].events).toHaveLength(1);
+        expect(result[0].errors).toHaveLength(1);
+        expect(result[0].errors[0]).toMatchObject({
+            type: 'Uncertainty',
+            source: 'seattle-book-club',
+            unknownFields: ['duration'],
+        });
     });
 
     test('filters out past occurrences', async () => {

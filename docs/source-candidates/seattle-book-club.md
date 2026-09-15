@@ -40,14 +40,16 @@ Re-investigated 2026-09-15:
   occurrence, but only within the queried `startDate`/`endDate` window (a
   September-only window never expands a listing's October occurrence). Needs
   the same several-month-loop approach as Seattle Blues Dance Collective.
-- Confirmed 9 upcoming events live (2026-09-15 check) across genuinely
-  Seattle-area venues: Figurehead Brewing (Fremont), Pure Barre (Green Lake),
-  The Ladies Room (Greenwood spa), Cafe Bambino, A La Mode Pies (West
-  Seattle), U Wine Bar (Wallingford), Hotel Sorrento (First Hill). Each
-  occurrence carries a real ticket price (min/max), a product image, and an
-  HTML description.
-- Implemented as a custom `IRipper` (`sources/seattle_book_club/`), 14 events
-  / 0 parse errors verified via `ONLY_SOURCE=seattle-book-club`. 12 of 14
-  events geocoded cleanly; 1 (`Figurehead Brewing (Fremont)`) is a non-fatal
-  geocode gap for the geo-resolver queue.
+- A single manual query window (2026-09-15 check) confirmed 9 upcoming events
+  live across genuinely Seattle-area venues: Figurehead Brewing (Fremont),
+  Pure Barre (Green Lake), The Ladies Room (Greenwood spa), Cafe Bambino,
+  A La Mode Pies (West Seattle), U Wine Bar (Wallingford), Hotel Sorrento
+  (First Hill). Each occurrence carries a real ticket price (min/max), a
+  product image, and an HTML description.
+- Implemented as a custom `IRipper` (`sources/seattle_book_club/`) that loops
+  6 month-aligned windows to also catch recurring listings' later
+  occurrences (e.g. "Books and Bagels") that a single window misses — 14
+  events / 0 parse errors verified via `ONLY_SOURCE=seattle-book-club`. 12 of
+  14 events geocoded cleanly; 1 (`Figurehead Brewing (Fremont)`) is a
+  non-fatal geocode gap for the geo-resolver queue.
 - `sourceRole: aggregator` (multi-venue), `geo: null`.

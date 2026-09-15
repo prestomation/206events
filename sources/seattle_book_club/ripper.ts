@@ -1,5 +1,5 @@
 import { Duration, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, EventCost } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, EventCost, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { decodeEntities } from "../../lib/text-normalize.js";
 import '@js-joda/timezone';
@@ -52,7 +52,10 @@ function parseCost(sourceData: EveyScheduleSourceData | undefined): EventCost | 
     return max != null && max > min ? { min, max } : { min };
 }
 
-export function parseEvent(raw: EveyScheduleItem, timezone: ZoneId): RipperCalendarEvent | RipperError {
+export function parseEvent(
+    raw: EveyScheduleItem,
+    timezone: ZoneId,
+): { event: RipperCalendarEvent; durationUncertain: boolean } | RipperError {
     const title = raw.title?.trim();
     const sourceId = raw.source_data?.id;
 
@@ -73,22 +76,34 @@ export function parseEvent(raw: EveyScheduleItem, timezone: ZoneId): RipperCalen
         return { type: "ParseError", reason: `Invalid start "${raw.start}": ${error}`, context: title };
     }
 
+    // A missing/invalid `end` is signaled to the caller as duration
+    // uncertainty (see events12's / ai_house's canonical pattern) rather
+    // than silently publishing DEFAULT_DURATION as fact.
     let duration = DEFAULT_DURATION;
+    let durationUncertain = true;
     if (raw.end) {
         try {
             const end = ZonedDateTime.parse(raw.end).withZoneSameInstant(timezone);
             const minutes = Duration.between(start, end).toMinutes();
-            if (minutes > 0) duration = Duration.ofMinutes(minutes);
+            if (minutes > 0) {
+                duration = Duration.ofMinutes(minutes);
+                durationUncertain = false;
+            }
         } catch {
-            // Fall back to DEFAULT_DURATION; every sample entry so far has a
-            // valid `end`, so this isn't signaled as uncertainty.
+            // Fall back to DEFAULT_DURATION; durationUncertain stays true.
         }
     }
 
     const location = raw.source_data?.location?.trim();
+    // Same-product listings can recur same-day at different times (e.g. a
+    // "5pm and 8pm" showing); the local date alone would collapse both into
+    // one id, so the occurrence's own timestamp (already unique per the
+    // caller's dedup key) disambiguates them — a deterministic slot suffix
+    // derived from source content, per the Stable Event IDs rule.
+    const slot = `${String(start.hour()).padStart(2, "0")}${String(start.minute()).padStart(2, "0")}`;
 
-    return {
-        id: `seattle-book-club-${sourceId}-${start.toLocalDate().toString()}`,
+    const event: RipperCalendarEvent = {
+        id: `seattle-book-club-${sourceId}-${start.toLocalDate().toString()}-${slot}`,
         ripped: new Date(),
         date: start,
         duration,
@@ -99,6 +114,8 @@ export function parseEvent(raw: EveyScheduleItem, timezone: ZoneId): RipperCalen
         imageUrl: raw.source_data?.image_url || undefined,
         cost: parseCost(raw.source_data),
     };
+
+    return { event, durationUncertain };
 }
 
 export default class SeattleBookClubRipper implements IRipper {
@@ -154,8 +171,20 @@ export default class SeattleBookClubRipper implements IRipper {
                 errors.push(result);
                 continue;
             }
-            if (result.date.isBefore(now)) continue; // past event — filtered in the caller, not the parse method
-            events.push(result);
+            const { event, durationUncertain } = result;
+            if (event.date.isBefore(now)) continue; // past event — filtered in the caller, not the parse method
+            events.push(event);
+
+            if (durationUncertain) {
+                const unknownFields: UncertaintyField[] = ["duration"];
+                errors.push({
+                    type: "Uncertainty",
+                    source: "seattle-book-club",
+                    reason: `No valid end time listed for the ${event.date.toLocalDate()} occurrence of "${event.summary}"`,
+                    unknownFields,
+                    event,
+                });
+            }
         }
 
         return [{
