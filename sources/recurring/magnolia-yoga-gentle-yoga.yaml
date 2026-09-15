@@ -1,0 +1,19 @@
+# verified: 2026-09-15 initial source-discovery investigation
+geo:
+  lat: 47.6604169
+  lng: -122.3986444
+  label: "Magnolia Yoga and Healing Arts, 3150 West Government Way, Seattle, WA 98199"
+name: magnolia-yoga-gentle-yoga
+sourceRole: venue
+friendlyname: Gentle Yoga at Magnolia Yoga and Healing Arts
+description: Gentle, slow-paced yoga class suitable for beginners at this Magnolia neighborhood yoga studio.
+timezone: America/Los_Angeles
+location: 3150 West Government Way, Seattle, WA 98199
+url: https://www.magnoliayogaandhealingarts.com/gentle-yoga
+tags:
+  - Wellness
+  - Magnolia
+schedules:
+  - schedule: every Thursday
+    start_time: "19:00"
+    duration: PT1H
