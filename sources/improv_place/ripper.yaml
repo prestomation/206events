@@ -1,0 +1,11 @@
+name: improv-place
+sourceRole: venue
+description: "The Improv Place"
+url: "https://luma.com/theimprovplace"
+friendlyLink: https://theimprovplace.org/
+tags: ["Comedy", "Arts"]
+geo: null
+calendars:
+  - name: improv-place
+    friendlyname: "The Improv Place"
+    timezone: America/Los_Angeles
