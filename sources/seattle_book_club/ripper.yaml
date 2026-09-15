@@ -1,0 +1,14 @@
+name: seattle-book-club
+sourceRole: aggregator
+description: "Seattle Book Club"
+# Base Evey Events (Shopify app) storefront calendar endpoint; ripper.ts
+# appends startDate/endDate/currentDate/lang per request. See ripper.ts for
+# why a several-month loop is required instead of a single wide-range query.
+url: "https://api.eveyevents.com/production-v2/storefront/calendar?shop=seattle-book-club.myshopify.com"
+friendlyLink: https://www.seattlebookclub.com/
+tags: ["Books"]
+geo: null
+calendars:
+  - name: events
+    friendlyname: "Seattle Book Club"
+    timezone: America/Los_Angeles
