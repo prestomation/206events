@@ -22639,6 +22639,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-15",
       "note": "same event from two sources/sub-feeds"
+    },
+    "external-uw-campus-events.ics MSIM International Q&A Information Session|2026-12-15T08:30:00-08:00[America/Los_Angeles]::external-uw-information-school.ics MSIM International Q&A Information Session|2026-12-15T08:30:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-15",
+      "note": "Identical title, exact same date/time, location, and registration URL (ischool.uw.edu/programs/msim) on both the UW campus-wide events calendar and the Information School's own calendar — same session cross-posted."
     }
   }
 }
