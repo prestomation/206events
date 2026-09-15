@@ -172,8 +172,11 @@ describe('NordicMuseumRipper', () => {
             expect(parseCost('Single Ticket: $12')).toEqual({ min: 12 });
         });
 
-        it('treats a missing admission block as free', () => {
-            expect(parseCost(undefined)).toEqual({ min: 0 });
+        it('treats a missing admission block as unknown, not free', () => {
+            // An absent block isn't reliably "free" (different template,
+            // or a program bundled into paid museum admission) — publish
+            // as unknown so the costGaps queue can drain it, per AGENTS.md.
+            expect(parseCost(undefined)).toBeUndefined();
         });
 
         it('treats explicit "free" text with no dollar amount as free', () => {
@@ -214,6 +217,42 @@ describe('NordicMuseumRipper', () => {
                 boundEnd: { month: 1, day: 15 },
             }, TODAY, 63);
             expect(dates).toEqual([]);
+        });
+
+        it('keeps generating occurrences partway through an in-progress bounded season', () => {
+            // Regression: resolving `boundStart`'s year independently from
+            // `boundEnd`'s (based solely on each one's own distance from
+            // `today`) rolled `boundStart` a year ahead once more than a
+            // week had passed since Sept 24, while `boundEnd` (Nov 19)
+            // stayed put — producing an inverted range and silently zero
+            // occurrences for the rest of the season. `today` here is three
+            // weeks into the Sept 24-Nov 19 season.
+            const dates = computeWeeklyOccurrences({
+                weekday: DayOfWeek.THURSDAY,
+                boundStart: { month: 9, day: 24 },
+                boundEnd: { month: 11, day: 19 },
+            }, LocalDate.of(2026, 10, 15), 63);
+            expect(dates.map(d => d.toString())).toEqual([
+                '2026-10-15', '2026-10-22', '2026-10-29', '2026-11-05', '2026-11-12', '2026-11-19',
+            ]);
+        });
+
+        it('rolls a fully-elapsed bounded season forward to next year, not just its start', () => {
+            // `today` is shortly before the next Sept 24-Nov 19 season, well
+            // after this year's has fully ended — confirms `end` rolls
+            // forward together with `start` (both 2027), not independently.
+            const dates = computeWeeklyOccurrences({
+                weekday: DayOfWeek.THURSDAY,
+                boundStart: { month: 9, day: 24 },
+                boundEnd: { month: 11, day: 19 },
+            }, LocalDate.of(2027, 8, 1), 63);
+            expect(dates.length).toBeGreaterThan(0);
+            for (const d of dates) {
+                expect(d.year()).toBe(2027);
+                expect(d.isBefore(LocalDate.of(2027, 9, 24))).toBe(false);
+                expect(d.isAfter(LocalDate.of(2027, 11, 19))).toBe(false);
+                expect(d.dayOfWeek()).toBe(DayOfWeek.THURSDAY);
+            }
         });
     });
 

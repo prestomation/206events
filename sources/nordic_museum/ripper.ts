@@ -154,8 +154,11 @@ export function parseTimeRange(timeText: string): ParsedTimeRange {
         if (effectivePeriod === "pm" && startHour !== 12) startHour += 12;
         if (effectivePeriod === "am" && startHour === 12) startHour = 0;
 
-        // If start ends up after end, flip start period (e.g. "11-1pm" → 11am not 11pm)
-        if (startHour > endHour || (startHour === endHour && startMin > endMin)) {
+        // If start ends up after end, flip the *inferred* start period (e.g.
+        // "11-1pm" → 11am not 11pm). Only when the period was actually
+        // omitted from the start side — an explicit "10pm - 1am" legitimately
+        // crosses midnight and must not be reinterpreted as 10am.
+        if (!startPeriodRaw && (startHour > endHour || (startHour === endHour && startMin > endMin))) {
             startHour = parseInt(startHStr, 10);
             const flipped = effectivePeriod === "pm" ? "am" : "pm";
             if (flipped === "pm" && startHour !== 12) startHour += 12;
@@ -189,12 +192,15 @@ export function parseTimeRange(timeText: string): ParsedTimeRange {
  * general-admission figure); falls back to the first dollar amount found.
  * Returns undefined (unknown, not a guess) when the text names no price —
  * e.g. "included with Museum admission" doesn't tell us this program's own
- * marginal cost. A missing admission block entirely means free.
+ * marginal cost — or when there's no Admission block at all. An absent
+ * block isn't reliably "free": it may just be a different page template
+ * or a program bundled into paid museum admission. Per AGENTS.md, publish
+ * cost as unknown rather than guess; the non-fatal costGaps queue drains it.
  */
 export function parseCost(admissionText: string | undefined): EventCost | undefined {
-    if (admissionText === undefined) return { min: 0 };
+    if (admissionText === undefined) return undefined;
     const text = admissionText.trim();
-    if (!text) return { min: 0 };
+    if (!text) return undefined;
     if (/\bfree\b/i.test(text) && !/\$\s*\d/.test(text)) return { min: 0 };
 
     const gaMatch = text.match(/General\s*Admission:?\s*\$\s*(\d+(?:\.\d+)?)/i);
@@ -214,16 +220,35 @@ function slugFromHref(href: string): string {
     return href.replace(/^.*\/events\//, "").replace(/\/$/, "");
 }
 
-// Resolve a bare "Month Day" (no year, as seen in weekly-recurrence bounds
-// like "Sept 24-Nov 19") to a concrete year relative to `today`: this year,
-// unless that's more than a week in the past, in which case next year.
-function inferNearYear(month: number, day: number, today: LocalDate): LocalDate {
-    const year = today.year();
-    let candidate = LocalDate.of(year, month, day);
-    if (candidate.isBefore(today.minusDays(7))) {
-        candidate = LocalDate.of(year + 1, month, day);
+// Resolve a bare "Month Day - Month Day" range (no year, as seen in
+// weekly-recurrence bounds like "Sept 24-Nov 19") to concrete dates
+// relative to `today`. The two ends must be resolved as a *pair* — never
+// independently pick a year for `start` and a separate year for `end`
+// based on each one's own distance from `today`. Rolling `start` forward
+// to next year once it's more than a week in the past (as if that alone
+// meant the whole range had elapsed) breaks a range that's still
+// in-progress: e.g. "Sept 24-Nov 19" checked on Oct 15 would push `start`
+// to next September while `end` stays this November, leaving `end`
+// before `start` and silently producing zero occurrences for the rest of
+// the season. Instead: assume the range falls in the current year (with
+// `end`'s year bumped when the range wraps past December 31st), and only
+// roll the whole pair forward a year if `end` — the range's actual close
+// — has already passed relative to `today`.
+function resolveBoundedRange(
+    start: { month: number; day: number },
+    end: { month: number; day: number },
+    today: LocalDate,
+): { start: LocalDate; end: LocalDate } {
+    const wraps = end.month < start.month || (end.month === start.month && end.day < start.day);
+    let year = today.year();
+    let startDate = LocalDate.of(year, start.month, start.day);
+    let endDate = LocalDate.of(wraps ? year + 1 : year, end.month, end.day);
+    if (endDate.isBefore(today)) {
+        year += 1;
+        startDate = LocalDate.of(year, start.month, start.day);
+        endDate = LocalDate.of(wraps ? year + 1 : year, end.month, end.day);
     }
-    return candidate;
+    return { start: startDate, end: endDate };
 }
 
 export function computeWeeklyOccurrences(
@@ -234,15 +259,10 @@ export function computeWeeklyOccurrences(
     let lowerBound = today;
     let upperBound = today.plusDays(lookaheadDays);
 
-    let boundStartDate: LocalDate | undefined;
-    if (classification.boundStart) {
-        boundStartDate = inferNearYear(classification.boundStart.month, classification.boundStart.day, today);
-        if (boundStartDate.isAfter(lowerBound)) lowerBound = boundStartDate;
-    }
-    if (classification.boundEnd) {
-        let boundEndDate = inferNearYear(classification.boundEnd.month, classification.boundEnd.day, today);
-        if (boundStartDate && boundEndDate.isBefore(boundStartDate)) boundEndDate = boundEndDate.plusYears(1);
-        if (boundEndDate.isBefore(upperBound)) upperBound = boundEndDate;
+    if (classification.boundStart && classification.boundEnd) {
+        const { start, end } = resolveBoundedRange(classification.boundStart, classification.boundEnd, today);
+        if (start.isAfter(lowerBound)) lowerBound = start;
+        if (end.isBefore(upperBound)) upperBound = end;
     }
 
     if (upperBound.isBefore(lowerBound)) return [];
