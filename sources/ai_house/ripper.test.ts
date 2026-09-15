@@ -1,10 +1,16 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { ZonedDateTime, ZoneId } from '@js-joda/core';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import '@js-joda/timezone';
-import { extractAiHouseEvents, extractNextDataJson } from './ripper.js';
+import AiHouseRipper, {
+    extractAiHouseEvents,
+    extractNextDataJson,
+    extractTicketInfo,
+    costFromTicketInfo,
+    LumaTicketInfo,
+} from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const TIMEZONE = ZoneId.of('America/Los_Angeles');
@@ -125,5 +131,133 @@ describe('AiHouseRipper', () => {
     it('extractNextDataJson finds the script tag regardless of attribute order', () => {
         const html = '<html><head><script type="application/json" id="__NEXT_DATA__">{"a":1}</script></head></html>';
         expect(extractNextDataJson(html)).toBe('{"a":1}');
+    });
+});
+
+function eventPageHtml(ticketInfo: unknown): string {
+    return `<html><head><script id="__NEXT_DATA__" type="application/json">${JSON.stringify({
+        props: { pageProps: { initialData: { data: { ticket_info: ticketInfo } } } },
+    })}</script></head></html>`;
+}
+
+describe('extractTicketInfo', () => {
+    it('reads ticket_info from an individual event page', () => {
+        const html = eventPageHtml({ price: null, is_free: true, max_price: null, is_sold_out: false });
+        expect(extractTicketInfo(html)).toEqual({ price: null, is_free: true, max_price: null, is_sold_out: false });
+    });
+
+    it('returns undefined when the __NEXT_DATA__ script tag is absent', () => {
+        expect(extractTicketInfo('<html></html>')).toBeUndefined();
+    });
+
+    it('returns undefined when the JSON is malformed', () => {
+        const html = '<html><head><script id="__NEXT_DATA__">{not json</script></head></html>';
+        expect(extractTicketInfo(html)).toBeUndefined();
+    });
+
+    it('returns undefined when ticket_info is absent from the data path', () => {
+        const html = `<html><head><script id="__NEXT_DATA__" type="application/json">${JSON.stringify({ props: { pageProps: { initialData: { data: {} } } } })}</script></head></html>`;
+        expect(extractTicketInfo(html)).toBeUndefined();
+    });
+});
+
+describe('costFromTicketInfo', () => {
+    it('maps is_free: true to a free EventCost', () => {
+        const ti: LumaTicketInfo = { price: null, is_free: true, max_price: null, is_sold_out: false };
+        expect(costFromTicketInfo(ti)).toEqual({ min: 0 });
+    });
+
+    it('maps is_sold_out to a soldOut EventCost regardless of price', () => {
+        const ti: LumaTicketInfo = { price: 2000, is_free: false, max_price: null, is_sold_out: true };
+        expect(costFromTicketInfo(ti)).toEqual({ soldOut: true });
+    });
+
+    it('converts a numeric price from cents to dollars', () => {
+        const ti: LumaTicketInfo = { price: 2500, is_free: false, max_price: null, is_sold_out: false };
+        expect(costFromTicketInfo(ti)).toEqual({ min: 25 });
+    });
+
+    it('includes max when max_price is greater than price', () => {
+        const ti: LumaTicketInfo = { price: 2500, is_free: false, max_price: 4500, is_sold_out: false };
+        expect(costFromTicketInfo(ti)).toEqual({ min: 25, max: 45 });
+    });
+
+    it('maps is_free: false with no numeric price to paid-unknown', () => {
+        const ti: LumaTicketInfo = { price: null, is_free: false, max_price: null, is_sold_out: false };
+        expect(costFromTicketInfo(ti)).toEqual({ paid: true });
+    });
+
+    it('returns undefined for an empty/unreadable ticket_info', () => {
+        expect(costFromTicketInfo(undefined)).toBeUndefined();
+        expect(costFromTicketInfo({})).toBeUndefined();
+    });
+});
+
+describe('AiHouseRipper.rip() — cost enrichment from each event\'s own Luma page', () => {
+    function makeRipperConfig() {
+        return {
+            config: {
+                name: 'ai-house',
+                url: new URL('https://luma.com/aihouse'),
+                tags: ['Tech', 'Belltown'],
+                geo: { lat: 47.614787, lng: -122.355809 },
+                disabled: false,
+                proxy: false,
+                calendars: [{ name: 'calendar', friendlyname: 'AI House', timezone: TIMEZONE }],
+            },
+        } as any;
+    }
+
+    function calendarHtml(entries: unknown[]): string {
+        return `<html><head><script id="__NEXT_DATA__" type="application/json">${JSON.stringify({
+            props: { pageProps: { initialData: { data: { upcoming: { has_more: false, entries } } } } },
+        })}</script></head></html>`;
+    }
+
+    it('sets cost free when the event page reports is_free: true', async () => {
+        const calendar = calendarHtml([
+            { event: { api_id: 'evt-free', name: 'Founder Mixer', start_at: '2026-09-18T17:00:00-07:00', end_at: '2026-09-18T18:00:00-07:00', url: 'evt-free-slug' } },
+        ]);
+        const mockFetch = vi.fn().mockImplementation((url: string) => {
+            if (url.includes('evt-free-slug')) {
+                return Promise.resolve({ ok: true, text: () => Promise.resolve(eventPageHtml({ price: null, is_free: true, max_price: null, is_sold_out: false })) });
+            }
+            return Promise.resolve({ ok: true, text: () => Promise.resolve(calendar) });
+        });
+        vi.stubGlobal('fetch', mockFetch);
+
+        const result = await new AiHouseRipper().rip(makeRipperConfig());
+        const { events, errors } = result[0];
+        const event = events.find(e => e.id === 'ai-house-evt-free');
+        expect(event).toBeDefined();
+        expect(event!.cost).toEqual({ min: 0 });
+        expect(errors.some(e => 'event' in e && (e as any).event?.id === 'ai-house-evt-free')).toBe(false);
+
+        vi.unstubAllGlobals();
+    });
+
+    it('flags cost (without clobbering an existing duration flag) when the detail fetch fails', async () => {
+        const calendar = calendarHtml([
+            { event: { api_id: 'evt-noend', name: 'AI Governance Panel', start_at: '2026-09-18T17:00:00-07:00', url: 'evt-noend-slug' } },
+        ]);
+        const mockFetch = vi.fn().mockImplementation((url: string) => {
+            if (url.includes('evt-noend-slug')) {
+                return Promise.resolve({ ok: false, status: 500, statusText: 'Internal Server Error' });
+            }
+            return Promise.resolve({ ok: true, text: () => Promise.resolve(calendar) });
+        });
+        vi.stubGlobal('fetch', mockFetch);
+
+        const result = await new AiHouseRipper().rip(makeRipperConfig());
+        const { events, errors } = result[0];
+        const event = events.find(e => e.id === 'ai-house-evt-noend');
+        expect(event).toBeDefined();
+        expect(event!.cost).toBeUndefined();
+
+        const uncertainty = errors.find(e => e.type === 'Uncertainty' && 'event' in e && e.event.id === 'ai-house-evt-noend') as any;
+        expect(uncertainty).toBeDefined();
+        expect(uncertainty.unknownFields.sort()).toEqual(['cost', 'duration']);
+
+        vi.unstubAllGlobals();
     });
 });
