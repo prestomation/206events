@@ -8,7 +8,6 @@ import '@js-joda/timezone';
 // rather than resolved from each event's (sometimes RSVP-gated) geo info.
 const LOCATION = "AI House, 2801 Alaskan Wy, Seattle, WA 98121";
 const DEFAULT_DURATION = Duration.ofHours(1);
-const DESCRIPTION_MAX_LENGTH = 500;
 
 // Luma's Next.js pages embed the initial page-load data (including the
 // calendar's upcoming events) as page state. We only ever read
@@ -74,18 +73,16 @@ export function extractAiHouseEvents(
     const seen = new Set<string>();
 
     for (const rawEntry of entries as LumaCalendarEntry[]) {
-        const raw = rawEntry?.event;
-
-        const result = parseAiHouseEvent(raw, timezone);
+        const result = parseAiHouseEvent(rawEntry?.event, timezone);
         if ("type" in result) {
             errors.push(result);
             continue;
         }
 
-        const { event, durationUncertain } = result;
+        const { event, durationUncertain, apiId } = result;
         if (event.date.isBefore(now)) continue; // past event — filtered in the caller, not the parse method
-        if (seen.has(raw!.api_id!)) continue;
-        seen.add(raw!.api_id!);
+        if (seen.has(apiId)) continue;
+        seen.add(apiId);
         events.push(event);
 
         if (durationUncertain) {
@@ -106,7 +103,7 @@ export function extractAiHouseEvents(
 function parseAiHouseEvent(
     raw: LumaEvent | undefined,
     timezone: ZoneId,
-): { event: RipperCalendarEvent; durationUncertain: boolean } | RipperError {
+): { event: RipperCalendarEvent; durationUncertain: boolean; apiId: string } | RipperError {
     const title = raw?.name;
     const startAt = raw?.start_at;
 
@@ -156,7 +153,7 @@ function parseAiHouseEvent(
         imageUrl: raw.cover_url,
     };
 
-    return { event, durationUncertain };
+    return { event, durationUncertain, apiId: raw.api_id };
 }
 
 export default class AiHouseRipper implements IRipper {
@@ -174,6 +171,9 @@ export default class AiHouseRipper implements IRipper {
         const nextDataJson = extractNextDataJson(html);
 
         const calConfig = ripper.config.calendars[0];
+        if (!calConfig) {
+            throw new Error("AI House ripper requires at least one calendar configuration");
+        }
 
         if (!nextDataJson) {
             return [{
