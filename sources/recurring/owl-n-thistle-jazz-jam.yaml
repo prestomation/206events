@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6033419
+  lng: -122.3356750
+  label: "Owl 'N Thistle Irish Pub, 808 Post Ave, Seattle, WA 98104"
+  osmType: node
+  osmId: 2053744078
+name: owl-n-thistle-jazz-jam
+sourceRole: venue
+friendlyname: Tuesday Night Jazz Jam at Owl 'N Thistle
+description: Seattle's longest-running jazz jam, hosted continuously every Tuesday at this Pioneer Square Irish pub since 1997. No cover.
+timezone: America/Los_Angeles
+location: "808 Post Ave, Seattle, WA 98104"
+url: https://www.owlnthistle.com/live-music-schedule
+tags:
+  - Music
+  - "Pioneer Square"
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "21:45"
+    duration: PT3H
