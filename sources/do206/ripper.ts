@@ -29,7 +29,10 @@ export default class Do206Ripper implements IRipper {
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
-        const now = LocalDateTime.now();
+        // CI runs in UTC; do206's day-path URLs must be computed against the
+        // site's own Pacific "today", not the runner's UTC date, or the
+        // lookahead window silently shifts by a day for part of each 24h.
+        const now = ZonedDateTime.now(ZoneId.of("America/Los_Angeles")).toLocalDateTime();
         const lookaheadDays = ripper.config.lookahead
             ? now.until(now.plus(ripper.config.lookahead), ChronoUnit.DAYS)
             : 30;

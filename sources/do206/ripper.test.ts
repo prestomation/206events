@@ -58,8 +58,8 @@ describe('Do206Ripper', () => {
         expect(lido!.date.hour()).toBe(19);
         expect(lido!.date.minute()).toBe(0);
         expect(lido!.location).toBe('Neumos, 925 East Pike Street, Seattle, WA 98122');
-        expect(lido!.lat).toBeCloseTo(47.6138108);
-        expect(lido!.lng).toBeCloseTo(-122.3196641);
+        expect(lido!.lat).toBe(47.6138108);
+        expect(lido!.lng).toBe(-122.3196641);
         expect(lido!.geocodeSource).toBe('ripper');
         expect(lido!.url).toBe('https://do206.com/events/2026/9/15/lido-pimienta-tickets');
         expect(lido!.id).toBe('do206-2026-09-15-lido-pimienta-tickets');
