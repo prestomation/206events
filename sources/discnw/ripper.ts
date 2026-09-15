@@ -1,8 +1,16 @@
 import { ChronoUnit, Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { parse } from "node-html-parser";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
-import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
+import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
+
+// Each event's own detail page (event.url) carries a distinct og:image
+// (verified live across the Turkey Bowl, HS Bx Seattle Invite, and HS Bx JV
+// Jamboree listings — three different CloudFront image ids). The AJAX
+// listing fetched below never includes one, so this needs a second fetch
+// per event; DiscNW's own MAX_EVENT_SPAN_DAYS filter already keeps that
+// event count small (single-day/short-tournament listings only).
+const OG_IMAGE_PATTERN = /<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i;
 
 // DiscNW (Northwest Ultimate Association) has no ICS/API, but its event
 // list is fetchable as a static AJAX HTML fragment — the same request the
@@ -267,6 +275,8 @@ export default class DiscNWRipper implements IRipper {
             });
         }
 
+        await this.enrichImages(events, fetchFn);
+
         return ripper.config.calendars.map(cal => ({
             name: cal.name,
             friendlyname: cal.friendlyname,
@@ -276,4 +286,27 @@ export default class DiscNWRipper implements IRipper {
             tags: cal.tags || [],
         }));
     }
+
+    // Fetches each event's own detail page once and applies its og:image.
+    // A fetch failure or a page with no og:image just leaves imageUrl unset
+    // — the event falls through to the normal photoGaps queue rather than
+    // getting a guessed image.
+    private async enrichImages(events: RipperCalendarEvent[], fetchFn: FetchFn): Promise<void> {
+        for (const event of events) {
+            if (!event.url) continue;
+            try {
+                const res = await fetchFn(event.url);
+                if (!res.ok) continue;
+                const image = extractOgImage(await res.text());
+                if (image) event.imageUrl = image;
+            } catch {
+                // Network hiccup — leave imageUrl unset; falls through to photoGaps.
+            }
+        }
+    }
+}
+
+// Public for testing.
+export function extractOgImage(html: string): string | undefined {
+    return html.match(OG_IMAGE_PATTERN)?.[1];
 }

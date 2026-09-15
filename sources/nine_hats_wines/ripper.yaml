@@ -3,6 +3,7 @@ sourceRole: venue
 description: "Nine Hats Wines"
 url: "https://ninehatswines.com/events"
 friendlyLink: https://ninehatswines.com/events
+imageUrl: "https://ninehatswines.com/dist/images/nh-red-hat@2x.png"
 tags: ["Wine", "SoDo"]
 geo:
   lat: 47.5679264

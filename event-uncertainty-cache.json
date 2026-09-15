@@ -54937,12 +54937,13 @@
       "lastSeen": "2026-08-28"
     },
     "seattle-center:seattle-storm-vs-las-vegas-aces": {
-      "unresolvable": true,
-      "resolvedAt": "2026-08-24",
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "reason": "Seattle Center listing lacks precise time/cost; default retained.",
-      "partialFingerprint": "3zag50",
-      "lastSeen": "2026-08-28"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-las-vegas-aces",
+      "partialFingerprint": "194ahbp"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46406": {
       "unresolvable": true,
@@ -58612,13 +58613,12 @@
     },
     "seattle-center:seattle-storm-vs-dallas-wings": {
       "fields": {
-        "duration": 16200
+        "duration": 9000
       },
-      "resolvedAt": "2026-08-27",
+      "resolvedAt": "2026-09-15",
       "source": "agent",
       "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-storm-vs-dallas-wings",
-      "partialFingerprint": "1hygp73",
-      "lastSeen": "2026-08-28"
+      "partialFingerprint": "o2coeo"
     },
     "craft-map-seattle:seasonal-arts-and-crafts-for-families-2nd-saturdays-11am-in-seattle-seattle-wa-2026-09-12": {
       "fields": {
@@ -61025,11 +61025,13 @@
       "partialFingerprint": "1inh66n"
     },
     "seattle-center:kehlani": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-02",
+      "fields": {
+        "duration": 15300
+      },
+      "resolvedAt": "2026-09-15",
       "source": "agent",
-      "reason": "Seattle Center event calendar listing does not publish an end time for this Climate Pledge Arena concert.",
-      "partialFingerprint": "k97yvr"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/kehlani",
+      "partialFingerprint": "1e5bzo6"
     },
     "seattle-humane:seattle-humane-cider-summit-2026-09-11": {
       "fields": {
@@ -81341,6 +81343,419 @@
       "resolvedAt": "2026-09-15",
       "source": "agent",
       "evidence": "Tabletop Village events page does not list pricing for POKEMON League/Family Day"
+    },
+    "discnw:2026-fall-gx-ms-youth-clinic": {
+      "fields": {
+        "startTime": "09:00",
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-gx-ms-youth-clinic",
+      "partialFingerprint": "1tj50jk"
+    },
+    "discnw:2026-usau-club-regionals-volunteer": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Page gives only the dates (Sep 26-27), no specific clock time for the volunteer shift",
+      "partialFingerprint": "kqdm8j"
+    },
+    "discnw:2026-fall-hs-bx-seattle-invite": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Page states only \"Oct 4th-5th Valley Ridge Park, SeaTac\" with no time of day",
+      "partialFingerprint": "10ivfzh"
+    },
+    "discnw:2026-fall-friz-fest-hat-tournament": {
+      "fields": {
+        "startTime": "09:30",
+        "duration": 23400,
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-friz-fest-hat-tournament",
+      "partialFingerprint": "1ypx6ti"
+    },
+    "discnw:2026-fall-friz-fest-disc-golf-tournament": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Rounds start on a rolling basis \"between 9:30 AM and 3:00 PM\" per tee time — no single deterministic start",
+      "partialFingerprint": "lncriw"
+    },
+    "discnw:2026-fall-friz-fest-party": {
+      "fields": {
+        "startTime": "17:00",
+        "duration": 16200,
+        "cost": {
+          "min": 22.5
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-friz-fest-party",
+      "partialFingerprint": "wqu8ly"
+    },
+    "discnw:2026-fall-gx-middle-school-hat-tournament": {
+      "fields": {
+        "startTime": "12:00",
+        "duration": 18000,
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-fall-gx-middle-school-hat-tournament",
+      "partialFingerprint": "tlefut"
+    },
+    "discnw:2026-fall-hs-bx-jv-jamboree": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Page states \"Time and Location: TBD\"",
+      "partialFingerprint": "nkgnbp"
+    },
+    "discnw:2026-turkey-bowl": {
+      "fields": {
+        "startTime": "09:15",
+        "duration": 20700,
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.discnw.org/en_us/e/2026-turkey-bowl",
+      "partialFingerprint": "1e93yy3"
+    },
+    "seattle-center:seattle-kraken-vs-vancouver-canucks-preseason": {
+      "fields": {
+        "duration": 9900
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vancouver-canucks-preseason",
+      "partialFingerprint": "fkop12"
+    },
+    "seattle-center:serenade-x50718": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x50718",
+      "partialFingerprint": "8ntpzp"
+    },
+    "seattle-center:serenade-x47355": {
+      "fields": {
+        "duration": 12600
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/serenade-x47355",
+      "partialFingerprint": "1v5n5ra"
+    },
+    "charlies-queer-books:charlies-queer-books-992120261011": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "BookManager API row has no ticket SKU, empty ticket_label, and the description mentions no price — no pricing signal published for this recurring book club",
+      "partialFingerprint": "6b8bn8"
+    },
+    "charlies-queer-books:charlies-queer-books-991720261011": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "BookManager API row has no ticket SKU, empty ticket_label, and the description mentions no price — no pricing signal published for this recurring book club",
+      "partialFingerprint": "1fslgrp"
+    },
+    "seatoday:cityspark-19905687": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "Detail page is a JS-only embed (empty on fetch); the underlying CitySpark v1/events list API (which the ripper itself uses) returns Free/Price/PriceHigh/IsTicketed already null for this event, and the event no longer surfaces in that same API across multiple date/pagination probes to find a richer record",
+      "partialFingerprint": "g8xb6l"
+    },
+    "rabbit_box:6aa354b6cdb43e543312e114": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-rolling-bay-music-club-presents-lance-gardner"
+    },
+    "rabbit_box:6aa820b5ebce227c33627929": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/rabbit-box-jam-hosted-by-lamont-hendrix-1"
+    },
+    "rabbit_box:6aa82e354c23717444de772e": {
+      "fields": {
+        "cost": {
+          "min": 18.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/warrendunes-litvar"
+    },
+    "rabbit_box:6aa84e205b562d637c5c727a": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "No price, ticket link, cover charge, or RSVP info anywhere on the event page"
+    },
+    "rabbit_box:6aa861267ef21127f6db061f": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/keenan-trevon-flowers-after-dark-tour"
+    },
+    "nine-hats-wines:nine-hats-wines-build-your-own-terrarium-class-2026-09-30": {
+      "fields": {
+        "cost": {
+          "min": 45.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://ninehatswines.com/events/build-your-own-terrarium-class"
+    },
+    "nine-hats-wines:nine-hats-wines-pizza-making-class-august-2026-09-18": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://ninehatswines.com/events/pizza-making-class-august"
+    },
+    "nine-hats-wines:nine-hats-wines-social-club-open-house-sunday-mimosa-brunch-2026-09-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://ninehatswines.com/events/social-club-open-house-sunday-mimosa-brunch"
+    },
+    "nine-hats-wines:nine-hats-wines-trivia-back-to-school-2026-09-16": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://ninehatswines.com/events/trivia-back-to-school"
+    },
+    "nine-hats-wines:nine-hats-wines-vinyl-swap-2026-09-25": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://ninehatswines.com/events/vinyl-swap"
+    },
+    "pono-ranch:6aa860a54bcf635e61b7d996": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/drake-night-fear-of-missing-out"
+    },
+    "pono-ranch:6aa861ae41871234e47cc1be": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/justin-bieber-night"
+    },
+    "pono-ranch:6aa865d9b3b4aa335da09793": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/half-n-half-rave-at-pono-ranch"
+    },
+    "queer-social-club:6aa85c7e09384949606987cc": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "reason": "No pricing or ticket/RSVP info on either the Queer Social Club listing or the linked King's Books event page"
+    },
+    "queer-social-club:6aa8698e8cfbfa43fe75376c": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/modern-palaestra-nude-wrestling-for-queer-men"
+    },
+    "sleight-of-hand-cellars:6a669aa573c0646610c5b762": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/9/17/nima-at-30-a-tool-artist-night"
+    },
+    "sleight-of-hand-cellars:6a669c16cf427d5cd22a6dc2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/9/24/nevermind-at-35-a-nirvana-artist-night"
+    },
+    "sleight-of-hand-cellars:6a8623f3e6fabe3435d631f0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/9/17/the-guest-list-concert-ticket-giveaway-night-two-5k9n6"
+    },
+    "sleight-of-hand-cellars:6a89c988871f597d4f8a8bab": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/23/washed-in-black-a-pearl-jam-tribute-sodo"
+    },
+    "sleight-of-hand-cellars:6a89ca5b5e6e0f3d7b278007": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/10/fall-release-party-sodo"
+    },
+    "sleight-of-hand-cellars:6a960997b764c74a78428c19": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2"
+    },
+    "sleight-of-hand-cellars:6a960a076def2d15a4bc127a": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b"
+    },
+    "sleight-of-hand-cellars:6a960a7da5f3017e3ba1ef08": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x"
+    },
+    "sleight-of-hand-cellars:6a960aa572457d3a164c45ef": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x-p2ccd"
+    },
+    "sleight-of-hand-cellars:6a960adbf3b6916636f4133b": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x-p2ccd-d3d24"
+    },
+    "sleight-of-hand-cellars:6a960ac1162bdc599e147bef": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/2/sleightly-buzzed-first-friday-comedy-oct-2-act9b-8y42x-p2ccd"
+    },
+    "sleight-of-hand-cellars:6aa2ff04514ed31021189094": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/10/the-lumberjax-live-at-sofh-sodo"
+    },
+    "sleight-of-hand-cellars:6aa303cc4d0ca36a88decf96": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-15",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/30/sleightly-buzzed-first-friday-comedy-oct-30"
     }
   }
 }

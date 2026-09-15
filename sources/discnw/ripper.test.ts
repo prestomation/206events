@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { ZoneRegion } from '@js-joda/core';
 import '@js-joda/timezone';
-import DiscNWRipper, { parseDateRange } from './ripper.js';
+import DiscNWRipper, { parseDateRange, extractOgImage } from './ripper.js';
 import { Ripper, RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -162,6 +162,17 @@ function mockRipper(tags: string[] = ['Sports']): Ripper {
         } as any,
     } as Ripper;
 }
+
+describe('extractOgImage', () => {
+    it('extracts the og:image content URL', () => {
+        const html = '<html><head><meta property="og:image" content="https://example.com/a.png"/></head></html>';
+        expect(extractOgImage(html)).toBe('https://example.com/a.png');
+    });
+
+    it('returns undefined when no og:image tag is present', () => {
+        expect(extractOgImage('<html></html>')).toBeUndefined();
+    });
+});
 
 describe('parseDateRange', () => {
     it('parses a single date', () => {
@@ -325,6 +336,49 @@ describe('DiscNWRipper.rip', () => {
 
         const calendars = await new DiscNWRipper().rip(mockRipper());
         expect(calendars[0].events).toHaveLength(1);
+    });
+
+    it("enriches an event with its detail page's og:image", async () => {
+        const block = makeBlock({
+            href: '/en_us/e/2026-turkey-bowl',
+            title: '2026 Turkey Bowl',
+            location: 'Seattle, WA',
+            dateText: futureDateStr(20),
+            badge: 'hat tournament',
+        });
+        const html = `<div class="striped-blocks">${block}</div>`;
+        const detailHtml = '<html><head><meta property="og:image" content="https://d36m266ykvepgv.cloudfront.net/uploads/media/5zKMBIggh2/s-1024-1024/bc2e4f15.png"/></head></html>';
+
+        vi.stubGlobal('fetch', vi.fn().mockImplementation((url: string) => {
+            if (url.includes('2026-turkey-bowl')) {
+                return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(detailHtml) });
+            }
+            return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(html) });
+        }));
+
+        const calendars = await new DiscNWRipper().rip(mockRipper());
+        expect(calendars[0].events[0].imageUrl).toBe('https://d36m266ykvepgv.cloudfront.net/uploads/media/5zKMBIggh2/s-1024-1024/bc2e4f15.png');
+    });
+
+    it('leaves imageUrl unset when the detail-page fetch fails (falls through to photoGaps)', async () => {
+        const block = makeBlock({
+            href: '/en_us/e/2026-turkey-bowl',
+            title: '2026 Turkey Bowl',
+            location: 'Seattle, WA',
+            dateText: futureDateStr(20),
+            badge: 'hat tournament',
+        });
+        const html = `<div class="striped-blocks">${block}</div>`;
+
+        vi.stubGlobal('fetch', vi.fn().mockImplementation((url: string) => {
+            if (url.includes('2026-turkey-bowl')) {
+                return Promise.resolve({ ok: false, status: 500, statusText: 'Internal Server Error' });
+            }
+            return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(html) });
+        }));
+
+        const calendars = await new DiscNWRipper().rip(mockRipper());
+        expect(calendars[0].events[0].imageUrl).toBeUndefined();
     });
 
     it('throws on a non-ok response', async () => {
