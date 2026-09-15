@@ -1,0 +1,14 @@
+name: nine-hats-wines
+sourceRole: venue
+description: "Nine Hats Wines"
+url: "https://ninehatswines.com/events"
+friendlyLink: https://ninehatswines.com/events
+tags: ["Wine", "SoDo"]
+geo:
+  lat: 47.5679264
+  lng: -122.3353923
+  label: "Nine Hats Wines, 3861 1st Ave S, Seattle, WA 98134"
+calendars:
+  - name: nine-hats-wines
+    friendlyname: "Nine Hats Wines"
+    timezone: America/Los_Angeles
