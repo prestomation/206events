@@ -1,0 +1,3731 @@
+{
+  "collection": {
+    "id": "6930aceb79c53d63e62f4d3f",
+    "type": 13,
+    "title": "Classes & Workshops",
+    "itemCount": 68,
+    "typeName": "products"
+  },
+  "items": [
+    {
+      "id": "6aa7452db820843cee920c99",
+      "collectionId": "6930aceb79c53d63e62f4d3f",
+      "recordType": 11,
+      "addedOn": 1789347117580,
+      "updatedOn": 1789403043660,
+      "displayIndex": 69,
+      "starred": false,
+      "passthrough": false,
+      "categoryIds": [
+        "698d12b5ea7b683116d43559",
+        "698d1199855150430c6848c6",
+        "698d11e8ea7b683116d43463"
+      ],
+      "workflowState": 1,
+      "publishOn": 1789402915070,
+      "authorId": "63210363f8b446118d2b3320",
+      "systemDataId": "825894cf-0d4e-4433-8a4a-93f71d0f6916",
+      "systemDataVariants": "1080x1080",
+      "systemDataSourceType": "PNG",
+      "filename": "Sculpt and Carve Your Own Jack-o'-Lantern (1).png",
+      "mediaFocalPoint": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": 3
+      },
+      "colorData": {
+        "topLeftAverage": "fdbf75",
+        "topRightAverage": "fdbc64",
+        "bottomLeftAverage": "bfaa92",
+        "bottomRightAverage": "e2c7a9",
+        "centerAverage": "c76d2c",
+        "suggestedBgColor": "c1854f"
+      },
+      "urlId": "pumpkincarving",
+      "title": "Sculpt and Carve Your Own Mini Jack-o'-Lantern",
+      "body": null,
+      "excerpt": "<p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Saturday, October 10th</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Skip the mess of real pumpkin guts. Sculpt and carve yours in clay instead! Create a  keepsake decoration (or spoopy gift) that won't be compost by Thanksgiving. </p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Each pumpkin takes about 30 minutes to make and carve, give or take your ambition level. $30 per pumpkin.</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Children must be accompanied by an adult.<br /><br /><span>No experience necessary. All materials included: clay, glaze, and tools. Our instructor will walk you through shaping and carving. We handle bisque and glaze firing.</span><br /><br /><span>Please note you won't be taking your pieces home the same day. Work will be ready for pick up approximately 3 weeks after the workshop and we'll email you when it's ready.</span></p>",
+      "likeCount": 0,
+      "commentCount": 0,
+      "publicCommentCount": 0,
+      "commentState": 1,
+      "unsaved": false,
+      "fullUrl": "/classes-and-workshops/p/pumpkincarving",
+      "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/825894cf-0d4e-4433-8a4a-93f71d0f6916/Sculpt+and+Carve+Your+Own+Jack-o%27-Lantern+%281%29.png",
+      "contentType": "image/png",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "priceCents": 0,
+        "salePriceCents": 0,
+        "priceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "salePriceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "onSale": false,
+        "productType": 3,
+        "additionalFieldsFormId": "67591561aef58d32507be5fc",
+        "customAddButtonText": "Add To Cart",
+        "useCustomAddButtonText": false,
+        "additionalFieldsForm": {
+          "id": "67591561aef58d32507be5fc",
+          "type": 2,
+          "name": "Cancellation Policy",
+          "fields": [
+            "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+          ],
+          "parsedFields": [],
+          "submitButtonText": "Submit",
+          "submissionMessage": "{\"html\":\"Thank you!\"}",
+          "disclaimerMessage": "null",
+          "successRedirect": "",
+          "captchaEnabled": false,
+          "captchaTheme": 1,
+          "captchaAlignment": 1
+        },
+        "variants": [
+          {
+            "attributes": {
+              "Time": "3-4pm"
+            },
+            "optionValues": [
+              {
+                "optionName": "Time",
+                "value": "3-4pm"
+              }
+            ],
+            "id": "0219b13e-813c-44fb-97af-43002e857e99",
+            "sku": "Pumpkin3",
+            "price": 3000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "30.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Time": "4-5pm"
+            },
+            "optionValues": [
+              {
+                "optionName": "Time",
+                "value": "4-5pm"
+              }
+            ],
+            "id": "4cbf8377-18cb-449b-9bf2-226b04305a1b",
+            "sku": "Pumpkin4",
+            "price": 3000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "30.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Time": "5-6pm"
+            },
+            "optionValues": [
+              {
+                "optionName": "Time",
+                "value": "5-6pm"
+              }
+            ],
+            "id": "2ada59f9-d623-4732-9881-631168b81bc7",
+            "sku": "Pumpkin5",
+            "price": 3000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "30.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Time": "6-7pm"
+            },
+            "optionValues": [
+              {
+                "optionName": "Time",
+                "value": "6-7pm"
+              }
+            ],
+            "id": "a7691942-23bf-4444-be65-f2139f43c875",
+            "sku": "Pumpkin6",
+            "price": 3000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "30.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Time": "7-8pm"
+            },
+            "optionValues": [
+              {
+                "optionName": "Time",
+                "value": "7-8pm"
+              }
+            ],
+            "id": "8c5bdb4f-09b4-4ca3-bb33-a1c3db94f75a",
+            "sku": "Pumpkin7",
+            "price": 3000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "30.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          }
+        ],
+        "variantOptionOrdering": [
+          "Time"
+        ],
+        "isSubscribable": false,
+        "fulfilledExternally": false,
+        "productAddOnsConfiguration": {
+          "productAddOns": []
+        },
+        "mightHavePaymentPlan": false
+      },
+      "priceCents": 0,
+      "salePriceCents": 0,
+      "priceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "salePriceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "onSale": false,
+      "productType": 3,
+      "additionalFieldsFormId": "67591561aef58d32507be5fc",
+      "customAddButtonText": "Add To Cart",
+      "useCustomAddButtonText": false,
+      "additionalFieldsForm": {
+        "id": "67591561aef58d32507be5fc",
+        "type": 2,
+        "name": "Cancellation Policy",
+        "fields": [
+          "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+        ],
+        "parsedFields": [],
+        "submitButtonText": "Submit",
+        "submissionMessage": "{\"html\":\"Thank you!\"}",
+        "disclaimerMessage": "null",
+        "successRedirect": "",
+        "captchaEnabled": false,
+        "captchaTheme": 1,
+        "captchaAlignment": 1
+      },
+      "variants": [
+        {
+          "attributes": {
+            "Time": "3-4pm"
+          },
+          "optionValues": [
+            {
+              "optionName": "Time",
+              "value": "3-4pm"
+            }
+          ],
+          "id": "0219b13e-813c-44fb-97af-43002e857e99",
+          "sku": "Pumpkin3",
+          "price": 3000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "30.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Time": "4-5pm"
+          },
+          "optionValues": [
+            {
+              "optionName": "Time",
+              "value": "4-5pm"
+            }
+          ],
+          "id": "4cbf8377-18cb-449b-9bf2-226b04305a1b",
+          "sku": "Pumpkin4",
+          "price": 3000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "30.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Time": "5-6pm"
+          },
+          "optionValues": [
+            {
+              "optionName": "Time",
+              "value": "5-6pm"
+            }
+          ],
+          "id": "2ada59f9-d623-4732-9881-631168b81bc7",
+          "sku": "Pumpkin5",
+          "price": 3000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "30.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Time": "6-7pm"
+          },
+          "optionValues": [
+            {
+              "optionName": "Time",
+              "value": "6-7pm"
+            }
+          ],
+          "id": "a7691942-23bf-4444-be65-f2139f43c875",
+          "sku": "Pumpkin6",
+          "price": 3000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "30.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Time": "7-8pm"
+          },
+          "optionValues": [
+            {
+              "optionName": "Time",
+              "value": "7-8pm"
+            }
+          ],
+          "id": "8c5bdb4f-09b4-4ca3-bb33-a1c3db94f75a",
+          "sku": "Pumpkin7",
+          "price": 3000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "30.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        }
+      ],
+      "variantOptionOrdering": [
+        "Time"
+      ],
+      "isSubscribable": false,
+      "fulfilledExternally": false,
+      "productAddOnsConfiguration": {
+        "productAddOns": []
+      },
+      "mightHavePaymentPlan": false,
+      "items": [
+        {
+          "id": "6aa74938f2549e0824da7ecf",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1789348152714,
+          "updatedOn": 1789348152714,
+          "displayIndex": 0,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6aa7452db820843cee920c99",
+          "systemDataId": "825894cf-0d4e-4433-8a4a-93f71d0f6916",
+          "systemDataVariants": "1080x1080",
+          "systemDataSourceType": "PNG",
+          "filename": "Sculpt and Carve Your Own Jack-o'-Lantern (1).png",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "fdbf75",
+            "topRightAverage": "fdbc64",
+            "bottomLeftAverage": "bfaa92",
+            "bottomRightAverage": "e2c7a9",
+            "centerAverage": "c76d2c",
+            "suggestedBgColor": "c1854f"
+          },
+          "title": "Sculpt and Carve Your Own Jack-o'-Lantern (1).png",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/825894cf-0d4e-4433-8a4a-93f71d0f6916/Sculpt+and+Carve+Your+Own+Jack-o%27-Lantern+%281%29.png",
+          "contentType": "image/png",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "1080x1080",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6aa74938b820843cee920f8f",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1789348152739,
+          "updatedOn": 1789348152739,
+          "displayIndex": 1,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6aa7452db820843cee920c99",
+          "systemDataId": "61d08824-e0db-440c-82d7-20505b782ba4",
+          "systemDataVariants": "1080x1080",
+          "systemDataSourceType": "PNG",
+          "filename": "Sculpt and Carve Your Own Jack-o'-Lantern (2).png",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "f1f1ec",
+            "topRightAverage": "f4f4f2",
+            "bottomLeftAverage": "a9988a",
+            "bottomRightAverage": "d1a883",
+            "centerAverage": "be7140",
+            "suggestedBgColor": "c2a187"
+          },
+          "title": "Sculpt and Carve Your Own Jack-o'-Lantern (2).png",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/61d08824-e0db-440c-82d7-20505b782ba4/Sculpt+and+Carve+Your+Own+Jack-o%27-Lantern+%282%29.png",
+          "contentType": "image/png",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "1080x1080",
+          "recordTypeLabel": "image"
+        }
+      ],
+      "pushedServices": {},
+      "pendingPushedServices": {},
+      "seoData": {
+        "seoTitle": "Sculpt and Carve Clay Jack-o-Lantern",
+        "seoDescription": "Sculpt and Carve Clay Jack-o-Lantern",
+        "seoHidden": false
+      },
+      "originalSize": "1080x1080",
+      "recordTypeLabel": "store-item"
+    },
+    {
+      "id": "6a96892bca363210440e393a",
+      "collectionId": "6930aceb79c53d63e62f4d3f",
+      "recordType": 11,
+      "addedOn": 1788250411911,
+      "updatedOn": 1789141225266,
+      "displayIndex": 67,
+      "starred": false,
+      "passthrough": false,
+      "categoryIds": [
+        "69bddb9a8e37a90d8f18aa87",
+        "6961911292f04d58fff20e90",
+        "698d1199855150430c6848c6",
+        "69bddba599fa790e2412067d"
+      ],
+      "workflowState": 1,
+      "publishOn": 1789081047330,
+      "authorId": "63210363f8b446118d2b3320",
+      "systemDataId": "d43cf856-762b-4136-8877-cf3353e2d267",
+      "systemDataVariants": "2955x2364,2500w",
+      "systemDataSourceType": "JPEG",
+      "filename": "01JessCheng.jpg",
+      "mediaFocalPoint": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": 3
+      },
+      "colorData": {
+        "topLeftAverage": "e4e2e2",
+        "topRightAverage": "ebebed",
+        "bottomLeftAverage": "dad8de",
+        "bottomRightAverage": "c5c3c8",
+        "centerAverage": "db8878",
+        "suggestedBgColor": "c39c93"
+      },
+      "urlId": "say-it-with-clay",
+      "title": "Say it with Clay",
+      "body": null,
+      "excerpt": "<p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong><span>Saturdays, Nov 14 - Dec 19, 10:30 AM - 1:30 PM</span></strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Sliding scale pricing (use codes below):</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>$355-$375-$395</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Instructor: </strong><a rel=\"noopener\" href=\"https://www.jesschengstudio.com/\"><strong>Jess Cheng</strong></a></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><span>Want to dive deeper into creative expression with clay? In this 6-week class, we will explore communicating ideas, stories, and emotions with clay as our medium. </span><br /><br /><span>Each week we will discuss examples of artwork by a diverse spread of artists and talk about techniques they use to make impactful work. We will take part in idea-generating exercises and share our inspirations and progress with the rest of the class. Demos may include topics such as solid sculpting, bisque molds, large-scale coil building, and more. You do not need to have a particular project in mind beforehand - we will gather inspiration from artists in the field and each other!</span></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Codes: SLIDINGSCALE20, SLIDINGSCALE40</strong></p>",
+      "likeCount": 0,
+      "commentCount": 0,
+      "publicCommentCount": 0,
+      "commentState": 1,
+      "unsaved": false,
+      "fullUrl": "/classes-and-workshops/p/say-it-with-clay",
+      "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d43cf856-762b-4136-8877-cf3353e2d267/01JessCheng.jpg",
+      "contentType": "image/jpeg",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "priceCents": 0,
+        "salePriceCents": 0,
+        "priceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "salePriceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "onSale": false,
+        "productType": 3,
+        "additionalFieldsFormId": "67591561aef58d32507be5fc",
+        "customAddButtonText": "Add To Cart",
+        "useCustomAddButtonText": false,
+        "additionalFieldsForm": {
+          "id": "67591561aef58d32507be5fc",
+          "type": 2,
+          "name": "Cancellation Policy",
+          "fields": [
+            "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+          ],
+          "parsedFields": [],
+          "submitButtonText": "Submit",
+          "submissionMessage": "{\"html\":\"Thank you!\"}",
+          "disclaimerMessage": "null",
+          "successRedirect": "",
+          "captchaEnabled": false,
+          "captchaTheme": 1,
+          "captchaAlignment": 1
+        },
+        "variants": [
+          {
+            "attributes": {},
+            "optionValues": [],
+            "id": "82798745-c936-488c-adab-924808d76004",
+            "sku": "Sat Nov 14",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 8,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          }
+        ],
+        "variantOptionOrdering": [],
+        "isSubscribable": false,
+        "fulfilledExternally": false,
+        "productAddOnsConfiguration": {
+          "productAddOns": []
+        },
+        "mightHavePaymentPlan": false
+      },
+      "priceCents": 0,
+      "salePriceCents": 0,
+      "priceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "salePriceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "onSale": false,
+      "productType": 3,
+      "additionalFieldsFormId": "67591561aef58d32507be5fc",
+      "customAddButtonText": "Add To Cart",
+      "useCustomAddButtonText": false,
+      "additionalFieldsForm": {
+        "id": "67591561aef58d32507be5fc",
+        "type": 2,
+        "name": "Cancellation Policy",
+        "fields": [
+          "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+        ],
+        "parsedFields": [],
+        "submitButtonText": "Submit",
+        "submissionMessage": "{\"html\":\"Thank you!\"}",
+        "disclaimerMessage": "null",
+        "successRedirect": "",
+        "captchaEnabled": false,
+        "captchaTheme": 1,
+        "captchaAlignment": 1
+      },
+      "variants": [
+        {
+          "attributes": {},
+          "optionValues": [],
+          "id": "82798745-c936-488c-adab-924808d76004",
+          "sku": "Sat Nov 14",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 8,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        }
+      ],
+      "variantOptionOrdering": [],
+      "isSubscribable": false,
+      "fulfilledExternally": false,
+      "productAddOnsConfiguration": {
+        "productAddOns": []
+      },
+      "mightHavePaymentPlan": false,
+      "items": [
+        {
+          "id": "6aa336b56099b129b01c32aa",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1789081269120,
+          "updatedOn": 1789081269120,
+          "displayIndex": 0,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a96892bca363210440e393a",
+          "systemDataId": "ddfcd3c7-21cd-4c42-9870-13b479162a21",
+          "systemDataVariants": "2380x2380",
+          "systemDataSourceType": "JPEG",
+          "filename": "2026-09-10 15.58.02.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "f7971c",
+            "topRightAverage": "f7971c",
+            "bottomLeftAverage": "f7971c",
+            "bottomRightAverage": "f7971c",
+            "centerAverage": "dc8a79",
+            "suggestedBgColor": "d57e31"
+          },
+          "title": "2026-09-10 15.58.02.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/ddfcd3c7-21cd-4c42-9870-13b479162a21/2026-09-10+15.58.02.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2380x2380",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a9689e5ca363210440e397d",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1788250597962,
+          "updatedOn": 1788250597962,
+          "displayIndex": 1,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a96892bca363210440e393a",
+          "systemDataId": "b8e25689-f132-441f-b9b8-a0d51840acbd",
+          "systemDataVariants": "2848x2848,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "DSCF6905.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "ababaa",
+            "topRightAverage": "afafad",
+            "bottomLeftAverage": "b8b8ba",
+            "bottomRightAverage": "b3b2b2",
+            "centerAverage": "b73310",
+            "suggestedBgColor": "aeaaa8"
+          },
+          "title": "DSCF6905.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/b8e25689-f132-441f-b9b8-a0d51840acbd/DSCF6905.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2848x2848",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a9689e5c90e0742ca2c0b6d",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1788250597967,
+          "updatedOn": 1788250597967,
+          "displayIndex": 2,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a96892bca363210440e393a",
+          "systemDataId": "939c8c5a-f986-4bdf-becb-34be680d0c99",
+          "systemDataVariants": "1944x1296",
+          "systemDataSourceType": "JPEG",
+          "filename": "FigWasp2.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "b9c6d1",
+            "topRightAverage": "c6ccd7",
+            "bottomLeftAverage": "595249",
+            "bottomRightAverage": "6c6c73",
+            "centerAverage": "a5988b",
+            "suggestedBgColor": "8f8d89"
+          },
+          "title": "FigWasp2.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/939c8c5a-f986-4bdf-becb-34be680d0c99/FigWasp2.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "1944x1296",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a9689e558cbf6266d661223",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1788250597978,
+          "updatedOn": 1788250597978,
+          "displayIndex": 3,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a96892bca363210440e393a",
+          "systemDataId": "306a5904-2567-40df-8c7c-87105afccc58",
+          "systemDataVariants": "3046x3808,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "_MG_1651-2.JPG",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "fbfbfb",
+            "topRightAverage": "f9f4ef",
+            "bottomLeftAverage": "d7c8ba",
+            "bottomRightAverage": "9b8e7e",
+            "centerAverage": "ab9680",
+            "suggestedBgColor": "9a8d80"
+          },
+          "title": "_MG_1651-2.JPG",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/306a5904-2567-40df-8c7c-87105afccc58/_MG_1651-2.JPG",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "3046x3808",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a9689e5ca363210440e397c",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1788250597959,
+          "updatedOn": 1788250597959,
+          "displayIndex": 4,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a96892bca363210440e393a",
+          "systemDataId": "d43cf856-762b-4136-8877-cf3353e2d267",
+          "systemDataVariants": "2955x2364,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "01JessCheng.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "e4e2e2",
+            "topRightAverage": "ebebed",
+            "bottomLeftAverage": "dad8de",
+            "bottomRightAverage": "c5c3c8",
+            "centerAverage": "db8878",
+            "suggestedBgColor": "c39c93"
+          },
+          "title": "01JessCheng.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d43cf856-762b-4136-8877-cf3353e2d267/01JessCheng.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2955x2364",
+          "recordTypeLabel": "image"
+        }
+      ],
+      "pushedServices": {},
+      "pendingPushedServices": {},
+      "originalSize": "2955x2364",
+      "recordTypeLabel": "store-item"
+    },
+    {
+      "id": "6a968141c90e0742ca2c07c9",
+      "collectionId": "6930aceb79c53d63e62f4d3f",
+      "recordType": 11,
+      "addedOn": 1788248385299,
+      "updatedOn": 1788317361853,
+      "displayIndex": 66,
+      "starred": false,
+      "passthrough": false,
+      "categoryIds": [
+        "69bddb9a8e37a90d8f18aa87",
+        "698d12b5ea7b683116d43559",
+        "69bddba599fa790e2412067d",
+        "698d217cfcea335ca353dff2"
+      ],
+      "workflowState": 1,
+      "publishOn": 1788248585922,
+      "authorId": "63210363f8b446118d2b3320",
+      "systemDataId": "01f9be92-6efb-4cc7-a0e6-c1f042dad5cc",
+      "systemDataVariants": "2380x2380",
+      "systemDataSourceType": "PNG",
+      "filename": "A New Perspective.png",
+      "mediaFocalPoint": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": 3
+      },
+      "colorData": {
+        "topLeftAverage": "ee8668",
+        "topRightAverage": "ee8668",
+        "bottomLeftAverage": "ee8668",
+        "bottomRightAverage": "ee8668",
+        "centerAverage": "e2e3e7",
+        "suggestedBgColor": "ddc1b9"
+      },
+      "urlId": "a-new-perspective-drawing-immersive-spaces",
+      "title": "A New Perspective: Drawing Immersive Spaces",
+      "body": null,
+      "excerpt": "<p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong><span>Saturday, Oct 17, 2:00 PM - 4:00 PM</span></strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Sliding scale pricing (use codes below):</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>$80-$100-$120</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Instructor: Yohan Kim</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><span>Perspective: one of the most daunting, yet most important, fundamentals for amateur and veteran illustrators alike. Conquering perspective leads to more believable and immersive storytelling. Come learn the nuances and applications of both linear and non-linear perspective in this comprehensive drawing class!</span></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Codes: SLIDINGSCALE20, SLIDINGSCALE40</strong></p>",
+      "likeCount": 0,
+      "commentCount": 0,
+      "publicCommentCount": 0,
+      "commentState": 1,
+      "unsaved": false,
+      "fullUrl": "/classes-and-workshops/p/a-new-perspective-drawing-immersive-spaces",
+      "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/01f9be92-6efb-4cc7-a0e6-c1f042dad5cc/A+New+Perspective.png",
+      "contentType": "image/png",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "priceCents": 0,
+        "salePriceCents": 0,
+        "priceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "salePriceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "onSale": false,
+        "productType": 3,
+        "additionalFieldsFormId": "67591561aef58d32507be5fc",
+        "customAddButtonText": "Add To Cart",
+        "useCustomAddButtonText": false,
+        "additionalFieldsForm": {
+          "id": "67591561aef58d32507be5fc",
+          "type": 2,
+          "name": "Cancellation Policy",
+          "fields": [
+            "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+          ],
+          "parsedFields": [],
+          "submitButtonText": "Submit",
+          "submissionMessage": "{\"html\":\"Thank you!\"}",
+          "disclaimerMessage": "null",
+          "successRedirect": "",
+          "captchaEnabled": false,
+          "captchaTheme": 1,
+          "captchaAlignment": 1
+        },
+        "variants": [
+          {
+            "attributes": {},
+            "optionValues": [],
+            "id": "a32b2bb6-8761-4302-9ca7-1b5c7560f2c5",
+            "sku": "Sat Oct 17",
+            "price": 12000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "120.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 9,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          }
+        ],
+        "variantOptionOrdering": [],
+        "isSubscribable": false,
+        "fulfilledExternally": false,
+        "productAddOnsConfiguration": {
+          "productAddOns": []
+        },
+        "mightHavePaymentPlan": false
+      },
+      "priceCents": 0,
+      "salePriceCents": 0,
+      "priceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "salePriceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "onSale": false,
+      "productType": 3,
+      "additionalFieldsFormId": "67591561aef58d32507be5fc",
+      "customAddButtonText": "Add To Cart",
+      "useCustomAddButtonText": false,
+      "additionalFieldsForm": {
+        "id": "67591561aef58d32507be5fc",
+        "type": 2,
+        "name": "Cancellation Policy",
+        "fields": [
+          "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+        ],
+        "parsedFields": [],
+        "submitButtonText": "Submit",
+        "submissionMessage": "{\"html\":\"Thank you!\"}",
+        "disclaimerMessage": "null",
+        "successRedirect": "",
+        "captchaEnabled": false,
+        "captchaTheme": 1,
+        "captchaAlignment": 1
+      },
+      "variants": [
+        {
+          "attributes": {},
+          "optionValues": [],
+          "id": "a32b2bb6-8761-4302-9ca7-1b5c7560f2c5",
+          "sku": "Sat Oct 17",
+          "price": 12000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "120.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 9,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        }
+      ],
+      "variantOptionOrdering": [],
+      "isSubscribable": false,
+      "fulfilledExternally": false,
+      "productAddOnsConfiguration": {
+        "productAddOns": []
+      },
+      "mightHavePaymentPlan": false,
+      "items": [
+        {
+          "id": "6a968209c90e0742ca2c082b",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1788248585039,
+          "updatedOn": 1788248585039,
+          "displayIndex": 0,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a968141c90e0742ca2c07c9",
+          "systemDataId": "01f9be92-6efb-4cc7-a0e6-c1f042dad5cc",
+          "systemDataVariants": "2380x2380",
+          "systemDataSourceType": "PNG",
+          "filename": "A New Perspective.png",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "ee8668",
+            "topRightAverage": "ee8668",
+            "bottomLeftAverage": "ee8668",
+            "bottomRightAverage": "ee8668",
+            "centerAverage": "e2e3e7",
+            "suggestedBgColor": "ddc1b9"
+          },
+          "title": "A New Perspective.png",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/01f9be92-6efb-4cc7-a0e6-c1f042dad5cc/A+New+Perspective.png",
+          "contentType": "image/png",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2380x2380",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a96820950520b35437ee4b5",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1788248585018,
+          "updatedOn": 1788248585018,
+          "displayIndex": 1,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a968141c90e0742ca2c07c9",
+          "systemDataId": "ef42582b-48c4-4ebd-910f-f31f775da4b7",
+          "systemDataVariants": "2539x1950,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "HPPP4hobQAAYrgo.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "ccc1c0",
+            "topRightAverage": "ccc2c1",
+            "bottomLeftAverage": "a6a4a5",
+            "bottomRightAverage": "cac3c1",
+            "centerAverage": "9e9799",
+            "suggestedBgColor": "bdb6b6"
+          },
+          "title": "HPPP4hobQAAYrgo.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/ef42582b-48c4-4ebd-910f-f31f775da4b7/HPPP4hobQAAYrgo.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2539x1950",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a96820958cbf6266d660ee6",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1788248585014,
+          "updatedOn": 1788248585014,
+          "displayIndex": 2,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a968141c90e0742ca2c07c9",
+          "systemDataId": "17caebe0-02de-4466-a426-f436686c601b",
+          "systemDataVariants": "1017x556",
+          "systemDataSourceType": "JPEG",
+          "filename": "HFXXKBHa8AMhfWD.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "faf9fa",
+            "topRightAverage": "fafafa",
+            "bottomLeftAverage": "fafafa",
+            "bottomRightAverage": "fafafa",
+            "centerAverage": "fafafa",
+            "suggestedBgColor": "f3f0f0"
+          },
+          "title": "HFXXKBHa8AMhfWD.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/17caebe0-02de-4466-a426-f436686c601b/HFXXKBHa8AMhfWD.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "1017x556",
+          "recordTypeLabel": "image"
+        }
+      ],
+      "pushedServices": {},
+      "pendingPushedServices": {},
+      "originalSize": "2380x2380",
+      "recordTypeLabel": "store-item"
+    },
+    {
+      "id": "6a1e7460dbedb812c31e1aa5",
+      "collectionId": "6930aceb79c53d63e62f4d3f",
+      "recordType": 11,
+      "addedOn": 1780380768529,
+      "updatedOn": 1788221375028,
+      "displayIndex": 49,
+      "starred": false,
+      "passthrough": false,
+      "categoryIds": [
+        "69ced88162e8ac760d38c587",
+        "698d12b5ea7b683116d43559",
+        "698d1199855150430c6848c6",
+        "69ced86862e8ac760d38c567"
+      ],
+      "workflowState": 1,
+      "publishOn": 1780381156169,
+      "authorId": "63210363f8b446118d2b3320",
+      "systemDataId": "0f2ce0e3-4a6c-4bb9-8c89-d1b0855d18ae",
+      "systemDataVariants": "2380x2380",
+      "systemDataSourceType": "PNG",
+      "filename": "Picture Frames.png",
+      "mediaFocalPoint": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": 3
+      },
+      "colorData": {
+        "topLeftAverage": "6fa896",
+        "topRightAverage": "6fa896",
+        "bottomLeftAverage": "9f846e",
+        "bottomRightAverage": "6fa896",
+        "centerAverage": "71797c",
+        "suggestedBgColor": "86958d"
+      },
+      "urlId": "clay-play-handbuilt-picture-frames",
+      "title": "Clay Play: Handbuilt Picture Frames",
+      "body": null,
+      "excerpt": "<p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Sliding scale pricing (use codes below):</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>$65-$80-$95</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><span>Make a memorable moment even more unique!</span><br /><br /><span>In this 2-hour workshop you'll hand-build your very own picture frame from a slab of clay. No experience necessary, just a love for creativity and a little patience. All materials are included: clay, glaze, and tools. Our instructor will walk you through shaping and decorating your design to match your picture, and you'll choose from two rotating glaze options to finish it off. Our staff takes care of bisque firing and glaze firing the rest.</span><br /><br /><span>Please note you won't be taking your piece home that day. Work will be ready for pick up approximately 3 weeks after the workshop, and we'll email you when it's ready.</span></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Codes: SLIDINGSCALE30, SLIDINGSCALE15</strong></p>",
+      "likeCount": 0,
+      "commentCount": 0,
+      "publicCommentCount": 0,
+      "commentState": 1,
+      "unsaved": false,
+      "fullUrl": "/classes-and-workshops/p/clay-play-handbuilt-picture-frames",
+      "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/0f2ce0e3-4a6c-4bb9-8c89-d1b0855d18ae/Picture+Frames.png",
+      "contentType": "image/png",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "priceCents": 0,
+        "salePriceCents": 0,
+        "priceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "salePriceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "onSale": false,
+        "productType": 3,
+        "customAddButtonText": "Add To Cart",
+        "useCustomAddButtonText": false,
+        "variants": [
+          {
+            "attributes": {
+              "Dates Available": "Friday, Aug 28, 6:00 PM - 8:00 PM"
+            },
+            "optionValues": [
+              {
+                "optionName": "Dates Available",
+                "value": "Friday, Aug 28, 6:00 PM - 8:00 PM"
+              }
+            ],
+            "id": "ab78de9b-fed3-4718-a8f2-e6949a3f46f6",
+            "sku": "Fri Aug 28",
+            "price": 9500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "95.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Dates Available": "Saturday, Sep 26, 3:00 PM - 5:00 PM"
+            },
+            "optionValues": [
+              {
+                "optionName": "Dates Available",
+                "value": "Saturday, Sep 26, 3:00 PM - 5:00 PM"
+              }
+            ],
+            "id": "604763e9-7c38-4db0-b445-c079aa20f36b",
+            "sku": "Sat Sep 26",
+            "price": 9500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "95.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          }
+        ],
+        "variantOptionOrdering": [
+          "Dates Available"
+        ],
+        "isSubscribable": false,
+        "fulfilledExternally": false,
+        "productAddOnsConfiguration": {
+          "productAddOns": []
+        },
+        "mightHavePaymentPlan": false
+      },
+      "priceCents": 0,
+      "salePriceCents": 0,
+      "priceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "salePriceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "onSale": false,
+      "productType": 3,
+      "customAddButtonText": "Add To Cart",
+      "useCustomAddButtonText": false,
+      "variants": [
+        {
+          "attributes": {
+            "Dates Available": "Friday, Aug 28, 6:00 PM - 8:00 PM"
+          },
+          "optionValues": [
+            {
+              "optionName": "Dates Available",
+              "value": "Friday, Aug 28, 6:00 PM - 8:00 PM"
+            }
+          ],
+          "id": "ab78de9b-fed3-4718-a8f2-e6949a3f46f6",
+          "sku": "Fri Aug 28",
+          "price": 9500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "95.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Dates Available": "Saturday, Sep 26, 3:00 PM - 5:00 PM"
+          },
+          "optionValues": [
+            {
+              "optionName": "Dates Available",
+              "value": "Saturday, Sep 26, 3:00 PM - 5:00 PM"
+            }
+          ],
+          "id": "604763e9-7c38-4db0-b445-c079aa20f36b",
+          "sku": "Sat Sep 26",
+          "price": 9500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "95.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        }
+      ],
+      "variantOptionOrdering": [
+        "Dates Available"
+      ],
+      "isSubscribable": false,
+      "fulfilledExternally": false,
+      "productAddOnsConfiguration": {
+        "productAddOns": []
+      },
+      "mightHavePaymentPlan": false,
+      "items": [
+        {
+          "id": "6a1e75e3dbedb812c31e1b4d",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1780381155296,
+          "updatedOn": 1780381155296,
+          "displayIndex": 0,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a1e7460dbedb812c31e1aa5",
+          "systemDataId": "0f2ce0e3-4a6c-4bb9-8c89-d1b0855d18ae",
+          "systemDataVariants": "2380x2380",
+          "systemDataSourceType": "PNG",
+          "filename": "Picture Frames.png",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "6fa896",
+            "topRightAverage": "6fa896",
+            "bottomLeftAverage": "9f846e",
+            "bottomRightAverage": "6fa896",
+            "centerAverage": "71797c",
+            "suggestedBgColor": "86958d"
+          },
+          "title": "Picture Frames.png",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/0f2ce0e3-4a6c-4bb9-8c89-d1b0855d18ae/Picture+Frames.png",
+          "contentType": "image/png",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2380x2380",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a1e75e3dbedb812c31e1b4c",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1780381155272,
+          "updatedOn": 1780381155272,
+          "displayIndex": 1,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a1e7460dbedb812c31e1aa5",
+          "systemDataId": "e8998e47-ed91-4a28-b14f-0b010965ca92",
+          "systemDataVariants": "2928x1952,100w,300w,500w,750w,1000w,1500w,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "ReclaimClay_EllaArie24_173.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "b37079",
+            "topRightAverage": "788994",
+            "bottomLeftAverage": "9a9187",
+            "bottomRightAverage": "a69d95",
+            "centerAverage": "797369",
+            "suggestedBgColor": "8f8681"
+          },
+          "title": "ReclaimClay_EllaArie24_173.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/e8998e47-ed91-4a28-b14f-0b010965ca92/ReclaimClay_EllaArie24_173.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2928x1952",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a1e75e3f2f64d69b39255d0",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1780381155237,
+          "updatedOn": 1780381155237,
+          "displayIndex": 2,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "6a1e7460dbedb812c31e1aa5",
+          "systemDataId": "5d1c35ff-467b-464a-abdf-802de4085c7b",
+          "systemDataVariants": "2411x1607,100w,300w,500w,750w,1000w,1500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "ReclaimClay_EllaArie24_163.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "9c958d",
+            "topRightAverage": "898782",
+            "bottomLeftAverage": "b6b9bb",
+            "bottomRightAverage": "604f3f",
+            "centerAverage": "b8955d",
+            "suggestedBgColor": "ada192"
+          },
+          "title": "ReclaimClay_EllaArie24_163.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/5d1c35ff-467b-464a-abdf-802de4085c7b/ReclaimClay_EllaArie24_163.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2411x1607",
+          "recordTypeLabel": "image"
+        }
+      ],
+      "pushedServices": {},
+      "pendingPushedServices": {},
+      "originalSize": "2380x2380",
+      "recordTypeLabel": "store-item"
+    },
+    {
+      "id": "69e146d43af7d1473e6ec4bb",
+      "collectionId": "6930aceb79c53d63e62f4d3f",
+      "recordType": 11,
+      "addedOn": 1776371412709,
+      "updatedOn": 1788195938253,
+      "displayIndex": 37,
+      "starred": false,
+      "passthrough": false,
+      "categoryIds": [
+        "69ced88162e8ac760d38c587",
+        "6961911292f04d58fff20e90",
+        "698d1199855150430c6848c6",
+        "69ced86862e8ac760d38c567"
+      ],
+      "workflowState": 1,
+      "publishOn": 1785889405955,
+      "authorId": "60aeafa4adb0a303594409e7",
+      "systemDataId": "43692986-1194-4893-91d8-fd1f8d2e113a",
+      "systemDataVariants": "2380x2380",
+      "systemDataSourceType": "PNG",
+      "filename": "Altar.png",
+      "mediaFocalPoint": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": 3
+      },
+      "colorData": {
+        "topLeftAverage": "f7981d",
+        "topRightAverage": "f7981d",
+        "bottomLeftAverage": "f7981d",
+        "bottomRightAverage": "f7981d",
+        "centerAverage": "573831",
+        "suggestedBgColor": "db8c2f"
+      },
+      "urlId": "handmade-altar-2-day-workshop",
+      "title": "Handmade Altar: 2 Day Workshop",
+      "body": null,
+      "excerpt": "<p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Saturday &amp; Sunday, <span>Oct 3 - Oct 4</span>, 12 - 2PM</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Sliding scale pricing (use codes below):</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>$95-$110-$125</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Instructor: </strong><a target=\"_blank\" href=\"https://www.instagram.com/weirdbee.art/\" rel=\"noopener\"><strong>Bee Ho</strong></a></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><span>No experience necessary, but careful hands and painting skills will be very helpful to get the most out of this class. This is a two-day, back to back workshop in which you will build your altars out of clay slabs for the first session, and then decorate them in the second session.</span></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><span>A flash sheet of decorative motifs will be provided, as well as all tools needed to create your altars. If you would like to create an altar to hang on your wall, please bring any hardware you plant to use with you during the first session to plan around. A simple nail should be enough!</span></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong><span>Codes: SLIDINGSCALE15, SLIDINGSCALE30</span></strong></p>",
+      "likeCount": 0,
+      "commentCount": 0,
+      "publicCommentCount": 0,
+      "commentState": 1,
+      "unsaved": false,
+      "fullUrl": "/classes-and-workshops/p/handmade-altar-2-day-workshop",
+      "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/43692986-1194-4893-91d8-fd1f8d2e113a/Altar.png",
+      "contentType": "image/png",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "priceCents": 0,
+        "salePriceCents": 0,
+        "priceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "salePriceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "onSale": false,
+        "productType": 3,
+        "additionalFieldsFormId": "67591561aef58d32507be5fc",
+        "customAddButtonText": "Add To Cart",
+        "useCustomAddButtonText": false,
+        "additionalFieldsForm": {
+          "id": "67591561aef58d32507be5fc",
+          "type": 2,
+          "name": "Cancellation Policy",
+          "fields": [
+            "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+          ],
+          "parsedFields": [],
+          "submitButtonText": "Submit",
+          "submissionMessage": "{\"html\":\"Thank you!\"}",
+          "disclaimerMessage": "null",
+          "successRedirect": "",
+          "captchaEnabled": false,
+          "captchaTheme": 1,
+          "captchaAlignment": 1
+        },
+        "variants": [
+          {
+            "attributes": {},
+            "optionValues": [],
+            "id": "1892c028-ed4b-4277-a29e-054ee6c4827e",
+            "sku": "Sat Oct 3",
+            "price": 12500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "125.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 4,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          }
+        ],
+        "variantOptionOrdering": [],
+        "isSubscribable": false,
+        "fulfilledExternally": false,
+        "productAddOnsConfiguration": {
+          "productAddOns": []
+        },
+        "mightHavePaymentPlan": false
+      },
+      "priceCents": 0,
+      "salePriceCents": 0,
+      "priceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "salePriceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "onSale": false,
+      "productType": 3,
+      "additionalFieldsFormId": "67591561aef58d32507be5fc",
+      "customAddButtonText": "Add To Cart",
+      "useCustomAddButtonText": false,
+      "additionalFieldsForm": {
+        "id": "67591561aef58d32507be5fc",
+        "type": 2,
+        "name": "Cancellation Policy",
+        "fields": [
+          "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+        ],
+        "parsedFields": [],
+        "submitButtonText": "Submit",
+        "submissionMessage": "{\"html\":\"Thank you!\"}",
+        "disclaimerMessage": "null",
+        "successRedirect": "",
+        "captchaEnabled": false,
+        "captchaTheme": 1,
+        "captchaAlignment": 1
+      },
+      "variants": [
+        {
+          "attributes": {},
+          "optionValues": [],
+          "id": "1892c028-ed4b-4277-a29e-054ee6c4827e",
+          "sku": "Sat Oct 3",
+          "price": 12500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "125.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 4,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        }
+      ],
+      "variantOptionOrdering": [],
+      "isSubscribable": false,
+      "fulfilledExternally": false,
+      "productAddOnsConfiguration": {
+        "productAddOns": []
+      },
+      "mightHavePaymentPlan": false,
+      "items": [
+        {
+          "id": "69f79a3af691fe20c1397818",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1777834554973,
+          "updatedOn": 1777834554973,
+          "displayIndex": 0,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69e146d43af7d1473e6ec4bb",
+          "systemDataId": "7c1dc0b0-5e33-4a89-889d-833318bd66b5",
+          "systemDataVariants": "3024x4032,100w,300w,500w,750w,1000w,1500w,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "IMG_6504 - Bee Ho.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "17424b",
+            "topRightAverage": "17424b",
+            "bottomLeftAverage": "17424b",
+            "bottomRightAverage": "17424b",
+            "centerAverage": "19434b",
+            "suggestedBgColor": "344e50"
+          },
+          "title": "IMG_6504 - Bee Ho.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/7c1dc0b0-5e33-4a89-889d-833318bd66b5/IMG_6504+-+Bee+Ho.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "3024x4032",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "69f79a3acfa3e81e12d56ee1",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1777834554993,
+          "updatedOn": 1777834554993,
+          "displayIndex": 1,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69e146d43af7d1473e6ec4bb",
+          "systemDataId": "a1520ed2-500f-4400-92f9-5e266569ea8f",
+          "systemDataVariants": "3024x4032,100w,300w,500w,750w,1000w,1500w,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "IMG_6513 - Bee Ho (1).jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "dee0df",
+            "topRightAverage": "e2e3e2",
+            "bottomLeftAverage": "f8f8f8",
+            "bottomRightAverage": "f9f9fb",
+            "centerAverage": "f9f9f9",
+            "suggestedBgColor": "cecbc3"
+          },
+          "title": "IMG_6513 - Bee Ho (1).jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/a1520ed2-500f-4400-92f9-5e266569ea8f/IMG_6513+-+Bee+Ho+%281%29.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "3024x4032",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a725a1c98f72327f79a7209",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1785879068665,
+          "updatedOn": 1785879068665,
+          "displayIndex": 2,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "69e146d43af7d1473e6ec4bb",
+          "systemDataId": "583bcac8-1ad4-4417-98aa-8421d224ff6f",
+          "systemDataVariants": "3213x5712,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "IMG_0016.jpeg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "f8cb6d",
+            "topRightAverage": "958f90",
+            "bottomLeftAverage": "bea68b",
+            "bottomRightAverage": "bca78e",
+            "centerAverage": "797270",
+            "suggestedBgColor": "887d71"
+          },
+          "title": "IMG_0016.jpeg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/583bcac8-1ad4-4417-98aa-8421d224ff6f/IMG_0016.jpeg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "3213x5712",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a6b6aa498f72327f7954298",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1785424548491,
+          "updatedOn": 1785424548491,
+          "displayIndex": 3,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "69e146d43af7d1473e6ec4bb",
+          "systemDataId": "43692986-1194-4893-91d8-fd1f8d2e113a",
+          "systemDataVariants": "2380x2380",
+          "systemDataSourceType": "PNG",
+          "filename": "Altar.png",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "f7981d",
+            "topRightAverage": "f7981d",
+            "bottomLeftAverage": "f7981d",
+            "bottomRightAverage": "f7981d",
+            "centerAverage": "573831",
+            "suggestedBgColor": "db8c2f"
+          },
+          "title": "Altar.png",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/43692986-1194-4893-91d8-fd1f8d2e113a/Altar.png",
+          "contentType": "image/png",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2380x2380",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "6a725a1c98f72327f79a720a",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1785879068666,
+          "updatedOn": 1785879068666,
+          "displayIndex": 4,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "69e146d43af7d1473e6ec4bb",
+          "systemDataId": "571cad1a-0f38-4625-959f-4b6e70ec2b86",
+          "systemDataVariants": "3213x5712,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "IMG_0013.jpeg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "9ec352",
+            "topRightAverage": "3a4735",
+            "bottomLeftAverage": "b7a28e",
+            "bottomRightAverage": "7f6d60",
+            "centerAverage": "474e27",
+            "suggestedBgColor": "84825a"
+          },
+          "title": "IMG_0013.jpeg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/571cad1a-0f38-4625-959f-4b6e70ec2b86/IMG_0013.jpeg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "3213x5712",
+          "recordTypeLabel": "image"
+        }
+      ],
+      "pushedServices": {},
+      "pendingPushedServices": {},
+      "originalSize": "2380x2380",
+      "recordTypeLabel": "store-item"
+    },
+    {
+      "id": "69c6f99eb6f8f134b0136edc",
+      "collectionId": "6930aceb79c53d63e62f4d3f",
+      "recordType": 11,
+      "addedOn": 1774647709943,
+      "updatedOn": 1788560417475,
+      "displayIndex": 12,
+      "starred": false,
+      "passthrough": false,
+      "categoryIds": [
+        "698d11bffcea335ca353cf80",
+        "69bddb9a8e37a90d8f18aa87",
+        "6961911292f04d58fff20e90",
+        "69bddba599fa790e2412067d"
+      ],
+      "workflowState": 1,
+      "publishOn": 1774647709943,
+      "authorId": "60aeafa4adb0a303594409e7",
+      "systemDataId": "dd5ae076-579f-42c0-83fb-b33b5fca5d4b",
+      "systemDataVariants": "2380x2380",
+      "systemDataSourceType": "PNG",
+      "filename": "Intro to Wheel.png",
+      "mediaFocalPoint": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": 3
+      },
+      "colorData": {
+        "topLeftAverage": "ee8668",
+        "topRightAverage": "ee8668",
+        "bottomLeftAverage": "675e53",
+        "bottomRightAverage": "c6b8a4",
+        "centerAverage": "ca816b",
+        "suggestedBgColor": "b88269"
+      },
+      "urlId": "intro-to-wheel-6-week",
+      "title": "Intro To Wheel: 6 Week",
+      "body": null,
+      "excerpt": "<p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Sliding scale pricing (use codes below):</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>$355-$375-$395</strong></p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">This class is ideal for beginners, but also appropriate for those looking for a refresher to improve their technique. This is a 6-week series class with 3-hour lessons every week and includes studio time outside of class as well as materials: one 12.5 lb bag of clay, glaze, and tools.&nbsp;</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Week 1 \u2013 Wedging, throwing basic forms</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Week 2 \u2013 Throwing, trimming</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Week 3 \u2013 Trimming, attachments&nbsp;</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Week 4 \u2013 Surface decoration</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Week 5 \u2013 Glazing</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Week 6 \u2013 Glazing</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">For the first two weeks, we\u2019ll go over centering, wheel skill building, and manipulating clay into a work of art, choosing several to keep. In week three we\u2019ll show you how to refine and finalize your pieces with trimming techniques and attachments. In the final weeks, we\u2019ll guide you through glazing and decorating and you\u2019ll have time to complete your work. Students will be notified via the email used for purchase when their work is ready for pick up, which usually takes about 2-3 weeks.</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">While we always recommend being able to attend all weeks to ensure you can complete your pottery, we require participants to be present for at least Week 1 Introductions and Week 5 Glazing to ensure you have the necessary information to use our studio safely. If you are absent for these lessons we can not guarantee you will be able to complete your work, and missing this crucial information will disqualify you from using our studio independently in the future without retaking the series.</p><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><strong>Codes: SLIDINGSCALE20, SLIDINGSCALE40</strong></p>",
+      "likeCount": 0,
+      "commentCount": 0,
+      "publicCommentCount": 0,
+      "commentState": 1,
+      "unsaved": false,
+      "fullUrl": "/classes-and-workshops/p/intro-to-wheel-6-week",
+      "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/dd5ae076-579f-42c0-83fb-b33b5fca5d4b/Intro+to+Wheel.png",
+      "contentType": "image/png",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "priceCents": 0,
+        "salePriceCents": 0,
+        "priceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "salePriceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "onSale": false,
+        "productType": 3,
+        "additionalFieldsFormId": "67591561aef58d32507be5fc",
+        "customAddButtonText": "Add To Cart",
+        "useCustomAddButtonText": false,
+        "additionalFieldsForm": {
+          "id": "67591561aef58d32507be5fc",
+          "type": 2,
+          "name": "Cancellation Policy",
+          "fields": [
+            "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+          ],
+          "parsedFields": [],
+          "submitButtonText": "Submit",
+          "submissionMessage": "{\"html\":\"Thank you!\"}",
+          "disclaimerMessage": "null",
+          "successRedirect": "",
+          "captchaEnabled": false,
+          "captchaTheme": 1,
+          "captchaAlignment": 1
+        },
+        "variants": [
+          {
+            "attributes": {
+              "Available Dates": "Wednesdays, Sep 23 - Oct 28, 6:00 PM - 9:00 PM - Lily Gray"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Wednesdays, Sep 23 - Oct 28, 6:00 PM - 9:00 PM - Lily Gray"
+              }
+            ],
+            "id": "93534066-d84a-4e9c-9082-4edabab3b83e",
+            "sku": "Wed Sep 23",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Available Dates": "Thursdays, Sep 24 - Oct 29, 6:00 PM - 9:00 PM - Alex Maldonado"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Thursdays, Sep 24 - Oct 29, 6:00 PM - 9:00 PM - Alex Maldonado"
+              }
+            ],
+            "id": "b7c044a5-0769-4058-b05e-36147e34dbc0",
+            "sku": "Thur Sep 24",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 2,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Available Dates": "Fridays, Sep 25 - Oct 30, 10:30 AM - 1:30 PM - Alex Maldonado"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Fridays, Sep 25 - Oct 30, 10:30 AM - 1:30 PM - Alex Maldonado"
+              }
+            ],
+            "id": "e41c478f-1cc7-4cd3-bf2b-3b1f68e1f2ec",
+            "sku": "Fri Sep 25",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 11,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Available Dates": "Sundays, Oct 18 - Nov 22, 12:00 PM - 3:00 PM - Andrew Soto"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Sundays, Oct 18 - Nov 22, 12:00 PM - 3:00 PM - Andrew Soto"
+              }
+            ],
+            "id": "0910757d-f6e6-4bce-8c8b-e668f45ff3f2",
+            "sku": "Sun Oct 18",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 8,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Available Dates": "Tuesdays, Oct 27 - Dec 1, 6:00 PM - 9:00 PM - Brooke Felix"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Tuesdays, Oct 27 - Dec 1, 6:00 PM - 9:00 PM - Brooke Felix"
+              }
+            ],
+            "id": "57c74e86-dc7f-4cc0-9144-722ffcbeb5fe",
+            "sku": "Tue Oct 27",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Available Dates": "Wednesdays, Oct 28 - Dec 2, 6:00 PM - 9:00 PM - Alex Maldonado"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Wednesdays, Oct 28 - Dec 2, 6:00 PM - 9:00 PM - Alex Maldonado"
+              }
+            ],
+            "id": "ba884f62-ad32-4c24-b6c9-eb52ef4c09a9",
+            "sku": "Wed Oct 28",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Available Dates": "Thursdays, Oct 29 - Dec 3, 6:00 PM - 9:00 PM - Lily Gray"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Thursdays, Oct 29 - Dec 3, 6:00 PM - 9:00 PM - Lily Gray"
+              }
+            ],
+            "id": "74d421ec-0ed2-45b9-9da0-d2e516e0ecdd",
+            "sku": "Thur Oct 29",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Available Dates": "Fridays, Oct 30 - Dec 4, 10:30 AM - 1:30 PM - Lily Gray"
+            },
+            "optionValues": [
+              {
+                "optionName": "Available Dates",
+                "value": "Fridays, Oct 30 - Dec 4, 10:30 AM - 1:30 PM - Lily Gray"
+              }
+            ],
+            "id": "113d6b33-3f48-4416-be14-caa02a9badf5",
+            "sku": "Fri Oct 30",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": false,
+            "qtyInStock": 12,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          }
+        ],
+        "variantOptionOrdering": [
+          "Available Dates"
+        ],
+        "isSubscribable": false,
+        "fulfilledExternally": false,
+        "productAddOnsConfiguration": {
+          "productAddOns": []
+        },
+        "mightHavePaymentPlan": false
+      },
+      "priceCents": 0,
+      "salePriceCents": 0,
+      "priceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "salePriceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "onSale": false,
+      "productType": 3,
+      "additionalFieldsFormId": "67591561aef58d32507be5fc",
+      "customAddButtonText": "Add To Cart",
+      "useCustomAddButtonText": false,
+      "additionalFieldsForm": {
+        "id": "67591561aef58d32507be5fc",
+        "type": 2,
+        "name": "Cancellation Policy",
+        "fields": [
+          "{\"type\":\"checkbox\",\"id\":\"checkbox-yui_3_17_2_1_1733873307805_15783\",\"locked\":false,\"title\":\"Checkbox\",\"description\":\"To request a cancellation and/or refund, you must email info@reclaimclay.com.  Classes and workshops can be cancelled for a full refund minus processing fees 7 days in advance of the scheduled start date. In less than 7 days we can offer a 50% refund. No refund is available within 48 hours of your scheduled class or workshop start date.\",\"options\":[\"I have read and understand the cancellation policy\"],\"required\":true,\"checkbox\":true,\"followUpQuestions\":[]}"
+        ],
+        "parsedFields": [],
+        "submitButtonText": "Submit",
+        "submissionMessage": "{\"html\":\"Thank you!\"}",
+        "disclaimerMessage": "null",
+        "successRedirect": "",
+        "captchaEnabled": false,
+        "captchaTheme": 1,
+        "captchaAlignment": 1
+      },
+      "variants": [
+        {
+          "attributes": {
+            "Available Dates": "Wednesdays, Sep 23 - Oct 28, 6:00 PM - 9:00 PM - Lily Gray"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Wednesdays, Sep 23 - Oct 28, 6:00 PM - 9:00 PM - Lily Gray"
+            }
+          ],
+          "id": "93534066-d84a-4e9c-9082-4edabab3b83e",
+          "sku": "Wed Sep 23",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Available Dates": "Thursdays, Sep 24 - Oct 29, 6:00 PM - 9:00 PM - Alex Maldonado"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Thursdays, Sep 24 - Oct 29, 6:00 PM - 9:00 PM - Alex Maldonado"
+            }
+          ],
+          "id": "b7c044a5-0769-4058-b05e-36147e34dbc0",
+          "sku": "Thur Sep 24",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 2,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Available Dates": "Fridays, Sep 25 - Oct 30, 10:30 AM - 1:30 PM - Alex Maldonado"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Fridays, Sep 25 - Oct 30, 10:30 AM - 1:30 PM - Alex Maldonado"
+            }
+          ],
+          "id": "e41c478f-1cc7-4cd3-bf2b-3b1f68e1f2ec",
+          "sku": "Fri Sep 25",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 11,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Available Dates": "Sundays, Oct 18 - Nov 22, 12:00 PM - 3:00 PM - Andrew Soto"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Sundays, Oct 18 - Nov 22, 12:00 PM - 3:00 PM - Andrew Soto"
+            }
+          ],
+          "id": "0910757d-f6e6-4bce-8c8b-e668f45ff3f2",
+          "sku": "Sun Oct 18",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 8,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Available Dates": "Tuesdays, Oct 27 - Dec 1, 6:00 PM - 9:00 PM - Brooke Felix"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Tuesdays, Oct 27 - Dec 1, 6:00 PM - 9:00 PM - Brooke Felix"
+            }
+          ],
+          "id": "57c74e86-dc7f-4cc0-9144-722ffcbeb5fe",
+          "sku": "Tue Oct 27",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Available Dates": "Wednesdays, Oct 28 - Dec 2, 6:00 PM - 9:00 PM - Alex Maldonado"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Wednesdays, Oct 28 - Dec 2, 6:00 PM - 9:00 PM - Alex Maldonado"
+            }
+          ],
+          "id": "ba884f62-ad32-4c24-b6c9-eb52ef4c09a9",
+          "sku": "Wed Oct 28",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Available Dates": "Thursdays, Oct 29 - Dec 3, 6:00 PM - 9:00 PM - Lily Gray"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Thursdays, Oct 29 - Dec 3, 6:00 PM - 9:00 PM - Lily Gray"
+            }
+          ],
+          "id": "74d421ec-0ed2-45b9-9da0-d2e516e0ecdd",
+          "sku": "Thur Oct 29",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Available Dates": "Fridays, Oct 30 - Dec 4, 10:30 AM - 1:30 PM - Lily Gray"
+          },
+          "optionValues": [
+            {
+              "optionName": "Available Dates",
+              "value": "Fridays, Oct 30 - Dec 4, 10:30 AM - 1:30 PM - Lily Gray"
+            }
+          ],
+          "id": "113d6b33-3f48-4416-be14-caa02a9badf5",
+          "sku": "Fri Oct 30",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": false,
+          "qtyInStock": 12,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        }
+      ],
+      "variantOptionOrdering": [
+        "Available Dates"
+      ],
+      "isSubscribable": false,
+      "fulfilledExternally": false,
+      "productAddOnsConfiguration": {
+        "productAddOns": []
+      },
+      "mightHavePaymentPlan": false,
+      "items": [
+        {
+          "id": "6a1f309a9d129d02efd2ae68",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1780428954127,
+          "updatedOn": 1780428954127,
+          "displayIndex": 0,
+          "authorId": "63210363f8b446118d2b3320",
+          "parentId": "69c6f99eb6f8f134b0136edc",
+          "systemDataId": "dd5ae076-579f-42c0-83fb-b33b5fca5d4b",
+          "systemDataVariants": "2380x2380",
+          "systemDataSourceType": "PNG",
+          "filename": "Intro to Wheel.png",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "ee8668",
+            "topRightAverage": "ee8668",
+            "bottomLeftAverage": "675e53",
+            "bottomRightAverage": "c6b8a4",
+            "centerAverage": "ca816b",
+            "suggestedBgColor": "b88269"
+          },
+          "title": "Intro to Wheel.png",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/dd5ae076-579f-42c0-83fb-b33b5fca5d4b/Intro+to+Wheel.png",
+          "contentType": "image/png",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2380x2380",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "69c7068ac2f49f1bfc83272a",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1774651018011,
+          "updatedOn": 1774651018011,
+          "displayIndex": 1,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69c6f99eb6f8f134b0136edc",
+          "systemDataId": "2fbf30af-ff08-443d-ac36-dcb957c8aa7d",
+          "systemDataVariants": "2589x1726,100w,300w,500w,750w,1000w,1500w,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "ReclaimClay_EllaArie24_114.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "c0c0be",
+            "topRightAverage": "97978f",
+            "bottomLeftAverage": "dddee2",
+            "bottomRightAverage": "494001",
+            "centerAverage": "beb5ad",
+            "suggestedBgColor": "a5967f"
+          },
+          "title": "ReclaimClay_EllaArie24_114.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/2fbf30af-ff08-443d-ac36-dcb957c8aa7d/ReclaimClay_EllaArie24_114.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2589x1726",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "69c70d8bcfd0a23cbe558b14",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1774652811842,
+          "updatedOn": 1774652811842,
+          "displayIndex": 2,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69c6f99eb6f8f134b0136edc",
+          "systemDataId": "d9e1e58e-ee2a-4de2-a069-0f6c89f14a98",
+          "systemDataVariants": "2045x1534,100w,300w,500w,750w,1000w,1500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "20240118_195441.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "7e7264",
+            "topRightAverage": "b7b5ab",
+            "bottomLeftAverage": "d0c4af",
+            "bottomRightAverage": "6e777c",
+            "centerAverage": "979794",
+            "suggestedBgColor": "91867e"
+          },
+          "title": "20240118_195441.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d9e1e58e-ee2a-4de2-a069-0f6c89f14a98/20240118_195441.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2045x1534",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "69cc656a19a7c865b505b105",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1775002986271,
+          "updatedOn": 1775002986271,
+          "displayIndex": 3,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69c6f99eb6f8f134b0136edc",
+          "systemDataId": "1774653316874-UXE4UDOK0VSYZT4NHUYJ",
+          "systemDataVariants": "1536x1025",
+          "systemDataSourceType": "JPEG",
+          "filename": "seattletimesarticle.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "db8a53",
+            "topRightAverage": "44445a",
+            "bottomLeftAverage": "8f6e4b",
+            "bottomRightAverage": "8f704f",
+            "centerAverage": "d0b298",
+            "suggestedBgColor": "9e816a"
+          },
+          "title": "seattletimesarticle.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/1774653316874-UXE4UDOK0VSYZT4NHUYJ/seattletimesarticle.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "1536x1025",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "69c7068aba79f443cdf10214",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1774651018007,
+          "updatedOn": 1774651018007,
+          "displayIndex": 4,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69c6f99eb6f8f134b0136edc",
+          "systemDataId": "1fe90bff-0aed-4553-8965-d8d6e879402b",
+          "systemDataVariants": "2082x1666,100w,300w,500w,750w,1000w,1500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "20230616_184500.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "8f999d",
+            "topRightAverage": "c1b8b0",
+            "bottomLeftAverage": "263140",
+            "bottomRightAverage": "69675c",
+            "centerAverage": "cbb8ad",
+            "suggestedBgColor": "968b7f"
+          },
+          "title": "20230616_184500.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/1fe90bff-0aed-4553-8965-d8d6e879402b/20230616_184500.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2082x1666",
+          "recordTypeLabel": "image"
+        },
+        {
+          "id": "69cc656a5b6cca5ecf841a1e",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1775002986279,
+          "updatedOn": 1775002986279,
+          "displayIndex": 5,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69c6f99eb6f8f134b0136edc",
+          "systemDataId": "7d18252c-6b68-45b2-9201-29993a54f743",
+          "systemDataVariants": "2500x2000,100w,300w,500w,750w,1000w,1500w,2500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "20230616_181728.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "8c8986",
+            "topRightAverage": "cac1b7",
+            "bottomLeftAverage": "849597",
+            "bottomRightAverage": "121319",
+            "centerAverage": "b1b4bc",
+            "suggestedBgColor": "877f7e"
+          },
+          "title": "20230616_181728.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/7d18252c-6b68-45b2-9201-29993a54f743/20230616_181728.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "2500x2000",
+          "recordTypeLabel": "image"
+        }
+      ],
+      "pushedServices": {},
+      "pendingPushedServices": {},
+      "originalSize": "2380x2380",
+      "recordTypeLabel": "store-item"
+    },
+    {
+      "id": "69cc6c8cfc21db13edd893cb",
+      "collectionId": "6930aceb79c53d63e62f4d3f",
+      "recordType": 11,
+      "addedOn": 1775004812843,
+      "updatedOn": 1788187063048,
+      "displayIndex": 13,
+      "starred": false,
+      "passthrough": false,
+      "categoryIds": [
+        "6961911d41f3f84b0a462ae5",
+        "696191206716e902a59c71dd",
+        "6961911292f04d58fff20e90",
+        "698d12b5ea7b683116d43559",
+        "698d217cfcea335ca353dff2"
+      ],
+      "workflowState": 1,
+      "publishOn": 1775005026204,
+      "authorId": "60aeafa4adb0a303594409e7",
+      "systemDataId": "1686715347022-RZNABC49VEKXSIZPMFQ4",
+      "systemDataVariants": "1950x1501,100w,300w,500w,750w,1000w,1500w",
+      "systemDataSourceType": "JPEG",
+      "filename": "GiftCard.jpg",
+      "mediaFocalPoint": {
+        "x": 0.5,
+        "y": 0.5,
+        "source": 3
+      },
+      "colorData": {
+        "topLeftAverage": "fee6cc",
+        "topRightAverage": "fee7ce",
+        "bottomLeftAverage": "ffe5ca",
+        "bottomRightAverage": "ffe4c9",
+        "centerAverage": "fee6cc",
+        "suggestedBgColor": "eec7ac"
+      },
+      "urlId": "recc-gift-card",
+      "title": "RECC Gift Card",
+      "body": null,
+      "excerpt": "<p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Give the gift of artistic expression! Gift cards can be applied to any product, class, or workshop and pair with our sliding scale codes. All gift cards are delivered as a digital code and never expire. </p><p class=\"\" style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\"><em>NOTE</em>: Gift cards can not be used for our scheduled booking system reservations such as Day Passes or our Riso Open Studio. They can only be used in our online store for classes and workshops.</p>",
+      "likeCount": 0,
+      "commentCount": 0,
+      "publicCommentCount": 0,
+      "commentState": 1,
+      "unsaved": false,
+      "fullUrl": "/classes-and-workshops/p/recc-gift-card",
+      "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/1686715347022-RZNABC49VEKXSIZPMFQ4/GiftCard.jpg",
+      "contentType": "image/jpeg",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "priceCents": 0,
+        "salePriceCents": 0,
+        "priceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "salePriceMoney": {
+          "currency": "USD",
+          "value": "0.00"
+        },
+        "onSale": false,
+        "productType": 4,
+        "customAddButtonText": "Click to Purchase",
+        "useCustomAddButtonText": true,
+        "variants": [
+          {
+            "attributes": {
+              "Value": "$25.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$25.00"
+              }
+            ],
+            "id": "e4bf9efa-fd00-45a2-a311-93cc6fe305f9",
+            "sku": "SQ9236200",
+            "price": 2500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "25.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$50.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$50.00"
+              }
+            ],
+            "id": "6f6f63fb-262a-4ef5-baf0-e800090dc50e",
+            "sku": "SQ1367322",
+            "price": 5000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "50.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$75.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$75.00"
+              }
+            ],
+            "id": "647b03c9-aee3-4aaa-98a2-9ef229dd6ae1",
+            "sku": "SQ3252575",
+            "price": 7500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "75.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$100.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$100.00"
+              }
+            ],
+            "id": "a00b7701-620f-4445-8ab3-c006f05331cf",
+            "sku": "SQ2624789",
+            "price": 10000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "100.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$125.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$125.00"
+              }
+            ],
+            "id": "e3ae67bb-e5cc-4731-8667-da793fc47859",
+            "sku": "SQ8985795",
+            "price": 12500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "125.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$150.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$150.00"
+              }
+            ],
+            "id": "c53e314e-07d6-496e-a900-8ccdff1ff0dc",
+            "sku": "SQ2843557",
+            "price": 15000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "150.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$200.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$200.00"
+              }
+            ],
+            "id": "ab233c26-c4b5-41f1-9bdf-f9c7e4376d98",
+            "sku": "SQ7238557",
+            "price": 20000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "200.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$260.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$260.00"
+              }
+            ],
+            "id": "bbfbdb76-664e-489a-87f4-6922956e31cd",
+            "sku": "SQ4331351",
+            "price": 26000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "260.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$280.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$280.00"
+              }
+            ],
+            "id": "1ea76a5c-c1a0-4277-b36f-f4470692da3e",
+            "sku": "SQ1177867",
+            "price": 28000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "280.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$300.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$300.00"
+              }
+            ],
+            "id": "b42ce106-72ca-49ec-a477-0c32640e06f1",
+            "sku": "SQ1825175",
+            "price": 30000,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "300.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          },
+          {
+            "attributes": {
+              "Value": "$395.00"
+            },
+            "optionValues": [
+              {
+                "optionName": "Value",
+                "value": "$395.00"
+              }
+            ],
+            "id": "3202f2be-856b-415e-b91e-eead1e3731ad",
+            "sku": "SQ9192039",
+            "price": 39500,
+            "salePrice": 0,
+            "priceMoney": {
+              "currency": "USD",
+              "value": "395.00"
+            },
+            "salePriceMoney": {
+              "currency": "USD",
+              "value": "0.00"
+            },
+            "onSale": false,
+            "unlimited": true,
+            "qtyInStock": 0,
+            "width": 0.0,
+            "height": 0.0,
+            "weight": 0.0,
+            "imageIds": [],
+            "images": [],
+            "len": 0.0
+          }
+        ],
+        "variantOptionOrdering": [
+          "Value"
+        ],
+        "isSubscribable": false,
+        "fulfilledExternally": false,
+        "mightHavePaymentPlan": false
+      },
+      "priceCents": 0,
+      "salePriceCents": 0,
+      "priceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "salePriceMoney": {
+        "currency": "USD",
+        "value": "0.00"
+      },
+      "onSale": false,
+      "productType": 4,
+      "customAddButtonText": "Click to Purchase",
+      "useCustomAddButtonText": true,
+      "variants": [
+        {
+          "attributes": {
+            "Value": "$25.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$25.00"
+            }
+          ],
+          "id": "e4bf9efa-fd00-45a2-a311-93cc6fe305f9",
+          "sku": "SQ9236200",
+          "price": 2500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "25.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$50.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$50.00"
+            }
+          ],
+          "id": "6f6f63fb-262a-4ef5-baf0-e800090dc50e",
+          "sku": "SQ1367322",
+          "price": 5000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "50.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$75.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$75.00"
+            }
+          ],
+          "id": "647b03c9-aee3-4aaa-98a2-9ef229dd6ae1",
+          "sku": "SQ3252575",
+          "price": 7500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "75.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$100.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$100.00"
+            }
+          ],
+          "id": "a00b7701-620f-4445-8ab3-c006f05331cf",
+          "sku": "SQ2624789",
+          "price": 10000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "100.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$125.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$125.00"
+            }
+          ],
+          "id": "e3ae67bb-e5cc-4731-8667-da793fc47859",
+          "sku": "SQ8985795",
+          "price": 12500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "125.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$150.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$150.00"
+            }
+          ],
+          "id": "c53e314e-07d6-496e-a900-8ccdff1ff0dc",
+          "sku": "SQ2843557",
+          "price": 15000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "150.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$200.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$200.00"
+            }
+          ],
+          "id": "ab233c26-c4b5-41f1-9bdf-f9c7e4376d98",
+          "sku": "SQ7238557",
+          "price": 20000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "200.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$260.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$260.00"
+            }
+          ],
+          "id": "bbfbdb76-664e-489a-87f4-6922956e31cd",
+          "sku": "SQ4331351",
+          "price": 26000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "260.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$280.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$280.00"
+            }
+          ],
+          "id": "1ea76a5c-c1a0-4277-b36f-f4470692da3e",
+          "sku": "SQ1177867",
+          "price": 28000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "280.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$300.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$300.00"
+            }
+          ],
+          "id": "b42ce106-72ca-49ec-a477-0c32640e06f1",
+          "sku": "SQ1825175",
+          "price": 30000,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "300.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        },
+        {
+          "attributes": {
+            "Value": "$395.00"
+          },
+          "optionValues": [
+            {
+              "optionName": "Value",
+              "value": "$395.00"
+            }
+          ],
+          "id": "3202f2be-856b-415e-b91e-eead1e3731ad",
+          "sku": "SQ9192039",
+          "price": 39500,
+          "salePrice": 0,
+          "priceMoney": {
+            "currency": "USD",
+            "value": "395.00"
+          },
+          "salePriceMoney": {
+            "currency": "USD",
+            "value": "0.00"
+          },
+          "onSale": false,
+          "unlimited": true,
+          "qtyInStock": 0,
+          "width": 0.0,
+          "height": 0.0,
+          "weight": 0.0,
+          "imageIds": [],
+          "images": [],
+          "len": 0.0
+        }
+      ],
+      "variantOptionOrdering": [
+        "Value"
+      ],
+      "isSubscribable": false,
+      "fulfilledExternally": false,
+      "mightHavePaymentPlan": false,
+      "items": [
+        {
+          "id": "69cc6d6119a7c865b505b8e6",
+          "collectionId": "6930aceb79c53d63e62f4d3f",
+          "recordType": 2,
+          "addedOn": 1775005025405,
+          "updatedOn": 1775005025405,
+          "displayIndex": 0,
+          "authorId": "60aeafa4adb0a303594409e7",
+          "parentId": "69cc6c8cfc21db13edd893cb",
+          "systemDataId": "1686715347022-RZNABC49VEKXSIZPMFQ4",
+          "systemDataVariants": "1950x1501,100w,300w,500w,750w,1000w,1500w",
+          "systemDataSourceType": "JPEG",
+          "filename": "GiftCard.jpg",
+          "mediaFocalPoint": {
+            "x": 0.5,
+            "y": 0.5,
+            "source": 3
+          },
+          "colorData": {
+            "topLeftAverage": "fee6cc",
+            "topRightAverage": "fee7ce",
+            "bottomLeftAverage": "ffe5ca",
+            "bottomRightAverage": "ffe4c9",
+            "centerAverage": "fee6cc",
+            "suggestedBgColor": "eec7ac"
+          },
+          "title": "GiftCard.jpg",
+          "body": null,
+          "likeCount": 0,
+          "commentCount": 0,
+          "publicCommentCount": 0,
+          "commentState": 1,
+          "fullUrl": "/classes-and-workshops/null",
+          "assetUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/1686715347022-RZNABC49VEKXSIZPMFQ4/GiftCard.jpg",
+          "contentType": "image/jpeg",
+          "pushedServices": {},
+          "pendingPushedServices": {},
+          "originalSize": "1950x1501",
+          "recordTypeLabel": "image"
+        }
+      ],
+      "pushedServices": {},
+      "pendingPushedServices": {},
+      "originalSize": "1950x1501",
+      "recordTypeLabel": "store-item"
+    }
+  ]
+}
