@@ -1,0 +1,14 @@
+name: gator-boy-productions
+sourceRole: venue
+description: "Gator Boy Productions"
+url: "https://gatorboyproductions.com/events/"
+friendlyLink: "https://gatorboyproductions.com/events/"
+tags: ["Dance", "Music"]
+# Cajun/Zydeco dance events rotate between a couple of regular Seattle
+# venues (Reverie Ballroom, Eagles Mother Aerie) plus occasional out-of-town
+# dates (Portland, Mercer Island) — no single fixed address.
+geo: null
+calendars:
+  - name: gator-boy-productions
+    friendlyname: "Gator Boy Productions"
+    timezone: America/Los_Angeles
