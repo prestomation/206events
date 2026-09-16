@@ -76,14 +76,25 @@ export function parseTitleTimeRange(title: string): TimeRange | null {
     const m = TITLE_TIME_RE.exec(title);
     if (!m) return null;
     const [, h1, min1, mer1, h2, min2, mer2] = m;
-    const sharedMeridiem = mer2.toLowerCase();
-    const startIsPm = (mer1 ?? mer2).toLowerCase() === "pm";
-    return {
-        startHour: to24Hour(parseInt(h1, 10), startIsPm),
-        startMinute: min1 ? parseInt(min1, 10) : 0,
-        endHour: to24Hour(parseInt(h2, 10), sharedMeridiem === "pm"),
-        endMinute: min2 ? parseInt(min2, 10) : 0,
-    };
+    const startHour24 = parseInt(h1, 10);
+    const startMinute = min1 ? parseInt(min1, 10) : 0;
+    const endHour = to24Hour(parseInt(h2, 10), mer2.toLowerCase() === "pm");
+    const endMinute = min2 ? parseInt(min2, 10) : 0;
+
+    // When the leading hour has no meridiem of its own, inherit the
+    // trailing one ("6 to 9 pm" -> 6pm). But blindly inheriting can invert
+    // a cross-noon range with no explicit leading meridiem ("10 to 1 pm"
+    // read as 10pm-1pm instead of the intended 10am-1pm) — these listings
+    // are always same-day forward ranges, so if inheriting the trailing
+    // meridiem would put the start at or after the end, the leading hour
+    // must have meant the other meridiem instead.
+    const inheritedIsPm = (mer1 ?? mer2).toLowerCase() === "pm";
+    let startHour = to24Hour(startHour24, inheritedIsPm);
+    if (!mer1 && startHour * 60 + startMinute >= endHour * 60 + endMinute) {
+        startHour = to24Hour(startHour24, !inheritedIsPm);
+    }
+
+    return { startHour, startMinute, endHour, endMinute };
 }
 
 interface DateRange {
@@ -92,8 +103,11 @@ interface DateRange {
 }
 
 // Public for testing. Extracts the "<Weekday>s - <Month> D to <Month> D,
-// YYYY" heading text into a concrete weekly date range. The heading names an
-// explicit year, so there's no "infer the year" ambiguity here.
+// YYYY" heading text into a concrete weekly date range. The stated year
+// trails the *end* date; the start date's year is the same unless the start
+// month falls after the end month, which means the range crosses a year
+// boundary (e.g. "December 15 to January 19, 2027") and the start is really
+// in the preceding year.
 export function extractHeadingDateRange(excerptHtml: string): DateRange | null {
     if (!excerptHtml) return null;
     const root = parse(excerptHtml);
@@ -108,12 +122,13 @@ export function extractHeadingDateRange(excerptHtml: string): DateRange | null {
     const endMonth = MONTH_NAMES[endMonthName.toLowerCase()];
     if (!startMonth || !endMonth) return null;
 
-    const year = parseInt(yearStr, 10);
+    const endYear = parseInt(yearStr, 10);
+    const startYear = startMonth > endMonth ? endYear - 1 : endYear;
     try {
-        return {
-            start: LocalDate.of(year, startMonth, parseInt(startDay, 10)),
-            end: LocalDate.of(year, endMonth, parseInt(endDay, 10)),
-        };
+        const start = LocalDate.of(startYear, startMonth, parseInt(startDay, 10));
+        const end = LocalDate.of(endYear, endMonth, parseInt(endDay, 10));
+        if (end.isBefore(start)) return null;
+        return { start, end };
     } catch {
         return null;
     }

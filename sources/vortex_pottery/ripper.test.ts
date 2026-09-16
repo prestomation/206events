@@ -64,6 +64,21 @@ describe('VortexPotteryRipper', () => {
         it('returns null when there is no time range in the text', () => {
             expect(parseTitleTimeRange('Beginners Wheel - Mondays - 6 Classes')).toBeNull();
         });
+
+        it('infers AM (not the trailing PM) for a cross-noon range with no explicit leading meridiem ("10 to 1 pm")', () => {
+            // Naively inheriting the trailing "pm" would give 10pm-1pm
+            // (start after end); the only sensible same-day reading is
+            // 10am-1pm.
+            expect(parseTitleTimeRange('Some Class - Saturdays - 10 to 1 pm - 6 Classes')).toEqual({
+                startHour: 10, startMinute: 0, endHour: 13, endMinute: 0,
+            });
+        });
+
+        it('still inherits the trailing PM when it produces a forward range ("6 to 9 pm")', () => {
+            expect(parseTitleTimeRange('Some Class - Saturdays - 6 to 9 pm - 6 Classes')).toEqual({
+                startHour: 18, startMinute: 0, endHour: 21, endMinute: 0,
+            });
+        });
     });
 
     describe('extractHeadingDateRange', () => {
@@ -86,6 +101,22 @@ describe('VortexPotteryRipper', () => {
         it('returns null for empty or unrecognized excerpt text', () => {
             expect(extractHeadingDateRange('')).toBeNull();
             expect(extractHeadingDateRange('<h3>Just some other text</h3>')).toBeNull();
+        });
+
+        it('rolls the start date back a year when the range crosses a year boundary', () => {
+            // The stated year (2027) trails "January 19"; "December 15"
+            // must be 2026, not 2027.
+            const range = extractHeadingDateRange('<h3>Mondays - December 15 to January 19, 2027</h3>');
+            expect(range).not.toBeNull();
+            expect(range!.start.toString()).toBe('2026-12-15');
+            expect(range!.end.toString()).toBe('2027-01-19');
+        });
+
+        it('keeps both dates in the stated year when the range does not cross a year boundary', () => {
+            const range = extractHeadingDateRange('<h3>Mondays - November 2 to December 7, 2026</h3>');
+            expect(range).not.toBeNull();
+            expect(range!.start.toString()).toBe('2026-11-02');
+            expect(range!.end.toString()).toBe('2026-12-07');
         });
     });
 
@@ -137,6 +168,20 @@ describe('VortexPotteryRipper', () => {
             const results = parseItem({ ...item, title: 'Beginners Wheel - Mondays - 6 Classes' } as any);
             expect(results).toHaveLength(1);
             expect(results[0]).toMatchObject({ type: 'ParseError' });
+        });
+
+        it('expands a session crossing a year boundary with the correct year on each side', () => {
+            const item = findItem(items, 'mondays');
+            const results = parseItem({
+                ...item,
+                excerpt: '<h3>Mondays - December 14 to January 18, 2027</h3>',
+            } as any);
+            const events = results.filter(isEvent).sort((a, b) => a.date.compareTo(b.date));
+
+            expect(results.filter(e => 'type' in e)).toHaveLength(0);
+            expect(events).toHaveLength(6);
+            expect(events[0].date.toLocalDate().toString()).toBe('2026-12-14');
+            expect(events[events.length - 1].date.toLocalDate().toString()).toBe('2027-01-18');
         });
     });
 
