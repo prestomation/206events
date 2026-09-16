@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6893232
+  lng: -122.2901818
+  label: "Wedgwood Broiler, 8230 35th Ave NE, Seattle, WA 98115"
+  osmType: node
+  osmId: 1564280658
+name: easy-speak-seattle
+sourceRole: venue
+friendlyname: Easy Speak Seattle
+description: Long-running open mic for poetry, prose, or song in the banquet
+  room at Wedgwood Broiler. No featured readers — just open floor, roughly
+  five minutes per reader. Doors at 6:30pm, show at 7pm.
+timezone: America/Los_Angeles
+location: "8230 35th Ave NE, Seattle, WA 98115"
+url: https://www.westernwashingtonpoetsnetwork.org/home/seattle
+tags:
+  - OpenMic
+  - Literary
+  - Wedgwood
+cost: free
+schedules:
+  - schedule: 2nd and 4th Monday
+    start_time: "19:00"
+    duration: PT2H
