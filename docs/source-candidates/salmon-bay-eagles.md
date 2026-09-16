@@ -6,7 +6,7 @@ url: https://salmonbayeagles.com/events/
 tags: [Music, Ballard]
 firstSeen: 2026-09-16
 lastChecked: 2026-09-16
-pr:
+pr: 1509
 ---
 
 Fraternal Order of Eagles Aerie #2141 in Ballard (5216 20th Ave NW, Seattle,
