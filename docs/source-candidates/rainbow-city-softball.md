@@ -5,7 +5,7 @@ platform: WordPress
 url: https://rainbowcitysoftball.org
 tags: [Playing-Sports, Queer, Softball]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-16
 ---
 
 Seattle's LGBTQ+ recreational softball league.
@@ -18,3 +18,9 @@ through `app.teamlinkt.com` (third-party league management), no calendar
 export found there either. No dedicated calendar page found on the WordPress
 site itself. Revisit after schedule release in late Aug 2026 to confirm a
 scrapable schedule page exists before implementing.
+
+Re-checked 2026-09-16: schedule has been released, but only as a link to a
+Google Sheets spreadsheet (`docs.google.com/spreadsheets/d/1VIkZgBKWE7QyMgx...`),
+not a scrapable HTML page, ICS feed, or JSON API. A public Google Sheet could
+theoretically be exported as CSV, but the layout/structure isn't confirmed and
+depending on a spreadsheet's incidental format is fragile. No change to status.

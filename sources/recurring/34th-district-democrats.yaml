@@ -1,0 +1,19 @@
+# verified: 2026-09-16 ok
+geo: null
+name: 34th-district-democrats
+sourceRole: venue
+friendlyname: 34th District Democrats Membership Meeting
+description: Monthly membership meeting of the 34th Legislative District
+  Democrats, covering West Seattle, White Center, Vashon Island, and Burien.
+  Held via Zoom; open to the public.
+timezone: America/Los_Angeles
+location: "Virtual meeting via Zoom (34th Legislative District, West Seattle, WA)"
+url: https://34dems.org/news-events
+tags:
+  - Political
+  - West Seattle
+cost: free
+schedules:
+  - schedule: 2nd Wednesday
+    start_time: "19:00"
+    duration: PT1H30M

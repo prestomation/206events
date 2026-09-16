@@ -5,7 +5,7 @@ platform: WordPress
 url: https://pugetsoundkeeper.org/volunteer/marine-debris-cleanups
 tags: [Volunteering, Outdoors]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-16
 ---
 
 Puget Soundkeeper Alliance marine debris cleanup volunteer events around Puget Sound shorelines.
@@ -19,3 +19,7 @@ but Seattle-area and legitimate. No ICS/API found on this page. Before
 implementing, check `pugetsoundkeeper.org/events` (or similar) directly for a
 scrapable listing, or consider modeling as a `sources/recurring/` entry given
 the annual/seasonal cadence rather than a live ripper.
+
+Re-checked 2026-09-16: `pugetsoundkeeper.org/events/` returns HTTP 403 from
+this environment. Not stageable per the blocked-here rule; leaving as
+`candidate` and re-testing next cycle.
