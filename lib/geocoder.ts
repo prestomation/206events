@@ -1627,64 +1627,6 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'ws golf course @ 4470 35th sw, west seattle': { lat: 47.5621733, lng: -122.3728582 }, // 4470 35th Ave SW, Seattle, WA
   'wsu campus, 205 e spokane falls blvd, spokane, wa, 99202, united states': { lat: 47.6604773, lng: -117.4065903 }, // 205 E Spokane Falls Blvd, Spokane, WA
   'youngstown cultural arts center @ 4408 delridge way sw, west seattle': { lat: 47.5635848, lng: -122.3630355 }, // Youngstown Cultural Arts Center, 4408 Delridge Way SW, Seattle, WA
-
-  // --- 2026-09-16 geo-resolver batch: "has street address" / "venue name only"
-  // unresolvable entries from geo-cache.py analyze. Addresses verified via web
-  // search against each venue's own site/listing where needed, then
-  // forward-geocoded via Nominatim (Overpass-confirmed shared node for the one
-  // plain-intersection entry that resolved that way). Never reverse-geocoded.
-  // (502 main st/edmonds, 999 se pioneer way/oak harbor, bainbridge island,
-  // bainbridge performing arts center, burien farmer's market, and vashon
-  // center for the arts were already covered by earlier batches — this run's
-  // analyze was reading a stale geo-cache mirror, same as the 2026-08-26 note
-  // above.)
-  '1419 elliott avenue west': { lat: 47.6307008, lng: -122.3743874 }, // ROQ Climbing, Elliott Junction building, Interbay — prefix covers "(downstairs)"/"(main location)" suffix variants
-  '17th ave ne & ne 47th st': { lat: 47.6630688, lng: -122.3095098 }, // Overpass-confirmed intersection node, University District
-  '3491 11th sw, west seattle': { lat: 47.5718218, lng: -122.3498445 }, // Nominatim direct address match — 11th Ave SW industrial corridor south of the West Seattle Bridge (98134)
-  '37th sw & sw othello, west seattle': { lat: 47.5369296, lng: -122.3796275 }, // High Point/Delridge — nearest addressed point (3700 block SW Othello St) to the named intersection
-  // Alias of the existing 'highland park corner store @ 7789 highland park way sw, west seattle' entry — this source omits the venue-name prefix.
-  '7789 highland park way sw, west seattle': { lat: 47.5321137, lng: -122.347104 },
-  '8th and columbia, seattle, wa 98122': { lat: 47.6070150, lng: -122.3271791 }, // First Hill/Yesler Terrace — Nominatim direct address match (800 Columbia St)
-  '8th ave ne & ne 105th st, seattle, wa 98125': { lat: 47.7050620, lng: -122.3203650 }, // Pinehurst — Nominatim direct address match, confirmed from both cross streets independently
-  'level 1, 1930 3rd ave lower level,, seattle, wa 98101': { lat: 47.6124246, lng: -122.3403680 }, // Level 1 @ Cannonball Arts — Nominatim direct name match
-  'ne 66th st and 14th ave ne': { lat: 47.6765960, lng: -122.3129540 }, // Roosevelt/Green Lake — Nominatim direct address match (1400 block NE 66th St)
-
-  'beaver pond natural area on tc, seattle, wa': { lat: 47.7032253, lng: -122.3226677 }, // Beaver Pond Natural Area on Thornton Creek, Northgate
-  // Alias of the Columbia City neighborhood centroid (SEATTLE_NEIGHBORHOOD_CENTROIDS) —
-  // lookupNeighborhoodCentroid's fixed phrasing doesn't match a "downtown <hood>" prefix.
-  'downtown columbia city': { lat: 47.5596, lng: -122.2893 },
-  'east duwamish gs: s chicago st, seattle, wa': { lat: 47.5326688, lng: -122.3241356 }, // East Duwamish Greenbelt, Georgetown segment near S Chicago St
-  'figurehead brewing (fremont), seattle, wa': { lat: 47.6499568, lng: -122.3429942 }, // Figurehead Brewing's Stone Way Taproom & Kitchen, 3513 Stone Way N
-  'japanese american museum of oregon': { lat: 45.5261047, lng: -122.6747179 }, // 411 NW Flanders St, Portland, OR — precedent: other out-of-area PNW venues already in this table
-  // Alias of the existing 'jazztime seattle – the studio, seattle, wa' entry — this source uses the short form.
-  'jazztime, seattle, wa': { lat: 47.6719513, lng: -122.292971 },
-  'judge charles m. stokes overlk, seattle, wa': { lat: 47.5917437, lng: -122.3062526 }, // Judge Charles M. Stokes Overlook, Judkins Park — Nominatim direct name match (source truncates "overlook" to "overlk")
-  'keystone congregational church': { lat: 47.6655927, lng: -122.3313699 }, // 5019 Keystone Pl N, Wallingford/Tangletown
-  'little brook natural area, seattle, wa': { lat: 47.7304652, lng: -122.2939680 }, // Little Brook Park, 14043 32nd Ave NE, Lake City
-  // Longfellow Creek's named sub-segments aren't individually indexed in OSM;
-  // approximated with the creek's three geographically-distinct public landmarks
-  // (south headwaters, central natural area, Delridge segment).
-  'longfellow creek gs: central, seattle, wa': { lat: 47.5346301, lng: -122.3620371 }, // Longfellow Creek Natural Area centroid (OSM relation 808878)
-  'longfellow creek gs: delridge natural area, seattle, wa': { lat: 47.5666134, lng: -122.3676733 }, // Dragonfly Pavilion and Garden, Delridge segment
-  'longfellow creek gs: south, seattle, wa': { lat: 47.5192141, lng: -122.3685985 }, // Roxhill Park, creek headwaters
-  // UW campus walking-tour meeting points — aliases of existing campus-landmark entries above.
-  'meet at drumheller fountain on the university of washington seattle campus., - please rsvp at the link in the tour description': { lat: 47.6538087, lng: -122.3078047 }, // alias of 'drumheller fountain (uw campus)'
-  'meet at the bus shelter just west of anderson hall on stevens way., - please rsvp at the link in the tour description': { lat: 47.6553, lng: -122.3035 }, // approximate — alias of 'anderson hall courtyard'
-  'meet at the front entrance (campus facing side) of the burke museum of natural history and culture - please rsvp at the link in the tour description': { lat: 47.6605211, lng: -122.3115605 }, // Burke Museum of Natural History and Culture, UW campus
-  'meet at the front entrance of the husky union building - please rsvp at the link in the tour description': { lat: 47.6557, lng: -122.3050 }, // alias of the HUB entry in UW_BUILDING_COORDS
-  'northwest railway museum': { lat: 47.5284354, lng: -121.8256011 }, // Snoqualmie Depot, 38625 SE King St, Snoqualmie, WA
-  'orient express paris room': { lat: 47.5757148, lng: -122.3293103 }, // Orient Express Lounge's "Paris Room" train car, 2963 4th Ave S, Seattle — Nominatim direct name match on the venue itself
-  'st. marks greenbelt, seattle, wa': { lat: 47.6324166, lng: -122.3226197 }, // 1500 Lakeview Blvd E, Capitol Hill, adjacent to St. Mark's Cathedral
-  // Seattle University Student Center's "Hearth" room — alias of the existing SU campus-cluster
-  // coords (see 'redhawk center' etc. above); prefix covers the ", seattle, wa" suffix variant too.
-  'student center, hearth': { lat: 47.6095, lng: -122.3188 },
-  'sunset hill community hall': { lat: 47.6763696, lng: -122.3960649 }, // Sunset Hill Community Clubhouse, 3003 NW 66th St, Ballard
-  // Waterways Cruises & Events moved homeport to Fisherman's Terminal Dock 9 in May 2026
-  // (per the company's own site); using the current dock address, not the former South Lake
-  // Union location, since this resolves events going forward.
-  'waterways cruises and events': { lat: 47.6557074, lng: -122.3801098 }, // 3919 18th Ave W, Fisherman's Terminal Dock 9, Magnolia
-  'west: international district community center': { lat: 47.5960270, lng: -122.3226387 }, // International District/Chinatown Community Center, 719 8th Ave S
-  'woodlawn hall': { lat: 47.6825149, lng: -122.3266868 }, // 7400 Woodlawn Ave NE, Green Lake — Abbey Arts Presents' community hall
 };
 
 /**
