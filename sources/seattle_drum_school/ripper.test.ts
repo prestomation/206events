@@ -110,6 +110,10 @@ describe('isSkippedTitle', () => {
         expect(isSkippedTitle('Primm Tabernacle AME Church Service (Sundays)')).toBe(true);
     });
 
+    it('flags the sitewide, locationless T-shirt day novelty listing', () => {
+        expect(isSkippedTitle('Intl Wear Your SDSM Tshirt Day!')).toBe(true);
+    });
+
     it('does not flag an ordinary community event', () => {
         expect(isSkippedTitle('COME RUN THE ROBOTS!')).toBe(false);
     });
@@ -218,10 +222,6 @@ describe('parseFeedItem — full fixture', () => {
         const items = extractFeedItems(loadSampleFeed()).filter(i => !(i.title && isSkippedTitle(i.title)));
         for (const raw of items) {
             const result = parseFeedItem(raw, ZONE);
-            if (!raw.location) {
-                expect('date' in result).toBe(false);
-                continue;
-            }
             expect('date' in result).toBe(true);
             const event = result as RipperCalendarEvent;
             expect(event.duration.toMinutes()).toBeGreaterThan(0);
@@ -234,7 +234,12 @@ describe('parseFeedItem — full fixture', () => {
         expect(items.some(i => i.title?.includes('Church Service'))).toBe(false);
     });
 
-    it('reports a ParseError for the listing with no stated location', () => {
+    it('filters out the locationless T-shirt day listing before parsing', () => {
+        const items = extractFeedItems(loadSampleFeed()).filter(i => !(i.title && isSkippedTitle(i.title)));
+        expect(items.some(i => i.title?.includes('Tshirt Day'))).toBe(false);
+    });
+
+    it('would still report a ParseError if a locationless item were parsed directly (defense in depth)', () => {
         const items = extractFeedItems(loadSampleFeed());
         const tshirtDay = items.find(i => i.title?.includes('Tshirt Day'));
         expect(tshirtDay).toBeDefined();

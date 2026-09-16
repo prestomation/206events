@@ -15,10 +15,12 @@ export const KNOWN_VENUES: Record<string, string> = {
     "Hellbent Brewery": "Hellbent Brewing Company, 13035 Lake City Way NE, Seattle, WA 98125",
 };
 
-// A weekly church congregation's worship service rented into the space —
-// not a general public community event in the sense the rest of this feed
-// is, so it's filtered out before parsing rather than published as one.
-const SKIPPED_TITLE_SUBSTRINGS = ["Church Service"];
+// Listings that aren't general public community events, filtered out before
+// parsing rather than published (or surfaced as ParseErrors) as one:
+// - a weekly church congregation's worship service rented into the space
+// - a sitewide "wear your merch" novelty day with no mec:location at all
+//   ("stop by either of our schools" — not tied to one place or time)
+const SKIPPED_TITLE_SUBSTRINGS = ["Church Service", "Wear Your SDSM Tshirt Day"];
 
 export interface RawSdsmItem {
     title?: string;

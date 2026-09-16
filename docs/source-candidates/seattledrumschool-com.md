@@ -28,11 +28,14 @@ Two venues appear across the feed: "The LAB@1010 | SDSM Georgetown" (1010 S
 Bailey St, Seattle — 48/50 sampled items) and "Hellbent Brewery" (13035
 Lake City Way NE, Seattle — an occasional off-site show), mapped to full
 addresses via a `KNOWN_VENUES` table for precise geocoding, same pattern as
-NW Dance. One recurring listing, a weekly church congregation's rented
-worship service, is filtered out before parsing (not a general public
-community event). `sourceRole: venue`, fixed `geo: null` (per-event
+NW Dance. Two recurring listings are filtered out before parsing (not
+general public community events): a weekly church congregation's rented
+worship service, and a sitewide "wear your merch" novelty day with no
+stated venue at all. `sourceRole: venue`, fixed `geo: null` (per-event
 location field, standard geocoding pipeline), tags `Music`, `Georgetown`.
-48 events, 1 non-fatal `ParseError` (a "Wear Your SDSM T-Shirt Day" listing
-with no stated location — correctly surfaced rather than silently dropped
-per the "parse methods never return null" rule), 0 unresolvable locations,
-verified via `ONLY_SOURCE=seattle-drum-school npm run generate-calendars`.
+48 events, 0 parse errors, 0 unresolvable locations, verified via
+`ONLY_SOURCE=seattle-drum-school npm run generate-calendars`. (The
+new-source gate fails any brand-new source with even one parse error, so
+the locationless novelty listing is filtered rather than surfaced as a
+ParseError — unlike an ongoing source, where the uncertainty/error system
+would track it instead.)
