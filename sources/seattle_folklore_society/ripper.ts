@@ -1,4 +1,4 @@
-import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
+import { ChronoUnit, Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { parse } from "node-html-parser";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
@@ -14,43 +14,81 @@ const MONTH_ABBREVS: Record<string, number> = {
 
 // Parse "Jul 29, 2026 (Wed), 7:30 pm - 10:00 pm" → start LocalDateTime + duration
 export function parseDateTimeStr(dateStr: string): { start: LocalDateTime; duration: Duration } | null {
+    // Single-day with times: "Jul 29, 2026 (Wed), 7:30 pm - 10:00 pm"
     const m = dateStr.match(
         /^(\w+)\s+(\d+),\s+(\d{4})\s+\([A-Za-z]+\),\s+(\d+):(\d{2})\s+(am|pm)\s*-\s*(\d+):(\d{2})\s+(am|pm)/i
     );
-    if (!m) return null;
+    if (m) {
+        const [, monthStr, dayStr, yearStr, startHrStr, startMinStr, startAmpm,
+               endHrStr, endMinStr, endAmpm] = m;
 
-    const [, monthStr, dayStr, yearStr, startHrStr, startMinStr, startAmpm,
-           endHrStr, endMinStr, endAmpm] = m;
+        const month = MONTH_ABBREVS[monthStr.toLowerCase().slice(0, 3)];
+        if (!month) return null;
 
-    const month = MONTH_ABBREVS[monthStr.toLowerCase().slice(0, 3)];
-    if (!month) return null;
+        const toHour = (hr: string, ampm: string) => {
+            let h = parseInt(hr, 10);
+            const isAm = ampm.toLowerCase() === 'am';
+            if (isAm && h === 12) h = 0;
+            if (!isAm && h !== 12) h += 12;
+            return h;
+        };
 
-    const toHour = (hr: string, ampm: string) => {
-        let h = parseInt(hr, 10);
-        const isAm = ampm.toLowerCase() === 'am';
-        if (isAm && h === 12) h = 0;
-        if (!isAm && h !== 12) h += 12;
-        return h;
-    };
+        const year = parseInt(yearStr, 10);
+        const day = parseInt(dayStr, 10);
+        const startHour = toHour(startHrStr, startAmpm);
+        const startMin = parseInt(startMinStr, 10);
+        const endHour = toHour(endHrStr, endAmpm);
+        const endMin = parseInt(endMinStr, 10);
 
-    const year = parseInt(yearStr, 10);
-    const day = parseInt(dayStr, 10);
-    const startHour = toHour(startHrStr, startAmpm);
-    const startMin = parseInt(startMinStr, 10);
-    const endHour = toHour(endHrStr, endAmpm);
-    const endMin = parseInt(endMinStr, 10);
-
-    try {
-        const start = LocalDateTime.of(year, month, day, startHour, startMin, 0);
-        const endTotal = endHour * 60 + endMin;
-        const startTotal = startHour * 60 + startMin;
-        let diffMin = endTotal - startTotal;
-        if (diffMin <= 0) diffMin += 24 * 60; // handles midnight crossover
-        const duration = Duration.ofMinutes(diffMin);
-        return { start, duration };
-    } catch {
-        return null;
+        try {
+            const start = LocalDateTime.of(year, month, day, startHour, startMin, 0);
+            const endTotal = endHour * 60 + endMin;
+            const startTotal = startHour * 60 + startMin;
+            let diffMin = endTotal - startTotal;
+            if (diffMin <= 0) diffMin += 24 * 60; // handles midnight crossover
+            const duration = Duration.ofMinutes(diffMin);
+            return { start, duration };
+        } catch {
+            return null;
+        }
     }
+
+    // Multi-day all-day: "Oct 09, 2026 (Fri) - Oct 11, 2026 (Sun), All Day"
+    const mMulti = dateStr.match(
+        /^(\w+)\s+(\d+),\s+(\d{4})\s+\([A-Za-z]+\)\s*-\s*(\w+)\s+(\d+),\s+(\d{4})\s+\([A-Za-z]+\),\s*All Day/i
+    );
+    if (mMulti) {
+        const [, startMonStr, startDayStr, startYearStr, endMonStr, endDayStr, endYearStr] = mMulti;
+        const startMon = MONTH_ABBREVS[startMonStr.toLowerCase().slice(0, 3)];
+        const endMon = MONTH_ABBREVS[endMonStr.toLowerCase().slice(0, 3)];
+        if (!startMon || !endMon) return null;
+        try {
+            const start = LocalDateTime.of(parseInt(startYearStr), startMon, parseInt(startDayStr), 0, 0, 0);
+            const end = LocalDateTime.of(parseInt(endYearStr), endMon, parseInt(endDayStr), 0, 0, 0);
+            // inclusive: Oct 9 - Oct 11 = 3 days
+            const diffDays = start.toLocalDate().until(end.toLocalDate(), ChronoUnit.DAYS) + 1;
+            const duration = Duration.ofSeconds(diffDays * 86400);
+            return { start, duration };
+        } catch {
+            return null;
+        }
+    }
+
+    // Single-day all-day: "Oct 09, 2026 (Fri), All Day"
+    const mSingle = dateStr.match(/^(\w+)\s+(\d+),\s+(\d{4})\s+\([A-Za-z]+\),\s*All Day/i);
+    if (mSingle) {
+        const [, monthStr, dayStr, yearStr] = mSingle;
+        const month = MONTH_ABBREVS[monthStr.toLowerCase().slice(0, 3)];
+        if (!month) return null;
+        try {
+            const start = LocalDateTime.of(parseInt(yearStr), month, parseInt(dayStr), 0, 0, 0);
+            return { start, duration: Duration.ofHours(24) };
+        } catch {
+            return null;
+        }
+    }
+
+    return null;
 }
 
 // Combine URL slug + date for a stable, collision-free event ID
