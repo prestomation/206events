@@ -1,0 +1,11 @@
+name: outdoors-for-all
+sourceRole: venue
+description: "Outdoors for All Foundation"
+url: "https://outdoorsforall.org/events/feed/"
+friendlyLink: "https://outdoorsforall.org/events/"
+geo: null
+tags: ["Outdoors"]
+calendars:
+  - name: outdoors-for-all
+    friendlyname: "Outdoors for All Foundation"
+    timezone: America/Los_Angeles
