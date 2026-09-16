@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6184462
+  lng: -122.3536462
+  label: "159 Denny Way, Suite 105, Seattle, WA 98109"
+  osmType: node
+  osmId: 13325088101
+name: swamp-cow-kava-lounge-open-mic
+sourceRole: venue
+friendlyname: Open Mic at Swamp Cow Kava Lounge
+description: Weekly all-ages open mic — big talent, first-timers, and regulars welcome — at this alcohol-free kava lounge in Belltown. Sign-ups begin at 6:30pm.
+timezone: America/Los_Angeles
+location: "159 Denny Way, Suite 105, Seattle, WA 98109"
+url: https://www.swampcowkavalounge.com/weekly-events
+tags:
+  - OpenMic
+  - Belltown
+cost: free
+schedules:
+  - schedule: every Thursday
+    start_time: "19:00"
+    duration: PT3H

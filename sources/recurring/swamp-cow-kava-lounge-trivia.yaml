@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6184462
+  lng: -122.3536462
+  label: "159 Denny Way, Suite 105, Seattle, WA 98109"
+  osmType: node
+  osmId: 13325088101
+name: swamp-cow-kava-lounge-trivia
+sourceRole: venue
+friendlyname: Trivia Night at Swamp Cow Kava Lounge
+description: Weekly community trivia night hosted by @206__Trivia at this all-ages, alcohol-free kava lounge in Belltown.
+timezone: America/Los_Angeles
+location: "159 Denny Way, Suite 105, Seattle, WA 98109"
+url: https://www.swampcowkavalounge.com/weekly-events
+tags:
+  - Trivia
+  - Belltown
+cost: free
+schedules:
+  - schedule: every Wednesday
+    start_time: "19:30"
+    duration: PT1H30M
