@@ -1,0 +1,22 @@
+geo:
+  lat: 47.6139515
+  lng: -122.3225652
+  label: "719 E Pike St, Seattle, WA 98122"
+  osmType: node
+  osmId: 2159323122
+name: twatties-open-mic
+sourceRole: venue
+friendlyname: Twatties Open Mic
+description: Weekly absurdist/avant-garde open mic variety show — stand-up, music, poetry, drag, puppets, anything goes in a 4-minute set — at Saint John's Bar & Eatery on Capitol Hill. Sign-ups online, rotating host.
+timezone: America/Los_Angeles
+location: 719 E Pike St, Seattle, WA 98122
+url: https://www.killersetproductions.com/open-mic-in-pnw
+tags:
+  - OpenMic
+  - Comedy
+  - Capitol Hill
+cost: free
+schedules:
+  - schedule: every Monday
+    start_time: "20:00"
+    duration: PT2H
