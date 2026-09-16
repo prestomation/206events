@@ -9,6 +9,9 @@ description: "Sully's Queen Anne"
 url: "https://www.spothopperapp.com/api/spots/78398/events"
 friendlyLink: https://sullysqueenanne.com/seattle-queen-anne-sully-s-events
 tags: ["Nightlife", "QueenAnne"]
+# Neighborhood bar promo days (Cheeseburger/Beer/Taco Day, Halloween) — no
+# cover charge. SpotHopper API confirms `has_tickets: false` on every event.
+cost: free
 imageUrl: "https://static.spotapps.co/website_images/ab_websites/78398_website_v1/logo.png"
 geo:
   lat: 47.6343506

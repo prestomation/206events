@@ -81485,11 +81485,14 @@
     },
     "columbia-city-business-association:ccba-6843378": {
       "fields": {
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://columbiacityseattle.com/event-6843378"
+      "evidence": "https://columbiacityseattle.com/event-6843378 — Columbia City Community Sidewalk Sale, no admission fee mentioned; open community street sale"
     },
     "discover-slu:discover-slu-coffee-chat-kitchen-tour-2-2": {
       "fields": {
@@ -81993,27 +81996,36 @@
     },
     "wtia-community-events:wtia-community-events-calev-IYlJfQtzN6s17Aq": {
       "fields": {
-        "imageUrl": "https://assets.swoogo.com/uploads/full/6276755-6967ff3bf2825.png"
+        "imageUrl": "https://assets.swoogo.com/uploads/full/6276755-6967ff3bf2825.png",
+        "cost": {
+          "min": 250.0
+        }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://cyberriskalliance.swoogo.com/seattle-bellevue-oct-2026"
+      "evidence": "https://cyberriskalliance.swoogo.com/seattle-bellevue-oct-2026 — 'Standard Admission $250'"
     },
     "wtia-community-events:wtia-community-events-calev-OMCEPwbiQnecAdn": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/micronetonline/image/upload/f_auto/c_crop,h_1200,w_1200,x_0,y_0/q_auto/f_auto/q_auto/v1786057670/tenants/7dd5c4e2-37d0-4159-a6d6-029e738e1c1e/3035d2ff2bc34fe7963ccfd1dc94f033/T-N-Sept-GZ-Tile.png"
+        "imageUrl": "https://res.cloudinary.com/micronetonline/image/upload/f_auto/c_crop,h_1200,w_1200,x_0,y_0/q_auto/f_auto/q_auto/v1786057670/tenants/7dd5c4e2-37d0-4159-a6d6-029e738e1c1e/3035d2ff2bc34fe7963ccfd1dc94f033/T-N-Sept-GZ-Tile.png",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://members.washingtontechnology.org/calendar/Details/wtia-tech-night-september-2026-1885562"
+      "evidence": "https://members.washingtontechnology.org/calendar/Details/wtia-tech-night-september-2026-1885562 — WTIA members free (after joining), non-members '$15 and include two drinks and light appetizers'; anchoring on general-admission adult (non-member) price per rubric"
     },
     "wtia-community-events:wtia-community-events-calev-Wo1ITnTJvp9Qxip": {
       "fields": {
-        "imageUrl": "https://res.cloudinary.com/micronetonline/image/upload/f_auto/c_crop,h_900,w_900,x_0,y_0/q_auto/f_auto/q_auto/v1788294218/tenants/7dd5c4e2-37d0-4159-a6d6-029e738e1c1e/2912d4346a66477ba30ef59210ac288f/POWERED-BY-2.png"
+        "imageUrl": "https://res.cloudinary.com/micronetonline/image/upload/f_auto/c_crop,h_900,w_900,x_0,y_0/q_auto/f_auto/q_auto/v1788294218/tenants/7dd5c4e2-37d0-4159-a6d6-029e738e1c1e/2912d4346a66477ba30ef59210ac288f/POWERED-BY-2.png",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://members.washingtontechnology.org/calendar/Details/wtia-founder-cohort-14-demo-day-1902483"
+      "evidence": "https://members.washingtontechnology.org/calendar/Details/wtia-founder-cohort-14-demo-day-1902483 — WTIA members free, non-members 'Tickets are $15 and include light refreshments'; anchoring on general-admission (non-member) price per rubric"
     },
     "do206:do206-2026-09-15-a-chorus-line-tickets": {
       "fields": {
@@ -90566,11 +90578,14 @@
     },
     "seattle-folklore-society:seattle-folklore-society-old-growth-oldtime-festival-2026-10-09": {
       "fields": {
-        "location": "Seattle Latvian Community Center, 11710 3rd Avenue NE, Seattle, WA 98125"
+        "location": "Seattle Latvian Community Center, 11710 3rd Avenue NE, Seattle, WA 98125",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://www.seafolklore.org/events/old-growth-oldtime-festival/ names Latvian Community Center as the venue; address from https://www.seattlelatviancenter.com/"
+      "evidence": "https://www.seafolklore.org/events/old-growth-oldtime-festival/ — 'festival registration is on a donation, pay-what-you-want model...you can make your donation at the door' (PWYW, no fixed ticket price)"
     },
     "danceus-swing:danceus-1788243418450359-2026-09-22": {
       "unresolvable": true,
@@ -90587,6 +90602,777 @@
       "resolvedAt": "2026-09-16",
       "source": "agent",
       "evidence": "https://udistrictseattle.com/bobafest"
+    },
+    "seattle-drum-school:seattle-drum-school-11747-2026-09-16": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/mictlantecuhtli-aztec-dance-practice/ — Event page: 'Free Community Cultural Event, all ages'"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2026-10-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2026-11-08": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2026-12-13": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-01-10": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-02-14": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-03-14": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-04-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-05-09": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-06-13": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-07-11": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-08-08": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-09-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-10-10": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-11-14": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2027-12-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2028-01-09": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2028-02-13": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2028-03-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2028-04-09": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12078-2028-05-14": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+    },
+    "seattle-drum-school:seattle-drum-school-12683-2026-10-17": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/the-littles-workshops-return/ — Event page: '$25 - Call to Sign Up'"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2026-09-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2026-10-31": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2026-11-28": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2026-12-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-01-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-02-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-03-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-04-24": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-05-29": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-06-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-07-31": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-08-28": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-09-25": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-10-30": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-11-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2027-12-25": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2028-01-29": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2028-02-26": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2028-03-25": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2028-04-29": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+    },
+    "seattle-drum-school:seattle-drum-school-13521-2026-09-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/beers-beats-at-hellbent-brewing-sept-19/ — Event page: 'FREE ADMISSION' (21+, food/drink purchases optional)"
+    },
+    "seattle-drum-school:seattle-drum-school-13575-2026-09-17": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session"
+    },
+    "seattle-drum-school:seattle-drum-school-13575-2026-09-24": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session"
+    },
+    "seattle-drum-school:seattle-drum-school-13575-2026-10-01": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session"
+    },
+    "seattle-drum-school:seattle-drum-school-13575-2026-10-08": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session"
+    },
+    "seattle-drum-school:seattle-drum-school-13601-2026-09-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/free-tools-for-the-modern-freelancer-v2/ — Event page and seattlecomposers.org registration/events pages publish no price for this Expert Speaker Series session, only a registration link"
+    },
+    "do206:do206-2026-10-15-antibalas-tickets": {
+      "fields": {
+        "cost": {
+          "min": 47.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/antibalas-tickets — do206 listing text: 'Thu Oct 15 7:30PM $47.00'"
+    },
+    "do206:do206-2026-10-15-brian-noyes-luke-sweeney-bryan-john-appleby-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.39
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/brian-noyes-luke-sweeney-bryan-john-appleby-tickets — do206 listing text: 'Thu Oct 15 8:00PM 21+, $13.39'"
+    },
+    "do206:do206-2026-10-15-comedy-show-comedian-gwen-rose-at-laughs-comedy-tickets": {
+      "fields": {
+        "cost": {
+          "min": 23.68,
+          "max": 47.77
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/comedy-show-comedian-gwen-rose-at-laughs-comedy-tickets — do206 listing text: 'Thu Oct 15 8:00PM - 10:00PM $23.68-$47.77'"
+    },
+    "do206:do206-2026-10-15-cottage-corpse-with-harbor-seal-dining-dead-tickets": {
+      "fields": {
+        "cost": {
+          "min": 15.37
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/cottage-corpse-with-harbor-seal-dining-dead-tickets — do206 listing text: 'Thu Oct 15 7:30PM $15.37'"
+    },
+    "do206:do206-2026-10-15-daniel-squadron-tickets": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/daniel-squadron-tickets — do206 listing text: 'Thu Oct 15 6:00PM $10 – $35'"
+    },
+    "do206:do206-2026-10-15-daniel-squadron-with-austin-jenkins-tickets": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/daniel-squadron-with-austin-jenkins-tickets — do206 listing text: 'Thu Oct 15 6:00PM $10 – $35'"
+    },
+    "do206:do206-2026-10-15-derya-yildirim-grup-simsek-x-thee-marloes-tickets": {
+      "fields": {
+        "cost": {
+          "min": 31.26
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/derya-yildirim-grup-simsek-x-thee-marloes-tickets — do206 listing text: 'Thu Oct 15 8:00PM $31.26'"
+    },
+    "do206:do206-2026-10-15-girls-n-roses-guns-n-roses-tribute-with-38-coffin-tickets": {
+      "fields": {
+        "cost": {
+          "min": 15.63
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/girls-n-roses-guns-n-roses-tribute-with-38-coffin-tickets — do206 listing text: 'Thu Oct 15 7:30PM $15.63'"
+    },
+    "do206:do206-2026-10-15-loose-cannons-improv-feat-mucho-improv-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/loose-cannons-improv-feat-mucho-improv-tickets — do206 listing text: 'Thu Oct 15 8:00PM $13.71-$22.35'"
+    },
+    "do206:do206-2026-10-15-matt-pond-pa-bathtub-cigs-tickets": {
+      "fields": {
+        "cost": {
+          "min": 24.0,
+          "max": 28.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/matt-pond-pa-bathtub-cigs-tickets — do206 listing text: 'Oct 15 7:30PM $24, $28'"
+    },
+    "do206:do206-2026-10-15-naomi-wachira-nanseera-tickets": {
+      "fields": {
+        "cost": {
+          "min": 18.0,
+          "max": 23.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/naomi-wachira-nanseera-tickets — do206 listing text: 'Oct 15 6:00PM-10:00PM (doors) $18, $23'"
+    },
+    "do206:do206-2026-10-15-rocky-horror-improv-show-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/rocky-horror-improv-show-tickets — do206 listing text: 'Thu Oct 15 8:00PM $13.71-$22.35'"
+    },
+    "do206:do206-2026-10-15-spencer-krug-wolf-parade-tickets": {
+      "fields": {
+        "cost": {
+          "min": 18.0,
+          "max": 28.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/spencer-krug-wolf-parade-tickets — do206 listing text: 'Oct 15 8:00PM $18, $24, $28'"
+    },
+    "do206:do206-2026-10-15-this-is-halloween-tickets": {
+      "fields": {
+        "cost": {
+          "min": 35.0,
+          "max": 75.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/this-is-halloween-tickets — do206 listing text: 'Thu Oct 15 6:00PM $35 - $75'"
+    },
+    "do206:do206-2026-10-15-this-is-halloween-tickets-dr9qxzm": {
+      "fields": {
+        "cost": {
+          "min": 35.0,
+          "max": 75.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/this-is-halloween-tickets-dr9qxzm — do206 listing text: 'Thu Oct 15 9:00PM $35 - $75'"
+    },
+    "do206:do206-2026-10-15-converge-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/converge-tickets — do206 listing text: 'Buy Tickets' CTA present, no price text in static page (ticket widget is JS-rendered)"
+    },
+    "do206:do206-2026-10-15-doja-cat-tour-ma-vie-world-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/doja-cat-tour-ma-vie-world-tour-tickets — do206 listing text: 'Buy Tickets' CTA present, no face-value price in static page (Ticketmaster widget is JS-rendered)"
+    },
+    "do206:do206-2026-10-15-hazlett-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/hazlett-tickets — do206 listing text: 'Buy Tickets' CTA present, no price text in static page (ticket widget is JS-rendered)"
+    },
+    "do206:do206-2026-10-15-julian-lage-quartet-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/julian-lage-quartet-tickets — do206 listing text: 'Buy Tickets' CTA present, no price text in static page (ticket widget is JS-rendered)"
+    },
+    "do206:do206-2026-10-15-malcolm-todd-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/malcolm-todd-tickets — do206 listing text: 'Buy Tickets' CTA present, no price text in static page (ticket widget is JS-rendered)"
+    },
+    "do206:do206-2026-10-15-north-beach-gritty-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/north-beach-gritty-tickets — do206 listing text: 'Buy Tickets' CTA present, no price text in static page (ticket widget is JS-rendered)"
+    },
+    "do206:do206-2026-10-15-palace-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/palace-tickets — do206 listing text: 'Buy Tickets' CTA present, no price text in static page (ticket widget is JS-rendered)"
+    },
+    "do206:do206-2026-10-15-rocky-horror-picture-spooktacular-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/rocky-horror-picture-spooktacular-tour-tickets — do206 listing text: 'Buy Tickets' CTA present; only a $100 VIP meet-and-greet add-on is priced statically, base ticket price is JS-rendered"
+    },
+    "do206:do206-2026-10-15-wine-pairing-dinner-cruise-with-willamette-valley-vineyards-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/15/wine-pairing-dinner-cruise-with-willamette-valley-vineyards-tickets — do206 listing text: 'Buy Tickets' CTA present, no price text in static page (ticket widget is JS-rendered)"
+    },
+    "kremwerk:6aaa3d0bda65b149c8aca5c5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/01/joosed — 'get tickets!' link present, ticket vendor (tickets.kremwerk.com) page is a JS-rendered shell with no static price"
+    },
+    "kremwerk:6aaa3ef5d81bce1c9ab965b1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/09/19/werk-it-out-featuring-manwell — 'get tickets!' link present, ticket vendor page is a JS-rendered shell with no static price"
+    },
+    "kremwerk:6aaa4350efd9391a7b73cfee": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/10/so-you-do-drag — 'Presale: $10, Door: $15'"
+    },
+    "first-hill-improvement-association:6a32ece4d47a24501b4bedd2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/7/mindfulness-meditation — 'The Frye offers free, 30-minute drop-in sessions...Registration is not required'"
     }
   }
 }
