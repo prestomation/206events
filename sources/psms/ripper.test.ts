@@ -30,17 +30,25 @@ function makeDetailHtml(jsonLd: object): string {
 }
 
 describe("extractListItems", () => {
-    it("extracts every eventid from the feed-item cards", () => {
+    it("extracts every eventid and detail link from the feed-item cards", () => {
         const items = extractListItems(loadSampleList());
         expect(items.map(i => i.eventid)).toEqual([
             "225695", "225696", "225697", "192496", "192511", "225698",
             "192497", "192508", "192509", "192510", "225705", "192494",
             "192495", "192492", "192493",
         ]);
+        expect(items[0].detailUrl).toBe(
+            "https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS&eventid=225695"
+        );
     });
 
     it("returns an empty list for HTML with no feed-item cards", () => {
         expect(extractListItems("<html><body>no events</body></html>")).toEqual([]);
+    });
+
+    it("skips a feed-item whose link has no eventid query param", () => {
+        const html = `<section class="feed-item"><a class="ev-title-link" href="https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS">No id</a></section>`;
+        expect(extractListItems(html)).toEqual([]);
     });
 });
 
@@ -53,6 +61,16 @@ describe("extractEventJsonLd", () => {
 
     it("returns null when no JSON-LD script tag is present", () => {
         expect(extractEventJsonLd("<html><body>no data</body></html>")).toBeNull();
+    });
+
+    it("returns null when the JSON-LD script tag contains malformed JSON", () => {
+        const html = `<html><head><script type="application/ld+json">not valid json</script></head></html>`;
+        expect(extractEventJsonLd(html)).toBeNull();
+    });
+
+    it("returns null when the JSON-LD array has no @type: Event entry", () => {
+        const html = makeDetailHtml({ "@type": "Organization", name: "PSMS" });
+        expect(extractEventJsonLd(html)).toBeNull();
     });
 });
 
@@ -79,6 +97,10 @@ describe("isPublicEvent", () => {
 
     it("filters a Zoom-hosted board meeting", () => {
         expect(isPublicEvent(samples.boardMeeting)).toBe(false);
+    });
+
+    it("filters a virtual meeting even when the location name isn't the bare word \"Zoom\"", () => {
+        expect(isPublicEvent({ ...samples.boardMeeting, Location: { name: "Zoom Webinar" } })).toBe(false);
     });
 
     it("filters a members-only event by description text", () => {
@@ -119,6 +141,26 @@ describe("parseEventFromJsonLd", () => {
     it("returns a ParseError when startDate is missing", () => {
         const result = parseEventFromJsonLd({ name: "No date" }, "https://example.com/4", "1", zone);
         expect("type" in result && result.type).toBe("ParseError");
+    });
+
+    it("returns a ParseError when startDate can't be parsed", () => {
+        const result = parseEventFromJsonLd(
+            { name: "Bad date", startDate: "not-a-date", Location: { name: "Somewhere" } },
+            "https://example.com/6", "2", zone
+        );
+        if ("date" in result) throw new Error("expected a ParseError");
+        expect(result.type).toBe("ParseError");
+        expect(result.reason).toContain("Invalid startDate");
+    });
+
+    it("returns a ParseError when the event has no Location at all", () => {
+        const result = parseEventFromJsonLd(
+            { name: "No location", startDate: "2026-10-01T18:00:00" },
+            "https://example.com/7", "3", zone
+        );
+        if ("date" in result) throw new Error("expected a ParseError");
+        expect(result.type).toBe("ParseError");
+        expect(result.reason).toContain("Missing location");
     });
 });
 

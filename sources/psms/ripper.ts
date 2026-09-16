@@ -5,7 +5,6 @@ import { decodeEntities } from "../../lib/text-normalize.js";
 import '@js-joda/timezone';
 
 const USER_AGENT = "Mozilla/5.0 (compatible; 206events/1.0)";
-const DETAIL_URL_BASE = "https://mms.psms.org/Calendar/moreinfo.php";
 
 // Most PSMS listings (ID clinics, general meetings) carry a real
 // start/end time. A handful (the annual Wild Mushroom Show, multi-day
@@ -21,6 +20,7 @@ const DEFAULT_DURATION = Duration.ofHours(3);
 
 export interface PsmsListItem {
     eventid: string;
+    detailUrl: string;
 }
 
 export interface PsmsPlace {
@@ -45,14 +45,17 @@ export interface PsmsEventJsonLd {
     Location?: PsmsPlace;
 }
 
-/** Extract the eventids linked from the "all events" list page's feed-item cards. */
+/** Extract the detail-page links from the "all events" list page's feed-item cards. */
 export function extractListItems(html: string): PsmsListItem[] {
     const items: PsmsListItem[] = [];
     const sectionRegex = /<section class="feed-item">([\s\S]*?)<\/section>/g;
     let match: RegExpExecArray | null;
     while ((match = sectionRegex.exec(html)) !== null) {
-        const idMatch = match[1].match(/[?&]eventid=(\d+)/);
-        if (idMatch) items.push({ eventid: idMatch[1] });
+        const hrefMatch = match[1].match(/class="ev-title-link"\s+href="([^"]+)"/);
+        if (!hrefMatch) continue;
+        const detailUrl = decodeEntities(hrefMatch[1]);
+        const idMatch = detailUrl.match(/[?&]eventid=(\d+)/);
+        if (idMatch) items.push({ eventid: idMatch[1], detailUrl });
     }
     return items;
 }
@@ -81,7 +84,7 @@ export function hasTimeComponent(dateStr: string): boolean {
 // rather than guessed title prefixes, so it still catches a future
 // internal listing worded differently.
 export function isPublicEvent(jsonLd: PsmsEventJsonLd): boolean {
-    if (jsonLd.Location?.name?.trim().toLowerCase() === "zoom") return false;
+    if (jsonLd.Location?.name?.trim().toLowerCase().includes("zoom")) return false;
     const text = `${jsonLd.name ?? ""} ${jsonLd.description ?? ""}`.toLowerCase();
     if (text.includes("members only")) return false;
     return true;
@@ -161,23 +164,22 @@ export default class PsmsRipper implements IRipper {
         const errors: RipperError[] = [];
 
         for (const item of listItems) {
-            const detailUrl = `${DETAIL_URL_BASE}?org_id=PSMS&eventid=${item.eventid}`;
-            const detailRes = await fetchFn(detailUrl, {
+            const detailRes = await fetchFn(item.detailUrl, {
                 headers: { "User-Agent": USER_AGENT, "Referer": listUrl },
             });
             if (!detailRes.ok) {
-                errors.push({ type: "ParseError", reason: `HTTP ${detailRes.status} fetching event detail`, context: detailUrl });
+                errors.push({ type: "ParseError", reason: `HTTP ${detailRes.status} fetching event detail`, context: item.detailUrl });
                 continue;
             }
 
             const jsonLd = extractEventJsonLd(await detailRes.text());
             if (!jsonLd) {
-                errors.push({ type: "ParseError", reason: "No JSON-LD Event found on detail page", context: detailUrl });
+                errors.push({ type: "ParseError", reason: "No JSON-LD Event found on detail page", context: item.detailUrl });
                 continue;
             }
             if (!isPublicEvent(jsonLd)) continue;
 
-            const result = parseEventFromJsonLd(jsonLd, detailUrl, item.eventid, zone);
+            const result = parseEventFromJsonLd(jsonLd, item.detailUrl, item.eventid, zone);
             if (!("date" in result)) {
                 errors.push(result);
                 continue;
