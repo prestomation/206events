@@ -1,0 +1,22 @@
+# verified: 2026-09-16 via public spothopperapp.com JSON API (spot id 78398,
+# discovered from the spot_id query param on the site's own "Jobs" link).
+# Same SpotHopper platform as sources/angry_beaver_seattle. 4 live upcoming
+# events at time of check: National Cheeseburger Day, National Drink Beer
+# Day, National Taco Day, Halloween.
+name: sullys-queen-anne
+sourceRole: venue
+description: "Sully's Queen Anne"
+url: "https://www.spothopperapp.com/api/spots/78398/events"
+friendlyLink: https://sullysqueenanne.com/seattle-queen-anne-sully-s-events
+tags: ["Nightlife", "QueenAnne"]
+imageUrl: "https://static.spotapps.co/website_images/ab_websites/78398_website_v1/logo.png"
+geo:
+  lat: 47.6343506
+  lng: -122.3572732
+  label: "Sully's Lounge, 1625 Queen Anne Ave N, Seattle, WA 98109"
+  osmType: way
+  osmId: 189443281
+calendars:
+  - name: events
+    friendlyname: "Sully's Queen Anne"
+    timezone: America/Los_Angeles
