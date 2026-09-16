@@ -16,6 +16,10 @@ calendars:
   - name: jacobsen-observatory
     friendlyname: "Theodor Jacobsen Observatory Open Houses"
     timezone: America/Los_Angeles
+    # 2026-09-16: build-health flagged 0 events. Confirmed live on Eventbrite
+    # ("No upcoming events" for this organizer) — open houses run seasonally
+    # (academic year Wed/Sat nights) and aren't posted yet for the new season.
+    expectEmpty: true
     config:
       organizerId: "8618644131"
       defaultLocation: "4324 Memorial Way NE, Seattle, WA 98105"
