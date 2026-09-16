@@ -4,8 +4,13 @@ type: squarespace
 description: "FIUTS"
 url: "https://www.fiuts.org/calendar"
 friendlyLink: https://www.fiuts.org/calendar
-tags: ["Community"]
-geo: null
+tags: ["Community", "University District"]
+geo:
+  lat: 47.6593624
+  lng: -122.3182095
+  label: "FIUTS, 909 Northeast 43rd Street, Seattle, WA 98105"
+  osmType: node
+  osmId: 10536919009
 calendars:
   - name: all-events
     friendlyname: "FIUTS"

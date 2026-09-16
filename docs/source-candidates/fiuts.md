@@ -3,10 +3,10 @@ name: "FIUTS"
 status: added
 platform: Squarespace
 url: https://www.fiuts.org/calendar
-tags: [Community]
+tags: [Community, "University District"]
 firstSeen: 2026-09-16
 lastChecked: 2026-09-16
-pr:
+pr: 1518
 ---
 
 FIUTS (Foundation for International Understanding Through Students) is a
@@ -32,16 +32,22 @@ Investigated 2026-09-16:
 - Every sampled event's `location` field reports the same FIUTS office
   address (909 NE 43rd St, Seattle, WA 98105) regardless of the event's
   actual venue (e.g. the Trivia Night events are physically at Big Time
-  Brewery) — a source data-quality quirk, not a ripper bug. Per-event
-  geocoding will place those events at the FIUTS office pin rather than
-  the brewery; accepted as-is since the source itself doesn't distinguish.
+  Brewery) — a source data-quality quirk, not a ripper bug. Since every
+  event resolves to the identical string, per-event geocoding
+  (`geo: null`) would provide zero differentiation while also hiding the
+  source from `venues.json`/the map/neighborhood tag feeds — same
+  situation as the already-covered `u-district-partnership` and
+  `university-heights-center` sources, both of which use a fixed
+  ripper-level `geo`. Followed that precedent instead: fixed `geo`
+  pointing at the OSM node for FIUTS itself (`node/10536919009`,
+  confirmed via Nominatim — "Foundation for International Understanding
+  Through Students", 909 NE 43rd St).
 - Not a religious org; not found under `sources/` or any existing
   candidate file.
 
 Implemented as `sources/fiuts/ripper.yaml` using the built-in
 `squarespace` ripper type — no custom code needed. `sourceRole: venue`
-(first-party organizer of its own programming, even though hosted across
-several U-District locations), `geo: null` (per-event geocoding via the
-standard Nominatim pipeline), tag `Community`. Verified via
+(first-party organizer of its own programming), fixed `geo` (OSM node
+10536919009), tags `Community` and `University District`. Verified via
 `ONLY_SOURCE=fiuts npm run generate-calendars`: 36 events, 0 parse
-errors. `npm run typecheck` clean.
+errors. `npm run typecheck` clean. PR #1518.
