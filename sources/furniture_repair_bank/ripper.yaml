@@ -4,6 +4,7 @@ description: "Furniture Repair Bank"
 url: "https://www.repairbank.org/repair-bank-events"
 friendlyLink: https://www.repairbank.org/
 tags: ["Volunteer", "Community"]
+cost: free
 geo: null
 calendars:
   - name: furniture-repair-bank
