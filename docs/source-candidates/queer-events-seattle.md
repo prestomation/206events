@@ -26,3 +26,6 @@ Keep as `candidate`; re-check `?format=json` in a future cycle for
 `upcoming > 0` before implementing.
 
 Re-checked 2026-09-16: `/events-calendar?format=json` still `upcoming: 0`, `past: 1`. No change.
+
+Re-checked 2026-09-16 (source-discovery run implementing Union Seattle):
+still `upcoming: 0`, `past: 1`. No change.

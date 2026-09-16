@@ -1,0 +1,22 @@
+# verified: 2026-09-16 ok
+geo:
+  lat: 47.6127716
+  lng: -122.3189306
+  label: "Union Seattle, 1009 East Union Street, Seattle, WA 98122"
+  osmType: node
+  osmId: 2159322642
+name: union-seattle-wing-wednesdays
+sourceRole: venue
+friendlyname: Wing Wednesdays at Union Seattle
+description: Weekly wing special at this LGBTQ+ bar on Capitol Hill — 10 wings for $5, dine-in only, choice of Naked, Buffalo, or Bourbon BBQ sauce.
+timezone: America/Los_Angeles
+location: "1009 East Union Street, Seattle, WA 98122"
+url: https://www.unionseattle.com
+tags:
+  - Nightlife
+  - LGBTQ
+  - "Capitol Hill"
+schedules:
+  - schedule: every Wednesday
+    start_time: "16:00"
+    duration: PT6H
