@@ -6,7 +6,7 @@ url: https://www.firsthill.org/neighborhoodcalendar
 tags: [Community, "First Hill"]
 firstSeen: 2026-09-16
 lastChecked: 2026-09-16
-pr:
+pr: 1496
 ---
 
 Neighborhood improvement association for First Hill, curating a community
