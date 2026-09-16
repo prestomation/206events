@@ -1,0 +1,28 @@
+# verified: 2026-09-16 ok
+geo:
+  lat: 47.6307008
+  lng: -122.3743874
+  label: "Salle Auriol, 1419 Elliott Avenue West, Seattle, WA 98119"
+  osmType: node
+  osmId: 2462428041
+name: salle-auriol-open-fencing-epee-foil
+sourceRole: venue
+friendlyname: Open Fencing (Epee/Foil) at Salle Auriol
+description: Open fencing for epee and foil fencers with current qualified club memberships. USA Fencing membership required, and fencers must bring their own gear.
+timezone: America/Los_Angeles
+location: "1419 Elliott Avenue West (Downstairs), Seattle, WA 98119"
+url: https://www.salleauriol.com/calendar
+imageUrl: "https://images.squarespace-cdn.com/content/v1/53600614e4b04f774f7ce00f/1421271049419-WCWQ2S3HSZMQH0FUT5HJ/SalleLogo1.jpg"
+tags:
+  - Sports
+  - Interbay
+schedules:
+  - schedule: every Monday
+    start_time: "19:30"
+    duration: PT2H
+  - schedule: every Wednesday
+    start_time: "19:30"
+    duration: PT2H
+  - schedule: every Saturday
+    start_time: "10:30"
+    duration: PT2H
