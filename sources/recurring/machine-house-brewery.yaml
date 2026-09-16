@@ -14,6 +14,9 @@ location: "5718 Rainier Ave S, Seattle, WA 98118"
 url: https://www.machinehousebrewery.com/calendar/
 tags:
   - Music
+  # Hillman City isn't a registered neighborhood tag; Rainier Valley is
+  # the closer match than Seward Park (which names the park/peninsula
+  # further southeast) — same fallback used by filipino_community_seattle.
   - "Rainier Valley"
 cost: free
 schedules:

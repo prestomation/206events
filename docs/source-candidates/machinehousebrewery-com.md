@@ -6,7 +6,7 @@ url: https://www.machinehousebrewery.com/calendar/
 tags: ["Music", "Rainier Valley"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-16
-pr:
+pr: 1504
 ---
 
 Discovered via aggregator gap analysis. 3 events in the Seattle
@@ -35,7 +35,9 @@ with King Trivia) carry a `repeatEnds: "onDate"` with a 2024
 `repeatEndsDate` — their series formally ended over a year ago and
 aren't live. Only **Bluegrass Jam** has `repeatEnds: "never"`, matching
 its own description ("every Wednesday from 7pm to 9:30pm... all ages
-and skill levels").
+and skill levels"). Its raw event entry also carries explicit `tags:
+[{"tagName": "FREE"}, {"tagName": "All ages"}]` metadata, confirming
+`cost: free` directly from the source rather than inferring it.
 
 The venue itself has also moved since this candidate was first filed —
 confirmed current address via `/contact/`: 5718 Rainier Ave S, Seattle,
