@@ -1,0 +1,16 @@
+name: dma-space
+friendlyname: "dma.space"
+description: "Community hackerspace in Seattle's Madison Valley/Capitol Hill neighborhood, hosting open social nights, ham radio nights, and tabletop game nights"
+icsUrl: "https://calendar.google.com/calendar/ical/c_05d84e50144f94ecc8f03618c316421e422457d37df1d416b788dedff060df85%40group.calendar.google.com/public/basic.ics"
+infoUrl: "https://dma.space/"
+imageUrl: "https://dma.space/_astro/banner.DWGOX6aX.png"
+sourceRole: venue
+geo:
+  lat: 47.6145945
+  lng: -122.3172425
+  label: "dma.space, 1517 12th Ave Suite 207, Seattle, WA 98122"
+  osmType: node
+  osmId: 2158761242
+tags:
+  - Community
+  - Capitol Hill
