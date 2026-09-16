@@ -1,0 +1,12 @@
+name: first-hill-improvement-association
+sourceRole: aggregator
+type: squarespace
+description: "First Hill Improvement Association"
+url: "https://www.firsthill.org/neighborhoodcalendar"
+friendlyLink: https://www.firsthill.org/neighborhoodcalendar
+tags: ["Community", "First Hill"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "First Hill Improvement Association"
+    timezone: America/Los_Angeles
