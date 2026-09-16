@@ -1,0 +1,12 @@
+name: green-seattle-partnership
+sourceRole: aggregator
+description: "Green Seattle Partnership"
+url: "https://seattle.greencitypartnerships.org/event/calendar/"
+friendlyLink: https://seattle.greencitypartnerships.org/event/calendar/
+tags: ["Volunteer", "Outdoors"]
+cost: free
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Green Seattle Partnership Volunteer Events"
+    timezone: America/Los_Angeles
