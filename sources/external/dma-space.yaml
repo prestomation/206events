@@ -11,4 +11,6 @@ geo:
   label: "dma.space, 1517 12th Ave Suite 207, Seattle, WA 98122"
   osmType: node
   osmId: 2158761242
-tags: ["Community", "Capitol Hill"]
+tags:
+  - Community
+  - Capitol Hill
