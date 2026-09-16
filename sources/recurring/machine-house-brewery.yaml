@@ -1,0 +1,25 @@
+geo:
+  lat: 47.5507481
+  lng: -122.2771911
+  label: "Machine House Brewery, 5718 Rainier Ave S, Seattle, WA 98118"
+  osmType: node
+  osmId: 2429641156
+imageUrl: "https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/38755e88-bfdb-4041-89e4-1ad9952b9349/bluegrass-jam-seattle-free-machine-house.jpg"
+name: machine-house-brewery-bluegrass-jam
+sourceRole: venue
+friendlyname: Bluegrass Jam at Machine House Brewery
+description: Weekly all-ages bluegrass jam at this English-style ale brewery in Hillman City. No cover.
+timezone: America/Los_Angeles
+location: "5718 Rainier Ave S, Seattle, WA 98118"
+url: https://www.machinehousebrewery.com/calendar/
+tags:
+  - Music
+  # Hillman City isn't a registered neighborhood tag; Rainier Valley is
+  # the closer match than Seward Park (which names the park/peninsula
+  # further southeast) — same fallback used by filipino_community_seattle.
+  - "Rainier Valley"
+cost: free
+schedules:
+  - schedule: every Wednesday
+    start_time: "19:00"
+    duration: PT2H30M
