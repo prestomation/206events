@@ -6,7 +6,7 @@ url: https://www.swampcowkavalounge.com/weekly-events
 tags: [Trivia, OpenMic, Gaming, Belltown]
 firstSeen: 2026-09-16
 lastChecked: 2026-09-16
-pr:
+pr: 1508
 ---
 
 All-ages, alcohol-free kava lounge at 159 Denny Way, Suite 105, Belltown
