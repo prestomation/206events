@@ -1,0 +1,26 @@
+geo:
+  lat: 47.5792045
+  lng: -122.3868803
+  label: "Seattle Yarn, 2701 California Ave SW, Unit B, Seattle, WA 98116"
+  osmType: node
+  osmId: 13448310267
+name: seattle-yarn-sit-and-stitch
+sourceRole: venue
+friendlyname: Sit and Stitch at Seattle Yarn
+description: Drop-in knitting, crochet, spinning, weaving, embroidery, and cross-stitch group at this West Seattle yarn shop. Bring whatever you're working on.
+timezone: America/Los_Angeles
+location: "2701 California Ave SW, Unit B, Seattle, WA 98116"
+url: https://seattleyarn.com/pages/in-person-gatherings
+tags:
+  - Community
+  - "West Seattle"
+schedules:
+  - schedule: every Sunday
+    start_time: "11:00"
+    duration: PT6H
+  - schedule: every Tuesday
+    start_time: "13:00"
+    duration: PT2H
+  - schedule: "2nd and 4th Wednesday"
+    start_time: "18:00"
+    duration: PT2H
