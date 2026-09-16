@@ -6,7 +6,7 @@ url: https://seattledrumschool.com/events/
 tags: ["Music", "Georgetown"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-16
-pr:
+pr: 1507
 ---
 
 Discovered via aggregator gap analysis (single one-off event: "Legal Lens
