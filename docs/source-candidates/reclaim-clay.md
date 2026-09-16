@@ -3,7 +3,7 @@ name: Reclaim Clay Classes
 status: added
 platform: Squarespace
 url: https://www.reclaimclay.com/classes-and-workshops
-tags: [Creation]
+tags: [Creation, "International District"]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-16
 pr: 1506
