@@ -1,0 +1,12 @@
+name: fiuts
+sourceRole: venue
+type: squarespace
+description: "FIUTS"
+url: "https://www.fiuts.org/calendar"
+friendlyLink: https://www.fiuts.org/calendar
+tags: ["Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "FIUTS"
+    timezone: America/Los_Angeles
