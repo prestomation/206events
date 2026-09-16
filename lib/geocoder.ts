@@ -531,6 +531,11 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   "dave & buster's lynnwood": { lat: 47.8294928, lng: -122.2697503 },
   'discovery park, north parking lot': { lat: 47.6617, lng: -122.4077 },
   'duwamish longhouse': { lat: 47.5612, lng: -122.3598 },
+  // 8201 Lake City Way NE, Seattle, WA 98118 — Gator Boy Productions'
+  // recurring Friday dance venue. Coords match the existing Nominatim
+  // resolution already cached under "eagles mother aerie, 8201 lake city
+  // way ne, seattle, wa, 98118" in geo-cache.json (way 235376569).
+  'eagles mother aerie': { lat: 47.6887717, lng: -122.3108196, osmType: 'way', osmId: 235376569 },
   'fremont studios': { lat: 47.6513746, lng: -122.3556160 },
   'glasswing shop': { lat: 47.6175, lng: -122.3251 },
   'gard vintners, 19151 144th ave. ne unit d, woodinville, wa': { lat: 47.7553, lng: -122.1516 },
@@ -574,6 +579,12 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'pacave pizza (spokane)': { lat: 47.6587, lng: -117.4260 },
   'peace of mind brewing': { lat: 47.8316011, lng: -122.3053788 },
   'ravenna-eckstein community center': { lat: 47.6770, lng: -122.3044 },
+  // Oddfellows Hall, 2nd Floor, 915 E Pine St, Capitol Hill, Seattle, WA
+  // 98122 — Gator Boy Productions' recurring Sunday/class venue. Coords
+  // match the existing Nominatim resolution already cached under "reverie
+  // ballroom, 915 east pine street, seattle, wa, 98122" in geo-cache.json
+  // (node 6465643503).
+  'reverie ballroom': { lat: 47.6149886, lng: -122.3197679, osmType: 'node', osmId: 6465643503 },
   'seattle center armory': { lat: 47.6215, lng: -122.3509 },
   'sammamish commons': { lat: 47.6013675, lng: -122.0367582 },
   'shibuya hi-fi': { lat: 47.6134, lng: -122.3203 },
