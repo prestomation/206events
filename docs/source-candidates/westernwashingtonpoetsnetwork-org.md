@@ -6,7 +6,7 @@ url: https://www.westernwashingtonpoetsnetwork.org/home/seattle
 tags: [OpenMic, Literary, Wedgwood]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-16
-pr: TBD
+pr: 1511
 ---
 
 Discovered via aggregator gap analysis. 3 events in the Seattle
