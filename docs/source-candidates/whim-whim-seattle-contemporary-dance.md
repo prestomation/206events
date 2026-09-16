@@ -3,7 +3,7 @@ name: "Whim W'Him Seattle Contemporary Dance"
 status: added
 firstSeen: 2026-05-08
 lastChecked: 2026-09-16
-pr: TBD
+pr: 1503
 ---
 **Whim W'Him Seattle Contemporary Dance** — `https://whimwhim.org/calendar/` — Tags: Dance, Arts
 
