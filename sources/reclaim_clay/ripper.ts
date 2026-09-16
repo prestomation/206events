@@ -388,7 +388,7 @@ export function parseItem(item: SquarespaceItem, now: LocalDate): (RipperCalenda
                 continue;
             }
             const matchingVariants = variants.filter(v =>
-                Object.entries(v.attributes ?? {}).some(([k, val]) => isDatesAvailableKey(k) && val.trim() === dateStr)
+                Object.entries(v.attributes ?? {}).some(([k, val]) => isDatesAvailableKey(k) && val && val.trim() === dateStr)
             );
             results.push(...buildEventsFromParsedDate(item, parsed, minPriceOf(matchingVariants), shortHash(dateStr)));
         }
