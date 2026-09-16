@@ -1,0 +1,22 @@
+# verified: 2026-09-16 ok
+geo:
+  lat: 47.6127716
+  lng: -122.3189306
+  label: "Union Seattle, 1009 East Union Street, Seattle, WA 98122"
+  osmType: node
+  osmId: 2159322642
+name: union-seattle-sunday-funday
+sourceRole: venue
+friendlyname: Sunday Funday at Union Seattle
+description: Weekly Sunday brunch and patio party at this LGBTQ+ bar on Capitol Hill, with food and drink specials running all day.
+timezone: America/Los_Angeles
+location: "1009 East Union Street, Seattle, WA 98122"
+url: https://www.unionseattle.com
+tags:
+  - Nightlife
+  - LGBTQ
+  - "Capitol Hill"
+schedules:
+  - schedule: every Sunday
+    start_time: "12:00"
+    duration: PT4H
