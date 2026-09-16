@@ -1,6 +1,6 @@
 ---
 name: "Swamp Cow Kava Lounge"
-status: candidate
+status: added
 platform: Custom (recurring YAML — fixed weekly schedule, no scrapable calendar)
 url: https://www.swampcowkavalounge.com/weekly-events
 tags: [Trivia, OpenMic, Gaming, Belltown]
