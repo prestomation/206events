@@ -6,7 +6,7 @@ url: https://gatorboyproductions.com/events/
 tags: [Dance, Music]
 firstSeen: 2026-09-16
 lastChecked: 2026-09-16
-pr: TBD
+pr: 1520
 ---
 **Gator Boy Productions** — `sources/gator_boy_productions` — Seattle-based Cajun/Zydeco dance promoter run by Sean "Gator Boy" Donovan. No ICS feed, JSON API, or schema.org JSON-LD; the events page is a WordPress/Divi page builder layout where every event is a `div.et_pb_text_inner` block with an `<h5>` eyebrow (optional), an `<h4 class="sqsrte-small">DATE | TITLE</h4>` heading, and a `<p>` description that names the venue + address in free-text "at VENUE (ADDRESS)" form — no start time in a structured field, only mentioned in prose (e.g. "6:30pm Dance Lesson, 7:30-10pm dance"). Required a custom `HTMLRipper`-style `IRipper` implementation (`node-html-parser`).
 
