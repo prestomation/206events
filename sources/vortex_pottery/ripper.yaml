@@ -1,0 +1,16 @@
+name: vortex-pottery
+sourceRole: venue
+description: "Vortex Pottery"
+url: "https://vortexpottery.com/pottery-classes-seattle-washington"
+friendlyLink: https://vortexpottery.com/pottery-classes-seattle-washington
+tags: ["Creation", "Uptown"]
+geo:
+  lat: 47.6269348
+  lng: -122.3467619
+  label: "Vortex Pottery, 517 Aloha St, Seattle, WA 98109"
+  osmType: way
+  osmId: 231753890
+calendars:
+  - name: vortex-pottery
+    friendlyname: "Vortex Pottery"
+    timezone: America/Los_Angeles
