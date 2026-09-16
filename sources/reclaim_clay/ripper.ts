@@ -60,9 +60,12 @@ interface TimeInfo {
 // 1:30 PM", "2:00 PM - 4:00 PM", "6 - 9 PM" (bare hour, shared trailing
 // meridiem), "12 - 2PM" (no space before the meridiem), and bare slot times
 // like "3-4pm". A leading number's own meridiem (if present) wins; otherwise
-// it inherits the trailing one.
-const TIME_RANGE_RE = /\b(\d{1,2})(?::(\d{2}))?\s*([AaPp]\.?[Mm]\.?)?\s*[-–]\s*(\d{1,2})(?::(\d{2}))?\s*([AaPp]\.?[Mm]\.?)?\b/;
-const SINGLE_TIME_RE = /\b(\d{1,2})(?::(\d{2}))?\s*([AaPp]\.?[Mm]\.?)\b/;
+// it inherits the trailing one. Global so callers can skip past a leading
+// numeric-only "N - M" match with no meridiem at all (e.g. an age range like
+// "Ages 8 - 12" ahead of the real "12 - 2PM" time) instead of treating it as
+// the time.
+const TIME_RANGE_RE = /\b(\d{1,2})(?::(\d{2}))?\s*([AaPp]\.?[Mm]\.?)?\s*[-–]\s*(\d{1,2})(?::(\d{2}))?\s*([AaPp]\.?[Mm]\.?)?\b/g;
+const SINGLE_TIME_RE = /\b(\d{1,2})(?::(\d{2}))?\s*([AaPp]\.?[Mm]\.?)\b/g;
 
 function to24Hour(hour: number, meridiem: string | undefined): number {
     if (!meridiem) return hour;
@@ -75,21 +78,18 @@ function to24Hour(hour: number, meridiem: string | undefined): number {
 // Public for testing. Returns null when no time-of-day is present in the
 // text at all.
 export function parseTimeRange(text: string): TimeInfo | null {
-    const range = text.match(TIME_RANGE_RE);
-    if (range) {
+    for (const range of text.matchAll(TIME_RANGE_RE)) {
         const [, h1, min1, mer1, h2, min2, mer2] = range;
         const meridiem = mer1 || mer2;
-        if (meridiem) {
-            return {
-                startHour: to24Hour(parseInt(h1, 10), mer1 || meridiem),
-                startMinute: min1 ? parseInt(min1, 10) : 0,
-                endHour: to24Hour(parseInt(h2, 10), mer2 || meridiem),
-                endMinute: min2 ? parseInt(min2, 10) : 0,
-            };
-        }
+        if (!meridiem) continue;
+        return {
+            startHour: to24Hour(parseInt(h1, 10), mer1 || meridiem),
+            startMinute: min1 ? parseInt(min1, 10) : 0,
+            endHour: to24Hour(parseInt(h2, 10), mer2 || meridiem),
+            endMinute: min2 ? parseInt(min2, 10) : 0,
+        };
     }
-    const single = text.match(SINGLE_TIME_RE);
-    if (single) {
+    for (const single of text.matchAll(SINGLE_TIME_RE)) {
         const [, h, min, mer] = single;
         return {
             startHour: to24Hour(parseInt(h, 10), mer),
@@ -121,13 +121,16 @@ const ORDINAL_RE = /(\d+)(st|nd|rd|th)\b/gi;
 const PLURAL_WEEKDAY_START_RE = /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)s\b/i;
 
 // "Month D - Month D" (or "Month D - Month D" same month twice, e.g.
-// "Oct 3 - Oct 4"). Deliberately requires a month word on *both* sides so it
-// never collides with a bare numeric time range like "12 - 2PM" or a price
-// range like "$355-$375".
-const DATE_RANGE_RE = /\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\s*[-–]\s*([A-Za-z]{3,9})\.?\s+(\d{1,2})\b/;
+// "Oct 3 - Oct 4"). Deliberately requires a word on *both* sides so it never
+// collides with a bare numeric time range like "12 - 2PM" or a price range
+// like "$355-$375". Global so callers can skip past a leading non-month
+// "word digit" match (e.g. "Ages 8 - 12" before the real date) instead of
+// failing outright on the first candidate.
+const DATE_RANGE_RE = /\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\s*[-–]\s*([A-Za-z]{3,9})\.?\s+(\d{1,2})\b/g;
 
-// A single "Month D" (used once no two-sided range is found).
-const SINGLE_DATE_RE = /\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\b/;
+// A single "Month D" (used once no two-sided range is found). Also global —
+// see DATE_RANGE_RE (e.g. "Ages 8+, Saturday, Nov 21, ...").
+const SINGLE_DATE_RE = /\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\b/g;
 
 // Assume the current year; if that reading would already be more than ~2
 // months in the past, assume the source means next year. Mirrors
@@ -156,14 +159,16 @@ export type ParsedDateText =
 export function parseDateText(raw: string, now: LocalDate): ParsedDateText | null {
     const text = raw.replace(ORDINAL_RE, "$1");
 
-    const rangeMatch = text.match(DATE_RANGE_RE);
-    if (rangeMatch) {
+    // Try every "word digit - word digit" candidate in order, skipping past
+    // ones whose words aren't month names (e.g. "Ages 8 - 12" ahead of the
+    // real date) rather than giving up on the first candidate.
+    for (const rangeMatch of text.matchAll(DATE_RANGE_RE)) {
         const startMonth = monthFromToken(rangeMatch[1]);
-        const startDay = parseInt(rangeMatch[2], 10);
         const endMonth = monthFromToken(rangeMatch[3]);
-        const endDay = parseInt(rangeMatch[4], 10);
-        if (!startMonth || !endMonth) return null;
+        if (!startMonth || !endMonth) continue;
 
+        const startDay = parseInt(rangeMatch[2], 10);
+        const endDay = parseInt(rangeMatch[4], 10);
         const startYear = inferYear(startMonth, startDay, now);
         // The range never carries its own year for the end date; roll it
         // forward only if the end month/day would otherwise precede the
@@ -177,7 +182,7 @@ export function parseDateText(raw: string, now: LocalDate): ParsedDateText | nul
             start = LocalDate.of(startYear, startMonth, startDay);
             end = LocalDate.of(endYear, endMonth, endDay);
         } catch {
-            return null;
+            continue;
         }
 
         const time = parseTimeRange(text);
@@ -185,20 +190,24 @@ export function parseDateText(raw: string, now: LocalDate): ParsedDateText | nul
         return { kind, start, end, time };
     }
 
-    const singleMatch = text.match(SINGLE_DATE_RE);
-    if (!singleMatch) return null;
-    const month = monthFromToken(singleMatch[1]);
-    if (!month) return null;
-    const day = parseInt(singleMatch[2], 10);
-    const year = inferYear(month, day, now);
+    // Same idea for a single "word digit" candidate (used once no two-sided
+    // range is found).
+    for (const singleMatch of text.matchAll(SINGLE_DATE_RE)) {
+        const month = monthFromToken(singleMatch[1]);
+        if (!month) continue;
+        const day = parseInt(singleMatch[2], 10);
+        const year = inferYear(month, day, now);
 
-    let date: LocalDate;
-    try {
-        date = LocalDate.of(year, month, day);
-    } catch {
-        return null;
+        let date: LocalDate;
+        try {
+            date = LocalDate.of(year, month, day);
+        } catch {
+            continue;
+        }
+        return { kind: "single", date, time: parseTimeRange(text) };
     }
-    return { kind: "single", date, time: parseTimeRange(text) };
+
+    return null;
 }
 
 // --- Excerpt / variant helpers -----------------------------------------
@@ -295,6 +304,9 @@ function buildSingleEvent(
         source: "reclaim-clay",
         unknownFields: ["startTime"],
         event,
+        // Invalidates a stale cached resolution if the source text this
+        // was parsed from ever changes (e.g. upstream adds a real time).
+        partialFingerprint: shortHash(`${item.title}|${date.toString()}|no-time`),
     };
     return [event, uncertainty];
 }
@@ -337,13 +349,21 @@ function buildEventsFromParsedDate(
     if (parsed.kind === "range") {
         const startHour = parsed.time?.startHour ?? DEFAULT_UNKNOWN_TIME_HOUR;
         const startMinute = parsed.time?.startMinute ?? DEFAULT_UNKNOWN_TIME_MINUTE;
-        const endHour = parsed.time?.endHour ?? startHour;
-        const endMinute = parsed.time?.endMinute ?? startMinute;
+        const hasEndTime = parsed.time?.endHour !== undefined && parsed.time?.endMinute !== undefined;
 
         const startZdt = ZonedDateTime.of(parsed.start.year(), parsed.start.monthValue(), parsed.start.dayOfMonth(), startHour, startMinute, 0, 0, TIMEZONE);
-        const endZdt = ZonedDateTime.of(parsed.end.year(), parsed.end.monthValue(), parsed.end.dayOfMonth(), endHour, endMinute, 0, 0, TIMEZONE);
-        let duration = Duration.between(startZdt, endZdt);
-        if (duration.isZero() || duration.isNegative()) duration = DEFAULT_DURATION;
+
+        // Only compute a real end-to-end duration when the source actually
+        // gave us an end time. Without one, defaulting endHour/endMinute to
+        // the start time would mechanically produce a spurious ~24-hour
+        // (or N*24-hour) duration for a multi-day span — fall back to the
+        // same bounded default the single-date case uses instead.
+        let duration = DEFAULT_DURATION;
+        if (hasEndTime) {
+            const endZdt = ZonedDateTime.of(parsed.end.year(), parsed.end.monthValue(), parsed.end.dayOfMonth(), parsed.time!.endHour!, parsed.time!.endMinute!, 0, 0, TIMEZONE);
+            const between = Duration.between(startZdt, endZdt);
+            if (!between.isZero() && !between.isNegative()) duration = between;
+        }
 
         const id = `reclaim-clay-${item.urlId}-${suffixed(dateKey(parsed.start))}`;
         const event: RipperCalendarEvent = {
@@ -363,6 +383,7 @@ function buildEventsFromParsedDate(
             source: "reclaim-clay",
             unknownFields: ["startTime"],
             event,
+            partialFingerprint: shortHash(`${item.title}|${parsed.start.toString()}-${parsed.end.toString()}|no-time`),
         };
         return [event, uncertainty];
     }

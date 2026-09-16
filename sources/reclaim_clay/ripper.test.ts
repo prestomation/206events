@@ -282,4 +282,49 @@ describe('ReclaimClayRipper', () => {
             }
         });
     });
+
+    describe('date/time parsing robustness (leading non-date "word digit" text)', () => {
+        it('parseDateText skips a leading non-month "word digit" phrase (e.g. an age range) to find the real single date', () => {
+            const parsed = parseDateText('Ages 8+, Saturday, Nov 21, 2:00 PM - 4:00 PM', NOW);
+            expect(parsed).toEqual({
+                kind: 'single',
+                date: LocalDate.of(2026, 11, 21),
+                time: { startHour: 14, startMinute: 0, endHour: 16, endMinute: 0 },
+            });
+        });
+
+        it('parseDateText skips a leading non-month "word digit" phrase to find a real date range', () => {
+            const parsed = parseDateText('Ages 8 - 12, Saturday & Sunday, Oct 3 - Oct 4, 12 - 2PM', NOW);
+            expect(parsed).toEqual({
+                kind: 'range',
+                start: LocalDate.of(2026, 10, 3),
+                end: LocalDate.of(2026, 10, 4),
+                time: { startHour: 12, startMinute: 0, endHour: 14, endMinute: 0 },
+            });
+        });
+
+        it('parseTimeRange skips a leading numeric-only range with no AM/PM (e.g. an age range) to find the real time', () => {
+            expect(parseTimeRange('Ages 8 - 12, Saturday & Sunday, Oct 3 - Oct 4, 12 - 2PM')).toEqual({
+                startHour: 12,
+                startMinute: 0,
+                endHour: 14,
+                endMinute: 0,
+            });
+        });
+    });
+
+    describe('multi-day range with only a start time', () => {
+        it('falls back to the bounded default duration instead of a mechanical ~24-hour span', () => {
+            const parsed = parseDateText('Saturday & Sunday, Nov 7 - Nov 8, 9am', NOW);
+            expect(parsed?.kind).toBe('range');
+            const item = findItem(items, 'handmade-altar-2-day-workshop');
+            const results = parseItem({ ...item, excerpt: '<strong>Saturday &amp; Sunday, Nov 7 - Nov 8, 9am</strong>' } as any, NOW);
+            const events = results.filter((r): r is RipperCalendarEvent => 'date' in r);
+            expect(events).toHaveLength(1);
+            expect(events[0].duration.toHours()).toBe(2);
+            // Start time is known (9am), so this should not be flagged uncertain.
+            const errors = results.filter((r): r is RipperError => 'type' in r);
+            expect(errors).toHaveLength(0);
+        });
+    });
 });
