@@ -1,0 +1,15 @@
+name: whim-whim
+sourceRole: venue
+type: ovationtix
+description: "Whim W'Him"
+url: "https://api.ovationtix.com/public/calendar/client(35510)"
+friendlyLink: "https://whimwhim.org"
+tags: ["Dance", "Arts"]
+geo: null
+calendars:
+  - name: whim-whim
+    friendlyname: "Whim W'Him Seattle Contemporary Dance"
+    timezone: America/Los_Angeles
+    config:
+      clientId: 35510
+      clientOrigin: "https://whimwhim.org"
