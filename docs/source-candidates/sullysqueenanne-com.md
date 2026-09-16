@@ -6,7 +6,7 @@ url: https://sullysqueenanne.com/seattle-queen-anne-sully-s-events
 tags: ["Nightlife", "QueenAnne"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-16
-pr: TBD
+pr: 1513
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
