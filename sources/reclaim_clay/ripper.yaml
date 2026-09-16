@@ -1,0 +1,16 @@
+name: reclaim-clay
+sourceRole: venue
+description: "Reclaim Clay Collective"
+url: "https://www.reclaimclay.com/classes-and-workshops"
+friendlyLink: https://www.reclaimclay.com/classes-and-workshops
+tags: ["Creation"]
+geo:
+  lat: 47.5977017
+  lng: -122.3221441
+  label: "Reclaim Clay Collective, 800 S Weller St #201, Seattle, WA 98104"
+  osmType: way
+  osmId: 235385510
+calendars:
+  - name: reclaim-clay
+    friendlyname: "Reclaim Clay Collective"
+    timezone: America/Los_Angeles
