@@ -1,0 +1,144 @@
+{
+  "idClinic": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "name": "First Fall Hildegard Hendrickson Mushroom ID clinic",
+    "startDate": "2026-09-28T16:00:00",
+    "endDate": "2026-09-28T19:00:00",
+    "Location": {
+      "@type": "Place",
+      "name": "Center for Urban Horticulture",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3501 NE 41st Street (Mary Gates Drive) ",
+        "addressLocality": "Seattle",
+        "postalCode": "98105",
+        "addressRegion": "WA",
+        "addressCountry": ""
+      }
+    },
+    "description": "Free Public Mushroom ID clinic"
+  },
+  "generalMeeting": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "name": "October General Meeting with Benjamin Lemmond",
+    "startDate": "2026-10-13T19:30:00",
+    "endDate": "2026-10-13T21:30:00",
+    "Location": {
+      "@type": "Place",
+      "name": "Center for Urban Horticulture",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3501 NE 41st Street (Mary Gates Drive) ",
+        "addressLocality": "Seattle",
+        "postalCode": "98105",
+        "addressRegion": "WA",
+        "addressCountry": ""
+      }
+    },
+    "description": "This meeting is free and open to the public."
+  },
+  "boardMeeting": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "name": "October Board of Trustees Meeting",
+    "startDate": "2026-10-19T19:30:00",
+    "endDate": "2026-10-19T21:30:00",
+    "Location": {
+      "@type": "Place",
+      "name": "Zoom",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": " ",
+        "addressLocality": "",
+        "postalCode": "",
+        "addressRegion": "",
+        "addressCountry": ""
+      }
+    },
+    "description": "This meeting is virtual by Zoom."
+  },
+  "wildMushroomShow": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "name": "Wild Mushroom Show",
+    "startDate": "2026-10-24",
+    "endDate": "2026-10-24",
+    "Location": {
+      "@type": "Place",
+      "name": "Shoreline Community College",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "16101 Greenwood Ave N ",
+        "addressLocality": "Shoreline",
+        "postalCode": "98133",
+        "addressRegion": "WA",
+        "addressCountry": ""
+      }
+    },
+    "description": "Our annual Wild Mushroom Show! Open to the public 12-6."
+  },
+  "benWooForay": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "validFrom": "2026-05-15",
+    "name": "Ben Woo Foray",
+    "startDate": "2026-10-16",
+    "endDate": "2026-10-18",
+    "Location": {
+      "@type": "Place",
+      "name": "Cispus Learning Center",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2142 Cispus Road ",
+        "addressLocality": "Randle",
+        "postalCode": "98377",
+        "addressRegion": "WA",
+        "addressCountry": ""
+      }
+    },
+    "description": "This event requires pre-registration.",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "265.00",
+      "availability": "http://schema.org/InStock",
+      "validFrom": "2026-05-15",
+      "validThrough": "2026-09-17",
+      "url": "https://www.viethconsulting.com/members/evr/?orgcode=PSMS&evid=64936759"
+    }
+  },
+  "membersOnlySocial": {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "name": "Holiday Social (for Members Only)",
+    "startDate": "2026-12-08T19:30:00",
+    "endDate": "2026-12-08T21:30:00",
+    "Location": {
+      "@type": "Place",
+      "name": "Center for Urban Horticulture",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3501 NE 41st Street (Mary Gates Drive) ",
+        "addressLocality": "Seattle",
+        "postalCode": "98105",
+        "addressRegion": "WA",
+        "addressCountry": ""
+      }
+    },
+    "description": "Our Members ONLY Dec. social requires pre-registration."
+  }
+}

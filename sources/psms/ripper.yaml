@@ -1,0 +1,11 @@
+name: psms
+sourceRole: venue
+description: "Puget Sound Mycological Society"
+url: "https://www.psms.org/all_events.php"
+friendlyLink: "https://www.psms.org/all_events.php"
+geo: null
+tags: ["Education", "Outdoors"]
+calendars:
+  - name: psms
+    friendlyname: "Puget Sound Mycological Society"
+    timezone: America/Los_Angeles
