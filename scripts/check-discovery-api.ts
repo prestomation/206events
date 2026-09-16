@@ -31,7 +31,14 @@ const VENUE_BBOX = CITY.venueSanityBbox;
 // 499.4 KB from ongoing source additions, so the very next new venue tripped
 // this budget regardless of which PR added it. Bumped with headroom for
 // continued growth rather than just enough for one more venue.
-const VENUES_JSON_MAX_KB = 600;
+//
+// Raised again from 600 KB (2026-09-16): same failure mode recurred after
+// two weeks — venues.json reached 600.2 KB and the next venue addition
+// (unrelated to this PR's diff) tripped the budget again. Source-discovery
+// now runs multiple times a day, so growth has accelerated since the last
+// bump; giving more headroom this time rather than repeating a same-size
+// bump that would just be re-tripped in days.
+const VENUES_JSON_MAX_KB = 750;
 
 // Every doc in the index links directly to other files. All of these are
 // required to exist on disk for the discovery API to be usable.
