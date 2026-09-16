@@ -6,7 +6,7 @@ url: https://seattleyarn.com/pages/in-person-gatherings
 tags: [Community, "West Seattle"]
 firstSeen: 2026-09-16
 lastChecked: 2026-09-16
-pr:
+pr: 1505
 ---
 
 West Seattle (Admiral) yarn shop at 2701 California Ave SW, Unit B. Runs
