@@ -87,7 +87,7 @@ export function parseMecHour(hourStr: string | undefined): { hour: number; minut
 
 export function extractImageAndDescription(raw: string | undefined): { imageUrl?: string; description?: string } {
     if (!raw) return {};
-    const imgMatch = raw.match(/<img[^>]*\ssrc="([^"]+)"/);
+    const imgMatch = raw.match(/<img[^>]*\bsrc="([^"]+)"/);
     const imageUrl = imgMatch ? decodeUrlEntities(imgMatch[1]) : undefined;
     const withoutImg = raw.replace(/<img[^>]*>/, "");
     const withoutTags = withoutImg.replace(/<[^>]*>/g, "");
@@ -160,6 +160,9 @@ export function parseFeedItem(raw: RawOfaItem, zone: ZoneId, seattleLocation: st
 export default class OutdoorsForAllRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
+        if (ripper.config.calendars.length === 0) {
+            throw new Error("No calendars configured for Outdoors for All ripper");
+        }
         const zone = ZoneId.of(ripper.config.calendars[0].timezone.toString());
         const now = ZonedDateTime.now(zone);
 
