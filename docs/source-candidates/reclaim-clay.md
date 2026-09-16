@@ -1,11 +1,12 @@
 ---
 name: Reclaim Clay Classes
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.reclaimclay.com/classes-and-workshops
 tags: [Creation]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-16
+lastChecked: 2026-09-16
+pr: 1506
 ---
 
 Seattle clay studio offering pottery classes and workshops for various skill levels.
@@ -29,3 +30,13 @@ needs `startDate` in `upcoming`/`past`/`items`); would need a custom scraper
 parsing the excerpt text. Remains 🔴 Low-confidence/candidate — still worth
 implementing eventually, just not a pick for a cycle favoring verified
 built-in types.
+
+**Implemented 2026-09-16 (PR #1506):** custom `IRipper`
+(`sources/reclaim_clay/`) parsing three date-encoding shapes found across
+the store's products — per-variant "Dates Available"/"Available Dates"
+attributes (including weekly-range strings), a shared excerpt date offered
+at several bare per-slot times via a "Time" variant attribute, and a plain
+excerpt date (single day, weekly-recurring range, or one-off multi-day
+span). `sourceRole: venue`, fixed geo (OSM way 235385510). 112 events, 0
+parse errors verified via `ONLY_SOURCE=reclaim-clay npm run
+generate-calendars`.
