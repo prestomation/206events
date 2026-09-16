@@ -5,7 +5,7 @@ platform: WordPress (The Events Calendar / Tribe Events)
 url: https://seattleyoganews.com/calendar/
 tags: [Wellness]
 firstSeen: 2026-08-19
-lastChecked: 2026-08-19
+lastChecked: 2026-09-16
 pr:
 ---
 
@@ -27,3 +27,5 @@ Per the "200 + 0 events" rule: don't implement yet. Plain `sources/external/`
 ICS candidate if the feed starts returning real `VEVENT`s on a future check;
 worth re-verifying the `/events/?ical=1` URL and the Tribe REST endpoint
 together next cycle before implementing.
+
+Re-checked 2026-09-16: `/wp-json/tribe/events/v1/events` still `total: 0`. No change.
