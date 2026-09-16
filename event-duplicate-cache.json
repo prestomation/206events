@@ -23764,6 +23764,36 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-16",
       "note": "Same community land tending event at Daybreak Star Indian Cultural Center; different title formats across sources"
+    },
+    "NWMetalCalendar-NWMetal.ics Converge, Heiress|2026-10-15T19:00-07:00[America/Los_Angeles]::do206-do206.ics Converge|2026-10-15T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-16",
+      "note": "Same show at El Corazon, Oct 15 7pm — NWMetal lists the full bill (Converge, Heiress), do206 lists headliner only"
+    },
+    "badslava-open-mics-all-events.ics Open Mic at The Growler Guys|2026-09-22T21:00:00-07:00[America/Los_Angeles]::dark-room-comedy-dark-room-comedy.ics Comedy Night at The Growler Guys|2026-09-22T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-16",
+      "note": "Same weekly Tuesday 9pm slot at The Growler Guys; Eventbrite's own 'Comedy Night' description explicitly calls it an open mic/showcase for amateur/newcomer performers, same as badslava's listing — two names for the same recurring sign-up event, not two shows"
+    },
+    "barboza-barboza.ics North Beach Gritty with Hillside 77 + Love Letters|2026-10-15T19:30:00-07:00[America/Los_Angeles]::do206-do206.ics North Beach Gritty|2026-10-15T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-16",
+      "note": "Same show at Barboza, Oct 15 7:30pm — Barboza's own site lists the full bill, do206 lists headliner only"
+    },
+    "do206-do206.ics Brian Noyes + Luke Sweeney + Bryan John Appleby|2026-10-15T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Brian Noyes + Luke Sweeney + Bryan John Appleby|2026-10-15T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-16",
+      "note": "Identical title, same venue (Conor Byrne Pub), same date/time; distance delta is geocoding noise for the same address"
+    },
+    "do206-do206.ics Converge|2026-10-15T19:00:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Converge with Heiress|2026-10-15T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-16",
+      "note": "Same show at El Corazon, Oct 15 7pm — venue's own site lists the full bill (Converge with Heiress), do206 lists headliner only (same show also cross-matched against NWMetal's listing)"
+    },
+    "do206-do206.ics Psychotic Reaction  Grrrizzly|2026-09-28T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics Psychotic Reaction • Grrrizzly|2026-09-28T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-16",
+      "note": "Same bill (Psychotic Reaction, Grrrizzly) at Central Saloon, Sept 28 — same show, do206 lists doors time (7pm) vs showlists' set time (8pm)"
     }
   }
 }
