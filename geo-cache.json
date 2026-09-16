@@ -1337,6 +1337,40 @@
       "geocodedAt": "2026-09-05",
       "source": "nominatim",
       "firstSeen": "2026-09-05"
+    },
+    "phinney center concert hall, brick building, 6532 phinney ave n, seattle": {
+      "lat": 47.6797,
+      "lng": -122.3549,
+      "geocodedAt": "2026-09-16",
+      "source": "nominatim",
+      "firstSeen": "2026-09-16"
+    },
+    "phinney center concert hall, 6532 phinney ave n, seattle, wa 98103": {
+      "lat": 47.6771417,
+      "lng": -122.3540013,
+      "osmId": 161317413,
+      "osmType": "way",
+      "geocodedAt": "2026-09-16",
+      "source": "nominatim",
+      "firstSeen": "2026-09-16"
+    },
+    "the royal room, 5000 rainier ave south, seattle": {
+      "lat": 47.5569023,
+      "lng": -122.2842722,
+      "osmId": 2429623367,
+      "osmType": "node",
+      "geocodedAt": "2026-09-16",
+      "source": "nominatim",
+      "firstSeen": "2026-09-16"
+    },
+    "fremont abbey, 4272 fremont ave n, seattle": {
+      "lat": 47.6592234,
+      "lng": -122.349792,
+      "osmId": 3298141561,
+      "osmType": "node",
+      "geocodedAt": "2026-09-16",
+      "source": "nominatim",
+      "firstSeen": "2026-09-16"
     }
   }
 }
