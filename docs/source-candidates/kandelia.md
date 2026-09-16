@@ -5,7 +5,7 @@ platform: WordPress (Modern Events Calendar plugin)
 url: https://www.kandelia.org/events
 tags: []
 firstSeen: 2026-07-10
-lastChecked: 2026-08-24
+lastChecked: 2026-09-16
 ---
 
 Seattle-based nonprofit providing youth and family programs for immigrant
@@ -29,3 +29,6 @@ public (not participant-only program sessions) before implementing.
 
 Re-checked 2026-08-24: `/events/feed/` still has 0 `<item>` entries
 (`lastBuildDate` now Aug 6, 2026 but feed body is empty). No change.
+
+Re-checked 2026-09-16: `/events/feed/` still 0 `<item>` entries
+(`lastBuildDate` now Sep 10, 2026). No change.

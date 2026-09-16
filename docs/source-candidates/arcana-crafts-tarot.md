@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.arcanacrafts.co/events-calendar
 tags: []
 firstSeen: 2026-08-23
-lastChecked: 2026-08-23
+lastChecked: 2026-09-16
 ---
 
 Tarot reading/metaphysical events calendar; `arcanacrafts.co` 301-redirects
@@ -19,3 +19,5 @@ Investigated 2026-08-23:
 - Most listed events (MeWe Metaphysical Wellness Fairs) were in Lynnwood
   and Bellevue, not Seattle proper, even when the site was active
 - Not viable: no live events and not primarily Seattle-focused
+
+Re-checked 2026-09-16: `?format=json` still `itemCount: 11`, 0 upcoming. No change.

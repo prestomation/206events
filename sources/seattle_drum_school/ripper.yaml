@@ -1,0 +1,11 @@
+name: seattle-drum-school
+sourceRole: venue
+description: "Seattle Drum School of Music"
+url: "https://seattledrumschool.com/events/feed/"
+friendlyLink: "https://seattledrumschool.com/events/"
+tags: ["Music", "Georgetown"]
+geo: null
+calendars:
+  - name: seattle-drum-school
+    friendlyname: "Seattle Drum School of Music"
+    timezone: America/Los_Angeles
