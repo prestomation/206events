@@ -6,7 +6,7 @@ url: https://www.salsacontodo.com/drop-ins
 tags: ["Dance", "Fremont"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-16
-pr:
+pr: 1515
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
@@ -36,6 +36,11 @@ pattern (see AGENTS.md), so implemented as
 `sources/recurring/salsa-con-todo.yaml` with 4 `schedules:` entries
 (one file per venue, per the "one file, multiple schedules" rule) instead
 of chasing the Wix Bookings widget's data. Tags `Dance`, `Fremont`
-(registered neighborhood). 4 events, 0 parse errors, verified via
+(registered neighborhood). Cover charges differ per social ($10 Mon/Thu,
+$15 Fri/Sat) but `recurringEventSchema`'s `cost` field is a single flat
+value applied to every schedule entry in the file — a per-entry cost
+isn't representable structurally, so pricing is noted in the
+`description` prose instead of a (misleading, if applied uniformly)
+structured `cost` field. 4 events, 0 parse errors, verified via
 `ONLY_SOURCE=salsa-con-todo npm run generate-calendars`; full `npm run
 test` (3781 tests) and `npm run typecheck` both green.

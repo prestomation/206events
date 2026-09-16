@@ -8,32 +8,31 @@ name: salsa-con-todo
 sourceRole: venue
 friendlyname: Salsa Con Todo
 imageUrl: "https://static.wixstatic.com/media/0ad068_fa099d00737e450686fed8081881615f~mv2.jpg/v1/fill/w_2500,h_1666,al_c/0ad068_fa099d00737e450686fed8081881615f~mv2.jpg"
-description: Weekly Latin dance socials (Brazilian Zouk, salsa, bachata, kizomba, West Coast Swing) at Salsa Con Todo, a dance studio in Fremont.
+# Cover charges differ per social ($10 Mon/Thu, $15 Fri/Sat) — the recurring
+# schema's `cost` field is a single flat value applied to every schedule
+# entry in the file (see recurringEventSchema in lib/config/recurring.ts),
+# so a per-entry cost can't be represented structurally here. Noted in prose
+# instead of a structured (and misleading, if applied uniformly) cost field.
+description: Weekly Latin dance socials at Salsa Con Todo, a dance studio in Fremont — Monday Brazilian Zouk ($10), Thursday Westie Lab ($10), Friday salsa/bachata/zouk/kizomba ($15), and Saturday swing ($15).
 timezone: America/Los_Angeles
 location: "211 N 36th St, Seattle, WA 98103"
 url: https://www.salsacontodo.com/drop-ins
 tags:
   - Dance
   - Fremont
-# All 4 costs are cheapest general-admission adult pre-registration price,
-# fees excluded, per the pricing rubric.
 schedules:
   - schedule: every Monday
     start_time: "22:00"
     duration: PT2H
-    cost: 10
   - schedule: every Thursday
     start_time: "22:00"
     duration: PT2H
-    cost: 10
   - schedule: every Friday
     start_time: "22:15"
     duration: PT2H45M
-    cost: 15
   # Site copy says "Most Saturdays" rather than "Every Saturday" (skipped on
   # rare weeks, e.g. venue closures) — modeled as weekly since the studio
   # advertises it as their standing Saturday slot.
   - schedule: every Saturday
     start_time: "21:00"
     duration: PT3H
-    cost: 15
