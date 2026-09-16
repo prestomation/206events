@@ -578,6 +578,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'sammamish commons': { lat: 47.6013675, lng: -122.0367582 },
   'shibuya hi-fi': { lat: 47.6134, lng: -122.3203 },
   'spanish ballroom at mcmenamins elks temple': { lat: 47.6120, lng: -122.3321 },
+  // The only LOCATION value the Salmon Bay Eagles ICS feed ever emits — an
+  // in-building room name, not a geocodable address.
+  'social room': { lat: 47.6672150, lng: -122.3819729, osmType: 'node', osmId: 2138389869 }, // Salmon Bay Eagles, 5216 20th Ave NW, Seattle, WA
   'the church cantina': { lat: 47.6253, lng: -122.3222 },
   'the astoria (vancouver bc)': { lat: 49.2643, lng: -123.1036 },
   'the crypt (olympia)': { lat: 47.0449, lng: -122.8986 },
