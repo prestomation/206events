@@ -10,7 +10,7 @@ import {
   TaggedExternalCalendar
 } from './tag_aggregator.js';
 import { RipperCalendar, RipperCalendarEvent, ExternalCalendar } from './config/schema.js';
-import { ZonedDateTime, Duration } from '@js-joda/core';
+import { ZonedDateTime, Duration, ZoneId } from '@js-joda/core';
 
 describe('Tag Aggregator', () => {
   // Sample data for testing
@@ -561,20 +561,33 @@ END:VCALENDAR`;
       // per-event UTC override (a bare "Z", no TZID) must have its instant
       // converted to Pacific for display, not shown as if the UTC digits
       // were already local time.
+      //
+      // The DTSTART is computed relative to "now" (rather than a hardcoded
+      // date) so this test doesn't age out once that fixed date is more
+      // than `windowMonths` in the past. The expectation is likewise derived
+      // from the same instant via ZonedDateTime rather than a hardcoded
+      // UTC offset, so it holds across the PST/PDT boundary too.
+      const tomorrow = new Date();
+      tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+      const y = tomorrow.getUTCFullYear();
+      const m = String(tomorrow.getUTCMonth() + 1).padStart(2, '0');
+      const d = String(tomorrow.getUTCDate()).padStart(2, '0');
+
       const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
 UID:literal-utc-event-1
 SUMMARY:Race the 8 (and lose!?)
-DTSTART:20260909T000000Z
-DTEND:20260909T010000Z
+DTSTART:${y}${m}${d}T000000Z
+DTEND:${y}${m}${d}T010000Z
 END:VEVENT
 END:VCALENDAR`;
 
       const events = parseExternalCalendarEvents(icsData, { windowMonths: 24 });
       expect(events).toHaveLength(1);
-      // 00:00Z is 17:00 the previous day in Pacific (UTC-7 in September).
-      expect(events[0].date.toString()).toBe('2026-09-08T17:00-07:00[America/Los_Angeles]');
+      const expected = ZonedDateTime.parse(`${y}-${m}-${d}T00:00:00+00:00[UTC]`).withZoneSameInstant(ZoneId.of('America/Los_Angeles'));
+      expect(events[0].date.toInstant().toEpochMilli()).toBe(expected.toInstant().toEpochMilli());
+      expect(events[0].date.zone().id()).toBe('America/Los_Angeles');
     });
 
     it('resolves RRULE-expanded recurring instances against an embedded VTIMEZONE (not as UTC)', () => {
