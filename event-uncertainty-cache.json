@@ -39235,13 +39235,15 @@
       },
       "resolvedAt": "2026-07-27",
       "source": "agent",
-      "evidence": "https://udistrictseattle.com/chowdown"
+      "evidence": "https://udistrictseattle.com/chowdown",
+      "lastSeen": "2026-09-16"
     },
     "u-district-partnership:u-district-street-fair-2027-05-15": {
       "unresolvable": true,
       "resolvedAt": "2026-07-27",
       "source": "agent",
-      "reason": "Page only says \"Save the date May 15-16, 2027\" — no start or end times published"
+      "reason": "Page only says \"Save the date May 15-16, 2027\" — no start or end times published",
+      "lastSeen": "2026-09-16"
     },
     "t-mobile-park:tm-vvG1HZ_eEqXIjb": {
       "unresolvable": true,
@@ -39296,7 +39298,8 @@
       },
       "resolvedAt": "2026-07-27",
       "source": "agent",
-      "evidence": "https://udistrictseattle.com/bobafest"
+      "evidence": "https://udistrictseattle.com/bobafest",
+      "lastSeen": "2026-09-16"
     },
     "burke-museum:burke-reclaiming-our-roots-cultural-reflections-incarcerated-artists": {
       "fields": {
@@ -82012,56 +82015,6 @@
       "source": "agent",
       "evidence": "https://members.washingtontechnology.org/calendar/Details/wtia-founder-cohort-14-demo-day-1902483"
     },
-    "do206:do206-2026-01-24-university-district-farmers-market-tickets": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-16",
-      "source": "agent",
-      "evidence": "https://do206.com/events/weekly/sat/university-district-farmers-market-tickets"
-    },
-    "do206:do206-2026-01-25-open-mic-night-tickets": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-16",
-      "source": "agent",
-      "evidence": "https://do206.com/events/weekly/sun/open-mic-night-tickets"
-    },
-    "do206:do206-2026-06-21-ballard-farmers-market-tickets": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-16",
-      "source": "agent",
-      "evidence": "https://do206.com/events/weekly/sun/ballard-farmers-market-tickets"
-    },
-    "do206:do206-2026-06-21-fremont-sunday-market-tickets-wczgfqlu": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-16",
-      "source": "agent",
-      "evidence": "https://do206.com/events/weekly/sun/fremont-sunday-market-tickets-wczgfqlu"
-    },
-    "do206:do206-2026-07-06-mo-jam-mondays-tickets": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-09-16",
-      "source": "agent",
-      "evidence": "https://do206.com/events/weekly/mon/mo-jam-mondays-tickets"
-    },
     "do206:do206-2026-09-15-a-chorus-line-tickets": {
       "fields": {
         "cost": {
@@ -90582,16 +90535,6 @@
       "source": "agent",
       "evidence": "https://tabletopvillage.com/pages/events"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-09-16",
-      "source": "agent",
-      "evidence": "https://udistrictseattle.com/bobafest"
-    },
     "watershed-pub:watershed-pub-speed_dating_by_pre_dating-2026-09-27": {
       "fields": {
         "cost": {
@@ -90611,6 +90554,39 @@
       "resolvedAt": "2026-09-16",
       "source": "agent",
       "evidence": "https://queerpoweralliance.org/events/renters-rights-advocacy-workshop-3"
+    },
+    "craft-map-seattle:holiday-gift-pop-up-seattle-wa-2026-11-07": {
+      "fields": {
+        "startTime": "13:00",
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/holiday-gift-pop-up-tickets-2000654141393 (linked from https://www.thecraftmap.com/fair/holiday-gift-pop-up-seattle-wa): Sat Nov 7, 1-4pm"
+    },
+    "seattle-folklore-society:seattle-folklore-society-old-growth-oldtime-festival-2026-10-09": {
+      "fields": {
+        "location": "Seattle Latvian Community Center, 11710 3rd Avenue NE, Seattle, WA 98125"
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://www.seafolklore.org/events/old-growth-oldtime-festival/ names Latvian Community Center as the venue; address from https://www.seattlelatviancenter.com/"
+    },
+    "danceus-swing:danceus-1788243418450359-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "reason": "danceus.org JSON-LD has placeholder 00:00 start/end. swingitseattle.com individual class product pages (e.g. /register/p/lh1sepmon) 404 once a session starts and expose no per-level time; only an aggregate LocalBusiness openingHours schema (Tu 19:15-21:30, whole facility, all levels) is published, not specific to Lindy 1. Insufficiently precise to resolve confidently."
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-16",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest"
     }
   }
 }
