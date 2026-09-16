@@ -107,8 +107,12 @@ export function parseDateText(raw: string): DateParseResult {
 
 // Matches "at [the] VENUE NAME (ADDRESS)" in the description paragraph —
 // consistently how Gator Boy Productions names the venue + address for
-// every event on the page.
-const VENUE_ADDRESS_RE = /\bat\s+(?:the\s+)?([^()]+?)\s*\(([^)]+)\)/i;
+// every event on the page. The parenthetical must contain a digit (a real
+// street address always has a house number) so an unrelated aside between
+// "at" and the venue — e.g. "...meet at the (side) entrance of Eagles
+// Mother Aerie (8201 Lake City Way NE, Seattle)" — can't be mistaken for
+// the address and silently captured as one instead.
+const VENUE_ADDRESS_RE = /\bat\s+(?:the\s+)?([^()]+?)\s*\(([^()]*\d[^()]*)\)/i;
 
 export interface ExtractedVenue {
     venueName: string;
@@ -306,7 +310,7 @@ export default class GatorBoyProductionsRipper implements IRipper {
                 continue;
             }
 
-            const parsed = this.parseEventBlock(dateTextRaw, titleTextRaw, eyebrowText, paragraphText, url, today);
+            const parsed = this.parseEventBlock(dateTextRaw, titleTextRaw, eyebrowText, paragraphText, venue, url, today);
             results.push(...parsed);
         }
 
@@ -317,12 +321,17 @@ export default class GatorBoyProductionsRipper implements IRipper {
      * Parse a single event block into a RipperCalendarEvent (or a
      * RipperError for a genuine parse failure — an unparseable date, or a
      * description with no discoverable venue/address). Never returns null.
+     *
+     * `venue` is passed in already-extracted (by the caller, which also
+     * needs it for the Seattle-scope filter) rather than re-parsed here, so
+     * there's a single source of truth for venue extraction per block.
      */
     public parseEventBlock(
         dateTextRaw: string,
         titleTextRaw: string,
         eyebrowText: string | undefined,
         paragraphText: string,
+        venue: ExtractedVenue | null,
         url: string,
         today: LocalDate,
     ): RipperEvent[] {
@@ -343,7 +352,6 @@ export default class GatorBoyProductionsRipper implements IRipper {
             }];
         }
 
-        const venue = extractVenueAddress(paragraphText);
         if (!venue) {
             return [{
                 type: "ParseError",

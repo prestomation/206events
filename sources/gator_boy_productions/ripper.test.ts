@@ -113,6 +113,36 @@ describe('GatorBoyProductionsRipper', () => {
         });
     });
 
+    describe('parseEventsPage (synthetic monthDayRange + resolved venue)', () => {
+        // The only monthDayRange entry in the live sample data (Seabeck Dance
+        // Camp) has no venue/address, so it always short-circuits into the
+        // "Could not find VENUE (ADDRESS)" ParseError branch before the
+        // duration-override math ever runs. This synthetic fixture exercises
+        // the success path: a multi-day dated event that DOES resolve a venue.
+        it('resolves a multi-day event with a venue into a single event spanning the full range', () => {
+            const html = parse(`
+                <div class="et_pb_text_inner">
+                    <h4 class="sqsrte-small"><strong>October 2-4 </strong>| <strong>Gator Boy Weekend Bash </strong></h4>
+                    <p>A special weekend of dancing at Eagles Mother Aerie (8201 Lake City Way NE, Seattle). Doors 6pm.</p>
+                </div>
+            `);
+            const ripper = new GatorBoyProductionsRipper();
+            const results = ripper.parseEventsPage(html, URL, TODAY);
+            const events = results.filter(isEvent);
+            const errors = results.filter((r): r is RipperError => !isEvent(r));
+
+            expect(errors).toHaveLength(0);
+            expect(events).toHaveLength(1);
+            const event = events[0];
+            expect(event.summary).toBe('Gator Boy Weekend Bash');
+            expect(event.date.year()).toBe(2026);
+            expect(event.date.monthValue()).toBe(10);
+            expect(event.date.dayOfMonth()).toBe(2);
+            expect(event.duration.toMinutes()).toBe(3 * 24 * 60); // Oct 2-4 inclusive
+            expect(event.location).toBe('Eagles Mother Aerie, 8201 Lake City Way NE, Seattle');
+        });
+    });
+
     describe('parseDateText', () => {
         it('parses a single date with a weekday prefix', () => {
             expect(parseDateText('Fri, October 2 ')).toEqual({ kind: 'single', month: 10, day: 2 });
@@ -164,6 +194,16 @@ describe('GatorBoyProductionsRipper', () => {
 
         it('returns null when no venue/address pattern is present', () => {
             expect(extractVenueAddress('Stay tuned for details, more info coming soon.')).toBeNull();
+        });
+
+        it('is not fooled by a non-address parenthetical sitting between "at" and the real venue', () => {
+            // Regression test: without a digit requirement on the captured
+            // parenthetical, this would match on "(side)" and produce
+            // location: "the, side" — silently wrong data with no error.
+            const result = extractVenueAddress(
+                'Meet at the (side) entrance of Eagles Mother Aerie (8201 Lake City Way NE, Seattle).'
+            );
+            expect(result).toBeNull();
         });
     });
 
