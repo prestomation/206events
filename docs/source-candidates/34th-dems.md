@@ -6,7 +6,7 @@ url: https://34dems.org/news-events
 tags: [Political, "West Seattle"]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-16
-pr:
+pr: 1497
 ---
 
 34th Legislative District Democrats of West Seattle meetings and political events.
@@ -31,4 +31,14 @@ held via Zoom (no fixed physical venue), so implemented as
 `sourceRole: venue` — same shape as
 `sources/recurring/downtown-seattle-community-council.yaml`. Tagged
 `Political` and `West Seattle` (34th LD covers West Seattle, White
-Center, Vashon Island, and Burien).
+Center, Vashon Island, and Burien). Added the org's logo
+(`https://34dems.org/wp-content/uploads/2017/01/34DEMS.png`) as
+`imageUrl` for parity with `36th-district-democrats.yaml`.
+
+Cross-checked the `months:` restriction against the full minutes archive
+on `/minutes/` (2019–2026, ~55 entries): **December has zero meeting
+minutes in any of the 7 full years on record** — a consistent holiday
+recess — so `months` excludes 12. July/September/October each have a
+one-off gap in a single year (likely COVID disruption in 2020, or minutes
+simply not yet posted) but no consistent pattern, so those months are
+left in.
