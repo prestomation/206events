@@ -6,7 +6,7 @@ url: http://www.salleauriol.com/calendar
 tags: [Sports, Interbay]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-16
-pr:
+pr: 1500
 ---
 
 Discovered via aggregator gap analysis. 2 events in the Seattle
