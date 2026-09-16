@@ -1,0 +1,1500 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=8,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css?v=5">
+  <link rel="stylesheet" type="text/css" media="screen" href="/font/stylesheet.css?v=1">
+  <script src="/js/modernizr-1.5.min.js"></script>
+
+  <style type="text/css">
+    /* == Footer == */
+    .partners {float:right;display:block;width:750px;overflow:hidden;height:90px}
+    .funding {width:420px}
+    .partners a {margin-right:10px;float:right;}
+    a.p2 {background:url('/img/forterra_2021.png') no-repeat;width:159px;height:35px;
+      position: relative;
+      top: 15px;
+          }
+    a.p3 {background:url('/img/ucf.png') no-repeat;width:120px;height:65px;}
+    a.p4 {background:url('/img/usfs.png') no-repeat;width:75px;height:65px;}
+
+    footer {height:170px;background:url('/img/footer-bg21.jpg') bottom left repeat-x;}
+
+    footer #entity-logo2 {
+      background: url(/img/entities/seattle/logo2.png) no-repeat;
+      height:65px;
+      width:186px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/css/forms.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="/css/find-event.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel='stylesheet' type='text/css' href='/css/fullcalendar.css' />
+</head>
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> 
+<body > <!--<![endif]-->
+
+  <div class="container" id="find-cal">
+
+  <style type="text/css">
+    header #header-logo {
+      background: url('/img/entities/seattle/logo.png') no-repeat;
+      height:104px;
+      width:237px;
+      position:absolute;
+      top:0;
+      left:0;
+    }
+
+  </style>
+
+
+
+  <header>
+    <div class="content">
+        <a href="http://greenseattle.org" id="header-logo" target="_blank"><span></span></a>
+        <nav>
+            <ul id="mainNav" class="dropdown">
+                
+                <li class="loggedout"><a href="/event/map/">Map of Events</a></li>
+                <li class="loggedout"><a href="/event/calendar/">Calendar of Events</a></li>
+                
+            </ul>
+        </nav>
+
+        <ul id="account" class="noAuth">
+            
+            <li><em>Not Logged In</em><a href="/user/login/?next=/">Login</a></li>
+            
+        </ul>
+          
+        <div class="cb"></div>
+
+    </div>
+  </header>
+<!-- SPECIAL ANNOUNCEMENT -->
+      
+
+      
+
+      
+
+
+  <div class="content">
+      <div id="sidebar">
+        <span class="border green"></span>
+        <section class="whitebox panel">
+          <h2>Find an Event</h2>
+          <form id="controls" method="GET">
+            <p class="searchbox"><input type="text" id="search" name="search" value=""></p>
+            <div class="calWidget" id="calendar"></div>
+            <div class="cb"></div>
+            <a href="#" class="mLeft10 sprite map" id="showonmap">Show on map</a>
+          </form>
+          <div class="cb"></div>
+        </section>
+        </div><!-- end sidebar-->
+        <div id="main">
+          <section class="whitebox panel">
+            <span class="headControls"><a href="/event/calendar/" class="sort reset" id="location_reset">Reset</a>
+              <a class="sort date" id="date_sort" href="#">Sort by Date</a><a href="#" class="sort location" id="location_sort">Sort by Location</a></span>
+              <h2 class="calHead rounded green">Calendar of Events</h2>
+              <form id="calFilters" name="calFilters">
+                <div class="filters">
+
+                  <p>
+                    <label for="orgfilter">Filter by Partnership</label>
+                    <select id="orgfilter" name="organization">
+                        
+                          <option value="burien" >Burien</option>
+                        
+                          <option value="desmoines" >Des Moines</option>
+                        
+                          <option value="everett" >Everett</option>
+                        
+                          <option value="redmond" >Redmond</option>
+                        
+                          <option value="seatac" >SeaTac</option>
+                        
+                          <option value="seattle" selected>Seattle</option>
+                        
+                          <option value="shoreline" >Shoreline</option>
+                        
+                          <option value="snohomishco" >Snohomish County</option>
+                        
+                          <option value="snoqualmie" >Snoqualmie</option>
+                        
+                          <option value="tacoma" >Tacoma</option>
+                        
+                          <option value="tukwila" >Tukwila</option>
+                        
+                    </select>
+                  </p>
+
+                  <p class="mRight0">
+                    <label for="parkfilter">Filter by Park</label>
+                    <select id="parkfilter" name="park">
+                      
+                        <option value="">All Parks</option>
+                        <option value="12th-west-west-howe-park-oth" >12th West &amp; West Howe Park</option>
+                      
+                        
+                        <option value="3001-e-madison" >3001 E Madison</option>
+                      
+                        
+                        <option value="amy-yee-tennis-center" >Amy Yee Tennis Center</option>
+                      
+                        
+                        <option value="arroyos-natural-area" >Arroyos Natural Area</option>
+                      
+                        
+                        <option value="atlantic-city-boat-ramp" >Atlantic City Boat Ramp</option>
+                      
+                        
+                        <option value="atlantic-street-park" >Atlantic Street Park</option>
+                      
+                        
+                        <option value="bagley-viewpoint" >Bagley Viewpoint</option>
+                      
+                        
+                        <option value="bar-s-playground" >Bar-S Playground</option>
+                      
+                        
+                        <option value="bay-view-playground" >Bay View Playground</option>
+                      
+                        
+                        <option value="beacon-place" >Beacon Place</option>
+                      
+                        
+                        <option value="thornton-creek-park-6" >Beaver Pond Natural Area on TC</option>
+                      
+                        
+                        <option value="beer-sheva-park" >Beer Sheva Park</option>
+                      
+                        
+                        <option value="bellevue-place" >Bellevue Place</option>
+                      
+                        
+                        <option value="belvoir-place" >Belvoir Place</option>
+                      
+                        
+                        <option value="benvenuto-viewpoint" >Benvenuto Viewpoint</option>
+                      
+                        
+                        <option value="bf-day-playground" >B.F. Day Playground</option>
+                      
+                        
+                        <option value="bhy-kracke-park" >Bhy Kracke Park</option>
+                      
+                        
+                        <option value="bitter-lake-open-space-park" >Bitter Lake Open Space Park</option>
+                      
+                        
+                        <option value="bitter-lake-playfield" >Bitter Lake Playfield</option>
+                      
+                        
+                        <option value="blakeley-crescent-park" >Blakeley Crescent Park</option>
+                      
+                        
+                        <option value="boren-park" >Boren Park</option>
+                      
+                        
+                        <option value="bradner-gardens-park" >Bradner Gardens Park</option>
+                      
+                        
+                        <option value="broadview-park" >Broadview Park</option>
+                      
+                        
+                        <option value="bryant-playground" >Bryant Playground</option>
+                      
+                        
+                        <option value="burke-gilman-trail" >Burke-Gilman Trail</option>
+                      
+                        
+                        <option value="burke-gilman-trail-matthews-beach" >Burke-Gilman Trail: Matthews Beach</option>
+                      
+                        
+                        <option value="camp-long" >Camp Long</option>
+                      
+                        
+                        <option value="carkeek-park" >Carkeek Park</option>
+                      
+                        
+                        <option value="carleton-highlands" >Carleton Highlands</option>
+                      
+                        
+                        <option value="cascade-place" >Cascade Place</option>
+                      
+                        
+                        <option value="cedar-park" >Cedar Park</option>
+                      
+                        
+                        <option value="cheasty-boulevard" >Cheasty Boulevard</option>
+                      
+                        
+                        <option value="cheasty-greenspace-mcclellan" >Cheasty Greenspace: McClellan</option>
+                      
+                        
+                        <option value="cheasty-greenspace-mt-view" >Cheasty Greenspace: Mt View</option>
+                      
+                        
+                        <option value="cheasty-gs-cheasty-blvd" >Cheasty GS: Cheasty Blvd</option>
+                      
+                        
+                        <option value="chinook-beach-park" >Chinook Beach Park</option>
+                      
+                        
+                        <option value="cleveland-playfield" >Cleveland Playfield</option>
+                      
+                        
+                        <option value="college-street-ravine" >College Street Ravine</option>
+                      
+                        
+                        <option value="colman-park" >Colman Park</option>
+                      
+                        
+                        <option value="colman-playground" >Colman Playground</option>
+                      
+                        
+                        <option value="commodore-park" >Commodore Park</option>
+                      
+                        
+                        <option value="crown-hill-glen" >Crown Hill Glen</option>
+                      
+                        
+                        <option value="dahl-waldo-j-playfield" >Dahl (Waldo J.) Playfield</option>
+                      
+                        
+                        <option value="david-rodgers-park" >David Rodgers Park</option>
+                      
+                        
+                        <option value="daybreak-star" >Daybreak Star</option>
+                      
+                        
+                        <option value="dearborn-park" >Dearborn Park</option>
+                      
+                        
+                        <option value="delridge-and-myrtle" >Delridge and Myrtle</option>
+                      
+                        
+                        <option value="delridge-playfield" >Delridge Playfield</option>
+                      
+                        
+                        <option value="denny-blaine-park" >Denny Blaine Park</option>
+                      
+                        
+                        <option value="discovery-park" >Discovery Park</option>
+                      
+                        
+                        <option value="dr-blanche-lavizzo-park" >Dr. Blanche Lavizzo Park</option>
+                      
+                        
+                        <option value="dr-jose-rizal-park" >Dr. Jose Rizal Park</option>
+                      
+                        
+                        <option value="duwamish-head-greenbelt" >Duwamish Head Greenbelt</option>
+                      
+                        
+                        <option value="duwamish-waterway-park" >Duwamish Waterway Park</option>
+                      
+                        
+                        <option value="east-duwamish-gs-beacon-ave-s" >East Duwamish GS: Beacon Ave S</option>
+                      
+                        
+                        <option value="east-duwamish-gs-i-90" >East Duwamish GS: I-90</option>
+                      
+                        
+                        <option value="east-duwamish-gs-mlk-way" >East Duwamish GS: MLK Way</option>
+                      
+                        
+                        <option value="east-duwamish-gs-s-chicago-st" >East Duwamish GS: S Chicago St</option>
+                      
+                        
+                        <option value="east-duwamish-gs-s-spokane-st" >East Duwamish GS: S Spokane St</option>
+                      
+                        
+                        <option value="east-montlake-park" >East Montlake Park</option>
+                      
+                        
+                        <option value="east-portal-viewpoint" >East Portal Viewpoint</option>
+                      
+                        
+                        <option value="ec-hughes-playground" >E.C. Hughes Playground</option>
+                      
+                        
+                        <option value="ella-bailey-park" >Ella Bailey Park</option>
+                      
+                        
+                        <option value="emma-schmitz-memorial-overlook" >Emma Schmitz Memorial Overlook</option>
+                      
+                        
+                        <option value="endolyne-park" >Endolyne Park</option>
+                      
+                        
+                        <option value="fairmount-park" >Fairmount Park</option>
+                      
+                        
+                        <option value="fairmount-playground" >Fairmount Playground</option>
+                      
+                        
+                        <option value="fairview-park" >Fairview Park</option>
+                      
+                        
+                        <option value="fairview-walkway" >Fairview Walkway</option>
+                      
+                        
+                        <option value="fauntleroy-creek-ravine" >Fauntleroy Creek Ravine</option>
+                      
+                        
+                        <option value="fauntleroy-park" >Fauntleroy Park</option>
+                      
+                        
+                        <option value="fremont-canal-park" >Fremont Canal Park</option>
+                      
+                        
+                        <option value="fremont-peak-park" >Fremont Peak Park</option>
+                      
+                        
+                        <option value="frink-park" >Frink Park</option>
+                      
+                        
+                        <option value="froula-playground" >Froula Playground</option>
+                      
+                        
+                        <option value="gas-works-park" >Gas Works Park</option>
+                      
+                        
+                        <option value="genesee-park-and-playfield" >Genesee Park and Playfield</option>
+                      
+                        
+                        <option value="Georgetown-Pump-Station" >Georgetown Pump Station</option>
+                      
+                        
+                        <option value="golden-gardens-park" >Golden Gardens Park</option>
+                      
+                        
+                        <option value="green-lake-park" >Green Lake Park</option>
+                      
+                        
+                        <option value="greenwood-park" >Greenwood Park</option>
+                      
+                        
+                        <option value="greg-davis-park" >Greg Davis Park</option>
+                      
+                        
+                        <option value="gsp_facility" >GSP Facility</option>
+                      
+                        
+                        <option value="hamilton-viewpoint-park" >Hamilton Viewpoint Park</option>
+                      
+                        
+                        <option value="harrison-ridge-greenbelt" >Harrison Ridge Greenbelt</option>
+                      
+                        
+                        <option value="helene-madison-pool" >Helene Madison Pool</option>
+                      
+                        
+                        <option value="herrings-house-park-tulaltx" >Herrings House Park (Tulaltwx)</option>
+                      
+                        
+                        <option value="highland-drive-parkway" >Highland Drive Parkway</option>
+                      
+                        
+                        <option value="hitts-hill-park" >Hitts Hill Park</option>
+                      
+                        
+                        <option value="homewood-park" >Homewood Park</option>
+                      
+                        
+                        <option value="horton-hil-corridor" >Horton Hil Corridor</option>
+                      
+                        
+                        <option value="hubbard-homestead-park" >Hubbard Homestead Park</option>
+                      
+                        
+                        <option value="i-5-colonnade" >I-5 Colonnade</option>
+                      
+                        
+                        <option value="interbay-golf" >Interbay Golf</option>
+                      
+                        
+                        <option value="interbay-p-patch" >Interbay P-patch</option>
+                      
+                        
+                        <option value="interlaken-park" >Interlaken Park</option>
+                      
+                        
+                        <option value="inverness-ravine-park" >Inverness Ravine Park</option>
+                      
+                        
+                        <option value="jackson-park-golf-course" >Jackson Park Golf Course</option>
+                      
+                        
+                        <option value="jefferson-park" >Jefferson Park</option>
+                      
+                        
+                        <option value="jefferson-park-golf-course" >Jefferson Park Golf Course</option>
+                      
+                        
+                        <option value="jefferson-park-horticulture-center-hort" >Jefferson Park Horticulture Center (HORT)</option>
+                      
+                        
+                        <option value="john-c-little-sr-park" >John C. Little, Sr. Park</option>
+                      
+                        
+                        <option value="judge-charles-m-stokes-overlk" >Judge Charles M. Stokes OverlK</option>
+                      
+                        
+                        <option value="judkins-park-and-playfield" >Judkins Park and Playfield</option>
+                      
+                        
+                        <option value="katie-blacks-garden" >Katie Black&#x27;s Garden</option>
+                      
+                        
+                        <option value="kerry-park-and-viewpoint" >Kerry Park and Viewpoint</option>
+                      
+                        
+                        <option value="kerry-park-franklin-place" >Kerry Park (Franklin Place)</option>
+                      
+                        
+                        <option value="keystone-place" >Keystone Place</option>
+                      
+                        
+                        <option value="kilbourne-park" >Kilbourne Park</option>
+                      
+                        
+                        <option value="thornton-creek-park-2" >Kingfisher Natural Area on TC</option>
+                      
+                        
+                        <option value="kinnear-park" >Kinnear Park</option>
+                      
+                        
+                        <option value="kiwanis-memorial-preserve-park" >Kiwanis Memorial Preserve Park</option>
+                      
+                        
+                        <option value="kobe-terrace" >Kobe Terrace</option>
+                      
+                        
+                        <option value="kubota-gardens-natural-area" >Kubota Gardens Natural Area</option>
+                      
+                        
+                        <option value="lake-people-park-xacuabs" >Lake People Park (Xacua&#x27;bs)</option>
+                      
+                        
+                        <option value="lakeridge-park" >Lakeridge Park</option>
+                      
+                        
+                        <option value="lakeview-park" >Lakeview Park</option>
+                      
+                        
+                        <option value="lakeview-place" >Lakeview Place</option>
+                      
+                        
+                        <option value="lake-washington-boulevard" >Lake Washington Boulevard</option>
+                      
+                        
+                        <option value="laurelhurst-playfield" >Laurelhurst Playfield</option>
+                      
+                        
+                        <option value="lavilla-meadows-na-on-tc" >LaVilla Meadows NA on TC</option>
+                      
+                        
+                        <option value="lawton-park" >Lawton Park</option>
+                      
+                        
+                        <option value="leschi-lake-dell-natural-area" >Leschi-Lake Dell Natural Area</option>
+                      
+                        
+                        <option value="leschi-park" >Leschi Park</option>
+                      
+                        
+                        <option value="leschi-park-and-south-moorage" >Leschi Park and South Moorage</option>
+                      
+                        
+                        <option value="lewis-park" >Lewis Park</option>
+                      
+                        
+                        <option value="thornton-creek-park-1" >Licorice Fern NA on TC</option>
+                      
+                        
+                        <option value="licton-springs-park" >Licton Springs Park</option>
+                      
+                        
+                        <option value="lincoln-park" >Lincoln Park</option>
+                      
+                        
+                        <option value="little-brook-natural-area" >Little Brook Natural Area</option>
+                      
+                        
+                        <option value="little-brook-park" >Little Brook Park</option>
+                      
+                        
+                        <option value="llandover-woods-greenspace" >Llandover Woods Greenspace</option>
+                      
+                        
+                        <option value="longfellow-creek-gs-brandon-street" >Longfellow Creek GS: Brandon Street</option>
+                      
+                        
+                        <option value="longfellow-creek-gs-central" >Longfellow Creek GS: Central</option>
+                      
+                        
+                        <option value="longfellow-creek-gs-delridge-natural-area" >Longfellow Creek GS: Delridge Natural Area</option>
+                      
+                        
+                        <option value="longfellow-creek-gs-south" >Longfellow Creek GS: South</option>
+                      
+                        
+                        <option value="longfellow-creek-gs-thistle-street-greenspace" >Longfellow Creek GS: Thistle Street Greenspace</option>
+                      
+                        
+                        <option value="longfellow-creek-gs-yancy" >Longfellow Creek GS: Yancy</option>
+                      
+                        
+                        <option value="lowman-beach-park" >Lowman Beach Park</option>
+                      
+                        
+                        <option value="lynn-street-mini-park" >Lynn Street Mini Park</option>
+                      
+                        
+                        <option value="maclean-park" >MacLean Park</option>
+                      
+                        
+                        <option value="madison-park" >Madison Park</option>
+                      
+                        
+                        <option value="madrona-park" >Madrona Park</option>
+                      
+                        
+                        <option value="magnolia-boulevard" >Magnolia Boulevard</option>
+                      
+                        
+                        <option value="magnolia-greenbelt" >Magnolia Greenbelt</option>
+                      
+                        
+                        <option value="magnolia-manor-park" >Magnolia Manor Park</option>
+                      
+                        
+                        <option value="magnolia-park" >Magnolia Park</option>
+                      
+                        
+                        <option value="magnolia-tidelands-park" >Magnolia Tidelands Park</option>
+                      
+                        
+                        <option value="maple-leaf-community-garden" >Maple Leaf Community Garden</option>
+                      
+                        
+                        <option value="maple-school-ravine" >Maple School Ravine</option>
+                      
+                        
+                        <option value="maple-wood-playfield" >Maple Wood Playfield</option>
+                      
+                        
+                        <option value="marra-desimone-park" >Marra-Desimone Park</option>
+                      
+                        
+                        <option value="marshall-park" >Marshall Park</option>
+                      
+                        
+                        <option value="martha-washington-park" >Martha Washington Park</option>
+                      
+                        
+                        <option value="martin-luther-king-jr-memorial" >Martin Luther King JR Memorial</option>
+                      
+                        
+                        <option value="matthews-beach-park" >Matthews Beach Park</option>
+                      
+                        
+                        <option value="mayfair-park" >Mayfair Park</option>
+                      
+                        
+                        <option value="mccurdy-horace-park" >McCurdy (Horace) Park</option>
+                      
+                        
+                        <option value="meadowbrook-playfield" >Meadowbrook Playfield</option>
+                      
+                        
+                        <option value="me-kwa-mooks" >Me-Kwa-Mooks</option>
+                      
+                        
+                        <option value="me-kwa-mooks-natural-area" >Me-Kwa-Mooks Natural Area</option>
+                      
+                        
+                        <option value="meridian-playground" >Meridian Playground</option>
+                      
+                        
+                        <option value="mineral-springs-park" >Mineral Springs Park</option>
+                      
+                        
+                        <option value="mock-creek-ravine" >Mock Creek Ravine</option>
+                      
+                        
+                        <option value="montlake-playfield" >Montlake Playfield</option>
+                      
+                        
+                        <option value="mount-baker-park" >Mount Baker Park</option>
+                      
+                        
+                        <option value="mount-claire-park" >Mount Claire Park</option>
+                      
+                        
+                        <option value="mt-baker-ridge-viewpoint" >Mt Baker Ridge Viewpoint</option>
+                      
+                        
+                        <option value="myers-way-greenbelt" >Myers Way Greenbelt</option>
+                      
+                        
+                        <option value="myrtle-edwards-park" >Myrtle Edwards Park</option>
+                      
+                        
+                        <option value="myrtle-reservoir-park" >Myrtle Reservoir Park</option>
+                      
+                        
+                        <option value="nantes-park" >Nantes Park</option>
+                      
+                        
+                        <option value="ne-60th-street-park" >NE 60th Street Park</option>
+                      
+                        
+                        <option value="noras-woods" >Nora&#x27;s Woods</option>
+                      
+                        
+                        <option value="northacres-park" >Northacres Park</option>
+                      
+                        
+                        <option value="north-beach-park" >North Beach Park</option>
+                      
+                        
+                        <option value="north-beach-ravine-30th-nw-na" >North Beach Ravine: 30th NW NA</option>
+                      
+                        
+                        <option value="north-beach-ravine-nw-90th-na" >North Beach Ravine: NW 90th NA</option>
+                      
+                        
+                        <option value="northeast-queen-anne-greenbelt" >Northeast Queen Anne Greenbelt</option>
+                      
+                        
+                        <option value="northgate-community-center" >Northgate Community Center</option>
+                      
+                        
+                        <option value="northgate-park" >Northgate Park</option>
+                      
+                        
+                        <option value="northlake-park" >Northlake Park</option>
+                      
+                        
+                        <option value="north-passage-point-park" >North Passage Point Park</option>
+                      
+                        
+                        <option value="nw-60th-street-viewpoint" >NW 60th Street Viewpoint</option>
+                      
+                        
+                        <option value="open-water-park" >Open Water Park</option>
+                      
+                        
+                        <option value="orchard-street-ravine" >Orchard Street Ravine</option>
+                      
+                        
+                        <option value="parks_hq" >Parks HQ</option>
+                      
+                        
+                        <option value="pelly-place-natural-area" >Pelly Place Natural Area</option>
+                      
+                        
+                        <option value="peppis-playground" >Peppi&#x27;s Playground</option>
+                      
+                        
+                        <option value="pigeon-point" >Pigeon Point</option>
+                      
+                        
+                        <option value="pinehurst-playground" >Pinehurst Playground</option>
+                      
+                        
+                        <option value="powell-barnett-park" >Powell Barnett Park</option>
+                      
+                        
+                        <option value="prentis-i-frazier-park" >Prentis I. Frazier Park</option>
+                      
+                        
+                        <option value="pritchard-island-beach" >Pritchard Island Beach</option>
+                      
+                        
+                        <option value="puget-creek-greenspace" >Puget Creek Greenspace</option>
+                      
+                        
+                        <option value="puget-creek-natural-area" >Puget Creek Natural Area</option>
+                      
+                        
+                        <option value="puget-park" >Puget Park</option>
+                      
+                        
+                        <option value="puget-ridge-playground" >Puget Ridge Playground</option>
+                      
+                        
+                        <option value="queen-anne-boulevard" >Queen Anne Boulevard</option>
+                      
+                        
+                        <option value="queen-anne-bowl-playfield" >Queen Anne Bowl Playfield</option>
+                      
+                        
+                        <option value="rainbow-point" >Rainbow Point</option>
+                      
+                        
+                        <option value="rainier-beach-urban-farm-and-wetland" >Rainier Beach Urban Farm &amp; Wetland</option>
+                      
+                        
+                        <option value="ravenna-eckstein-park" >Ravenna-Eckstein Park</option>
+                      
+                        
+                        <option value="ravenna-park" >Ravenna Park</option>
+                      
+                        
+                        <option value="ravenna-ravine" >Ravenna Ravine</option>
+                      
+                        
+                        <option value="ravenna-woods" >Ravenna Woods</option>
+                      
+                        
+                        <option value="roxhill-park" >Roxhill Park</option>
+                      
+                        
+                        <option value="sacajawea-playground" >Sacajawea Playground</option>
+                      
+                        
+                        <option value="salmon-bay-natural-area" >Salmon Bay Natural Area</option>
+                      
+                        
+                        <option value="sam-smith-park" >Sam Smith Park</option>
+                      
+                        
+                        <option value="schmitz-preserve-park" >Schmitz Preserve Park</option>
+                      
+                        
+                        <option value="seacrest-park" >Seacrest Park</option>
+                      
+                        
+                        <option value="seola-beach-greenbelt" >Seola Beach Greenbelt</option>
+                      
+                        
+                        <option value="seola-park" >Seola Park</option>
+                      
+                        
+                        <option value="seward-park" >Seward Park</option>
+                      
+                        
+                        <option value="smith-cove-park" >Smith Cove Park</option>
+                      
+                        
+                        <option value="solstice-park" >Solstice Park</option>
+                      
+                        
+                        <option value="south-park-meadow" >South Park Meadow</option>
+                      
+                        
+                        <option value="south-passage-point-park" >South Passage Point Park</option>
+                      
+                        
+                        <option value="stan-sayres-memorial-park" >Stan Sayres Memorial Park</option>
+                      
+                        
+                        <option value="st-marks-greenbelt" >St. Marks Greenbelt</option>
+                      
+                        
+                        <option value="sturtevant-ravine" >Sturtevant Ravine</option>
+                      
+                        
+                        <option value="sunset-hill-park" >Sunset Hill Park</option>
+                      
+                        
+                        <option value="sw-queen-anne-greenbelt" >SW Queen Anne Greenbelt</option>
+                      
+                        
+                        <option value="taylor-creek-headwaters" >Taylor Creek Headwaters</option>
+                      
+                        
+                        <option value="thomas-c-wales-park" >Thomas C. Wales Park</option>
+                      
+                        
+                        <option value="thorndyke-park" >Thorndyke Park</option>
+                      
+                        
+                        <option value="TCNA" >Thornton Creek Addition: North Branch</option>
+                      
+                        
+                        <option value="thornton-creek-na-25th95th" >Thornton Creek NA: 25th/95th</option>
+                      
+                        
+                        <option value="thornton-creek-na-maple-creek" >Thornton Creek NA: Maple Creek</option>
+                      
+                        
+                        <option value="thornton-creek-na-sand-point" >Thornton Creek NA: Sand Point</option>
+                      
+                        
+                        <option value="thornton-creek-victory-creek" >Thornton Creek: Victory Creek</option>
+                      
+                        
+                        <option value="trolley-hill-park" >Trolley Hill Park</option>
+                      
+                        
+                        <option value="twelfth-avenue-south-viewpoint" >Twelfth Avenue South Viewpoint</option>
+                      
+                        
+                        <option value="union-bay-boglands-1" >Union Bay Boglands #1</option>
+                      
+                        
+                        <option value="union-bay-boglands-2" >Union Bay Boglands #2</option>
+                      
+                        
+                        <option value="university-lake-shore-place" >University Lake Shore Place</option>
+                      
+                        
+                        <option value="unknown" >Unknown</option>
+                      
+                        
+                        <option value="ursula-judkins-viewpoint" >Ursula Judkins Viewpoint</option>
+                      
+                        
+                        <option value="victory-creek-park" >Victory Creek Park</option>
+                      
+                        
+                        <option value="victory-heights-playground" >Victory Heights Playground</option>
+                      
+                        
+                        <option value="view-ridge-playfield" >View Ridge Playfield</option>
+                      
+                        
+                        <option value="viretta-park" >Viretta Park</option>
+                      
+                        
+                        <option value="warren-g-magnuson-park" >Warren G. Magnuson Park</option>
+                      
+                        
+                        <option value="washington-park-and-arboretum" >Washington Park and Arboretum</option>
+                      
+                        
+                        <option value="waterway-19" >Waterway 19</option>
+                      
+                        
+                        <option value="westcrest-park" >Westcrest Park</option>
+                      
+                        
+                        <option value="west-duwamish-greenbelt-alaska" >West Duwamish Greenbelt: Alaska</option>
+                      
+                        
+                        <option value="west-duwamish-greenbelt-andover" >West Duwamish Greenbelt: Andover</option>
+                      
+                        
+                        <option value="west-duwamish-gs-othello-st" >West Duwamish GS: Othello St.</option>
+                      
+                        
+                        <option value="west-duwamish-gs-puget-park" >West Duwamish GS: Puget Park</option>
+                      
+                        
+                        <option value="west-duwamish-gs-riverview" >West Duwamish GS: Riverview</option>
+                      
+                        
+                        <option value="west-duwamish-gs-soundway" >West Duwamish GS: Soundway</option>
+                      
+                        
+                        <option value="west-ewing-mini-park" >West Ewing Mini Park</option>
+                      
+                        
+                        <option value="westlake-greenbelt" >Westlake Greenbelt</option>
+                      
+                        
+                        <option value="west-magnolia-playfield" >West Magnolia Playfield</option>
+                      
+                        
+                        <option value="west-seattle-golf-course" >West Seattle Golf Course</option>
+                      
+                        
+                        <option value="west-seattle-stadium" >West Seattle Stadium</option>
+                      
+                        
+                        <option value="wolf-creek-ravine-natural-area" >Wolf Creek Ravine Natural Area</option>
+                      
+                        
+                        <option value="woodland-park" >Woodland Park</option>
+                      
+                        
+                        <option value="yesler-creek-headwaters" >Yesler Creek Headwaters</option>
+                      
+                        
+                        <option value="york-park" >York Park</option>
+                      
+                    </select>
+                  </p>
+                </div>
+              </form>
+              <div class="listing events" id="elist">
+              <table cellpadding="0" cellspacing="0" border="0" id="events_table">
+                <thead><tr><th></th></tr></thead>
+                <tbody>
+                
+                
+                    
+                  <tr><td><div class="header"><h4>September 15, 2026</h4></div></td></tr>
+                    
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">15</div>
+                        <div class="col2">
+                          <h4><a href="/event/44829">Junes Cathedral Blackberry Management</a></h4>
+                          <p><em>September 15, 9:30am-12:30pm @ Discovery Park</em></p>
+                          <p>Again with the blackberries! We&#x27;re off to a great start at this location. After two work parties, we&#x27;ve removed the blackberry thicket from around several trees and bushes that were planted years ago and now have a much better chance of thriving. We even opened up a corridor to the magnificent big leaf maple glen behind the thicket. Today we&#x27;ll be continuing this work, and <a href="/event/44829">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">15</div>
+                        <div class="col2">
+                          <h4><a href="/event/44861">Pond area site prep</a></h4>
+                          <p><em>September 15, 10:30am-1pm @ Warren G. Magnuson Park</em></p>
+                          <p>Join us for a restoration work party on the berm just west of the ponds in Magnuson Park. It&#x27;s a great spot to watch wildlife to the east, a baseball game to the west.
+
+We plan to focus on weeding it (mostly by pulling blackberries) over the summer, and then planting some native wildflowers this fall. <a href="/event/44861">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">15</div>
+                        <div class="col2">
+                          <h4><a href="/event/44505">Restore 29th Ave Pocket Forest</a></h4>
+                          <p><em>September 15, 10am-1pm @ Longfellow Creek GS: Central</em></p>
+                          <p> <a href="/event/44505">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">16</div>
+                        <div class="col2">
+                          <h4><a href="/event/44879">Magnuson Reforestation</a></h4>
+                          <p><em>September 16, 9am-12pm @ Warren G. Magnuson Park</em></p>
+                          <p>Help improve habitat and create replacement forest on a formerly denuded navy airfield. (Above photo taken in Navy era). The aim is to create healthy forest habitat and increase beneficial ecosystem services including provision of human enjoyment and health. It is also an opportunity to enjoy nature and learn a bit about native plants while doing satisfying work.
+
+Work is most likely to include removing invasive plants like ivy, Canada thistle, and blackberry but may also include other tasks such as distributing wood chip mulch.
+
+Because the work may be beyond capability of youth below high school age, please get the leader’s permission before registering if younger. <a href="/event/44879">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">16</div>
+                        <div class="col2">
+                          <h4><a href="/event/44870">More Fun on the Trail</a></h4>
+                          <p><em>September 16, 9am-12:30pm @ Burke-Gilman Trail</em></p>
+                          <p>We&#x27;re still working south on the Trail toward Princeton Bridge, beating back the Ivy and Blackberries <a href="/event/44870">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">17</div>
+                        <div class="col2">
+                          <h4><a href="/event/44608">Daybreak Community &amp; Land Tending</a></h4>
+                          <p><em>September 17, 11am-3pm @ Daybreak Star</em></p>
+                          <p>We invite you to join us in tending the land at Daybreak Star Cultural Center.
+
+These gatherings are a return—to land, to care, and to being in right relationship with one another. Guided by Indigenous leadership at the United Indians of All Tribes Foundation, we come together to practice food sovereignty, cultural memory, and collective care in ways that are grounded, relational, and real.
+
+This season, we are tending the Forest Garden, a living space that supports elders, youth, and Indigenous-centered community programs while growing a future rooted in reciprocity, responsibility, and long-term care.
+
+All ages are welcome. You’re invited to come move your body, tend the land, and be in community—whether you stay for a couple of hours or the full day. Together, we’ll engage in hands-on care of the land through planting, weeding, harvesting, and seasonal projects, while also making space for connection, learning, and shared reflection.
+
+If you’re looking for a place to show up, build relationships, and grow something lasting, this is a space to gather, care for the land, and imagine what’s possible—together.
+
+All ages OK <a href="/event/44608">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">17</div>
+                        <div class="col2">
+                          <h4><a href="/event/44609">Daybreak Community &amp; Land Tending</a></h4>
+                          <p><em>September 17, 11am-3pm @ Daybreak Star</em></p>
+                          <p>We invite you to join us in tending the land at Daybreak Star Cultural Center.
+
+These gatherings are a return—to land, to care, and to being in right relationship with one another. Guided by Indigenous leadership at the United Indians of All Tribes Foundation, we come together to practice food sovereignty, cultural memory, and collective care in ways that are grounded, relational, and real.
+
+This season, we are tending the Forest Garden, a living space that supports elders, youth, and Indigenous-centered community programs while growing a future rooted in reciprocity, responsibility, and long-term care.
+
+All ages are welcome. You’re invited to come move your body, tend the land, and be in community—whether you stay for a couple of hours or the full day. Together, we’ll engage in hands-on care of the land through planting, weeding, harvesting, and seasonal projects, while also making space for connection, learning, and shared reflection.
+
+If you’re looking for a place to show up, build relationships, and grow something lasting, this is a space to gather, care for the land, and imagine what’s possible—together.
+
+All ages OK <a href="/event/44609">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">18</div>
+                        <div class="col2">
+                          <h4><a href="/event/44610">Daybreak Community &amp; Land Tending</a></h4>
+                          <p><em>September 18, 11am-3pm @ Daybreak Star</em></p>
+                          <p>We invite you to join us in tending the land at Daybreak Star Cultural Center.
+
+These gatherings are a return—to land, to care, and to being in right relationship with one another. Guided by Indigenous leadership at the United Indians of All Tribes Foundation, we come together to practice food sovereignty, cultural memory, and collective care in ways that are grounded, relational, and real.
+
+This season, we are tending the Forest Garden, a living space that supports elders, youth, and Indigenous-centered community programs while growing a future rooted in reciprocity, responsibility, and long-term care.
+
+All ages are welcome. You’re invited to come move your body, tend the land, and be in community—whether you stay for a couple of hours or the full day. Together, we’ll engage in hands-on care of the land through planting, weeding, harvesting, and seasonal projects, while also making space for connection, learning, and shared reflection.
+
+If you’re looking for a place to show up, build relationships, and grow something lasting, this is a space to gather, care for the land, and imagine what’s possible—together.
+
+All ages OK <a href="/event/44610">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">18</div>
+                        <div class="col2">
+                          <h4><a href="/event/44849">Habitat enhancement (weeding)</a></h4>
+                          <p><em>September 18, 2pm-5pm @ SW Queen Anne Greenbelt</em></p>
+                          <p>We will save some of our native plants by removing those plants that are starting to cover them up.   This is a lovely, diverse native plant forest.  I have seen coyotes and deer at this site.  Sightings are rare. It should be fun exploring and see what we find. <a href="/event/44849">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">18</div>
+                        <div class="col2">
+                          <h4><a href="/event/44871">Help us send Ivy back to England et al</a></h4>
+                          <p><em>September 18, 9am-12:30pm @ Burke-Gilman Trail</em></p>
+                          <p>We&#x27;ll continue our Ivy Pulling and Blackberry removal project on the Trail here! <a href="/event/44871">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">18</div>
+                        <div class="col2">
+                          <h4><a href="/event/44880">Magnuson Reforestation</a></h4>
+                          <p><em>September 18, 9am-12pm @ Warren G. Magnuson Park</em></p>
+                          <p>Help improve habitat and create replacement forest on a formerly denuded navy airfield. (Above photo taken in Navy era). The aim is to create healthy forest habitat and increase beneficial ecosystem services including provision of human enjoyment and health. It is also an opportunity to enjoy nature and learn a bit about native plants while doing satisfying work.
+
+Work is most likely to include removing invasive plants like ivy, Canada thistle, and blackberry but may also include other tasks such as distributing wood chip mulch.
+
+Because the work may be beyond capability of youth below high school age, please get the leader’s permission before registering if younger. <a href="/event/44880">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">19</div>
+                        <div class="col2">
+                          <h4><a href="/event/43187">3rd Saturday forest restoration at Jackson Park Trail!</a></h4>
+                          <p><em>September 19, 10am-2pm @ Jackson Park Golf Course</em></p>
+                          <p>Enjoy the &quot;natural areas&quot; along the Jackson Park golf course perimeter trail. We&#x27;ll walk
+to a work area and continue to make progress removing invasive ivy and blackberries, 
+planting native plants, weeding, or mulching, as the season demands! <a href="/event/43187">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">19</div>
+                        <div class="col2">
+                          <h4><a href="/event/44417">Carkeek STARS Work Party</a></h4>
+                          <p><em>September 19, 9am-12pm @ Carkeek Park</em></p>
+                          <p>Join other enthusiastic volunteers for a fun morning of forest restoration and trails maintenance. We have a wide variety of tasks you can help with. Adults and teenagers welcome. If you are a group of 5 or more contact Dale Johnson. Follow the STARS signs to our meeting place, which will be the parking lot at the Environmental Learning Center. Welcome! <a href="/event/44417">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">19</div>
+                        <div class="col2">
+                          <h4><a href="/event/43001">East Duwamish Work Party</a></h4>
+                          <p><em>September 19, 10am-12pm @ East Duwamish GS: S Chicago St</em></p>
+                          <p>Help take care of the forest along this neighborhood trail! Depending on the time of the year, we&#x27;ll be pulling and removing ivy, cutting back and digging out blackberry or planting new plants; and always having a good time! <a href="/event/43001">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">19</div>
+                        <div class="col2">
+                          <h4><a href="/event/44301">Habitat Restoration and Beaver Talk on Lake Washington Blvd</a></h4>
+                          <p><em>September 19, 10am-1pm @ Lake Washington Boulevard</em></p>
+                          <p>Join the Greenway and Beavers NW to do habitat restoration and learn about how beavers can change our environments! We will have a special speaker and walk to a beaver lodge then work on removing Himalayan blackberry and English ivy. <a href="/event/44301">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">19</div>
+                        <div class="col2">
+                          <h4><a href="/event/44789">Ryan&#x27;s Ridge wood chip spreading</a></h4>
+                          <p><em>September 19, 9:30am-12:30pm @ Discovery Park</em></p>
+                          <p>Most of the blackberries have been removed from the extensive Ryan&#x27;s Ridge site which parallels the parade grounds road, so the final step in the summer restoration process is to cover all bare ground with wood chips to keep seedlings from sprouting. There will likely be a few green blackberries left that should be easy to find; they will need to be cut down and dug up. Other possible tasks include watering and digging up resprouts. But the priority task will be hauling wood chips <a href="/event/44789">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">20</div>
+                        <div class="col2">
+                          <h4><a href="/event/44820">End of Summer Work Party!</a></h4>
+                          <p><em>September 20, 12:30pm-2:30pm @ Montlake Playfield</em></p>
+                          <p>Are you looking for one more fun thing to do before summer is officially over? Look no further as Montlake Park is hosting its very own &quot;End of Summer Work Party&quot;! Join us as we tackle some of the invasive blackberry, uncover previously planted trees and shrubbery, and explore the natural beauty that South Portage Bay has to offer! <a href="/event/44820">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">20</div>
+                        <div class="col2">
+                          <h4><a href="/event/44881">Magnuson Reforestation</a></h4>
+                          <p><em>September 20, 10am-1pm @ Warren G. Magnuson Park</em></p>
+                          <p>Help improve habitat and create replacement forest on a formerly denuded navy airfield. (Above photo taken in Navy era). The aim is to create healthy forest habitat and increase beneficial ecosystem services including provision of human enjoyment and health. It is also an opportunity to enjoy nature and learn a bit about native plants while doing satisfying work.
+
+Work is most likely to include removing invasive plants like ivy, Canada thistle, and blackberry but may also include other tasks such as distributing wood chip mulch.
+
+Because the work may be beyond capability of youth below high school age, please get the leader’s permission before registering if younger. <a href="/event/44881">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">20</div>
+                        <div class="col2">
+                          <h4><a href="/event/44702">Native Rescue from Blackberry at Little Brook Natural Area</a></h4>
+                          <p><em>September 20, 10am-12pm @ Little Brook Natural Area</em></p>
+                          <p>Summer heat has not diminished the blackberry at Little Brook Natural Area.  Join us in rescuing native plantings from this tenacious invasive species that has come back with vigor.  Once dug out, mulch will be laid down to give the native plants some extra protection into fall and winter.  Work areas are level but tight.  Note: If it is raining heavily, the event will be rescheduled. <a href="/event/44702">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">22</div>
+                        <div class="col2">
+                          <h4><a href="/event/44506">Camp Long Restoration Event</a></h4>
+                          <p><em>September 22, 10am-1pm @ Camp Long</em></p>
+                          <p> <a href="/event/44506">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">24</div>
+                        <div class="col2">
+                          <h4><a href="/event/44611">Daybreak Community &amp; Land Tending</a></h4>
+                          <p><em>September 24, 11am-3pm @ Daybreak Star</em></p>
+                          <p>We invite you to join us in tending the land at Daybreak Star Cultural Center.
+
+These gatherings are a return—to land, to care, and to being in right relationship with one another. Guided by Indigenous leadership at the United Indians of All Tribes Foundation, we come together to practice food sovereignty, cultural memory, and collective care in ways that are grounded, relational, and real.
+
+This season, we are tending the Forest Garden, a living space that supports elders, youth, and Indigenous-centered community programs while growing a future rooted in reciprocity, responsibility, and long-term care.
+
+All ages are welcome. You’re invited to come move your body, tend the land, and be in community—whether you stay for a couple of hours or the full day. Together, we’ll engage in hands-on care of the land through planting, weeding, harvesting, and seasonal projects, while also making space for connection, learning, and shared reflection.
+
+If you’re looking for a place to show up, build relationships, and grow something lasting, this is a space to gather, care for the land, and imagine what’s possible—together.
+
+All ages OK <a href="/event/44611">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">25</div>
+                        <div class="col2">
+                          <h4><a href="/event/44612">Daybreak Community &amp; Land Tending</a></h4>
+                          <p><em>September 25, 11am-3pm @ Daybreak Star</em></p>
+                          <p>We invite you to join us in tending the land at Daybreak Star Cultural Center.
+
+These gatherings are a return—to land, to care, and to being in right relationship with one another. Guided by Indigenous leadership at the United Indians of All Tribes Foundation, we come together to practice food sovereignty, cultural memory, and collective care in ways that are grounded, relational, and real.
+
+This season, we are tending the Forest Garden, a living space that supports elders, youth, and Indigenous-centered community programs while growing a future rooted in reciprocity, responsibility, and long-term care.
+
+All ages are welcome. You’re invited to come move your body, tend the land, and be in community—whether you stay for a couple of hours or the full day. Together, we’ll engage in hands-on care of the land through planting, weeding, harvesting, and seasonal projects, while also making space for connection, learning, and shared reflection.
+
+If you’re looking for a place to show up, build relationships, and grow something lasting, this is a space to gather, care for the land, and imagine what’s possible—together.
+
+All ages OK <a href="/event/44612">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">25</div>
+                        <div class="col2">
+                          <h4><a href="/event/44770">Longfellow Creek Forest Restoration @ Willow Reach</a></h4>
+                          <p><em>September 25, 9:30am-12:30pm @ Longfellow Creek GS: Central</em></p>
+                          <p>Following the first year of restoration and planting events in the Willow St reach of Longfellow Creek, our community food forest is starting to come alive and take shape! For this event we’ll be removing the invasive species that have returned (thankfully not too much) and providing additional mulch to the new young plants that we planted last year. Come see how the green space is evolving and learn about the variety of species that we planted. Be part of local change and walk away with pride knowing your efforts support ecology, community, and good health. <a href="/event/44770">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">25</div>
+                        <div class="col2">
+                          <h4><a href="/event/44862">TLC for Stokes Overlook</a></h4>
+                          <p><em>September 25, 1pm-3pm @ Judge Charles M. Stokes OverlK</em></p>
+                          <p>Let&#x27;s &quot;un-neglect&quot; this little green corner! We have blackberry brambles and ivy tangles to tame to make way for a future forest, and trash to remove to make future restoration projects here safe and appealing for all ages. We also have an existing brushpile from prior blackberry removal to manage. We&#x27;ll be using loppers, shovels, trash grabbers, buckets, rakes and pitchforks, plus your sweat-equity, goodwill and problem-solving skills! <a href="/event/44862">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44139">Community Printmaking with Eileen Jiminez at Seward Park</a></h4>
+                          <p><em>September 26, 11am-1pm @ Seward Park</em></p>
+                          <p>Happy Latine Conservation Month! 
+
+Join us for a morning of creating art on the land through printmaking with Eileen Jimenez! 
+
+Participants will get to explore Connection to Land with pre-carved blocks and water coloring that centers land, place, and joy.  
+
+Eileen Jiminez&#x27;s Bio:
+
+Eileen&#x27;s mother is Maria Cruz, her grandmother is Eloisa, and her great grandmother is Ysidora, matriarchs of the Ñätho (Otomi Peoples of Michoacan/Guanajuato, Mexico). As an IndigiQueer leader, community member, educator and as an artist, everything she does and creates is influenced by her many intersecting and lived experiences.  
+
+Eileen uses printmaking and mixed-media techniques to develop her own ways of telling stories in the complex layers that they exist in, as well as to demonstrate the ways that we are connected to the Land and to each other. In her current body of work, she focuses on the embodiment of the divine that is manifested through our bodies and our hands specifically. In her work, you will also see her commitment to centering the stories of joy that flow through our communities.
+
+instagram: maese.art.by.eileen.jimenez
+website: www.eileenjimenez.com
+
+Food will be provided.
+
+
+¡Feliz Mes de la Conservación Latine!
+
+¡Acompáñanos a una mañana de creación artística en contacto con la tierra a través del grabado con Eileen Jimenez!
+
+Los participantes explorarán la conexión con la tierra utilizando bloques previamente tallados y acuarelas, en una actividad centrada en la tierra, el lugar y la alegría.
+
+Biografía de Eileen Jimenez:
+
+La madre de Eileen es Maria Cruz, su abuela es Eloisa y su bisabuela es Ysidora; todas ellas matriarcas del pueblo Ñätho (pueblo otomí de Michoacán y Guanajuato, México). Como líder, miembro de la comunidad, educadora y artista *IndigiQueer*, todo lo que hace y crea está influenciado por sus múltiples experiencias vitales y sus identidades entrelazadas.
+
+Eileen emplea técnicas de grabado y técnicas mixtas para desarrollar sus propias formas de narrar historias —respetando las complejas capas en las que estas existen— y para mostrar los vínculos que nos unen a la Tierra y entre nosotros. Su obra actual se centra en la encarnación de lo divino, manifestada específicamente a través de nuestros cuerpos y nuestras manos. En su trabajo también se refleja su compromiso de poner en primer plano las historias de alegría que fluyen por nuestras comunidades.
+
+Instagram: maese.art.by.eileen.jimenez
+Sitio web: www.eileenjimenez.com
+
+Se ofrecerá comida. <a href="/event/44139">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44694">East Duwamish Work Party</a></h4>
+                          <p><em>September 26, 10am-12pm @ East Duwamish GS: S Chicago St</em></p>
+                          <p>Help take care of the urban forest along this neighborhood trail! We&#x27;ll remove ivy and blackberry plants, and start clearing space for fall planting. Connect with fellow volunteers and help improve Seattle green spaces! <a href="/event/44694">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44516">Forest Restoration - Longfellow Creek at Graham</a></h4>
+                          <p><em>September 26, 10am-12:30pm @ Longfellow Creek GS: Delridge Natural Area</em></p>
+                          <p>You and your fellow volunteers will participate in hands-on conservation work. This event will be focused on removing invasive plant. <a href="/event/44516">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44558">Friends of Discovery Park&#x27;s Day of Service 2026</a></h4>
+                          <p><em>September 26, 10am-1pm @ Discovery Park</em></p>
+                          <p>Capehart Forest is the most wildlife-diverse area in Discovery Park. Come help us promote forest health and increase its biodiversity by weeding out invasives, mulching and aerate the soil to encourage symbiotic fungi, and plant this years native shrubs and groundcovers. <a href="/event/44558">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44717">Holden Forest Restoration Event</a></h4>
+                          <p><em>September 26, 10am-1pm @ Longfellow Creek GS: South</em></p>
+                          <p> <a href="/event/44717">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44780">invasive Removal</a></h4>
+                          <p><em>September 26, 10am-12pm @ Beer Sheva Park</em></p>
+                          <p>Join us for a fun community volunteer day at Beer sheva Park! We’ll work together to remove invasive plants, protect native species, and help restore a healthier, more beautiful park for everyone to enjoy.
+
+Come ready to learn, get your hands dirty, meet new people, and make a positive impact on our environment! 🌎💚 <a href="/event/44780">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44587">Latine Conservation Month: ¡Vamos a Observar Aves!</a></h4>
+                          <p><em>September 26, 10am-12:30pm @ Seward Park</em></p>
+                          <p>Celebrate Latine Conservation Month with a guided bird walk in the park! The walk will follow the outer loop of Seward Park, the Seward Park Loop Trail – a 2.4-mile paved path. Explore local wildlife, learn bird identification skills, and connect with others who share a passion for nature and conservation. This event welcomes birders of all experience levels and offers an opportunity to honor the rich contributions of Latine communities to environmental conservation. A Spanish-language interpreter will be present to support Spanish-speaking participants and help make the experience more accessible. Come enjoy fresh air, community, and the beauty of our local birds. 🐦🌿
+
+
+¡Celebra el Mes de la Conservación Latine con una caminata guiada de observación de aves en el parque! La caminata recorrerá el circuito exterior de Seward Park, el Sendero Seward Park Loop Trail, un camino pavimentado de 2.4 millas (3.9 km). Explora la vida silvestre local, aprende habilidades de identificación de aves y conéctate con otras personas que comparten la pasión por la naturaleza y la conservación. Este evento da la bienvenida a observadores de aves de todos los niveles de experiencia y ofrece la oportunidad de honrar las ricas contribuciones de las comunidades Latine a la conservación ambiental. Habrá un intérprete de español presente para apoyar a los participantes de habla hispana y ayudar a que la experiencia sea más accesible. Ven a disfrutar del aire fresco, la comunidad y la belleza de nuestras aves locales. 🐦🌿 <a href="/event/44587">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44852">North Genesee Forest Restoration</a></h4>
+                          <p><em>September 26, 10am-12:30pm @ Genesee Park and Playfield</em></p>
+                          <p>Fall is here and it&#x27;s time to get back in the forest!  Spend a morning with new friends and neighbors in Genesee park as we get the ready for Fall planting.  There will be ivy to pull, blackberry to hack, lots of mulch to carry and new people to meet.  Bring the kids, of course--all ages are welcome. <a href="/event/44852">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44850">Queen Anne&#x27;s diverse forest enhancement (weeding)</a></h4>
+                          <p><em>September 26, 2pm-5pm @ SW Queen Anne Greenbelt</em></p>
+                          <p>SW Queen Anne invasive removal in our little forest. <a href="/event/44850">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44855">Sprucing up Lakeview</a></h4>
+                          <p><em>September 26, 10am-2pm @ St. Marks Greenbelt</em></p>
+                          <p>Help us keep the Lakeview Island spruced up. <a href="/event/44855">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">26</div>
+                        <div class="col2">
+                          <h4><a href="/event/44798">Washington Butterfly Association Habitat Rehabilitation</a></h4>
+                          <p><em>September 26, 10am-12:30pm @ Warren G. Magnuson Park</em></p>
+                          <p>Join the Washington Butterfly Association (WBA) for a hands-on work party dedicated to giving the meadow at Magnuson Park&#x27;s Kingfisher Basin the care it needs to thrive. We&#x27;ll remove invasive plants that crowd out native vegetation, then add pollinator-friendly plants to help create a thriving habitat for butterflies and other essential species. No experience necessary, just bring your enthusiasm, and we&#x27;ll provide the tools and guidance. Together, we can help turn this site into a haven for pollinators and a greener space for our whole community to enjoy. <a href="/event/44798">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">27</div>
+                        <div class="col2">
+                          <h4><a href="/event/44698">Beaver Pond Natural Area Smothering</a></h4>
+                          <p><em>September 27, 10am-12pm @ Beaver Pond Natural Area on TC</em></p>
+                          <p>Mounds of mulch need to be spread in a thick layer over a large area cleared this past summer to keep invasives from returning and to prepare for fall planting.  Some removal of returning blackberry and ivy may be necessary before the smothering begins.  If time permits, we will go forward again to remove more blackberry!  If rainfall is heavy, event will be rescheduled. <a href="/event/44698">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">27</div>
+                        <div class="col2">
+                          <h4><a href="/event/44863">More TLC for Stokes Overlook</a></h4>
+                          <p><em>September 27, 10am-12pm @ Judge Charles M. Stokes OverlK</em></p>
+                          <p>Continuing our project from Friday, &quot;un-neglecting&quot; this little green corner! We have blackberry brambles and ivy tangles to tame to make way for a future forest, and trash to remove to make future restoration projects here safe and appealing for all ages. We&#x27;ll be using loppers, shovels, trash grabbers, buckets, and rakes, plus your sweat-equity, goodwill and problem-solving skills! <a href="/event/44863">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                
+                  <tr><td><div class="event">
+                      <div class="col1 green">29</div>
+                        <div class="col2">
+                          <h4><a href="/event/44508">Duwamish Head Greenbelt Restoration</a></h4>
+                          <p><em>September 29, 10am-1pm @ Duwamish Head Greenbelt</em></p>
+                          <p> <a href="/event/44508">more</a></p>
+                        </div>
+                  </div></td></tr>
+                
+                </tbody>
+              </table>
+            </div>
+            <div class="bottom buttons">
+              <button class="negative" id="showonmap2">Show results on Map</button>
+            </div>
+          </section>
+        </div>
+      </div><!-- main content -->
+      <div class="push"></div>
+    </div> <!-- end of #container -->
+    <div class="whitebox" id="loading"><img src="/img/ajax-loader.gif"><span class="msg">Loading</span></div>
+<div class="cb"></div>
+<footer>
+  <div class="content">
+  <div class="partners">
+    <a id="entity-logo2" href="https://www.seattle.gov/parks/" target="_blank"></a>
+    <a class="p2" href="https://forterra.org/" target="_blank"></a>
+    <a class="p3" href="https://dnr.wa.gov/urbanforestry" target="_blank"></a>
+    <a class="p4" href="https://fs.usda.gov/" target="_blank"></a>
+  </div>
+  <div class="funding">
+    <p>The development of CEDAR was made possible through a grant from the USDA Forest Service, Urban and Community Forestry Program.</p>
+  </div>
+</div>
+</footer>
+
+<script src="/js/jquery-1.5.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var ENTITY = 'seattle';
+    var ENVIRONMENT = 'prod';
+    var ES = JSON.parse('{"email_from": "no-reply@greencitypartnerships.org", "questions_email": "info@greenseattle.org", "logo_link": "greenseattle.org", "partnership_url": "greenseattle.org", "logo2_width": "186", "logo2_link": "https://www.seattle.gov/parks/", "SITE_MAP_URL": "http://www.arcgis.com/home/webmap/viewer.html?webmap=9be9415001144aa383e5b86e481d2c45&extent=-122.6421,47.4196,-121.9651,47.7835", "default_map_lat": 47.62647668947911, "default_map_lon": -122.35790310490347, "default_map_zoom": 10, "city": "Seattle", "name": "Green Seattle Partnership", "logo2_img": "/img/entities/seattle/logo2.png", "logo_img": "/img/entities/seattle/logo.png", "youth_waiver_form": "/doc/entities/seattle/youth_release_waiver.pdf", "signin_instructions": "/doc/entities/seattle/sign-in-sheet-instructions.pdf", "terms_url": "/agreements/", "slug": "gsp", "follow_us": "follow us on Twitter, ", "ne_lat": 47.735, "ne_lon": -122.435, "sw_lat": 47.501, "sw_lon": -122.244}');
+</script>
+<script src="/js/script.js?v=5"></script>
+<!--[if lt IE 7 ]><script src="/js/dd_belatedpng.js?v=1"></script><![endif]-->
+<!--[if gt IE 6 ]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen" charset="utf-8"><![endif]-->
+<script type="text/javascript" src="/js/date.js"></script>
+<script type='text/javascript' src='/js/fullcalendar.min.js'></script>
+<!--[if IE]><script type="text/javascript" src="/js/jquery.bgiframe.min.js"></script><![endif]-->
+<script src="/js/jquery.datePicker.js"></script>
+<script src="/js/calendar.js?v=2" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+  var park = null;
+  var start = "2026-9-15";
+  var end = "2026-9-30";
+  var search = null;
+
+  $('#orgfilter').change( function() {
+      document.location = "https://" + $('#orgfilter').val() + ".greencitypartnerships.org/event/calendar/";
+  });
+
+  $('#parkfilter').change( function(e) {
+      var park_slug = $('#parkfilter').val();
+      document.location = "https://" + 'seattle' + ".greencitypartnerships.org/event/calendar/?park=" + park_slug;
+  });
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22840868-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>
