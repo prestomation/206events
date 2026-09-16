@@ -319,8 +319,24 @@ export default class GatorBoyProductionsRipper implements IRipper {
 
     /**
      * Parse a single event block into a RipperCalendarEvent (or a
-     * RipperError for a genuine parse failure — an unparseable date, or a
-     * description with no discoverable venue/address). Never returns null.
+     * RipperError for a genuine, unexpected parse failure — malformed date
+     * syntax never seen before, or a normal single-dated event missing its
+     * venue). Never returns null.
+     *
+     * Two known, permanently-recurring content shapes on this page are
+     * intentionally skipped (empty array, not a RipperError), matching the
+     * cancellation-notice and Seattle-scope filters already applied by the
+     * caller, and this file's own existing past-date skip below: a weekly
+     * class-series date *range* ("Thursdays, Sep.17–Oct.1") never maps to a
+     * single dated event, and an off-site multi-day festival announcement
+     * with no venue/address in its own description (e.g. "December 3-6"
+     * Seabeck Dance Camp, which only links out for details) has nothing to
+     * geocode. Treating these as ParseErrors would permanently fail the
+     * repo's new-source CI gate (any ParseError on a brand-new source is
+     * fatal) for content this source predictably republishes every build —
+     * they're a known shape, not a parser bug. A `single`-dated event
+     * missing its venue, by contrast, has never happened on this page and
+     * would indicate a real problem, so that case still surfaces loudly.
      *
      * `venue` is passed in already-extracted (by the caller, which also
      * needs it for the Seattle-scope filter) rather than re-parsed here, so
@@ -338,11 +354,7 @@ export default class GatorBoyProductionsRipper implements IRipper {
         const dateResult = parseDateText(dateTextRaw);
 
         if (dateResult.kind === 'weekdayRange') {
-            return [{
-                type: "ParseError",
-                reason: `recurring class series date range, not a single dated event — skipping ("${dateTextRaw}")`,
-                context: url,
-            }];
+            return [];
         }
         if (dateResult.kind === 'invalid') {
             return [{
@@ -352,6 +364,9 @@ export default class GatorBoyProductionsRipper implements IRipper {
             }];
         }
 
+        if (!venue && dateResult.kind === 'monthDayRange') {
+            return [];
+        }
         if (!venue) {
             return [{
                 type: "ParseError",

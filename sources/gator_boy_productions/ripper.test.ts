@@ -95,14 +95,23 @@ describe('GatorBoyProductionsRipper', () => {
             expect(jukeJoint!.id).toBe(`gator-boy-productions-gator-boy-s-juke-joint-2026-10-02`);
         });
 
-        it('flags the recurring class-series date range as a ParseError, not a fake event', () => {
-            expect(errors.some(e => e.reason.includes('recurring class series date range'))).toBe(true);
+        it('silently skips the recurring class-series date range, not a ParseError or a fake event', () => {
+            // A brand-new source's ParseErrors are fatal in CI (the
+            // "new source parse errors" gate in lib/calendar_ripper.ts), and
+            // this weekly class-series range is a permanent, known-shape
+            // fixture of the page — not a parser bug — so it's an
+            // intentional skip, matching the cancellation-notice pattern.
+            expect(errors.some(e => e.reason.includes('recurring class series date range'))).toBe(false);
             expect(events.some(e => /Zydeco 2-step Classes/i.test(e.summary))).toBe(false);
         });
 
-        it('surfaces a ParseError for the address-less Seabeck Dance Camp entry', () => {
-            expect(errors.some(e => /VENUE \(ADDRESS\)/.test(e.reason))).toBe(true);
+        it('silently skips the address-less Seabeck Dance Camp entry, not a ParseError', () => {
+            expect(errors.some(e => /VENUE \(ADDRESS\)/.test(e.reason))).toBe(false);
             expect(events.some(e => /Seabeck/i.test(e.summary))).toBe(false);
+        });
+
+        it('has zero ParseErrors against the live fixture (the new-source CI gate treats any as fatal)', () => {
+            expect(errors).toHaveLength(0);
         });
 
         it('emits an Uncertainty for start time inferred from free-text prose', () => {
@@ -116,7 +125,7 @@ describe('GatorBoyProductionsRipper', () => {
     describe('parseEventsPage (synthetic monthDayRange + resolved venue)', () => {
         // The only monthDayRange entry in the live sample data (Seabeck Dance
         // Camp) has no venue/address, so it always short-circuits into the
-        // "Could not find VENUE (ADDRESS)" ParseError branch before the
+        // silent-skip branch (see parseEventBlock) before the
         // duration-override math ever runs. This synthetic fixture exercises
         // the success path: a multi-day dated event that DOES resolve a venue.
         it('resolves a multi-day event with a venue into a single event spanning the full range', () => {
@@ -140,6 +149,30 @@ describe('GatorBoyProductionsRipper', () => {
             expect(event.date.dayOfMonth()).toBe(2);
             expect(event.duration.toMinutes()).toBe(3 * 24 * 60); // Oct 2-4 inclusive
             expect(event.location).toBe('Eagles Mother Aerie, 8201 Lake City Way NE, Seattle');
+        });
+    });
+
+    describe('parseEventsPage (synthetic single-date event missing its venue)', () => {
+        // Every single-dated event on the live page names a venue, so a
+        // missing one there has never happened — unlike the permanently
+        // address-less Seabeck camp (a monthDayRange), this shape is a real
+        // anomaly worth surfacing loudly as a ParseError rather than a
+        // silent skip.
+        it('surfaces a ParseError for a single-dated event with no discoverable venue', () => {
+            const html = parse(`
+                <div class="et_pb_text_inner">
+                    <h4 class="sqsrte-small"><strong>Fri, October 2 </strong>| <strong>Mystery Pop-up </strong></h4>
+                    <p>Details still being finalized, stay tuned for more info.</p>
+                </div>
+            `);
+            const ripper = new GatorBoyProductionsRipper();
+            const results = ripper.parseEventsPage(html, URL, TODAY);
+            const events = results.filter(isEvent);
+            const errors = results.filter((r): r is RipperError => !isEvent(r));
+
+            expect(events).toHaveLength(0);
+            expect(errors).toHaveLength(1);
+            expect(errors[0].reason).toMatch(/VENUE \(ADDRESS\)/);
         });
     });
 
