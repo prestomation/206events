@@ -49,11 +49,14 @@ export function extractListingEntries(html: HTMLElement): ListingEntry[] {
 
         // Second `<p>` is the description, ending in a "more" link back to
         // this same event — strip that trailing anchor rather than trusting
-        // the word "more" never appears in real prose.
+        // the word "more" never appears in real prose. Any other inline
+        // markup (nothing seen in practice, but this is hand-authored HTML)
+        // is stripped too, so tags never leak into the published text.
         const descriptionHtml = paragraphs[1]?.innerHTML ?? '';
-        const description = decode(
-            descriptionHtml.replace(/<a\b[^>]*>.*?<\/a>\s*$/is, '')
-        ).trim();
+        const withoutMoreLink = descriptionHtml.replace(/<a\b[^>]*>.*?<\/a>\s*$/is, '');
+        const description = decode(withoutMoreLink.replace(/<[^>]+>/g, ' '))
+            .replace(/\s+/g, ' ')
+            .trim();
 
         entries.push({
             eventId,

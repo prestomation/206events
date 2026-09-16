@@ -1,10 +1,9 @@
 name: green-seattle-partnership
-sourceRole: aggregator
+sourceRole: venue
 description: "Green Seattle Partnership"
 url: "https://seattle.greencitypartnerships.org/event/calendar/"
 friendlyLink: https://seattle.greencitypartnerships.org/event/calendar/
 tags: ["Volunteer", "Outdoors"]
-cost: free
 geo: null
 calendars:
   - name: all-events

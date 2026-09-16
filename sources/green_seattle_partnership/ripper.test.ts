@@ -47,6 +47,20 @@ describe('extractListingEntries', () => {
     it('returns an empty list when there are no event divs', () => {
         expect(extractListingEntries(parseHtml('<div class="header"><h4>September 15, 2026</h4></div>'))).toEqual([]);
     });
+
+    it('strips inline markup from the description rather than leaking raw tags', () => {
+        const html = parseHtml(`
+            <div class="event">
+                <div class="col2">
+                    <h4><a href="/event/99999">Test Event</a></h4>
+                    <p><em>September 20, 9am-12pm @ Some Park</em></p>
+                    <p>Bring <strong>gloves</strong> and a<br/>water bottle. <a href="/event/99999">more</a></p>
+                </div>
+            </div>
+        `);
+        const entries = extractListingEntries(html);
+        expect(entries[0].description).toBe('Bring gloves and a water bottle.');
+    });
 });
 
 describe('parseListingEntry', () => {

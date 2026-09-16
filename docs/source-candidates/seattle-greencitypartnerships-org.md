@@ -31,15 +31,24 @@ site — so the ripper intentionally sources everything from the listing
 page alone rather than depending on detail pages.
 
 Implemented as a custom `IRipper` (`sources/green_seattle_partnership/`,
-`sourceRole: aggregator` since this republishes volunteer events run by
-many different park stewards/nonprofits under Forterra's grant program,
-`geo: null` since events span 30+ distinct park locations — per-event
-`location` strings like "Burke-Gilman Trail, Seattle, WA" are geocoded
-by the standard pipeline). Tagged `Volunteer` (matching the existing tag
-already used by `furniture_repair_bank`/`seatoday` rather than
-introducing a near-duplicate "Volunteering") and `Outdoors` (habitat
-restoration work is uniformly open-air). `cost: free` — Green Seattle
-Partnership work parties are always free to attend.
+`sourceRole: venue` — Green Seattle Partnership is the first-party
+organizer of its own citywide work-party program across many parks
+(same shape as `spl`'s multi-branch `venue` role), not a show-listing
+site republishing other orgs' independently-run events, per
+`docs/cross-source-event-dedup.md`'s curated aggregator set. `geo: null`
+since events span 30+ distinct park locations — per-event `location`
+strings like "Burke-Gilman Trail, Seattle, WA" are geocoded by the
+standard pipeline. Tagged `Volunteer` (matching the existing tag already
+used by `furniture_repair_bank`/`seatoday` rather than introducing a
+near-duplicate "Volunteering") and `Outdoors` (habitat restoration work
+is uniformly open-air). Every event is parsed with `cost: { min: 0 }`
+directly (Green Seattle Partnership work parties are always free) —
+no ripper-level `cost:` default needed since a ripper-parsed cost
+always wins.
+
+Description text is extracted from each listing row's second `<p>` with
+all inline HTML markup stripped (not just entity-decoded), so any
+mid-paragraph tag never leaks into the published description.
 
 The listing never states a year, so the ripper rolls the parsed month
 forward to next year when it's already earlier than the current month
