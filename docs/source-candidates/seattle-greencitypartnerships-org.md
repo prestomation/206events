@@ -6,7 +6,7 @@ url: https://seattle.greencitypartnerships.org/event/calendar/
 tags: ["Volunteer", "Outdoors"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-16
-pr:
+pr: 1495
 ---
 
 Discovered via aggregator gap analysis. 3 events in the Seattle
