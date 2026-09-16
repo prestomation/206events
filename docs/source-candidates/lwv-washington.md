@@ -5,7 +5,7 @@ platform: Wild Apricot
 url: https://www.lwvwa.org/events
 tags: [Political]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-16
 ---
 
 League of Women Voters Washington State events and civic engagement activities.
@@ -17,3 +17,12 @@ Task Force). Statewide org, not Seattle-specific, but includes Seattle-area civi
 volume/relevance to a Seattle calendar should be double-checked (many entries look like
 internal member meetings rather than public events) before implementing. No explicit ICS
 link seen in the fetched content, but Wild Apricot generally supports calendar exports.
+
+Re-checked 2026-09-16: confirmed the RSS feed at `https://www.lwvwa.org/events/RSS`
+(linked from the events page) — a real, live feed with 111 upcoming items through
+mid-October 2026 and beyond. However on inspection nearly every item is an internal
+committee/affinity-group Zoom meeting (Treasurer Affinity Group, MELD pods, Data
+Center Affinity Group, DEI Affinity Group, etc.) rather than a public community event,
+and the org is statewide rather than Seattle-specific. Deprioritizing — poor fit for a
+Seattle events calendar even though the feed itself is technically scrapable (RSS, not
+ICS, so would also need custom parsing rather than the standard `external` ICS path).

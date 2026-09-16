@@ -5,7 +5,7 @@ platform: Squarespace (events collection confirmed, 0 upcoming at time of check)
 url: https://nudibranchcoffee.com/events
 tags: ["Capitol Hill"]
 firstSeen: 2026-08-05
-lastChecked: 2026-09-09
+lastChecked: 2026-09-16
 pr:
 ---
 
@@ -19,3 +19,5 @@ and `items` both empty at time of check — homepage still promotes past
 yet; re-check next cycle once the shop has posted new dated events.
 
 Re-checked 2026-09-09: still 0 upcoming events. No change.
+
+Re-checked 2026-09-16: `/events?format=json` still `upcoming: 0`, `past: 0`, `items: 0`. No change.

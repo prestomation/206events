@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.queereventsseattle.org/events-calendar
 tags: [Community]
 firstSeen: 2026-09-09
-lastChecked: 2026-09-09
+lastChecked: 2026-09-16
 pr:
 ---
 
@@ -24,3 +24,5 @@ Investigated 2026-09-09:
 
 Keep as `candidate`; re-check `?format=json` in a future cycle for
 `upcoming > 0` before implementing.
+
+Re-checked 2026-09-16: `/events-calendar?format=json` still `upcoming: 0`, `past: 1`. No change.

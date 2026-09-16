@@ -5,7 +5,7 @@ platform: ClubExpress
 url: https://www.lwvskc.org/content.aspx?page_id=
 tags: [Political]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-16
 ---
 
 League of Women Voters King County chapter events, voter education, and civic engagement activities.
@@ -17,3 +17,8 @@ frontmatter isn't the actual event calendar; a real "Event Calendar" page exists
 corrected URL before implementation. Not a religious org. Should confirm event volume by
 loading `page_id=22` directly (had multiple `module_id` values suggesting several
 listed events/modules) — no ICS export confirmed yet.
+
+Re-checked 2026-09-16: `lwvskc.org/` (and the `page_id=22` calendar URL) returns
+HTTP 403 from this environment. Per the "blocked here, don't implement" rule,
+not stageable — leaving as `candidate` rather than `blocked` in case it's an
+intermittent WAF rule; re-test with a plain fetch next cycle.
