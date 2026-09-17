@@ -92952,6 +92952,366 @@
       "source": "agent",
       "reason": "Past event (2026-08-01); event page no longer shows start time/duration",
       "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
+    },
+    "fiuts:6a87435bf8072209aacdb6a9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/6/english-conversation-group"
+    },
+    "fiuts:6a874986dd9be76703a03561": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/8/english-conversation-group"
+    },
+    "fiuts:6a8749f64bd3db1534a41cf2": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/13/english-conversation-group"
+    },
+    "fiuts:6a874a83150b7c2e58cdf3f4": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/15/english-conversation-group"
+    },
+    "fiuts:6a874ad40399782a0b3cb451": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/20/english-conversation-group"
+    },
+    "fiuts:6a874b3c569681694a5292b7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/22/english-conversation-group"
+    },
+    "fiuts:6a874b938d83d35d222eb76c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/27/english-conversation-group"
+    },
+    "fiuts:6a874c09d6a00f25bdb0b155": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group"
+    },
+    "fiuts:6a874ca3a5ac95357b2aafe3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group-f7ytw"
+    },
+    "fiuts:6a874db861386f7d96792e65": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group-f7ytw-zk8sr"
+    },
+    "fiuts:6a874dde8592fd1766f19209": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group-f7ytw-zk8sr-n8skg"
+    },
+    "fiuts:6a874e0c951f3e3637ee4245": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group-f7ytw-zk8sr-n8skg-3ymwe"
+    },
+    "fiuts:6a874e3701a5c958b4041dd3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group-f7ytw-zk8sr-n8skg-3ymwe-cw6t4"
+    },
+    "fiuts:6a874e630399782a0b3e06c5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group-f7ytw-zk8sr-n8skg-3ymwe-cw6t4-jc9n9"
+    },
+    "fiuts:6a874e8ca5ac95357b2b9bf8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/29/english-conversation-group-f7ytw-zk8sr-n8skg-3ymwe-cw6t4-jc9n9-zkez8"
+    },
+    "fiuts:6a5aa47751b157459d526210": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/25/welcome-to-seattle-week-community-bbq-amp-block-party"
+    },
+    "fiuts:6a74c823a38596691094481f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/24/welcome-to-seattle-week-networking-mixer"
+    },
+    "fiuts:6a74c95c1cd085796f051e9d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/22/welcome-to-seattle-week-chinese-traditional-art-workshop"
+    },
+    "fiuts:6a972ddc4530b54a7496ef7f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery"
+    },
+    "fiuts:6a9745e6db64c22133ab77cd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2"
+    },
+    "fiuts:6a9745f5bd9e740dab956852": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l"
+    },
+    "fiuts:6a9746103604c1250650740e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h"
+    },
+    "fiuts:6a9746135d1a986af961549c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn"
+    },
+    "fiuts:6a9746256b42e0058ef33c58": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf"
+    },
+    "fiuts:6a9746277ba1583ff0060e1e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf-ayd52"
+    },
+    "fiuts:6a974629b28a620549bc4f04": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf-ayd52-t7zfg"
+    },
+    "fiuts:6a97462cfc308155518ddbfa": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf-ayd52-t7zfg-sg4k4"
+    },
+    "fiuts:6a9746471d0e3a1845114490": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf-ayd52-t7zfg-sg4k4-tcd3a"
+    },
+    "fiuts:6a974649e6e98448fdf69700": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf-ayd52-t7zfg-sg4k4-tcd3a-fp24k"
+    },
+    "fiuts:6a97464b9e6c152c24454933": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf-ayd52-t7zfg-sg4k4-tcd3a-7gjhl"
+    },
+    "fiuts:6a97464d387c2c115c564b15": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/9/2/fiuts-goes-to-trivia-night-at-big-time-brewery-43rp2-9r96l-4h54h-jt9nn-ws8tf-ayd52-t7zfg-sg4k4-tcd3a-pkctr"
+    },
+    "fiuts:6aa993936dc242123b21f4d5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/13/fiuts-pathways-leadership-styles-workshop"
+    },
+    "fiuts:6aa994007d80ef05ee39622d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/15/fiuts-pathways-nonprofit-management-seminar"
+    },
+    "fiuts:6aa9946b03c6f14478e08228": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/20/fiuts-pathways-accounting-and-accounting-entrepreneurship-seminar"
+    },
+    "fiuts:6aa994b5c264060a2fd26ccb": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/22/fiuts-pathways-teamsteambuilding-workshop"
+    },
+    "fiuts:6a7f4ebda6965f7046403014": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/13/fiuts-community-partner-event-21st-tasveer-film-festival-amp-market"
     }
   }
 }
