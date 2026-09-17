@@ -15,8 +15,14 @@ const DEFAULT_UNKNOWN_TIME_MINUTE = 0;
 const DEFAULT_DURATION = Duration.ofHours(4);
 
 // Club-internal business (board meetings, the annual general meeting) is not
-// an attendable public event — filtered before parsing, same as
-// sources/sloop_tavern_yacht_club's NON_PUBLIC_TITLE_PREFIXES.
+// an attendable public event — filtered before parsing, same intent as
+// sources/sloop_tavern_yacht_club's NON_PUBLIC_TITLE_PREFIXES. This club's
+// actual titles ("Q3 Board Meeting - Red Room", "Club Annual General
+// Meeting (AGM)") don't put the phrase at the start, so this matches
+// anywhere in the (lowercased) title rather than only as a prefix — accepted
+// tradeoff: a public event that happens to discuss one of these phrases in
+// its title would also be filtered, but no such title has appeared in the
+// feed.
 const NON_PUBLIC_TITLE_SUBSTRINGS = ["board meeting", "annual general meeting"];
 
 // Every session happens at the club's single physical clubhouse.
@@ -104,12 +110,22 @@ export function stripDateSuffix(title: string): string {
 
 // WildApricot gives every occurrence of a recurring event (e.g. "Thursday
 // night Euros" happening most Thursdays) the SAME guid/link — it identifies
-// the series, not the occurrence. Appending the occurrence's own local date
-// keeps ids unique per date, the same slot-suffix approach the repo uses for
-// same-day double features (see AGENTS.md "Ripper Design: Stable Event IDs").
+// the series, not the occurrence. Appending the occurrence's own local
+// date+time keeps ids unique per occurrence, the same slot-suffix approach
+// the repo uses for same-day double features (see AGENTS.md "Ripper Design:
+// Stable Event IDs") — the time component additionally disambiguates a rare
+// same-series makeup/second session posted on the same calendar date.
 export function extractSeriesIdFromGuid(guid: string): string | undefined {
     const match = guid.match(/event-(\d+)/);
     return match ? match[1] : undefined;
+}
+
+function pad2(n: number): string {
+    return n.toString().padStart(2, '0');
+}
+
+export function occurrenceSlug(date: ZonedDateTime): string {
+    return `${date.toLocalDate().toString()}-${pad2(date.hour())}${pad2(date.minute())}`;
 }
 
 export function extractDescription(raw: string | undefined): string | undefined {
@@ -154,7 +170,7 @@ export function parseFeedItem(raw: RawMsgItem, zone: ZoneId): RipperEvent {
         ? parsedPubDate.date.withHour(DEFAULT_UNKNOWN_TIME_HOUR).withMinute(DEFAULT_UNKNOWN_TIME_MINUTE)
         : parsedPubDate.date;
 
-    const id = `metro-seattle-gamers-${seriesId}-${date.toLocalDate().toString()}`;
+    const id = `metro-seattle-gamers-${seriesId}-${occurrenceSlug(date)}`;
 
     return {
         id,

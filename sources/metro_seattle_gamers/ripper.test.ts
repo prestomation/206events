@@ -11,6 +11,7 @@ import {
     isNonPublicEvent,
     stripDateSuffix,
     extractSeriesIdFromGuid,
+    occurrenceSlug,
     extractDescription,
     decodeHtmlEntities,
     RawMsgItem,
@@ -86,6 +87,18 @@ describe('extractSeriesIdFromGuid', () => {
     });
 });
 
+describe('occurrenceSlug', () => {
+    it('formats as zero-padded local date and time', () => {
+        const parsed = parsePubDate('Sat, 19 Sep 2026 02:00:00 GMT', ZONE)!;
+        expect(occurrenceSlug(parsed.date)).toBe('2026-09-18-1900');
+    });
+
+    it('zero-pads single-digit hours and minutes', () => {
+        const parsed = parsePubDate('Sat, 19 Sep 2026 08:05:00 GMT', ZONE)!;
+        expect(occurrenceSlug(parsed.date)).toBe('2026-09-19-0105');
+    });
+});
+
 describe('decodeHtmlEntities', () => {
     it('decodes named entities', () => {
         expect(decodeHtmlEntities('Games &amp; More')).toBe('Games & More');
@@ -144,7 +157,7 @@ describe('parseFeedItem', () => {
     it('parses a valid item into a RipperCalendarEvent', () => {
         const result = parseFeedItem(validItem, ZONE) as RipperCalendarEvent;
         expect('date' in result).toBe(true);
-        expect(result.id).toBe('metro-seattle-gamers-6830181-2026-09-18');
+        expect(result.id).toBe('metro-seattle-gamers-6830181-2026-09-18-1900');
         expect(result.summary).toBe('Traveller');
         expect(result.location).toBe('Nickerson Marina Building, Suite 301, 1080 W Ewing Pl, Seattle, WA 98119');
         expect(result.url).toBe(validItem.link);
@@ -155,6 +168,14 @@ describe('parseFeedItem', () => {
         const laterOccurrence: RawMsgItem = { ...validItem, title: 'Traveller (25 Sep 2026)', pubDate: 'Sat, 26 Sep 2026 02:00:00 GMT' };
         const first = parseFeedItem(validItem, ZONE) as RipperCalendarEvent;
         const second = parseFeedItem(laterOccurrence, ZONE) as RipperCalendarEvent;
+        expect(first.id).not.toBe(second.id);
+    });
+
+    it('appends the occurrence time too, so a same-series makeup session on the same date still gets a distinct id', () => {
+        const sameDayLaterSlot: RawMsgItem = { ...validItem, pubDate: 'Sat, 19 Sep 2026 04:00:00 GMT' };
+        const first = parseFeedItem(validItem, ZONE) as RipperCalendarEvent;
+        const second = parseFeedItem(sameDayLaterSlot, ZONE) as RipperCalendarEvent;
+        expect(first.date.toLocalDate().toString()).toBe(second.date.toLocalDate().toString());
         expect(first.id).not.toBe(second.id);
     });
 
