@@ -6,7 +6,7 @@ url: https://babayagaseattle.com/seattle-baba-yaga-events-days
 tags: ["Music", "Nightlife", "Pioneer Square"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-17
-pr:
+pr: 1522
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
