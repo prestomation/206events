@@ -92147,29 +92147,38 @@
     "psms:psms-192511": {
       "fields": {
         "startTime": "14:30",
-        "duration": 153000
+        "duration": 153000,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS&eventid=192511"
+      "evidence": "https://www.psms.org/all_events.php"
     },
     "psms:psms-192509": {
       "fields": {
         "startTime": "12:00",
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS&eventid=192509"
+      "evidence": "https://www.psms.org/all_events.php"
     },
     "psms:psms-192510": {
       "fields": {
         "startTime": "12:00",
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS&eventid=192510"
+      "evidence": "https://www.psms.org/all_events.php"
     },
     "seatoday:cityspark-19934909": {
       "unresolvable": true,
@@ -92256,6 +92265,602 @@
       "resolvedAt": "2026-09-17",
       "source": "agent",
       "evidence": "https://seattlearchitecture.strangertickets.com/events/187612529/south-lake-union-then-now"
+    },
+    "psms:psms-225695": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.psms.org/all_events.php"
+    },
+    "psms:psms-225696": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.psms.org/all_events.php"
+    },
+    "psms:psms-225697": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.psms.org/all_events.php"
+    },
+    "psms:psms-225698": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.psms.org/all_events.php"
+    },
+    "psms:psms-225705": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.psms.org/all_events.php"
+    },
+    "psms:psms-192494": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.psms.org/all_events.php"
+    },
+    "psms:psms-192496": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.psms.org/all_events.php"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-10-02": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-10-09": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-10-16": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-11-06": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-11-13": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-11-20": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-12-11": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-gator-boy-s-holiday-extravaganza-2026-12-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "gator-boy-productions:gator-boy-productions-louisiana-dance-party-2026-10-04": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://gatorboyproductions.com/events/"
+    },
+    "outdoors-for-all:outdoors-for-all-19381-2026-10-12": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://outdoorsforall.org/events/adaptive-sport-film-screening/"
+    },
+    "outdoors-for-all:outdoors-for-all-19351-2026-10-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://outdoorsforall.org/events/indoor-spin-class/"
+    },
+    "do206:do206-2026-01-24-university-district-farmers-market-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sat/university-district-farmers-market-tickets"
+    },
+    "do206:do206-2026-01-25-open-mic-night-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sun/open-mic-night-tickets"
+    },
+    "do206:do206-2026-06-21-ballard-farmers-market-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sun/ballard-farmers-market-tickets"
+    },
+    "do206:do206-2026-06-21-fremont-sunday-market-tickets-wczgfqlu": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sun/fremont-sunday-market-tickets-wczgfqlu"
+    },
+    "do206:do206-2026-07-06-mo-jam-mondays-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/mon/mo-jam-mondays-tickets"
+    },
+    "do206:do206-2026-09-23-bravo-the-bagchaser-peysoh-sounds-by-dj-trill-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/wed/bravo-the-bagchaser-peysoh-sounds-by-dj-trill-tickets"
+    },
+    "do206:do206-2026-09-28-irish-dance-lessons-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/wed/irish-dance-lessons-tickets"
+    },
+    "do206:do206-2026-10-13-warren-dunes-litvar-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/tue/warren-dunes-litvar-tickets"
+    },
+    "rabbit_box:6aa854132f710533a26869ad": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-presents-kyran-daniel"
+    },
+    "rabbit_box:6aaaad86fa7051307c8343ec": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-triple-door-presents-gareth-pearson-at-the-rabbit-box"
+    },
+    "rabbit_box:6aab151814a70d387deb1b5a": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/blone-noble-hot-hail-ononos-dj-candy-whiplash-dj-mister-sister"
+    },
+    "tabletop-village:3fc1kpnu46mkk9rg2snk3epgn8@google.com-2027-03-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "tabletop-village:6n37huunc7vugo8nplsdnv2old@google.com-2027-03-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "tabletop-village:71l66g48p7akmkpk719sio9hl0@google.com-2027-03-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
+    },
+    "mr_bs_meadery:6aab0cbd59046834962e4001": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.mrbsmeadery.com/events/across-35th-live-music"
+    },
+    "mr_bs_meadery:6aab0e2483d2b75f8cdbe7db": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.mrbsmeadery.com/events/all-this-for-that-live-music"
+    },
+    "kremwerk:6aab03b558802f216e74f1cc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/17/off99-fred-p"
+    },
+    "naam:6aaaf2a539e91536e0150117": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.naamnw.org/events/freedom-day-4"
+    },
+    "plant-amnesty:6aaafd083deb4577cc4a6d5a": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes/ygf1r4r5wljyloyxn6ntx5htiv2cts-3xk9z-zzkwa-ke87s"
+    },
+    "wtia-community-events:wtia-community-events-evt-ywo1betnT1cBevW": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://luma.com/rmy83s09"
+    },
+    "seattle-makers:seattle-makers-168392": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168398": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168403": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168414": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168417": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168420": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168424": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168426": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168432": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168435": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168442": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168445": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168446": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168450": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168453": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168463": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168471": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168474": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168477": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168481": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seattle-makers:seattle-makers-168484": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/memberships/"
+    },
+    "seatoday:cityspark-19934910": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "reason": "CitySparkAPI did not return cost data for this event; SPA hash URL cannot be fetched directly"
     }
   }
 }
