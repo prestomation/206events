@@ -13,6 +13,8 @@ tags: ["Nightlife", "QueenAnne"]
 # cover charge. SpotHopper API confirms `has_tickets: false` on every event.
 cost: free
 imageUrl: "https://static.spotapps.co/website_images/ab_websites/78398_website_v1/logo.png"
+# SpotHopper bar-promo events carry no per-event images
+skipEventPhotos: true
 geo:
   lat: 47.6343506
   lng: -122.3572732

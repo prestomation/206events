@@ -13,6 +13,8 @@ tags: ["Music", "Nightlife", "Pioneer Square"]
 # API confirms `has_tickets: false` on every event.
 cost: free
 imageUrl: "https://static.spotapps.co/spots/38/c8e7bef2424690bfcac97f433b31c3/:original"
+# SpotHopper bar-promo events carry no per-event images
+skipEventPhotos: true
 geo:
   lat: 47.601
   lng: -122.3331

@@ -4,6 +4,8 @@ description: "Green Seattle Partnership"
 url: "https://seattle.greencitypartnerships.org/event/calendar/"
 friendlyLink: https://seattle.greencitypartnerships.org/event/calendar/
 tags: ["Volunteer", "Outdoors"]
+# Event pages show only generic placeholder images (/img/default.jpg), no per-event photos
+skipEventPhotos: true
 geo: null
 calendars:
   - name: all-events
