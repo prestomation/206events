@@ -90173,9 +90173,10 @@
         "location": "Seattle Latvian Community Center, 11710 3rd Avenue NE, Seattle, WA 98125",
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://www.seafolklore.org/wp-content/uploads/2026/09/KALOS_Credit_-Deborah-Kay-825x510.jpg"
       },
-      "resolvedAt": "2026-09-16",
+      "resolvedAt": "2026-09-17",
       "source": "agent",
       "evidence": "https://www.seafolklore.org/events/old-growth-oldtime-festival/ — 'festival registration is on a donation, pay-what-you-want model...you can make your donation at the door' (PWYW, no fixed ticket price)"
     },
@@ -92015,7 +92016,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/happy-hour-4-good-2026-2-2/"
+      "evidence": "https://www.discoverslu.com/events/happy-hour-4-good-2026-2-2/",
+      "partialFingerprint": "1rsggb"
     },
     "discover-slu:discover-slu-underhand-2": {
       "fields": {
@@ -92023,7 +92025,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/underhand-2/"
+      "evidence": "https://www.discoverslu.com/events/discover-slu-underhand-2/",
+      "partialFingerprint": "a45ifp"
     },
     "discover-slu:discover-slu-underhand-2-2": {
       "fields": {
@@ -92031,7 +92034,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/underhand-2-2/"
+      "evidence": "https://www.discoverslu.com/events/discover-slu-underhand-2-2/",
+      "partialFingerprint": "a45ifp"
     },
     "discover-slu:discover-slu-underhand-2-2-2": {
       "fields": {
@@ -92039,7 +92043,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/underhand-2-2-2/"
+      "evidence": "https://www.discoverslu.com/events/discover-slu-underhand-2-2-2/",
+      "partialFingerprint": "a45ifp"
     },
     "discover-slu:discover-slu-underhand-2-2-2-2": {
       "fields": {
@@ -92047,7 +92052,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/underhand-2-2-2-2/"
+      "evidence": "https://www.discoverslu.com/events/discover-slu-underhand-2-2-2-2/",
+      "partialFingerprint": "a45ifp"
     },
     "discover-slu:discover-slu-underhand": {
       "fields": {
@@ -92055,7 +92061,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/underhand/"
+      "evidence": "https://www.discoverslu.com/events/underhand/",
+      "partialFingerprint": "1pogfhs"
     },
     "discover-slu:discover-slu-samoanizing-cricket": {
       "fields": {
@@ -92063,7 +92070,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/samoanizing-cricket/"
+      "evidence": "https://www.discoverslu.com/events/samoanizing-cricket/",
+      "partialFingerprint": "j9286j"
     },
     "discover-slu:discover-slu-drink-draw-spooky": {
       "fields": {
@@ -92071,7 +92079,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/drink-draw-spooky/"
+      "evidence": "https://www.discoverslu.com/events/drink-draw-spooky/",
+      "partialFingerprint": "9cwnd4"
     },
     "discover-slu:discover-slu-rainier": {
       "fields": {
@@ -92079,7 +92088,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/rainier/"
+      "evidence": "https://www.discoverslu.com/events/rainier/",
+      "partialFingerprint": "mbuc0o"
     },
     "discover-slu:discover-slu-rhapsodic-musings": {
       "unresolvable": true,
@@ -92093,7 +92103,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/life-in-wild/"
+      "evidence": "https://www.discoverslu.com/events/life-in-wild/",
+      "partialFingerprint": "hpazul"
     },
     "discover-slu:discover-slu-life-in-wild-2": {
       "fields": {
@@ -92101,7 +92112,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/life-in-wild-2/"
+      "evidence": "https://www.discoverslu.com/events/life-in-wild-2/",
+      "partialFingerprint": "17hcu1i"
     },
     "discover-slu:discover-slu-black-baseball-in-wa": {
       "fields": {
@@ -92109,7 +92121,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.discoverslu.com/events/black-baseball-in-wa/"
+      "evidence": "https://www.discoverslu.com/events/black-baseball-in-wa/",
+      "partialFingerprint": "1r301wk"
     },
     "discover-slu:discover-slu-beethoven-sonatas": {
       "unresolvable": true,
@@ -92134,16 +92147,24 @@
       "reason": "Source page (seattlesymphony.org) returned HTTP 403"
     },
     "outdoors-for-all:outdoors-for-all-19335-2026-09-19": {
-      "unresolvable": true,
+      "fields": {
+        "startTime": "08:00",
+        "duration": 36000
+      },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "reason": "Event times not shown on page; require registration to view"
+      "evidence": "https://outdoorsforall.org/events/learn-to-ride-6/",
+      "partialFingerprint": "bpfuho"
     },
     "outdoors-for-all:outdoors-for-all-19335-2026-09-26": {
-      "unresolvable": true,
+      "fields": {
+        "startTime": "08:00",
+        "duration": 36000
+      },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "reason": "Event times not shown on page; require registration to view"
+      "evidence": "https://outdoorsforall.org/events/learn-to-ride-6/",
+      "partialFingerprint": "bpfuig"
     },
     "psms:psms-192511": {
       "fields": {
@@ -92155,7 +92176,8 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.psms.org/all_events.php"
+      "evidence": "https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS&eventid=192511",
+      "partialFingerprint": "1sphtwx"
     },
     "psms:psms-192509": {
       "fields": {
@@ -92167,19 +92189,21 @@
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.psms.org/all_events.php"
+      "evidence": "https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS&eventid=192509",
+      "partialFingerprint": "8agt6g"
     },
     "psms:psms-192510": {
       "fields": {
-        "startTime": "12:00",
-        "duration": 21600,
+        "startTime": "10:00",
+        "duration": 25200,
         "cost": {
           "min": 0
         }
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://www.psms.org/all_events.php"
+      "evidence": "https://mms.psms.org/Calendar/moreinfo.php?org_id=PSMS&eventid=192510",
+      "partialFingerprint": "114uvfy"
     },
     "seatoday:cityspark-19934909": {
       "unresolvable": true,
@@ -92886,6 +92910,48 @@
       "resolvedAt": "2026-09-17",
       "source": "agent",
       "evidence": "https://www.openstreetmap.org/way/228870138 - building:yes, amenity:community_centre (Washington Hall)"
+    },
+    "reclaim-clay:reclaim-clay-clay-play-handbuilt-picture-frames-20260828-1joyyx3": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/0f2ce0e3-4a6c-4bb9-8c89-d1b0855d18ae/Picture+Frames.png"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260820-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d1f98914-3b2b-49b5-be02-5e8474f5451d/Next+Step+Wheel.png"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260827-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d1f98914-3b2b-49b5-be02-5e8474f5451d/Next+Step+Wheel.png"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260903-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d1f98914-3b2b-49b5-be02-5e8474f5451d/Next+Step+Wheel.png"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent"
+    },
+    "reclaim-clay:reclaim-clay-wall-mounted-phone-holder-20261101": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/8d24d178-ff97-4544-898d-73bbbbfd9f40/Phone+Holder.png"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "reason": "Past event (2026-08-01); event page no longer shows start time/duration",
+      "partialFingerprint": "Seattle Boba Fest-2026-08-01-2026-08-01"
     }
   }
 }
