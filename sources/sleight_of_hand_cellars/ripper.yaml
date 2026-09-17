@@ -10,6 +10,8 @@ geo:
   lat: 47.5679264
   lng: -122.3353923
   label: "Sleight of Hand Cellars, 3861 1st Ave S, Seattle, WA 98134"
+  osmType: node
+  osmId: 5777081553
 calendars:
   - name: sleight-of-hand-cellars
     friendlyname: "Sleight of Hand Cellars SoDo"

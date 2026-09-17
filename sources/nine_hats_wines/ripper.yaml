@@ -9,6 +9,8 @@ geo:
   lat: 47.5679264
   lng: -122.3353923
   label: "Nine Hats Wines, 3861 1st Ave S, Seattle, WA 98134"
+  osmType: node
+  osmId: 12771043137
 calendars:
   - name: nine-hats-wines
     friendlyname: "Nine Hats Wines"
