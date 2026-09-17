@@ -5,6 +5,12 @@
 # docs/proxy-verification.md. Staged at the outofband entry point; see
 # skills/proxy-escalation/SKILL.md (Mode A) to test the ladder and escalate
 # to browserbase if outofband also fails.
+#
+# 2026-09-17: outofband (residential fetch) ALSO 403s with the same Cloudflare
+# JS-challenge — 4 consecutive failures in the pendingProxyVerification queue.
+# Cloudflare "Attention Required!" requires JS execution, so skip straight to
+# the browserbase rung (see skills/proxy-escalation/SKILL.md B3a). Browserbase
+# is fetched live in the main CI build.
 geo: null
 name: Geekwire
 sourceRole: venue
@@ -12,6 +18,6 @@ friendlyname: Geekwire Events
 description: GeekWire Events attract thousands of people to network, learn, recruit, do business, and make valuable connections with other members of the business, tech, life sciences, and innovation communities.
 icsUrl: https://www.geekwire.com/?post_type=tribe_events&ical=1&eventDisplay=list
 infoUrl: https://www.geekwire.com/events/
-proxy: "outofband"
+proxy: "browserbase"
 tags:
   - Tech
