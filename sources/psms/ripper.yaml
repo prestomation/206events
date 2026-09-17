@@ -4,6 +4,9 @@ description: "Puget Sound Mycological Society"
 url: "https://www.psms.org/all_events.php"
 friendlyLink: "https://www.psms.org/all_events.php"
 geo: null
+imageUrl: "https://psms.org/images/logo.v2.png"
+# Event pages carry only the org logo, no per-event photos
+skipEventPhotos: true
 tags: ["Education", "Outdoors"]
 calendars:
   - name: psms
