@@ -24014,6 +24014,11 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-17",
       "note": "same real-world event across multiple sources/feeds"
+    },
+    "kremwerk-kremwerk.ics CRUSH ICE: Drag Show|2026-09-18T18:00:00.850-07:00[America/Los_Angeles]::queer-social-club-all-events.ics CRUSH ICE: Drag Show|2026-09-18T18:00:00.988-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Same drag show at Kremwerk listed by both the venue and queer-social-club aggregator"
     }
   }
 }
