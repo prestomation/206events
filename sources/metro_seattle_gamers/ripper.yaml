@@ -3,6 +3,12 @@ sourceRole: venue
 description: "Metro Seattle Gamers"
 url: "https://www.metroseattlegamers.org/RSS"
 friendlyLink: "https://www.metroseattlegamers.org/events"
+imageUrl: "https://www.metroseattlegamers.org/resources/Pictures/MSG%20Logos/DF%20Logo_MSG%201%20(1).png"
+# Every event page on the site carries only this same club logo (verified
+# against multiple distinct event pages) — no per-event photo exists to
+# harvest, so event-photo backfill is retired rather than churning the
+# photoGaps queue forever.
+skipEventPhotos: true
 tags: ["Gaming", "Interbay"]
 lookahead: P3M
 geo:

@@ -28,6 +28,13 @@ const NON_PUBLIC_TITLE_SUBSTRINGS = ["board meeting", "annual general meeting"];
 // Every session happens at the club's single physical clubhouse.
 const CLUBHOUSE_LOCATION = "Nickerson Marina Building, Suite 301, 1080 W Ewing Pl, Seattle, WA 98119";
 
+// The club requires a paid membership ($35/mo standard, discounted group
+// rates) to attend any session — there is no free drop-in or single-visit
+// rate (verified against metroseattlegamers.org/membership) — but no
+// individual event ever carries a per-visit ticket price, so `paid: true`
+// (not a `min`) is the accurate, non-guessed value for every event here.
+const CLUB_COST = { paid: true as const };
+
 // Deterministic hash for partialFingerprint — only needs stability, not
 // crypto strength.
 function simpleHash(s: string): string {
@@ -181,6 +188,7 @@ export function parseFeedItem(raw: RawMsgItem, zone: ZoneId): RipperEvent {
         description: extractDescription(raw.description),
         location: CLUBHOUSE_LOCATION,
         url: link,
+        cost: CLUB_COST,
     };
 }
 
