@@ -1,0 +1,20 @@
+# Verified 2026-09-17: public, unauthenticated JSON API at
+# readonly-api.momence.com (Momence is the class-booking SaaS behind the
+# site's "Book Now" widget — see ripper.ts header for how the host id was
+# found). Live at time of check: 5 upcoming one-off workshops
+# (special-event-new) plus ~46 distinct weekly recurring yoga/pilates/dance
+# classes.
+name: dragonfly-west-seattle
+sourceRole: venue
+description: "Dragonfly Yoga Pilates Dance"
+url: "https://www.dragonflywestseattle.com/"
+friendlyLink: "https://www.dragonflywestseattle.com/"
+tags: ["Dance", "Wellness", "West Seattle"]
+geo:
+  lat: 47.573696
+  lng: -122.38657
+  label: "Dragonfly Yoga Pilates Dance, 3270 California Ave SW, Seattle, WA 98116"
+calendars:
+  - name: dragonfly-west-seattle
+    friendlyname: "Dragonfly Yoga Pilates Dance"
+    timezone: America/Los_Angeles
