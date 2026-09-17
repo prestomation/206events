@@ -94,13 +94,34 @@ function buildDescription(s: MomenceSession): string | undefined {
 
 export function costFromSession(s: MomenceSession): EventCost | undefined {
     if (s.freeEvent) return { min: 0 };
-    if (typeof s.fixedTicketPrice === "number" && s.fixedTicketPrice > 0) {
+    // Note: a genuine $0 price (as opposed to a missing/null one) is treated
+    // as free rather than falling through to "paid: true" — Momence doesn't
+    // always set `freeEvent` for a comped session priced at $0.
+    if (typeof s.fixedTicketPrice === "number") {
         return { min: s.fixedTicketPrice };
     }
-    if (typeof s.dynamicTicketPriceMin === "number" && s.dynamicTicketPriceMin > 0) {
+    if (typeof s.dynamicTicketPriceMin === "number") {
         return { min: s.dynamicTicketPriceMin };
     }
     return { paid: true };
+}
+
+/**
+ * Builds the `RipperCalendarEvent` fields shared by a discrete one-off
+ * session and a deduplicated recurring series — everything except `id`,
+ * `date`, and `rrule`, which differ between the two.
+ */
+function buildEventBase(s: MomenceSession, summary: string, url: string): Omit<RipperCalendarEvent, "id" | "date"> {
+    return {
+        ripped: new Date(),
+        duration: Duration.ofMinutes(s.durationMinutes > 0 ? s.durationMinutes : 60),
+        summary,
+        description: buildDescription(s),
+        location: VENUE_LOCATION,
+        url,
+        imageUrl: s.image,
+        cost: costFromSession(s),
+    };
 }
 
 /**
@@ -114,15 +135,8 @@ export function parseOneOffSession(s: MomenceSession): RipperCalendarEvent | Rip
     }
     return {
         id: `${SOURCE_ID}-${s.id}`,
-        ripped: new Date(),
         date: start,
-        duration: Duration.ofMinutes(s.durationMinutes > 0 ? s.durationMinutes : 60),
-        summary: `${s.sessionName} at Dragonfly`,
-        description: buildDescription(s),
-        location: VENUE_LOCATION,
-        url: s.link ?? VENUE_URL,
-        imageUrl: s.image,
-        cost: costFromSession(s),
+        ...buildEventBase(s, `${s.sessionName} at Dragonfly`, s.link ?? VENUE_URL),
     };
 }
 
@@ -153,15 +167,11 @@ export function buildRecurringEvents(sessions: MomenceSession[]): (RipperCalenda
         const dayAbbr = DAY_ABBR[firstStart.dayOfWeek().value()];
         events.push({
             id: `${SOURCE_ID}-${key}`,
-            ripped: new Date(),
             date: firstStart,
-            duration: Duration.ofMinutes(first.durationMinutes > 0 ? first.durationMinutes : 60),
-            summary: `${first.sessionName} at Dragonfly`,
-            description: buildDescription(first),
-            location: VENUE_LOCATION,
-            url: VENUE_URL,
-            imageUrl: first.image,
-            cost: costFromSession(first),
+            // The venue's general booking page, not `first.link` — that
+            // links to one specific (soon-to-pass) occurrence, not the
+            // recurring series this event represents.
+            ...buildEventBase(first, `${first.sessionName} at Dragonfly`, VENUE_URL),
             rrule: `FREQ=WEEKLY;BYDAY=${dayAbbr}`,
         });
     }
@@ -177,7 +187,8 @@ export default class DragonflyWestSeattleRipper implements IRipper {
         const fromDate = new Date().toISOString();
         const typeParams = SESSION_TYPES.map(t => `sessionTypes[]=${encodeURIComponent(t)}`).join("&");
 
-        for (let page = 0; page < MAX_PAGES; page++) {
+        let page = 0;
+        for (; page < MAX_PAGES; page++) {
             const url = `${API_BASE}?${typeParams}&fromDate=${encodeURIComponent(fromDate)}&pageSize=${PAGE_SIZE}&page=${page}&timeZone=UTC`;
             const res = await this.fetchFn(url, { headers: { "User-Agent": USER_AGENT } });
             if (!res.ok) {
@@ -186,11 +197,14 @@ export default class DragonflyWestSeattleRipper implements IRipper {
             const data = await res.json() as MomenceSessionsResponse;
             all.push(...data.payload);
             if (all.length >= data.pagination.totalCount || data.payload.length < PAGE_SIZE) {
-                break;
+                return all;
             }
         }
 
-        return all;
+        // Exhausted MAX_PAGES without the feed ever reporting itself
+        // satisfied — rather than silently truncating the schedule, fail
+        // loudly so this surfaces as a build error instead of a quiet gap.
+        throw new Error(`Dragonfly West Seattle schedule did not terminate within ${MAX_PAGES} pages (${all.length} sessions fetched) — MAX_PAGES may need raising`);
     }
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
@@ -211,15 +225,22 @@ export default class DragonflyWestSeattleRipper implements IRipper {
         const errors: RipperError[] = [];
 
         const seenOneOff = new Set<number>();
+        const recurringSource: MomenceSession[] = [];
         for (const s of sessions) {
-            if (s.isCancelled || !ONE_OFF_TYPES.has(s.type) || seenOneOff.has(s.id)) continue;
-            seenOneOff.add(s.id);
-            const result = parseOneOffSession(s);
-            if ("date" in result) events.push(result);
-            else errors.push(result);
+            if (s.isCancelled) continue;
+            if (ONE_OFF_TYPES.has(s.type)) {
+                if (seenOneOff.has(s.id)) continue;
+                seenOneOff.add(s.id);
+                const result = parseOneOffSession(s);
+                if ("date" in result) events.push(result);
+                else errors.push(result);
+            } else if (RECURRING_TYPES.has(s.type)) {
+                recurringSource.push(s);
+            } else {
+                errors.push({ type: "ParseError", reason: `Unrecognized Momence session type "${s.type}" for session ${s.id} ("${s.sessionName}")`, context: String(s.id) });
+            }
         }
 
-        const recurringSource = sessions.filter(s => !s.isCancelled && RECURRING_TYPES.has(s.type));
         for (const result of buildRecurringEvents(recurringSource)) {
             if ("date" in result) events.push(result);
             else errors.push(result);

@@ -89,6 +89,11 @@ describe("costFromSession", () => {
         const s = { ...ONE_OFF, fixedTicketPrice: null, dynamicTicketPriceMin: null, freeEvent: false };
         expect(costFromSession(s)).toEqual({ paid: true });
     });
+
+    test("treats an explicit $0 fixed price as free, not paid:true", () => {
+        const s = { ...ONE_OFF, fixedTicketPrice: 0, freeEvent: false };
+        expect(costFromSession(s)).toEqual({ min: 0 });
+    });
 });
 
 describe("parseOneOffSession", () => {
@@ -222,9 +227,69 @@ describe("DragonflyWestSeattleRipper.rip", () => {
         expect(calledUrls).toHaveLength(1);
     });
 
+    test("actually fetches a second page when the first full page doesn't reach totalCount", async () => {
+        const calledUrls: string[] = [];
+        const fullPage = Array.from({ length: 200 }, (_, i) => ({ ...ONE_OFF, id: i + 1 }));
+        const mockFetch = vi.fn().mockImplementation((url: string) => {
+            calledUrls.push(url);
+            const isFirstPage = url.includes("page=0");
+            return Promise.resolve({
+                ok: true,
+                json: () => Promise.resolve({
+                    payload: isFirstPage ? fullPage : [ONE_OFF],
+                    pagination: { page: isFirstPage ? 0 : 1, pageSize: 200, totalCount: 201 },
+                }),
+            });
+        });
+        vi.stubGlobal("fetch", mockFetch);
+
+        const ripper = new DragonflyWestSeattleRipper();
+        await ripper.rip(makeRipper());
+
+        expect(calledUrls).toHaveLength(2);
+        expect(calledUrls[1]).toContain("page=1");
+    });
+
+    test("throws instead of silently truncating when the feed never satisfies totalCount within MAX_PAGES", async () => {
+        // Every page reports more total than has ever been delivered, and
+        // every page is full, so the loop can never break out naturally.
+        const mockFetch = vi.fn().mockImplementation(() => Promise.resolve({
+            ok: true,
+            json: () => Promise.resolve({
+                payload: Array.from({ length: 200 }, (_, i) => ({ ...ONE_OFF, id: i + 1 })),
+                pagination: { page: 0, pageSize: 200, totalCount: 999999 },
+            }),
+        }));
+        vi.stubGlobal("fetch", mockFetch);
+
+        const ripper = new DragonflyWestSeattleRipper();
+        await expect(ripper.rip(makeRipper())).rejects.toThrow(/did not terminate within/);
+    });
+
     test("throws when a page request fails", async () => {
         vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: false, status: 500 }));
         const ripper = new DragonflyWestSeattleRipper();
         await expect(ripper.rip(makeRipper())).rejects.toThrow(/Failed to fetch Dragonfly West Seattle schedule/);
+    });
+
+    test("emits a ParseError instead of dropping a session with an unrecognized type", async () => {
+        const weird = { ...ONE_OFF, id: 777, type: "mystery-type" };
+        const mockFetch = vi.fn().mockResolvedValue({
+            ok: true,
+            json: () => Promise.resolve({
+                payload: [weird],
+                pagination: { page: 0, pageSize: 200, totalCount: 1 },
+            }),
+        });
+        vi.stubGlobal("fetch", mockFetch);
+
+        const ripper = new DragonflyWestSeattleRipper();
+        const result = await ripper.rip(makeRipper());
+        const { events, errors } = result[0];
+
+        expect(events).toHaveLength(0);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe("ParseError");
+        expect((errors[0] as RipperError & { reason: string }).reason).toContain("mystery-type");
     });
 });
