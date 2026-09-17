@@ -1,0 +1,17 @@
+name: metro-seattle-gamers
+sourceRole: venue
+description: "Metro Seattle Gamers"
+url: "https://www.metroseattlegamers.org/RSS"
+friendlyLink: "https://www.metroseattlegamers.org/events"
+tags: ["Gaming", "Interbay"]
+lookahead: P3M
+geo:
+  lat: 47.6557167
+  lng: -122.3698330
+  label: "Nickerson Marina Building, 1080 W Ewing Pl, Seattle, WA 98119"
+  osmType: node
+  osmId: 2190510379
+calendars:
+  - name: metro-seattle-gamers
+    friendlyname: "Metro Seattle Gamers"
+    timezone: America/Los_Angeles
