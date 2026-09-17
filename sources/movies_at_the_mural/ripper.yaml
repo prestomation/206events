@@ -1,5 +1,6 @@
 name: movies-at-the-mural
 sourceRole: venue
+expectEmpty: true
 description: "Movies at the Mural (Seattle Center)"
 url: "https://www.seattlecenter.com/events/featured-events/movies-at-the-mural"
 friendlyLink: https://www.seattlecenter.com/events/featured-events/movies-at-the-mural

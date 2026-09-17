@@ -8,7 +8,7 @@ import { parse } from 'node-html-parser';
 
 import {
     parseTitleAndDate,
-    inferYear,
+    extractLineupYear,
     extractBackgroundImageUrl,
     parseFeaturedItem,
     parseFeaturedItemsFromHtml,
@@ -62,23 +62,25 @@ describe('parseTitleAndDate', () => {
     });
 });
 
-describe('inferYear', () => {
-    it('uses the current year when the date is later this year', () => {
-        // NOW is May 24, 2026 → July 24 is later in 2026
-        expect(inferYear(7, 24, NOW)).toBe(2026);
+describe('extractLineupYear', () => {
+    it('reads the year out of a "20XX Line Up" heading', () => {
+        const html = parse('<h2 class="block-title block-title">2026 Line Up </h2>');
+        expect(extractLineupYear(html)).toBe(2026);
     });
 
-    it('rolls forward to next year when the date has already passed', () => {
-        // NOW is May 24, 2026 → March 1 has already happened
-        expect(inferYear(3, 1, NOW)).toBe(2027);
+    it('is case-insensitive and tolerates "LineUp" with no space', () => {
+        const html = parse('<h3>2027 lineup</h3>');
+        expect(extractLineupYear(html)).toBe(2027);
     });
 
-    it('keeps the current year for today', () => {
-        expect(inferYear(NOW.monthValue(), NOW.dayOfMonth(), NOW)).toBe(NOW.year());
+    it('returns null when no lineup heading is present', () => {
+        const html = parse('<h2>Movies at the Mural</h2>');
+        expect(extractLineupYear(html)).toBeNull();
     });
 
-    it('returns null for Feb 30', () => {
-        expect(inferYear(2, 30, NOW)).toBeNull();
+    it('finds the heading from the full live sample', () => {
+        const html = parse(loadSampleHtml());
+        expect(extractLineupYear(html)).toBe(2026);
     });
 });
 
@@ -110,7 +112,7 @@ describe('parseFeaturedItem invalid-date handling', () => {
             + '</a>'
         );
         const item = html.querySelector('a.featured-item')!;
-        const result = parseFeaturedItem(item, NOW, PACIFIC);
+        const result = parseFeaturedItem(item, 2026, NOW, PACIFIC);
         expect(result).not.toBeNull();
         expect(result!).toHaveProperty('type', 'ParseError');
     });
@@ -122,7 +124,7 @@ describe('parseFeaturedItem invalid-date handling', () => {
             + '</a>'
         );
         const item = html.querySelector('a.featured-item')!;
-        const result = parseFeaturedItem(item, NOW, PACIFIC);
+        const result = parseFeaturedItem(item, 2026, NOW, PACIFIC);
         expect(result).not.toBeNull();
         expect(result!).toHaveProperty('type', 'ParseError');
     });
@@ -196,21 +198,21 @@ describe('parseFeaturedItemsFromHtml (integration)', () => {
         }
     });
 
-    it('drops past events relative to "now"', () => {
+    it('drops all events once the 2026 season has passed, instead of inventing 2027 dates', () => {
         const after = ZonedDateTime.of(LocalDateTime.of(2026, 9, 1, 0, 0), PACIFIC);
         const html = parse(loadSampleHtml());
-        const { events } = parseFeaturedItemsFromHtml(html, after, PACIFIC);
-        // All 2026 events are past after Sept 1, so the loop rolls them to 2027.
-        expect(events).toHaveLength(5);
-        for (const e of events) {
-            expect(e.date.year()).toBe(2027);
-            expect(e.date.isAfter(after)).toBe(true);
-        }
+        const { events, errors } = parseFeaturedItemsFromHtml(html, after, PACIFIC);
+        // The sample's heading says "2026 Line Up" and all 5 of those dates are
+        // now in the past — the page just hasn't been updated with 2027's
+        // lineup yet, so every card is dropped (not rolled forward a year).
+        expect(errors).toHaveLength(0);
+        expect(events).toHaveLength(0);
     });
 
     it('ignores featured-items whose href does not point to movies-at-the-mural', () => {
         const html = parse(
-            '<a class="featured-item" href="events/event-calendar/some-other-event">'
+            '<h2 class="block-title">2026 Line Up</h2>'
+            + '<a class="featured-item" href="events/event-calendar/some-other-event">'
             + '<h3 class="featured-item__title"><p>Wonka | Jul 24</p></h3>'
             + '</a>'
             + '<a class="featured-item" href="events/event-calendar/movies-at-the-mural-wonka">'
@@ -219,5 +221,17 @@ describe('parseFeaturedItemsFromHtml (integration)', () => {
         );
         const { events } = parseFeaturedItemsFromHtml(html, NOW, PACIFIC);
         expect(events).toHaveLength(1);
+    });
+
+    it('returns a ParseError and no events when the lineup heading is missing', () => {
+        const html = parse(
+            '<a class="featured-item" href="events/event-calendar/movies-at-the-mural-wonka">'
+            + '<h3 class="featured-item__title"><p>Wonka | Jul 24</p></h3>'
+            + '</a>'
+        );
+        const { events, errors } = parseFeaturedItemsFromHtml(html, NOW, PACIFIC);
+        expect(events).toHaveLength(0);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
     });
 });

@@ -48,17 +48,21 @@ export function parseTitleAndDate(text: string): ParsedTitle | null {
     return { title, month, day };
 }
 
-// Pick the year for a (month, day) pair: use the soonest occurrence whose date
-// is not before today. Returns null when the (month, day) is not a real
-// calendar date in either year (e.g. Feb 30).
-export function inferYear(month: number, day: number, now: ZonedDateTime): number | null {
-    try {
-        const today = now.toLocalDate();
-        const thisYear = LocalDate.of(now.year(), month, day);
-        return thisYear.isBefore(today) ? now.year() + 1 : now.year();
-    } catch {
-        return null;
+// The site publishes each card as month/day only ("Jul 24") with no year —
+// the year lives solely in a page-level "20XX Line Up" heading, e.g.
+// `<h2 class="block-title">2026 Line Up</h2>`. Once the season ends,
+// Seattle Center leaves that same lineup (same heading, same dates) on the
+// page for months until the next season is announced, so inferring a year
+// from "now" (rolling a past month/day forward to next year) invents a fake
+// future screening instead of recognizing the page as stale. Read the real
+// season year from the heading instead.
+export function extractLineupYear(html: HTMLElement): number | null {
+    for (const el of html.querySelectorAll('h1, h2, h3')) {
+        const text = decode(el.textContent ?? '').replace(/\s+/g, ' ').trim();
+        const match = text.match(/^(\d{4})\s+Line\s*Up$/i);
+        if (match) return parseInt(match[1], 10);
     }
+    return null;
 }
 
 // Pull the URL out of a CSS `background-image: url(...)` declaration.
@@ -79,6 +83,7 @@ function absolutize(pathOrUrl: string): string {
 
 export function parseFeaturedItem(
     item: HTMLElement,
+    seasonYear: number,
     now: ZonedDateTime,
     zone: ZoneId
 ): RipperCalendarEvent | ParseError | null {
@@ -97,26 +102,19 @@ export function parseFeaturedItem(
         };
     }
 
-    const year = inferYear(parsed.month, parsed.day, now);
-    if (year === null) {
-        return {
-            type: 'ParseError',
-            reason: `Invalid calendar date: month=${parsed.month}, day=${parsed.day}`,
-            context: text,
-        };
-    }
-
     let date: ZonedDateTime;
     try {
-        date = ZonedDateTime.of(LocalDate.of(year, parsed.month, parsed.day), START_TIME, zone);
+        date = ZonedDateTime.of(LocalDate.of(seasonYear, parsed.month, parsed.day), START_TIME, zone);
     } catch {
         return {
             type: 'ParseError',
-            reason: `Could not construct ZonedDateTime for ${year}-${parsed.month}-${parsed.day}`,
+            reason: `Could not construct ZonedDateTime for ${seasonYear}-${parsed.month}-${parsed.day}`,
             context: text,
         };
     }
 
+    // Not an error: this just means the season named by the lineup heading
+    // has already happened and Seattle Center hasn't posted the next one yet.
     if (date.isBefore(now)) return null;
 
     const href = item.getAttribute('href') ?? undefined;
@@ -126,7 +124,7 @@ export function parseFeaturedItem(
     const image = bgUrl ? absolutize(bgUrl) : undefined;
 
     return {
-        id: `movies-at-the-mural-${year}-${String(parsed.month).padStart(2, '0')}-${String(parsed.day).padStart(2, '0')}-${slugify(parsed.title)}`,
+        id: `movies-at-the-mural-${seasonYear}-${String(parsed.month).padStart(2, '0')}-${String(parsed.day).padStart(2, '0')}-${slugify(parsed.title)}`,
         ripped: new Date(),
         date,
         duration: DEFAULT_DURATION,
@@ -146,6 +144,19 @@ export function parseFeaturedItemsFromHtml(
 ): { events: RipperCalendarEvent[]; errors: ParseError[] } {
     const events: RipperCalendarEvent[] = [];
     const errors: ParseError[] = [];
+
+    const seasonYear = extractLineupYear(html);
+    if (seasonYear === null) {
+        return {
+            events,
+            errors: [{
+                type: 'ParseError',
+                reason: 'Could not find a "<year> Line Up" heading on the page — the site structure may have changed',
+                context: 'movies-at-the-mural page',
+            }],
+        };
+    }
+
     // Only anchor elements with class "featured-item" (not children like
     // "featured-item__title" or "featured-item__content").
     for (const item of html.querySelectorAll('a.featured-item')) {
@@ -154,7 +165,7 @@ export function parseFeaturedItemsFromHtml(
         // under /events/event-calendar/movies-at-the-mural*, so anchor on that
         // path to ignore any unrelated featured-items on the page.
         if (!/events\/event-calendar\/movies-at-the-mural/i.test(href)) continue;
-        const result = parseFeaturedItem(item, now, zone);
+        const result = parseFeaturedItem(item, seasonYear, now, zone);
         if (result === null) continue;
         if ('date' in result) events.push(result);
         else errors.push(result);
