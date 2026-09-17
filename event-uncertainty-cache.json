@@ -93448,6 +93448,298 @@
       "resolvedAt": "2026-09-17",
       "source": "agent",
       "evidence": "https://seattledrumschool.com/events/mictlantecuhtli-aztec-dance-practice/"
+    },
+    "seatoday:cityspark-19940711": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/rescheduled-to-9-30-caregiver-support-group/19940711/2026-09-23T00"
+    },
+    "seatoday:cityspark-19941651": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/coyote-teeth/19941651/2026-09-21T00"
+    },
+    "seatoday:cityspark-19938107": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://ocbonline.com/events/ocb-seattle-natural-2/"
+    },
+    "do206:do206-2026-10-16-agrovox-early-show-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.39
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/agrovox-early-show-tickets"
+    },
+    "do206:do206-2026-10-16-almost-monday-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/almost-monday-tickets"
+    },
+    "do206:do206-2026-10-16-antibalas-tickets": {
+      "fields": {
+        "cost": {
+          "min": 47.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/antibalas-tickets"
+    },
+    "do206:do206-2026-10-16-antibalas-tickets-9ed1o6d": {
+      "fields": {
+        "cost": {
+          "min": 47.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/antibalas-tickets-9ed1o6d"
+    },
+    "do206:do206-2026-10-16-as-many-weirdos-as-possible-tickets": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/as-many-weirdos-as-possible-tickets"
+    },
+    "do206:do206-2026-10-16-bebe-stockwell-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/bebe-stockwell-tickets"
+    },
+    "do206:do206-2026-10-16-comedy-show-erica-rhodes-oct-16th-and-17th-at-laughs-comedy-seattle-tickets": {
+      "fields": {
+        "cost": {
+          "min": 30.44,
+          "max": 42.82
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/comedy-show-erica-rhodes-oct-16th-and-17th-at-laughs-comedy-seattle-tickets"
+    },
+    "do206:do206-2026-10-16-gary-clark-jr-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/gary-clark-jr-tickets"
+    },
+    "do206:do206-2026-10-16-grindhaus-tickets": {
+      "fields": {
+        "cost": {
+          "min": 34.82,
+          "max": 96.08
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/grindhaus-tickets"
+    },
+    "do206:do206-2026-10-16-improv-happy-hour-festival-edition-tickets": {
+      "fields": {
+        "cost": {
+          "min": 12.0,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/improv-happy-hour-festival-edition-tickets"
+    },
+    "do206:do206-2026-10-16-jim-henson-s-labyrinth-in-concert-40th-anniversary-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/jim-henson-s-labyrinth-in-concert-40th-anniversary-tickets"
+    },
+    "do206:do206-2026-10-16-karmic-unrest-absolutist-twasmonaut-tickets": {
+      "fields": {
+        "cost": {
+          "min": 15.94
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/karmic-unrest-absolutist-twasmonaut-tickets"
+    },
+    "do206:do206-2026-10-16-kiefer-with-shibo-tickets": {
+      "fields": {
+        "cost": {
+          "min": 31.07
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/kiefer-with-shibo-tickets"
+    },
+    "do206:do206-2026-10-16-know-good-with-blookah-and-terminal-6-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/know-good-with-blookah-and-terminal-6-tickets"
+    },
+    "do206:do206-2026-10-16-kyle-watson-tickets": {
+      "fields": {
+        "cost": {
+          "min": 20.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/kyle-watson-tickets"
+    },
+    "do206:do206-2026-10-16-liz-longley-at-the-rabbit-box-tickets": {
+      "fields": {
+        "cost": {
+          "min": 25.0,
+          "max": 30.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/liz-longley-at-the-rabbit-box-tickets"
+    },
+    "do206:do206-2026-10-16-poe-unexpected-edgar-allan-poe-improvised-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/poe-unexpected-edgar-allan-poe-improvised-tickets"
+    },
+    "do206:do206-2026-10-16-post-sex-nachos-tickets": {
+      "fields": {
+        "cost": {
+          "min": 112.55
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/post-sex-nachos-tickets"
+    },
+    "do206:do206-2026-10-16-rocky-horror-improv-show-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/rocky-horror-improv-show-tickets"
+    },
+    "do206:do206-2026-10-16-seattle-theatresports-2026-festival-edition-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/seattle-theatresports-2026-festival-edition-tickets"
+    },
+    "do206:do206-2026-10-16-seattle-theatresports-2026-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/seattle-theatresports-2026-tickets"
+    },
+    "do206:do206-2026-10-16-the-holdup-tickets": {
+      "fields": {
+        "cost": {
+          "min": 27.72
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/the-holdup-tickets"
+    },
+    "do206:do206-2026-10-16-this-is-halloween-tickets": {
+      "fields": {
+        "cost": {
+          "min": 35.0,
+          "max": 75.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/this-is-halloween-tickets"
+    },
+    "do206:do206-2026-10-16-this-is-halloween-tickets-b9zv3xj": {
+      "fields": {
+        "cost": {
+          "min": 35.0,
+          "max": 75.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/this-is-halloween-tickets-b9zv3xj"
+    },
+    "do206:do206-2026-10-16-this-wild-life-tickets": {
+      "fields": {
+        "cost": {
+          "min": 31.16
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/16/this-wild-life-tickets"
     }
   }
 }

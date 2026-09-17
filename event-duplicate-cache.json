@@ -24019,6 +24019,71 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-17",
       "note": "Same drag show at Kremwerk listed by both the venue and queer-social-club aggregator"
+    },
+    "badslava-open-mics-all-events.ics Open Mic at Skylark Cafe & Club|2026-09-23T19:30:00-07:00[America/Los_Angeles]::recurring-skylark-cafe-open-mic.ics Skylark Cafe — Wednesday Open Mic|2026-09-23T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Same weekly open mic at Skylark Cafe, same address and time, title variant"
+    },
+    "barboza-barboza.ics Bebe Stockwell with Khatumu|2026-10-16T18:30:00-07:00[America/Los_Angeles]::do206-do206.ics Bebe Stockwell|2026-10-16T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Same show at Barboza, same time; do206 drops the opener from the title"
+    },
+    "do206-do206.ics Agrovox - Early Show|2026-10-16T18:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Agrovox - Early Show|2026-10-16T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Same show at Conor Byrne Pub; exact title match, 2h gap is doors vs set time between the two feeds"
+    },
+    "do206-do206.ics Inside Story: Storytelling & Improv Comedy Show feat. Bar Stories|2026-09-20T19:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Inside Story: Storytelling & Improv Comedy Show|2026-09-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "dup"
+    },
+    "do206-do206.ics Jim Henson’s Labyrinth: In Concert 40th Anniversary|2026-10-16T18:00:00-07:00[America/Los_Angeles]::stg-stg-moore.ics Jim Henson's Labyrinth: In Concert 40th Anniversary|2026-10-16T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Same Moore Theatre show, exact title match; 1h gap is doors (do206) vs show time (STG/Ticketmaster)"
+    },
+    "do206-do206.ics Liz Longley at The Rabbit Box|2026-10-16T19:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Liz Longley presented by The Triple Door at The Rabbit Box|2026-10-16T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Same Triple Door-presented show at The Rabbit Box, same time; title variant"
+    },
+    "external-unexpected-productions.ics Inside Story: Storytelling & Improv Comedy Show|2026-09-20T19:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Inside Story: Storytelling %26 Improv Comedy Show|2026-09-20T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Same Unexpected Productions show as the do206 pair above; %26 is an unescaped '&' from the Pike Place feed"
+    },
+    "seatoday-seatoday-all.ics ALL DAY THEATRE|2026-09-26T05:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics ALL DAY THEATRE|2026-09-26T05:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Identical CitySpark event (same url) surfaced in two seatoday topical calendars"
+    },
+    "seatoday-seatoday-all.ics RESCHEDULED to 9/30 * Caregiver Support Group|2026-09-23T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics RESCHEDULED to 9/30 * Caregiver Support Group|2026-09-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Identical CitySpark event (same url) surfaced in two seatoday topical calendars"
+    },
+    "seatoday-seatoday-all.ics RESCHEDULED to 9/30 * Caregiver Support Group|2026-09-23T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics RESCHEDULED to 9/30 * Caregiver Support Group|2026-09-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Identical CitySpark event (same url) surfaced in two seatoday topical calendars"
+    },
+    "seatoday-seatoday-community.ics RESCHEDULED to 9/30 * Caregiver Support Group|2026-09-23T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics RESCHEDULED to 9/30 * Caregiver Support Group|2026-09-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-17",
+      "note": "Identical CitySpark event (same url) surfaced in two seatoday topical calendars"
+    },
+    "spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:00:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-17",
+      "note": "Recurring program held independently at two different branches 8.3km apart, different times — genuinely separate sessions"
+    },
+    "spl-high-point.ics Homework Help|2026-09-28T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-28T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-17",
+      "note": "Recurring program held independently at two different branches 17.7km apart, different times — genuinely separate sessions"
     }
   }
 }
