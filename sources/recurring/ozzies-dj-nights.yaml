@@ -1,0 +1,26 @@
+# verified: 2026-09-17 ok
+geo:
+  lat: 47.6244856
+  lng: -122.3582883
+  label: "Ozzie's, 105 W Mercer St, Seattle, WA 98119"
+  osmType: node
+  osmId: 2400948514
+name: ozzies-dj-nights
+sourceRole: venue
+friendlyname: DJ Night at Ozzie's
+description: Weekend DJ takeover at Ozzie's, a dive bar in Lower Queen Anne next to Climate Pledge Arena, starting at 10pm and running until close.
+timezone: America/Los_Angeles
+location: "105 W Mercer St, Seattle, WA 98119"
+url: https://ozziesinseattle.com/
+imageUrl: "https://ozziesinseattle.com/images/logo.png"
+tags:
+  - Nightlife
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: every Friday
+    start_time: "22:00"
+    duration: PT4H
+  - schedule: every Saturday
+    start_time: "22:00"
+    duration: PT4H
