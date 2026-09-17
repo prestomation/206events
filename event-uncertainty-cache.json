@@ -93482,7 +93482,7 @@
     "do206:do206-2026-10-16-agrovox-early-show-tickets": {
       "fields": {
         "cost": {
-          "min": 13.39
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93543,8 +93543,7 @@
     "do206:do206-2026-10-16-comedy-show-erica-rhodes-oct-16th-and-17th-at-laughs-comedy-seattle-tickets": {
       "fields": {
         "cost": {
-          "min": 30.44,
-          "max": 42.82
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93564,8 +93563,7 @@
     "do206:do206-2026-10-16-grindhaus-tickets": {
       "fields": {
         "cost": {
-          "min": 34.82,
-          "max": 96.08
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93575,8 +93573,7 @@
     "do206:do206-2026-10-16-improv-happy-hour-festival-edition-tickets": {
       "fields": {
         "cost": {
-          "min": 12.0,
-          "max": 22.35
+          "min": 12.0
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93596,7 +93593,7 @@
     "do206:do206-2026-10-16-karmic-unrest-absolutist-twasmonaut-tickets": {
       "fields": {
         "cost": {
-          "min": 15.94
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93606,7 +93603,7 @@
     "do206:do206-2026-10-16-kiefer-with-shibo-tickets": {
       "fields": {
         "cost": {
-          "min": 31.07
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93648,8 +93645,7 @@
     "do206:do206-2026-10-16-poe-unexpected-edgar-allan-poe-improvised-tickets": {
       "fields": {
         "cost": {
-          "min": 13.71,
-          "max": 22.35
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93659,7 +93655,7 @@
     "do206:do206-2026-10-16-post-sex-nachos-tickets": {
       "fields": {
         "cost": {
-          "min": 112.55
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93669,8 +93665,7 @@
     "do206:do206-2026-10-16-rocky-horror-improv-show-tickets": {
       "fields": {
         "cost": {
-          "min": 13.71,
-          "max": 22.35
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93680,8 +93675,7 @@
     "do206:do206-2026-10-16-seattle-theatresports-2026-festival-edition-tickets": {
       "fields": {
         "cost": {
-          "min": 13.71,
-          "max": 22.35
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93691,8 +93685,7 @@
     "do206:do206-2026-10-16-seattle-theatresports-2026-tickets": {
       "fields": {
         "cost": {
-          "min": 13.71,
-          "max": 22.35
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93702,7 +93695,7 @@
     "do206:do206-2026-10-16-the-holdup-tickets": {
       "fields": {
         "cost": {
-          "min": 27.72
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
@@ -93734,7 +93727,7 @@
     "do206:do206-2026-10-16-this-wild-life-tickets": {
       "fields": {
         "cost": {
-          "min": 31.16
+          "paid": true
         }
       },
       "resolvedAt": "2026-09-17",
