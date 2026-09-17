@@ -369,6 +369,7 @@ describe('SeattleShowlistsRipper', () => {
     describe('VENUE_CONFIG', () => {
         it('should have skip=true for venues with active dedicated rippers', () => {
             const skippedVenues = [
+                'Baba Yaga',
                 'Showbox Market', 'Showbox Sodo', 'Neumos', 'The Crocodile',
                 'Neptune Theater', 'The Moore Theater', 'The Paramount Theater',
                 'WAMU Theater', 'The Vera Project', 'The Sunset Tavern',
@@ -383,7 +384,7 @@ describe('SeattleShowlistsRipper', () => {
 
         it('should not have skip for included venues', () => {
             const includedVenues = [
-                'Baba Yaga', 'Bad Bar',
+                'Bad Bar',
                 'Black &amp; Tan Hall', 'Blue Moon Tavern',
                 'Central Saloon', 'Conor Byrne Pub',
                 "Darrell's Tavern", 'Hotel Crocodile', 'Nectar Lounge',
@@ -425,7 +426,7 @@ describe('SeattleShowlistsRipper', () => {
 
         it('should exclude skipped venues when no venue filter is set', () => {
             const allShows: ShowlistEvent[] = [
-                makeShow({ id: 1, title: 'Included Show', venueName: 'Baba Yaga', date: futureDate }),
+                makeShow({ id: 1, title: 'Included Show', venueName: 'Bad Bar', date: futureDate }),
                 makeShow({ id: 2, title: 'Skipped Show', venueName: 'The Crocodile', date: futureDate }),
                 makeShow({ id: 3, title: 'Also Included', venueName: 'Nectar Lounge', date: futureDate }),
             ];
