@@ -3,6 +3,8 @@ geo:
   lat: 47.6604169
   lng: -122.3986444
   label: "Magnolia Yoga and Healing Arts, 3150 West Government Way, Seattle, WA 98199"
+  osmType: way
+  osmId: 221906615
 name: magnolia-yoga-meditation
 sourceRole: venue
 friendlyname: Meditation at Magnolia Yoga and Healing Arts

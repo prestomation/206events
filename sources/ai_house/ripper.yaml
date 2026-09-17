@@ -9,6 +9,7 @@ geo:
   lat: 47.614787
   lng: -122.355809
   label: "AI House, 2801 Alaskan Wy, Seattle, WA 98121"
+  osmChecked: 2026-09-17
 calendars:
   - name: calendar
     friendlyname: "AI House"
