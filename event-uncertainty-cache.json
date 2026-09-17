@@ -92149,7 +92149,10 @@
     "outdoors-for-all:outdoors-for-all-19335-2026-09-19": {
       "fields": {
         "startTime": "08:00",
-        "duration": 36000
+        "duration": 36000,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
@@ -92159,7 +92162,10 @@
     "outdoors-for-all:outdoors-for-all-19335-2026-09-26": {
       "fields": {
         "startTime": "08:00",
-        "duration": 36000
+        "duration": 36000,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
@@ -93312,6 +93318,136 @@
       "resolvedAt": "2026-09-17",
       "source": "agent",
       "evidence": "https://www.fiuts.org/calendar/2026/10/13/fiuts-community-partner-event-21st-tasveer-film-festival-amp-market"
+    },
+    "mr_bs_meadery:6aab1cdc468e3e0d503718d7": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.mrbsmeadery.com/events/sip-stitch-sept-azxnc"
+    },
+    "mr_bs_meadery:6aab1d34bdd0bd1cd8404d37": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.mrbsmeadery.com/events/sip-stitch-sept-azxnc-snnm5"
+    },
+    "queer-social-club:6aab3129e43dac02ff8bb105": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/outbio-seattle-presents-heightened-scrutiny-screening-and-fundraiser"
+    },
+    "queer-social-club:6aab354ae1e06d1db65804eb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/-a-ballerina-rave-"
+    },
+    "queer-social-club:6aab3698291ac5064c830d7b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/spicy-thursdays-hip-hop-dance-social"
+    },
+    "queer-social-club:6aab376302308933a3bc31b1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/spicy-thursdays-hip-hop-dance-social-3weps"
+    },
+    "queer-social-club:6aab37c6532378691eae4633": {
+      "fields": {
+        "cost": {
+          "min": 5.0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/drip"
+    },
+    "queer-social-club:6aab39686c74592d42e80204": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/pop-up-plant-sale-lucys-bottle-shop"
+    },
+    "queer-social-club:6aab3a00b9afd6775ea17096": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/sip-n-draw-with-bridget-beorse"
+    },
+    "queer-social-club:6aab3a8e39e91536e01b53db": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/toxc-presents-queer-amateur-sapphic-strip-night-masc-vs-femme-edition"
+    },
+    "queer-social-club:6aab3b36c10e8d2c08110962": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/crush-ice-drag-show"
+    },
+    "rabbit_box:6aab565033cfa015fbde6a7d": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/the-rabbit-box-presents-the-starlight-stage-lounge-dk3rw-75e29"
+    },
+    "seattle-drum-school:seattle-drum-school-11747-2026-09-23": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/mictlantecuhtli-aztec-dance-practice/"
     }
   }
 }
