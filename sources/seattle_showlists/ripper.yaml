@@ -23,20 +23,6 @@ calendars:
     tags: ["Pioneer Square"]
     config:
       venue: "Europa"
-  - name: baba-yaga
-    friendlyname: "Baba Yaga"
-    imageUrl: "https://static.spotapps.co/spots/38/c8e7bef2424690bfcac97f433b31c3/:original"
-    geo:
-      lat: 47.601
-      lng: -122.3331
-      label: "Baba Yaga, 124 S Washington St, Seattle, WA 98104"
-      osmChecked: 2026-05-09
-      osmType: node
-      osmId: 2351695513
-    timezone: America/Los_Angeles
-    tags: ["Pioneer Square"]
-    config:
-      venue: "Baba Yaga"
   - name: central-saloon
     friendlyname: "Central Saloon"
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Seattle_-_Central_Tavern%2C_1970s_%2853502918631%29_%28cropped%29.jpg"

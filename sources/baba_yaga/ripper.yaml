@@ -1,0 +1,25 @@
+# verified: 2026-09-17 via public spothopperapp.com JSON API (spot id 275781,
+# discovered from the "Instagram@babayagaseattle" contact-permission link's
+# spot_id on the site's own homepage). Same SpotHopper platform as
+# sources/angry_beaver_seattle, sources/sullys_queen_anne, sources/bad_alberts.
+# 2 live upcoming events at time of check: National Coffee Day, National Taco Day.
+name: baba-yaga
+sourceRole: venue
+description: "Baba Yaga"
+url: "https://www.spothopperapp.com/api/spots/275781/events"
+friendlyLink: https://babayagaseattle.com/seattle-baba-yaga-events-days
+tags: ["Music", "Nightlife", "Pioneer Square"]
+# Neighborhood bar promo days (Coffee/Taco Day) — no cover charge. SpotHopper
+# API confirms `has_tickets: false` on every event.
+cost: free
+imageUrl: "https://static.spotapps.co/spots/38/c8e7bef2424690bfcac97f433b31c3/:original"
+geo:
+  lat: 47.601
+  lng: -122.3331
+  label: "Baba Yaga, 124 S Washington St, Seattle, WA 98104"
+  osmType: node
+  osmId: 2351695513
+calendars:
+  - name: events
+    friendlyname: "Baba Yaga"
+    timezone: America/Los_Angeles
