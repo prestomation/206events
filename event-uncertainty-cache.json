@@ -92120,11 +92120,12 @@
     "events12:free-things-to-do-119028-2026-09-17": {
       "fields": {
         "startTime": "14:00",
-        "duration": 3600
+        "duration": 3600,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-17",
       "source": "agent",
-      "evidence": "https://ballardlocks.org/tour-information.html"
+      "evidence": "https://ballardlocks.org/tour-information.html - Hiram M. Chittenden Locks, outdoor public park on the Lake Washington Ship Canal"
     },
     "events12:symphony-s-opening-night-118996-2026-09-19": {
       "unresolvable": true,
@@ -92861,6 +92862,30 @@
       "resolvedAt": "2026-09-17",
       "source": "agent",
       "reason": "CitySparkAPI did not return cost data for this event; SPA hash URL cannot be fetched directly"
+    },
+    "venue:loc:magnuson hanger": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/recreation/events-and-attractions/park-activation-events - 'FREE outdoor movies at Magnuson Park, Hangar 30'"
+    },
+    "venue:osm:way:161077145": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/161077145 - building:yes, amenity:arts_centre (Langston Hughes Performing Arts Center)"
+    },
+    "venue:osm:way:228870138": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-17",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/228870138 - building:yes, amenity:community_centre (Washington Hall)"
     }
   }
 }
