@@ -5,7 +5,7 @@ platform: custom (no calendar page — individual static pages per program)
 url: https://ozziesinseattle.com/
 tags: [Nightlife, Running, QueenAnne]
 firstSeen: 2026-08-21
-lastChecked: 2026-08-23
+lastChecked: 2026-09-17
 pr: 1271
 ---
 
@@ -59,3 +59,25 @@ precedent this follows.
 Geo resolved via Nominatim to OSM node 2400948514 ("Ozzie's Bar", 105 W
 Mercer St, Seattle, WA 98119 — note: page/candidate text said 98109,
 but OSM/Nominatim confirm 98119).
+
+**Re-checked 2026-09-17:** the two deprioritized programs from the
+original investigation are still live on the site's banner ticker
+("KARAOKE NIGHTLY · 9PM", "DJ FRI & SAT · 10PM") and have their own
+stable, explicit weekly schedules — same bar as the "not distinctively
+dated" language above, since a fixed daily/weekly time is exactly the
+`sources/recurring/` pattern. Weekly trivia/live music/pinball mentioned
+in the original investigation are no longer on the current site (banner
+ticker only lists karaoke, DJ, brunch, run club, drag brunch — site
+appears to have been redesigned since 2026-08-21), so those were not
+implemented. Added two more files, same one-program-per-file pattern as
+`ozzies-drag-brunch`/`ozzies-run-club`:
+- `ozzies-karaoke`: 7 `schedules:` entries (every day), start `21:00`,
+  `PT5H` (9pm to the venue's stated 2am close), `cost: free`. Same shape
+  as the already-implemented `bush-garden-karaoke` precedent.
+- `ozzies-dj-nights`: `every Friday`/`every Saturday`, start `22:00`,
+  `PT4H` (10pm to 2am close), `cost: free` (no cover mentioned anywhere
+  on the site).
+Verified via `ONLY_SOURCE=ozzies-karaoke,ozzies-dj-nights npm run
+generate-calendars` (7 + 2 events, 0 parse errors); full `npm run test`
+(3867 tests) and `npx tsc --noEmit` (no new errors vs. baseline) both
+green.

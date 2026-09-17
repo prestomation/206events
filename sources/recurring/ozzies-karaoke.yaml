@@ -1,0 +1,41 @@
+# verified: 2026-09-17 ok
+geo:
+  lat: 47.6244856
+  lng: -122.3582883
+  label: "Ozzie's, 105 W Mercer St, Seattle, WA 98119"
+  osmType: node
+  osmId: 2400948514
+name: ozzies-karaoke
+sourceRole: venue
+friendlyname: Karaoke Night at Ozzie's
+description: Nightly karaoke at Ozzie's, a dive bar in Lower Queen Anne next to Climate Pledge Arena, starting at 9pm and running until close.
+timezone: America/Los_Angeles
+location: "105 W Mercer St, Seattle, WA 98119"
+url: https://ozziesinseattle.com/
+imageUrl: "https://ozziesinseattle.com/images/logo.png"
+tags:
+  - Nightlife
+  - QueenAnne
+cost: free
+schedules:
+  - schedule: every Sunday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Monday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Tuesday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Wednesday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Thursday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Friday
+    start_time: "21:00"
+    duration: PT5H
+  - schedule: every Saturday
+    start_time: "21:00"
+    duration: PT5H
