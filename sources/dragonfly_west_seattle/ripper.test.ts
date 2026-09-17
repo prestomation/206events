@@ -94,6 +94,11 @@ describe("costFromSession", () => {
         const s = { ...ONE_OFF, fixedTicketPrice: 0, freeEvent: false };
         expect(costFromSession(s)).toEqual({ min: 0 });
     });
+
+    test("treats an explicit $0 dynamic price min as free, not paid:true", () => {
+        const s = { ...ONE_OFF, fixedTicketPrice: null, dynamicTicketPriceMin: 0, freeEvent: false };
+        expect(costFromSession(s)).toEqual({ min: 0 });
+    });
 });
 
 describe("parseOneOffSession", () => {
@@ -137,6 +142,9 @@ describe("buildRecurringEvents", () => {
         const pilates = events.find(e => e.summary === "PilatesFlow at Dragonfly")!;
         // Earliest of the two PilatesFlow occurrences anchors the event.
         expect(pilates.date.dayOfMonth()).toBe(17);
+        // Recurring events must link to the venue's general booking page,
+        // not a specific (soon-to-pass) session's booking link.
+        expect(events.every(e => e.url === "https://www.dragonflywestseattle.com/")).toBe(true);
     });
 
     test("anchors each series on its earliest fetched occurrence, not fetch order", () => {
