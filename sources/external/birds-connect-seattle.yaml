@@ -1,0 +1,12 @@
+geo: null
+name: birds-connect-seattle
+weatherSetting: "mixed"
+sourceRole: venue
+friendlyname: Birds Connect Seattle
+description: Birds Connect Seattle (formerly the Seattle Audubon Society) runs birding walks, community science outings, and educational talks across Seattle and the greater Puget Sound region.
+icsUrl: https://tockify.com/api/feeds/ics/birds.connect.sea
+infoUrl: https://birdsconnectsea.org/calendar/
+imageUrl: https://birdsconnectsea.org/wp-content/uploads/2025/04/BCS-logo.png
+tags:
+  - Education
+  - Community
