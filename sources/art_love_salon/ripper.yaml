@@ -1,0 +1,14 @@
+name: art-love-salon
+sourceRole: venue
+description: "Art Love Salon"
+url: "https://publicdisplay.art/calendar"
+friendlyLink: https://www.artlovesalon.org
+tags: ["Arts", "Downtown"]
+geo:
+  lat: 47.6081894
+  lng: -122.3388693
+  label: "Art Love Salon, 110 Union St, 5th Floor, Seattle, WA 98121"
+calendars:
+  - name: art-love-salon
+    friendlyname: "Art Love Salon"
+    timezone: America/Los_Angeles
