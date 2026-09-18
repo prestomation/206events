@@ -210,6 +210,9 @@ export default class ArtLoveSalonRipper implements IRipper {
             return { type: 'ParseError', reason: `Could not parse event detail JSON: ${err}`, context: detailUrl };
         }
 
+        if (!detail.name) {
+            return { type: 'ParseError', reason: `Event detail JSON missing "name" field`, context: detailUrl };
+        }
         const name = detail.name.trim();
         const dateStr = (detail.start_date ?? '').slice(0, 10);
 

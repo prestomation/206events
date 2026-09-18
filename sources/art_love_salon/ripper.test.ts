@@ -94,6 +94,13 @@ describe('ArtLoveSalonRipper - parseEventDetail error handling', () => {
         const result = ripper.parseEventDetail(html, 42);
         expect(result).toHaveProperty('type', 'ParseError');
     });
+
+    test('returns a ParseError (not a thrown TypeError) when the name field is missing or null', () => {
+        const html = '<script>self.__next_f.push([1,"5:{\\"initialEvent\\":{\\"id\\":43,\\"name\\":null,\\"start_date\\":\\"2026-10-01 00:00:00\\",\\"hours\\":\\"4:00 PM - 5:00 PM\\"}}"])</script>';
+        expect(() => ripper.parseEventDetail(html, 43)).not.toThrow();
+        const result = ripper.parseEventDetail(html, 43);
+        expect(result).toHaveProperty('type', 'ParseError');
+    });
 });
 
 describe('ArtLoveSalonRipper - parseEventDetail duration edge cases', () => {
