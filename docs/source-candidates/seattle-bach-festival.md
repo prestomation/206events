@@ -5,7 +5,7 @@ platform:
 url:
 tags: []
 firstSeen: 2026-09-17
-lastChecked: 2026-09-17
+lastChecked: 2026-09-18
 ---
 
 Requested via in-app feedback ([issue #1528](https://github.com/prestomation/206events/issues/1528)),
@@ -29,3 +29,15 @@ Left as `investigating` rather than `notviable` since a small/low-web-presence
 group could still exist under this name — needs a direct URL from the
 requester to proceed. No implementation without a confirmed, fetchable
 source (see AGENTS.md: never implement against a guessed URL).
+
+**Lead found 2026-09-18** (while investigating
+`docs/source-candidates/publicdisplay-art.md` /
+`docs/source-candidates/art-love-salon.md`): the citywide aggregator
+`publicdisplay.art/calendar` lists a real "Seattle Bach Festival" org
+hosting a "Cantata Trail Lectures (2026-2027 Season)" event at Art Love
+Salon, 110 Union St, on 2026-10-17. This org wasn't independently
+verified to have its own site/feed this pass — only that it's real and
+was findable through a different org's listing, which a direct name
+search kept missing. Worth checking `publicdisplay.art` for this org's
+own contact/link info, or re-running a search once the Cantata Trail
+Lectures date is closer and more likely to be independently indexed.
