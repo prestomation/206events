@@ -24084,6 +24084,36 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-17",
       "note": "Recurring program held independently at two different branches 17.7km apart, different times — genuinely separate sessions"
+    },
+    "barnes-noble-northgate-barnes-noble-northgate.ics Alex Hirsch & Rob Renzetti talk THE ART OF GRAVITY FALLS-Meany Hall Seattle|2026-09-22T18:00-07:00[America/Los_Angeles]::external-seattle-city-of-lit.ics  Alex Hirsch & Rob Renzetti talk THE ART OF GRAVITY FALLS|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-18",
+      "note": "B&N Northgate (venue) would become canonical over City of Lit (aggregator), but the actual event is at Meany Hall not B&N. Preserve both listings."
+    },
+    "cidbia-cidbia-events.ics Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]::external-seattle-city-of-lit.ics  Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-18",
+      "note": "Exact same title and time. CIDBIA and Seattle City of Lit both list this Union Station event."
+    },
+    "elliott-bay-elliott-bay.ics Jack Straw Writers Cohort Reading|2026-09-25T19:00-07:00[America/Los_Angeles]::external-seattle-city-of-lit.ics  Jack Straw Writers at Elliott Bay Book Co.|2026-09-25T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-18",
+      "note": "Same Jack Straw Writers reading at Elliott Bay Book Co., same date/time, 4m apart."
+    },
+    "external-seattle-city-of-lit.ics  Egrets, While War: An Evening with Tishani Doshi|2026-10-13T18:30:00-07:00[America/Los_Angeles]::external-seattle-university.ics Egrets, While War: An Evening with Tishani Doshi|2026-10-13T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-18",
+      "note": "Identical title, same date/time. Seattle University co-presents with City of Literature at Cornish Raisbeck Auditorium; 119m geocode variance."
+    },
+    "external-seattle-city-of-lit.ics  FriendShop Pop-Up Book Sale|2026-11-15T10:00:00-08:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Pop Up Book Sale|2026-11-15T10:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-18",
+      "note": "FriendShop is the Friends of the Seattle Public Library. Same event at SPL Queen Anne Branch on same date/time."
+    },
+    "external-unexpected-productions.ics Duo Comedy Showcase 2026|2026-09-23T20:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Duo Comedy Improv Showcase|2026-09-23T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-18",
+      "note": "Title score 0.6; \"Duo Comedy Showcase 2026\" may be a distinct annual show vs the recurring \"Duo Comedy Improv Showcase\". Preserve both."
     }
   }
 }
