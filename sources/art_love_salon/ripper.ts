@@ -113,7 +113,19 @@ export default class ArtLoveSalonRipper implements IRipper {
         const events: RipperCalendarEvent[] = [];
 
         for (const candidate of candidates) {
-            const result = await this.fetchAndParseEvent(fetchFn, candidate);
+            let result: RipperEvent;
+            try {
+                result = await this.fetchAndParseEvent(fetchFn, candidate);
+            } catch (err) {
+                // A single event's detail page failing unexpectedly (e.g. a
+                // malformed RSC chunk) shouldn't take down every other
+                // event's data for this build.
+                result = {
+                    type: 'ParseError',
+                    reason: `Unexpected error fetching/parsing event ${candidate.id}: ${err}`,
+                    context: candidate.name,
+                };
+            }
             if ('date' in result) {
                 if (!result.date.isBefore(now)) events.push(result);
             } else {
@@ -144,7 +156,17 @@ export default class ArtLoveSalonRipper implements IRipper {
         const flightData = extractNextFlightData(calendarHtml);
         const arrayText = extractJsonAfterMarker(flightData, '"initialEvents":[', '[', ']');
         if (!arrayText) return [];
-        const rawEvents = JSON.parse(arrayText) as PublicDisplayCalendarEvent[];
+
+        let rawEvents: PublicDisplayCalendarEvent[];
+        try {
+            rawEvents = JSON.parse(arrayText) as PublicDisplayCalendarEvent[];
+        } catch (err) {
+            // A structurally different payload than expected (the upstream
+            // aggregator changed its RSC serialization) is a loud, visible
+            // failure rather than a silent "0 events" — matches how every
+            // other ripper in this repo surfaces an unexpected page shape.
+            throw new Error(`PublicDisplay.ART calendar: could not parse initialEvents JSON: ${err}`);
+        }
 
         return rawEvents.filter(e => {
             const org = e.org;
@@ -212,13 +234,17 @@ export default class ArtLoveSalonRipper implements IRipper {
 
         let durationMinutes = (endHour * 60 + endMinute) - (startHour * 60 + startMinute);
         // Spans midnight (e.g. "8:00 PM - 12:00 AM"): wrap through end of day.
-        if (durationMinutes <= 0) durationMinutes += 24 * 60;
+        if (durationMinutes < 0) durationMinutes += 24 * 60;
+        // Identical start/end time ("12:00 PM - 12:00 PM") is a data error,
+        // not a real 24-hour event — fall back to a sensible default instead
+        // of publishing something misleading.
+        if (durationMinutes === 0) durationMinutes = DEFAULT_DURATION_MINUTES;
 
         const event: RipperCalendarEvent = {
             id: `art-love-salon-${eventId}`,
             ripped: new Date(),
             date,
-            duration: Duration.ofMinutes(durationMinutes || DEFAULT_DURATION_MINUTES),
+            duration: Duration.ofMinutes(durationMinutes),
             summary: name,
             location: LOCATION,
             url: detailUrl,

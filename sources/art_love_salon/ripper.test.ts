@@ -96,6 +96,37 @@ describe('ArtLoveSalonRipper - parseEventDetail error handling', () => {
     });
 });
 
+describe('ArtLoveSalonRipper - parseEventDetail duration edge cases', () => {
+    const ripper = new ArtLoveSalonRipper();
+
+    function eventHtml(hours: string): string {
+        const escaped = hours.replace(/"/g, '\\"');
+        return `<script>self.__next_f.push([1,"5:{\\"initialEvent\\":{\\"id\\":7,\\"name\\":\\"Edge Case Event\\",\\"start_date\\":\\"2026-10-01 00:00:00\\",\\"hours\\":\\"${escaped}\\"}}"])</script>`;
+    }
+
+    test('a normal same-day range produces a positive duration', () => {
+        const result = ripper.parseEventDetail(eventHtml('4:00 PM - 7:00 PM'), 7);
+        if ('duration' in result) expect(result.duration.toMinutes()).toBe(180);
+        else throw new Error('expected an event, got ' + JSON.stringify(result));
+    });
+
+    test('a range spanning midnight wraps through end of day rather than going negative', () => {
+        const result = ripper.parseEventDetail(eventHtml('8:00 PM - 12:00 AM'), 7);
+        if ('duration' in result) expect(result.duration.toMinutes()).toBe(240);
+        else throw new Error('expected an event, got ' + JSON.stringify(result));
+    });
+
+    test('an identical start/end time falls back to the default duration instead of becoming a 24-hour event', () => {
+        const result = ripper.parseEventDetail(eventHtml('12:00 PM - 12:00 PM'), 7);
+        if ('duration' in result) {
+            expect(result.duration.toMinutes()).toBe(120);
+            expect(result.duration.toMinutes()).not.toBe(24 * 60);
+        } else {
+            throw new Error('expected an event, got ' + JSON.stringify(result));
+        }
+    });
+});
+
 describe('ArtLoveSalonRipper - to24Hour', () => {
     const ripper = new ArtLoveSalonRipper();
 
