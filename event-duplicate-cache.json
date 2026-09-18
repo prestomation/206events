@@ -24086,9 +24086,9 @@
       "note": "Recurring program held independently at two different branches 17.7km apart, different times — genuinely separate sessions"
     },
     "barnes-noble-northgate-barnes-noble-northgate.ics Alex Hirsch & Rob Renzetti talk THE ART OF GRAVITY FALLS-Meany Hall Seattle|2026-09-22T18:00-07:00[America/Los_Angeles]::external-seattle-city-of-lit.ics  Alex Hirsch & Rob Renzetti talk THE ART OF GRAVITY FALLS|2026-09-22T18:00:00-07:00[America/Los_Angeles]": {
-      "decision": "confirmed",
+      "decision": "rejected",
       "resolvedAt": "2026-09-18",
-      "note": "Same event at Meany Hall. Barnes & Noble Northgate is re-promoting the event but it is at Meany Hall; both listings show identical venue."
+      "note": "B&N Northgate (venue) would become canonical over City of Lit (aggregator), but the actual event is at Meany Hall not B&N. Preserve both listings."
     },
     "cidbia-cidbia-events.ics Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]::external-seattle-city-of-lit.ics  Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
@@ -24111,9 +24111,9 @@
       "note": "FriendShop is the Friends of the Seattle Public Library. Same event at SPL Queen Anne Branch on same date/time."
     },
     "external-unexpected-productions.ics Duo Comedy Showcase 2026|2026-09-23T20:00:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Duo Comedy Improv Showcase|2026-09-23T20:00:00-07:00[America/Los_Angeles]": {
-      "decision": "confirmed",
+      "decision": "rejected",
       "resolvedAt": "2026-09-18",
-      "note": "Same event at Unexpected Productions/Pike Place Market. Different title phrasing but identical venue and time."
+      "note": "Title score 0.6; \"Duo Comedy Showcase 2026\" may be a distinct annual show vs the recurring \"Duo Comedy Improv Showcase\". Preserve both."
     }
   }
 }
