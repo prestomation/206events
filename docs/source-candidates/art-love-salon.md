@@ -6,7 +6,7 @@ url: https://artlovesalon.org/events
 tags: [Dancing, Arts]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-18
-pr: TBD
+pr: 1540
 ---
 
 Seattle salon combining dance, art, and community events.
