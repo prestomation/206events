@@ -24114,6 +24114,131 @@
       "decision": "rejected",
       "resolvedAt": "2026-09-18",
       "note": "Title score 0.6; \"Duo Comedy Showcase 2026\" may be a distinct annual show vs the recurring \"Duo Comedy Improv Showcase\". Preserve both."
+    },
+    "19hz-all-events.ics Tinlicker, Helsloot|2026-10-17T21:30:00-07:00[America/Los_Angeles]::do206-do206.ics Tinlicker|2026-10-17T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same show at Showbox SoDo, 19hz title includes support act"
+    },
+    "do206-do206.ics D.R.I.|2026-10-17T19:30:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics D.R.I. with The Accused AD, ACID TEETH, The Stuntmen|2026-10-17T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same show at El Corazon, el-corazon title includes support acts"
+    },
+    "do206-do206.ics Tinlicker|2026-10-17T21:30:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Tinlicker with Helsloot|2026-10-17T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same show at Showbox SoDo, showbox title includes support act"
+    },
+    "external-go-latin-dance-seattle.ics Sueños de Salsa Salsa y Bachata|2026-09-30T20:45:00-07:00[America/Los_Angeles]::salsa-vida-seattle-salsa-vida-seattle.ics Sueños de Salsa Wednesday Social|2026-09-30T20:45:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same weekly social dance night at Sueños de Salsa, same venue/time, different title variants"
+    },
+    "external-seattle-gov-city-wide.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-city-wide.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-city-wide.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-parks-recreation.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-parks-recreation.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-parks-recreation.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Identical event, seatoday aggregates from seattle.gov"
+    },
+    "queer-social-club-all-events.ics Trivia Thursday - Columbia City|2026-09-24T19:00:00.903-07:00[America/Los_Angeles]::recurring-rough-tumble-trivia-thursday-columbia-city.ics Trivia Thursday at Rough & Tumble - Columbia City|2026-09-24T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same trivia event at Rough & Tumble Columbia City, same venue and time, queer-social-club aggregates venue events"
+    },
+    "seatoday-seatoday-all.ics A Conversation About the State of Healthcare Philanthropy|2026-10-01T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics A Conversation About the State of Healthcare Philanthropy|2026-10-01T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-all and seatoday-learning sub-feed"
+    },
+    "seatoday-seatoday-all.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-all and seatoday-arts sub-feed"
+    },
+    "seatoday-seatoday-all.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-all and seatoday-community sub-feed"
+    },
+    "seatoday-seatoday-all.ics Happy Hour at 20 Corners|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Happy Hour at 20 Corners|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-all and seatoday-food sub-feed"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Island Crest Park|2026-10-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Island Crest Park|2026-10-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-all and seatoday-community sub-feed"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Island Crest Park|2026-10-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Island Crest Park|2026-10-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-all and seatoday-sports sub-feed"
+    },
+    "seatoday-seatoday-arts.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Art N The Library|2026-10-01T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-arts and seatoday-community sub-feeds"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Island Crest Park|2026-10-01T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Island Crest Park|2026-10-01T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-19",
+      "note": "Same event in seatoday-community and seatoday-sports sub-feeds"
     }
   }
 }

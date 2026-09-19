@@ -92910,6 +92910,344 @@
       "resolvedAt": "2026-09-19",
       "source": "agent",
       "reason": "Source page re-lists past event (Aug 1 2026); no start/end times published on udistrictseattle.com/bobafest"
+    },
+    "venue:osm:node:12036943164": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/12036943164"
+    },
+    "venue:osm:node:2327794634": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2327794634"
+    },
+    "venue:osm:way:156080836": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/156080836"
+    },
+    "venue:osm:way:336013940": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/336013940"
+    },
+    "venue:osm:way:521051022": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/521051022"
+    },
+    "venue:osm:way:6468525": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/6468525"
+    },
+    "seattle-blues-dance-collective:sbdc-196c36ecb1a0b1bd2b7c551b9c74cf8e22923daa81d1b7c1cec2bcff91e3217c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-2bf237a7475e801ed6559a004d74a73835be025fc85927221632ec9960ece77e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-2c59e98b2015bbd7a67255f05aa101589b46a3eedc8664b0a96601d974d3caab": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-58c9b0834cca3c2b9251af4075516deacdb0d3286fe16bbdf97dda56d4e45471": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-5f0dfdc2be62ef97a85f316a72bc7be028c2a853e07429fb5db9a084bb5b0732": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-6039086baaa80a432bf58a7df188733bc09602490599031ce430957c1b029c03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-7b5dd9ca9c97e8abf823431d13b98d37c5b3d97fe812730a82f6b3c4f95181a4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-826ab5db52aa4a3e3f5603eddf24aa6572ae1f5ecc59a60b595491a83703a3ba": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-89cfebe2d4c18d62dd878158b9179e014c668e71fa5797962aced61033b6c6d2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-8b88213e36bdeff9ccb18eabed85c7d19200cf7a4418ee76e5060804466a92bd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-a69d7ebc2af2c0b3b2b6226c184a7a94682ffdc4d53b6422c978007766555aef": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-add79d483ae8cb356c48f6f81607652e8144fa7887b69fd29b360e46e16b9ec3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-b3926af75dc497c6866be84188e5e73d8a244f8a15d62384c4cf55e2d24f47b6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-cf13e654bf04a1e127bb7d649570458603f95d1a59d3c16665d34b6987cfb9bf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-d01e294444696c3b66fa79e4fe6396f2cc57dbd95e1f32f8a577b2a922e38161": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-d0ea7597e9dca07e20c2b2d0342c907cb31add0cf3b68793b3918fa1bc38b482": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-dcd4e9cbcf8ed302fd44286f69fa673521cd3d9806b4b4399fdf3c8ffc8164e3": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-e0765b8984f214de32bb7b5cf39ffd02ea4b1e00de7c0590c33bcc962c3a1c9e": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-ec8c0f0c20f79af315c272cd036b5544342e042aaaad6aab92ec2ab5c908fc30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-f36b3a2bcb68fa22783e0b941e9efc4e3eda762d616bd1835f75b6634543d4f2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-f8df50c021ec565b6a86bd53701d1c84ab8fd7a765a90d2409c9a483fbd5cbbc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "seattle-blues-dance-collective:sbdc-fbd93c28e7ee80a13b7cb4461c6eabb42c0c1c8efe1f16d324dd13f036a45bbc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/"
+    },
+    "queer-social-club:6aac3b22c7dd692d3ce1dacc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/nine-grudges-the-spiteful-origins-of-the-happiest-dyke-on-earth-book-launch"
+    },
+    "rainier-beach-community-club:rbcc-fall-plant-seed-swap-2026-10-18": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/events/fall-plant-seed-swap/"
+    },
+    "seattle-drum-school:seattle-drum-school-12801-2028-05-27": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/"
+    },
+    "side-rail-collective:6aac656c12d8d14a9327e0cd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/interplay"
+    },
+    "side-rail-collective:6aac675535ad0d321c500345": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/big-show-of-small-works"
+    },
+    "sleight-of-hand-cellars:6aac09faf756524df9cb240f": {
+      "fields": {
+        "cost": {
+          "min": 35.0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/2026/10/15/smash-benefit-mega-cat-shelby-earl-sodo"
+    },
+    "tabletop-village:5i164ugulqqevcrm34608dkeeu_R20260326T010000@google.com-2027-03-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://tabletopvillage.com/pages/events"
     }
   }
 }
