@@ -50,6 +50,7 @@ interface SquarespaceResponse {
 }
 
 const MAX_PAGES = 10;
+const MAX_429_RETRIES = 3;
 
 // Squarespace event tags that unambiguously signal free admission.
 // "Sliding Scale +/or NOTALOF" triggers the NOTAFLOF rule → free.
@@ -170,7 +171,7 @@ export class SquarespaceRipper implements IRipper {
             }
             seenUrls.add(urlString);
 
-            const res = await this.fetchFn(urlString);
+            const res = await this.fetchWithRetry(urlString);
             if (!res.ok) {
                 throw new Error(`${res.status} ${res.statusText}`);
             }
@@ -198,6 +199,29 @@ export class SquarespaceRipper implements IRipper {
         }
 
         return allEvents;
+    }
+
+    /**
+     * Fetch a Squarespace JSON endpoint, retrying on HTTP 429. The build
+     * runs up to CONCURRENCY rippers in parallel, and Squarespace appears to
+     * rate-limit by client IP across all customer sites rather than
+     * per-domain — so a burst of concurrent requests to *different*
+     * Squarespace sites can still trip the limit. A short backoff (honoring
+     * Retry-After when present) lets other in-flight requests clear first.
+     */
+    private async fetchWithRetry(url: string): Promise<Response> {
+        for (let attempt = 0; ; attempt++) {
+            const res = await this.fetchFn(url);
+            if (res.status !== 429 || attempt >= MAX_429_RETRIES) {
+                return res;
+            }
+            const retryAfterHeader = res.headers?.get?.('retry-after');
+            const retryAfterSeconds = retryAfterHeader ? Number(retryAfterHeader) : NaN;
+            const delayMs = Number.isFinite(retryAfterSeconds)
+                ? retryAfterSeconds * 1000
+                : 1000 * 2 ** attempt;
+            await new Promise(resolve => setTimeout(resolve, delayMs));
+        }
     }
 
     /**
