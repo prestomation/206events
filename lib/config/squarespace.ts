@@ -208,6 +208,8 @@ export class SquarespaceRipper implements IRipper {
      * per-domain — so a burst of concurrent requests to *different*
      * Squarespace sites can still trip the limit. A short backoff (honoring
      * Retry-After when present) lets other in-flight requests clear first.
+     * The exponential-backoff fallback is jittered so multiple rippers rate
+     * limited by the same burst don't retry in lockstep.
      */
     private async fetchWithRetry(url: string): Promise<Response> {
         for (let attempt = 0; ; attempt++) {
@@ -219,7 +221,7 @@ export class SquarespaceRipper implements IRipper {
             const retryAfterSeconds = retryAfterHeader ? Number(retryAfterHeader) : NaN;
             const delayMs = Number.isFinite(retryAfterSeconds)
                 ? retryAfterSeconds * 1000
-                : 1000 * 2 ** attempt;
+                : 1000 * 2 ** attempt * (0.5 + Math.random());
             await new Promise(resolve => setTimeout(resolve, delayMs));
         }
     }
