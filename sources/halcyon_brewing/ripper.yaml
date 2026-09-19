@@ -1,0 +1,17 @@
+name: halcyon-brewing
+sourceRole: venue
+type: squarespace
+description: "Halcyon Brewing Co"
+url: "https://www.halcyonbrewingco.com/events"
+friendlyLink: https://www.halcyonbrewingco.com/events
+tags: ["Beer", "Greenwood"]
+geo:
+  lat: 47.6918221
+  lng: -122.3550830
+  label: "Halcyon Brewing Co, 8564 Greenwood Ave N, Seattle, WA 98103"
+  osmType: node
+  osmId: 1733419952
+calendars:
+  - name: all-events
+    friendlyname: "Halcyon Brewing Co"
+    timezone: America/Los_Angeles
