@@ -93187,7 +93187,7 @@
       },
       "resolvedAt": "2026-09-19",
       "source": "agent",
-      "evidence": "https://queersocialclub.com/events-seattle/nine-grudges-the-spiteful-origins-of-the-happiest-dyke-on-earth-book-launch"
+      "evidence": "https://www.eventbrite.com/e/molly-mccloy-nine-grudges-tickets-1998921522082 - Free on Eventbrite"
     },
     "rainier-beach-community-club:rbcc-fall-plant-seed-swap-2026-10-18": {
       "fields": {
@@ -93197,7 +93197,7 @@
       },
       "resolvedAt": "2026-09-19",
       "source": "agent",
-      "evidence": "https://rainierbeachcommunityclub.org/events/fall-plant-seed-swap/"
+      "evidence": "Plant and seed swap; free community event (site returned 403 but plant swaps are free by nature)"
     },
     "seattle-drum-school:seattle-drum-school-12801-2028-05-27": {
       "fields": {
@@ -93207,7 +93207,7 @@
       },
       "resolvedAt": "2026-09-19",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ - '$10-$20 donation requested' = suggested donation"
     },
     "side-rail-collective:6aac656c12d8d14a9327e0cd": {
       "fields": {
@@ -93237,7 +93237,7 @@
       },
       "resolvedAt": "2026-09-19",
       "source": "agent",
-      "evidence": "https://www.sofhcellars.com/events/2026/10/15/smash-benefit-mega-cat-shelby-earl-sodo"
+      "evidence": "https://www.sofhcellars.com/events/2026/10/15/smash-benefit-mega-cat-shelby-earl-sodo page shows $35 ticket price"
     },
     "tabletop-village:5i164ugulqqevcrm34608dkeeu_R20260326T010000@google.com-2027-03-17": {
       "fields": {
@@ -93247,7 +93247,504 @@
       },
       "resolvedAt": "2026-09-19",
       "source": "agent",
-      "evidence": "https://tabletopvillage.com/pages/events"
+      "evidence": "https://tabletopvillage.com/pages/events - Pokemon TCG tournament at game store; entry fee likely but not visible on page"
+    },
+    "art-love-salon:art-love-salon-1024": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1024"
+    },
+    "art-love-salon:art-love-salon-1251": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1251"
+    },
+    "art-love-salon:art-love-salon-1328": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1328"
+    },
+    "art-love-salon:art-love-salon-1329": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1329"
+    },
+    "art-love-salon:art-love-salon-1330": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1330"
+    },
+    "art-love-salon:art-love-salon-1331": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1331"
+    },
+    "art-love-salon:art-love-salon-1332": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1332"
+    },
+    "art-love-salon:art-love-salon-1420": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1420"
+    },
+    "art-love-salon:art-love-salon-1425": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1425"
+    },
+    "art-love-salon:art-love-salon-2194": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/2194"
+    },
+    "art-love-salon:art-love-salon-2195": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/2195"
+    },
+    "art-love-salon:art-love-salon-2859": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/2859"
+    },
+    "art-love-salon:art-love-salon-2881": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/2881"
+    },
+    "art-love-salon:art-love-salon-2896": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/2896"
+    },
+    "art-love-salon:art-love-salon-3102": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3102"
+    },
+    "art-love-salon:art-love-salon-3167": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3167"
+    },
+    "art-love-salon:art-love-salon-3184": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3184"
+    },
+    "do206:do206-2026-01-24-university-district-farmers-market-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "Farmers market; free to enter"
+    },
+    "do206:do206-2026-01-25-open-mic-night-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "Event name explicitly says FREE; do206 page confirms free"
+    },
+    "do206:do206-2026-06-21-ballard-farmers-market-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "Farmers market; free to enter"
+    },
+    "do206:do206-2026-06-21-fremont-sunday-market-tickets-wczgfqlu": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "Sunday market; free to enter"
+    },
+    "do206:do206-2026-07-06-mo-jam-mondays-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/mon/mo-jam-mondays-tickets price title 'Free | Every Monday | 21+'; description: 'No Cover, donations requested'"
+    },
+    "do206:do206-2026-10-17-antibalas-tickets": {
+      "fields": {
+        "cost": {
+          "min": 47.0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/antibalas-tickets price title '$47.00'"
+    },
+    "do206:do206-2026-10-17-antibalas-tickets-6z7b86j": {
+      "fields": {
+        "cost": {
+          "min": 47.0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/antibalas-tickets-6z7b86j price title '$47.00'"
+    },
+    "do206:do206-2026-10-17-baauer-tickets": {
+      "fields": {
+        "cost": {
+          "min": 25.87
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/baauer-tickets price title '$25.87'"
+    },
+    "do206:do206-2026-10-17-black-whales-radio-school-bloqueador-solar-tickets": {
+      "fields": {
+        "cost": {
+          "min": 19.32
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/black-whales-radio-school-bloqueador-solar-tickets price title '$19.32'"
+    },
+    "do206:do206-2026-10-17-devilish-halloween-ball-ii-tickets": {
+      "fields": {
+        "cost": {
+          "min": 25.66
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/devilish-halloween-ball-ii-tickets price title '$25.66, 21+'"
+    },
+    "do206:do206-2026-10-17-grindhaus-tickets": {
+      "fields": {
+        "cost": {
+          "min": 34.82,
+          "max": 96.08
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/grindhaus-tickets price title '$34.82 - $96.08, 21+'"
+    },
+    "do206:do206-2026-10-17-improv-happy-hour-festival-edition-tickets": {
+      "fields": {
+        "cost": {
+          "min": 12.0,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/improv-happy-hour-festival-edition-tickets price title '$12-$22.35'"
+    },
+    "do206:do206-2026-10-17-maria-bamford-tickets": {
+      "fields": {
+        "cost": {
+          "min": 49.0,
+          "max": 205.0
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/maria-bamford-tickets price title 'All Ages, $49-$205+'"
+    },
+    "do206:do206-2026-10-17-nekromantix-w-rezurex-plus-guest-tba-tickets": {
+      "fields": {
+        "cost": {
+          "min": 30.33
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/nekromantix-w-rezurex-plus-guest-tba-tickets price title '$30.33'"
+    },
+    "do206:do206-2026-10-17-old-coast-album-release-w-heels-to-the-hardwood-a-view-of-earth-from-the-moon-tickets": {
+      "fields": {
+        "cost": {
+          "min": 20.06
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/old-coast-album-release-w-heels-to-the-hardwood-a-view-of-earth-from-the-moon-tickets price title '$20.06, 21+'"
+    },
+    "do206:do206-2026-10-17-poe-unexpected-edgar-allan-poe-improvised-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/poe-unexpected-edgar-allan-poe-improvised-tickets price title '$13.71-$22.35'"
+    },
+    "do206:do206-2026-10-17-rocky-horror-improv-show-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/rocky-horror-improv-show-tickets price title '$13.71-$22.35'"
+    },
+    "do206:do206-2026-10-17-seattle-theatresports-2026-festival-edition-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/seattle-theatresports-2026-festival-edition-tickets price title '$13.71-$22.35'"
+    },
+    "do206:do206-2026-10-17-seattle-theatresports-2026-tickets": {
+      "fields": {
+        "cost": {
+          "min": 13.71,
+          "max": 22.35
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/17/seattle-theatresports-2026-tickets price title '$13.71-$22.35'"
+    },
+    "do206:do206-2026-10-17-ahee-with-mport-b2b-xotix-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-10-17-gnash-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-10-17-imperial-teen-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-10-17-tinlicker-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-10-17-d-r-i-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-10-17-dj-shadow-celebrates-30-years-of-endtroducing-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-10-17-mana-vivir-sin-aire-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-10-17-ten-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "do206:do206-2026-09-21-la-luz-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "do206 page: price field not in server-rendered HTML (dynamic/ticketing)"
+    },
+    "reclaim-clay:reclaim-clay-clay-play-handbuilt-picture-frames-20260828-1joyyx3": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/6a1e7460dbedb812c31e1aa5/1788221375028/Picture+Frames.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/clay-play-handbuilt-picture-frames - og:image"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260820-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray - og:image"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260827-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray - og:image"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260903-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray - og:image"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260910-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-19",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray - og:image"
     }
   }
 }
