@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-cider-taproom-95674605773
 tags: [Beer, SODO]
 firstSeen: 2026-09-16
-lastChecked: 2026-09-16
+lastChecked: 2026-09-19
 ---
 
 Seattle Cider Co.'s taproom in SODO (4660 Ohio Ave S, Seattle), 21+ and
@@ -19,3 +19,6 @@ Investigated 2026-09-16:
 - Per the "200 + 0 events" rule, do not implement yet
 - Re-check later — a working taproom with a real Eventbrite history is
   likely to post events again
+
+**Re-checked 2026-09-19:** organizer events API still returns
+`object_count: 0`. No change.
