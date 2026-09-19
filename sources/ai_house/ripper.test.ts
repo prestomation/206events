@@ -216,7 +216,7 @@ describe('AiHouseRipper.rip() — cost enrichment from each event\'s own Luma pa
 
     it('sets cost free when the event page reports is_free: true', async () => {
         const calendar = calendarHtml([
-            { event: { api_id: 'evt-free', name: 'Founder Mixer', start_at: '2026-09-18T17:00:00-07:00', end_at: '2026-09-18T18:00:00-07:00', url: 'evt-free-slug' } },
+            { event: { api_id: 'evt-free', name: 'Founder Mixer', start_at: '2026-10-18T17:00:00-07:00', end_at: '2026-10-18T18:00:00-07:00', url: 'evt-free-slug' } },
         ]);
         const mockFetch = vi.fn().mockImplementation((url: string) => {
             if (url.includes('evt-free-slug')) {
@@ -238,7 +238,7 @@ describe('AiHouseRipper.rip() — cost enrichment from each event\'s own Luma pa
 
     it('flags cost (without clobbering an existing duration flag) when the detail fetch fails', async () => {
         const calendar = calendarHtml([
-            { event: { api_id: 'evt-noend', name: 'AI Governance Panel', start_at: '2026-09-18T17:00:00-07:00', url: 'evt-noend-slug' } },
+            { event: { api_id: 'evt-noend', name: 'AI Governance Panel', start_at: '2026-10-18T17:00:00-07:00', url: 'evt-noend-slug' } },
         ]);
         const mockFetch = vi.fn().mockImplementation((url: string) => {
             if (url.includes('evt-noend-slug')) {

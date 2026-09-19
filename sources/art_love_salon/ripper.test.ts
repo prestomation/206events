@@ -77,6 +77,7 @@ describe('ArtLoveSalonRipper - parseEventDetail (live sample data)', () => {
             expect(result.id).toBe('art-love-salon-1328');
             expect(result.location).toBe('Art Love Salon, 110 Union St, Seattle, WA 98121');
             expect(result.url).toBe('https://publicdisplay.art/event/1328');
+            expect(result.imageUrl).toBe('https://artlove.org/art/photos/events/1328_big_d5f4ecb47e3bde50.jpg');
         }
     });
 });

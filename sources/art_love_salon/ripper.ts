@@ -36,12 +36,18 @@ interface PublicDisplayCalendarEvent {
     org?: PublicDisplayOrg | string;
 }
 
+interface PublicDisplayPhoto {
+    big?: string;
+    is_main?: number;
+}
+
 interface PublicDisplayEventDetail {
     id: number;
     name: string;
     start_date: string;
     hours?: string;
     description?: string;
+    photos?: PublicDisplayPhoto[];
 }
 
 /**
@@ -243,6 +249,9 @@ export default class ArtLoveSalonRipper implements IRipper {
         // of publishing something misleading.
         if (durationMinutes === 0) durationMinutes = DEFAULT_DURATION_MINUTES;
 
+        const mainPhoto = detail.photos?.find(p => p.is_main === 1);
+        const imageUrl = mainPhoto?.big || undefined;
+
         const event: RipperCalendarEvent = {
             id: `art-love-salon-${eventId}`,
             ripped: new Date(),
@@ -252,6 +261,7 @@ export default class ArtLoveSalonRipper implements IRipper {
             location: LOCATION,
             url: detailUrl,
             description: detail.description?.trim() || undefined,
+            imageUrl,
         };
         return event;
     }
