@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, test, vi } from 'vitest';
 import { SquarespaceRipper, SquarespaceEvent } from './squarespace.js';
 import { Duration, ZoneId, ZonedDateTime } from '@js-joda/core';
 import { RipperCalendar, RipperCalendarEvent, RipperConfig } from './schema.js';
@@ -25,6 +25,47 @@ class MockFetchSquarespaceRipper extends SquarespaceRipper {
             status: 200,
             headers: { 'Content-Type': 'application/json' },
         });
+    }
+}
+
+// Returns HTTP 429 for the first `failCount` calls (with a zero-second
+// Retry-After so the test doesn't wait on real backoff delays), then 200.
+class FlakyRateLimitedSquarespaceRipper extends SquarespaceRipper {
+    public callCount = 0;
+    constructor(private failCount: number, private response: object) {
+        super();
+        this.fetchFn = async () => {
+            this.callCount++;
+            if (this.callCount <= this.failCount) {
+                return new Response('rate limited', {
+                    status: 429,
+                    headers: { 'Retry-After': '0' },
+                });
+            }
+            return new Response(JSON.stringify(this.response), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        };
+    }
+}
+
+// Same as above, but without a Retry-After header — exercises the
+// exponential-backoff fallback path instead.
+class FlakyRateLimitedNoRetryAfterSquarespaceRipper extends SquarespaceRipper {
+    public callCount = 0;
+    constructor(private failCount: number, private response: object) {
+        super();
+        this.fetchFn = async () => {
+            this.callCount++;
+            if (this.callCount <= this.failCount) {
+                return new Response('rate limited', { status: 429 });
+            }
+            return new Response(JSON.stringify(this.response), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        };
     }
 }
 
@@ -375,6 +416,50 @@ describe('SquarespaceRipper', () => {
             expect(Array.isArray(calendars[0].errors)).toBe(true);
             expect(calendars[0].errors.length).toBeGreaterThan(0);
             expect(calendars[0].errors[0].reason).toContain('network unavailable');
+        });
+    });
+
+    describe('fetchUpcomingEvents 429 retry', () => {
+        const futureMs = Date.now() + 30 * 24 * 60 * 60 * 1000;
+
+        test('retries on 429 and succeeds once the rate limit clears', async () => {
+            const mockRipper = new FlakyRateLimitedSquarespaceRipper(2, {
+                upcoming: [{ id: 'e1', title: 'Recovered Event', startDate: futureMs }],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(1);
+            expect(events[0].id).toBe('e1');
+            expect(mockRipper.callCount).toBe(3);
+        });
+
+        test('gives up after MAX_429_RETRIES and surfaces the error', async () => {
+            const mockRipper = new FlakyRateLimitedSquarespaceRipper(Infinity, {});
+            await expect(
+                (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                    .fetchUpcomingEvents(baseUrl)
+            ).rejects.toThrow('429');
+            // 1 initial attempt + 3 retries
+            expect(mockRipper.callCount).toBe(4);
+        });
+
+        test('falls back to jittered exponential backoff when Retry-After is absent', async () => {
+            vi.useFakeTimers();
+            try {
+                const mockRipper = new FlakyRateLimitedNoRetryAfterSquarespaceRipper(2, {
+                    upcoming: [{ id: 'e2', title: 'Recovered Without Retry-After', startDate: futureMs }],
+                });
+                const promise = (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                    .fetchUpcomingEvents(baseUrl);
+                // Worst-case backoff across 2 retries is 1s + 2s, doubled for jitter headroom.
+                await vi.advanceTimersByTimeAsync(6000);
+                const events = await promise;
+                expect(events).toHaveLength(1);
+                expect(events[0].id).toBe('e2');
+                expect(mockRipper.callCount).toBe(3);
+            } finally {
+                vi.useRealTimers();
+            }
         });
     });
 });
