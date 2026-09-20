@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://humanpeoplebeer.com/events
 tags: [Beer, "Roosevelt"]
 firstSeen: 2026-07-02
-lastChecked: 2026-09-09
+lastChecked: 2026-09-20
 ---
 New taproom/cafe at 6105a Roosevelt Way NE (Roosevelt), opened June 7, 2026 — beer, coffee, wine, and wood-fired pizza from former Modern Times Beer brewers.
 
@@ -21,3 +21,7 @@ Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcom
 Re-checked 2026-08-24: still 0 upcoming events (Squarespace `?format=json` upcoming array empty). No change.
 
 Re-checked 2026-09-09: still 0 upcoming events. No change.
+
+Re-checked 2026-09-20: `/events?format=json` `past` count has grown to
+10 (was 7), so the collection is still live, but `upcoming` is still
+empty. No change.
