@@ -92439,9 +92439,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/1251_big_dd9433b7c4b58842.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/1251"
     },
@@ -92469,9 +92470,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/1330_big_e7c6997b17be9ef2.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/1330"
     },
@@ -92479,9 +92481,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/1330_big_e7c6997b17be9ef2.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/1331"
     },
@@ -92489,9 +92492,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/1330_big_e7c6997b17be9ef2.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/1332"
     },
@@ -92499,9 +92503,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/1420_big_773e1bc21a9f5b84.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/1420"
     },
@@ -92509,9 +92514,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/1425_big_11815d8b41d8cbbc.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/1425"
     },
@@ -92519,9 +92525,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/2194_big_66e7d3a972eff3c4.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/2194"
     },
@@ -92529,9 +92536,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/2195_big_a2a8f16af0b3a4c6.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/2195"
     },
@@ -92549,9 +92557,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/2881_big_3219dfcfc3be8981.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/2881"
     },
@@ -92559,9 +92568,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/2896_big_517d9b9d12d09b8f.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/2896"
     },
@@ -92569,9 +92579,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/3102_big_000bcda58717d109.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/3102"
     },
@@ -92579,9 +92590,10 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/3167_big_84ab80ccaed805c3.jpg"
       },
-      "resolvedAt": "2026-09-19",
+      "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/3167"
     },
@@ -93148,6 +93160,100 @@
       "resolvedAt": "2026-09-20",
       "source": "agent",
       "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "venue:loc:elliott ave w & w lee st seattle, wa 98119": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "http://seattle.greencitypartnerships.org/event/44850/"
+    },
+    "venue:loc:green lake aqua theater, west green lake way n, seattle, wa 98103": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/search?query=Green+Lake+Aqua+Theater+Seattle"
+    },
+    "venue:loc:lincoln park,8600 fauntleroy way sw, seattle, wa 98136, usa": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/search?query=Lincoln+Park+Seattle"
+    },
+    "venue:osm:node:366028613": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/366028613"
+    },
+    "venue:osm:relation:4659067": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/relation/4659067"
+    },
+    "venue:osm:way:1240934404": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1240934404"
+    },
+    "venue:osm:way:1446759455": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/1446759455"
+    },
+    "venue:osm:way:161006261": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/161006261"
+    },
+    "venue:osm:way:295884142": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/295884142"
+    },
+    "venue:osm:way:296374070": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/296374070"
+    },
+    "venue:osm:node:3413278212": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://tockify.com/birds.connect.sea/detail/1863/1790436600000"
+    },
+    "venue:osm:node:2374041586": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "reason": "Cannot determine indoor/outdoor from venue OSM data or event page"
     }
   }
 }
