@@ -24239,6 +24239,726 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-19",
       "note": "Same event in seatoday-community and seatoday-sports sub-feeds"
+    },
+    "19hz-all-events.ics Cascadia Winter Solstice Weekend Friday: Beats Antique, Desert Dwellers, Bluetech|2026-12-18T19:00:00-08:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics CASCADIA WINTER SOLSTICE WEEKEND Ft. BEATS ANTIQUE with Bluetech, Frequenzie|2026-12-18T20:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Nectar Lounge, 19hz and showlists both listing it"
+    },
+    "19hz-all-events.ics No Future: A Dystopian Dance Party|2026-10-24T21:00:00-07:00[America/Los_Angeles]::belltown_yacht_club-belltown-yacht-club.ics NO FUTURE: A Dystopian Dance Party -Hexed-|2026-10-24T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Belltown Yacht Club"
+    },
+    "19hz-all-events.ics Sorry for Party Rocking|2026-10-09T21:00:00-07:00[America/Los_Angeles]::chop-suey-all-events.ics Sorry For Party Rocking (2010 – 2015 Pop & EDM Bangers All Night Long)|2026-10-09T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Chop Suey, 19hz has shorter title"
+    },
+    "NWMetalCalendar-NWMetal.ics Weedeater, Zeke, Royal Thunder, Yes Ma'am|2026-10-04T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Weedeater, ZEKE with Royal Thunder|2026-10-04T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same show at El Corazon, NW Metal calendar lists extra opener"
+    },
+    "barboza-barboza.ics Justin Nozuka with Special Guests|2026-10-18T19:00:00-07:00[America/Los_Angeles]::do206-do206.ics Justin Nozuka|2026-10-18T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Barboza"
+    },
+    "cidbia-cidbia-events.ics Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Union Station, both CIDBIA and SPL listing it"
+    },
+    "cidbia-cidbia-events.ics Show Up, Seattle! Day of Service|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Show Up, Seattle! Day of Service|2026-09-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "CIDBIA listing is at Donnie Chin Park (specific location); parks foundation is umbrella event at unspecified location; different start times"
+    },
+    "crocodile-crocodile-main.ics Cheekface w/ special guest Waitress & Dude York|2026-10-18T19:00:00-07:00[America/Los_Angeles]::do206-do206.ics Cheekface w/ Special Guest Bodega|2026-10-18T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Different billed supporting acts (Waitress & Dude York vs Bodega) - likely stale/mismatched info or different shows"
+    },
+    "do206-do206.ics Bassvictim|2026-09-30T20:00:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Bassvictim with Thoom|2026-09-30T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same show at Showbox SoDo, do206 has shorter title"
+    },
+    "do206-do206.ics Beth Orton|2026-10-03T19:30:00-07:00[America/Los_Angeles]::fremont-abbey-fremont-abbey.ics Beth Orton, Kenny Stahl @ WASHINGTON HALL|2026-10-03T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Washington Hall"
+    },
+    "do206-do206.ics Georgian National Ballet – Sukhishvili|2026-10-18T18:00:00-07:00[America/Los_Angeles]::stg-stg-moore.ics Georgian National Ballet Sukhishvili|2026-10-18T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Moore Theatre"
+    },
+    "do206-do206.ics Mom Jeans|2026-10-18T19:30:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Mom Jeans with Harrison Gordon, Sobs|2026-10-18T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same show at Showbox SoDo"
+    },
+    "do206-do206.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-02T19:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-02T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Unexpected Productions, Post Alley"
+    },
+    "do206-do206.ics Rat Queen, Fiig (SLC), Devilwood, and Jacob T. Skeen (SLC)|2026-10-09T20:30:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Rat Queen, Fiig (SLC), Devilwood, and Jacob T. Skeen (SLC)|2026-10-09T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same show at Conor Byrne Pub"
+    },
+    "do206-do206.ics Seattle Theatresports 2026|2026-10-02T21:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Seattle Theatresports 2026|2026-10-02T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Unexpected Productions"
+    },
+    "do206-do206.ics Weedeater, ZEKE|2026-10-04T19:30:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Weedeater, ZEKE with Royal Thunder|2026-10-04T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same show at El Corazon, do206 has shorter title"
+    },
+    "events12-seattle-events.ics Tea festival|2026-09-26T12:00:00-07:00[America/Los_Angeles]::external-nw-asian-weekly.ics 2026 Northwest Tea Festival|2026-09-26T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Seattle Center Exhibition Hall"
+    },
+    "external-center-for-active-living.ics American Mah Jongg|2026-09-30T12:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-30T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Different venues (Center for Active Living vs The Missing Piece game shop) and different times"
+    },
+    "external-go-latin-dance-seattle.ics eSOeS - Salsa/Bachata at Aria Ballroom every Sunday|2026-09-27T19:00:00-07:00[America/Los_Angeles]::external-seattle-dance-info.ics Sunday Salsa/Bachata Party|2026-09-27T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same weekly dance event at Aria Ballroom in Redmond"
+    },
+    "external-nw-asian-weekly.ics 2026 Northwest Tea Festival|2026-09-26T00:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Northwest Tea Festival|2026-09-26T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same Northwest Tea Festival at Seattle Center"
+    },
+    "external-nw-asian-weekly.ics 2026 Northwest Tea Festival|2026-09-26T00:00:00-07:00[America/Los_Angeles]::visit-seattle-visit-seattle.ics 2026 Northwest Tea Festival|2026-09-26T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same Northwest Tea Festival at Seattle Center"
+    },
+    "external-seattle-city-of-lit.ics  FriendShop Pop-Up Book Sale|2026-11-15T10:00:00-08:00[America/Los_Angeles]::spl-authors-books-authors-books.ics FriendShop Pop-Up Book Sale|2026-11-15T10:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at SPL Queen Anne Branch"
+    },
+    "external-seattle-city-of-lit.ics  Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Meet R2-D2 @ The Union Station|2026-10-03T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at Union Station"
+    },
+    "external-seattle-gov-city-wide.ics 3rd Saturday forest restoration at Jackson Park Trail!|2026-09-19T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics 3rd Saturday forest restoration at Jackson Park Trail!|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, city-wide and parks foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city parks BirdWalk event"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city parks BirdWalk event"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city parks BirdWalk event"
+    },
+    "external-seattle-gov-city-wide.ics Camp Long Restoration Event|2026-09-22T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Camp Long Restoration Event|2026-09-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Camp Long"
+    },
+    "external-seattle-gov-city-wide.ics Carkeek STARS Work Party|2026-09-19T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Carkeek STARS Work Party|2026-09-19T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Carkeek Park"
+    },
+    "external-seattle-gov-city-wide.ics EC Hughes Restoration Event|2026-10-03T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics EC Hughes Restoration Event|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics End of Summer Work Party!|2026-09-20T12:30:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics End of Summer Work Party!|2026-09-20T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, city-wide and green-seattle-partnership feeds"
+    },
+    "external-seattle-gov-city-wide.ics Friends of Discovery Park's Day of Service 2026|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Friends of Discovery Park's Day of Service 2026|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Discovery Park"
+    },
+    "external-seattle-gov-city-wide.ics Habitat enhancement|2026-10-02T14:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Habitat enhancement|2026-10-02T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Longfellow Creek"
+    },
+    "external-seattle-gov-city-wide.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Longfellow Creek, multiple feeds"
+    },
+    "external-seattle-gov-city-wide.ics Junes Cathedral Blackberry Management|2026-09-23T09:30:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Junes Cathedral Blackberry Management|2026-09-23T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Discovery Park"
+    },
+    "external-seattle-gov-city-wide.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Longfellow Creek"
+    },
+    "external-seattle-gov-city-wide.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-city-wide.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city park event at Leschi Park"
+    },
+    "external-seattle-gov-city-wide.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city park event at Leschi Park"
+    },
+    "external-seattle-gov-city-wide.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city park event at Leschi Park"
+    },
+    "external-seattle-gov-city-wide.ics More TLC for Stokes Overlook|2026-09-27T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics More TLC for Stokes Overlook|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics More TLC for Stokes Overlook|2026-09-27T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics More TLC for Stokes Overlook|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Stokes Overlook"
+    },
+    "external-seattle-gov-city-wide.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event on Burke-Gilman Trail"
+    },
+    "external-seattle-gov-city-wide.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-city-wide.ics Native Rescue from Blackberry at Little Brook Natural Area|2026-09-20T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Native Rescue from Blackberry at Little Brook Natural Area|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Little Brook Natural Area"
+    },
+    "external-seattle-gov-city-wide.ics North Genesee Forest Restoration|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics North Genesee Forest Restoration|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Genesee Park"
+    },
+    "external-seattle-gov-city-wide.ics Pigeon Point Park Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Pigeon Point Park Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Pigeon Point Park"
+    },
+    "external-seattle-gov-city-wide.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at SW Queen Anne Greenbelt"
+    },
+    "external-seattle-gov-city-wide.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sprucing up Lakeview|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Sprucing up Lakeview|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Lakeview Blvd"
+    },
+    "external-seattle-gov-city-wide.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Stokes Overlook"
+    },
+    "external-seattle-gov-city-wide.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-city-wide.ics Washington Butterfly Association Habitat Rehabilitation|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Washington Butterfly Association Habitat Rehabilitation|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Magnuson Park"
+    },
+    "external-seattle-gov-city-wide.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event on Burke-Gilman Trail"
+    },
+    "external-seattle-gov-city-wide.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-city-wide.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-gov-parks-recreation.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, same URL"
+    },
+    "external-seattle-gov-city-wide.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Beer Sheva Park"
+    },
+    "external-seattle-gov-city-wide.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics 3rd Saturday forest restoration at Jackson Park Trail!|2026-09-19T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics 3rd Saturday forest restoration at Jackson Park Trail!|2026-09-19T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, parks-recreation and parks-foundation feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city parks BirdWalk event"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city parks BirdWalk event"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city parks BirdWalk event"
+    },
+    "external-seattle-gov-parks-recreation.ics Camp Long Restoration Event|2026-09-22T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Camp Long Restoration Event|2026-09-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Camp Long"
+    },
+    "external-seattle-gov-parks-recreation.ics Carkeek STARS Work Party|2026-09-19T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Carkeek STARS Work Party|2026-09-19T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Carkeek Park"
+    },
+    "external-seattle-gov-parks-recreation.ics End of Summer Work Party!|2026-09-20T12:30:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics End of Summer Work Party!|2026-09-20T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, parks-recreation and green-seattle-partnership feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Friends of Discovery Park's Day of Service 2026|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Friends of Discovery Park's Day of Service 2026|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Discovery Park"
+    },
+    "external-seattle-gov-parks-recreation.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Junes Cathedral Blackberry Management|2026-09-23T09:30:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Junes Cathedral Blackberry Management|2026-09-23T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city park event at Leschi Park"
+    },
+    "external-seattle-gov-parks-recreation.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city park event at Leschi Park"
+    },
+    "external-seattle-gov-parks-recreation.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mindful Moments|2026-10-02T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same city park event at Leschi Park"
+    },
+    "external-seattle-gov-parks-recreation.ics More TLC for Stokes Overlook|2026-09-27T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics More TLC for Stokes Overlook|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Native Rescue from Blackberry at Little Brook Natural Area|2026-09-20T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Native Rescue from Blackberry at Little Brook Natural Area|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Little Brook Natural Area"
+    },
+    "external-seattle-gov-parks-recreation.ics North Genesee Forest Restoration|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics North Genesee Forest Restoration|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics Pigeon Point Park Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Pigeon Point Park Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Pigeon Point"
+    },
+    "external-seattle-gov-parks-recreation.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Sprucing up Lakeview|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Sprucing up Lakeview|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Washington Butterfly Association Habitat Rehabilitation|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Washington Butterfly Association Habitat Rehabilitation|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event at Magnuson Park"
+    },
+    "external-seattle-gov-parks-recreation.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-gov-parks-recreation.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event, multiple feeds"
+    },
+    "external-seattle-parks-foundation.ics Camp Long Restoration Event|2026-09-22T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Camp Long Restoration Event|2026-09-22T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Friends of Discovery Park's Day of Service 2026|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Friends of Discovery Park's Day of Service 2026|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Holden Forest Restoration Event|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Junes Cathedral Blackberry Management|2026-09-23T09:30:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Junes Cathedral Blackberry Management|2026-09-23T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Longfellow Creek Forest Restoration @ Willow Reach|2026-09-25T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics More Weeding on the BGT|2026-09-21T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Native Rescue from Blackberry at Little Brook Natural Area|2026-09-20T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Native Rescue from Blackberry at Little Brook Natural Area|2026-09-20T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics North Genesee Forest Restoration|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics North Genesee Forest Restoration|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Queen Anne's diverse forest enhancement (weeding)|2026-09-26T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Show Up, Seattle! Day of Service|2026-09-26T09:00:00-07:00[America/Los_Angeles]::first-hill-improvement-association-all-events.ics Seattle Day of Service|2026-09-26T10:00:00.905-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Different names and different specific locations (parks foundation umbrella vs first-hill at Freeway Park)"
+    },
+    "external-seattle-parks-foundation.ics Show Up, Seattle! Day of Service|2026-09-26T09:00:00-07:00[America/Los_Angeles]::rainier-beach-community-club-rainier-beach-community-club.ics Show Up, Seattle! Day of Service|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same day of service but different specific locations (parks foundation umbrella vs Rainier Beach Community Club)"
+    },
+    "external-seattle-parks-foundation.ics Sprucing up Lakeview|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Sprucing up Lakeview|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics TLC for Stokes Overlook|2026-09-25T13:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Washington Butterfly Association Habitat Rehabilitation|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Washington Butterfly Association Habitat Rehabilitation|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-seattle-parks-foundation.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics invasive Removal|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same restoration event"
+    },
+    "external-unexpected-productions.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-02T19:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-02T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at 1428 Post Alley, Unexpected Productions"
+    },
+    "external-uw-campus-events.ics Class Visit - Macroeconomics (P.M. Start)|2026-10-10T11:30:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics Class Visit - Macroeconomics (P.M. Start)|2026-10-10T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW class visit, campus and Foster School feeds"
+    },
+    "external-uw-campus-events.ics Class Visit: Enhancing Leadership Effectiveness|2026-10-10T08:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics Class Visit: Enhancing Leadership Effectiveness|2026-10-10T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW class visit, same URL"
+    },
+    "external-uw-campus-events.ics UW Global Innovation Fund Application Workshop|2026-10-08T15:00:00-07:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics UW Global Innovation Fund Application Workshop|2026-10-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW workshop, same URL"
+    },
+    "external-uw-campus-events.ics UW Global Innovation Fund Application Workshop|2026-10-08T15:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics UW Global Innovation Fund Application Workshop|2026-10-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW workshop, same URL"
+    },
+    "external-uw-campus-events.ics UW Global Innovation Fund Application Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics UW Global Innovation Fund Application Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW workshop, same URL"
+    },
+    "external-uw-campus-events.ics UW Global Innovation Fund Application Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics UW Global Innovation Fund Application Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW workshop, same URL"
+    },
+    "external-uw-college-of-arts-sciences.ics UW Global Innovation Fund Application Workshop|2026-10-08T15:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics UW Global Innovation Fund Application Workshop|2026-10-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW workshop, same URL"
+    },
+    "external-uw-college-of-arts-sciences.ics UW Global Innovation Fund Application Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]::external-uw-foster-school-of-business.ics UW Global Innovation Fund Application Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same UW workshop, same URL"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-09-25T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-09-25T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same weekly drag show at Unicorn Seattle"
+    },
+    "rabbit_box-all-events.ics The Triple Door presents Gareth Pearson at The Rabbit Box|2027-02-11T19:30:00.542-08:00[America/Los_Angeles]::triple-door-the-triple-door.ics Gareth Pearson at The Rabbit Box|2027-02-11T19:30:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event at The Rabbit Box, Triple Door and venue feed"
+    },
+    "recurring-pioneer-square-artwalk.ics Pioneer Square Art Walk|2026-10-01T18:00:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics JACQUELINE TABOR || Pioneer Square First Thursday Art Walk|2026-10-01T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Art Walk is neighborhood-wide event; showlists entry is a specific performer at Central Saloon during art walk - not the same event"
+    },
+    "seatoday-seatoday-all.ics 2026 Business Planning Workshop - West|2026-10-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Business Planning Workshop - West|2026-10-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "seatoday-seatoday-all.ics 2026 Business Planning Workshop - West|2026-10-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 Business Planning Workshop - West|2026-10-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "seatoday-seatoday-all.ics CLOUD TECTONICS|2026-10-02T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLOUD TECTONICS|2026-10-02T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "seatoday-seatoday-all.ics Happy Hour at 20 Corners|2026-10-02T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Happy Hour at 20 Corners|2026-10-02T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "seatoday-seatoday-community.ics 2026 Business Planning Workshop - West|2026-10-02T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 Business Planning Workshop - West|2026-10-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-20",
+      "note": "Same event, different seatoday tag feeds"
+    },
+    "spl-broadview.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches 20km apart - Broadview vs Columbia, different rooms and eventids"
+    },
+    "spl-broadview.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches - Broadview vs Douglass-Truth"
+    },
+    "spl-broadview.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-high-point.ics Homework Help|2026-09-29T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches and different times - Broadview vs High Point"
+    },
+    "spl-broadview.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches and different times - Broadview vs Northgate"
+    },
+    "spl-columbia.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-douglass-truth.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches - Columbia vs Douglass-Truth"
+    },
+    "spl-columbia.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-high-point.ics Homework Help|2026-09-29T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches - Columbia vs High Point"
+    },
+    "spl-columbia.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches - Columbia vs Northgate"
+    },
+    "spl-douglass-truth.ics Family Story Time|2026-09-30T10:30:00-07:00[America/Los_Angeles]::spl-greenwood.ics Family Story Time|2026-09-30T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches 10km apart - Douglass-Truth vs Greenwood"
+    },
+    "spl-douglass-truth.ics Homework Help|2026-09-29T16:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches - Douglass-Truth vs Northgate"
+    },
+    "spl-high-point.ics Homework Help|2026-09-29T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Same program name but different SPL branches - High Point vs Northgate"
+    },
+    "spl-lake-city.ics English Conversation Circle|2026-09-29T17:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual English Conversation Circle|2026-09-29T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-20",
+      "note": "Different events: in-person at Lake City vs virtual online, different titles and times"
     }
   }
 }
