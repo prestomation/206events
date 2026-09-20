@@ -1584,6 +1584,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'pybus public market, 3 n worthen st, wenatchee, wa 98801, usa': { lat: 47.4252414, lng: -120.3072779 }, // Pybus Public Market, 3 N Worthen St, Wenatchee, WA
   'renegade craft @ , seattle center exhibition hall, 301 mercer st., seattle, wa 98109': { lat: 47.623953, lng: -122.3514885 }, // Seattle Center Exhibition Hall, 301 Mercer St, Seattle, WA
   'renegade craft @, hangar 30 @ magnuson park, 6310 ne 74th st., seattle, wa 98115': { lat: 47.682846, lng: -122.260988 }, // same historic Navy hangar as the existing "hangar 30 at magnuson park" entry
+  'magnuson park hangar 30, seattle, wa': { lat: 47.682846, lng: -122.260988 }, // 6310 NE 74th St, Seattle, WA 98115 — Nominatim failed on this exact key variant
   'rice university, 6100 main st, houston, tx 77005, usa': { lat: 29.7167915, lng: -95.4047811 }, // Rice University, Houston, TX
   'roberto maestas festival street, 1660 s roberto maestas festival st, seattle, wa 98144, seattle, wa, 98144, united states': { lat: 47.5795518, lng: -122.3113214 }, // 1660 S Roberto Maestas Festival St, Seattle, WA
   'schack art center, 2921 hoyt ave, everett, wa 98201': { lat: 47.9786093, lng: -122.209672 }, // Schack Art Center, 2921 Hoyt Ave, Everett, WA
