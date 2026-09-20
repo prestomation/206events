@@ -1,4 +1,9 @@
 # verified: 2026-06-25 via eventbrite web ui (13 upcoming events: Deck'd Out summer series at Monkey Loft; EVENTBRITE_TOKEN required in CI)
+# 2026-09-20: build-health flagged 0 events. Confirmed via the Eventbrite
+# organizer API: 0 upcoming events — "Deck'd Out" is a summer series that has
+# wrapped for the season, not a broken feed. Remove expectEmpty once the next
+# season's dates are posted.
+expectEmpty: true
 name: shameless-nw
 sourceRole: venue
 type: eventbrite
