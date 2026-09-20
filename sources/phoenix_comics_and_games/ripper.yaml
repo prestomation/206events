@@ -1,0 +1,17 @@
+name: phoenix-comics-and-games
+sourceRole: venue
+description: "Phoenix Comics and Games"
+url: "https://shop.phoenixseattle.com/collections/events/products.json?limit=50"
+friendlyLink: https://shop.phoenixseattle.com/collections/events
+tags: ["Gaming"]
+geo:
+  lat: 47.6191274
+  lng: -122.3210517
+  label: "Phoenix Comics and Games, 113 Broadway E, Seattle, WA 98102"
+  osmType: node
+  osmId: 2077272327
+calendars:
+  - name: events
+    friendlyname: "Phoenix Comics and Games"
+    timezone: America/Los_Angeles
+    tags: ["Capitol Hill"]

@@ -1,11 +1,12 @@
 ---
 name: "Phoenix Comics and Games"
-status: candidate
+status: added
 platform: Shopify (products.json, event tickets sold as products)
 url: https://shop.phoenixseattle.com/collections/events/products.json
 tags: [Gaming, "Capitol Hill"]
 firstSeen: 2026-09-19
-lastChecked: 2026-09-19
+lastChecked: 2026-09-20
+pr:
 ---
 
 Comic/game shop at 113 Broadway E, Seattle, WA 98102 (Capitol Hill). Sells
@@ -52,3 +53,15 @@ Investigated 2026-09-19:
   question can be resolved properly first rather than guessed.
 - Not religious; Seattle-focused (single Capitol Hill location); not
   found under `sources/`.
+
+**Implemented 2026-09-20** (`sources/phoenix_comics_and_games/`): custom
+`JSONRipper` against the confirmed `/collections/events/products.json`
+endpoint, filtering to `product_type: "Special Event"`. Title-date parsing
+(`| <Month> <Day> ticket`) covers the two weekly series; the "Prerelease
+Flight N" products with no date anywhere are reported as `ParseError`
+rather than guessed. The missing start time (confirmed above as not
+stated by any Phoenix-owned source) is resolved the way this doc
+flagged it should be: every event is published with a placeholder
+time/duration and paired with an `UncertaintyError` (`startTime`,
+`duration`) for `skills/event-uncertainty-resolver` to fill in once a
+Phoenix-owned page states the real time.
