@@ -147,9 +147,25 @@ describe('Phoenix Comics and Games Ripper', () => {
         expect(calendarEvents[0].date.dayOfMonth()).toBe(15);
     });
 
-    test('emits a ParseError (never drops silently) for a product with no date anywhere', async () => {
+    test('silently skips an irregular one-off product with no date anywhere (not a known recurring series)', async () => {
         const ripper = new PhoenixComicsAndGamesRipper();
         const jsonData = buildJsonData([PRERELEASE_NO_DATE]);
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+        expect(events).toHaveLength(0);
+    });
+
+    test('emits a ParseError when a known recurring series is missing its date (a real regression, not an out-of-scope one-off)', async () => {
+        const ripper = new PhoenixComicsAndGamesRipper();
+        const brokenFnm = {
+            id: 8,
+            title: "Friday Night Magic Draft - The Hobbit",
+            handle: "friday-night-magic-draft-the-hobbit-broken",
+            product_type: "Special Event",
+            body_html: "<p>Weekly Friday Night Magic draft.</p>",
+            variants: [{ price: "25.00", available: true }],
+            images: [],
+        };
+        const jsonData = buildJsonData([brokenFnm]);
         const events = await ripper.parseEvents(jsonData, testDate, {});
         expect(events).toHaveLength(1);
         expect((events[0] as RipperError).type).toBe('ParseError');
@@ -192,16 +208,14 @@ describe('Phoenix Comics and Games Ripper', () => {
         expect(second).toHaveLength(0);
     });
 
-    test('parses the live sample fixture, reporting ParseError only for products with no date', async () => {
+    test('parses the live sample fixture with no errors (dateless prerelease listings are skipped, not errored)', async () => {
         const ripper = new PhoenixComicsAndGamesRipper();
         const jsonData = loadSampleData();
         const events = await ripper.parseEvents(jsonData, testDate, {});
         const errors = events.filter(e => 'type' in e && e.type === 'ParseError') as RipperError[];
         const calendarEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
 
+        expect(errors).toHaveLength(0);
         expect(calendarEvents.length).toBeGreaterThan(0);
-        for (const err of errors) {
-            expect(err.reason).toMatch(/Could not find a/);
-        }
     });
 });

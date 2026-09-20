@@ -11,8 +11,12 @@ import { RipperEvent, RipperCalendarEvent, UncertaintyField } from "../../lib/co
 //   "Friday Night Magic Draft - The Hobbit | September 18 ticket"
 //   "Tuesday Night Draft - Chaos Draft | September 22 Ticket"
 // Irregular prerelease/sealed products (e.g. "Reality Fracture Prerelease
-// Flight 1") carry no date anywhere - title or body_html - and are reported
-// as a ParseError rather than guessed. See
+// Flight 1") carry no date anywhere - title, body_html, or the store's own
+// blog (checked during investigation) - so there is nothing to extract or
+// resolve later. They're out of scope for this ripper and skipped silently
+// rather than flagged as a ParseError; only a date-pattern miss on one of
+// the two known recurring series below (which always carry a date) is
+// treated as an actual parse failure worth surfacing. See
 // docs/source-candidates/phoenix-comics-and-games.md for the investigation.
 
 interface ShopifyVariant {
@@ -55,6 +59,13 @@ const MONTH_PATTERN = Object.keys(MONTHS).sort((a, b) => b.length - a.length).jo
 // after the pipe, no year; upstream is inconsistent about the spacing and
 // capitalization of "ticket".
 const DATE_PATTERN = new RegExp(`\\|\\s*(${MONTH_PATTERN})\\.?\\s+(\\d{1,2})\\s*ticket`, "i");
+
+// The only two products in this collection confirmed to always carry a
+// parseable date (see file header). A title matching one of these but
+// missing DATE_PATTERN is a real regression worth a ParseError; any other
+// title missing DATE_PATTERN is an out-of-scope one-off (prerelease/sealed
+// event) and skipped silently instead.
+const KNOWN_SERIES_PATTERN = /friday night magic|tuesday night draft/i;
 
 // A listing already >3 days in the past (relative to build time) is assumed
 // to be next year's occurrence of the same weekly slot rather than a
@@ -118,11 +129,13 @@ export default class PhoenixComicsAndGamesRipper extends JSONRipper {
 
             const match = product.title.match(DATE_PATTERN);
             if (!match) {
-                events.push({
-                    type: "ParseError",
-                    reason: `Could not find a "| <Month> <Day> ticket" date in title: "${product.title}"`,
-                    context: product.handle,
-                });
+                if (KNOWN_SERIES_PATTERN.test(product.title)) {
+                    events.push({
+                        type: "ParseError",
+                        reason: `Could not find a "| <Month> <Day> ticket" date in title: "${product.title}"`,
+                        context: product.handle,
+                    });
+                }
                 continue;
             }
 
