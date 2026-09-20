@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { Period } from '@js-joda/core';
-import DiscoverSLURipper, { parseEventsFromHtml, extractTimeFromMeta } from './ripper.js';
+import DiscoverSLURipper, { parseEventsFromHtml, extractTimeFromMeta, extractWeekdayFromEventPage, findAmbiguousWeeklyCandidates } from './ripper.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -248,6 +248,82 @@ describe('Discover SLU Ripper', () => {
         expect(info.title).toBe('2026 South Lake Union Farmers Market');
     });
 
+    test('skips a "Weekly" listing (no named weekday) bucketed under a heading that mismatches its resolved weekday', () => {
+        // Reproduces GitHub issue #1548: "2026 Pike Place Market: SLU Express
+        // Farmers Market" gives meta text "Weekly June 4 - October 29, ..."
+        // with no weekday name, so extractExpectedWeekday can't validate it.
+        // The site buckets it under every day heading in the fetch window;
+        // here it lands under Sunday even though a detail-page lookup
+        // (simulated via weeklyPatternWeekdays) says it's really Thursday.
+        const html = parse(`
+            <div class="site-width"><h2 class="event-day">Sunday September 20, 2026</h2></div>
+            <div class="site-width"><div class="grid"><div class="grid__item">
+                <div class="feature full">
+                    <div class="text"><h3><a href="/events/pike-place-express-2026-2-3/">2026 Pike Place Market: SLU Express Farmers Market</a></h3>
+                    <div class="feature__meta-container">
+                        <div class="feature__meta feature__meta--date">Weekly June 4 - October 29, 10 am - 3 pm</div>
+                        <div class="feature__meta feature__meta--location">Path to Yes Plaza</div>
+                    </div></div>
+                </div>
+            </div></div></div>
+        `);
+        const seenEvents = new Set<string>();
+        const weekdayMismatches = new Map<string, { title: string; url: string }>();
+        const weeklyPatternWeekdays = new Map<string, number>([["discover-slu-pike-place-express-2026-2-3", 4]]); // Thursday
+        const events = parseEventsFromHtml(html, seenEvents, 2026, weekdayMismatches, weeklyPatternWeekdays);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(0);
+        expect(weekdayMismatches.size).toBe(1);
+    });
+
+    test('accepts a "Weekly" listing bucketed under a heading matching its resolved weekday', () => {
+        const html = parse(`
+            <div class="site-width"><h2 class="event-day">Thursday September 24, 2026</h2></div>
+            <div class="site-width"><div class="grid"><div class="grid__item">
+                <div class="feature full">
+                    <div class="text"><h3><a href="/events/pike-place-express-2026-2-3/">2026 Pike Place Market: SLU Express Farmers Market</a></h3>
+                    <div class="feature__meta-container">
+                        <div class="feature__meta feature__meta--date">Weekly June 4 - October 29, 10 am - 3 pm</div>
+                        <div class="feature__meta feature__meta--location">Path to Yes Plaza</div>
+                    </div></div>
+                </div>
+            </div></div></div>
+        `);
+        const seenEvents = new Set<string>();
+        const weekdayMismatches = new Map<string, { title: string; url: string }>();
+        const weeklyPatternWeekdays = new Map<string, number>([["discover-slu-pike-place-express-2026-2-3", 4]]); // Thursday
+        const events = parseEventsFromHtml(html, seenEvents, 2026, weekdayMismatches, weeklyPatternWeekdays);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+        expect(validEvents[0].date.dayOfMonth()).toBe(24);
+        expect(validEvents[0].date.dayOfWeek().toString()).toBe('THURSDAY');
+        expect(weekdayMismatches.size).toBe(0);
+    });
+
+    test('falls back to trusting the heading for a "Weekly" listing when no resolved weekday is available', () => {
+        // Without a resolved weekday (e.g. the detail-page lookup failed or
+        // hasn't run), behavior must not regress to dropping the event.
+        const html = parse(`
+            <div class="site-width"><h2 class="event-day">Sunday September 20, 2026</h2></div>
+            <div class="site-width"><div class="grid"><div class="grid__item">
+                <div class="feature full">
+                    <div class="text"><h3><a href="/events/pike-place-express-2026-2-3/">2026 Pike Place Market: SLU Express Farmers Market</a></h3>
+                    <div class="feature__meta-container">
+                        <div class="feature__meta feature__meta--date">Weekly June 4 - October 29, 10 am - 3 pm</div>
+                        <div class="feature__meta feature__meta--location">Path to Yes Plaza</div>
+                    </div></div>
+                </div>
+            </div></div></div>
+        `);
+        const seenEvents = new Set<string>();
+        const events = parseEventsFromHtml(html, seenEvents, 2026);
+        const validEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+
+        expect(validEvents.length).toBe(1);
+    });
+
     test('emits ParseError for card with no date source', () => {
         const html = parse(`
             <div class="site-width">
@@ -295,6 +371,36 @@ describe('extractTimeFromMeta', () => {
     });
 });
 
+describe('extractWeekdayFromEventPage', () => {
+    test('extracts the weekday from an "every <day>" description phrase', () => {
+        expect(extractWeekdayFromEventPage('<p>Join us every Thursday from June 4 through October 29 for a market.</p>')).toBe(4);
+        expect(extractWeekdayFromEventPage('<p>Farm-fresh shopping every Saturday in South Lake Union.</p>')).toBe(6);
+    });
+
+    test('returns null when no weekday phrase is present', () => {
+        expect(extractWeekdayFromEventPage('<p>Join the group for a fun run!</p>')).toBeNull();
+    });
+});
+
+describe('findAmbiguousWeeklyCandidates', () => {
+    test('finds only cards whose meta date is a "Weekly ..." lead-in with no weekday name', () => {
+        const html = parse(`
+            <div class="feature full">
+                <h3><a href="/events/pike-place-express-2026-2-3/">2026 Pike Place Market: SLU Express Farmers Market</a></h3>
+                <div class="feature__meta feature__meta--date">Weekly June 4 - October 29, 10 am - 3 pm</div>
+            </div>
+            <div class="feature full">
+                <h3><a href="/events/2026-slu-farmers-market-3/">2026 South Lake Union Farmers Market</a></h3>
+                <div class="feature__meta feature__meta--date">Every Sat, Jun 6 - Nov 21, 2026 10 am - 3 pm</div>
+            </div>
+        `);
+        const candidates = findAmbiguousWeeklyCandidates(html);
+        expect(candidates).toEqual([
+            { eventId: 'discover-slu-pike-place-express-2026-2-3', url: 'https://www.discoverslu.com/events/pike-place-express-2026-2-3/' },
+        ]);
+    });
+});
+
 function farmersMarketWeekHtml(headingText: string): string {
     return `
         <div class="site-width"><h2 class="event-day">${headingText}</h2></div>
@@ -304,6 +410,21 @@ function farmersMarketWeekHtml(headingText: string): string {
                 <div class="feature__meta-container">
                     <div class="feature__meta feature__meta--date">Every Sat, Jun 6 - Nov 21, 2026 10 am - 3 pm</div>
                     <div class="feature__meta feature__meta--location">The Spheres</div>
+                </div></div>
+            </div>
+        </div></div></div>
+    `;
+}
+
+function pikeExpressWeekHtml(headingText: string): string {
+    return `
+        <div class="site-width"><h2 class="event-day">${headingText}</h2></div>
+        <div class="site-width"><div class="grid"><div class="grid__item">
+            <div class="feature full">
+                <div class="text"><h3><a href="/events/pike-place-express-2026-2-3/">2026 Pike Place Market: SLU Express Farmers Market</a></h3>
+                <div class="feature__meta-container">
+                    <div class="feature__meta feature__meta--date">Weekly June 4 - October 29, 10 am - 3 pm</div>
+                    <div class="feature__meta feature__meta--location">Path to Yes Plaza</div>
                 </div></div>
             </div>
         </div></div></div>
@@ -385,5 +506,91 @@ describe('rip()', () => {
         expect(cal.events.some(e => e.summary === '2026 South Lake Union Farmers Market')).toBe(false);
         const mismatchError = cal.errors.find(e => e.type === 'ParseError' && 'reason' in e && e.reason.includes('2026 South Lake Union Farmers Market'));
         expect(mismatchError).toBeDefined();
+    });
+
+    test('resolves a "Weekly" listing with no named weekday via its detail page (GitHub issue #1548)', async () => {
+        // "2026 Pike Place Market: SLU Express Farmers Market" gives meta text
+        // "Weekly June 4 - October 29, ..." with no weekday name, so
+        // extractExpectedWeekday alone can't validate it — and unlike an
+        // "Every <day>, ..." listing, discoverslu.com buckets this card under
+        // every day heading in the window rather than just the correct one,
+        // so there's no self-correcting occurrence to fall back on. rip()
+        // must fetch the event's own detail page ("...every Thursday...") to
+        // learn the true weekday, skip the wrong (Sunday) occurrence, and
+        // publish only the correct (Thursday) one.
+        const fetchMock = vi.fn()
+            .mockResolvedValueOnce({ // week 1 AJAX — wrong (Sunday) occurrence
+                ok: true,
+                json: () => Promise.resolve({
+                    status: 'pass',
+                    start_date: '2026-09-20',
+                    events_html: pikeExpressWeekHtml('Sunday September 20, 2026'),
+                }),
+            })
+            .mockResolvedValueOnce({ // detail-page lookup for the ambiguous card
+                ok: true,
+                text: () => Promise.resolve(
+                    '<p>Join us every Thursday from June 4 through October 29 for a Pike Place Market farmers market experience in the heart of South Lake Union.</p>',
+                ),
+            })
+            .mockResolvedValueOnce({ // week 2 AJAX — correct (Thursday) occurrence
+                ok: true,
+                json: () => Promise.resolve({
+                    status: 'pass',
+                    start_date: '2026-09-27',
+                    events_html: pikeExpressWeekHtml('Thursday September 24, 2026'),
+                }),
+            });
+        vi.stubGlobal('fetch', fetchMock);
+
+        const calendars = await new DiscoverSLURipper().rip(makeRipper(14));
+        const cal = calendars[0];
+
+        expect(fetchMock).toHaveBeenCalledTimes(3);
+        expect(cal.events.length).toBe(1);
+        expect(cal.events[0].summary).toBe('2026 Pike Place Market: SLU Express Farmers Market');
+        expect(cal.events[0].date.dayOfMonth()).toBe(24);
+        expect(cal.events[0].date.dayOfWeek().toString()).toBe('THURSDAY');
+    });
+
+    test('only looks up a "Weekly" listing\'s detail page once, even when it recurs across every week fetched', async () => {
+        const fetchMock = vi.fn()
+            .mockResolvedValueOnce({
+                ok: true,
+                json: () => Promise.resolve({
+                    status: 'pass',
+                    start_date: '2026-09-20',
+                    events_html: pikeExpressWeekHtml('Sunday September 20, 2026'),
+                }),
+            })
+            .mockResolvedValueOnce({
+                ok: true,
+                text: () => Promise.resolve('<p>Join us every Thursday from June 4 through October 29.</p>'),
+            })
+            .mockResolvedValueOnce({
+                ok: true,
+                json: () => Promise.resolve({
+                    status: 'pass',
+                    start_date: '2026-09-27',
+                    events_html: pikeExpressWeekHtml('Sunday September 27, 2026'),
+                }),
+            })
+            .mockResolvedValueOnce({
+                ok: true,
+                json: () => Promise.resolve({
+                    status: 'pass',
+                    start_date: '2026-10-04',
+                    events_html: pikeExpressWeekHtml('Thursday October 1, 2026'),
+                }),
+            });
+        vi.stubGlobal('fetch', fetchMock);
+
+        const calendars = await new DiscoverSLURipper().rip(makeRipper(21));
+        const cal = calendars[0];
+
+        // 3 AJAX week fetches + exactly 1 detail-page lookup, not one per week.
+        expect(fetchMock).toHaveBeenCalledTimes(4);
+        expect(cal.events.length).toBe(1);
+        expect(cal.events[0].date.dayOfWeek().toString()).toBe('THURSDAY');
     });
 });
