@@ -17,6 +17,12 @@ calendars:
   - name: pioneer-park
     friendlyname: "Pioneer Park Events"
     timezone: America/Los_Angeles
+    # 2026-09-20: build-health flagged 0 events. Confirmed via the live Tribe
+    # Events API (venue=53757): 0 events at this venue right now, while other
+    # DSA venues (Occidental Square, First & Pike) do have upcoming events —
+    # same low-volume-plaza situation as Westlake Park / Bell Street Park /
+    # McGraw Square above, not a broken feed.
+    expectEmpty: true
     config:
       venue_id: 53757
     tags:

@@ -51,11 +51,9 @@ calendars:
       osmId: 2158761201
     timezone: America/Los_Angeles
     tags: ["Capitol Hill"]
-    # 2026-09-14: build-health flagged 0 events. Confirmed via the live
-    # window.upcomingShows feed and data-venue-title markup: no Vermillion
-    # shows currently listed on showlists.net — a genuine programming gap,
-    # not a broken feed.
-    expectEmpty: true
+    # 2026-09-20: 1 upcoming show now posted; removing expectEmpty (added
+    # 2026-09-14). Vermillion books regularly enough that this looks like
+    # normal churn rather than a lasting gap — re-add if it goes quiet again.
     config:
       venue: "Vermillion"
 
@@ -202,9 +200,11 @@ calendars:
 
   # --- Queen Anne ---
   # KEXP Studio: now covered by dedicated ripper at sources/kexp/
-  # 2026-09-02: 1 event now; removing expectEmpty
+  # 2026-09-20: back to 0 events (was briefly non-empty on 2026-09-02) — a
+  # low-key community room, re-adding expectEmpty.
   - name: kexp-gathering-space
     friendlyname: "KEXP Gathering Space"
+    expectEmpty: true
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/61/KEXP_Gathering_Space_04.jpg"
     geo:
       lat: 47.6231
@@ -285,6 +285,23 @@ calendars:
     tags: ["West Seattle"]
     config:
       venue: "Skylark"
+
+  # 2026-09-20: build-report flagged "Unknown venue Kenyon Hall not in
+  # VENUE_CONFIG" (ParseError on the europa calendar). Kenyon Hall is a
+  # community theater in Arbor Heights — adding it as its own per-venue
+  # calendar, same pattern as Skylark above.
+  - name: kenyon-hall
+    friendlyname: "Kenyon Hall"
+    geo:
+      lat: 47.5316606
+      lng: -122.3761768
+      label: "Kenyon Hall, 7904 35th Ave SW, Seattle, WA 98126"
+      osmType: way
+      osmId: 236745540
+    timezone: America/Los_Angeles
+    tags: ["West Seattle"]
+    config:
+      venue: "Kenyon Hall"
 
   # --- SoDo ---
   - name: the-mountain-room

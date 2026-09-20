@@ -69,6 +69,7 @@ export const VENUE_CONFIG: Record<string, VenueInfo> = {
     "The Mountain Room":    { address: "3100 Airport Way S, Seattle, WA 98134" },
     "Vermillion":           { address: "1508 11th Ave, Seattle, WA 98122" },
     "Woodland Theater":     { address: "608 NW 65th St, Seattle, WA 98117" },
+    "Kenyon Hall":          { address: "7904 35th Ave SW, Seattle, WA 98126" },
 };
 
 export default class SeattleShowlistsRipper implements IRipper {

@@ -5,7 +5,10 @@ type: eventbrite
 # happen at rotating venues around the city, not one fixed address —
 # geo: null at the ripper level, same pattern as seattle-social-club /
 # seattle-downtown-community-council.
-# 2026-09-02: 1 upcoming event now posted; removing expectEmpty
+# 2026-09-02: 1 upcoming event posted; removed expectEmpty.
+# 2026-09-20: back to 0 upcoming events on the Eventbrite organizer page —
+# a handful-of-events-a-year civic nonprofit, like the DCC; re-adding.
+expectEmpty: true
 description: "Seattle CityClub"
 url: "https://www.eventbrite.com/o/seattle-cityclub-12026318033"
 friendlyLink: "https://www.seattlecityclub.org/"

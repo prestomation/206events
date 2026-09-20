@@ -1,3 +1,14 @@
+# 2026-09-20: build-health flagged 0 events (no error — the ripper's
+# `div.events-holder section[id]` selector, documented in ripper.ts as
+# matching server-rendered markup, now matches nothing). Confirmed live: the
+# events page no longer has any <section> elements at all; the site now
+# loads via SpotApps' "website_editor_interpreter" client-side renderer, so
+# the event listing is populated by JS after load rather than being present
+# in the static HTML. A plain fetch can no longer see events here — this
+# needs a browserbase rewrite (blocked on Browserbase billing being
+# restored, see build-report notes) plus reverse-engineering the post-render
+# DOM structure. NOT marking expectEmpty — this bar posts weekly events, so
+# a real 0 here is a signal, not an expected gap.
 name: roam-bar
 sourceRole: venue
 description: "Roam Bar — Ballard craft cocktail bar hosting weekly live music, DJ nights, and community events"

@@ -1,6 +1,10 @@
 name: glitter-and-gold-studio
 sourceRole: venue
 type: eventbrite
+# 2026-09-20: build-health flagged 0 events. Confirmed via the Eventbrite
+# organizer API: 0 upcoming events right now — a small jewelry/craft studio
+# that posts classes intermittently rather than on a fixed schedule.
+expectEmpty: true
 description: "Glitter and Gold Studio"
 url: "https://glitterandgoldstudio.com/"
 friendlyLink: https://glitterandgoldstudio.com/
