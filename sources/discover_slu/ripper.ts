@@ -39,6 +39,72 @@ function extractExpectedWeekday(text: string): number | null {
 }
 
 /**
+ * Some listings give a "Weekly <start> - <end>" lead-in with no weekday name
+ * at all (e.g. "Weekly June 4 - October 29, 10 am - 3 pm"). Unlike "Every
+ * <day>, ..." listings, the site buckets these under *every* day heading in
+ * the fetch window rather than just the correct one, so there's no
+ * self-correcting occurrence to fall back on and `extractExpectedWeekday`
+ * has nothing to match. The true weekday has to come from elsewhere (the
+ * event's own detail page).
+ */
+function isAmbiguousWeeklyPattern(text: string): boolean {
+    return /^weekly\b/i.test(text.trim());
+}
+
+/**
+ * Extract the recurrence weekday from an event detail page's own
+ * description (e.g. "Join us every Thursday from June 4 through October 29
+ * ..."). Returns null when no such phrase is found.
+ *
+ * Scoped to the page's main-content container (`#js-single-main-content`),
+ * not the raw page text: the page also renders a "related events" widget
+ * whose cards can carry their own "Every <day>, ..." meta lines for
+ * *different* events, and matching against the whole page risks picking up
+ * one of those instead of the actual event's own recurrence.
+ */
+export function extractWeekdayFromEventPage(html: string): number | null {
+    const doc = parse(html);
+    const content = doc.querySelector("#js-single-main-content") ?? doc;
+    const match = content.textContent.match(/\bevery\s+(sunday|monday|tuesday|wednesday|thursday|friday|saturday)\b/i);
+    if (!match) return null;
+    return WEEKDAY_MAP[match[1].toLowerCase().slice(0, 3)] ?? null;
+}
+
+/**
+ * Derive the same stable event id used when parsing a card, from just its
+ * link href/title. Shared by the main parse loop and the pre-scan that finds
+ * ambiguous "Weekly ..." cards needing a detail-page weekday lookup, so the
+ * two never disagree on what a given card's id is.
+ */
+function computeEventId(href: string, title: string): string {
+    const slug = href.includes("/events/")
+        ? href.replace(/.*\/events\//, "").replace(/\/$/, "")
+        : href.replace(/^.*\//, "").replace(/\/$/, "") || title.toLowerCase().replace(/\s+/g, "-");
+    return `discover-slu-${slug}`;
+}
+
+/**
+ * Scan a fetched week's HTML for cards matching the ambiguous "Weekly ..."
+ * pattern, returning their event id + detail-page URL so the caller can
+ * resolve the true weekday before (re-)parsing.
+ */
+export function findAmbiguousWeeklyCandidates(html: HTMLElement): { eventId: string; url: string }[] {
+    const candidates: { eventId: string; url: string }[] = [];
+    for (const card of html.querySelectorAll(".feature.full")) {
+        const titleLink = card.querySelector("h3 a");
+        if (!titleLink) continue;
+        const metaDateText = card.querySelector(".feature__meta--date")?.textContent.trim() ?? "";
+        if (!isAmbiguousWeeklyPattern(metaDateText)) continue;
+
+        const title = titleLink.textContent.trim();
+        const href = titleLink.getAttribute("href") || "";
+        const eventUrl = href.startsWith("http") ? href : `${BASE_URL}${href}`;
+        candidates.push({ eventId: computeEventId(href, title), url: eventUrl });
+    }
+    return candidates;
+}
+
+/**
  * Parse the "event-day" heading like "Sunday July 9, 2026" to extract the specific date.
  * Returns null if the heading cannot be parsed.
  */
@@ -122,6 +188,7 @@ export function parseEventsFromHtml(
     seenEvents: Set<string>,
     defaultYear: number,
     weekdayMismatches: Map<string, { title: string; url: string }> = new Map(),
+    weeklyPatternWeekdays: Map<string, number> = new Map(),
 ): RipperEvent[] {
     const events: RipperEvent[] = [];
     let currentDate: { year: number; month: number; day: number } | null = null;
@@ -153,10 +220,7 @@ export function parseEventsFromHtml(
                 const href = titleLink.getAttribute("href") || "";
                 const eventUrl = href.startsWith("http") ? href : `${BASE_URL}${href}`;
 
-                const slug = href.includes("/events/")
-                    ? href.replace(/.*\/events\//, "").replace(/\/$/, "")
-                    : href.replace(/^.*\//, "").replace(/\/$/, "") || title.toLowerCase().replace(/\s+/g, "-");
-                const eventId = `discover-slu-${slug}`;
+                const eventId = computeEventId(href, title);
 
                 if (seenEvents.has(eventId)) continue;
 
@@ -189,7 +253,8 @@ export function parseEventsFromHtml(
                     // later heading that matches its stated weekday. Skip the
                     // mismatched occurrence (without marking it seen) so the correct
                     // one further down the document still gets picked up.
-                    const expectedWeekday = extractExpectedWeekday(metaDateText);
+                    const expectedWeekday = extractExpectedWeekday(metaDateText) ??
+                        (isAmbiguousWeeklyPattern(metaDateText) ? weeklyPatternWeekdays.get(eventId) ?? null : null);
                     if (expectedWeekday !== null && LocalDate.of(year, month, day).dayOfWeek().value() !== expectedWeekday) {
                         // Track it in case no correctly-bucketed occurrence ever
                         // shows up (across this call or a later week's fetch) —
@@ -287,6 +352,35 @@ export function parseEventsFromHtml(
 export default class DiscoverSLURipper implements IRipper {
     private seenEvents = new Set<string>();
     private weekdayMismatches = new Map<string, { title: string; url: string }>();
+    private weeklyPatternWeekdays = new Map<string, number>();
+    private weeklyPatternLookupAttempted = new Set<string>();
+
+    /**
+     * Resolve the true recurrence weekday for any not-yet-seen "Weekly ..."
+     * cards in this week's HTML, by fetching each event's own detail page.
+     * Looked up at most once per event id for the whole rip() run.
+     */
+    private async resolveAmbiguousWeeklyPatterns(weekHtml: HTMLElement, fetchFn: FetchFn): Promise<void> {
+        const candidates = findAmbiguousWeeklyCandidates(weekHtml)
+            .filter(c => !this.weeklyPatternLookupAttempted.has(c.eventId));
+
+        for (const { eventId, url } of candidates) {
+            this.weeklyPatternLookupAttempted.add(eventId);
+            // Card hrefs are expected to be same-site event pages; skip
+            // anything else rather than handing an arbitrary URL to fetchFn.
+            if (new URL(url).hostname !== new URL(BASE_URL).hostname) continue;
+            try {
+                const res = await fetchFn(url);
+                if (!res.ok) continue;
+                const weekday = extractWeekdayFromEventPage(await res.text());
+                if (weekday !== null) this.weeklyPatternWeekdays.set(eventId, weekday);
+            } catch {
+                // Lookup failure just leaves this event unresolved for this run —
+                // it falls back to trusting the (possibly wrong) day heading,
+                // same as before this resolution existed.
+            }
+        }
+    }
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
@@ -328,7 +422,8 @@ export default class DiscoverSLURipper implements IRipper {
                 }
 
                 const weekHtml = parse(data.events_html);
-                const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year(), this.weekdayMismatches);
+                await this.resolveAmbiguousWeeklyPatterns(weekHtml, fetchFn);
+                const events = parseEventsFromHtml(weekHtml, this.seenEvents, currentDate.year(), this.weekdayMismatches, this.weeklyPatternWeekdays);
                 allEvents.push(...events);
 
                 const nextDate = new Date(data.start_date);
