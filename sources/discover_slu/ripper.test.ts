@@ -380,6 +380,27 @@ describe('extractWeekdayFromEventPage', () => {
     test('returns null when no weekday phrase is present', () => {
         expect(extractWeekdayFromEventPage('<p>Join the group for a fun run!</p>')).toBeNull();
     });
+
+    test('ignores an "every <day>" phrase outside the main-content container (e.g. a related-events widget for a different event)', () => {
+        // The real discoverslu.com event page renders a "related events"
+        // section with its own meta lines for *other* events. Those must
+        // not be mistaken for this event's own recurrence.
+        const html = `
+            <div id="js-single-main-content">
+                <p>Join us every Thursday from June 4 through October 29 for a market.</p>
+            </div>
+            <div class="related-events">
+                <article class="content-card">
+                    <div class="content-card__meta-line">Every Wednesday, Jan 1 - Dec 31</div>
+                </article>
+            </div>
+        `;
+        expect(extractWeekdayFromEventPage(html)).toBe(4); // Thursday, from main content — not Wednesday from the sidebar
+    });
+
+    test('falls back to scanning the whole page when the main-content container is absent', () => {
+        expect(extractWeekdayFromEventPage('<div><p>Join us every Friday.</p></div>')).toBe(5);
+    });
 });
 
 describe('findAmbiguousWeeklyCandidates', () => {
@@ -592,5 +613,37 @@ describe('rip()', () => {
         expect(fetchMock).toHaveBeenCalledTimes(4);
         expect(cal.events.length).toBe(1);
         expect(cal.events[0].date.dayOfWeek().toString()).toBe('THURSDAY');
+    });
+
+    test('never fetches a detail-page lookup for a card linking off-site, falling back to trusting the heading', async () => {
+        const offSiteHtml = `
+            <div class="site-width"><h2 class="event-day">Sunday September 20, 2026</h2></div>
+            <div class="site-width"><div class="grid"><div class="grid__item">
+                <div class="feature full">
+                    <div class="text"><h3><a href="https://evil.example.com/events/pike-place-express-2026-2-3/">2026 Pike Place Market: SLU Express Farmers Market</a></h3>
+                    <div class="feature__meta-container">
+                        <div class="feature__meta feature__meta--date">Weekly June 4 - October 29, 10 am - 3 pm</div>
+                        <div class="feature__meta feature__meta--location">Path to Yes Plaza</div>
+                    </div></div>
+                </div>
+            </div></div></div>
+        `;
+        const fetchMock = vi.fn().mockResolvedValueOnce({
+            ok: true,
+            json: () => Promise.resolve({
+                status: 'pass',
+                start_date: '2026-09-20',
+                events_html: offSiteHtml,
+            }),
+        });
+        vi.stubGlobal('fetch', fetchMock);
+
+        const calendars = await new DiscoverSLURipper().rip(makeRipper(7));
+        const cal = calendars[0];
+
+        // Only the AJAX week fetch — never a fetch to the off-site href.
+        expect(fetchMock).toHaveBeenCalledTimes(1);
+        expect(cal.events.length).toBe(1);
+        expect(cal.events[0].date.dayOfWeek().toString()).toBe('SUNDAY');
     });
 });

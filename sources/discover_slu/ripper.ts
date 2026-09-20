@@ -55,9 +55,17 @@ function isAmbiguousWeeklyPattern(text: string): boolean {
  * Extract the recurrence weekday from an event detail page's own
  * description (e.g. "Join us every Thursday from June 4 through October 29
  * ..."). Returns null when no such phrase is found.
+ *
+ * Scoped to the page's main-content container (`#js-single-main-content`),
+ * not the raw page text: the page also renders a "related events" widget
+ * whose cards can carry their own "Every <day>, ..." meta lines for
+ * *different* events, and matching against the whole page risks picking up
+ * one of those instead of the actual event's own recurrence.
  */
 export function extractWeekdayFromEventPage(html: string): number | null {
-    const match = html.match(/\bevery\s+(sunday|monday|tuesday|wednesday|thursday|friday|saturday)\b/i);
+    const doc = parse(html);
+    const content = doc.querySelector("#js-single-main-content") ?? doc;
+    const match = content.textContent.match(/\bevery\s+(sunday|monday|tuesday|wednesday|thursday|friday|saturday)\b/i);
     if (!match) return null;
     return WEEKDAY_MAP[match[1].toLowerCase().slice(0, 3)] ?? null;
 }
@@ -358,6 +366,9 @@ export default class DiscoverSLURipper implements IRipper {
 
         for (const { eventId, url } of candidates) {
             this.weeklyPatternLookupAttempted.add(eventId);
+            // Card hrefs are expected to be same-site event pages; skip
+            // anything else rather than handing an arbitrary URL to fetchFn.
+            if (new URL(url).hostname !== new URL(BASE_URL).hostname) continue;
             try {
                 const res = await fetchFn(url);
                 if (!res.ok) continue;
