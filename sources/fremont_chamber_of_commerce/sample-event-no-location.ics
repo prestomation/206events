@@ -23,8 +23,8 @@ TZNAME:Pacific Standard Time
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTART;TZID=America/Los_Angeles:20260919T093000
-DTEND;TZID=America/Los_Angeles:20260919T140000
+DTSTART;TZID=America/Los_Angeles:20271019T093000
+DTEND;TZID=America/Los_Angeles:20271019T140000
 X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
 SUMMARY:APDA NW Optimism Walk
 DESCRIPTION:The American Parkinson's Disease Association is one of the largest grassroot non-profits. Every year the NW Chapter hosts a local Optimism Walk. The Optimism Walk is a family-friendly fundraising event that offers a short walk and an important opportunity for friends\, families\, and individuals coping with Parkinson's to take their passion and turn it into a positive experience. It includes the brief walk at Ship Canal Trail\, a ceremony celebrating our community members\, food and drinks\, and more!
