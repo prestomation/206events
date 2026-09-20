@@ -110,6 +110,7 @@ describe('Phoenix Comics and Games Ripper', () => {
 
         expect(uncertainties[0].unknownFields).toEqual(['startTime', 'duration']);
         expect(uncertainties[0].event.id).toBe(e.id);
+        expect(uncertainties[0].partialFingerprint).toBeTruthy();
     });
 
     test('marks a sold-out event with cost.soldOut instead of a price', async () => {
@@ -122,6 +123,28 @@ describe('Phoenix Comics and Games Ripper', () => {
         // September 18 is 2 days before "today" (Sept 20) - within the grace
         // window, so it stays this year rather than rolling to 2027.
         expect(calendarEvents[0].date.year()).toBe(2026);
+    });
+
+    test('rolls a date more than the grace window in the past to next year', async () => {
+        const ripper = new PhoenixComicsAndGamesRipper();
+        // "today" is Sept 20, 2026 - Jan 15 is well past the 3-day grace
+        // window, so it must resolve to Jan 15, 2027, not 2026.
+        const staleWinterEvent = {
+            id: 7,
+            title: "Winter Sealed Event | January 15 Ticket",
+            handle: "winter-sealed-event-january-15-ticket",
+            product_type: "Special Event",
+            body_html: "<p>A sealed event.</p>",
+            variants: [{ price: "40.00", available: true }],
+            images: [],
+        };
+        const jsonData = buildJsonData([staleWinterEvent]);
+        const events = await ripper.parseEvents(jsonData, testDate, {});
+        const calendarEvents = events.filter(e => 'summary' in e) as RipperCalendarEvent[];
+        expect(calendarEvents).toHaveLength(1);
+        expect(calendarEvents[0].date.year()).toBe(2027);
+        expect(calendarEvents[0].date.monthValue()).toBe(1);
+        expect(calendarEvents[0].date.dayOfMonth()).toBe(15);
     });
 
     test('emits a ParseError (never drops silently) for a product with no date anywhere', async () => {

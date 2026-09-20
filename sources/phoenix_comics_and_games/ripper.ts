@@ -83,6 +83,17 @@ function stripHtml(html: string): string {
     return html.replace(/<\/?[^>]+(>|$)/g, " ").replace(/\s+/g, " ").trim();
 }
 
+// Cheap deterministic hash of whatever the ripper *did* parse, so a cached
+// resolution is invalidated if the title changes (e.g. upstream renames the
+// event or, eventually, starts stating a time itself).
+function simpleHash(s: string): string {
+    let h = 0;
+    for (let i = 0; i < s.length; i++) {
+        h = (h * 31 + s.charCodeAt(i)) | 0;
+    }
+    return (h >>> 0).toString(36);
+}
+
 export default class PhoenixComicsAndGamesRipper extends JSONRipper {
     private seenHandles = new Set<string>();
 
@@ -148,6 +159,7 @@ export default class PhoenixComicsAndGamesRipper extends JSONRipper {
                     source: "phoenix-comics-and-games",
                     unknownFields,
                     event: calendarEvent,
+                    partialFingerprint: simpleHash(product.title),
                 });
             } catch (error) {
                 // A malformed date (e.g. "February 30th") throws out of
