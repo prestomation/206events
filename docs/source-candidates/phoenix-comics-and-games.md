@@ -6,7 +6,7 @@ url: https://shop.phoenixseattle.com/collections/events/products.json
 tags: [Gaming, "Capitol Hill"]
 firstSeen: 2026-09-19
 lastChecked: 2026-09-20
-pr:
+pr: 1546
 ---
 
 Comic/game shop at 113 Broadway E, Seattle, WA 98102 (Capitol Hill). Sells
