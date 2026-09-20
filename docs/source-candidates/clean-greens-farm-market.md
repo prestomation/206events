@@ -5,7 +5,7 @@ platform: Eventbrite
 url: https://www.cleangreensfarmmarket.com/
 tags: [Community, "Central District"]
 firstSeen: 2026-07-13
-lastChecked: 2026-09-16
+lastChecked: 2026-09-20
 ---
 
 Small Central District nonprofit farm (founded 2007 by Project of Black
@@ -34,3 +34,5 @@ Re-checked 2026-09-09: still 0 upcoming events. No change.
 Re-checked 2026-09-11: Eventbrite organizer `96261948593` public API still returns `object_count: 0`. No change.
 
 Re-checked 2026-09-16: Eventbrite organizer `96261948593` public API still returns `object_count: 0`. No change.
+
+Re-checked 2026-09-20: Eventbrite organizer `96261948593` public API still returns `object_count: 0`. No change.

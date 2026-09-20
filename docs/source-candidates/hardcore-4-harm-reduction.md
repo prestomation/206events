@@ -5,7 +5,7 @@ platform: Unknown
 url: https://hardcore4harmreduction.org
 tags: [Nightlife, Music]
 firstSeen: 2026-09-07
-lastChecked: 2026-09-07
+lastChecked: 2026-09-20
 pr:
 ---
 
@@ -15,3 +15,5 @@ than a site of their own. `hardcore4harmreduction.org` returned
 `HTTP 502 Bad Gateway` on 2026-09-07 — site appears down or misconfigured
 at time of check, so platform/feed could not be evaluated. Re-check next
 cycle before investigating further.
+
+Re-checked 2026-09-20: still `HTTP 502 Bad Gateway`. No change.
