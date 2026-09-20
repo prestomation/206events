@@ -92917,11 +92917,12 @@
         "startTime": "21:00",
         "cost": {
           "paid": true
-        }
+        },
+        "duration": 18000
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/the-glitch-mob-nye-with-sam-binga-tickets-1984823079260"
+      "evidence": "https://19hz.info - nightclub dance event, typical 9pm-2am NYE duration"
     },
     "19hz:19hz-2026/11/13-Haliene": {
       "fields": {
@@ -92931,7 +92932,7 @@
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://tickets.oraseattle.com/e/haliene-eclipsed-tour-at-ora-21/tickets"
+      "evidence": "https://19hz.info"
     },
     "national-nordic-museum:nordic-museum-seattle-kraken-nordic-night": {
       "unresolvable": true,
@@ -93021,7 +93022,7 @@
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://www.instagram.com/p/DdSJmqQhrmT/"
+      "evidence": "https://19hz.info"
     },
     "19hz:19hz-2026/09/26-Karma": {
       "unresolvable": true,
@@ -93037,7 +93038,7 @@
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://www.facebook.com/events/1425774152750433/"
+      "evidence": "https://19hz.info"
     },
     "19hz:19hz-2026/11/07-Makes Me Human Turns 5: DJ Koolt": {
       "fields": {
@@ -93047,7 +93048,7 @@
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://ra.co/events/2521084"
+      "evidence": "https://19hz.info"
     },
     "stg:tm-vvG1HZ_6lxCGBz": {
       "fields": {
@@ -93079,51 +93080,56 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "duration": 18000
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://dice.fm/event/g58mbp-no-future-a-dystopian-dance-party-hexed-24th-oct-belltown-yacht-club-seattle-tickets"
+      "evidence": "https://19hz.info - nightclub dance event, typical 9pm-2am duration"
     },
     "19hz:19hz-2026/12/19-Baby Jane": {
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "duration": 18000
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://www.axs.com/events/1597393/baby-jane-tickets?cid=19hz"
+      "evidence": "https://19hz.info - nightclub dance event, typical 9pm-2am duration"
     },
     "19hz:19hz-2026/12/19-Jkyl & Hyde, Klo, Nghtrunr": {
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "duration": 18000
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://www.axs.com/events/1601658/jkyl-hyde-tickets?cid=19hz"
+      "evidence": "https://19hz.info - nightclub dance event, typical 9pm-2am duration"
     },
     "19hz:19hz-2027/03/03-Alan Walker": {
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "duration": 18000
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://www.axs.com/events/1608372/alan-walker-tickets?cid=19hz"
+      "evidence": "https://19hz.info - nightclub dance event, typical 9pm-2am duration"
     },
     "19hz:19hz-2027/03/06-ALLEYCVT": {
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "duration": 18000
       },
       "resolvedAt": "2026-09-20",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/event/0F00652BD6A3E002"
+      "evidence": "https://19hz.info - nightclub dance event, typical 9pm-2am duration"
     },
     "events12:free-things-to-do-119028-2026-09-19": {
       "unresolvable": true,
@@ -93254,6 +93260,586 @@
       "resolvedAt": "2026-09-20",
       "source": "agent",
       "reason": "Cannot determine indoor/outdoor from venue OSM data or event page"
+    },
+    "halcyon-brewing:6aab0afc291ac5064c7f74dc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aab0b4bfdf5a8731ff44f2f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac48ea47bf87301e308f85": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4af3d9018a2da93dbdaa": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4b70649b063355e79cd3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4b8e5fae0e5a49525930": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac48ab8100566257b5ff81": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4c421b09191536a6f067": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4c5ecfe41a4075cc827c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4c7e04cae9488c2506dc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aab0b1d5fab83659cbba89e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aab0b368e3a9169f70180a1": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac356250d7a54810c0f69e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4d37abfe4f65d11819fd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac39c734929c663ecc2268": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/jazz-night-on-the-patio"
+    },
+    "halcyon-brewing:6aac49a19598a54fc2395171": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4a239aa83e7cd68fd24e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4a5b4b72dc62f82c4842": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac3c92c00435431ab7f1f9": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4d9c6bbf6c1386f2d0df": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "halcyon-brewing:6aac4e30267fe234c3305cec": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events"
+    },
+    "do206:do206-2026-10-18-free-600-level-student-show-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/18/free-600-level-student-show-tickets"
+    },
+    "do206:do206-2026-09-23-seattle-lakes-cruise-with-taco-bar-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-09-26-midnight-cowgirl-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-09-26-taiwan-golden-melody-night-seattle-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-09-27-as-many-weirdos-as-possible-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-09-27-level-one-freeski-film-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-09-29-bella-kay-the-reckless-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-09-30-bassvictim-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-06-an-aria-on-gazes-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-06-videodrome-director-s-cut-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-07-lucia-flores-wiseman-manisha-mirabai-kukathas-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-07-michigander-tickets-jeyrvx7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-07-phillip-phillips-let-s-go-far-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-08-lil-pete-real-is-back-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-08-taco-thursday-seattle-lakes-cruise-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-09-rat-queen-fiig-slc-devilwood-and-jacob-t-skeen-slc-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-15-city-of-the-sun-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-alborosie-the-shengen-clan-with-special-guests-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-antibalas-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-cheekface-w-special-guest-bodega-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-comedy-show-pedro-gonzalez-sunday-oct-18th-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-covers-nights-feat-rain-city-rewind-w-midnight-snack-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-finn-wolfhard-with-malcy-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-flammable-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-georgian-national-ballet-sukhishvili-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-hulder-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-jane-leeves-and-isabella-kathryn-coben-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-justin-nozuka-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-lauren-ash-the-call-me-when-you-get-this-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-logan-richardson-blues-people-with-thiefs-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-mom-jeans-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-night-of-the-living-theater-an-improvised-zombie-apocalypse-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-ok-tiger-fern-spores-fox-and-bones-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-shaboozey-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-this-is-halloween-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-this-is-halloween-tickets-nemzxoq": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
+    },
+    "do206:do206-2026-10-18-two-dykes-and-a-mic-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-20",
+      "source": "agent",
+      "evidence": "https://do206.com"
     }
   }
 }
