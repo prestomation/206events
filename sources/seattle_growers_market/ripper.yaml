@@ -1,0 +1,17 @@
+name: seattle-growers-market
+sourceRole: venue
+type: squarespace
+description: "Seattle Growers Market"
+url: "https://www.seattlegrowersmarket.com/events/"
+friendlyLink: https://www.seattlegrowersmarket.com/events/
+tags: ["Creation", "Georgetown"]
+geo:
+  lat: 47.5510467
+  lng: -122.3251819
+  label: "Seattle Growers Market, 665 South Orcas Street, Seattle, WA 98108"
+  osmType: node
+  osmId: 2396888125
+calendars:
+  - name: events
+    friendlyname: "Seattle Growers Market"
+    timezone: America/Los_Angeles
