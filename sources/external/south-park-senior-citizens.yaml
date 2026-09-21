@@ -1,0 +1,16 @@
+geo:
+  lat: 47.5296020
+  lng: -122.3205174
+  label: "South Park Neighborhood Center, 8201 10th Ave S, Seattle, WA 98108"
+  osmType: way
+  osmId: 224019307
+name: south-park-senior-citizens
+sourceRole: venue
+friendlyname: South Park Senior Citizens
+description: South Park senior center offering community dining, fitness classes (EnhanceFitness, Zumba), cultural celebrations, karaoke, bingo, book club, and social services for South Park-area seniors.
+icsUrl: https://www.spseniors.org/events/?ical=1&eventDisplay=list
+infoUrl: https://www.spseniors.org/events/
+imageUrl: https://www.spseniors.org/wp-content/uploads/2024/09/SPSC_Logo_Horz-Color-Black-removebg.png
+tags:
+  - Community
+  - South Park
