@@ -6,7 +6,7 @@ url: https://www.seattlegrowersmarket.com/events/
 tags: [Creation, Georgetown]
 firstSeen: 2026-09-21
 lastChecked: 2026-09-21
-pr:
+pr: 1555
 ---
 
 Wholesale flower market at 665 South Orcas Street, Georgetown, hosting
