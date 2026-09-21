@@ -6,6 +6,7 @@ url: https://www.spseniors.org/events/
 tags: ["Community", "South Park"]
 firstSeen: 2026-09-21
 lastChecked: 2026-09-21
+pr: 1554
 ---
 
 **South Park Senior Citizens** — `https://www.spseniors.org/events/` —
