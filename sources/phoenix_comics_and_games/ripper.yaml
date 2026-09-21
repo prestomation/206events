@@ -1,6 +1,7 @@
 name: phoenix-comics-and-games
 sourceRole: venue
 description: "Phoenix Comics and Games"
+imageUrl: "https://shop.phoenixseattle.com/cdn/shop/files/logo_2021_5cccccde-672c-47d3-81ec-a01abb94e405.png?v=1778542116&width=600"
 # limit=250 is Shopify's hard per-request cap; the events collection is a
 # small rolling near-term window (a handful of products) today, but there's
 # no reason to cap lower and risk silently dropping items if it grows.
