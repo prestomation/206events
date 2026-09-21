@@ -117,6 +117,7 @@ const cityConfig = {
         "Shoreline",
         "SoDo",
         "South Lake Union",
+        "South Park",
         "Stadium District",
         "Tukwila",
         "University District",
