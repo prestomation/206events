@@ -25199,6 +25199,271 @@
     "spl-high-point.ics Homework Help|2026-09-30T16:00:00-07:00[America/Los_Angeles]::spl-northgate.ics Homework Help|2026-09-30T15:30:00-07:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-21"
+    },
+    "NWMetalCalendar-NWMetal.ics Weedeater, Zeke, Royal Thunder, Yes Ma’am|2026-10-04T19:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics Weedeater, ZEKE with Royal Thunder|2026-10-04T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same show at El Corazon; NWMetalCalendar lists an extra opener, showlists' 30-min-later time is likely set time vs doors"
+    },
+    "barboza-barboza.ics Flower Face with Stella Prince|2026-10-20T19:00:00-07:00[America/Los_Angeles]::do206-do206.ics Flower Face|2026-10-20T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Barboza show; do206 drops the opener's name from the title"
+    },
+    "barboza-barboza.ics In Color with Jack Gray|2026-09-28T19:00:00-07:00[America/Los_Angeles]::do206-do206.ics In Color|2026-09-28T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Barboza show; do206 drops the opener's name from the title"
+    },
+    "craft-map-seattle-craft-map-seattle.ics The Italian Festival at Seattle Center|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics The Italian Festival|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Italian Festival at Seattle Center, cross-referenced by 3 sources"
+    },
+    "craft-map-seattle-craft-map-seattle.ics The Italian Festival at Seattle Center|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Italian Festival|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Italian Festival at Seattle Center, cross-referenced by 3 sources"
+    },
+    "craft-map-seattle-craft-map-seattle.ics The Italian Festival at Seattle Center|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seattle-center-festal-all-events.ics The Italian Festival|2026-09-26T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Italian Festival at Seattle Center; Seattle Center's own Festal listing"
+    },
+    "do206-do206.ics ACCENDINO + Special Guests|2026-10-06T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics ACCENDINO + Special Guests|2026-10-06T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same show at Central Saloon; showlists time is 1h later (set time vs doors)"
+    },
+    "do206-do206.ics Catalog of Dreams Album Release|2026-10-19T19:30:00-07:00[America/Los_Angeles]::royal-room-all-events.ics Alex Hamburger & José Luiz Martins “Catalog of Dreams” Album Release|2026-10-19T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Royal Room album release; venue's own listing spells out both artists' names"
+    },
+    "do206-do206.ics Ding Mao|2026-10-05T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics Ding Mao|2026-10-05T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same show at Central Saloon; showlists time is 1h later (set time vs doors)"
+    },
+    "do206-do206.ics Duo Comedy Showcase|2026-10-07T20:00:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Duo Comedy Showcase 2026|2026-10-07T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Unexpected Productions show; venue's own listing appends the year"
+    },
+    "do206-do206.ics Fast Nasties w/ Special Guests|2026-09-23T19:30:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics Fast Nasties • No Slip • Special Guests|2026-09-23T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same show at Central Saloon; showlists lists supporting acts, 1h later (set time vs doors)"
+    },
+    "do206-do206.ics NICE AS F*#K Ft. Jenny Lewis, Erika Forster, Tennesse Thomas (Early show)|2026-10-20T17:00:00-07:00[America/Los_Angeles]::nectar-lounge-nectar-lounge.ics NICE AS F*#K Ft. Jenny Lewis, Erika Forster, Tennesse Thomas (Early show)|2026-10-20T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Identical title, venue, and time - do206 and the venue's own Nectar Lounge feed"
+    },
+    "do206-do206.ics Night of the Living Theater: An Improvised Zombie Apocalypse|2026-10-04T19:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Night of the Living Theater: An Improvised Zombie Apocalypse|2026-10-04T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Unexpected Productions show, identical title and time"
+    },
+    "external-seattle-city-of-lit.ics  Poetry Potluck|2026-11-18T18:00:00-08:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Poetry Potluck|2026-11-18T18:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same SPL Ballard Branch Poetry Potluck, identical time"
+    },
+    "external-seattle-gov-city-wide.ics Habitat enhancement|2026-10-02T14:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Habitat enhancement|2026-10-02T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Green City Partnerships habitat-enhancement volunteer event, identical location/time"
+    },
+    "external-seattle-gov-parks-recreation.ics Habitat enhancement|2026-10-02T14:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Habitat enhancement|2026-10-02T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Green City Partnerships habitat-enhancement volunteer event (3rd source republishing it), identical location/time"
+    },
+    "external-sunn-health-bar.ics Fremont Sunday Market|2026-09-27T07:00:00-07:00[America/Los_Angeles]::recurring-fremont-sunday-market.ics Fremont Sunday Market|2026-09-27T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same weekly Fremont Sunday Market; the business listing likely marks a different portion of the market's hours (setup vs open)"
+    },
+    "external-unexpected-productions.ics Night of the Living Theater: An Improvised Zombie Apocalypse|2026-10-04T19:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Night of the Living Theater: An Improvised Zombie Apocalypse|2026-10-04T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Unexpected Productions show at Pike Place Market, identical title and time"
+    },
+    "external-visit-ballard.ics Conor Byrne Open Mic Nights|2026-09-27T19:30:00-07:00[America/Los_Angeles]::recurring-conor-byrne-open-mic.ics Conor Byrne Pub — Sunday Open Mic|2026-09-27T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Conor Byrne Pub Sunday open mic, identical time"
+    },
+    "pacific-science-center-special-events.ics Member Morning: Mysteries From The Deep: Exploring Underwater Archaeology|2026-10-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Member Morning: Mysteries From The Deep: Exploring Underwater Archaeology|2026-10-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Pacific Science Center Member Morning event, identical time"
+    },
+    "pacific-science-center-special-events.ics Member Morning: Mysteries From The Deep: Exploring Underwater Archaeology|2026-10-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Member Morning: Mysteries From The Deep: Exploring Underwater Archaeology|2026-10-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Pacific Science Center Member Morning event, identical time"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-09-28T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-09-28T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-22",
+      "note": "Different programming at the same brewery on the same evening: a board game night is not the same activity as a trivia night, and the times differ by an hour"
+    },
+    "queer-social-club-all-events.ics Twatties! - Open Mic of the Absurd!|2026-09-28T20:00:00.972-07:00[America/Los_Angeles]::recurring-twatties-open-mic.ics Twatties Open Mic|2026-09-28T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same 'Twatties' open mic at the exact same address (719 E Pike St) and exact same time; queer-social-club adds a subtitle"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-09-28T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard with Head in the Clouds|2026-09-28T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Stoup Brewing Ballard trivia night, identical time; stoup's own listing names the host"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-09-27T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-27T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same weekly American Mah Jongg at The Missing Piece (same CitySpark event id); CitySpark's address for the store appears stale but title/time match exactly"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-09-30T14:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-09-30T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same weekly American Mah Jongg at The Missing Piece, identical time"
+    },
+    "seatoday-seatoday-all.ics American Mah Jongg|2026-10-04T09:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-10-04T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same weekly American Mah Jongg at The Missing Piece, identical time"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-09-28T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-09-28T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Crafting and Creativity Night at The Missing Piece, identical time"
+    },
+    "seatoday-seatoday-all.ics Crafting and Creativity Night|2026-10-05T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Crafting and Creativity Night at The Missing Piece, identical time"
+    },
+    "seatoday-seatoday-all.ics Creative Sundays: Voices Off|2026-10-04T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Creative Sundays: Voices Off|2026-10-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event (identical CitySpark id) cross-listed under two of the source's own topic calendars"
+    },
+    "seatoday-seatoday-all.ics Creative Sundays: Voices Off|2026-10-04T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Creative Sundays: Voices Off|2026-10-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two of the source's own topic calendars"
+    },
+    "seatoday-seatoday-all.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event (Fall Garden & House Plant Sale, same CitySpark id) cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Happy Hour at 20 Corners|2026-10-05T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Happy Hour at 20 Corners|2026-10-05T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Maryhill Weekend|2026-10-04T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Maryhill Weekend|2026-10-04T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event (Maryhill Weekend) cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Maryhill Weekend|2026-10-04T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Maryhill Weekend|2026-10-04T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Member Morning: Mysteries From The Deep: Exploring Underwater Archaeology|2026-10-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Member Morning: Mysteries From The Deep: Exploring Underwater Archaeology|2026-10-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event (Photography Workshop) cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-all.ics Scrabble Night|2026-09-29T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Scrabble Night|2026-09-29T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Scrabble Night at The Missing Piece, identical time"
+    },
+    "seatoday-seatoday-all.ics Sunday Talks|2026-10-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Sunday Talks|2026-10-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event (Sunday Talks) cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-arts.ics Crafting and Creativity Night|2026-09-28T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-09-28T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Crafting and Creativity Night at The Missing Piece, identical time"
+    },
+    "seatoday-seatoday-arts.ics Crafting and Creativity Night|2026-10-05T18:00:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics Crafting and Creativity Night|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same Crafting and Creativity Night at The Missing Piece, identical time"
+    },
+    "seatoday-seatoday-arts.ics Creative Sundays: Voices Off|2026-10-04T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Creative Sundays: Voices Off|2026-10-04T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-arts.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-arts.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-community.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-community.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-community.ics Maryhill Weekend|2026-10-04T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Maryhill Weekend|2026-10-04T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-community.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Photography Workshop: Hues of Red and Gold in the Garden|2026-10-05T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
+    },
+    "seatoday-seatoday-learning.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Fall Garden & House Plant Sale|2026-10-04T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-22",
+      "note": "Same seatoday event cross-listed under two topic calendars"
     }
   }
 }
