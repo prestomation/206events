@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6143845
+  lng: -122.3209069
+  label: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+  osmType: way
+  osmId: 808907363
+name: genpride-grief-and-loss-support-group
+sourceRole: venue
+friendlyname: "Grief & Loss Support Group"
+description: Peer-led, in-person support group for LGBTQ+ elders navigating grief and loss at the GenPride Center.
+timezone: America/Los_Angeles
+location: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+url: https://genprideseattle.org/programs/
+tags:
+  - Community
+  - Queer
+  - "First Hill"
+schedules:
+  - schedule: 2nd and 4th Tuesday
+    start_time: "17:00"
+    duration: PT1H30M

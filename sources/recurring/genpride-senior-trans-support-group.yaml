@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6143845
+  lng: -122.3209069
+  label: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+  osmType: way
+  osmId: 808907363
+name: genpride-senior-trans-support-group
+sourceRole: venue
+friendlyname: Senior Trans Support Group
+description: Peer support group for trans and gender-diverse seniors at the GenPride Center.
+timezone: America/Los_Angeles
+location: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+url: https://genprideseattle.org/programs/
+tags:
+  - Community
+  - Queer
+  - "First Hill"
+schedules:
+  - schedule: 2nd and 4th Wednesday
+    start_time: "13:00"
+    duration: PT1H30M

@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6143845
+  lng: -122.3209069
+  label: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+  osmType: way
+  osmId: 808907363
+name: genpride-elders-meet-and-greet
+sourceRole: venue
+friendlyname: "Elders Meet & Greet"
+description: Ongoing workshop and discussion on aging and elderhood for LGBTQ+ seniors at the GenPride Center.
+timezone: America/Los_Angeles
+location: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+url: https://genprideseattle.org/programs/
+tags:
+  - Community
+  - Queer
+  - "First Hill"
+schedules:
+  - schedule: 1st and 3rd Wednesday
+    start_time: "14:00"
+    duration: PT1H30M

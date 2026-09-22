@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6143845
+  lng: -122.3209069
+  label: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+  osmType: way
+  osmId: 808907363
+name: genpride-hot-lunch
+sourceRole: venue
+friendlyname: GenPride Hot Lunch
+description: Weekly community lunch for LGBTQ+ seniors and friends at the GenPride Center.
+timezone: America/Los_Angeles
+location: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+url: https://genprideseattle.org/hot-lunch/
+tags:
+  - Community
+  - Queer
+  - "First Hill"
+schedules:
+  - schedule: every Tuesday
+    start_time: "12:00"
+    duration: PT1H
+  - schedule: every Thursday
+    start_time: "12:00"
+    duration: PT1H
