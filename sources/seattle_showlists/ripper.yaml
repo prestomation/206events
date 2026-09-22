@@ -292,6 +292,7 @@ calendars:
   # calendar, same pattern as Skylark above.
   - name: kenyon-hall
     friendlyname: "Kenyon Hall"
+    imageUrl: "https://static1.squarespace.com/static/65d6f9578bffa85ff842c991/t/6aaccab247ad2110036984d5/1789708978704/KENYON-HALL-EXTERIOR-2026-005.jpg?format=1500w"
     geo:
       lat: 47.5316606
       lng: -122.3761768
