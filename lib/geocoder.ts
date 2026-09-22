@@ -1571,7 +1571,16 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'northwestern medicine field at martin stadium, 2235 campus drive, evanston, illinois, usa': { lat: 42.0584391, lng: -87.6707922 }, // Martin Stadium, Evanston, IL
   'odd otter, 716 pacific avenue, tacoma, wa, 98402': { lat: 47.2566804, lng: -122.4396535 }, // 716 Pacific Ave, Tacoma, WA
   'olympic hall, room 100, south seattle college,6000 16th ave sw. seattle, wa 98106': { lat: 47.5481933, lng: -122.3523391 }, // South Seattle College, 6000 16th Ave SW, Seattle, WA
-  'pacific science center, 200 second avenue north, seattle, wa, 98109, united states': { lat: 47.6194061, lng: -122.350778 }, // Pacific Science Center, 200 2nd Ave N, Seattle, WA
+  // Bare prefix (replaces the old full-address-only key, which is now
+  // redundant — lookupKnownVenue's startsWith match already covers it and any
+  // other phrasing, e.g. seatoday's "Pacific Science Center, 200 Second Ave.
+  // North, Seattle, WA" — abbreviated "Ave." with a period, no zip). A single
+  // key avoids two literals drifting apart on a future re-geocode. The street
+  // was renamed to "Sue Bird Court N" in 2024; verified current address on
+  // pacificsciencecenter.org ("200 Sue Bird Court N. Seattle, WA 98109") and
+  // forward-geocoded via Nominatim, which already carries the renamed street
+  // (way/394955903, tourism/museum).
+  'pacific science center': { lat: 47.6194061, lng: -122.350778 },
   'peaks & pints tacoma craft beer bar, bottle shop & restaurant, 3816 n 26th st b, tacoma, wa 98407, usa': { lat: 47.270757, lng: -122.48821 }, // 3816 N 26th St, Tacoma, WA
   'phinney center concert hall, brick building, 6532 phinney ave n, seattle': { lat: 47.6797, lng: -122.3549 }, // same Phinney Neighborhood Center building as the existing phinney center campus entries below
   'phinney neighborhood association - community hall (brick building)': { lat: 47.6797, lng: -122.3549 }, // same Phinney Neighborhood Center building as the existing phinney center campus entries below

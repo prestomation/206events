@@ -8,14 +8,22 @@ geo:
   lat: 47.6828235
   lng: -122.2615444
   label: "Magnuson Park Gallery, 7448 63rd Avenue NE, Seattle, WA 98115"
-  # Checked 2026-07-20: forward-geocoding the address resolves only to a street
-  # segment (63rd Ave NE, class=highway — not a venue-like class). Reverse-
-  # geocoding the declared coords lands ~40m away on "Hangar 30", a different
-  # named building in the same historic Magnuson Park complex — the gallery's
-  # own site (magnusonparkgallery.org/contact) places it in "Building 30 West"
-  # near the Officers Club, not the Hangar. No distinct OSM feature exists for
-  # Building 30 West. Tier D — wrong/no feature, not applying an id.
-  osmChecked: 2026-07-20
+  # Re-checked 2026-09-22 (60-day cooldown re-surfaced this venue): still no
+  # distinct OSM feature for Building 30 West. backfill-osm-ids.ts's structured
+  # address query returns way/1324929369 as an "address-only" match (class=
+  # place, type=house, 0m) via Nominatim's house-number interpolation along the
+  # road — but a direct lookup of that way id (nominatim.openstreetmap.org/
+  # lookup?osm_ids=W1324929369) shows its own tags are class=highway,
+  # type=unclassified, name="63rd Avenue Northeast" with no address/house-
+  # number field. That's an interpolated point on the road, not a real address
+  # feature, so it fails Tier C's "place/house or building/yes" class
+  # requirement on the actual returned feature. Original 2026-07-20 finding
+  # still holds: reverse-geocoding the declared coords lands ~40m away on
+  # "Hangar 30", a different named building in the same historic Magnuson Park
+  # complex — the gallery's own site (magnusonparkgallery.org/contact) places
+  # it in "Building 30 West" near the Officers Club, not the Hangar. Tier D —
+  # wrong/no feature, not applying an id.
+  osmChecked: 2026-09-22
 imageUrl: "https://www.magnusonparkgallery.org/wp-content/uploads/2025/10/20240321_180452.jpg"
 tags:
   - Arts
