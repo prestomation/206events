@@ -49731,18 +49731,28 @@
       "lastSeen": "2026-09-05"
     },
     "events12:interactive-show-120403-2026-09-25": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-21",
+      "fields": {
+        "cost": {
+          "min": 32.78,
+          "max": 96.81
+        }
+      },
+      "resolvedAt": "2026-09-22",
       "source": "agent",
-      "reason": "Eventbrite All In immersive/speakeasy event - exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier shown on public page",
-      "partialFingerprint": "12utjff-until2026-09-26-tu"
+      "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667 (JSON-LD AggregateOffer lowPrice/highPrice)",
+      "partialFingerprint": "12utjff-until2026-09-26-tk"
     },
     "events12:interactive-show-120403-2026-09-26": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-21",
+      "fields": {
+        "cost": {
+          "min": 32.78,
+          "max": 96.81
+        }
+      },
+      "resolvedAt": "2026-09-22",
       "source": "agent",
-      "reason": "Eventbrite All In immersive/speakeasy event - exact time and venue location are shared privately with ticket holders after purchase; no ticket price tier shown on public page",
-      "partialFingerprint": "12utjff-until2026-09-26-tu"
+      "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667 (JSON-LD AggregateOffer lowPrice/highPrice)",
+      "partialFingerprint": "12utjff-until2026-09-26-tk"
     },
     "events12:live-theater-119957-2026-09-14": {
       "unresolvable": true,
@@ -92373,10 +92383,10 @@
           "min": 30.0
         }
       },
-      "resolvedAt": "2026-09-21",
+      "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://www.discnw.org/en_us/e/2026-age-up-mixed-goalty-tournament",
-      "partialFingerprint": "12a4"
+      "evidence": "https://www.discnw.org/en_us/e/2026-age-up-mixed-goalty-tournament (page: 'Friday, November 28th 10am-3pm'; Nov 27 2026 - the event's actual date - is the real Friday, so '28th' is the page's own typo, not the time)",
+      "partialFingerprint": "rpagl1"
     },
     "discover-slu:discover-slu-visiting-artist-lecture-jordan": {
       "fields": {
@@ -94254,6 +94264,690 @@
       "resolvedAt": "2026-09-21",
       "source": "agent",
       "evidence": "https://www.seattlechinatownid.com/local-events"
+    },
+    "charlies-queer-books:charlies-queer-books-992020261018": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "No pricing or ticket info published anywhere on the event page"
+    },
+    "climate-pledge-arena:tm-vvG1HZ_K6iqK46": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/kera-fest-2026-taemin-seattle-washington-10-25-2026/event/0F006531EC753547"
+    },
+    "discover-slu:discover-slu-2026-fall-for-slu-celebration": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/2026-fall-for-slu-celebration/ (hours 11am-2pm consistent across both conflicting date-range mentions)"
+    },
+    "events12:free-things-to-do-119028-2026-09-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "Source is a general tour-info page, not a single dated event; tour schedule varies by day-of-week/season so no single start time applies across the listing's long date span"
+    },
+    "pacific-science-center:771500": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "Page states doors 6pm / program starts 6:30pm but never gives an end time or runtime for the film plus talk"
+    },
+    "seattle-center:eureka-day-x50632": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-x50632 (add-to-calendar link eventEndTime=22:00:00)"
+    },
+    "seattle-center:seattle-kraken-vs-vegas-golden-knights-x48932": {
+      "fields": {
+        "duration": 12000
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vegas-golden-knights-x48932 (add-to-calendar link eventEndTime=22:00:00)"
+    },
+    "stg:tm-vvG1HZ_3JnnyKh": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/jingle-all-the-gay-seattle-washington-12-20-2026/event/0F006529AAAB94DB"
+    },
+    "stg:tm-vvG1HZ_3TECjj6": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/kristin-keys-chosen-family-christmas-seattle-washington-12-17-2026/event/0F00652FE739C707"
+    },
+    "stg:tm-vvG1HZ_8SPTRA_": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/an-evening-with-peter-billingsley-and-seattle-washington-12-20-2026/event/0F00650CE5FEF159"
+    },
+    "stg:tm-vvG1HZ_C5uthvi": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/the-jinkx-dela-holiday-show-seattle-washington-12-21-2026/event/0F0064E2CDA5B06C"
+    },
+    "stg:tm-vvG1HZ_FJy5_qu": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/killswitch-engage-moved-to-the-neptune-seattle-washington-09-29-2026/event/0F006489B92D974D"
+    },
+    "stg:tm-vvG1HZ_K6ONv2N": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/criminal-presents-dont-worry-with-phoebe-seattle-washington-12-16-2026/event/0F006531E08C13E3"
+    },
+    "t-mobile-park:tm-vvG1HZ_7HoiqfD": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.ticketmaster.com/seattle-mariners-ballpark-tour-seattle-washington-12-21-2026/event/0F00644F11B1D53B"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "Event already passed by build time; page now only shows a retrospective thank-you note with no hours/schedule published"
+    },
+    "wtia-community-events:wtia-community-events-evt-p9zAZymJcTBo08e": {
+      "fields": {
+        "location": "Online (virtual event via Luma; no physical address published)"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://luma.com/j5k2eo8j"
+    },
+    "seatoday:cityspark-17825549": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-17845571": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-17845588": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-17845614": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-17845649": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-17845657": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-18371477": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-18912217": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19406127": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19523097": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19626293": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19626294": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19740414": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19809724": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19836572": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19963917": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seatoday:cityspark-19968338": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "CitySpark API (source data) returns no price, ticketing, or RSVP signal for this listing (Free/Price/PriceHigh/IsTicketed all unset) - verified directly against the API, not just the JS-rendered detail page"
+    },
+    "seattle-growers-market:69bd5eef11f78861fabd18c8": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.seattlegrowersmarket.com/events/coffee-cut-flowers-october (labeled 'Free' on page)"
+    },
+    "seattle-growers-market:69bd5f8344a2ea7db45236bc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.seattlegrowersmarket.com/events/coffee-cut-flowers-november (labeled 'Free' on page)"
+    },
+    "seattle-growers-market:69bd79ecd582c315958e0c02": {
+      "fields": {
+        "cost": {
+          "min": 185.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.seattlegrowersmarket.com/events/newleaf-workshop ($185.00 ticket price)"
+    },
+    "seattle-growers-market:69bd7b6b5f8f3d6661647444": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.seattlegrowersmarket.com/events/ceramicvase-fieldtoheart (page shows 'Sold out' / waitlist)"
+    },
+    "seattle-growers-market:69bd7bcb7de4383884dd5186": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.seattlegrowersmarket.com/events/yulelogcenterpiece-everydayflowers (page shows 'Sold out' / waitlist)"
+    },
+    "seattle-blues-dance-collective:sbdc-351623b8d7d488d2ba89707c5655fa0d82cdced935dbd2ed0af13f5d68558e61": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://registration.reverieballroom.com/classes/3637a873-b981-499c-968e-b324cc310faa (registration required, price not shown on public page - JS-rendered)"
+    },
+    "seattle-blues-dance-collective:sbdc-4ed0c9da026b8f5083a7bf82c578cbba5a1199fdb04f5fcb396ded342f98ecdd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://registration.reverieballroom.com/classes/3637a873-b981-499c-968e-b324cc310faa (registration required, price not shown on public page - JS-rendered)"
+    },
+    "seattle-blues-dance-collective:sbdc-b47cbbf62b7a9b3ddbf78afa0505f8054d861baebdf027286bd19e9c15361f33": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.zeffy.com/en-US/ticketing/blues-underground (pay-what-you-can, suggested donation $20-25 per SBDC events.json description)"
+    },
+    "seattle-blues-dance-collective:sbdc-d7cd4aecfa87afa97a13d66a9d5fa7ec4fde93e0f54b6510b5ad23e878051e0b": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/events.json event description: '$15 + fees' (Hillman City Sway @ Black & Tan Hall)"
+    },
+    "u-wine-bar:lorcana-prerelease-1-2026-10-16": {
+      "fields": {
+        "cost": {
+          "min": 31.5,
+          "max": 38.5
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.uwinebar.com/catalog/events/101626_6pm_lorcana_prerelease_1/2392103 (Early Bird $31.50 / GA $35 / Last Chance $38.50)"
+    },
+    "u-wine-bar:lorcana-prerelease-2-2026-10-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.uwinebar.com/catalog/events/101826_6pm_lorcana_prerelease_2/2392104 (page returned HTTP 500; ticketed like sibling Prerelease 1 event but price not independently confirmed)"
+    },
+    "u-wine-bar:lorcana-prerelease-3-2026-10-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.uwinebar.com/catalog/events/101926_6pm_lorcana_prerelease_3/2392105 (page returned HTTP 500; ticketed like sibling Prerelease 1 event but price not independently confirmed)"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/MFQ3RX3DYHQEIUKRD3A6UPMO": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "JS-rendered Square Online product page; no price data in server-rendered HTML and no fallback API found"
+    },
+    "improv-place:improv-place-evt-PzOf2QKkfXGhSth": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://luma.com/j70o0w0z (JSON-LD Offer: General Admission $15)"
+    },
+    "side-rail-collective:6ab01c103e0c58616d8333ee": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "reason": "Listing is titled 'PRIVATE EVENT' with no booking/pricing mechanism - a closed/rented event, not open to general admission"
+    },
+    "sleight-of-hand-cellars:6aad954aa98beb4c4b1afb22": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.sofhcellars.com/events/holiday-makers-market-sodo (page states 'free, all welcome')"
+    },
+    "sol-yoga-seattle:6aadcf2ed1b4d56dad3388d1": {
+      "fields": {
+        "cost": {
+          "min": 60.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/sol-sound-bath-95aty-5xw7a-fce89-we7xj-4nzgr-ckxhn (page: 'Purchase your $60 workshop pass to pre-register')"
+    },
+    "do206:do206-2026-01-24-university-district-farmers-market-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sat/university-district-farmers-market-tickets (farmers market - free to walk in)"
+    },
+    "do206:do206-2026-01-25-open-mic-night-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sun/open-mic-night-tickets (title includes '- FREE')"
+    },
+    "do206:do206-2026-06-21-ballard-farmers-market-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sun/ballard-farmers-market-tickets (farmers market - free to walk in)"
+    },
+    "do206:do206-2026-06-21-fremont-sunday-market-tickets-wczgfqlu": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/sun/fremont-sunday-market-tickets-wczgfqlu (street market - free to walk in)"
+    },
+    "do206:do206-2026-07-06-mo-jam-mondays-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/weekly/mon/mo-jam-mondays-tickets (page: 'Free | Every Monday | 21+')"
+    },
+    "do206:do206-2026-10-20-allan-rayman-tickets": {
+      "fields": {
+        "cost": {
+          "min": 56.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/allan-rayman-tickets ($56)"
+    },
+    "do206:do206-2026-10-20-bear-ghost-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/bear-ghost-tickets (Buy Tickets link, no price shown)"
+    },
+    "do206:do206-2026-10-20-bill-nye-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/bill-nye-tickets (Buy Tickets link, no price shown)"
+    },
+    "do206:do206-2026-10-20-country-dance-night-w-freddy-the-longshots-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/country-dance-night-w-freddy-the-longshots-tickets ('21+, Suggested Donation' - no fixed price)"
+    },
+    "do206:do206-2026-10-20-digable-planets-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/digable-planets-tickets (Buy Tickets link, no price shown)"
+    },
+    "do206:do206-2026-10-20-flower-face-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/flower-face-tickets (Buy Tickets link, no price shown - '21+ to Drink' only)"
+    },
+    "do206:do206-2026-10-20-jen-smedley-and-kristin-hensley-tickets": {
+      "fields": {
+        "cost": {
+          "min": 38.0,
+          "max": 63.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/jen-smedley-and-kristin-hensley-tickets ($38-$63, book included)"
+    },
+    "do206:do206-2026-10-20-matchstick-productions-presents-the-way-out-2026-ski-film-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/matchstick-productions-presents-the-way-out-2026-ski-film-tickets (Buy Tickets link, no price shown)"
+    },
+    "do206:do206-2026-10-20-morgan-james-tickets": {
+      "fields": {
+        "cost": {
+          "min": 43.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/morgan-james-tickets ($43.00)"
+    },
+    "do206:do206-2026-10-20-movie-night-rear-window-tickets": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 100.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/movie-night-rear-window-tickets (tiers: $10, $42, $65, $100)"
+    },
+    "do206:do206-2026-10-20-nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-early-show-tickets": {
+      "fields": {
+        "cost": {
+          "min": 27.49
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-early-show-tickets ($27.49)"
+    },
+    "do206:do206-2026-10-20-nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-late-show-tickets": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-late-show-tickets (page shows 'Sold Out')"
+    },
+    "do206:do206-2026-10-20-otto-junior-band-w-special-guest-gavin-stone-tickets": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/otto-junior-band-w-special-guest-gavin-stone-tickets (General Admission $20)"
+    },
+    "do206:do206-2026-10-20-ray-wolff-boy-heroine-babename-more-tickets": {
+      "fields": {
+        "cost": {
+          "min": 15.94
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/ray-wolff-boy-heroine-babename-more-tickets ($15.94)"
+    },
+    "do206:do206-2026-10-20-red-shahan-w-guests-tickets": {
+      "fields": {
+        "cost": {
+          "min": 21.99
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/red-shahan-w-guests-tickets ($21.99)"
+    },
+    "do206:do206-2026-10-20-rezn-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/rezn-tickets (Buy Tickets link, only '21+' shown, no price)"
+    },
+    "do206:do206-2026-10-20-rise-against-ricochet-2026-tickets": {
+      "fields": {
+        "cost": {
+          "min": 61.05
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/rise-against-ricochet-2026-tickets ($61.05)"
+    },
+    "do206:do206-2026-10-20-salin-with-midpak-tickets": {
+      "fields": {
+        "cost": {
+          "min": 31.84
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/salin-with-midpak-tickets ($31.84)"
+    },
+    "do206:do206-2026-10-20-slift-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/slift-tickets (Buy Tickets link, only '21+' shown, no price)"
+    },
+    "do206:do206-2026-10-20-the-blasting-company-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/the-blasting-company-tickets (Buy Tickets link, only 'All Ages to Enter, 21+ to Drink' shown, no price)"
+    },
+    "do206:do206-2026-10-20-the-well-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/the-well-tickets (Buy Tickets link, no price shown)"
+    },
+    "do206:do206-2026-10-20-this-is-halloween-tickets": {
+      "fields": {
+        "cost": {
+          "min": 35.0,
+          "max": 75.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/this-is-halloween-tickets ($35 - $75)"
+    },
+    "do206:do206-2026-10-20-tyondai-braxton-tickets": {
+      "fields": {
+        "cost": {
+          "min": 24.98
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/20/tyondai-braxton-tickets ($24.98)"
     }
   }
 }
