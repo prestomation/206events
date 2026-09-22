@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6143845
+  lng: -122.3209069
+  label: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+  osmType: way
+  osmId: 808907363
+name: genpride-dr-johns-tech-assist-clinic
+sourceRole: venue
+friendlyname: "Dr. John's Tech Assist Clinic"
+description: Drop-in tech help clinic for LGBTQ+ seniors at the GenPride Center — devices, social media, and apps.
+timezone: America/Los_Angeles
+location: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+url: https://genprideseattle.org/programs/
+tags:
+  - Community
+  - Queer
+  - "First Hill"
+schedules:
+  - schedule: 1st and 3rd Thursday
+    start_time: "12:00"
+    duration: PT4H

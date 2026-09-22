@@ -1,0 +1,21 @@
+geo:
+  lat: 47.6143845
+  lng: -122.3209069
+  label: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+  osmType: way
+  osmId: 808907363
+name: genpride-seasoned-together
+sourceRole: venue
+friendlyname: "Seasoned Together: LGBTQ+ Seniors of Color Lunch"
+description: Monthly lunch for LGBTQ+ seniors of color to connect, celebrate, and build community at the GenPride Center.
+timezone: America/Los_Angeles
+location: "GenPride Center, 1521 Broadway, Suite A, Seattle, WA 98122"
+url: https://genprideseattle.org/programs/
+tags:
+  - Community
+  - Queer
+  - "First Hill"
+schedules:
+  - schedule: last Monday
+    start_time: "11:30"
+    duration: PT1H
