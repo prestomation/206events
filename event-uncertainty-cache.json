@@ -49622,8 +49622,8 @@
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667",
-      "partialFingerprint": "12utjff-until2026-09-26-tu"
+      "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667 (JSON-LD AggregateOffer lowPrice/highPrice). Corrects a stale partialFingerprint ('...-tu') that had stopped this resolution from applying at all.",
+      "partialFingerprint": "12utjff-until2026-09-26-tk"
     },
     "events12:interactive-show-120403-2026-09-26": {
       "fields": {
@@ -49634,8 +49634,8 @@
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667",
-      "partialFingerprint": "12utjff-until2026-09-26-tu"
+      "evidence": "https://www.eventbrite.com/e/all-in-tickets-1991593799667 (JSON-LD AggregateOffer lowPrice/highPrice). Corrects a stale partialFingerprint ('...-tu') that had stopped this resolution from applying at all.",
+      "partialFingerprint": "12utjff-until2026-09-26-tk"
     },
     "events12:live-theater-119957-2026-09-15": {
       "unresolvable": true,
@@ -92107,8 +92107,8 @@
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://www.discnw.org/en_us/e/2026-age-up-mixed-goalty-tournament",
-      "partialFingerprint": "12a4"
+      "evidence": "https://www.discnw.org/en_us/e/2026-age-up-mixed-goalty-tournament (page: 'Friday, November 28th 10am-3pm'; Nov 27 2026 - the event's actual date - is the real Friday, so '28th' is the page's own typo, not the time). Corrects a stale partialFingerprint ('12a4') that had stopped this resolution from applying at all.",
+      "partialFingerprint": "rpagl1"
     },
     "discover-slu:discover-slu-visiting-artist-lecture-jordan": {
       "fields": {
@@ -94278,11 +94278,11 @@
     },
     "seattle-center:seattle-kraken-vs-vegas-golden-knights-x48932": {
       "fields": {
-        "duration": 9000
+        "duration": 12000
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vegas-golden-knights-x48932"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/seattle-kraken-vs-vegas-golden-knights-x48932 (add-to-calendar link eventEndTime=22:00:00; start 18:40 -> 3h20m = 12000s. Corrects a prior estimate of 9000s that doesn't match the page's own embedded end time)"
     },
     "seattle-center:eureka-day-x50632": {
       "fields": {
@@ -94329,12 +94329,12 @@
     "improv-place:improv-place-evt-PzOf2QKkfXGhSth": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 15.0
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://lu.ma/j70o0w0z"
+      "evidence": "https://luma.com/j70o0w0z (JSON-LD Offer: name 'General Admission', price 15 usd — corrects a prior 'free' resolution on this same page; the page's own structured data shows a single paid $15 GA tier, no free option)"
     },
     "u-wine-bar:lorcana-prerelease-1-2026-10-16": {
       "fields": {
@@ -94432,22 +94432,22 @@
     "seattle-growers-market:69bd7b6b5f8f3d6661647444": {
       "fields": {
         "cost": {
-          "paid": true
+          "soldOut": true
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://www.seattlegrowersmarket.com/events/ceramicvase-fieldtoheart"
+      "evidence": "https://www.seattlegrowersmarket.com/events/ceramicvase-fieldtoheart (page explicitly shows 'Sold out' and a waitlist link, not just generic 'paid')"
     },
     "seattle-growers-market:69bd7bcb7de4383884dd5186": {
       "fields": {
         "cost": {
-          "paid": true
+          "soldOut": true
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://www.seattlegrowersmarket.com/events/yulelogcenterpiece-everydayflowers"
+      "evidence": "https://www.seattlegrowersmarket.com/events/yulelogcenterpiece-everydayflowers (page explicitly shows 'Sold out' and a waitlist link, not just generic 'paid')"
     },
     "do206:do206-2026-01-24-university-district-farmers-market-tickets": {
       "fields": {
@@ -94512,22 +94512,23 @@
     "do206:do206-2026-10-20-rise-against-ricochet-2026-tickets": {
       "fields": {
         "cost": {
-          "min": 61.0
+          "min": 61.05
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/rise-against-ricochet-2026-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/rise-against-ricochet-2026-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $61.05 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-movie-night-rear-window-tickets": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10,
+          "max": 100
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/movie-night-rear-window-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/movie-night-rear-window-tickets (do206's own event detail page carries a real itemprop=\"price\" field: tiers: $10, $42, $65, $100 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-bear-ghost-tickets": {
       "fields": {
@@ -94552,12 +94553,12 @@
     "do206:do206-2026-10-20-country-dance-night-w-freddy-the-longshots-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/country-dance-night-w-freddy-the-longshots-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/country-dance-night-w-freddy-the-longshots-tickets (do206's own event detail page carries a real itemprop=\"price\" field: '21+, Suggested Donation' - no fixed price, so free per the suggested-donation rubric — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-digable-planets-tickets": {
       "fields": {
@@ -94582,12 +94583,13 @@
     "do206:do206-2026-10-20-jen-smedley-and-kristin-hensley-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 38,
+          "max": 63
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/jen-smedley-and-kristin-hensley-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/jen-smedley-and-kristin-hensley-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $38-$63, book included — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-matchstick-productions-presents-the-way-out-2026-ski-film-tickets": {
       "fields": {
@@ -94602,62 +94604,62 @@
     "do206:do206-2026-10-20-morgan-james-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 43
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/morgan-james-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/morgan-james-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $43.00 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-early-show-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 27.49
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-early-show-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-early-show-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $27.49 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-late-show-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "soldOut": true
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-late-show-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/nice-as-f-k-ft-jenny-lewis-erika-forster-tennesse-thomas-late-show-tickets (do206's own event detail page carries a real itemprop=\"price\" field: page shows 'Sold Out' — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-otto-junior-band-w-special-guest-gavin-stone-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/otto-junior-band-w-special-guest-gavin-stone-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/otto-junior-band-w-special-guest-gavin-stone-tickets (do206's own event detail page carries a real itemprop=\"price\" field: General Admission $20 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-ray-wolff-boy-heroine-babename-more-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 15.94
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/ray-wolff-boy-heroine-babename-more-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/ray-wolff-boy-heroine-babename-more-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $15.94 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-red-shahan-w-guests-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 21.99
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/red-shahan-w-guests-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/red-shahan-w-guests-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $21.99 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-rezn-tickets": {
       "fields": {
@@ -94672,12 +94674,12 @@
     "do206:do206-2026-10-20-salin-with-midpak-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 31.84
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/salin-with-midpak-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/salin-with-midpak-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $31.84 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-slift-tickets": {
       "fields": {
@@ -94712,22 +94714,23 @@
     "do206:do206-2026-10-20-this-is-halloween-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 35,
+          "max": 75
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/this-is-halloween-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/this-is-halloween-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $35 - $75 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "do206:do206-2026-10-20-tyondai-braxton-tickets": {
       "fields": {
         "cost": {
-          "paid": true
+          "min": 24.98
         }
       },
       "resolvedAt": "2026-09-22",
       "source": "agent",
-      "evidence": "https://do206.com/events/2026/10/20/tyondai-braxton-tickets"
+      "evidence": "https://do206.com/events/2026/10/20/tyondai-braxton-tickets (do206's own event detail page carries a real itemprop=\"price\" field: $24.98 — corrects a prior generic 'paid: true'/rounded placeholder)"
     },
     "tabletop-village:_6cq3ic2564rjib9o7513cb9k8d0k8ba28l1j8b9h68q3eh26891kad1j84_R20260322T010000@google.com-2027-03-20": {
       "fields": {
@@ -94858,6 +94861,94 @@
       "resolvedAt": "2026-09-22",
       "source": "agent",
       "evidence": "cobyscafe.com product page is Square Online SPA; event is a paid ticket (Pups and Pancakes brunch with reserved seating) but price is JS-rendered and not accessible without browser execution"
+    },
+    "seattle-blues-dance-collective:sbdc-351623b8d7d488d2ba89707c5655fa0d82cdced935dbd2ed0af13f5d68558e61": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://registration.reverieballroom.com/classes/3637a873-b981-499c-968e-b324cc310faa (registration required, price not shown on public page - JS-rendered)"
+    },
+    "seattle-blues-dance-collective:sbdc-4ed0c9da026b8f5083a7bf82c578cbba5a1199fdb04f5fcb396ded342f98ecdd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://registration.reverieballroom.com/classes/3637a873-b981-499c-968e-b324cc310faa (registration required, price not shown on public page - JS-rendered)"
+    },
+    "seattle-blues-dance-collective:sbdc-b47cbbf62b7a9b3ddbf78afa0505f8054d861baebdf027286bd19e9c15361f33": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.zeffy.com/en-US/ticketing/blues-underground (pay-what-you-can, suggested donation $20-25 per SBDC events.json description)"
+    },
+    "seattle-blues-dance-collective:sbdc-d7cd4aecfa87afa97a13d66a9d5fa7ec4fde93e0f54b6510b5ad23e878051e0b": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/events.json event description: '$15 + fees' (Hillman City Sway @ Black & Tan Hall)"
+    },
+    "reclaim-clay:reclaim-clay-clay-play-handbuilt-picture-frames-20260828-1joyyx3": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/6a1e7460dbedb812c31e1aa5/1788221375028/Picture+Frames.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/clay-play-handbuilt-picture-frames (og:image)"
+    },
+    "reclaim-clay:reclaim-clay-clay-play-thrown-bowls-20260911-13bu0t4": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f97bba79f443cdf0f06b/1788399281236/Thrown+Bowls.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/clay-play-thrown-bowls (og:image)"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260820-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray (og:image)"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260827-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray (og:image)"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260903-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray (og:image)"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260910-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://static1.squarespace.com/static/63210559f6a93633cc55641c/6930aceb79c53d63e62f4d3f/69c6f9aecfd0a23cbe55738d/1789771349691/Next+Step+Wheel.png?format=1500w"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops/p/next-step-wheel-4-week-w-lily-gray (og:image)"
     }
   }
 }
