@@ -94858,6 +94858,483 @@
       "resolvedAt": "2026-09-22",
       "source": "agent",
       "evidence": "cobyscafe.com product page is Square Online SPA; event is a paid ticket (Pups and Pancakes brunch with reserved seating) but price is JS-rendered and not accessible without browser execution"
+    },
+    "cannonball-arts:cannonball-arts-OPEN-SPACE-SATURDAYS": {
+      "fields": {
+        "cost": {
+          "paid": true
+        },
+        "imageUrl": "https://cdn.sanity.io/images/kf9r1eb7/production/79d9fbfcc47ed071bb160fad3eb659cf152ee171-2000x2000.png?w=720&h=720&q=80&fit=crop&auto=format"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://cannonballarts.com/events"
+    },
+    "club-sake:club-sake-382768": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382768"
+    },
+    "club-sake:club-sake-382769": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382769"
+    },
+    "club-sake:club-sake-382770": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382770"
+    },
+    "club-sake:club-sake-382771": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382771"
+    },
+    "club-sake:club-sake-382772": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382772"
+    },
+    "club-sake:club-sake-382773": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382773"
+    },
+    "club-sake:club-sake-382774": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382774"
+    },
+    "club-sake:club-sake-382775": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382775"
+    },
+    "club-sake:club-sake-382776": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382776"
+    },
+    "club-sake:club-sake-382777": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382777"
+    },
+    "club-sake:club-sake-382782": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382782"
+    },
+    "club-sake:club-sake-382783": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382783"
+    },
+    "club-sake:club-sake-382784": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382784"
+    },
+    "club-sake:club-sake-382797": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382797"
+    },
+    "club-sake:club-sake-382799": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382799"
+    },
+    "club-sake:club-sake-382800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382800"
+    },
+    "club-sake:club-sake-382801": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382801"
+    },
+    "club-sake:club-sake-382802": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382802"
+    },
+    "club-sake:club-sake-382803": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382803"
+    },
+    "club-sake:club-sake-382804": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382804"
+    },
+    "club-sake:club-sake-382805": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382805"
+    },
+    "club-sake:club-sake-382806": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382806"
+    },
+    "club-sake:club-sake-382811": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382811"
+    },
+    "club-sake:club-sake-382812": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382812"
+    },
+    "club-sake:club-sake-382813": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382813"
+    },
+    "club-sake:club-sake-382814": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382814"
+    },
+    "club-sake:club-sake-382815": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382815"
+    },
+    "club-sake:club-sake-382818": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/events/382818"
+    },
+    "seattle-blues-dance-collective:sbdc-d7cd4aecfa87afa97a13d66a9d5fa7ec4fde93e0f54b6510b5ad23e878051e0b": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://seattlebluesdance.com/events.json"
+    },
+    "seattle-blues-dance-collective:sbdc-b47cbbf62b7a9b3ddbf78afa0505f8054d861baebdf027286bd19e9c15361f33": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.zeffy.com/en-US/ticketing/blues-underground"
+    },
+    "seattle-blues-dance-collective:sbdc-351623b8d7d488d2ba89707c5655fa0d82cdced935dbd2ed0af13f5d68558e61": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://registration.reverieballroom.com/classes/3637a873-b981-499c-968e-b324cc310faa"
+    },
+    "seattle-blues-dance-collective:sbdc-4ed0c9da026b8f5083a7bf82c578cbba5a1199fdb04f5fcb396ded342f98ecdd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://registration.reverieballroom.com/classes/3637a873-b981-499c-968e-b324cc310faa"
+    },
+    "the-cuff-complex:6ab1ced4c30c2959037caa77": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/voltaje-latin-house-night"
+    },
+    "the-cuff-complex:6ab1d218440c2e3aa12a4ee7": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/lyriq-nick-cressman-andrew-scott-jytpd"
+    },
+    "the-cuff-complex:6ab1d287ca1aad18ebc45b86": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/batthouse-disco-6sfb4"
+    },
+    "dogwoodplaypark:545e8171-2f09-418d-b4a5-fe3cc309aa28": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_4f085a3e4e4048588e19ce7399bb609b~mv2.jpg/v1/fill/w_980,h_1307,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/037af7_4f085a3e4e4048588e19ce7399bb609b~mv2.jpg"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/samoyed-meet-up-wear-a-holiday-scarf-party"
+    },
+    "reclaim-clay:reclaim-clay-clay-play-handbuilt-picture-frames-20260828-1joyyx3": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/0f2ce0e3-4a6c-4bb9-8c89-d1b0855d18ae/Picture+Frames.png"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops"
+    },
+    "reclaim-clay:reclaim-clay-clay-play-thrown-bowls-20260911-13bu0t4": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/1f632d9f-9558-4c9f-85f0-3daa00d01c84/Thrown+Bowls.png"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260820-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d1f98914-3b2b-49b5-be02-5e8474f5451d/Next+Step+Wheel.png"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260827-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d1f98914-3b2b-49b5-be02-5e8474f5451d/Next+Step+Wheel.png"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260903-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d1f98914-3b2b-49b5-be02-5e8474f5451d/Next+Step+Wheel.png"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops"
+    },
+    "reclaim-clay:reclaim-clay-next-step-wheel-4-week-w-lily-gray-20260910-1mb8v0v": {
+      "fields": {
+        "imageUrl": "https://images.squarespace-cdn.com/content/v1/63210559f6a93633cc55641c/d1f98914-3b2b-49b5-be02-5e8474f5451d/Next+Step+Wheel.png"
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.reclaimclay.com/classes-and-workshops"
+    },
+    "fiuts:6ab192a69994bf712bfbd40f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/02/new-facilitator-orientation"
+    },
+    "fiuts:6ab1945c4330592884d7d998": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.fiuts.org/calendar/2026/10/09/new-facilitator-orientation"
+    },
+    "kremwerk:6ab19a676d62263ec5b3f3ae": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/02/safeword"
+    },
+    "kremwerk:6ab1ba7cf1743f714ebb736f": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/09/thee-baile"
+    },
+    "kremwerk:6ab198d4e88354520c7bc915": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/03/club-ctrl-with-ctrlmp3"
+    },
+    "kremwerk:6ab199b74f21be19c33e7508": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-22",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/22/club-tnt"
     }
   }
 }
