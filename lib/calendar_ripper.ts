@@ -837,6 +837,19 @@ export const main = async () => {
     }
     try {
       const icsContent = await readFile(join("output", reportEntry.icsFile), "utf-8");
+      if (!icsContent.trim()) {
+        // The out-of-band fetch can succeed (HTTP 200, no fetchError) with an
+        // empty body — e.g. a flaky upstream or a bot-mitigation response that
+        // returns no content for this specific request. Without this check,
+        // icsContent="" + error=null falls through to the "no content" branch
+        // below with error still null, which serializes as the confusing
+        // literal string "null" instead of a real reason. Mirrors the empty-
+        // body guard on the live external-calendar fetch path above.
+        const message = "Pre-fetched ICS file is empty (outofband fetch returned HTTP 200 with no content)";
+        console.error(`  - [outofband] ${calendar.friendlyname}: ${message}`);
+        externalFetchResults.push({ calendar, icsContent: null, error: message });
+        continue;
+      }
       console.log(`[outofband] Loaded pre-fetched external calendar: ${calendar.friendlyname}`);
       externalFetchResults.push({ calendar, icsContent, error: null });
     } catch (err: any) {

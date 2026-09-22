@@ -302,6 +302,16 @@ async function main() {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             const icsContent = await response.text();
+            if (!icsContent.trim()) {
+                // Some feeds (bot-mitigation, flaky upstream) return HTTP 200
+                // with an empty body instead of an error status. Treat that as
+                // a failure with a clear reason — otherwise this "succeeds"
+                // with 0 events/no fetchError, and the main build's outofband
+                // merge (lib/calendar_ripper.ts) has nothing to report except
+                // a confusing literal "null" error. Mirrors the equivalent
+                // guard on the main build's live external-calendar fetch path.
+                throw new Error(`Empty response body (HTTP ${response.status} with no content)`);
+            }
             await writeFile(outPath, icsContent);
             writtenFiles.push(outPath);
             const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;

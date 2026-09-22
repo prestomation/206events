@@ -1,10 +1,9 @@
 name: seattle-social-club
 sourceRole: venue
 type: eventbrite
-# 2026-09-20: build-health flagged 0 events. Confirmed via the Eventbrite
-# organizer API: 0 upcoming events right now — a community organizer with
-# an intermittent posting cadence, not a broken feed.
-expectEmpty: true
+# 2026-09-22: build-health flagged this as unexpectedNonEmptyCalendars (8
+# events) — the 2026-09-20 expectEmpty (0 events at the time) no longer
+# applies. Removed per AGENTS.md's expectEmpty cross-check.
 description: "Seattle Social Club"
 url: "https://www.eventbrite.com/o/seattle-social-club-42795102333"
 friendlyLink: https://www.eventbrite.com/o/seattle-social-club-42795102333

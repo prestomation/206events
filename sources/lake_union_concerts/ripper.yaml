@@ -1,5 +1,11 @@
 name: lake-union-concerts
 sourceRole: venue
+# 2026-09-22: build-health flagged 0 events. Confirmed live: the tickets page
+# meta description says "dates from June to September 2026" — this is a
+# seasonal outdoor summer concert series. Every posh.vip event link currently
+# on the page (through "Sept 20th Witch Paddle Rave") is already in the past;
+# the season has concluded for the year. Expect 0 until next June.
+expectEmpty: true
 description: "Lake Union Concerts"
 url: "https://www.lakeunionconcerts.com/tickets"
 friendlyLink: https://www.lakeunionconcerts.com/tickets
