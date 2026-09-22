@@ -3,7 +3,7 @@ name: GenPride Center
 status: added
 platform: WordPress (calendar content not scrapable; implemented as sources/recurring/ instead)
 url: https://genprideseattle.org/programs/
-tags: ["food", "cozy", "queer", "learning"]
+tags: ["Community", "Queer", "First Hill"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-22
 pr: 1564
