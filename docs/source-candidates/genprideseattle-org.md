@@ -6,7 +6,7 @@ url: https://genprideseattle.org/programs/
 tags: ["food", "cozy", "queer", "learning"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-22
-pr:
+pr: 1564
 ---
 
 Discovered via aggregator gap analysis. 2 events in the Seattle
