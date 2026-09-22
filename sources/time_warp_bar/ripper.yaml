@@ -1,0 +1,16 @@
+name: time-warp-bar
+sourceRole: venue
+description: "Time Warp"
+url: "https://timewarp.bar/calendar/events/"
+friendlyLink: https://timewarp.bar/events/
+tags: ["Nightlife", "Gaming", "Capitol Hill"]
+geo:
+  lat: 47.6135863
+  lng: -122.3192629
+  label: "Time Warp, 1420 10th Ave, Seattle, WA 98122"
+  osmType: node
+  osmId: 11880442163
+calendars:
+  - name: time-warp-bar
+    friendlyname: "Time Warp"
+    timezone: America/Los_Angeles
