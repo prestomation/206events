@@ -3,7 +3,10 @@ sourceRole: venue
 type: eventbrite
 # 2026-09-22: build-health flagged this as unexpectedNonEmptyCalendars (8
 # events) — the 2026-09-20 expectEmpty (0 events at the time) no longer
-# applies. Removed per AGENTS.md's expectEmpty cross-check.
+# applies. Removed per AGENTS.md's expectEmpty cross-check. This organizer's
+# posting cadence is genuinely intermittent, so a future build may catch it
+# back at 0 — if that recurs, re-add expectEmpty rather than treating it as
+# a break each time.
 description: "Seattle Social Club"
 url: "https://www.eventbrite.com/o/seattle-social-club-42795102333"
 friendlyLink: https://www.eventbrite.com/o/seattle-social-club-42795102333
