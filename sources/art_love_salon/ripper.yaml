@@ -9,6 +9,13 @@ geo:
   lat: 47.6081894
   lng: -122.3388693
   label: "Art Love Salon, 110 Union St, 5th Floor, Seattle, WA 98121"
+  # Checked 2026-09-22: no OSM result from any of the three query strategies
+  # backfill-osm-ids.ts tries — full-label ("Art Love Salon, 110 Union St, 5th
+  # Floor, Seattle, WA 98121"), name-only ("Art Love Salon, Seattle, WA"), and
+  # address-only ("110 Union St, 5th Floor, Seattle, WA 98121") — all return []
+  # against Nominatim. The building at 110 Union St itself isn't indexed as a
+  # separate POI in OSM under this suite-level address. Tier F — no feature,
+  # not applying an id.
   osmChecked: 2026-09-22
 calendars:
   - name: art-love-salon
