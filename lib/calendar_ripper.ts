@@ -112,6 +112,19 @@ function zdtToIndexDate(zdt: { toString(): string }): string {
 }
 
 /**
+ * Whether a fetched external-calendar response body counts as "no content".
+ * Some feeds (bot-mitigation, flaky upstream) return HTTP 200 with an empty
+ * or whitespace-only body instead of an error status; treated as a failure
+ * with a clear reason everywhere an ICS body is fetched or read back — the
+ * live external-calendar fetch below, the outofband fetch in
+ * scripts/generate-outofband.ts, and the outofband merge below it — so all
+ * three stay in sync if the definition of "empty" ever needs to change.
+ */
+export function isBlankIcsBody(body: string): boolean {
+  return !body.trim();
+}
+
+/**
  * Check if ICS content contains any events with a start date on or after today.
  * Uses ical.js to properly handle recurring events (RRULE expansion).
  */
@@ -809,11 +822,9 @@ export const main = async () => {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
           }
           const body = await response.text();
-          if (!body.trim()) {
-            // Some feeds (e.g. a broken calendar-plugin export endpoint) return
-            // HTTP 200 with an empty body instead of an error status. Treat that
-            // as a failure with a clear reason instead of falling through with
-            // icsContent="" and error=null, which renders as a confusing "null".
+          if (isBlankIcsBody(body)) {
+            // See isBlankIcsBody: without this check icsContent="" + error=null
+            // would fall through and render as a confusing "null".
             throw new Error(`Empty response body (HTTP ${response.status} with no content)`);
           }
           return { calendar, icsContent: body, error: null };
@@ -837,6 +848,15 @@ export const main = async () => {
     }
     try {
       const icsContent = await readFile(join("output", reportEntry.icsFile), "utf-8");
+      if (isBlankIcsBody(icsContent)) {
+        // See isBlankIcsBody: the out-of-band fetch can itself succeed (HTTP
+        // 200, no fetchError) with an empty body, which would otherwise land
+        // here as icsContent="" + error=null and serialize as literal "null".
+        const message = "Pre-fetched ICS file is empty (outofband fetch returned HTTP 200 with no content)";
+        console.error(`  - [outofband] ${calendar.friendlyname}: ${message}`);
+        externalFetchResults.push({ calendar, icsContent: null, error: message });
+        continue;
+      }
       console.log(`[outofband] Loaded pre-fetched external calendar: ${calendar.friendlyname}`);
       externalFetchResults.push({ calendar, icsContent, error: null });
     } catch (err: any) {

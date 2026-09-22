@@ -20,7 +20,7 @@ import "dotenv/config";
 import { RipperLoader } from "../lib/config/loader.js";
 import { toICS, externalConfigSchema, ExternalConfig, EventCost } from "../lib/config/schema.js";
 import { loadYamlDir } from "../lib/config/dir-loader.js";
-import { hasFutureEventsInICS } from "../lib/calendar_ripper.js";
+import { hasFutureEventsInICS, isBlankIcsBody } from "../lib/calendar_ripper.js";
 import { loadGeoCache, saveGeoCache, resolveEventCoords } from "../lib/geocoder.js";
 import { CITY } from "../lib/config/city.js";
 import {
@@ -302,6 +302,13 @@ async function main() {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             const icsContent = await response.text();
+            if (isBlankIcsBody(icsContent)) {
+                // See isBlankIcsBody in lib/calendar_ripper.ts: otherwise this
+                // "succeeds" with 0 events/no fetchError, and the main build's
+                // outofband merge has nothing to report except a confusing
+                // literal "null" error.
+                throw new Error(`Empty response body (HTTP ${response.status} with no content)`);
+            }
             await writeFile(outPath, icsContent);
             writtenFiles.push(outPath);
             const eventCount = (icsContent.match(/BEGIN:VEVENT/g) || []).length;
