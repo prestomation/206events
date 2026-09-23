@@ -26,3 +26,8 @@ theoretically be exported as CSV, but the layout/structure isn't confirmed and
 depending on a spreadsheet's incidental format is fragile. No change to status.
 
 2026-09-23: Closed: the only schedule is a Google Sheets spreadsheet of league game fixtures (plus a handful of registration/clinic key dates). League game fixtures don't have public-event value, and scraping an incidental spreadsheet layout is fragile.
+
+2026-09-23 (re-verified): the site does run The Events Calendar
+(`/events/?ical=1`), but `/wp-json/tribe/events/v1/events` returns total 0
+and the ICS is empty. The homepage "Key Dates" lists only league games plus a
+single Oct 30 closing party (location TBD). Notviable confirmed.

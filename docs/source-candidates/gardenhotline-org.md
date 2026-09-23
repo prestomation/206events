@@ -15,3 +15,5 @@ Sample event: "Rainier Beach Action Coalition Farmers Market" (2026-08-25T22:00:
 Description: A monthly pop-up farmers market in Rainier Beach with locally grown fresh produce. The Garden Hotline will have brochures, in-person gardening advice, and free seeds.
 
 Checked 2026-09-23 (notviable): The "classes & events" page is one hand-edited WordPress post of free prose. There is no Tribe/ICS/REST events feed (`/events/?ical=1` and `/wp-json/tribe/events/v1/events` both 404). Most entries are the Garden Hotline tabling at other orgs' events (farmers markets, back-to-school fairs, several in Renton/Kent), and the last listed date is Sept 5, 2026, so nothing is upcoming. Too fragile and too thin to scrape.
+
+**Re-evaluated 2026-09-23 (King County rule):** geography was not the blocker here (entries are all King County). Still notviable: the page is hand-edited WordPress prose with no feed, the last listed date is Sat Sept 5, 2026 (nothing upcoming), and most entries are the Garden Hotline tabling at other orgs' events.

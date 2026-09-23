@@ -1,6 +1,6 @@
 ---
 name: "Grey Drizzle Fibers"
-status: notviable
+status: added
 platform: Squarespace
 url: https://www.greydrizzlefibers.com/events
 tags: [Community]
@@ -39,3 +39,5 @@ Seattle-located, not primarily. Deprioritizing further re-checks unless a
 future scan turns up a run of Seattle-located events.
 
 Checked 2026-09-23 (notviable): Outside Seattle: Renton-based organizer whose live events are in North Bend and Bellevue (0 of 2 upcoming in Seattle). Closing rather than re-checking.
+
+**Re-evaluated 2026-09-23 (King County rule) -> added.** Renton, Bellevue, and North Bend are all King County, so the "mostly outside Seattle" objection no longer applies. Squarespace `?format=json` has 1 upcoming event: "The Knitters Studio Trunk Show" (Bellevue, 2026-12-12). New source: `sources/grey_drizzle_fibers/` (name `grey-drizzle-fibers`, built-in `squarespace` type, `geo: null` because events rotate locations, tag `Community`). 1 event in the local ONLY_SOURCE build. It is low volume, so it may need `expectEmpty: true` later if the calendar empties between events.

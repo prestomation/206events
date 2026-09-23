@@ -1,0 +1,24 @@
+geo:
+  lat: 47.6186227
+  lng: -122.1917799
+  label: "The Knitters Studio, 958 111th Ave NE, Bellevue, WA 98004"
+name: knitters-studio-social-knit
+sourceRole: venue
+friendlyname: The Knitters Studio Social Knit & Crochet
+description: Weekly drop-in social knit and crochet sessions at The Knitters Studio yarn shop in Bellevue. Bring a current project or pick up a new one.
+timezone: America/Los_Angeles
+location: 958 111th Ave NE, Bellevue, WA 98004
+url: https://www.theknitterstudio.com/classes-and-events-1
+tags:
+  - Arts
+  - Bellevue
+schedules:
+  - schedule: every Wednesday
+    start_time: "10:00"
+    duration: PT2H
+  - schedule: every Thursday
+    start_time: "18:00"
+    duration: PT2H
+  - schedule: every Friday
+    start_time: "15:00"
+    duration: PT2H

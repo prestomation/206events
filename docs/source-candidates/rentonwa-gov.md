@@ -1,6 +1,6 @@
 ---
 name: Playing with Fire!
-status: notviable
+status: blocked
 platform: Unknown
 url: https://www.rentonwa.gov/Events-Meetings/All-City-Events-Meetings-Calendar/Playing-with-Fire
 tags: ["learning", "wellness", "film", "family"]
@@ -15,3 +15,5 @@ Sample event: "Playing with Fire!" (2026-08-26T01:00:00.000Z)
 Description: Learn the basics of fire science, home fire prevention, and small fire suppression. Includes hands-on practice using a fire extinguisher on a controlled fire. Ages 16+, free, registration required.
 
 Checked 2026-09-23: Outside Seattle: City of Renton government calendar.
+
+**2026-09-23 (re-evaluated under King County rule, blocked):** Renton is in King County, so geography is no longer the blocker. But every rentonwa.gov URL (home page, calendar, `/api/v1/events`) returns an Akamai `Access Denied` 403 to scripted requests from this environment, even with a browser User-Agent. No ICS or feed can be reached, so it can't be implemented.

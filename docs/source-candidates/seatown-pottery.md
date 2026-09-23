@@ -21,3 +21,5 @@ class-booking platforms used by yoga studios). If no public API exists,
 this becomes `notviable` or a low-confidence custom scrape target.
 
 **2026-09-23 (notviable):** Webflow `/workshops` lists course cards linking to `app.24hrpottery.com/courses/<uuid>`. That page is a Next.js app with Clerk auth: the SSR payload has course metadata but `firstCalendarEventStartTime: null`, and session dates load client-side from a private, undocumented booking API. There's no ICS, public JSON, or dated HTML. The content is also paid ceramics classes/workshops (booking inventory, not public events), and many cards are for sister studios in Bellevue/Redmond. Not viable.
+
+**2026-09-23 (re-checked under King County rule):** Geography was never the blocker here, since the studios are in Seattle. Re-checked `/workshops`: course cards still link to `app.24hrpottery.com/courses/<uuid>`, with no dated sessions in the Webflow HTML and no public org API (the obvious `/api/organizations/<id>/courses` path returns 404). Still notviable: session dates are only in the private booking app.

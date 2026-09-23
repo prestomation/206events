@@ -1,0 +1,12 @@
+name: grey-drizzle-fibers
+sourceRole: venue
+type: squarespace
+description: "Grey Drizzle Fibers"
+url: "https://www.greydrizzlefibers.com/events"
+friendlyLink: https://www.greydrizzlefibers.com/events
+geo: null
+tags: ["Community"]
+calendars:
+  - name: grey-drizzle-fibers
+    friendlyname: "Grey Drizzle Fibers"
+    timezone: America/Los_Angeles

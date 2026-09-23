@@ -1,0 +1,21 @@
+name: issaquah
+sourceRole: venue
+description: "City of Issaquah"
+url: "https://www.issaquahwa.gov/Calendar.aspx"
+friendlyLink: https://www.issaquahwa.gov/Calendar.aspx
+geo: null
+tags: ["Issaquah"]
+calendars:
+  # CivicPlus iCalendar category ids — see https://www.issaquahwa.gov/iCalendar.aspx
+  - name: community-events
+    friendlyname: "City of Issaquah Community Events"
+    timezone: America/Los_Angeles
+    tags: ["Community"]
+    config:
+      catID: 37
+  - name: parks-events
+    friendlyname: "City of Issaquah Parks & Community Services"
+    timezone: America/Los_Angeles
+    tags: ["Parks"]
+    config:
+      catID: 40

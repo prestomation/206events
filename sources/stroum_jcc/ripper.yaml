@@ -1,0 +1,21 @@
+name: stroum-jcc
+sourceRole: venue
+description: "Stroum Jewish Community Center"
+url: "https://sjcc.org/wp-json/tribe/events/v1/events"
+friendlyLink: "https://sjcc.org/events/"
+tags: ["Community", "Arts", "Mercer Island"]
+geo:
+  lat: 47.5755543
+  lng: -122.2082835
+  label: "Stroum Jewish Community Center, 3801 E Mercer Way, Mercer Island, WA 98040"
+  osmType: way
+  osmId: 146296047
+calendars:
+  # Public adult programming only (author talks, concerts, comedy, film,
+  # exhibits, cooking demos). The unfiltered calendar is mostly member
+  # fitness classes and pool hours.
+  - name: stroum-jcc
+    friendlyname: "Stroum JCC Public Programs"
+    timezone: America/Los_Angeles
+    config:
+      category: adult-gatherings

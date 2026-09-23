@@ -1,0 +1,14 @@
+name: bellevue
+sourceRole: venue
+description: "City of Bellevue"
+url: "https://bellevuewa.gov/calendar?cat=community-events"
+friendlyLink: https://bellevuewa.gov/calendar?cat=community-events
+geo: null
+tags: ["Bellevue"]
+calendars:
+  - name: community-events
+    friendlyname: "City of Bellevue Community Events"
+    timezone: America/Los_Angeles
+    tags: ["Community"]
+    config:
+      category: community-events

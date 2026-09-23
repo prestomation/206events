@@ -29,3 +29,7 @@ Investigated 2026-08-13:
   posted.
 
 2026-09-23: Closed: `/event-list` still shows only the single Feb 5, 2026 "Episode Two: West Seattle" event (Wix `startDate` 2026-02-06T03:00Z), now 7+ months in the past with no new episode posted. Series appears dormant; re-open as a new candidate if new episodes are listed.
+
+2026-09-23 (re-verified): re-fetched `/event-list`. The only Wix event is still
+"Episode Two: West Seattle" (`startDate` 2026-02-06T03:00Z); nothing is upcoming.
+Notviable confirmed.

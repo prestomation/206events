@@ -15,3 +15,5 @@ Sample event: "Glean with FareStart at The Bellevue Urban Garden" (2026-08-26T16
 Description: Join at tBUG in Bellevue to glean produce for the Community. Harvest surplus produce from local growers to support food security and rescue initiatives.
 
 Checked 2026-09-23: notviable. volunteer.uwkc.org is United Way of King County's volunteer-shift sign-up portal (Galaxy Digital "needs"), not a public event calendar; shifts span all of King County (sample is in Bellevue) and require registration to attend.
+
+**Re-evaluated 2026-09-23 (King County rule):** Geography is no longer a blocker (all of King County is in scope). It is still notviable: this is United Way of King County's Galaxy Digital volunteer-shift sign-up portal. Items are registration-required volunteer shifts ("needs"), not public events, and there is no public calendar feed.

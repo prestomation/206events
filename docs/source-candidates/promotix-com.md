@@ -15,3 +15,7 @@ Sample event: "Seattle Mariners vs. Philadelphia Phillies — T-Mobile Park" (20
 Description: MLB: Seattle Mariners vs. Philadelphia Phillies at T-Mobile Park
 
 2026-09-23: Closed: Promotix is a national ticket marketplace/reseller aggregator (sample event is a Mariners game at T-Mobile Park). Not a Seattle-focused organizer, no free public feed; the underlying events (Mariners etc.) are better covered by first-party/Ticketmaster sources.
+
+2026-09-23 (re-verified): the homepage title is "Find Event Tickets Worldwide |
+Concerts, Sports & More". It is a Sharetribe-based global ticket marketplace
+with no Seattle feed. Notviable confirmed.

@@ -41,3 +41,6 @@ empty, `past` 14). No change.
 
 Re-checked 2026-09-23: still 0 upcoming events (`itemCount: 16`, `upcoming` empty, `past` 14). No change.
 2026-09-23: Closed: Squarespace `?format=json` still returns 0 `upcoming`, 14 `past` (last event Mar 21, 2026). Six months with no posted date; the events collection appears abandoned. Re-open if a future Copacabana brunch date is posted.
+
+2026-09-23 (re-verified): re-fetched `?format=json`. Still `upcoming` 0,
+`past` 14 (latest 2026-03-21). Notviable confirmed.

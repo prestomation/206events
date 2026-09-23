@@ -94,3 +94,10 @@ PR; single-day-only orgs beyond Art Love Salon/Conru weren't verified
 for feed stability).
 
 2026-09-23: Closed: citywide aggregator whose usable single-day events (~41) overlap heavily with orgs already covered by dedicated sources (Seattle Symphony, SAM, Frye, Town Hall, PNB, STG). The rest are Art Walk category tiles or multi-week exhibition ranges, and times need an N+1 fetch per event. Its one distinct value, Art Love Salon, is already implemented as `sources/art_love_salon/`, which reads from this site. Implementing the whole aggregator isn't worth the dedup noise.
+
+2026-09-23 (re-verified): re-parsed `/calendar` `initialEvents`. 288 entries,
+244 future, 60 future single-day with a real org, still with no clock times.
+Art Love Salon/Conru (18) are already covered by `sources/art_love_salon/`,
+and the rest are 1-10 events each across ~25 orgs, many already sourced.
+Notviable confirmed. Side lead: Occidental Fine Arts Center (8 upcoming here)
+has no dedicated source; it may be worth its own candidate.
