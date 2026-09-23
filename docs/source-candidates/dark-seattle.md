@@ -1,11 +1,11 @@
 ---
 name: "Dark Seattle"
-status: added
+status: investigating
 platform: Custom HTML (hand-curated)
 url: https://www.darkseattle.net/
 tags: [Music, Nightlife]
 firstSeen: 2026-09-17
-lastChecked: 2026-09-23
+lastChecked: 2026-09-17
 ---
 
 Hand-curated multi-venue "dark, danceable music near Seattle" show
@@ -42,14 +42,3 @@ Investigated 2026-09-17:
 Left as `investigating` — real and technically scrapable, but the
 dedup/scope work needed pushes this to a future cycle rather than a
 same-pass implementation.
-
-**2026-09-23:** Implemented as custom HTML ripper `sources/dark_seattle/`
-(source name `dark-seattle`, `sourceRole: aggregator`, `geo: null`). Parses the
-live section of the single page (past listings sit in an HTML comment that the
-parser drops), infers the year via month rollover (explicit `, 2027` headers
-honored), expands range headers ("Thu, Nov 5 - Sun, Nov 8") to one event per
-day, and skips listings whose venue carries a non-Seattle city suffix (Tacoma,
-Olympia, Everett, White Center, Shoreline, Portland, OR, ...). "Time TBA"
-listings emit a startTime `UncertaintyError`. Overlap with dedicated venue
-sources is left to cross-source dedup (aggregator role). Verified: 111 events,
-0 parse errors, 5 uncertainty entries, 4 non-fatal geocode misses.
