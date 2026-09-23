@@ -1,12 +1,18 @@
 ---
 name: Meeples Games Events
-status: investigating
-platform: Unknown
+status: blocked
+platform: Unknown (SiteGround captcha)
 url: https://meeplesgames.com/events
 tags: [Board-Games, West Seattle]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
+
+Re-checked 2026-09-23: `/events/` returns HTTP 202 with an empty body and
+`sg-captcha: challenge` header — the SiteGround JS bot-challenge, same as
+other blocked sources in this repo. Blocked even from this environment, so
+not stageable for proxy testing (nothing to prove — see AGENTS.md queue
+guidance). Marked `blocked`.
 
 West Seattle board game cafe hosting game nights, tournaments, and tabletop events.
 
