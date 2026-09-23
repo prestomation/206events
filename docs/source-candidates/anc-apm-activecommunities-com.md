@@ -6,7 +6,7 @@ url: https://anc.apm.activecommunities.com/seattle/
 tags: ["board-games", "cozy", "learning", "fitness"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
-pr:
+pr: 1571
 ---
 
 Discovered via aggregator gap analysis. 7 events in the Seattle

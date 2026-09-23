@@ -6,7 +6,7 @@ url: https://www.mobilize.us/seattleindivisible/
 tags: [Political]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-23
-pr:
+pr: 1571
 ---
 
 Seattle Indivisible progressive political action events and meetings.

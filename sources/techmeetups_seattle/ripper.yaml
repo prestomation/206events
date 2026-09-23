@@ -1,0 +1,14 @@
+name: techmeetups-seattle
+sourceRole: aggregator
+description: "TechMeetups.io Seattle"
+url: "https://techmeetups.io/seattle"
+friendlyLink: https://techmeetups.io/seattle
+tags: ["Tech"]
+# Aggregator of Seattle tech meetup groups (Meetup/Luma). Only in-person
+# Seattle events are kept; each carries its own venue address. The listing
+# only covers roughly the coming week.
+geo: null
+calendars:
+  - name: in-person
+    friendlyname: "Seattle Tech Meetups (TechMeetups.io)"
+    timezone: America/Los_Angeles

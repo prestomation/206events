@@ -6,7 +6,7 @@ url: https://seattlebachfestival.org/events/
 tags: [Music, Classical]
 firstSeen: 2026-09-17
 lastChecked: 2026-09-23
-pr:
+pr: 1571
 ---
 
 Requested via in-app feedback ([issue #1528](https://github.com/prestomation/206events/issues/1528)),

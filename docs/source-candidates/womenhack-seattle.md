@@ -1,11 +1,11 @@
 ---
 name: "WomenHack Seattle"
-status: investigating
+status: notviable
 platform: Eventbrite
 url: https://www.eventbrite.com/o/womenhack-46986659273
 tags: [Tech]
 firstSeen: 2026-08-31
-lastChecked: 2026-09-03
+lastChecked: 2026-09-23
 ---
 
 Women/non-binary tech recruiting event series; multiple Eventbrite
@@ -48,3 +48,5 @@ methods) with a client-side filter on `venue.address.city === "Seattle"`.
 Given the B2B/employer-only framing, holding off on the custom-ripper
 effort. Leaving as `investigating`; revisit if a general-admission
 attendee ticket type for Seattle is ever found.
+
+**2026-09-23:** Closed as notviable. Per the 2026-09-03 notes, the only Seattle listings are "WomenHack - Seattle - Employer Ticket" under the brand's one global Eventbrite organizer. That's a paid B2B recruiter ticket, not a public attendee event, and the org is worldwide, so the built-in eventbrite type can't be used without a city filter. Not worth a bespoke wrapper for 1-2 employer-ticket dates a year.

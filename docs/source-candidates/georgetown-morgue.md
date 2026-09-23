@@ -6,6 +6,7 @@ url: https://seattlehaunts.com/schedule-and-events/
 tags: [Halloween, Georgetown]
 firstSeen: 2026-09-17
 lastChecked: 2026-09-23
+pr: 1571
 ---
 
 Seasonal Halloween haunted-house attraction, 5000 E Marginal Way S,

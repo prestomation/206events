@@ -6,6 +6,7 @@ url: https://www.versatilearts.net/calendar/
 tags: [Circus, Arts]
 firstSeen: 2026-08-31
 lastChecked: 2026-09-23
+pr: 1571
 ---
 
 Self-described "Seattle-Area Circus Events" hub — a community calendar

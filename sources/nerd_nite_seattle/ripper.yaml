@@ -1,0 +1,19 @@
+name: nerd-nite-seattle
+sourceRole: venue
+type: eventbrite
+description: "Nerd Nite Seattle"
+url: "https://www.eventbrite.com/o/nerd-nite-seattle-120853014468"
+friendlyLink: https://seattle.nerdnite.com/
+tags: ["Education"]
+# Organizer-level source: shows have been held at Old Stove Brewing Ship Canal,
+# but the venue can change between editions, so per-event venue comes from
+# Eventbrite.
+geo: null
+calendars:
+  - name: nerd-nite-seattle
+    friendlyname: "Nerd Nite Seattle"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "120853014468"
+      defaultLocation: "Seattle, WA"
+      defaultDurationHours: 2
