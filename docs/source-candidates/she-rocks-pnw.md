@@ -6,6 +6,7 @@ url: https://www.sherocks-pnw.org/
 tags: [Sports]
 firstSeen: 2026-08-15
 lastChecked: 2026-09-23
+pr: 1571
 ---
 
 Seattle-area community of climbers making the sport more accessible to women

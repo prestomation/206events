@@ -1,11 +1,11 @@
 ---
 name: Tech Meetups Seattle
-status: investigating
+status: added
 platform: Custom HTML (meetup aggregator)
 url: https://techmeetups.io/seattle
 tags: [Tech]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 Aggregated listing of technology meetups and tech community events in Seattle.
@@ -21,3 +21,5 @@ Marked investigating rather than candidate because it's unclear whether the
 full event set is actually scrapable from this page or requires crawling many
 external Meetup.com/Luma pages (which are themselves better covered directly
 per-group, per this project's usual pattern e.g. `sources/new_tech_seattle`).
+
+**2026-09-23:** Added as `sources/techmeetups_seattle/` (custom ripper, name `techmeetups-seattle`, `sourceRole: aggregator`, `geo: null`). The page embeds a schema.org `ItemList` "Upcoming Tech Events in Seattle" in JSON-LD (~20 events, roughly the coming week, each with startDate/url/location). The ripper keeps only in-person events whose `Place` address locality is Seattle (the virtual webinars are dropped) and uses the Meetup event id as the stable id. Listing images are generic stock photos, so they're not used; no end time is published (2h default). 4 in-person events at verification.

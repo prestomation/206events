@@ -1,11 +1,11 @@
 ---
 name: "TeenTix"
-status: investigating
+status: notviable
 platform: Craft CMS (headless, SEOmatic)
 url: https://www.teentix.org/calendar/
 tags: [Arts, Community]
 firstSeen: 2026-09-11
-lastChecked: 2026-09-11
+lastChecked: 2026-09-23
 ---
 
 Seattle nonprofit ($5 arts-access ticket program for teens, 305 Harrison
@@ -46,3 +46,5 @@ Investigated 2026-09-11:
 
 Left as `investigating` rather than `candidate` — the underlying event
 data endpoint hasn't been found yet, so viability is unconfirmed.
+
+**2026-09-23:** Closed as notviable. Found the data: `/calendar/day/?date=YYYY-MM-DD` server-renders the per-day list (title, venue, time, event link), so it is scrapable. But the listing is overwhelmingly long-running "All Day" exhibitions and runs at partner orgs this repo already covers directly (SAM, Henry, Burke, STG, etc.), plus a meaningful share outside Seattle (Bellevue Botanical Garden, Lakewold Gardens in Lakewood, etc.). As a pure aggregator it would mostly add cross-source duplicates and months-long all-day entries rather than net-new events. Not worth a custom scraper.

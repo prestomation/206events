@@ -6,6 +6,7 @@ url: https://www.wta.org/get-involved/events
 tags: [Outdoors, Volunteering]
 firstSeen: 2026-08-14
 lastChecked: 2026-09-23
+pr: 1571
 ---
 
 Washington Trails Association trail work parties, hikes, and volunteer events.
