@@ -6,6 +6,7 @@ url: https://bellevuewa.gov/events/dance-latin-fitness-class
 tags: ["fitness", "dancing", "outdoors", "music"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
+pr: 1574
 ---
 
 Discovered via aggregator gap analysis. 9 events in the Seattle

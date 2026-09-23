@@ -6,6 +6,7 @@ url: https://sjcc.org/event/adult-pediatric-first-aid-cpr-aed-bbp-class/2026-08-
 tags: ["learning", "volunteering", "dancing", "fitness"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
+pr: 1574
 ---
 
 Discovered via aggregator gap analysis. 8 events in the Seattle

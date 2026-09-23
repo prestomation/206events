@@ -6,6 +6,7 @@ url: https://www.mercerisland.gov/yfs/page/stay-active-independent-life-sail-fit
 tags: ["fitness", "wellness", "cozy", "outdoors"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
+pr: 1574
 ---
 
 Discovered via aggregator gap analysis. 8 events in the Seattle

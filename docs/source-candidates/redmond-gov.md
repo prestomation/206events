@@ -6,6 +6,7 @@ url: https://www.redmond.gov/Calendar.aspx?EID=3524&month=8&year=2026&day=25&cal
 tags: ["learning", "political", "music", "outdoors"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
+pr: 1574
 ---
 
 Discovered via aggregator gap analysis. 5 events in the Seattle

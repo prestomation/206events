@@ -6,6 +6,7 @@ url: https://www.sjcc.org/events/
 tags: [Community, Sports]
 firstSeen: 2026-06-21
 lastChecked: 2026-09-23
+pr: 1574
 ---
 
 The Stroum Jewish Community Center is located at 3801 E Mercer Way on Mercer Island (not Seattle proper).
