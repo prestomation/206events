@@ -1,11 +1,12 @@
 ---
 name: "The Knitters Studio"
-status: candidate
+status: notviable
 platform: Custom HTML (Squarespace static page, not an Events collection)
 url: https://www.theknitterstudio.com/classes-and-events-1
 tags: []
 firstSeen: 2026-08-12
-lastChecked: 2026-08-12
+lastChecked: 2026-09-23
+pr:
 ---
 
 Knitting/crochet shop and studio. Weekly social knit/crochet sessions plus
@@ -23,3 +24,5 @@ Investigated 2026-08-12:
   free-text date mentions — fragile, low event volume
 - Not yet confirmed to be primarily Seattle vs. broader service area;
   needs an address lookup before implementation
+
+**2026-09-23:** Outside Seattle. Address lookup done: the shop is at 958 111th Ave NE, Bellevue, WA 98004 (Squarespace map block; phone 425-532-7041). Also still only a plain Squarespace page (no Events collection, no ICS), so it would need a free-text scraper anyway.

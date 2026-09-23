@@ -1,6 +1,6 @@
 ---
 name: "Reverie Ballroom"
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://www.reverieballroom.com/events
 tags: [Community, "Capitol Hill"]
@@ -32,3 +32,5 @@ Re-checked 2026-09-11: `/events?format=json` still returns an empty
 collection). No change.
 
 Re-checked 2026-09-23: `/events?format=json` still returns an empty `page` shell, 0 upcoming events. No change.
+
+Closed 2026-09-23 (notviable): still a private-rental wedding venue with no public programming posted after about 3 months of monitoring. Reopen if the venue announces public events.

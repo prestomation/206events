@@ -1,11 +1,12 @@
 ---
 name: Lawless Forge Seattle
-status: candidate
+status: notviable
 platform: Checkfront
 url: https://lawlessforge.com/seattle
 tags: [Creation]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
+pr:
 ---
 
 Seattle blacksmithing and blade-forging studio offering hands-on knife-making experiences.
@@ -19,3 +20,5 @@ sibling locations `lawless-forge-marysville.checkfront.com` and
 (book-anytime class slots) rather than a curated calendar of dated public events — no public
 ICS feed found on Checkfront. Would likely need to be modeled as recurring bookable sessions
 rather than one-off events, similar to an escape-room/experience business.
+
+**Re-checked 2026-09-23 (notviable):** Re-checked: `lawlessforge.com/seattle` is live (200 with a UA). Still only Checkfront bookable class slots (knife-making/blacksmithing sessions booked any time), with no public dated events and no ICS. Paid class booking with no public-event value. Closing as notviable.

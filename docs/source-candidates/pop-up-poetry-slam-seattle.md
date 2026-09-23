@@ -1,11 +1,11 @@
 ---
 name: "Pop-Up Poetry Slam Seattle"
-status: candidate
+status: notviable
 platform: Custom (Wix)
 url: https://popuppoetryseattle.com/
 tags: [Community]
 firstSeen: 2026-08-13
-lastChecked: 2026-08-13
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -27,3 +27,5 @@ Investigated 2026-08-13:
 - **200 + 0 upcoming events** per the pre-implementation fetch gate —
   do not implement yet. Re-check next cycle in case a new episode gets
   posted.
+
+2026-09-23: Closed: `/event-list` still shows only the single Feb 5, 2026 "Episode Two: West Seattle" event (Wix `startDate` 2026-02-06T03:00Z), now 7+ months in the past with no new episode posted. Series appears dormant; re-open as a new candidate if new episodes are listed.

@@ -1,11 +1,11 @@
 ---
 name: Puget Soundkeeper Marine Debris Cleanups
-status: candidate
+status: blocked
 platform: WordPress
 url: https://pugetsoundkeeper.org/volunteer/marine-debris-cleanups
 tags: [Volunteering, Outdoors]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-16
+lastChecked: 2026-09-23
 ---
 
 Puget Soundkeeper Alliance marine debris cleanup volunteer events around Puget Sound shorelines.
@@ -23,3 +23,5 @@ the annual/seasonal cadence rather than a live ripper.
 Re-checked 2026-09-16: `pugetsoundkeeper.org/events/` returns HTTP 403 from
 this environment. Not stageable per the blocked-here rule; leaving as
 `candidate` and re-testing next cycle.
+
+2026-09-23: Re-checked: `pugetsoundkeeper.org/events/` and `/events/?ical=1` return HTTP 403, and `/wp-json/tribe/events/v1/events` returns a Sucuri CloudProxy JavaScript challenge ("Javascript is required"). A plain residential fetch gets the same challenge, so this would need the browserbase rung. The event volume is only about 3 cleanups a year, so it's not worth escalating. Marked blocked.

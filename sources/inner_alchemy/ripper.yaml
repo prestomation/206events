@@ -1,0 +1,16 @@
+name: inner-alchemy
+sourceRole: venue
+description: "Inner Alchemy Sanctuary & Studio"
+url: "https://www.inneralchemytt.com/calendar"
+friendlyLink: https://www.inneralchemytt.com/calendar
+tags: ["Wellness", "West Seattle"]
+geo:
+  lat: 47.5612838
+  lng: -122.3782993
+  label: "Inner Alchemy Sanctuary & Studio, 3618 SW Alaska St, Seattle, WA 98126"
+  osmType: way
+  osmId: 231266945
+calendars:
+  - name: inner-alchemy
+    friendlyname: "Inner Alchemy Sanctuary & Studio"
+    timezone: America/Los_Angeles

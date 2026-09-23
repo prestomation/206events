@@ -1,11 +1,11 @@
 ---
 name: "Fremont Fridays"
-status: candidate
+status: investigating
 platform: Wix
 url: https://www.fremontfridaysseattle.com/calendar
 tags: [Music, Fremont, Community]
 firstSeen: 2026-07-22
-lastChecked: 2026-07-23
+lastChecked: 2026-09-23
 ---
 
 Independent weekly music and arts series in Fremont, organized as a
@@ -46,3 +46,5 @@ do not guess at the recurring pattern — a wrong cadence or location would
 silently publish incorrect times. Re-check nearer the end of the season
 (or find an authoritative single source that resolves the weekly-vs-
 biweekly discrepancy) before writing the recurring YAML.
+
+Checked 2026-09-23 (investigating): The 2026 season ended Sept 11 (homepage: "June 26th - September 11th, 2026"). Nothing is upcoming until summer 2027, and the weekly-vs-biweekly conflict noted above was never resolved, so a recurring YAML now would only publish guesses for 2027. Re-check around May 2027 once the 2027 schedule is posted. The Wix calendar is still client-rendered (no ICS/API).

@@ -1,8 +1,8 @@
 ---
 name: "Center on Contemporary Art (CoCA) Seattle"
-status: candidate
+status: investigating
 firstSeen: 2026-05-16
-lastChecked: 2026-09-09
+lastChecked: 2026-09-23
 tags: [Arts]
 ---
 **Center on Contemporary Art (CoCA) Seattle** — `https://www.cocaseattle.org/events` — Seattle contemporary art center. Squarespace site.
@@ -34,3 +34,5 @@ Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcom
 Re-checked 2026-08-24: still 0 upcoming events (Squarespace `?format=json` upcoming array empty). No change.
 
 Re-checked 2026-09-09: still 0 upcoming events. No change.
+
+Re-checked 2026-09-23: `/events?format=json` still `upcoming: []` (last entry ART IS NOT DEAD, May 2026). The venue is active: the homepage advertises the current exhibition "Between Us" (opened Aug 6, runs through Sep 27, reception Sep 3). But new shows are posted only as static homepage copy, not to the Squarespace events collection (`/exhibitions` is a plain page, `itemCount: 0`). Not implementable via the Squarespace ripper until they post to `/events` again, and homepage-text scraping would be too fragile. Re-check the `/events` collection next cycle.

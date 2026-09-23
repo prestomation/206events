@@ -1,11 +1,11 @@
 ---
 name: Dog Yard Bar Events
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://www.dogyardbar.com/events
 tags: [Pets, Nightlife]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-20
+lastChecked: 2026-09-23
 ---
 
 Seattle dog bar where patrons can bring their dogs, hosting themed events and social gatherings.
@@ -42,3 +42,5 @@ Re-checked 2026-09-09: still 0 upcoming events. No change.
 
 Re-checked 2026-09-20: `/events-all?format=json` still `itemCount: 123`,
 `upcoming: 0`. No change.
+
+Re-checked 2026-09-23: `/events-all?format=json` still `upcoming: 0`; the newest `past` entry is still Snow Dog Meetup, Dec 15, 2024. The events collection hasn't been updated in about 21 months across five checks. Closing as notviable (dead event pipeline). Reopen if the venue starts posting to `/events-all` again.

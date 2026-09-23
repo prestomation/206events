@@ -1,0 +1,21 @@
+geo:
+  lat: 47.5606146
+  lng: -122.3871768
+  label: "Poggie Tavern, 4717 California Ave SW, Seattle, WA 98116"
+name: poggie-tavern-karaoke
+sourceRole: venue
+friendlyname: Karaoke Tuesdays at Poggie Tavern
+description: Weekly Tuesday karaoke night at Poggie Tavern, the "Little Reno of West Seattle" in the Alaska Junction.
+timezone: America/Los_Angeles
+location: "4717 California Ave SW, Seattle, WA 98116"
+url: https://www.thestedmangroup.com/poggietavern
+tags:
+  - Nightlife
+  - "West Seattle"
+# Venue page lists "Karaoke Tuesdays" without a time; 9 pm - 1:30 am is
+# from the venue's Facebook and West Seattle Blog's daily listings
+# (verified 2026-09-23).
+schedules:
+  - schedule: every Tuesday
+    start_time: "21:00"
+    duration: PT4H30M

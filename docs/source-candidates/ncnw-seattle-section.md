@@ -1,11 +1,11 @@
 ---
 name: "NCNW - Seattle Section"
-status: candidate
+status: notviable
 platform: Eventbrite
 url: https://www.eventbrite.com/o/ncnw-seattle-section-32936501843
 tags: [Community]
 firstSeen: 2026-07-11
-lastChecked: 2026-09-09
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -24,3 +24,5 @@ Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcom
 Re-checked 2026-08-24: still 0 upcoming events (`__NEXT_DATA__` `upcomingEvents` empty). No change.
 
 Re-checked 2026-09-09: still 0 upcoming events. No change.
+
+Investigated 2026-09-23: Re-checked 2026-09-23: Eventbrite organizer `32936501843` still has 0 upcoming events. It has had essentially one annual event (Bethune Tea) across 5 checks since July. Closing as too low-volume. Reopen if it starts posting regular events.

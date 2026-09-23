@@ -1,11 +1,11 @@
 ---
 name: "ThriftCon Seattle"
-status: candidate
+status: notviable
 platform: Custom (tickets.thriftcon.co — no known built-in ripper type)
 url: https://tickets.thriftcon.co/landing/thriftcon-seattle
 tags: [MakersMarket]
 firstSeen: 2026-09-09
-lastChecked: 2026-09-09
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -27,3 +27,5 @@ Investigated 2026-09-09:
 Keep as `candidate`. Worth a custom scraper or hand-maintained recurring
 entry once a multi-year date pattern is confirmed (city venue conventions
 often land in a fixed week, e.g. "second Saturday of September").
+
+**2026-09-23:** Re-checked: the 2026 Seattle date (Sat Sept 12, 2026) has now passed and no 2027 Seattle date is published. Single annual event on a custom Cloudflare-fronted ticketing site, with only one observed date, so neither a scraper nor a recurring YAML is justified. Re-open as a candidate if a stable multi-year date pattern emerges.

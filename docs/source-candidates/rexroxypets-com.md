@@ -1,11 +1,11 @@
 ---
 name: BECU Outdoor Movies at Marymoor Park
-status: candidate
+status: notviable
 platform: Unknown
 url: https://www.rexroxypets.com/dog-friendly-events
 tags: ["film", "pets", "outdoors", "family"]
 firstSeen: 2026-08-25
-lastChecked: 2026-08-25
+lastChecked: 2026-09-23
 ---
 
 Discovered via aggregator gap analysis. 2 events in the Seattle
@@ -13,3 +13,5 @@ metro sample. Source domain: rexroxypets.com.
 
 Sample event: "BECU Outdoor Movies at Marymoor Park" (2026-08-27T03:00:00.000Z)
 Description: Outdoor movie night at Marymoor Park - dog-friendly event.
+
+Checked 2026-09-23: Hand-curated Wix roundup from a pet-sitting business that republishes other orgs' dog-friendly events. The listing is mostly outside Seattle (Shoreline, Edmonds, Redmond, Woodinville, Marysville) and has only a few Seattle entries. It is a Wix repeater with no feed. Not appropriate.

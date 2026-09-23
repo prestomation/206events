@@ -1,0 +1,14 @@
+name: tasveer-film-center
+sourceRole: venue
+description: "Tasveer Film Center"
+url: "https://filmcenter.tasveer.org/graphql"
+friendlyLink: https://filmcenter.tasveer.org/home
+tags: ["Movies", "Columbia City"]
+geo:
+  lat: 47.558988
+  lng: -122.285412
+  label: "Tasveer Film Center, 4812 Rainier Ave S, Seattle, WA 98118"
+calendars:
+  - name: all-events
+    friendlyname: "Tasveer Film Center"
+    timezone: America/Los_Angeles

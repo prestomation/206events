@@ -1,11 +1,11 @@
 ---
 name: Emerald City Softball
-status: candidate
+status: notviable
 platform: WordPress (LeagueApps)
 url: https://emeraldcitysoftball.org
 tags: [Playing-Sports, Softball]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-16
+lastChecked: 2026-09-23
 ---
 
 Seattle adult recreational softball league.
@@ -27,3 +27,5 @@ WordPress events post type. The LeagueApps-hosted league page
 (`myecsa.leagueapps.com/leagues/softball/...`) has no discoverable public
 ICS/API endpoint either. Per the "200 + 0 events" rule, do not implement
 yet; re-check next cycle for either feed to populate.
+
+Re-checked 2026-09-23: `https://emeraldcitysoftball.org/events/?ical=1` still returns 0 VEVENTs. Nearly all dated activity is league game schedules and registration on LeagueApps: sports-league fixtures with little public-event value, and no public feed. The occasional social event (e.g. the Hall of Fame induction) isn't posted to any feed. Closing as notviable.

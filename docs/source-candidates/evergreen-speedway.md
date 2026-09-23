@@ -1,11 +1,11 @@
 ---
 name: Evergreen Speedway
-status: candidate
+status: notviable
 platform: WordPress (TicketGoat)
 url: https://evergreenspeedway.com
 tags: [Spectacle]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 Monroe-area stock car racing track hosting racing events and spectacles.
@@ -20,3 +20,5 @@ Seattle (Snohomish County) — borderline on the "Seattle-focused" bar;
 flagging for a human call on inclusion given it's a notable single
 regional venue rather than a Seattle-proper org. Not found under
 `sources/`.
+
+Checked 2026-09-23 (notviable): Outside Seattle: the track is in Monroe, WA (Snohomish County, ~30 mi NE). Venues entirely outside Seattle city limits are out of scope.

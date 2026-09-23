@@ -1,11 +1,11 @@
 ---
 name: Camas Coffee Hour with Volunteers
-status: candidate
+status: notviable
 platform: Unknown
 url: https://secure.ngpvan.com/RSnWrIluIkCQfNznc_f04A2
 tags: ["political", "cozy"]
 firstSeen: 2026-08-25
-lastChecked: 2026-08-25
+lastChecked: 2026-09-23
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
@@ -13,3 +13,5 @@ metro sample. Source domain: secure.ngpvan.com.
 
 Sample event: "Camas Coffee Hour with Volunteers" (2026-08-25T18:00:00.000Z)
 Description: Coffee hour with volunteers in Camas, WA. Community event hosted by Washington State Democrats.
+
+2026-09-23: NGP VAN is a Democratic-campaign tooling platform (national); the sample event is a Washington State Democrats volunteer coffee hour in Camas, WA. Partisan political party org, and outside Seattle.

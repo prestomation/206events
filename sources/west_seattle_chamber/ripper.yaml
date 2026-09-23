@@ -1,0 +1,12 @@
+name: west-seattle-chamber
+description: "West Seattle Chamber of Commerce"
+url: "https://westseattle.wschamber.com/events/calendar"
+friendlyLink: "https://westseattle.wschamber.com/events/calendar"
+sourceRole: aggregator
+weatherSetting: "mixed"
+geo: null
+tags: ["Community", "West Seattle"]
+calendars:
+  - name: west-seattle-chamber
+    friendlyname: "West Seattle Chamber of Commerce"
+    timezone: America/Los_Angeles

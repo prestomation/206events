@@ -1,0 +1,32 @@
+# verified: 2026-09-23 ok — https://www.carkeekpark.org/gardens-volunteers/
+# "Gardening schedule: Every Tuesday, 9:00 am – Noon; Every fourth Saturday,
+# 9:00 am – Noon." Meet at the maintenance yard gate by the main entrance.
+geo:
+  lat: 47.7118246
+  lng: -122.3690446
+  label: "Carkeek Park Demonstration Garden, 950 NW Carkeek Park Rd, Seattle, WA 98177"
+  osmType: way
+  osmId: 435072866
+name: carkeek-park-demonstration-garden-volunteers
+sourceRole: venue
+friendlyname: Carkeek Park Demonstration Garden Volunteer Sessions
+description: Volunteer gardening sessions at the one-acre Carkeek Park
+  Demonstration Gardens, maintained by Master Gardeners and community
+  volunteers. Meet at the maintenance yard gate by the main entrance to gather
+  tools. All experience levels welcome.
+timezone: America/Los_Angeles
+location: 950 NW Carkeek Park Rd, Seattle, WA 98177
+url: https://www.carkeekpark.org/gardens-volunteers/
+tags:
+  - Volunteer
+  - Outdoors
+  - Parks
+  - Broadview
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "09:00"
+    duration: PT3H
+  - schedule: 4th Saturday
+    start_time: "09:00"
+    duration: PT3H
