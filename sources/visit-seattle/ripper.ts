@@ -1,5 +1,5 @@
 import { Duration, LocalDate, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
+import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import '@js-joda/timezone';
 
@@ -213,29 +213,26 @@ export default class VisitSeattleRipper implements IRipper {
                 const durationHours = numDays * 24 - 12;
 
                 const slug = item.link.split('/').filter(Boolean).pop() ?? item.link;
-                const event: RipperCalendarEvent = {
+                events.push({
                     id: `visit-seattle-${slug}`,
                     ripped: new Date(),
                     date: startDateTime,
                     duration: Duration.ofHours(durationHours),
                     summary: item.title,
+                    // Not routed through the UncertaintyError/cache system: that
+                    // system resolves "duration" as a fixed offset applied on
+                    // top of event.date, but this ripper re-anchors date to
+                    // "today" on every build (matching the "Now through"
+                    // convention above), so a cached duration would silently
+                    // drift the apparent close date forward by exactly one day
+                    // per day instead of converging on the venue's real one.
+                    // The note below is the honest signal instead.
+                    description: parsed.durationUnknown
+                        ? 'Closing date not yet announced by the venue — shown with a placeholder window.'
+                        : undefined,
                     location: parsed.location,
                     url: item.link,
-                };
-                events.push(event);
-
-                if (parsed.durationUnknown) {
-                    const unknownFields: UncertaintyField[] = ["duration"];
-                    const uncertainty: UncertaintyError = {
-                        type: "Uncertainty",
-                        reason: `Visit Seattle lists "${item.title}" as "Ongoing" with no published closing date`,
-                        source: "visit-seattle",
-                        unknownFields,
-                        event,
-                        partialFingerprint: `${item.title}|${parsed.location}`,
-                    };
-                    errors.push(uncertainty);
-                }
+                });
             } catch (e) {
                 errors.push({ type: 'ParseError', reason: `Failed to fetch/parse ${item.link}: ${e}`, context: item.title });
             }
