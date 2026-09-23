@@ -1,0 +1,14 @@
+# Hand-curated list of dark / danceable shows (goth, industrial, darkwave,
+# post-punk) across Seattle-area venues. Out-of-Seattle listings (Tacoma,
+# Olympia, Everett, ...) are filtered out in the ripper.
+name: dark-seattle
+sourceRole: aggregator
+description: "Dark Seattle"
+url: "https://www.darkseattle.net/"
+friendlyLink: https://www.darkseattle.net/
+tags: ["Music", "Nightlife"]
+geo: null
+calendars:
+  - name: shows
+    friendlyname: "Dark Seattle"
+    timezone: America/Los_Angeles
