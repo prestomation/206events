@@ -23,7 +23,8 @@ export default class StroumJccRipper implements IRipper {
             const allEvents: RipperEvent[] = [];
             let page = 1;
             let totalPages = 1;
-            while (page <= totalPages) {
+            const MAX_PAGES = 20;
+            while (page <= totalPages && page <= MAX_PAGES) {
                 const params = new URLSearchParams({ per_page: "50", page: String(page) });
                 if (category) params.set("categories", category);
                 const url = `${ripper.config.url}?${params}`;
@@ -32,7 +33,7 @@ export default class StroumJccRipper implements IRipper {
 
                 const jsonData = await res.json();
                 totalPages = jsonData.total_pages ?? 1;
-                allEvents.push(...this.parseEvents(jsonData, ZonedDateTime.of(LocalDateTime.now(), cal.timezone)));
+                allEvents.push(...this.parseEvents(jsonData, ZonedDateTime.now(cal.timezone)));
                 page++;
             }
 
@@ -80,9 +81,14 @@ export default class StroumJccRipper implements IRipper {
                 // All-day items are gallery exhibits that run for months.
                 // Publish them on their opening day rather than as a
                 // months-long block, and say how long they are on view.
-                eventDate = startLocal.toLocalDate().atStartOfDay(zone);
-                duration = Duration.ofDays(1);
+                // An exhibit that opened before today but is still running is
+                // published on today's date, so it shows as current.
+                const today = date.withZoneSameInstant(zone).toLocalDate();
                 const endDay: LocalDate = endLocal.toLocalDate();
+                const openDay = startLocal.toLocalDate();
+                const showDay = openDay.isBefore(today) && !endDay.isBefore(today) ? today : openDay;
+                eventDate = showDay.atStartOfDay(zone);
+                duration = Duration.ofDays(1);
                 if (endDay.isAfter(startLocal.toLocalDate())) {
                     const note = `On view through ${endDay.toString()}.`;
                     description = description ? `${note}\n\n${description}` : note;

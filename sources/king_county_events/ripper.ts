@@ -29,7 +29,10 @@ export const INCLUDE_FLAGS = [
 // Titles that are county operations rather than events people attend.
 // "Household Hazardous Waste Collection" rows are multi-day drop-off
 // service windows (Wastemobile), not events.
-const EXCLUDE_TITLE = /hello world|holiday|closed|inquest|orientation|household hazardous waste collection/i;
+// Narrow patterns so real events like "Holiday Lights" or a volunteer
+// orientation are kept: only county holiday notices, closures, hearings and
+// supplier/consultant/contractor orientations are dropped.
+const EXCLUDE_TITLE = /hello world|\bday holiday\b|\bholiday$|\bclosed\b|inquest|(supplier|consultant|contractor) orientation|household hazardous waste collection/i;
 const ONLINE_LOCATION = /\b(online|teams|zoom|virtual)\b/i;
 
 export interface KCRow {

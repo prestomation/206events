@@ -38,6 +38,18 @@ describe('KingCountyEventsRipper', () => {
         expect(titles).toContain('Smoke on the Sound');
     });
 
+    test('keeps real events whose titles only mention holidays or orientations', async () => {
+        const base = sample.find((r: any) => r.event_name === 'Smoke on the Sound');
+        const extra = [
+            { ...base, event_name: 'Holiday Lights at Marymoor' },
+            { ...base, event_name: 'Volunteer Orientation - Trail Crew' },
+        ];
+        const { events } = await parse(extra);
+        const titles = events.map(e => e.summary);
+        expect(titles).toContain('Holiday Lights at Marymoor');
+        expect(titles).toContain('Volunteer Orientation - Trail Crew');
+    });
+
     test('maps times (floating Pacific), duration, location, coords, and free cost', async () => {
         const { events } = await parse(sample);
         const e = events.find(ev => ev.summary === 'Free Workshop - Composting at Home')!;
