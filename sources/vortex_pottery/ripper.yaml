@@ -5,6 +5,7 @@ url: "https://vortexpottery.com/pottery-classes-seattle-washington"
 friendlyLink: https://vortexpottery.com/pottery-classes-seattle-washington
 tags: ["Creation", "Uptown"]
 imageUrl: "https://images.squarespace-cdn.com/content/v1/65b2bbebbb6eaf2e56df988a/47044237-877c-4956-9d28-b5e23bb730bb/IMG_0251_Wide+Hands3Flip.jpg"
+skipEventPhotos: true # class pages use JS-rendered Squarespace gallery; no harvestable per-event image
 geo:
   lat: 47.6269348
   lng: -122.3467619

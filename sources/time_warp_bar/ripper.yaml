@@ -10,6 +10,8 @@ geo:
   label: "Time Warp, 1420 10th Ave, Seattle, WA 98122"
   osmType: node
   osmId: 11880442163
+imageUrl: "https://timewarp.bar/wp-content/uploads/2022/12/overview_sm.jpg"
+skipEventPhotos: true # events link to the general calendar page; ripper does not extract per-event images
 calendars:
   - name: time-warp-bar
     friendlyname: "Time Warp"

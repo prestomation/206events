@@ -5,6 +5,7 @@ url: "https://system.spektrix.com/vashoncenter/api/v3"
 friendlyLink: https://vashoncenterforthearts.org/events/
 tags: ["Theatre", "Music", "Arts", "Vashon"]
 imageUrl: "https://lmnarchitects.com/wp-content/uploads/2021/12/Vashon-Center-for-the-Arts_15.jpg"
+skipEventPhotos: true # Spektrix API returns no per-event image; all events link to the generic events page
 geo:
   lat: 47.4287555
   lng: -122.4601317

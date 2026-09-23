@@ -25461,6 +25461,1098 @@
     "external-seattle-parks-foundation.ics Wednesday Weeding on the Burke-Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]::green-seattle-partnership-all-events.ics Wednesday Weeding on the Burke Gilman Trail|2026-09-23T09:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-22"
+    },
+    "crocodile-crocodile-main.ics The War and Treaty, Blank Page, Jordan Babbs|2026-10-21T19:00:00-07:00[America/Los_Angeles]::do206-do206.ics The War and Treaty|2026-10-21T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "do206-do206.ics Brian Noyes + Luke Sweeney + Bryan John Appleby|2026-10-15T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Brian Noyes + Nat Meek + Bryan John Appleby|2026-10-15T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Different supporting acts (Luke Sweeney vs Nat Meek) - different bills"
+    },
+    "do206-do206.ics Ding Mao|2026-10-05T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics Ding Mao \u2022 E-Neptunes|2026-10-05T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "do206-do206.ics Luke Callen + Bad Posture Club + Don Piano|2026-10-21T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Luke Callen + Bad Posture Club + Don Piano|2026-10-21T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "do206-do206.ics Monday Night Rent Party - Swing Dance and Live Jazz Band!|2026-10-12T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Rent Party Ensemble - Swing Dance and Live Jazz Band!|2026-10-12T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same recurring event at Conor Byrne; titles are different marketing names for same performance"
+    },
+    "do206-do206.ics Post-Show Panel Discussion|2026-10-14T19:00:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Eureka Day Event Post-Show Panel Discussion|2026-10-14T21:30-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "do206-do206.ics Seattle Mariners Ballpark Tour|2026-10-21T19:00:00-07:00[America/Los_Angeles]::t-mobile-park-t-mobile-park.ics Seattle Mariners Ballpark Tour|2026-10-21T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "do206-do206.ics Sunset Rollercoaster|2026-10-21T20:00:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Sunset Rollercoaster with Cloudriver|2026-10-21T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "do206-do206.ics This is Lorelei|2026-10-21T19:00:00-07:00[America/Los_Angeles]::neumos-neumos.ics This is Lorelei with Colin Miller|2026-10-21T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "external-wallyhood.ics U District Chow Down & Street Party|2026-10-03T11:00:00-07:00[America/Los_Angeles]::u-district-partnership-u-district-partnership.ics U District Chow Down & Street Party|2026-10-03T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event in different sources"
+    },
+    "seatoday-seatoday-all.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time: Celebrating Dolly Parton|2026-09-22T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Baby Story Time: Celebrating Dolly Parton|2026-09-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time: Celebrating Dolly Parton|2026-09-22T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time: Celebrating Dolly Parton|2026-09-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-23T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-23T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-30T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-30T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-30T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-30T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Celebrating Dolly: A Story Hour Tribute|2026-09-22T10:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Celebrating Dolly: A Story Hour Tribute|2026-09-22T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Celebrating Dolly: A Story Hour Tribute|2026-09-22T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Celebrating Dolly: A Story Hour Tribute|2026-09-22T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Children's Cello Concert with Gretchen Yanover|2026-09-27T11:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Children's Cello Concert with Gretchen Yanover|2026-09-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Denkyem Drop In and CoLab|2026-10-01T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Denkyem Drop In and CoLab|2026-10-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Denkyem Drop In and CoLab|2026-10-01T12:30:00-07:00[America/Los_Angeles]::spl-beacon-hill.ics Denkyem Drop In and CoLab|2026-10-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Genealogy Drop-In|2026-09-29T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Genealogy Drop-In|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-23T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-23T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-23T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-23T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-30T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-30T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-30T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-30T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares: Mes de la Herencia Hispana en Estados Unidos|2026-09-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics La Hora de Cuentos Familiares: Mes de la Herencia Hispana en Estados Unidos|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares: Mes de la Herencia Hispana en Estados Unidos|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-central-library.ics La Hora de Cuentos Familiares: Mes de la Herencia Hispana en Estados Unidos|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Learning Buddies|2026-09-29T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Learning Buddies|2026-09-29T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Nature Kids|2026-09-25T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Nature Kids|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Nature Kids|2026-09-25T11:00:00-07:00[America/Los_Angeles]::spl-broadview.ics Nature Kids|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-09-29T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Toddler Play Group|2026-09-29T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Toddler Play Group|2026-09-29T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Play Group|2026-09-29T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-09-29T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-09-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-09-29T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-09-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-30T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-30T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-09-30T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-30T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-all.ics Virtual Intellectual Property Law Consults for Artists|2026-09-30T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Intellectual Property Law Consults for Artists|2026-09-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Intellectual Property Law Consults for Artists|2026-09-30T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Intellectual Property Law Consults for Artists|2026-09-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Workshop: Community Research with SimplyAnalytics|2026-09-22T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Virtual Workshop: Community Research with SimplyAnalytics|2026-09-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-all.ics Virtual Workshop: Community Research with SimplyAnalytics|2026-09-22T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Workshop: Community Research with SimplyAnalytics|2026-09-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Baby Story Time: Celebrating Dolly Parton|2026-09-22T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time: Celebrating Dolly Parton|2026-09-22T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-23T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-23T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-30T10:30:00-07:00[America/Los_Angeles]::spl-ballard.ics Bilingual Toddler Story Time / Hora de cuentos biling\u00fce para ni\u00f1os peque\u00f1os|2026-09-30T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Celebrating Dolly: A Story Hour Tribute|2026-09-22T10:15:00-07:00[America/Los_Angeles]::spl-queen-anne.ics Celebrating Dolly: A Story Hour Tribute|2026-09-22T10:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Children's Cello Concert with Gretchen Yanover|2026-09-27T11:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Children's Cello Concert with Gretchen Yanover|2026-09-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-23T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-23T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-30T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-30T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares: Mes de la Herencia Hispana en Estados Unidos|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-central-library.ics La Hora de Cuentos Familiares: Mes de la Herencia Hispana en Estados Unidos|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-arts.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-arts.ics Toddler Play Group|2026-09-29T17:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Toddler Play Group|2026-09-29T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Arts & Crafts: Artist Playground|2026-09-29T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-community.ics Children's Cello Concert with Gretchen Yanover|2026-09-27T11:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Children's Cello Concert with Gretchen Yanover|2026-09-27T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-community.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-09-29T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-09-29T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-10-01T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual & In-Person Citizenship Class - English & Vietnamese / L\u1edbp h\u1ecdc v\u1ec1 Qu\u1ed1c t\u1ecbch Tr\u1ef1c tuy\u1ebfn v\u00e0 Tr\u1ef1c ti\u1ebfp - Ti\u1ebfng Vi\u1ec7t v\u00e0 Ti\u1ebfng Anh|2026-10-01T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-09-30T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-30T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-community.ics Virtual Intellectual Property Law Consults for Artists|2026-09-30T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Intellectual Property Law Consults for Artists|2026-09-30T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-community.ics Virtual Workshop: Community Research with SimplyAnalytics|2026-09-22T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Virtual Workshop: Community Research with SimplyAnalytics|2026-09-22T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-learning.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Baby Story Time|2026-09-29T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Denkyem Drop In and CoLab|2026-10-01T12:30:00-07:00[America/Los_Angeles]::spl-beacon-hill.ics Denkyem Drop In and CoLab|2026-10-01T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-columbia.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-delridge.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-28T11:30:00-07:00[America/Los_Angeles]::spl-rainier-beach.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-28T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]::spl-lake-city.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics Kaleidoscope Play & Learn / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]::spl-northgate.ics Kaleidoscope Play & Learn  / Caleidoscopio Juega y Aprende|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event, title differs only by extra whitespace in SPL listing"
+    },
+    "seatoday-seatoday-learning.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]::spl-greenwood.ics La Hora de Cuentos Familiares|2026-09-25T11:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-09-22T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]::spl-south-park.ics Preschool Story Time|2026-09-29T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-international-district.ics REACH - Connecting people experiencing homelessness with help and resources|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]::spl-central-library.ics Social Security Overpayment Legal Support Clinic|2026-09-25T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-learning.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event appearing in multiple seatoday subcalendars"
+    },
+    "seatoday-seatoday-learning.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-09-24T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-learning.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]::spl-online.ics Virtual Consult - Business Formation and Licensing|2026-10-01T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-sports.ics Nature Kids|2026-09-25T11:00:00-07:00[America/Los_Angeles]::spl-broadview.ics Nature Kids|2026-09-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-sports.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-09-24T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "seatoday-seatoday-sports.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]::spl-broadview.ics Tai Chi for Stability|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Same event; venue source includes supporting acts in title"
+    },
+    "spl-beacon-hill.ics Toddler Story Time|2026-10-02T10:30:00-07:00[America/Los_Angeles]::spl-delridge.ics Baby Story Time|2026-10-02T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "note": "Different branches and different event types (Toddler vs Baby Story Time)"
     }
   }
 }
