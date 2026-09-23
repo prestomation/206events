@@ -95388,6 +95388,82 @@
       "resolvedAt": "2026-09-23",
       "source": "agent",
       "reason": "Neighborhood (University District) - too broad"
+    },
+    "northwest-film-forum:wto-99-2026-11-30": {
+      "fields": {
+        "imageUrl": "|UNRESOLVABLE"
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/wp-json/wp/v2/media (featured_media)"
+    },
+    "northwest-film-forum:zi-2026-11-12": {
+      "fields": {
+        "imageUrl": "|https://nwfilmforum.org/wp-content/uploads/2026/09/zi1600-3.png"
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/wp-json/wp/v2/media (featured_media)"
+    },
+    "seatoday:cityspark-19975730": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "seatoday:cityspark-19975742": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "seatoday:cityspark-19975745": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "time-warp-bar:time-warp-1790139600-karaoke-press-start-with-kj-rex": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "time-warp-bar:time-warp-1790305200-electric-sheep--neo-disco--w--djlo---fauxfaux": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "time-warp-bar:time-warp-1790395200-k-pop-night-": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "time-warp-bar:time-warp-1790395200-retrograde-dj-night": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "time-warp-bar:time-warp-1790481600-warped-whatever-dj-event": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "time-warp-bar:time-warp-1790568000-midnight-snack-rotating-dj-event": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "time-warp-bar:time-warp-1790744400-karaoke-press-start-with-kj-rex": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "JS-rendered embed page; no harvestable per-event image"
     }
   }
 }
