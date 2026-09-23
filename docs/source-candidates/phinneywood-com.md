@@ -6,7 +6,7 @@ url: https://phinneywood.com/event/speed-friending-for-men-ages-60/
 tags: ["cozy", "wellness"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
-pr:
+pr: 1570
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle

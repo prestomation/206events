@@ -1,0 +1,11 @@
+name: seattle-bach-festival
+sourceRole: venue
+description: "Seattle Bach Festival"
+url: "https://seattlebachfestival.org/events/"
+friendlyLink: https://seattlebachfestival.org/events/
+tags: ["Music", "Classical"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Bach Festival"
+    timezone: America/Los_Angeles

@@ -1,11 +1,11 @@
 ---
 name: "She Rocks (PNW climbing community)"
-status: investigating
-platform: Instagram (@sherockspnw), no structured calendar
+status: added
+platform: "Squarespace page (HTML scrape of /gym-night-dates)"
 url: https://www.sherocks-pnw.org/
 tags: [Sports]
 firstSeen: 2026-08-15
-lastChecked: 2026-08-15
+lastChecked: 2026-09-23
 ---
 
 Seattle-area community of climbers making the sport more accessible to women
@@ -32,3 +32,5 @@ Investigated 2026-08-15:
 Left as `investigating` rather than `candidate` — worth a follow-up look at
 the Instagram feed's actual posting cadence before committing to the
 instagram-source pipeline for it.
+
+2026-09-23: Found a structured schedule on the Squarespace page `/gym-night-dates` (per-gym sections with address, time range and a "2026 Dates:" m/d list). Added custom HTMLRipper `sources/she_rocks_pnw/` (source `she-rocks-pnw`, calendar `gym-nights`), emitting only the Seattle host gyms (Edgeworks Seattle, Vertical World Seattle, Half Moon Bouldering, Momentum SODO); Lynnwood/Shoreline gyms are filtered out. 48 events for 2026 (about 12 upcoming), 0 errors.

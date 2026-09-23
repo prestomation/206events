@@ -1,11 +1,11 @@
 ---
 name: "Seattle Yoga News"
-status: candidate
+status: notviable
 platform: WordPress (The Events Calendar / Tribe Events)
 url: https://seattleyoganews.com/calendar/
 tags: [Wellness]
 firstSeen: 2026-08-19
-lastChecked: 2026-09-16
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -29,3 +29,5 @@ worth re-verifying the `/events/?ical=1` URL and the Tribe REST endpoint
 together next cycle before implementing.
 
 Re-checked 2026-09-16: `/wp-json/tribe/events/v1/events` still `total: 0`. No change.
+
+Re-checked 2026-09-23: `/wp-json/tribe/events/v1/events` still `total: 0` and `/events/?ical=1` still returns an empty 200 body. Third consecutive check with no events published; the calendar appears abandoned. Closing as notviable — reopen only if the Tribe endpoint starts returning events.

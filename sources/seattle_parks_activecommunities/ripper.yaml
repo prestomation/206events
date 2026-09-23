@@ -1,0 +1,15 @@
+name: seattle-parks-activecommunities
+sourceRole: venue
+description: "Seattle Parks & Recreation Community Centers"
+url: "https://anc.apm.activecommunities.com/seattle/activity/search"
+friendlyLink: https://anc.apm.activecommunities.com/seattle/activity/search
+tags: ["Community", "Parks"]
+weatherSetting: "mixed"
+geo: null
+calendars:
+  - name: special-events
+    friendlyname: "Seattle Parks & Rec Special Events"
+    timezone: America/Los_Angeles
+  - name: drop-in
+    friendlyname: "Seattle Parks & Rec Drop-In Programs"
+    timezone: America/Los_Angeles

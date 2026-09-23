@@ -1,11 +1,11 @@
 ---
 name: "Startup Grind Seattle"
-status: investigating
+status: notviable
 platform: Eventbrite
 url: https://www.eventbrite.com/o/startup-grind-6691755673
 tags: [Tech]
 firstSeen: 2026-08-31
-lastChecked: 2026-08-31
+lastChecked: 2026-09-23
 ---
 
 Global entrepreneur-community brand with a Seattle chapter
@@ -21,3 +21,5 @@ specifically rather than the brand's global calendar. No
 Needs a follow-up with API access to find the Seattle-chapter-specific
 organizer ID (if one exists separate from the global account) before
 this can move to `candidate`.
+
+2026-09-23: The Seattle chapter's Meetup ICS (meetup.com/startup-grind-seattle/events/ical/) is empty, and the Bevy chapter page (startupgrind.com/seattle/) shows no upcoming events — only past, mostly virtual events cohosted from other chapters. Chapter appears inactive locally; closing.

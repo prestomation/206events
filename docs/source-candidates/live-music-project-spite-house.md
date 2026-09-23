@@ -1,11 +1,11 @@
 ---
 name: Live Music Project Spite House
-status: investigating
+status: blocked
 platform: Unknown
 url: https://www.livemusicproject.org/events/performers/7917/spite-house
 tags: [Music]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 Spite House venue listing on Live Music Project's Seattle classical and new music calendar.
@@ -18,3 +18,7 @@ be worth evaluating the aggregator's full calendar instead of one venue subpage.
 "Spite House" ripper found in `sources/` (a substring match on "spite" elsewhere in the repo
 is incidental, from words like "despite"). Needs a proxy or different fetch path to evaluate
 further.
+
+**2026-09-23:** Re-checked the venue page and `/events/feed/`: both HTTP 403
+from Cloudflare. Closed as blocked; the aggregator's full calendar (not a single
+venue subpage) would be the better target if it ever becomes fetchable.

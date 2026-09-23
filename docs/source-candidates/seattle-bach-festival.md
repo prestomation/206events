@@ -1,11 +1,12 @@
 ---
 name: Seattle Bach Festival
-status: investigating
-platform:
-url:
-tags: []
+status: added
+platform: WordPress (Venture Event Manager plugin)
+url: https://seattlebachfestival.org/events/
+tags: [Music, Classical]
 firstSeen: 2026-09-17
-lastChecked: 2026-09-18
+lastChecked: 2026-09-23
+pr:
 ---
 
 Requested via in-app feedback ([issue #1528](https://github.com/prestomation/206events/issues/1528)),
@@ -41,3 +42,5 @@ was findable through a different org's listing, which a direct name
 search kept missing. Worth checking `publicdisplay.art` for this org's
 own contact/link info, or re-running a search once the Cantata Trail
 Lectures date is closer and more likely to be independently indexed.
+
+**Added 2026-09-23:** Found the org's site: https://seattlebachfestival.org/ (founded 2024 by Tekla Cunningham). `/events/` renders every upcoming occurrence server-side with the Venture Event Manager (VEM) WordPress plugin. There is no ICS or Tribe feed. Added the custom HTML ripper **`sources/seattle_bach_festival/`** (`seattle-bach-festival`). Most programs are performed three times (Seattle, Tacoma and Lynnwood), so the ripper keeps only occurrences in Seattle. That gave 11 events (Oct 2026 to Apr 2027), with 0 parse errors.

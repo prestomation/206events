@@ -1,11 +1,11 @@
 ---
 name: "Greenlake Brewing"
-status: investigating
+status: notviable
 platform: unknown
 url: https://hoodline.com/2026/03/brews-with-a-view-greenlake-brewing-taps-in-at-green-lake-on-april-7/
 tags: [Beer, "Green Lake"]
 firstSeen: 2026-07-29
-lastChecked: 2026-08-27
+lastChecked: 2026-09-23
 ---
 
 New neighborhood brewery from Cody Cluff, who also owns Gasworks Brewing
@@ -28,3 +28,7 @@ both redirect to a `/lander` page carrying `LANDER_SYSTEM=PW` and an
 Still no other website or events feed found. Kept at `investigating`
 rather than `notviable` since the business itself is confirmed open and
 may stand up a real site/social presence later.
+
+**2026-09-23:** `greenlakebrewing.com` still redirects to a parked `/lander`
+page; web search finds only opening-news coverage, no brewery website or
+events feed. Closed as notviable (no feed); reopen if an events page appears.

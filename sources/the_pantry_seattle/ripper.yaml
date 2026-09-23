@@ -1,0 +1,14 @@
+name: the-pantry-seattle
+sourceRole: venue
+description: "The Pantry"
+url: "https://thepantryseattle.com/api/events.json"
+friendlyLink: https://thepantryseattle.com/calendar
+tags: ["Food", "Ballard"]
+geo:
+  lat: 47.6793796
+  lng: -122.3748352
+  label: "The Pantry, 1417 NW 70th St, Seattle, WA 98117"
+calendars:
+  - name: classes
+    friendlyname: "The Pantry Cooking Classes & Dinners"
+    timezone: America/Los_Angeles

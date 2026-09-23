@@ -1,0 +1,14 @@
+name: she-rocks-pnw
+sourceRole: venue
+description: "She Rocks"
+url: "https://www.sherocks-pnw.org/gym-night-dates"
+friendlyLink: https://www.sherocks-pnw.org/gym-night-dates
+tags: ["Sports", "Community"]
+# Monthly gym nights rotate across several host climbing gyms, so there is
+# no single venue; each event carries its gym's address. Only the Seattle
+# gyms are emitted (Lynnwood/Shoreline hosts are filtered in the ripper).
+geo: null
+calendars:
+  - name: gym-nights
+    friendlyname: "She Rocks Gym Nights"
+    timezone: America/Los_Angeles

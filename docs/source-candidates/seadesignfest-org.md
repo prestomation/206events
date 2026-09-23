@@ -1,11 +1,12 @@
 ---
 name: "Seattle Design Festival"
-status: candidate
+status: notviable
 platform: WordPress (custom post type)
 url: https://seadesignfest.org/
 tags: [Arts, Community]
 firstSeen: 2026-09-03
-lastChecked: 2026-09-03
+lastChecked: 2026-09-23
+pr:
 ---
 **Seattle Design Festival** — nonprofit multi-day design festival
 (8,000+ attendees), features a "Block Party" kickoff plus multiple days
@@ -33,3 +34,5 @@ Left as `candidate` rather than `notviable` — worth a second look closer
 to the 2027 festival announcement (typically spring) when a fresh
 schedule page exists to actually fetch and evaluate, rather than
 speculatively building against 2026's already-concluded event list.
+
+**2026-09-23 (notviable):** Re-checked. The WP REST API does expose per-year post types (`/wp/v2/event-2026`, 69 posts; `/wp/v2/event-2025`), but the JSON carries no event dates (ACF only has `color`), so dates would need per-page HTML scraping, and the post type is renamed every year (`event-2027` ...), so a ripper would break annually. The 2026 festival (Aug 15-20) has concluded and nothing future is listed. There's no ICS, and the `?ical=1` URL returns HTML. A single annual festival cluster isn't worth a fragile yearly-rewritten scraper.

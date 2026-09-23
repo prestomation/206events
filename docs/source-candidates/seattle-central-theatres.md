@@ -1,11 +1,11 @@
 ---
 name: "Seattle Central Theatres"
-status: investigating
+status: notviable
 platform: Custom (Drupal 10)
 url: https://theatres.seattlecentral.edu/event-calendar
 tags: [Theatre]
 firstSeen: 2026-07-03
-lastChecked: 2026-09-01
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -41,3 +41,5 @@ Re-checked 2026-09-01: page still advertises `webName: "seattletheatres_calendar
 webName variants (`seattlecentral`, `seattlecentraltheatres`, `broadwayperformancehall`,
 `ericksontheatre`, `seattlecentralcollege_events`, `seattlecentral_events`) all still return
 HTTP 410 Gone. No change from July. Still `investigating`.
+
+**Re-checked 2026-09-23:** The Trumba spud endpoint (`https://www.trumba.com/s.aspx?calendar=seattletheatres_calendar&widget=main`) now answers "There's no public calendar named seattletheatres_calendar". The embedded calendar has been unpublished, so the site's own event calendar is empty and the ICS still returns 410. With no event data anywhere, closing as notviable. Reopen if the college republishes a Trumba calendar.

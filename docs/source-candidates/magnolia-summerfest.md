@@ -6,7 +6,7 @@ url: https://www.magnoliasummerfest.org/
 tags: [Community, Magnolia, Festival]
 firstSeen: 2026-07-30
 lastChecked: 2026-09-23
-pr:
+pr: 1570
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1v91pu5/magnolia_summerfest_73182_free_admission_no_dogs/

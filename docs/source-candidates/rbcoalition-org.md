@@ -6,6 +6,7 @@ url: https://www.rbcoalition.org/event-calendar/
 tags: ["learning", "tech", "markets", "food"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
+pr: 1570
 ---
 
 Discovered via aggregator gap analysis. 10 events in the Seattle

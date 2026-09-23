@@ -1,11 +1,11 @@
 ---
 name: "Axe Kickers"
-status: investigating
+status: notviable
 platform: Wix
 url: https://www.axekickers.com/
 tags: [Sports, Nightlife]
 firstSeen: 2026-07-24
-lastChecked: 2026-09-08
+lastChecked: 2026-09-23
 ---
 Competitive axe-throwing venue running IATF-sanctioned tournaments and a
 regular "Axesquatch League" league-night format, plus casual throwing
@@ -27,3 +27,5 @@ Coin Seekers") is listed with "Next Date TBD" rather than a concrete date.
 No Wix Events widget or API endpoint markup was visible in this pass
 either. Still unresolved whether a real recurring-league schedule exists
 behind the marketing page; leaving as `investigating`.
+
+Re-checked 2026-09-23: the site footer gives the address as 10843 1st Ave S, Seattle WA 98168 — Boulevard Park, unincorporated King County, outside Seattle city limits. The `/events` page is still static marketing text (the one tournament is "Next Date TBD"), and the Wix warmup data carries no Wix Events app data. Closing as `notviable` (outside Seattle, no dated events).

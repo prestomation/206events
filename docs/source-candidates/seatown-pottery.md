@@ -1,11 +1,11 @@
 ---
 name: "Seatown Pottery"
-status: candidate
+status: notviable
 platform: Webflow + 24hrpottery.com booking SaaS
 url: https://www.seatownpottery.com/
 tags: [Arts]
 firstSeen: 2026-08-05
-lastChecked: 2026-08-05
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -19,3 +19,5 @@ Not investigated further this cycle — need to check whether
 looks like an org-scoped booking app, similar pattern to Mindbody/other
 class-booking platforms used by yoga studios). If no public API exists,
 this becomes `notviable` or a low-confidence custom scrape target.
+
+**2026-09-23 (notviable):** Webflow `/workshops` lists course cards linking to `app.24hrpottery.com/courses/<uuid>`. That page is a Next.js app with Clerk auth: the SSR payload has course metadata but `firstCalendarEventStartTime: null`, and session dates load client-side from a private, undocumented booking API. There's no ICS, public JSON, or dated HTML. The content is also paid ceramics classes/workshops (booking inventory, not public events), and many cards are for sister studios in Bellevue/Redmond. Not viable.

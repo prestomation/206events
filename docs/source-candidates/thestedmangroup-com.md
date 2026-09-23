@@ -6,7 +6,7 @@ url: https://www.thestedmangroup.com/poggietavern
 tags: ["music", "nightlife"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
-pr:
+pr: 1570
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle

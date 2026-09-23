@@ -1,0 +1,16 @@
+name: boneyard-seattle
+sourceRole: venue
+description: "BoneYard Seattle"
+url: "https://www.boneyardseattle.com/events"
+friendlyLink: https://www.boneyardseattle.com/events
+tags: ["Dogs", "Nightlife", "Central District"]
+geo:
+  lat: 47.599071
+  lng: -122.2984278
+  label: "BoneYard Seattle, 2603 S Jackson St, Seattle, WA 98144"
+  osmType: way
+  osmId: 228737305
+calendars:
+  - name: events
+    friendlyname: "BoneYard Seattle"
+    timezone: America/Los_Angeles

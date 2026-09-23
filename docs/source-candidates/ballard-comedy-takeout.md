@@ -1,11 +1,11 @@
 ---
 name: Ballard Comedy Takeout
-status: investigating
+status: notviable
 platform: Eventbrite
 url: https://www.eventbrite.com/e/ballard-comedy-takeout-weekly-open-mic-on-thursdays-tickets-1988969007844
 tags: [Comedy, Ballard]
 firstSeen: 2026-07-02
-lastChecked: 2026-09-09
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -105,3 +105,5 @@ Re-checked 2026-07-29: public API mirror
 still returns `object_count: 0`. Still dormant.
 
 Re-checked 2026-09-09: public API mirror still returns `object_count: 0`. Still dormant.
+
+Re-checked 2026-09-23: public API mirror (`eventbrite.com/api/v3/organizers/121332375671/events/?status=live`) still returns `object_count: 0` — the weekly series has been dormant since July 2026 (four consecutive empty checks). Closing as `notviable` (series ended); the Eventbrite series-expansion fix already landed, so re-adding is trivial if the organizer relaunches.
