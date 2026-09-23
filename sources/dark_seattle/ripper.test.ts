@@ -127,6 +127,8 @@ describe('isOutsideSeattle', () => {
         ['California Ave & SW Genesee St, West Seattle', false],
         ['Belltown Yacht Club, enter through Screwdriver', false],
         ['Montana Badlands (Lower Queen Anne)', false],
+        ['Kremwerk, Timbre Room', false],
+        ['Some Bar, Greenwood', false],
     ])('%s -> %s', (venue, expected) => {
         expect(isOutsideSeattle(venue)).toBe(expected);
     });

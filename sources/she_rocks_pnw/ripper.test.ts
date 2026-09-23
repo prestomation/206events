@@ -25,6 +25,9 @@ describe('parseTimeRange', () => {
         expect(t.start.toString()).toBe('19:00');
         expect(t.duration.toMinutes()).toBe(90);
     });
+    it('returns undefined for an impossible time instead of throwing', () => {
+        expect(parseTimeRange('from 7:75 - 9 PM')).toBeUndefined();
+    });
     it('returns undefined without a range', () => {
         expect(parseTimeRange('Grab a name tag and come find us!')).toBeUndefined();
     });

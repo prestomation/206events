@@ -50,6 +50,9 @@ export function parseTimeRange(text: string): { start: LocalTime; duration: Dura
     if (!m) return undefined;
     const endMer = m[6];
     const startMer = m[3] || endMer;
+    // Reject impossible clock values ("7:75") instead of letting LocalTime.of throw.
+    const nums = [m[1], m[2], m[4], m[5]].map(v => (v ? parseInt(v, 10) : 0));
+    if (nums[0] < 1 || nums[0] > 12 || nums[2] < 1 || nums[2] > 12 || nums[1] > 59 || nums[3] > 59) return undefined;
     const start = to24(parseInt(m[1], 10), m[2] ? parseInt(m[2], 10) : 0, startMer);
     const end = to24(parseInt(m[4], 10), m[5] ? parseInt(m[5], 10) : 0, endMer);
     let duration = Duration.between(start, end);

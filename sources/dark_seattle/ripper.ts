@@ -35,11 +35,18 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const TIME_RE = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i;
 const RANGE_RE = /^\s*(\d{1,2}(?::\d{2})?\s*(?:am|pm))\s*-\s*(\d{1,2}(?::\d{2})?\s*(?:am|pm)|late)/i;
 
-// City suffixes that still mean "inside Seattle".
-const SEATTLE_SUFFIXES = new Set([
-    "seattle", "west seattle", "capitol hill", "ballard", "fremont", "georgetown",
-    "pioneer square", "belltown", "u-district", "university district", "sodo",
-    "queen anne", "lower queen anne", "wallingford", "columbia city", "beacon hill",
+// City suffixes that mean "outside Seattle". Anything else (a Seattle
+// neighborhood, a venue note) stays in, so an unlisted neighborhood never
+// drops a real Seattle show.
+const OUTSIDE_CITIES = new Set([
+    "tacoma", "olympia", "everett", "bellingham", "gig harbor", "white center",
+    "shoreline", "bellevue", "redmond", "kirkland", "renton", "kent", "auburn",
+    "burien", "tukwila", "seatac", "des moines", "federal way", "lynnwood",
+    "edmonds", "bothell", "kenmore", "lake forest park", "mountlake terrace",
+    "mukilteo", "marysville", "issaquah", "sammamish", "woodinville", "puyallup",
+    "lakewood", "bremerton", "port townsend", "port angeles", "vashon",
+    "bainbridge island", "snohomish", "monroe", "north bend", "spokane",
+    "portland", "vancouver", "boise",
 ]);
 
 const DEFAULT_DURATION = Duration.ofHours(3);
@@ -79,10 +86,7 @@ export function isOutsideSeattle(venue: string): boolean {
         if (suffix !== "WA") return true;
         suffix = parts[parts.length - 2];
     }
-    // Only treat Capitalized place-name suffixes as cities; free text like
-    // "enter through Screwdriver" is a note, not a city.
-    if (!/^[A-Z][A-Za-z.'-]*(?:\s+[A-Z][A-Za-z.'-]*)*$/.test(suffix)) return false;
-    return !SEATTLE_SUFFIXES.has(suffix.toLowerCase());
+    return OUTSIDE_CITIES.has(suffix.toLowerCase());
 }
 
 export default class DarkSeattleRipper extends HTMLRipper {
