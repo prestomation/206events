@@ -6,7 +6,7 @@ url: https://hcde.washington.edu/
 tags: [Education, Tech, "University District"]
 firstSeen: 2026-09-23
 lastChecked: 2026-09-23
-pr: pending
+pr: 1577
 ---
 
 Found alongside `uw-graduate-school` by probing the UW Trumba calendar
