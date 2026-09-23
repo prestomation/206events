@@ -113,18 +113,42 @@ function extractEventId(url: string | undefined, name: string, date: ZonedDateTi
     return `side-out-tsunami-${slug}-${date.toLocalDate().toString()}-${slot}`;
 }
 
+// The /events page's SportsEvent JSON-LD is populated by a server-side call
+// to CourtReserve during Sideout Tsunami's own Next.js render; that call
+// occasionally fails to complete in time and the page renders with only the
+// SportsActivityLocation/BreadcrumbList blocks (HTTP 200, no error, just an
+// empty events section). Observed directly on GitHub Actions' own network
+// path, not just this sandbox's — so it's retried here rather than trusted
+// on the first attempt.
+const MAX_FETCH_ATTEMPTS = 3;
+const RETRY_DELAY_MS = 2000;
+
 export default class SideOutTsunamiRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
         const now = ZonedDateTime.now(TIMEZONE);
 
-        const res = await fetchFn(ripper.config.url.toString(), {
-            headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" },
-        });
-        if (!res.ok) throw new Error(`Sideout Tsunami returned HTTP ${res.status}`);
+        let events: RipperCalendarEvent[] = [];
+        let errors: RipperError[] = [];
 
-        const html = await res.text();
-        const { events, errors } = extractSideOutTsunamiEvents(html, now);
+        for (let attempt = 1; attempt <= MAX_FETCH_ATTEMPTS; attempt++) {
+            const res = await fetchFn(ripper.config.url.toString(), {
+                headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" },
+            });
+            if (!res.ok) throw new Error(`Sideout Tsunami returned HTTP ${res.status}`);
+
+            const html = await res.text();
+            const parsed = extractSideOutTsunamiEvents(html, now);
+            events = parsed.events;
+            errors = parsed.errors;
+
+            // A genuine parse failure (malformed JSON-LD) isn't the transient
+            // render gap this retry targets — no point retrying it.
+            const hasParseFailure = errors.some(e => e.type === "ParseError" && e.reason.startsWith("Failed to parse JSON-LD"));
+            if (events.length > 0 || hasParseFailure || attempt === MAX_FETCH_ATTEMPTS) break;
+
+            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY_MS));
+        }
 
         const calConfig = ripper.config.calendars[0];
         return [{

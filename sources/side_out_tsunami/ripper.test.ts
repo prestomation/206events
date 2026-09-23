@@ -1,17 +1,44 @@
-import { describe, it, expect } from 'vitest';
-import { ZonedDateTime } from '@js-joda/core';
+import { describe, it, expect, vi, afterEach } from 'vitest';
+import { ZonedDateTime, ZoneId } from '@js-joda/core';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import '@js-joda/timezone';
-import { extractSideOutTsunamiEvents } from './ripper.js';
+import SideOutTsunamiRipper, { extractSideOutTsunamiEvents } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const NOW = ZonedDateTime.parse('2026-09-01T00:00:00-07:00[America/Los_Angeles]');
+const ZONE = ZoneId.of('America/Los_Angeles');
 
 function loadSampleHtml(): string {
     return fs.readFileSync(path.join(__dirname, 'sample-data.html'), 'utf8');
 }
+
+function makeRipperConfig(overrides: Record<string, any> = {}) {
+    return {
+        config: {
+            name: 'side-out-tsunami',
+            url: new URL('https://sideouttsunami.com/events'),
+            tags: ['Sports', 'Mount Baker'],
+            geo: { lat: 47.5817906, lng: -122.2983779 },
+            disabled: false,
+            proxy: false,
+            calendars: [{
+                name: 'calendar',
+                friendlyname: 'Sideout Tsunami Pickleball Center',
+                timezone: ZONE,
+            }],
+            ...overrides,
+        },
+    } as any;
+}
+
+// The venue's own boilerplate blocks (location + breadcrumb), with no
+// SportsEvent array — the shape the live page renders when its server-side
+// call to CourtReserve for event data doesn't complete in time.
+const NO_EVENTS_HTML = `<html><head>
+    <script type="application/ld+json">{"@type":"SportsActivityLocation","name":"Sideout Tsunami Pickleball Center"}</script>
+</head><body></body></html>`;
 
 describe('SideOutTsunamiRipper', () => {
     it('parses events from sample HTML with no errors', () => {
@@ -182,5 +209,70 @@ describe('SideOutTsunamiRipper', () => {
         expect(events).toHaveLength(0);
         expect(errors).toHaveLength(1);
         expect(errors[0].type).toBe('ParseError');
+    });
+});
+
+describe('SideOutTsunamiRipper.rip()', () => {
+    afterEach(() => {
+        vi.useRealTimers();
+        vi.unstubAllGlobals();
+    });
+
+    it('retries when a fetch returns the page with no SportsEvent entries yet, and keeps events from a later attempt', async () => {
+        vi.useFakeTimers();
+
+        let callCount = 0;
+        const mockFetch = vi.fn().mockImplementation(() => {
+            callCount++;
+            return Promise.resolve({
+                ok: true,
+                text: () => Promise.resolve(callCount < 2 ? NO_EVENTS_HTML : loadSampleHtml()),
+            });
+        });
+        vi.stubGlobal('fetch', mockFetch);
+
+        const ripper = new SideOutTsunamiRipper();
+        const resultPromise = ripper.rip(makeRipperConfig());
+        await vi.runAllTimersAsync();
+        const result = await resultPromise;
+
+        expect(mockFetch).toHaveBeenCalledTimes(2);
+        expect(result[0].events.length).toBeGreaterThan(0);
+    });
+
+    it('gives up after the max attempts and returns an empty result if every fetch comes back with no events', async () => {
+        vi.useFakeTimers();
+
+        const mockFetch = vi.fn().mockImplementation(() => Promise.resolve({
+            ok: true,
+            text: () => Promise.resolve(NO_EVENTS_HTML),
+        }));
+        vi.stubGlobal('fetch', mockFetch);
+
+        const ripper = new SideOutTsunamiRipper();
+        const resultPromise = ripper.rip(makeRipperConfig());
+        await vi.runAllTimersAsync();
+        const result = await resultPromise;
+
+        expect(mockFetch).toHaveBeenCalledTimes(3);
+        expect(result[0].events).toHaveLength(0);
+    });
+
+    it('does not retry a genuine JSON-LD parse failure', async () => {
+        vi.useFakeTimers();
+
+        const mockFetch = vi.fn().mockImplementation(() => Promise.resolve({
+            ok: true,
+            text: () => Promise.resolve('<html><head><script type="application/ld+json">{not valid json</script></head></html>'),
+        }));
+        vi.stubGlobal('fetch', mockFetch);
+
+        const ripper = new SideOutTsunamiRipper();
+        const resultPromise = ripper.rip(makeRipperConfig());
+        await vi.runAllTimersAsync();
+        const result = await resultPromise;
+
+        expect(mockFetch).toHaveBeenCalledTimes(1);
+        expect(result[0].errors.some(e => e.type === 'ParseError')).toBe(true);
     });
 });
