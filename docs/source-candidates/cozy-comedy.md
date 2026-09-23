@@ -1,12 +1,12 @@
 ---
 name: "Cozy Comedy"
-status: candidate
+status: added
 platform: Eventbrite
 url: https://www.eventbrite.com/o/cozy-comedy-44931221223
 tags: [Comedy]
 firstSeen: 2026-09-23
 lastChecked: 2026-09-23
-pr:
+pr: 1576
 ---
 
 Independent standup comedy production company based in Seattle (owned and
