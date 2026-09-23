@@ -10,12 +10,15 @@
 //   MED  → duplicate-candidate queue, drained by the duplicate-resolver skill
 //   LOW  → ignored
 //
-// It is a pure, build-time transform over the events-index entries. It only
-// MARKS events (a shared `duplicateGroupId` + `dedupedSources` on the
-// canonical, `duplicateOf` on the suppressed) — it never drops events or
-// touches any .ics feed. See docs/cross-source-event-dedup.md.
+// The dedup logic itself (scoring, tiering, marking) is a pure, build-time
+// transform over the events-index entries. It only MARKS events (a shared
+// `duplicateGroupId` + `dedupedSources` on the canonical, `duplicateOf` on
+// the suppressed) — it never drops events or touches any .ics feed. This
+// file also owns loadDuplicateCache(), the one bit of file I/O needed to
+// read the committed resolver cache the pure logic consumes. See
+// docs/cross-source-event-dedup.md.
 
-import { readFile, writeFile } from 'fs/promises';
+import { readFile } from 'fs/promises';
 
 export interface DedupEvent {
     icsUrl: string;
@@ -495,10 +498,6 @@ export async function loadDuplicateCache(filePath: string): Promise<DuplicateCac
         `${filePath} has an unexpected shape (expected { resolutions: object }) — ` +
         `fix the file rather than letting the build silently ignore it`
     );
-}
-
-export async function saveDuplicateCache(cache: DuplicateCache, filePath: string): Promise<void> {
-    await writeFile(filePath, JSON.stringify(cache, null, 2), 'utf-8');
 }
 
 // Parse a raw (JSON) duplicate cache into the resolved-decisions map that
