@@ -1,7 +1,7 @@
 ---
 name: "Nook & Cranny Books"
 status: added
-pr: TBD
+pr: 1569
 platform: Eventbrite
 url: https://www.eventbrite.com/o/nook-cranny-books-110336549941
 tags: ["Books", "University District"]
