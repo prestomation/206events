@@ -1,11 +1,11 @@
 ---
 name: "GeekGirlCon"
-status: candidate
+status: notviable
 platform: WordPress (no ICS/API found)
 url: https://geekgirlcon.com/
 tags: [Community, Arts]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 Annual convention celebrating women in geek culture, held at the Seattle
@@ -20,3 +20,5 @@ until a stable machine-readable source (or a simple recurring pattern) is
 identified; would otherwise need a manual date update each year similar to
 Sakura-Con. Unlike Norwescon (SeaTac, out of bounds), the venue is
 in-Seattle, so this stays a `candidate` rather than `notviable`.
+
+Checked 2026-09-23 (notviable): Already covered: the `seattle-convention-center` ripper lists "GeekGirlCon '26" (Oct 24, 2026) on 206.events. The GeekGirlCon site itself still has no ICS/Tribe feed (`?ical=1` returns HTML, `wp-json` is auth-gated). Single annual event; no separate source needed.

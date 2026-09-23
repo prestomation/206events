@@ -1,11 +1,11 @@
 ---
 name: "Kids Out and About Seattle"
-status: candidate
+status: notviable
 platform: "Unknown (Drupal-based EntertainmentCalendar.com network site)"
 url: https://seattle.kidsoutandabout.com/
 tags: [Family]
 firstSeen: 2026-08-17
-lastChecked: 2026-08-17
+lastChecked: 2026-09-23
 ---
 
 Regional franchise site of the EntertainmentCalendar.com / KidsOutAndAbout.com
@@ -24,3 +24,5 @@ Investigated 2026-08-17:
   dated-events listing exists anywhere on the site; on this pass it reads
   as an article/guide site rather than an events calendar. Leaving as
   `candidate` for a follow-up look rather than marking not-viable outright.
+
+**Closed 2026-09-23 (notviable):** Found a real dated listing at `/event-list/YYYY-MM-DD` (HTML only; `/rss.xml` returns 403, no ICS/JSON). Sampled 2026-09-26: ~36 listings, only ~10 in Seattle city, and those are almost all venues already covered by dedicated sources (Museum of Flight, MoPOP, MOHAI, Burke, Chihuly, Taproot, Lumen Field); the rest are Issaquah/Shoreline/Snohomish or national sponsored promos (e.g. a New York photo-studio ad). Entries carry long multi-date lists and one page per day, so it would need a fragile custom scraper. Regional franchise aggregator with little unique Seattle coverage: not worth an HTML ripper.

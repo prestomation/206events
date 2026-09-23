@@ -1,11 +1,11 @@
 ---
 name: "Urban Community Councils of Seattle"
-status: candidate
+status: notviable
 platform: Eventbrite
 url: https://www.eventbrite.com/o/urban-community-councils-of-seattle-115691020691
 tags: [Community]
 firstSeen: 2026-07-11
-lastChecked: 2026-09-09
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -23,3 +23,5 @@ Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcom
 Re-checked 2026-08-24: still 0 upcoming events (`__NEXT_DATA__` `upcomingEvents` empty). No change.
 
 Re-checked 2026-09-09: still 0 upcoming events. No change.
+
+Re-checked 2026-09-23: Eventbrite organizer `115691020691` still has `upcomingEventsTotal: 0`; the only content is a past collection ("Elect-ober Fest 2025 Candidate Forums"). Four consecutive empty checks since July, so closing as notviable (annual candidate-forum series only, no ongoing public event listing). Re-open if a new Eventbrite series appears.

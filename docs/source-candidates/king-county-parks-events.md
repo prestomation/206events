@@ -1,11 +1,11 @@
 ---
 name: King County Parks Events
-status: candidate
+status: notviable
 platform: Socrata Open Data API (JSON)
 url: https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks/get-involved/parks-events
 tags: [Outdoors, Government]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-24
+lastChecked: 2026-09-23
 ---
 
 King County Parks community events, volunteer days, and outdoor activities.
@@ -33,3 +33,5 @@ fails the "Seattle-focused" quality gate as currently filtered. Would only be
 viable with a location-based filter keeping just in-Seattle parks (event
 volume would likely drop close to zero). Holding as `candidate`; not
 implementing without a Seattle-only filter and higher volume.
+
+**Closed 2026-09-23 (notviable):** Re-queried the Socrata endpoint `data.kingcounty.gov/resource/grxi-zqg2.json` across all categories (not just `parks=true`) with start_time > 2026-09-23: 48 events. The `parks=true` events are all outside Seattle (Marymoor/Redmond, Dockton Forest/Vashon). The unfiltered feed is mostly county admin (holiday closures, inquest hearings, contractor orientations, test "Hello World" rows) and hazardous-waste collections in Renton/Burien/Bothell; only ~2 in-Seattle items (Lake City House, Magnuson Park resource fairs). Fails the Seattle-focused gate: outside Seattle.

@@ -1,11 +1,11 @@
 ---
 name: "Midwest Coast Brewing"
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://www.midwestcoastbrewing.com/upcoming
 tags: [Beer]
 firstSeen: 2026-09-16
-lastChecked: 2026-09-16
+lastChecked: 2026-09-23
 ---
 
 Seattle brewery/taproom. Search results describe recurring trivia, music
@@ -28,3 +28,5 @@ Investigated 2026-09-16:
 
 Re-evaluate if a dated events collection or a page listing specific
 day/time patterns becomes reachable.
+
+Investigated 2026-09-23: Found the events widget: `/upcoming` embeds an Elfsight Event Calendar (widget `f484527b-7625-486e-b844-ca1d63ae3be0`, readable via `core.service.elfsight.com/p/boot/`, 402 events). But the brewery is at 2137 W Walnut St, Chicago, IL 60612 (site timezone America/Chicago; events include "The Great Chicago Bed Race"). Outside Seattle.

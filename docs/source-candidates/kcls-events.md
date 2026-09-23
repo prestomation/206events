@@ -1,11 +1,11 @@
 ---
 name: King County Library System Events
-status: candidate
+status: notviable
 platform: BiblioCommons
 url: https://kcls.bibliocommons.com/v2/events
 tags: [Learning, Family]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 King County Library System events including author talks, classes, and community programs at branch libraries.
@@ -25,3 +25,5 @@ larger suburban/regional system (Bellevue, Redmond, Renton, etc.), so
 not a duplicate. Given the volume, likely worth a per-branch or a single
 combined ripper; flag scope (all branches vs. Seattle-adjacent branches
 only) for implementation-time judgment.
+
+**Closed 2026-09-23 (notviable):** King County Library System serves suburban/unincorporated King County only (Bellevue, Redmond, Renton, Tukwila, Shoreline, Federal Way, etc.); it has no branches inside Seattle city limits. Seattle is served by SPL, already covered by `sources/spl`. Fails the Seattle-focused gate: outside Seattle.

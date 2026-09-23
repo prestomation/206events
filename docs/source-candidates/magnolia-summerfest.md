@@ -1,11 +1,12 @@
 ---
 name: "Magnolia Summerfest"
-status: candidate
+status: added
 platform: Recurring (annual, multi-day)
 url: https://www.magnoliasummerfest.org/
 tags: [Community, Magnolia, Festival]
 firstSeen: 2026-07-30
-lastChecked: 2026-07-30
+lastChecked: 2026-09-23
+pr:
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1v91pu5/magnolia_summerfest_73182_free_admission_no_dogs/
@@ -27,3 +28,5 @@ Investigated 2026-07-30:
 - No ICS feed or JSON API; best fit is a hand-authored recurring YAML entry
 - Needs one more year of history to confirm the annual date pattern (late
   July / early August weekend) before committing to an RRULE
+
+**Re-checked 2026-09-23 (added):** Added `sources/recurring/magnolia-summerfest.yaml`. magnoliasummerfest.org now publishes the 2027 dates (Aug 6-8), which confirms the pattern: the Fri-Sun weekend of the 1st Saturday of August (2024 Aug 2-4, 2025 Aug 1-3, 2026 Jul 31-Aug 2). Only the Saturday is modeled (`1st Saturday`, months [8], 10:00 parade start, PT12H with the main stage running until 10pm per the 2026 schedule), because the recurring grammar can't express the Friday before or the Sunday after the 1st Saturday. The description mentions the full weekend. Location is West Magnolia Playfield (OSM relation 4777933). `ONLY_SOURCE=magnolia-summerfest` gives 1 event (RRULE, next occurrence 2027-08-07) with 0 errors.

@@ -1,6 +1,6 @@
 ---
 name: "Human People Beer"
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://humanpeoplebeer.com/events
 tags: [Beer, "Roosevelt"]
@@ -28,3 +28,5 @@ empty. No change.
 
 Re-checked 2026-09-23: `upcoming: []` still empty, `past` count now 7
 (rolling window). No change.
+
+Checked 2026-09-23 (notviable): Squarespace `/events?format=json` still `upcoming: []` after five checks across 2.5 months (Jul–Sep 2026). Venue does not post public events; closing. Reopen if it starts listing events.

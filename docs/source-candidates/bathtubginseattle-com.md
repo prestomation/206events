@@ -1,11 +1,11 @@
 ---
 name: National Whiskey Sour Day
-status: candidate
+status: notviable
 platform: SpotHopper
 url: https://bathtubginseattle.com/events
 tags: ["food", "nightlife"]
 firstSeen: 2026-08-25
-lastChecked: 2026-09-17
+lastChecked: 2026-09-23
 ---
 
 Discovered via aggregator gap analysis. 1 events in the Seattle
@@ -24,3 +24,5 @@ backend but none are marked visible on the public site (the `/events` page
 itself also renders no event cards). Per the "200 + 0 visible events" rule,
 do not implement yet; re-check next cycle in case the venue starts
 publishing events again.
+
+**Checked 2026-09-23 (notviable):** Re-checked SpotHopper spot 62757: `https://www.spothopperapp.com/api/spots/62757/events` still returns `{"events":[]}` (total_records 11, none public) and the `/events` page shows nothing. Only occasional bar promo days; revisit only if the venue starts publishing events.

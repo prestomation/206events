@@ -1,6 +1,6 @@
 ---
 name: "Uplift Climbing"
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://www.upliftclimbing.com/events
 tags: [Sports]
@@ -22,3 +22,4 @@ shell (`data-type="page"`, no events collection). No change.
 Re-checked 2026-09-09: still 0 upcoming events. No change.
 
 Re-checked 2026-09-23: `/events?format=json` still returns an empty `page` shell, 0 upcoming events. No change.
+Re-checked 2026-09-23: closing as notviable. The site's own Squarespace location block puts Uplift Climbing at 17229 15th Ave NE, Shoreline, WA 98155 (outside Seattle city limits), and `/events?format=json` is still an empty page shell with no dated events collection.

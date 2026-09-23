@@ -1,11 +1,12 @@
 ---
 name: League of Women Voters Washington
-status: candidate
+status: notviable
 platform: Wild Apricot
 url: https://www.lwvwa.org/events
 tags: [Political]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-16
+lastChecked: 2026-09-23
+pr:
 ---
 
 League of Women Voters Washington State events and civic engagement activities.
@@ -26,3 +27,5 @@ Center Affinity Group, DEI Affinity Group, etc.) rather than a public community 
 and the org is statewide rather than Seattle-specific. Deprioritizing — poor fit for a
 Seattle events calendar even though the feed itself is technically scrapable (RSS, not
 ICS, so would also need custom parsing rather than the standard `external` ICS path).
+
+**Re-checked 2026-09-23 (notviable):** Per the 2026-09-16 check, the Wild Apricot RSS feed works but is almost all internal committee and affinity-group Zoom meetings, and the org is statewide. Poor fit for a Seattle public-events calendar. Closing as notviable.

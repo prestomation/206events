@@ -1,11 +1,11 @@
 ---
 name: "Grey Drizzle Fibers"
-status: candidate
+status: notviable
 platform: Squarespace
 url: https://www.greydrizzlefibers.com/events
 tags: [Community]
 firstSeen: 2026-07-19
-lastChecked: 2026-09-03
+lastChecked: 2026-09-23
 ---
 
 Fiber arts business (yarn, knitting/spinning classes and retreats) based
@@ -37,3 +37,5 @@ passed and dropped off `upcoming`. The 2 currently-live events are now
 pattern: this Renton-based organizer's calendar is only occasionally
 Seattle-located, not primarily. Deprioritizing further re-checks unless a
 future scan turns up a run of Seattle-located events.
+
+Checked 2026-09-23 (notviable): Outside Seattle: Renton-based organizer whose live events are in North Bend and Bellevue (0 of 2 upcoming in Seattle). Closing rather than re-checking.

@@ -1,0 +1,15 @@
+name: rainier-beach-action-coalition
+sourceRole: venue
+type: styledcalendar
+description: "Rainier Beach Action Coalition"
+url: "https://www.rbcoalition.org/event-calendar/"
+friendlyLink: https://www.rbcoalition.org/event-calendar/
+tags: ["Community", "Rainier Beach"]
+skipEventPhotos: true
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Rainier Beach Action Coalition"
+    timezone: America/Los_Angeles
+    config:
+      styledCalendarId: "CL8o4mzOY39oMLhWNS9I"

@@ -1,11 +1,11 @@
 ---
 name: "PublicDisplay.ART"
-status: candidate
+status: notviable
 platform: unknown (custom Next.js app)
 url: https://publicdisplay.art/calendar
 tags: [Arts, Community]
 firstSeen: 2026-08-21
-lastChecked: 2026-09-18
+lastChecked: 2026-09-23
 ---
 
 Self-described "non-profit arts portal connecting Seattle's creative
@@ -92,3 +92,5 @@ Love Salon on 2026-10-17 — a lead for that candidate's next
 investigation pass, not itself implemented here (out of scope for this
 PR; single-day-only orgs beyond Art Love Salon/Conru weren't verified
 for feed stability).
+
+2026-09-23: Closed: citywide aggregator whose usable single-day events (~41) overlap heavily with orgs already covered by dedicated sources (Seattle Symphony, SAM, Frye, Town Hall, PNB, STG). The rest are Art Walk category tiles or multi-week exhibition ranges, and times need an N+1 fetch per event. Its one distinct value, Art Love Salon, is already implemented as `sources/art_love_salon/`, which reads from this site. Implementing the whole aggregator isn't worth the dedup noise.

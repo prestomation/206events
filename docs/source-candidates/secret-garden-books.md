@@ -1,11 +1,11 @@
 ---
 name: Secret Garden Books Events
-status: candidate
+status: blocked
 platform: IndieCommerce
 url: https://secretgardenbooks.com/upcoming-events
 tags: [Literary, Books]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-11
+lastChecked: 2026-09-23
 ---
 
 Phinney Ridge independent bookstore hosting author readings, book clubs, and literary events.
@@ -26,3 +26,5 @@ rule rather than a hard block; re-test with a plain fetch next cycle
 before staging for proxy testing.
 
 Re-checked 2026-09-11: `/upcoming-events` still returns HTTP 403 from this environment. No change.
+
+2026-09-23: `/upcoming-events` and the homepage both return HTTP 403 with a Cloudflare "Just a moment..." JS challenge (tested with bot and full browser UAs). Third consecutive 403 check, so this is a hard Cloudflare block, not an intermittent WAF rule. Would need the `browserbase` rung; volume is low (mostly a monthly book club).

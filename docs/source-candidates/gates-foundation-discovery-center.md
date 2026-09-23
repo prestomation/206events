@@ -1,11 +1,11 @@
 ---
 name: "Gates Foundation Discovery Center"
-status: candidate
+status: notviable
 platform: WordPress (custom `event` post type)
 url: https://www.discovergates.org/events/
 tags: [Community, QueenAnne]
 firstSeen: 2026-08-10
-lastChecked: 2026-08-10
+lastChecked: 2026-09-23
 ---
 
 Free public museum/exhibit space at 440 5th Ave N, Seattle (Seattle Center
@@ -25,3 +25,5 @@ Investigated 2026-08-10:
 clean custom-JSON ripper if populated), but it returns 0 events right now.
 Re-check `wp-json/wp/v2/event?per_page=10` next cycle; implement once it
 returns upcoming events.
+
+Checked 2026-09-23 (notviable): Re-checked: `wp-json/wp/v2/event` still returns `x-wp-total: 0`, the /events/ page lists nothing, and the site banner now says "The Discovery Center is open for group tours by appointment only." No public events to list.

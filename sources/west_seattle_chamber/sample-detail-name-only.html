@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html><body><div id="gzns">
+    <meta itemprop="eventStatus" content="EventScheduled">
+    <!--event detail page header image -->
+    <div class="row gz-details-headerimg">
+        <div class="col-xs-12">
+            <div class="media"> <img class="img-fluid" itemprop="image" src="https://chambermaster.blob.core.windows.net/images/customers/1229/members/6368/events/14185/EventHeaderImage/(Main)_CWS_Logo.png" alt=""> </div>
+        </div>
+    </div>
+
+    <!--page title and share buttons -->
+    <div class="row gz-page-return">
+        <a href="https://westseattle.wschamber.com/events/search" aria-label="Back Button"><i class="gz-fas gz-fa-reply"></i></a>
+    </div>
+    <div class="row gz-event-details-header">
+        <div class="col-auto pr-0 gz-details-logo-col">
+                <div class="gz-details-event-icon"><img class="img-fluid"  src="https://chambermaster.blob.core.windows.net/images/customers/1229/members/6368/events/14185/EVENT_ICON/(Main)_CWS_Logo.png" alt="West Seattle Counseling: Men&#39;s Therapy Group" /></div>
+        </div>
+        <div class="col pl-0">
+            <div class="d-flex gz-details-head">
+                    <h1 class="gz-pagetitle" itemprop="name">West Seattle Counseling: Men&#39;s Therapy Group</h1>
+                <!-- share Button trigger modal (modal code at bottom of page) -->
+                    <button id="shareDrop" type="button" class="gz-share-btn" data-toggle="modal" data-target="#shareModal" aria-label="Share Button"> <i class="gz-fas gz-fa-share-alt"></i></button>
+            </div>
+        </div>
+    </div>
+    <!-- Event Sponsor display when PLACEMENT_TOP is chosen. Only supported in v4 -->
+    <!-- row for event facts or description and register card -->
+    <div class="row gz-details-links">
+        <div class="col-sm-7 col-md-8 order-sm-first">
+                <!-- left column facts on original layout -->
+    <div class="row gz-event-facts">
+        <div class="col-sm-12 gz-event-date">
+            <h5 class="gz-subtitle">Date and Time</h5>
+            <p>
+                <span itemprop="startDate" content="2026-09-30T01:00:00Z">Tuesday Sep 29, 2026</span>
+                <meta itemprop="endDate" content="2026-09-30T02:15:00Z" />
+                    <br>
+                    <span class="gz-details-time">6:00 PM - 7:15 PM PDT</span>
+            </p>
+            <div class="gz-details-hours"><p>Every Tuesday from 6:00&ndash;7:15 p.m.</p></div>
+        </div>
+            <div class="col-sm-12 gz-event-location" itemprop="location" itemscope itemtype="http://schema.org/Place">
+                <h5 class="gz-subtitle">Location</h5>
+<p><span itemprop="name">Counseling West Seattle</span></p>                                                            </div>
+        <div class="col-sm-12 gz-event-fees">
+            <h5 class="gz-subtitle">Fees/Admission</h5>
+            <p><span class="gz-event-fees">$60 per session</span></p>
+        </div>
+        <div class="col-sm-12 gz-event-website">
+            <h5 class="gz-subtitle">Website</h5>
+            <p><span><a href="http://www.counselingwestseattle.com" itemprop="url" target="_blank">http://www.counselingwestseattle.com</a></span></p>
+        </div>
+        <div class="col-sm-12 gz-event-contactInfo">
+            <h5 class="gz-subtitle">Contact Information</h5>
+            <p>
+                <span itemprop="organizer">Contact Patricia Lusby for intake and to schedule initial session: (253)-777-8280</span><br>
+                    <span><a href="mailto:scheduling@counselingwestseattle.com?subject=West%20Seattle%20Counseling%3A%20Men&#39;s%20Therapy%20Group" title="send an email to scheduling@counselingwestseattle.com with questions or to request additional information">Send Email</a></span>
+            </p>
+        </div>
+    </div>
+        </div>
+        <!-- right column for register card and reminder -->
+        <div class="col-sm-5 col-md-4 order-sm-last">
+                <div class="card gz-eventdetails-card">
+        <span class="gz-img-placeholder">West Seattle Counseling: Men&#39;s Therap...</span>
+    </div>
+
+    <!--event reminder accorder for larger viewports, duplicated one below for mobile-->
+    <div class="accordion d-none d-sm-block" id="reminderAccordian">
+<form action="https://westseattle.wschamber.com/events/details/men-s-therapy-group-09-29-2026-15027" class="gz-form needs-validation" method="post">            <div class="card gz-event-reminder">
+                <h5 class="card-header">
+                    <button class="btn btn-block reminder-btn" type="button" data-toggle="collapse" data-target="#cardReminder" aria-expanded="true" aria-controls="cardReminder">Set a Reminder</button>
+                </h5>
+                <div id="cardReminder" class="collapse" data-parent="#reminderAccordian">
+                    <div class="card-body">
+                        <p class="card-text">Enter your email address below to receive a reminder message.</p>
+                        <div>
+                            
+                        </div>
+                        <p class="card-text gz-event-input">
+                            <div class="form-group">
+                                <label for="reminderEmail" class="sr-only">Email address</label>
+                                <input name="Reminder.Email" required type="email" class="form-control" id="reminderEmail" placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="reminderDays" class="sr-only">Select the amount of Days before the event</label>
+                                <select class="form-control" id="reminderDays" name="Reminder.DaysBefore" required="required"><option value="">-- Select Days Before Event --</option>
+<option value="1">1 Day</option>
+<option value="2">2 Days</option>
+<option value="3">3 Days</option>
+<option value="7">1 Week</option>
+</select>
+                            </div>
+
+                            <section class="captcha-container">
+                                <label style="display:none" for="captchavalidation">Captcha Validation</label>
+                                <input style="display:none" id="captchavalidation" class="form-control" data-recaptcha="true" required aria-hidden="true" />
+                                <div class="invalid-feedback w-100">
+                                    Please complete the Captcha
+                                </div>
+                                <div class="g-recaptcha" data-size="compact" data-sitekey="REDACTED-RECAPTCHA-SITE-KEY" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                            </section>
+
+                            <button class="btn gz-submit-btn" role="button" type="button">Submit</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+</form>    </div>
+            <!-- Event Sponsor display when PLACEMENT_RIGHT is chosen -->
+                    </div>
+    </div>
+        <!-- row for description on original layout -->
+<div class="row gz-event-description" itemprop="about">
+                        <div class="col">
+                            <h3 class="gz-subtitle">Description</h3>
+                            <p>Counseling West Seattle&#39;s Men&#39;s therapy group is open for enrollment!<br />
+<br />
+Hosted by Matthew Kirshman, MA, MSW, LICSW, the group meets every Tuesday from 6:00&ndash;7:15 p.m. in person at Counseling West Seattle&#39;s offices on California Avenue. Topics are open-ended, focusing on issues involving communication, emotions, &amp; identity, and how those topics are contextualized in male socialization.<br />
+<br />
+Prospective participants will have an initial one-on-one session to ensure that this group is right for them.<br />
+<br />
+Insurance information is available upon request.</p>
+                        </div>
+                    </div>
+        <!-- row for video if exists -->
+            <!--event reminder display at bottom only for mobile, other one is hidden on mobile-->
+        <div class="accordion d-block d-sm-none" id="reminderAccordian_MobileOnly">
+            <div class="card gz-event-reminder">
+                <h5 class="card-header">
+                    <button class="btn reminder-btn" type="button" data-toggle="collapse" data-target="#cardReminder_MobileOnly" aria-expanded="true" aria-controls="cardReminder_MobileOnly">Set a Reminder</button>
+                </h5>
+                <div id="cardReminder_MobileOnly" class="collapse" data-parent="#reminderAccordian">
+<form action="https://westseattle.wschamber.com/events/details/men-s-therapy-group-09-29-2026-15027" class="gz-form needs-validation" method="post">                        <div class="card-body">
+                            <p class="card-text">Enter your email address below to receive a reminder message.</p>
+                            <div>
+                                
+                            </div>
+                            <p class="card-text gz-event-input">
+                                <div class="form-group">
+                                    <label class="sr-only">Email address</label>
+                                    <input name="Reminder.Email" required type="email" class="form-control" id="reminderEmailM" placeholder="name@example.com" aria-label="Reminder Email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Select the amount of Days before the event</label>
+                                    <select class="form-control" id="reminderDaysM" name="Reminder.DaysBefore" required="required"><option value="">-- Select Days Before Event --</option>
+<option value="1">1 Day</option>
+<option value="2">2 Days</option>
+<option value="3">3 Days</option>
+<option value="7">1 Week</option>
+</select>
+                                </div>
+                                <section class="captcha-container">
+</div></body></html>

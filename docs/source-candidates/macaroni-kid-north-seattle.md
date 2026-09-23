@@ -1,11 +1,12 @@
 ---
 name: "Macaroni KID North Seattle-Shoreline"
-status: candidate
+status: notviable
 platform: "Unknown custom (Macaroni Kid national franchise CMS)"
 url: https://nwseattle.macaronikid.com/events
 tags: [Family]
 firstSeen: 2026-08-17
-lastChecked: 2026-08-17
+lastChecked: 2026-09-23
+pr:
 ---
 
 Local franchise edition of the national Macaroni Kid family-events network,
@@ -21,3 +22,5 @@ Investigated 2026-08-17:
   straddles North Seattle/Shoreline — would need per-event filtering to stay
   Seattle-focused if Shoreline-only listings turn out to be common. Leaving
   as `candidate` for a follow-up look.
+
+**Re-checked 2026-09-23 (notviable):** The `/events` page embeds a Yodel widget (`events.yodel.today/y/widget/69cd3fa1b9fe80e015e338a4`, a JS-rendered Next.js app). Its ~24 listed events are pulled from other calendars (e.g. "spl event calendar" story times, which the `spl` source already covers), and many are outside Seattle (Carnation, Shoreline, Lake Forest Park, Kenmore). It's an aggregator of aggregators with little original Seattle content. Closing as notviable.

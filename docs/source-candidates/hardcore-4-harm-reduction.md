@@ -1,11 +1,11 @@
 ---
 name: Hardcore 4 Harm Reduction (PLUR warehouse raves)
-status: candidate
+status: notviable
 platform: Unknown
 url: https://hardcore4harmreduction.org
 tags: [Nightlife, Music]
 firstSeen: 2026-09-07
-lastChecked: 2026-09-20
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -17,3 +17,5 @@ at time of check, so platform/feed could not be evaluated. Re-check next
 cycle before investigating further.
 
 Re-checked 2026-09-20: still `HTTP 502 Bad Gateway`. No change.
+
+Checked 2026-09-23 (notviable): `hardcore4harmreduction.org` no longer resolves in DNS (502 on 2026-09-07, DNS failure on 2026-09-23). No site or feed of its own; events are only on Resident Advisor/EverOut, which need no dedicated source here.

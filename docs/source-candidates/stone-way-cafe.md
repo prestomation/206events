@@ -1,11 +1,11 @@
 ---
 name: Stone Way Cafe
-status: candidate
+status: notviable
 platform: Custom (unknown calendar widget)
 url: https://stonewaycafe.com/events
 tags: ["Wallingford"]
 firstSeen: 2026-07-08
-lastChecked: 2026-08-31
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -33,3 +33,5 @@ with a machine-readable `data-event-start-date` ISO timestamp, so this
 would be scrapable via custom HTML once volume picks up. Still only
 **1 confirmed future event** ("Labor Day", Sept 7, 2026) — same
 single-item count as the July check. No change to status/priority.
+
+2026-09-23: Re-checked: SpotHopper site (`spot_id` 106690); the built-in `type: spothopper` ripper would parse it, but `/events` now server-renders **zero** `.event-calendar-card` elements (the single Labor Day item has passed; `/calendar` 404s). Third check with ~no events — too sparse to maintain. If the cafe starts posting open mics, re-open and add with `type: spothopper`, `url: https://stonewaycafe.com/events`.

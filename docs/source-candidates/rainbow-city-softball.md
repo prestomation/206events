@@ -1,11 +1,11 @@
 ---
 name: Rainbow City Softball
-status: candidate
+status: notviable
 platform: WordPress
 url: https://rainbowcitysoftball.org
 tags: [Playing-Sports, Queer, Softball]
 firstSeen: 2026-08-14
-lastChecked: 2026-09-16
+lastChecked: 2026-09-23
 ---
 
 Seattle's LGBTQ+ recreational softball league.
@@ -24,3 +24,5 @@ Google Sheets spreadsheet (`docs.google.com/spreadsheets/d/1VIkZgBKWE7QyMgx...`)
 not a scrapable HTML page, ICS feed, or JSON API. A public Google Sheet could
 theoretically be exported as CSV, but the layout/structure isn't confirmed and
 depending on a spreadsheet's incidental format is fragile. No change to status.
+
+2026-09-23: Closed: the only schedule is a Google Sheets spreadsheet of league game fixtures (plus a handful of registration/clinic key dates). League game fixtures don't have public-event value, and scraping an incidental spreadsheet layout is fragile.

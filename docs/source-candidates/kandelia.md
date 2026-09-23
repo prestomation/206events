@@ -1,11 +1,11 @@
 ---
 name: "Kandelia"
-status: candidate
+status: notviable
 platform: WordPress (Modern Events Calendar plugin)
 url: https://www.kandelia.org/events
 tags: []
 firstSeen: 2026-07-10
-lastChecked: 2026-09-16
+lastChecked: 2026-09-23
 ---
 
 Seattle-based nonprofit providing youth and family programs for immigrant
@@ -32,3 +32,5 @@ Re-checked 2026-08-24: `/events/feed/` still has 0 `<item>` entries
 
 Re-checked 2026-09-16: `/events/feed/` still 0 `<item>` entries
 (`lastBuildDate` now Sep 10, 2026). No change.
+
+Checked 2026-09-23 (notviable): MEC `/events/feed/` still 0 `<item>` entries (4th check, Jul–Sep 2026). Programs are mostly for enrolled families, not public events; closing.

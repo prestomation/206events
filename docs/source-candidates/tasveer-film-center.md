@@ -1,11 +1,11 @@
 ---
 name: Tasveer Film Center
-status: candidate
-platform: Custom HTML (Eventive ticketing)
+status: added
+platform: Indy Systems (GraphQL)
 url: https://filmcenter.tasveer.org/home
 tags: [Film, Cultural]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 Seattle South Asian film organization hosting screenings, festivals, and film events.
@@ -19,3 +19,5 @@ can't execute, so per-showtime dates live on individual film/checkout pages
 rather than a single scrapable listing. Viable but would need HTML scraping
 of the homepage film list plus Eventive checkout pages for showtimes, or an
 Eventive-org-level integration if one exists. Not religious; Seattle-focused.
+
+2026-09-23: Added as custom ripper `sources/tasveer_film_center/` (source name `tasveer-film-center`). The site runs on the Indy Systems cinema platform; its same-origin GraphQL endpoint (`https://filmcenter.tasveer.org/graphql`, scoped by public `site-id: 262` / `circuit-id: 138` headers from the site bundle) returns every upcoming public showing via `showingsForDate` with no date argument. One POST per build. ONLY_SOURCE build: **113 events**, 0 errors. Film-festival passes on Eventive (tffm-2026.eventive.org) are not included.

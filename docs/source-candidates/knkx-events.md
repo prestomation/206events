@@ -1,11 +1,12 @@
 ---
 name: KNKX Events
-status: candidate
+status: notviable
 platform: NPR PSD (Drupal / Custom HTML)
 url: https://www.knkx.org/events
 tags: [Music, Tacoma, Seattle]
 firstSeen: 2026-08-11
-lastChecked: 2026-08-11
+lastChecked: 2026-09-23
+pr:
 ---
 
 Discovered via r/SeattleEvents post: https://old.reddit.com/r/SeattleEvents/comments/1vkolx8/knkx_10th_anniversary_event_in_tacoma_811/
@@ -32,3 +33,5 @@ server-rendered but the event list items appear to be loaded dynamically via the
 PSD API, so scraping will require finding the JSON/API endpoint or parsing the
 individual event pages. Needs investigation into the PSD events data source
 before it can be implemented (mirror the KEXP approach).
+
+**Re-checked 2026-09-23 (notviable):** `/events` (and `/events.rss`) is editorial articles (e.g. a Hispanic Heritage Month round-up), not a calendar. The real listing is the Brightspot community calendar at `/calendar` (`PromoEvent` HTML cards, ~20 per page, no ICS/JSON found). It is a regional user-submitted round-up: much of it is outside Seattle (Village Theatre Issaquah, Tacoma Reads, Port Townsend Film Festival, Olympia Funk Fest, Banff tour), and the Seattle items republish venues we already cover (Royal Room, Seattle Symphony, Seattle Arts & Lectures, Frye, Earshot Jazz). It would need a custom HTML ripper with recurring-range parsing for little new coverage. Closing as notviable.

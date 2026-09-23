@@ -1,6 +1,6 @@
 ---
 name: "Innervisions Posters & Framing (Open Mic Night)"
-status: candidate
+status: notviable
 platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-records-49577348033
 tags: [Music, University District]
@@ -44,3 +44,5 @@ Re-checked 2026-09-11: `/api/v3/organizers/49577348033/events/?status=live` stil
 Re-checked 2026-09-16: `/api/v3/organizers/49577348033/events/?status=live` still returns `object_count: 0`. No change.
 
 Re-checked 2026-09-23 (9 days before the next First Friday): `/api/v3/organizers/49577348033/events/?status=live` still returns `object_count: 0`. No change.
+
+Checked 2026-09-23 (notviable): Eventbrite organizer `49577348033` still `object_count: 0` live events (7th consecutive check, Aug–Sep 2026, including checks timed before First Friday). Monthly open mic is not listed in advance on any feed; closing.

@@ -1,6 +1,6 @@
 ---
 name: "Clean Greens Farm & Market"
-status: candidate
+status: notviable
 platform: Eventbrite
 url: https://www.cleangreensfarmmarket.com/
 tags: [Community, "Central District"]
@@ -37,4 +37,4 @@ Re-checked 2026-09-16: Eventbrite organizer `96261948593` public API still retur
 
 Re-checked 2026-09-20: Eventbrite organizer `96261948593` public API still returns `object_count: 0`. No change.
 
-Re-checked 2026-09-23: Eventbrite organizer `96261948593` public API still returns `object_count: 0`. No change.
+Re-checked 2026-09-23: Eventbrite organizer `96261948593` page still shows `upcomingEventsTotal: 0`, with nothing posted even at the end of market season. Across seven checks since July the organizer has never listed an event; the only expected item is a single annual Harvest Dinner fundraiser. Closing as notviable (no recurring public event pipeline). Reopen if the organizer starts listing events.

@@ -1,0 +1,11 @@
+name: foundercal
+sourceRole: aggregator
+description: "foundercal Seattle"
+url: "https://foundercal.com/cities/seattle"
+friendlyLink: https://foundercal.com/cities/seattle
+tags: ["Tech"]
+geo: null
+calendars:
+  - name: seattle
+    friendlyname: "foundercal Seattle Startup & Founder Events"
+    timezone: America/Los_Angeles

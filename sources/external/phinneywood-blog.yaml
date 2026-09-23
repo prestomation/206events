@@ -1,0 +1,11 @@
+geo: null
+name: phinneywood-blog
+sourceRole: aggregator
+friendlyname: PhinneyWood Blog
+description: The PhinneyWood neighborhood blog's community events calendar, covering classes, workshops, theater, senior-center programs, markets, and business celebrations across Phinney Ridge and Greenwood.
+icsUrl: https://phinneywood.com/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://phinneywood.com/events/
+tags:
+  - Phinney
+  - Greenwood
+  - Community
