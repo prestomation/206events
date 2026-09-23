@@ -1,0 +1,11 @@
+name: seattles-child
+sourceRole: aggregator
+description: "Seattle's Child"
+url: "https://www.seattleschild.com/calendar/"
+friendlyLink: https://www.seattleschild.com/calendar/
+tags: ["Kids", "Community"]
+geo: null
+calendars:
+  - name: family-events
+    friendlyname: "Seattle's Child Family Events"
+    timezone: America/Los_Angeles

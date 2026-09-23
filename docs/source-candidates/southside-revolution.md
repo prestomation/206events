@@ -1,11 +1,11 @@
 ---
 name: "Southside Revolution"
-status: investigating
+status: notviable
 platform: Wix
 url: https://www.southsiderevolution.org/events-schedule
 tags: [Sports]
 firstSeen: 2026-08-16
-lastChecked: 2026-08-16
+lastChecked: 2026-09-23
 ---
 
 South Seattle junior roller derby league (non-profit since 2014),
@@ -24,3 +24,5 @@ reverse-engineering the Wix Events REST API. Leaving as `investigating`
 rather than `notviable`/`blocked` since the org and schedule are real;
 worth a second look for a public iCal/RSS export Wix sometimes exposes
 per-calendar before writing off.
+
+2026-09-23: The Wix page does server-render its Wix Events data (in the SSR warmup JSON), but it lists only one upcoming event (a New Skater Clinic on 2026-09-27, hasMore:false) and no bout schedule. A bespoke Wix-warmup scraper for ~1 event is not worth it; closing as too low volume. Revisit if bouts get posted to the Wix events widget.

@@ -1,11 +1,11 @@
 ---
 name: Boneyard Seattle
-status: investigating
-platform: Wix (widget-rendered calendar)
+status: added
+platform: Wix (CMS repeater, wix-warmup-data)
 url: https://www.boneyardseattle.com/events-1
 tags: [Nightlife, Music]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-31
+lastChecked: 2026-09-23
 ---
 
 Seattle bar and music venue with an events calendar for live shows and nightlife.
@@ -28,3 +28,5 @@ Confirmed a `wix-events` widget reference in the page markup, but no
 inline JSON event data in the static HTML — same client-rendered
 limitation as other Wix-hosted candidates in this backlog (Blue Moon
 Tavern, Southside Revolution). No change to status.
+
+Added 2026-09-23 as `sources/boneyard_seattle/` (custom ripper, source name `boneyard-seattle`). The `/events` page is a Wix CMS repeater bound to the `EventsAtTavern` collection, and Wix server-renders the records (ISO `date`, free-text `time1` like "09/11, 7-9pm", `eventName`, `category`, `image`) into the `wix-warmup-data` script — the ripper reads only that collection, parses the time text (start + range duration), skips "Bar closed" hours notices and past dates, and emits an `UncertaintyError` (startTime) when a listing has no time. Venue: 2603 S Jackson St, Seattle 98144 (Central District). `ONLY_SOURCE=boneyard-seattle` build: 2 upcoming events (7 total in the current list, rest already past), 0 errors. The owner updates the list roughly monthly, so volume is low and can briefly drop to 0 between refreshes.

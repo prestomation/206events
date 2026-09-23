@@ -1,11 +1,12 @@
 ---
 name: "Seattle Cider Taproom"
-status: candidate
+status: investigating
 platform: Eventbrite
 url: https://www.eventbrite.com/o/seattle-cider-taproom-95674605773
 tags: [Beer, SODO]
 firstSeen: 2026-09-16
-lastChecked: 2026-09-19
+lastChecked: 2026-09-23
+pr:
 ---
 
 Seattle Cider Co.'s taproom in SODO (4660 Ohio Ave S, Seattle), 21+ and
@@ -22,3 +23,5 @@ Investigated 2026-09-16:
 
 **Re-checked 2026-09-19:** organizer events API still returns
 `object_count: 0`. No change.
+
+**2026-09-23 (investigating):** Re-checked. The Eventbrite organizer `95674605773` API (`/v3/organizers/95674605773/events/?status=live`) still returns `object_count: 0`. The brand site (now seattlecider.com, a Next.js app) has no events or taproom page. Don't implement until the organizer shows live events. If it does, add a `type: eventbrite` ripper (`organizerId: "95674605773"`, 4660 Ohio Ave S, SODO).

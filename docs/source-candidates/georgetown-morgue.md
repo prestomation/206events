@@ -1,11 +1,11 @@
 ---
 name: "Georgetown Morgue (Seattle Haunts)"
-status: investigating
+status: added
 platform: none (image-only calendar; WordPress site, Next.js/hytix.com ticketing SPA)
 url: https://seattlehaunts.com/schedule-and-events/
 tags: [Halloween, Georgetown]
 firstSeen: 2026-09-17
-lastChecked: 2026-09-17
+lastChecked: 2026-09-23
 ---
 
 Seasonal Halloween haunted-house attraction, 5000 E Marginal Way S,
@@ -46,3 +46,13 @@ Re-evaluate: (1) if fearticket.com/hytix.com turns out to expose a public
 session/showtime API (check via Playwright network trace), or (2) if
 `seattlehaunts.com` ever publishes the schedule as text instead of an
 image.
+
+**2026-09-23:** Found the data API behind the fearticket.com/hytix.com SPA:
+`https://api2.hytix.com/v2/public/events/5441/dates` (public, no auth) returns
+open nights keyed by date with 15-minute entry slots (ticketType 1); closed
+nights carry a season-long placeholder (ticketType 2) that is skipped.
+Implemented as custom JSON ripper `sources/georgetown_morgue/` (source name
+`georgetown-morgue`, one event per open night, first slot start to last slot
+end). Event id 5441 is per-season ("Georgetown Morgue 2026"); the yaml notes
+how to update it next year, and `expectEmpty: true` covers the off-season.
+Verified: 26 events, 0 errors.

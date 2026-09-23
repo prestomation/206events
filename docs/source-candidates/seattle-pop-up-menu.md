@@ -1,11 +1,12 @@
 ---
 name: "Seattle Pop-Up Menu"
-status: candidate
+status: notviable
 platform: Notion (embedded, no public API)
 url: https://www.seattlepopupmenu.com/calendar
 tags: ["Food", "PopUp"]
 firstSeen: 2026-08-29
-lastChecked: 2026-08-29
+lastChecked: 2026-09-23
+pr:
 ---
 
 Seattle-focused directory/calendar of food & beverage pop-ups (chef
@@ -33,3 +34,5 @@ with no stable data endpoint. Leaving as `candidate` rather than
 `notviable` in case Notion's rendered HTML changes, or the operator adds
 an ICS/RSS export later; re-check in a future cycle rather than
 re-searching for it fresh.
+
+**2026-09-23 (notviable):** Re-checked. `/calendar` still just embeds a Notion page (`notion.site/16c345368f30836eb0cf0122e539dc7c`), and the Squarespace `?format=json` for the page is `typeName: page`, `itemCount: 0`. The only data path would be Notion's unofficial, unsupported internal API, which isn't appropriate for a production ripper. There's no ICS or RSS.

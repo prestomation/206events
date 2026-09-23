@@ -1,11 +1,11 @@
 ---
 name: Cascade Flag Football
-status: investigating
+status: notviable
 platform: Wix
 url: https://www.cascadeflagfootball.org
 tags: [Playing-Sports, Football]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 Adult recreational flag football league in the Cascade region.
@@ -18,3 +18,5 @@ wasn't reachable in a couple of fetch attempts (a guessed `/calendar`
 URL 404'd). Needs the real schedule page URL found (likely a Wix Events
 widget or external league-management tool) before a platform/viability
 call can be made.
+
+Re-checked 2026-09-23: the `/leaguecalendar` page has no calendar — it only says the season dates and "All events will be posted via our Social Media." What schedule exists is league game fixtures for registered players, not public events. Closing as `notviable`.

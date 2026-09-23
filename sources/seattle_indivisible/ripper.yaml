@@ -1,0 +1,12 @@
+name: seattle-indivisible
+sourceRole: venue
+description: "Seattle Indivisible"
+url: "https://api.mobilize.us/v1/organizations/904/events"
+friendlyLink: https://www.mobilize.us/seattleindivisible/
+tags: ["Political", "Activism"]
+cost: free
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Seattle Indivisible"
+    timezone: America/Los_Angeles

@@ -1,0 +1,3410 @@
+{
+ "_note": "Captured 2026-09-23 from anc.apm.activecommunities.com/seattle REST API; trimmed to fields the parser reads.",
+ "specialItems": [
+  {
+   "id": 87715,
+   "name": "Field Trip: Cloudstone Sculpture Park on Whidbey - NE",
+   "desc": "We'll take the ferry to Whidbey Island to visit Cloudstone Sculpture Park, a hidden gem that features over 500 sculptures by the late sculptor Hank Nelson on a beautiful 20 acre natural landscape. There we'll enjoy a docent-guided 90 minute walking tour and also visit the indoor gallery. Lunch in Langley (paid on own) and take the ferry back. Offered jointly with SE Sector<div><br></div><div>Note: Sculpture park terrain is short grass and gravel paths, golf cart rides will be available for up to 8 people with limited mobility.</div><div><br></div><div>Meadowbrook CC - departure time is at time listed</div><div>Magnuson CC - departure time is 20 minutes prior</div><div>Northgate Station - departure time is 40 minutes prior</div><div><br></div><div>Requests for withdrawal with refund (minus service charge) must be received two weeks before scheduled trip date.    </div>",
+   "only_one_day": true,
+   "date_range_start": "2026-09-22",
+   "date_range_end": "",
+   "time_range": "8:20 AM - 5:30 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-cloudstone-sculpture-park-on-whidbey---ne/87715?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$49.00"
+   }
+  },
+  {
+   "id": 86972,
+   "name": "Field Trip: Cloudstone Sculpture Park on Whidbey Island - SE",
+   "desc": "We'll take the ferry to Whidbey Island and head to Cloudstone Sculpture Park, a hidden gem that features over 500 sculptures by the late sculptor Hank Nelson on a beautiful 20 acre natural landscape. We'll enjoy a docent-guided 90 minute walking tour and also visit the indoor gallery. Then we'll head to Langley for lunch and take the ferry back. Sculpture park terrain is short grass and gravel paths, golf cart rides will be available for up to 8 people with limited mobility. Pickup at Jefferson CC only.<div>Offered jointly with NE Sector. </div>",
+   "only_one_day": true,
+   "date_range_start": "2026-09-22",
+   "date_range_end": "",
+   "time_range": "9:00 AM - 5:00 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-cloudstone-sculpture-park-on-whidbey-island---se/86972?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$49.00"
+   }
+  },
+  {
+   "id": 87722,
+   "name": "Field Trip: WA State Fair",
+   "desc": "The WA State Fair (Puyallup) is one of the largest in the nation. View agricultural exhibits, animals, and plants from around the world. Visit scores of vendors selling a dizzying array of products and services. Experience the fair's midway games and rides (if you wish)! Explore at your own pace, and enjoy lunch at one of the food concessions onsite (paid on your own). This activity will involve a lot of walking on paved surfaces. Southbound",
+   "only_one_day": true,
+   "date_range_start": "2026-09-23",
+   "date_range_end": "",
+   "time_range": "10:00 AM - 5:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-wa-state-fair/87722?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$56.00"
+   }
+  },
+  {
+   "id": 87242,
+   "name": "Wonderful Wednesdays (Parents Night)",
+   "desc": "Join us for Wonderful  Wednesdays at Loyal Heights CC. It's the perfect way to give yourself a  mid-week parents night out or take a chance to catch up, talk about what\u2019s  going on and what\u2019s coming up. You can rest easy knowing that your children are  engaged in fun activities such as arts and crafts, group games make new friends  in a safe, trusted place. We will provide a child-friendly dinner and feel free  to bring your children in their evening cozies because, after an evening of fun  with their new friends they will fall fast asleep. Child must be fully Pottey trained. Please notify us of  allergies or food restrictions upon registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-09-23",
+   "date_range_end": "",
+   "time_range": "5:15 PM - 8:15 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/wonderful-wednesdays-parents-night/87242?locale=en-US",
+   "location": {
+    "label": "Loyal Heights Cmty Ctr"
+   },
+   "fee": {
+    "label": "$40.00"
+   }
+  },
+  {
+   "id": 88802,
+   "name": "Teen Outing: Monster Mini Golf",
+   "desc": "Join  us for a couple hours of glowing colors and friendly competition at Monster  Mini Golf in Bellevue. Test your putting skills on an exciting 18-hole  blacklight course surrounded by colorful monsters, music and some interactive  surprises. Please reach out to Dana Tade at 206-684-4788 if you would like  to ask about a scholarship for this outing.",
+   "only_one_day": true,
+   "date_range_start": "2026-09-24",
+   "date_range_end": "",
+   "time_range": "4:00 PM - 7:00 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/teen-outing-monster-mini-golf/88802?locale=en-US",
+   "location": {
+    "label": "Garfield Cmty Ctr"
+   },
+   "fee": {
+    "label": "$10.00"
+   }
+  },
+  {
+   "id": 89075,
+   "name": "Specialized Programs Teen Social #1",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-09-25",
+   "date_range_end": "",
+   "time_range": "4:30 PM - 8:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs-teen-social-1/89075?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$20.00"
+   }
+  },
+  {
+   "id": 88934,
+   "name": "Specialized Programs - Adult Saturday Travels #1",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-09-26",
+   "date_range_end": "",
+   "time_range": "9:00 AM - 2:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs---adult-saturday-travels-1/88934?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88076,
+   "name": "RAV* Fest",
+   "desc": "Relish Autumn Vibes Festival. Come enjoy our second annual free family-friendly harvest event. There will be crafts, zucchini races, raffles and more in our Ravenna-Eckstein Park.",
+   "only_one_day": true,
+   "date_range_start": "2026-09-26",
+   "date_range_end": "",
+   "time_range": "2:00 PM - 5:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/rav-fest/88076?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Park"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 89538,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-09-27",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 1:40 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89538?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89539,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-09-27",
+   "date_range_end": "",
+   "time_range": "2:00 PM - 2:40 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89539?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89540,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-09-27",
+   "date_range_end": "",
+   "time_range": "3:00 PM - 3:40 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89540?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 86750,
+   "name": "Transportation to Magnuson Older Adult Resource Fair",
+   "desc": "<div>Transportation to the Older Adult Resource Fair in Magnuson Park. Or take a break and explore nature trails, ponds, lake beach and a P-patch garden in Magnuson park! Northbound.</div>",
+   "only_one_day": true,
+   "date_range_start": "2026-09-29",
+   "date_range_end": "",
+   "time_range": "9:20 AM - 2:20 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/transportation-to-magnuson-older-adult-resource-fair/86750?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$8.00"
+   }
+  },
+  {
+   "id": 87795,
+   "name": "Field Trip: Lifelong Recreation Resource Fair",
+   "desc": "Transportation Only- to the annual Lifelong Recreation Resource Fair.  We'll have 2 hours onsite to intertace with Local Organizations- including nonprofit organizations, healthcare agencies, and local businesses offering personalized resources for aging well in the Seattle area. Educational Breakout Sessions with topics like Fraud Prevention and navigating Artificial Intelligence (AI).Prizes; Giveaways: Attendees can participate in free prize drawings and gather community giveaways throughout the day. Please bring a sack lunch to enjoy at the Hanger.",
+   "only_one_day": true,
+   "date_range_start": "2026-09-29",
+   "date_range_end": "",
+   "time_range": "10:15 AM - 2:30 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-lifelong-recreation-resource-fair/87795?locale=en-US",
+   "location": {
+    "label": "Delridge Cmty Ctr"
+   },
+   "fee": {
+    "label": "$8.00"
+   }
+  },
+  {
+   "id": 87309,
+   "name": "Seattle REconomy: Community Fix-It Night",
+   "desc": "Bring your broken items to Seattle REconomy\u2019s Fix-It Night. Volunteers fix lamps, clothing, small  appliances, and more while sharing repair skills.",
+   "only_one_day": true,
+   "date_range_start": "2026-09-30",
+   "date_range_end": "",
+   "time_range": "4:30 PM - 7:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/seattle-reconomy-community-fix-it-night/87309?locale=en-US",
+   "location": {
+    "label": "Northgate Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 85955,
+   "name": "Field Trip:  Little Norway",
+   "desc": "Escape to scenic Poulsbo, a charming Scandinavian waterfront town. We will kick off the morning with a crisp ferry ride from Seattle, landing just in time to explore historic Front Street's flat, easy sidewalks. Enjoy your morning browsing local boutiques, visiting maritime galleries, and picking up treats at the iconic Sluys Bakery, followed by a relaxed lunch on your own at your choice of the harborside restaurants or pack a sack lunch to enjoy at the waterfront.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-01",
+   "date_range_end": "",
+   "time_range": "8:45 AM - 4:00 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-little-norway/85955?locale=en-US",
+   "location": {
+    "label": "Delridge Cmty Ctr"
+   },
+   "fee": {
+    "label": "$55.00"
+   }
+  },
+  {
+   "id": 87999,
+   "name": "Special Event: Fall Harvest Fest",
+   "desc": "The  seasonal festival served as a celebration of the harvest season and was free  and open to community members of all ages. This event featured family-friendly  festivities such as traditional apple pressing, craft stations, games, and  outdoor activities.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-02",
+   "date_range_end": "",
+   "time_range": "4:00 PM - 6:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/special-event-fall-harvest-fest/87999?locale=en-US",
+   "location": {
+    "label": "Meadowbrook Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 89076,
+   "name": "Specialized Programs Teen Social #2",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-02",
+   "date_range_end": "",
+   "time_range": "4:30 PM - 8:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs-teen-social-2/89076?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$50.00"
+   }
+  },
+  {
+   "id": 89113,
+   "name": "Open Mic Poetry Night (Oct)",
+   "desc": "If you have a passion for sharing your favorite poems, showcasing original compositions, or if you enjoy listening to others, this is for you. It's completely free and we enthusiastically welcome young poets to join us! Let\u2019s strengthen our community through the power and beauty of poetry.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-02",
+   "date_range_end": "",
+   "time_range": "6:00 PM - 8:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-oct/89113?locale=en-US",
+   "location": {
+    "label": "Miller Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 89072,
+   "name": "Specialized Programs Saturday Activities #1",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-03",
+   "date_range_end": "",
+   "time_range": "9:00 AM - 2:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs-saturday-activities-1/89072?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$40.00"
+   }
+  },
+  {
+   "id": 87724,
+   "name": "Field Trip: Seattle Opera Open House",
+   "desc": "Seattle Opera's annual open house brings you behind the curtain and behind the scenes. Visit costume, wig, makeup and scenic shops to view exhibits and demonstrations. Listen to live performances by opera artists, and perhaps even sing along! SOUTHBOUND",
+   "only_one_day": true,
+   "date_range_start": "2026-10-04",
+   "date_range_end": "",
+   "time_range": "Noon - 5:00 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-seattle-opera-open-house/87724?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$24.00"
+   }
+  },
+  {
+   "id": 88260,
+   "name": "Bingo Day",
+   "desc": "Bingo is the name of the game, and everybody is invited to  play and have a chance to win awesome prizes! We will start promptly at 1pm and light refreshments will be provided. Entry fee is $5/person.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-04",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 3:00 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/bingo-day/88260?locale=en-US",
+   "location": {
+    "label": "Bitter Lake Cmty Ctr"
+   },
+   "fee": {
+    "label": "$5.00"
+   }
+  },
+  {
+   "id": 87781,
+   "name": "Field Trip: Explore Snohomish",
+   "desc": "Snohomish, WA has a downtown district that is renowned for its historic charm and many antique shops. We will spend some time walking and exploring, and also visit a few nearby vintage thrift stores. Much of this trip will be largely self guided, according to your interests and curiosity. Depending on seasonal openings, we may make an additional stop at a local farm for some fresh produce or berries. This trip will involve extended walking on essentially flat surfaces. Northbound",
+   "only_one_day": true,
+   "date_range_start": "2026-10-07",
+   "date_range_end": "",
+   "time_range": "9:30 AM - 4:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-explore-snohomish/87781?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$36.00"
+   }
+  },
+  {
+   "id": 87243,
+   "name": "Wonderful Wednesdays (Parents Night)",
+   "desc": "Join us for Wonderful  Wednesdays at Loyal Heights CC. It's the perfect way to give yourself a  mid-week parents night out or take a chance to catch up, talk about what\u2019s  going on and what\u2019s coming up. You can rest easy knowing that your children are  engaged in fun activities such as arts and crafts, group games make new friends  in a safe, trusted place. We will provide a child-friendly dinner and feel free  to bring your children in their evening cozies because, after an evening of fun  with their new friends they will fall fast asleep. Child must be fully Pottey trained. Please notify us of  allergies or food restrictions upon registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-07",
+   "date_range_end": "",
+   "time_range": "5:15 PM - 8:15 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/wonderful-wednesdays-parents-night/87243?locale=en-US",
+   "location": {
+    "label": "Loyal Heights Cmty Ctr"
+   },
+   "fee": {
+    "label": "$40.00"
+   }
+  },
+  {
+   "id": 87717,
+   "name": "Field Trip: La Conner & Skagit Valley Historical Museum - NE",
+   "desc": "Come travel to La Conner, a small town with big charm! We'll start our visit at the Skagit Valley Historical Museum to view their featured exhibit: \"Where Our Food Comes From: Honoring the Farmworkers and Farmers of Skagit County\". After, enjoy lunch in town, take a walk on the waterfront, or explore the many shops and galleries. If time allows, we'll stop at a farm stand or two along the way. <br><div><br><div><div>Meadowbrook CC - departure time is at time listed </div><div>Magnuson CC - departure time is 20 minutes prior</div><div>Northgate Station - departure time is 40 minutes prior</div><div><br></div><div>Requests for withdrawal with refund (minus service charge) must be received two weeks before scheduled trip date.</div>    </div>    </div>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-08",
+   "date_range_end": "",
+   "time_range": "9:00 AM - 4:30 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-la-conner-skagit-valley-historical-museum---ne/87717?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$40.00"
+   }
+  },
+  {
+   "id": 88320,
+   "name": "The Horrible Art Gala \"Making the World a lil Less Horrible\"",
+   "desc": "<div>Join us for a delightfully offbeat silent art auction featuring fun, quirky, and questionable pieces from local and aspiring artists! All proceeds will support Miller Community Center art programs for youth and adults, including guided visits and tours to local art galleries and museums with our art instructors.</div><div>Come bid, snack, laugh, and help strengthen creative experiences for the Miller community! </div><div><br></div><div>$12 early bird registration saves you $3! $15 day-of at the door.</div><div><br></div><div>Consider donating your personal art so it can inspire someone new! Contact millercommunitycenter@Seattle.gov for more details.</div>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-09",
+   "date_range_end": "",
+   "time_range": "5:30 PM - 7:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/the-horrible-art-gala-making-the-world-a-lil-less-horrible/88320?locale=en-US",
+   "location": {
+    "label": "Miller Cmty Ctr"
+   },
+   "fee": {
+    "label": "$12.00"
+   }
+  },
+  {
+   "id": 89541,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-10",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 1:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89541?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89542,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-10",
+   "date_range_end": "",
+   "time_range": "2:00 PM - 2:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89542?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89543,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-10",
+   "date_range_end": "",
+   "time_range": "3:00 PM - 3:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89543?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 85966,
+   "name": "Field Trip:  Carpinito Farms",
+   "desc": "Welcome the crisp autumn weather with a classic trip to the beautiful Carpinito Brothers Farm in Kent. We will enjoy a scenic drive down the valley to browse their festive farm stand, which is packed with fresh-pressed apple cider, seasonal squash, and warm kettle corn.  Entrance fee into the pumpkin patch is included in the activity fee- giving you full entrance to the pumpkin patch field where you can stroll the rows and use the fee as a direct credit to pick out a pumpkin or autumn decoration to take home. It is the perfect, relaxed way to enjoy a clear fall afternoon against the beautiful backdrop of Mount Rainier.  Pack a sack lunch to enjoy with the group at the farm's picnic tables, paired with some fresh-pressed apple cider from the market. It is the perfect, relaxed way to enjoy a fall afternoon together. Pack a sack lunch to enjoy with the group at the farm's picnic tables.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-15",
+   "date_range_end": "",
+   "time_range": "9:45 AM - 2:45 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-carpinito-farms/85966?locale=en-US",
+   "location": {
+    "label": "Delridge Cmty Ctr"
+   },
+   "fee": {
+    "label": "$40.00"
+   }
+  },
+  {
+   "id": 87372,
+   "name": "Happy Haunts Carnival",
+   "desc": "Join us for a night of Family-Friendly reverie and mystery! Come dressed in your most mysterious disguise for carnival games, mask making, and an evening of surprises. The Family-Friendly Happy Haunt Carnival will start at 4pm.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-16",
+   "date_range_end": "",
+   "time_range": "4:00 PM - 7:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/happy-haunts-carnival/87372?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 87373,
+   "name": "Haunted Hunt",
+   "desc": "Join us for our 3rd Annual Escape Room Event! The Haunted Hunt is a themed game that adjusts in spookiness for each age group. From 4-4:30pm will specifically be for ages 2-5 with an age appropriate storyline and activites. From 4:30pm on, ages 6-8, 9-12, and 13+ groups will experience spookier storylines.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-16",
+   "date_range_end": "",
+   "time_range": "4:00 PM - 7:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/haunted-hunt/87373?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 88947,
+   "name": "Specialized Programs - Adult Social #1",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-16",
+   "date_range_end": "",
+   "time_range": "4:30 PM - 8:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs---adult-social-1/88947?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$25.00"
+   }
+  },
+  {
+   "id": 87249,
+   "name": "Friday Night Escape  (Parents Night)",
+   "desc": "Join us for a Parent's Night Escape at Loyal Heights CC. It's the perfect way to give yourself a parent's night out or take a chance to catch up, talk about what\u2019s  going on and what\u2019s coming up. You can rest easy knowing that your children are  engaged in fun activities such as arts and crafts, group games make new friends  in a safe, trusted place. We will provide a child-friendly dinner and feel free  to bring your children in their evening cozies because, after an evening of fun  with their new friends they will fall fast asleep. Child must be fully Potty trained. Please notify us of  allergies or food restrictions upon registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-16",
+   "date_range_end": "",
+   "time_range": "5:15 PM - 8:15 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/friday-night-escape-parents-night/87249?locale=en-US",
+   "location": {
+    "label": "Loyal Heights Cmty Ctr"
+   },
+   "fee": {
+    "label": "$40.00"
+   }
+  },
+  {
+   "id": 88321,
+   "name": "Family Sports Night (Lau Elementary Gym) 10/16/26",
+   "desc": "Get ready for an exciting evening of action, laughter, and  quality family time! This event is designed for all ages and skill levels \u2014 so  bring the whole crew!  We will feature sports such as Basketball, volleyball, they're soccer,  dodgeball, pickleball, badminton and many more...   Whether you're competing in one of our organized games or just having fun shooting  baskets with your family, there's something for everyone.   Location: Laurelhurst Elementary Gym (4530 46th Ave NE, Seattle, WA 98105 ).  Doors open at 5:15pm. Entrance on 47th Street. Reregistration is required! Parent or caregiver must be present during the event.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-16",
+   "date_range_end": "",
+   "time_range": "5:30 PM - 7:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/family-sports-night-lau-elementary-gym-10-16-26/88321?locale=en-US",
+   "location": {
+    "label": "Laurelhurst Cmty Ctr"
+   },
+   "fee": {
+    "label": "$5.00"
+   }
+  },
+  {
+   "id": 87714,
+   "name": "Field Trip: Hunter's Breakfast - NE",
+   "desc": "A longtime favorite! Enjoy a scenic drive over the pass, a hearty brunch at the Swauk-Teanaway Grange, followed by time on your own to explore the historic old towns of Roslyn and Cle Elum. Don't miss this one! Activity fee includes transportation and breakfast. Note: There is a ramp at the Grange. We will not be offering a Magnuson pick up for this trip. <div><br></div><div>We will depart from Northgate Transit Station and Meadowbrook CC, no Magnuson pick up for this trip. </div><div><br></div><div><div>Northgate Transit Station departure is 8:00am, 20 minutes prior to the trip start time listed.</div>Meadowbrook CC - departure is at 8:20 am</div><div><br></div><div>Requests for withdrawal with refund (minus service charge) must be received two weeks before scheduled trip date.</div><div><br></div>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-17",
+   "date_range_end": "",
+   "time_range": "8:20 AM - 5:30 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-hunter-s-breakfast---ne/87714?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$64.00"
+   }
+  },
+  {
+   "id": 88935,
+   "name": "Specialized Programs - Adult Saturday Travels #2",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-17",
+   "date_range_end": "",
+   "time_range": "9:00 AM - 2:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs---adult-saturday-travels-2/88935?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$20.00"
+   }
+  },
+  {
+   "id": 89535,
+   "name": "Tea Ceremony - Chaboshu",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil 40-minute tea presentation at the Shoseian teahouse in a traditional roji located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets. Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the garden will need to be purchased separately onsite once you arrive. Tea ceremony tickets <b>DO NOT</b> include admission access to the Japanese Garden. Please allow ample time prior to your tea ceremony to purchase admission tickets.</p><p class=\"MsoNormal\">Parking - Free parking is available in the lot south of the Japanese Garden down to Washington Park. There is additional parking available at the nearby lot by Graham Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice weather the parking lots typically fill up fast. If you are travelling to the garden via car, we recommend allowing yourself adequate time to arrive and find parking well before your scheduled tea ceremony. If possible, try to arrive 45 minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit on tatami mats, with bench seating available for those unable to do so. We request participants wear socks or tights (<b>no bare feet</b>), and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse is not a restaurant or caf\u00e9 and is open only during and for tea ceremonies.</p><p class=\"MsoNormal\"><br></p><div><b>Your hosts - Chaboshu</b></div><div><br></div><div>Chaboshu is Seattle's premier men's tea group, which was established to promote public awareness about Japanese tea ceremonial practices for men. The group consists of members from different Chado schools.</div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony, respect, purity, and tranquility. 16th-century master Sen no Rikyu refined Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-17",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 1:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chaboshu/89535?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89536,
+   "name": "Tea Ceremony - Chaboshu",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil 40-minute tea presentation at the Shoseian teahouse in a traditional roji located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets. Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the garden will need to be purchased separately onsite once you arrive. Tea ceremony tickets <b>DO NOT</b> include admission access to the Japanese Garden. Please allow ample time prior to your tea ceremony to purchase admission tickets.</p><p class=\"MsoNormal\">Parking - Free parking is available in the lot south of the Japanese Garden down to Washington Park. There is additional parking available at the nearby lot by Graham Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice weather the parking lots typically fill up fast. If you are travelling to the garden via car, we recommend allowing yourself adequate time to arrive and find parking well before your scheduled tea ceremony. If possible, try to arrive 45 minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit on tatami mats, with bench seating available for those unable to do so. We request participants wear socks or tights (<b>no bare feet</b>), and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse is not a restaurant or caf\u00e9 and is open only during and for tea ceremonies.</p><p class=\"MsoNormal\"><br></p><div><b>Your hosts - Chaboshu</b></div><div><br></div><div>Chaboshu is Seattle's premier men's tea group, which was established to promote public awareness about Japanese tea ceremonial practices for men. The group consists of members from different Chado schools.</div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony, respect, purity, and tranquility. 16th-century master Sen no Rikyu refined Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-17",
+   "date_range_end": "",
+   "time_range": "2:00 PM - 2:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chaboshu/89536?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89537,
+   "name": "Tea Ceremony - Chaboshu",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil 40-minute tea presentation at the Shoseian teahouse in a traditional roji located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets. Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the garden will need to be purchased separately onsite once you arrive. Tea ceremony tickets <b>DO NOT</b> include admission access to the Japanese Garden. Please allow ample time prior to your tea ceremony to purchase admission tickets.</p><p class=\"MsoNormal\">Parking - Free parking is available in the lot south of the Japanese Garden down to Washington Park. There is additional parking available at the nearby lot by Graham Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice weather the parking lots typically fill up fast. If you are travelling to the garden via car, we recommend allowing yourself adequate time to arrive and find parking well before your scheduled tea ceremony. If possible, try to arrive 45 minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit on tatami mats, with bench seating available for those unable to do so. We request participants wear socks or tights (<b>no bare feet</b>), and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse is not a restaurant or caf\u00e9 and is open only during and for tea ceremonies.</p><p class=\"MsoNormal\"><br></p><div><b>Your hosts - Chaboshu</b></div><div><br></div><div>Chaboshu is Seattle's premier men's tea group, which was established to promote public awareness about Japanese tea ceremonial practices for men. The group consists of members from different Chado schools.</div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony, respect, purity, and tranquility. 16th-century master Sen no Rikyu refined Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-17",
+   "date_range_end": "",
+   "time_range": "3:00 PM - 3:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chaboshu/89537?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89544,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-18",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 1:40 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89544?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89545,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-18",
+   "date_range_end": "",
+   "time_range": "2:00 PM - 2:40 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89545?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89546,
+   "name": "Tea Ceremony - Chado Urasenke Tankokai Seattle Association",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil  40-minute tea presentation at the Shoseian teahouse in a traditional roji  located within the Seattle Japanese Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets.  Reservations required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE  INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the  garden will need to be purchased separately onsite once you arrive. Tea  ceremony tickets <b>DO NOT</b> include admission access to the  Japanese Garden. Please allow ample time prior to your tea ceremony to purchase  admission tickets.</p><p class=\"MsoNormal\">Parking - Free  parking is available in the lot south of the Japanese Garden down to Washington  Park. There is additional parking available at the nearby lot by Graham  Visitor\u2019s Center in the Arboretum. On weekends, holidays, and days with nice  weather the parking lots typically fill up fast. If you are travelling to the  garden via car, we recommend allowing yourself adequate time to arrive and find  parking well before your scheduled tea ceremony. If possible, try to arrive 45  minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit  on tatami mats, with bench seating available for those unable to do so. We  request participants wear socks or tights (<b>no bare feet</b>),  and avoid wearing jeans, rings, and personal fragrances. Guests at tea ceremony  are asked to wear masks in the roji garden and Shoseian Teahouse. Our Teahouse  is not a restaurant or caf\u00e9 and is open only during and for tea  ceremonies.</p><p class=\"MsoNormal\"><br></p><div><p class=\"MsoNormal\"><b>Your hosts - Chado Urasenke Tankokai Seattle Association</b></p>    <p class=\"MsoNormal\">Tankokai, the Seattle chapter of Chado Urasenke, is a  membership organization for the Urasenke Chado practitioners. Their mission is  to promote better understanding and appreciation of the rich culture and spirit  of Japan through the art of Chado, \"The Way of Tea.\"</p></div><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the  tea ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-18",
+   "date_range_end": "",
+   "time_range": "3:00 PM - 3:40 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89546?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 88324,
+   "name": "Family Pumpkin Carving",
+   "desc": "Join us in some Halloween fun! Pumpkin carving and crafts.  $12 per person, $6 each for additional pumpkins. Parent or caregiver must be present during the event. (Pre-registration required.)",
+   "only_one_day": true,
+   "date_range_start": "2026-10-19",
+   "date_range_end": "",
+   "time_range": "4:30 PM - 6:30 PM",
+   "days_of_week": "Mon",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/family-pumpkin-carving/88324?locale=en-US",
+   "location": {
+    "label": "Laurelhurst Cmty Ctr"
+   },
+   "fee": {
+    "label": "$12.00"
+   }
+  },
+  {
+   "id": 87244,
+   "name": "Wonderful Wednesdays (Parents Night)",
+   "desc": "Join us for Wonderful  Wednesdays at Loyal Heights CC. It's the perfect way to give yourself a  mid-week parents night out or take a chance to catch up, talk about what\u2019s  going on and what\u2019s coming up. You can rest easy knowing that your children are  engaged in fun activities such as arts and crafts, group games make new friends  in a safe, trusted place. We will provide a child-friendly dinner and feel free  to bring your children in their evening cozies because, after an evening of fun  with their new friends they will fall fast asleep. Child must be fully Pottey trained. Please notify us of  allergies or food restrictions upon registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-21",
+   "date_range_end": "",
+   "time_range": "5:15 PM - 8:15 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/wonderful-wednesdays-parents-night/87244?locale=en-US",
+   "location": {
+    "label": "Loyal Heights Cmty Ctr"
+   },
+   "fee": {
+    "label": "$40.00"
+   }
+  },
+  {
+   "id": 87711,
+   "name": "Field Trip: Carnation Farms Tour - NE",
+   "desc": "A repeat offering from this summer due to high interest! Come explore the rich history of Carnation Farms, founded in 1908, and reimagined in 2016 as a non profit with a mission to educate and build a resilient local food system. We'll spend time at an onsite museum and then visit their crops and livestock area. Lunch in Duvall (paid on own) or bring a sack lunch to enjoy outside as you explore the downtown area.<div><br>This trip will involve uneven, gravel, and dirt paths at the farm. </div><div><br><div>Meadowbrook CC - departure time is at time listed </div><div>Magnuson CC - departure time is 20 minutes prior</div><div>Northgate Station - departure time is 40 minutes prior</div><div><br></div><div>Requests for withdrawal with refund (minus service charge) must be received two weeks before scheduled trip date.</div>    </div>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-22",
+   "date_range_end": "",
+   "time_range": "9:00 AM - 3:30 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/field-trip-carnation-farms-tour---ne/87711?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$23.00"
+   }
+  },
+  {
+   "id": 86962,
+   "name": "Puppet Show",
+   "desc": "Ventriloquist Elaine Womack loves to entertain with her puppets: Reggie, the outspoken but less perceptive dog, and Critter, the shy and sensitive cat. Each show brings fun antics and songs that teach a few lessons and laughter to children and adults alike.<div><br></div><div>Please bring a can food donation for the Ballard Food Bank.</div>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-22",
+   "date_range_end": "",
+   "time_range": "11:00 AM - 11:30 AM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/puppet-show/86962?locale=en-US",
+   "location": {
+    "label": "Loyal Heights Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 88804,
+   "name": "Teen Outing: Movie Night \"Street Fighter\"",
+   "desc": "Get\r\nready for an action-packed movie outing as we head to the theater to watch the\r\nnew Street Fighter! Grab some popcorn, hang out with friends, and watch\r\nlegendary characters battle it out, from one of the most iconic video game\r\nfranchises of all-time. Candy, popcorn and bottled water will be provided. . Please reach out to Dana Tade at 206-684-4788 if you would like  to ask about a scholarship for this outing.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-22",
+   "date_range_end": "",
+   "time_range": "4:00 PM - 7:00 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/teen-outing-movie-night-street-fighter/88804?locale=en-US",
+   "location": {
+    "label": "Garfield Cmty Ctr"
+   },
+   "fee": {
+    "label": "$10.00"
+   }
+  },
+  {
+   "id": 87334,
+   "name": "Pumpkin Carving",
+   "desc": "Kick off the Halloween season with a family pumpkin carving and decorating night! We'll have pumpkins of all sizes with safe carving tools an paints to create your spooky or funky jack-o-lantern! All ages welcome. *One pumpkin per family. Pumpkin choices are first come, first served. Supplies are limited. Suggested Donation $5",
+   "only_one_day": true,
+   "date_range_start": "2026-10-23",
+   "date_range_end": "",
+   "time_range": "4:30 PM - 6:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/pumpkin-carving/87334?locale=en-US",
+   "location": {
+    "label": "Northgate Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 87628,
+   "name": "Magnuson Haunted House",
+   "desc": "<div>Magnuson Haunted House</div><div><br></div><div>Join us for a spooky, spine-tingling walk through the depths of Magnuson Community Center. Listen for the voices of the past (and the future) as you make your way through our dark, winding hallways filled with ghosts and ghouls, but watch where you\u2019re walking \u2013 you never know what will be waiting for you around the next corner!</div>",
+   "only_one_day": false,
+   "date_range_start": "2026-10-23",
+   "date_range_end": "2026-10-24",
+   "time_range": "5:00 PM - 10:00 PM",
+   "days_of_week": "Fri,Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/magnuson-haunted-house/87628?locale=en-US",
+   "location": {
+    "label": "Magnuson Cmty Ctr (bldg 47)"
+   },
+   "fee": {
+    "label": "$7.00"
+   }
+  },
+  {
+   "id": 87986,
+   "name": "Montlake Fall Fest",
+   "desc": "Celebrate the season at our Montlake Fall Fest\u2014an evening of fun for the whole family! Purchase a wristband which includes unlimited carnival games, a seasonal craft project, and one ticket each for facepainting and the cupcake walk. Enjoy additional activities like a tot bounce house/toy area, and light refreshments. Costumes are welcome, so come dressed in your autumn best and join the celebration! Recommended for ages 2\u201312. Register early and pay $8/wristband or $10/wristband at the door! Wristbands needed for child participants, adult chaperones are free!  Be sure to register each child separately.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-23",
+   "date_range_end": "",
+   "time_range": "5:00 PM - 7:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/montlake-fall-fest/87986?locale=en-US",
+   "location": {
+    "label": "Montlake Cmty Ctr"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 88362,
+   "name": "Bounce and Swim",
+   "desc": "Green Lake Community Center and Evans Pool are co-hosting a haunted celebration! This event has it all from carnival games and bouncy houses from 6-8 p.m. We'll have one public swim from 7-8pm. It's a family swim where you dodge the floating pumpkins! (Swimsuits and towels are a must!) Canned food donation will be collected at the door to support our local food banks.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-23",
+   "date_range_end": "",
+   "time_range": "6:00 PM - 8:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/bounce-and-swim/88362?locale=en-US",
+   "location": {
+    "label": "Green Lake Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 90248,
+   "name": "Specialized Programs Fright Night Ball",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-23",
+   "date_range_end": "",
+   "time_range": "6:00 PM - 8:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs-fright-night-ball/90248?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89073,
+   "name": "Specialized Programs Saturday Activities #2",
+   "desc": "Contact the Specialized Programs Office for more information. Phone: 206-684-4950, email: PKS_Specialized_Programs@seattle.gov. Participant Information Form must be turned in prior to registration.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-24",
+   "date_range_end": "",
+   "time_range": "9:00 AM - 2:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/specialized-programs-saturday-activities-2/89073?locale=en-US",
+   "location": {
+    "label": "N/A"
+   },
+   "fee": {
+    "label": "$30.00"
+   }
+  },
+  {
+   "id": 89450,
+   "name": "Ballard Soccer Cup - Soccer Tournament",
+   "desc": "Ballard CC\u2019s 2nd ever soccer cup is happening on 10/24! Come play in our 5v5 social soccer tournament from 12pm-4pm. All skill levels are welcome. Sign up individually and request up to two people to have on your team (you will receive an email before the tournament). We\u2019ll put together teams of 6 (5 field players, 1 sub, no goalies) and each team is guaranteed three 20-minute games with the top two teams facing off in a championship game at the end. We\u2019ll be playing on grass, so cleats and shin guards are recommended but not required. Bring a blanket or chairs, come meet new people, and hang out on the field and at the community center. Limited snacks and drinks will be provided. This tournament will be low contact so please come with a good attitude, ready to play and meet new people. Must be 15yrs or older (under 18 please contact Ballard Community Center to register). You\u2019ll receive an email with more information asking about your teammate preferences closer to the tournament date.\"",
+   "only_one_day": true,
+   "date_range_start": "2026-10-24",
+   "date_range_end": "",
+   "time_range": "Noon - 4:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/ballard-soccer-cup---soccer-tournament/89450?locale=en-US",
+   "location": {
+    "label": "Ballard Playfield"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 87279,
+   "name": "Jefferson Halloween Carnival",
+   "desc": "Start your Halloween off with a frighteningly fun filled evening for the family! Wear your costumes and enjoy carnival games and spooktacular activities.<br>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-24",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 4:30 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/jefferson-halloween-carnival/87279?locale=en-US",
+   "location": {
+    "label": "Jefferson Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 89547,
+   "name": "Tea Ceremony - Omotesenke-ryu",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil 40-minute tea presentation at the  Shoseian teahouse in a traditional roji located within the Seattle Japanese  Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets. Reservations  required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the garden will  need to be purchased separately onsite once you arrive. Tea ceremony tickets <b>DO  NOT</b> include admission access to the Japanese Garden. Please allow ample time  prior to your tea ceremony to purchase admission tickets.</p><p class=\"MsoNormal\">Parking - Free parking is available in the lot south of the  Japanese Garden down to Washington Park. There is additional parking available  at the nearby lot by Graham Visitor\u2019s Center in the Arboretum. On weekends,  holidays, and days with nice weather the parking lots typically fill up fast.  If you are travelling to the garden via car, we recommend allowing yourself  adequate time to arrive and find parking well before your scheduled tea  ceremony. If possible, try to arrive 45 minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit on tatami  mats, with bench seating available for those unable to do so. We request  participants wear socks or tights (<b>no bare feet</b>), and avoid wearing jeans,  rings, and personal fragrances. Guests at tea ceremony are asked to wear masks  in the roji garden and Shoseian Teahouse. Our Teahouse is not a restaurant or  caf\u00e9 and is open only during and for tea ceremonies.</p><p class=\"MsoNormal\"><br></p><p class=\"MsoNormal\"><b>Your hosts - Omotesenke-ryu</b></p><p class=\"MsoNormal\">Chanoyu, which attained greatness under Sen no Rikyu, is a  tradition that has been handed down for over 400 years. Omotesenke-ryu is a  Seattle-based group that practices this long lineage, and their presentation at  Seattle Japanese Garden are \"a communication of the minds of host and  guests through the enjoyment of delicious tea together.\"</p><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the tea  ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-24",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 1:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---omotesenke-ryu/89547?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89548,
+   "name": "Tea Ceremony - Omotesenke-ryu",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil 40-minute tea presentation at the  Shoseian teahouse in a traditional roji located within the Seattle Japanese  Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets. Reservations  required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the garden will  need to be purchased separately onsite once you arrive. Tea ceremony tickets <b>DO  NOT</b> include admission access to the Japanese Garden. Please allow ample time  prior to your tea ceremony to purchase admission tickets.</p><p class=\"MsoNormal\">Parking - Free parking is available in the lot south of the  Japanese Garden down to Washington Park. There is additional parking available  at the nearby lot by Graham Visitor\u2019s Center in the Arboretum. On weekends,  holidays, and days with nice weather the parking lots typically fill up fast.  If you are travelling to the garden via car, we recommend allowing yourself  adequate time to arrive and find parking well before your scheduled tea  ceremony. If possible, try to arrive 45 minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit on tatami  mats, with bench seating available for those unable to do so. We request  participants wear socks or tights (<b>no bare feet</b>), and avoid wearing jeans,  rings, and personal fragrances. Guests at tea ceremony are asked to wear masks  in the roji garden and Shoseian Teahouse. Our Teahouse is not a restaurant or  caf\u00e9 and is open only during and for tea ceremonies.</p><p class=\"MsoNormal\"><br></p><p class=\"MsoNormal\"><b>Your hosts - Omotesenke-ryu</b></p><p class=\"MsoNormal\">Chanoyu, which attained greatness under Sen no Rikyu, is a  tradition that has been handed down for over 400 years. Omotesenke-ryu is a  Seattle-based group that practices this long lineage, and their presentation at  Seattle Japanese Garden are \"a communication of the minds of host and  guests through the enjoyment of delicious tea together.\"</p><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the tea  ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-24",
+   "date_range_end": "",
+   "time_range": "2:00 PM - 2:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---omotesenke-ryu/89548?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 89549,
+   "name": "Tea Ceremony - Omotesenke-ryu",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil 40-minute tea presentation at the  Shoseian teahouse in a traditional roji located within the Seattle Japanese  Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets. Reservations  required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the garden will  need to be purchased separately onsite once you arrive. Tea ceremony tickets <b>DO  NOT</b> include admission access to the Japanese Garden. Please allow ample time  prior to your tea ceremony to purchase admission tickets.</p><p class=\"MsoNormal\">Parking - Free parking is available in the lot south of the  Japanese Garden down to Washington Park. There is additional parking available  at the nearby lot by Graham Visitor\u2019s Center in the Arboretum. On weekends,  holidays, and days with nice weather the parking lots typically fill up fast.  If you are travelling to the garden via car, we recommend allowing yourself  adequate time to arrive and find parking well before your scheduled tea  ceremony. If possible, try to arrive 45 minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit on tatami  mats, with bench seating available for those unable to do so. We request  participants wear socks or tights (<b>no bare feet</b>), and avoid wearing jeans,  rings, and personal fragrances. Guests at tea ceremony are asked to wear masks  in the roji garden and Shoseian Teahouse. Our Teahouse is not a restaurant or  caf\u00e9 and is open only during and for tea ceremonies.</p><p class=\"MsoNormal\"><br></p><p class=\"MsoNormal\"><b>Your hosts - Omotesenke-ryu</b></p><p class=\"MsoNormal\">Chanoyu, which attained greatness under Sen no Rikyu, is a  tradition that has been handed down for over 400 years. Omotesenke-ryu is a  Seattle-based group that practices this long lineage, and their presentation at  Seattle Japanese Garden are \"a communication of the minds of host and  guests through the enjoyment of delicious tea together.\"</p><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the tea  ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-24",
+   "date_range_end": "",
+   "time_range": "3:00 PM - 3:40 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---omotesenke-ryu/89549?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  },
+  {
+   "id": 88288,
+   "name": "Big Pumpkin Bash (All Ages)",
+   "desc": "Get your costumes and bring your family out for  ghoulish-good fun with carnival games, face painting, refreshments, and the  always popular cake walk! Bring a can of food to donate. Volunteer hours are  available. Call 206-684-7524 for more details. $0.25/ticket and $10/entry  bracelet payable by cash or check.",
+   "only_one_day": true,
+   "date_range_start": "2026-10-24",
+   "date_range_end": "",
+   "time_range": "6:00 PM - 8:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/big-pumpkin-bash-all-ages/88288?locale=en-US",
+   "location": {
+    "label": "Bitter Lake Annex/Broadview Thomson Ele"
+   },
+   "fee": {
+    "label": "$10.00"
+   }
+  },
+  {
+   "id": 89550,
+   "name": "Tea Ceremony - Omotesenke-ryu",
+   "desc": "<p class=\"MsoNormal\">Experience a tranquil 40-minute tea presentation at the  Shoseian teahouse in a traditional roji located within the Seattle Japanese  Garden. </p><p class=\"MsoNormal\">Tickets: $15, include tea & sweets. Reservations  required.</p><p class=\"MsoNormal\"><b><u>IMPORTANT ATTENDENCE INFORMATION:</u></b></p><p class=\"MsoNormal\">Admission - Please note that admission to the garden will  need to be purchased separately onsite once you arrive. Tea ceremony tickets <b>DO  NOT</b> include admission access to the Japanese Garden. Please allow ample time  prior to your tea ceremony to purchase admission tickets.</p><p class=\"MsoNormal\">Parking - Free parking is available in the lot south of the  Japanese Garden down to Washington Park. There is additional parking available  at the nearby lot by Graham Visitor\u2019s Center in the Arboretum. On weekends,  holidays, and days with nice weather the parking lots typically fill up fast.  If you are travelling to the garden via car, we recommend allowing yourself  adequate time to arrive and find parking well before your scheduled tea  ceremony. If possible, try to arrive 45 minutes prior to your ceremony time.</p><p class=\"MsoNormal\">Please note that visitors are encouraged to sit on tatami  mats, with bench seating available for those unable to do so. We request  participants wear socks or tights (<b>no bare feet</b>), and avoid wearing jeans,  rings, and personal fragrances. Guests at tea ceremony are asked to wear masks  in the roji garden and Shoseian Teahouse. Our Teahouse is not a restaurant or  caf\u00e9 and is open only during and for tea ceremonies.</p><p class=\"MsoNormal\"><br></p><p class=\"MsoNormal\"><b>Your hosts - Omotesenke-ryu</b></p><p class=\"MsoNormal\">Chanoyu, which attained greatness under Sen no Rikyu, is a  tradition that has been handed down for over 400 years. Omotesenke-ryu is a  Seattle-based group that practices this long lineage, and their presentation at  Seattle Japanese Garden are \"a communication of the minds of host and  guests through the enjoyment of delicious tea together.\"</p><p class=\"MsoNormal\">Practiced in Japan for Centuries, the art of the tea  ceremony - also called Chado, or The Way of Tea - is imbued with harmony,  respect, purity, and tranquility. 16th-century master Sen no Rikyu refined  Chado, and the Wabi-Sabi aesthetic of simplicity and humility he taught had  widespread influence, including on the architecture of tea gardens.</p>",
+   "only_one_day": true,
+   "date_range_start": "2026-10-25",
+   "date_range_end": "",
+   "time_range": "1:00 PM - 1:40 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---omotesenke-ryu/89550?locale=en-US",
+   "location": {
+    "label": "Japanese Gardn"
+   },
+   "fee": {
+    "label": "$15.00"
+   }
+  }
+ ],
+ "dropInItems": [
+  {
+   "id": 83458,
+   "name": "Drop-In: Outdoor Pickleball- Miller Courts",
+   "desc": "Outdoor Courts dedicated for free, open pickleball play during this time. No registration required. Seattle Parks Lifelong Recreation Volunteer Ambassadors are present to facilitate rotations when courts are busy. Please bring a paddle, outdoor balls and your community spirit!",
+   "only_one_day": false,
+   "date_range_start": "2026-07-01",
+   "date_range_end": "2026-09-30",
+   "time_range": "10:00 AM - Noon",
+   "days_of_week": "Mon,Wed,Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-outdoor-pickleball--miller-courts/83458?locale=en-US",
+   "location": {
+    "label": "Outdoor Courts"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 83460,
+   "name": "Drop-In: Outdoor Pickleball- Walt Hundley Courts",
+   "desc": "Outdoor Courts dedicated for free, open pickleball play during this time. No registration required. Seattle Parks Lifelong Recreation Volunteer Ambassadors are present to facilitate rotations when courts are busy. Please bring a paddle, outdoor balls and your community spirit!",
+   "only_one_day": false,
+   "date_range_start": "2026-07-01",
+   "date_range_end": "2026-09-30",
+   "time_range": "10:00 AM - Noon",
+   "days_of_week": "Mon,Wed,Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-outdoor-pickleball--walt-hundley-courts/83460?locale=en-US",
+   "location": {
+    "label": "Outdoor Courts"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 83457,
+   "name": "Drop-In: Outdoor Pickleball- Delridge Courts",
+   "desc": "Outdoor Courts dedicated for free, open pickleball play during this time.  No registration required.  Seattle Parks Lifelong Recreation Volunteer Ambassadors are present to facilitate rotations when courts are busy.  Please bring a paddle, outdoor balls and your community spirit!",
+   "only_one_day": false,
+   "date_range_start": "2026-07-02",
+   "date_range_end": "2026-09-29",
+   "time_range": "10:00 AM - Noon",
+   "days_of_week": "Tue,Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-outdoor-pickleball--delridge-courts/83457?locale=en-US",
+   "location": {
+    "label": "Outdoor Courts"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 83459,
+   "name": "Drop-In: Outdoor Pickleball- Mt. Baker Courts",
+   "desc": "Outdoor Courts dedicated for free, open pickleball play during this time.  No registration required.  Seattle Parks Lifelong Recreation Volunteer Ambassadors are present to facilitate rotations when courts are busy.  Please bring a paddle, outdoor balls and your community spirit!  Mt. Baker Courts Address:  2521 Lake Park DR S",
+   "only_one_day": false,
+   "date_range_start": "2026-07-07",
+   "date_range_end": "2026-09-29",
+   "time_range": "10:00 AM - Noon",
+   "days_of_week": "Tue,Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-outdoor-pickleball--mt-baker-courts/83459?locale=en-US",
+   "location": {
+    "label": "Outdoor Courts"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88922,
+   "name": "Masters Swim - Drop In",
+   "desc": "A Recreational Lap Swim. A workout will be provided.",
+   "only_one_day": false,
+   "date_range_start": "2026-08-30",
+   "date_range_end": "2026-12-13",
+   "time_range": "9:00 AM - 10:00 AM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/masters-swim---drop-in/88922?locale=en-US",
+   "location": {
+    "label": "Madison Pool"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 88886,
+   "name": "Lap Swim - Drop In",
+   "desc": "<div>Lap Swim is a continuous lap swim for swimmers of all ages; we divide the lanes according to speed levels. (3 Lap Lanes. There is a dive class in the other 3 lanes. The shallow half of those lanes is available for water jogging/walking, or head-high swimming. There are stairs and a lift for ADA access.)</div><div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-08-30",
+   "date_range_end": "2026-12-13",
+   "time_range": "11:00 AM - Noon",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/lap-swim---drop-in/88886?locale=en-US",
+   "location": {
+    "label": "Madison Pool"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 88923,
+   "name": "Pool Playland - Drop In",
+   "desc": "<p>  (Shallow Water Only) An all-ages swim intended for families with children aged 5 and under.  Children younger than 6 years of age and under 48\" in height must be directly supervised in the water by an adult, within arm\u2019s reach and eye contact, at all times.  (There are stairs and a lift for ADA access.)  </p>",
+   "only_one_day": false,
+   "date_range_start": "2026-08-30",
+   "date_range_end": "2026-12-13",
+   "time_range": "11:00 AM - Noon",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/pool-playland---drop-in/88923?locale=en-US",
+   "location": {
+    "label": "Madison Pool"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 88887,
+   "name": "Lap Swim - Drop In",
+   "desc": "Lap Swim is a continuous lap swim for swimmers of all ages; we divide the lanes according to speed levels. (4 Lap Lanes. There is an Advaptive class that may participate in the open lane. The open lane is available for water jogging/walking, or head-high swimming. There are stairs and a lift for ADA access.)",
+   "only_one_day": false,
+   "date_range_start": "2026-08-30",
+   "date_range_end": "2026-12-13",
+   "time_range": "Noon - 1:00 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/lap-swim---drop-in/88887?locale=en-US",
+   "location": {
+    "label": "Madison Pool"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 88929,
+   "name": "Recreation Swim - Drop In",
+   "desc": "<p>    Recreation swim is a time set aside for recreational swimming for swimmers of all ages to enjoy. Children younger than 6 or under 48\" in height must be directly supervised in the water by an adult who is within a distance of an arm's length at all times. (1 and 3 meter diving boards are open. There are stairs and a lift for ADA access.)</p><p><br></p>",
+   "only_one_day": false,
+   "date_range_start": "2026-08-30",
+   "date_range_end": "2026-12-13",
+   "time_range": "2:00 PM - 3:00 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/recreation-swim---drop-in/88929?locale=en-US",
+   "location": {
+    "label": "Madison Pool"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 88888,
+   "name": "Lap Swim - Drop In",
+   "desc": "<div>Lap Swim is a continuous lap swim for swimmers of all ages; we divide the lanes according to speed levels. (4 Lap Lanes with a Double-wide Lane for head-high swimming or jogging. There are stairs and a lift for ADA access.)</div><div><br></div><div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-08-30",
+   "date_range_end": "2026-12-13",
+   "time_range": "3:00 PM - 4:00 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/lap-swim---drop-in/88888?locale=en-US",
+   "location": {
+    "label": "Madison Pool"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 88924,
+   "name": "Pool Playland - Drop In",
+   "desc": "(Shallow Water Only) An all-ages swim intended for families with children aged 5 and under.  Children younger than 6 years of age and under 48\" in height must be directly supervised in the water by an adult, within arm\u2019s reach and eye contact, at all times.  (There are stairs and a lift for ADA access.)",
+   "only_one_day": false,
+   "date_range_start": "2026-08-30",
+   "date_range_end": "2026-12-13",
+   "time_range": "3:00 PM - 4:00 PM",
+   "days_of_week": "Sun",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/pool-playland---drop-in/88924?locale=en-US",
+   "location": {
+    "label": "Madison Pool"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 86946,
+   "name": "Lap Swim - Drop In",
+   "desc": "A continuous lap swim for swimmers of all ages. Lap Lanes are divided according to speed. Please circle swim and observe courtesy rules. Sauna is also available.",
+   "only_one_day": false,
+   "date_range_start": "2026-08-31",
+   "date_range_end": "2027-01-03",
+   "time_range": "8:30 AM - 1:15 PM",
+   "days_of_week": "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/lap-swim---drop-in/86946?locale=en-US",
+   "location": {
+    "label": "Rainier Beach Pool & Cmty Ctr"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 86802,
+   "name": "Drop-In: MahJong",
+   "desc": "Drop in and play American Mah Jongg, for experienced players. Not a lesson. No activity Oct 27. <div><br>  <div><br></div>    </div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-01",
+   "date_range_end": "2026-12-29",
+   "time_range": "11:00 AM - 1:45 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong/86802?locale=en-US",
+   "location": {
+    "label": "Laurelhurst Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87861,
+   "name": "Drop-In: Chinese Mahjong & Chess",
+   "desc": "<div>Mahjong is a 4-player, tile-based game which was developed in China during the Qing Dynasty. Join friends or make new ones as you try your luck in this game of skill, strategy, and calculation.</div><div><br></div><div>We'll also have Chinese Chess.<div><div><br></div></div></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-01",
+   "date_range_end": "2026-12-31",
+   "time_range": "Noon - 4:00 PM",
+   "days_of_week": "Mon,Tue,Wed,Thu,Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-chinese-mahjong-chess/87861?locale=en-US",
+   "location": {
+    "label": "International District/Chinatown C.C."
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87877,
+   "name": "Drop-In: 50 & Up Fun",
+   "desc": "<div>Don't drop the ball! Bring a friend and compete in a friendly game of table tennis, or as some know it. We'll also have Chinese Chess and Mahjong available. <div><br></div><div>Ping-Pong. Balls are available for purchase.</div></div><div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-02",
+   "date_range_end": "2026-12-30",
+   "time_range": "3:00 PM - 4:45 PM",
+   "days_of_week": "Mon,Wed,Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-50-up-fun/87877?locale=en-US",
+   "location": {
+    "label": "International District/Chinatown C.C."
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86874,
+   "name": "Drop-In: Poetry",
+   "desc": "Enjoy a variety of poetry and writing activities as we share  in the joy of organizing and creating our own words and thoughts on paper.  Please bring a journal or notebook and prepare to be surprised. Class is held on the first Friday of each month.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-04",
+   "date_range_end": "2026-12-04",
+   "time_range": "6:00 PM - 7:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-poetry/86874?locale=en-US",
+   "location": {
+    "label": "Northgate Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86732,
+   "name": "Drop-In: Mahjong",
+   "desc": "Hong  Kong Mahjong is similar to  rummy and you can pick up the basics  in an afternoon. Come play this tile game of strategy, skill and a bit of luck. So addictive and  fun!",
+   "only_one_day": false,
+   "date_range_start": "2026-09-08",
+   "date_range_end": "2026-12-29",
+   "time_range": "Noon - 3:00 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong/86732?locale=en-US",
+   "location": {
+    "label": "Rainier Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87813,
+   "name": "Drop-In: Mahjong",
+   "desc": "Mahjong is a 4-player, tile-based game which was developed in China during the Qing Dynasty. Join friends or make new ones as you try your luck in this game of skill, strategy, and calculation.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-08",
+   "date_range_end": "2026-12-29",
+   "time_range": "1:30 PM - 4:30 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong/87813?locale=en-US",
+   "location": {
+    "label": "Montlake Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88983,
+   "name": "Drop-In: English Conversation Circle",
+   "desc": "Practice your English speaking and listening  skills with other English Second Language students. At each  meeting we will discuss a topic, play games, and listen to stories. All levels  are welcome.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-08",
+   "date_range_end": "2026-11-19",
+   "time_range": "5:30 PM - 6:45 PM",
+   "days_of_week": "Tue,Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-english-conversation-circle/88983?locale=en-US",
+   "location": {
+    "label": "Queen Anne Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87719,
+   "name": "Drop-In: Pok\u00e9mon and Minecraft",
+   "desc": "We've got Minecraft. We've got Pok\u00e9mon Cards. Come play and trade and eat free snacks!",
+   "only_one_day": false,
+   "date_range_start": "2026-09-08",
+   "date_range_end": "2026-12-15",
+   "time_range": "5:30 PM - 6:30 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-pok-mon-and-minecraft/87719?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 89252,
+   "name": "Drop-In: Yarn Crafters",
+   "desc": "Bring your yarn, needles, and projects and join a welcoming space for fiber enthusiasts of all levels! Whether you\u2019re just getting started or have years of experience, this drop-in session is a great way to share tips, get inspired, and connect with fellow makers. No formal instruction \u2014 just a cozy, creative time to work on your own projects in good company",
+   "only_one_day": false,
+   "date_range_start": "2026-09-08",
+   "date_range_end": "2026-12-22",
+   "time_range": "6:00 PM - 7:30 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-yarn-crafters/89252?locale=en-US",
+   "location": {
+    "label": "Montlake Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88115,
+   "name": "Drop-In: Music Playtime",
+   "desc": "A guided, playful experience using music and rhythm-based games and exercises. No musical experience necessary. Enjoy a judgment-free space for listening, creativity, and group engagement. Instruments provided or bring your own. Free.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-08",
+   "date_range_end": "2026-12-15",
+   "time_range": "6:30 PM - 7:45 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-music-playtime/88115?locale=en-US",
+   "location": {
+    "label": "High Point Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87265,
+   "name": "Drop-In: Adult Tai Chi",
+   "desc": "Stretch and relax your mind, body, and spirit in our Tai Chi class. Suited for all levels. Dress in comfortable clothing that allows you to move freely.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-16",
+   "time_range": "9:30 AM - 11:00 AM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-adult-tai-chi/87265?locale=en-US",
+   "location": {
+    "label": "Jefferson Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86731,
+   "name": "Drop-In: Bridge",
+   "desc": "Drop in play for bridge players.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-30",
+   "time_range": "11:00 AM - 2:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-bridge/86731?locale=en-US",
+   "location": {
+    "label": "Rainier Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86870,
+   "name": "Drop-In: Fiber Arts Group",
+   "desc": "<div>Bring your quilting, textile arts and crafts projects to work on. Share ideas and enjoy the company of other crafters. No formal instruction provided.</div><div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-30",
+   "time_range": "11:30 AM - 3:30 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-fiber-arts-group/86870?locale=en-US",
+   "location": {
+    "label": "Northgate Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 87702,
+   "name": "Drop-In: Bridge",
+   "desc": "Drop in bridge games, mixed levels.<div><div>Contact jcwells@earthlink.net to reserve your seat. </div><div>206-755-8122</div></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-16",
+   "time_range": "12:30 PM - 3:30 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-bridge/87702?locale=en-US",
+   "location": {
+    "label": "Magnolia United Church of Christ, 3555 West McGraw St."
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87266,
+   "name": "Drop-In: Ballroom & Line Dance",
+   "desc": "<div>Come dance to the rhythm of ballroom or line dance. Come with a partner or by yourself for a fun day of dancing. No experience necessary.</div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-16",
+   "time_range": "1:00 PM - 3:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-ballroom-line-dance/87266?locale=en-US",
+   "location": {
+    "label": "Jefferson Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87701,
+   "name": "Drop-in Mahjong",
+   "desc": "Play this fun game using Chinese tiles. Bring your mahjong set if you have one. Beginners welcome.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-16",
+   "time_range": "1:30 PM - 4:30 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong/87701?locale=en-US",
+   "location": {
+    "label": "Magnolia Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86769,
+   "name": "Drop-In: Mahjong",
+   "desc": "Mahjong is a 4-player, tile-based game which was developed in China during the Qing Dynasty. Join friends or make new ones as you try your luck in this game of skill, strategy, and calculation. Please bring your Mahjong game.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-30",
+   "time_range": "2:00 PM - 4:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong/86769?locale=en-US",
+   "location": {
+    "label": "Magnuson Cmty Ctr (bldg 47)"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87478,
+   "name": "Drop-In: Arcade Games-Adults (18 and up)",
+   "desc": "Arcade time to keep adults having fun with games like, Pac Man, Basketball Shoot 'Em Up, Air Hockey, and Foo's Ball, through tournaments and different game competitions.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-30",
+   "time_range": "3:00 PM - 6:30 PM",
+   "days_of_week": "Mon,Wed,Thu,Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-arcade-games-adults-18-and-up/87478?locale=en-US",
+   "location": {
+    "label": "Van Asselt Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87076,
+   "name": "Drop-In: Juggling",
+   "desc": "Half the gym will be available to the juggling club. Learn this impressive skill and show your friends. They\u2019ll want to join you next time so they can learn too!",
+   "only_one_day": false,
+   "date_range_start": "2026-09-09",
+   "date_range_end": "2026-12-16",
+   "time_range": "6:15 PM - 8:45 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076?locale=en-US",
+   "location": {
+    "label": "Ballard Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87480,
+   "name": "Drop-In: Mahjong Etcetera",
+   "desc": "Come play mahjong, chess, and checkers! Our community center has lots of games to play for adults, especially mahjong! Drop in and take your pick.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-10",
+   "date_range_end": "2026-12-24",
+   "time_range": "9:30 AM - 11:30 AM",
+   "days_of_week": "Tue,Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong-etcetera/87480?locale=en-US",
+   "location": {
+    "label": "Van Asselt Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87297,
+   "name": "Drop-In: MahJong",
+   "desc": "Drop in and play American Mah Jongg, for experienced players. Not a lesson.<br><div>No activities: 9/24, 11/26, 12/10</div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-10",
+   "date_range_end": "2026-12-17",
+   "time_range": "10:00 AM - 1:00 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong/87297?locale=en-US",
+   "location": {
+    "label": "Magnuson Cmty Ctr (bldg 47)"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88231,
+   "name": "Drop-In: Adult Roller Skating",
+   "desc": "Lace up, drop in, and roll out! Join the fun of  roller skating in a safe and welcoming environment.Whether you\u2019re experienced or new to  skating, we welcome all! Glide in and enjoy the ride. Please bring your own  skates.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-10",
+   "date_range_end": "2026-12-31",
+   "time_range": "1:30 PM - 3:30 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-adult-roller-skating/88231?locale=en-US",
+   "location": {
+    "label": "Miller Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86640,
+   "name": "Drop-In: Craft Circle",
+   "desc": "Drop-in knitting, crocheting, etc. We donate our creations--hats, scarves, blankets, baby clothes--to local charities.   Bring your project and socialize with others. <br>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-10",
+   "date_range_end": "2026-12-17",
+   "time_range": "1:30 PM - 4:00 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-craft-circle/86640?locale=en-US",
+   "location": {
+    "label": "Queen Anne Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87394,
+   "name": "Drop-In: Skate Night",
+   "desc": "Come skate to disco lights and fun music! Sept. 10th - Harvest Moon, Oct. 8th - 70s Night, and Nov. 12th - The Big Dark. Free snacks provided. Helmets required. Bring your own wheels (no bikes or skateboards please).",
+   "only_one_day": false,
+   "date_range_start": "2026-09-10",
+   "date_range_end": "2026-11-12",
+   "time_range": "5:30 PM - 7:00 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-skate-night/87394?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86638,
+   "name": "Drop-In: Board Game Buffet",
+   "desc": "An assortment of board games are offered for self-directed play with old friends, or new. Get up and move with ping pong or pool, or kick back with a video game. Volunteers and visitors are welcome to develop their own ideas and activities in a multi-purpose space, inquire with staff.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-11",
+   "date_range_end": "2026-12-18",
+   "time_range": "10:00 AM - 1:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-board-game-buffet/86638?locale=en-US",
+   "location": {
+    "label": "Queen Anne Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87267,
+   "name": "Drop-In: Fiber Arts Group",
+   "desc": "<div>Bring your quilting, textile arts and crafts projects to work on. Share ideas and enjoy the company of other crafters. No formal instruction provided.</div><div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-11",
+   "date_range_end": "2026-12-18",
+   "time_range": "10:30 AM - 1:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-fiber-arts-group/87267?locale=en-US",
+   "location": {
+    "label": "Jefferson Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87081,
+   "name": "Drop-In: Mahjong",
+   "desc": "Drop in and play American Mahjong, for experienced players. <div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-11",
+   "date_range_end": "2026-12-18",
+   "time_range": "Noon - 3:00 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mahjong/87081?locale=en-US",
+   "location": {
+    "label": "Delridge Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86641,
+   "name": "Drop-In: Mah Jong",
+   "desc": "Play this fun game using Chinese tiles.  Bring your Mah Jong set if you have one.  Beginners welcome.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-11",
+   "date_range_end": "2026-12-18",
+   "time_range": "1:30 PM - 4:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-mah-jong/86641?locale=en-US",
+   "location": {
+    "label": "Queen Anne Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88267,
+   "name": "Drop-In: Family Skate Night",
+   "desc": "Join us for this popular Bitter Lake family tradition as we put on our skates and get moving! We will have   great music and play fun games. Bring your own skates and blades,   or borrow a pair of ours. Please note: Helmets required and no toy skates allowed.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-11",
+   "date_range_end": "2026-12-18",
+   "time_range": "6:30 PM - 8:15 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-family-skate-night/88267?locale=en-US",
+   "location": {
+    "label": "Bitter Lake Annex/Broadview Thomson Ele"
+   },
+   "fee": {
+    "label": "$6.00"
+   }
+  },
+  {
+   "id": 88168,
+   "name": "Drop-In: Board Games",
+   "desc": "<p>Bring your favorite game or try one of ours during some community fun! All ages are welcome, but children under 12 must be accompanied by an adult. Come match with members of your community.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-12",
+   "date_range_end": "2026-12-26",
+   "time_range": "9:30 AM - 3:30 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-board-games/88168?locale=en-US",
+   "location": {
+    "label": "Yesler Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88766,
+   "name": "Drop-In: Pop-Up Craft Corner",
+   "desc": "Join us for our Saturday Pop-Up Crafter Corner\u2014a relaxed, drop-in space where families can get creative together. Each session offers a variety of craft supplies/projects for you to explore, experiment with, and combine however you like. Stay for a little while or the whole time\u2014no registration needed. Just drop in and enjoy a fun, creative start to your weekend! Supervision required for kids under age 11.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-12",
+   "date_range_end": "2026-12-26",
+   "time_range": "10:00 AM - 3:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-pop-up-craft-corner/88766?locale=en-US",
+   "location": {
+    "label": "Montlake Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87841,
+   "name": "Drop-In: Soul Line Dance",
+   "desc": "Join this free, fun, and energetic class for all ages. Moving to R&B music will push you through several stages of line dance intensity as we get our heart rates up while inches fall off. This exercise caters to all fitness levels. Brought to you by Seattle Parks and Recreation's Rec4All Grant.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-12",
+   "date_range_end": "2026-12-26",
+   "time_range": "10:00 AM - Noon",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-soul-line-dance/87841?locale=en-US",
+   "location": {
+    "label": "Garfield Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88008,
+   "name": "Drop-In: Craft Group",
+   "desc": "Bring supplies and  craft alongside other inspired crafters. From beading to sewing, dyeing,  mending, knitting, crocheting, scrapbooking, you name it.  If it is portable, bring it in! You can  easily find help from others for individual projects. This is not a class, just  crafting and discussions. Everyone is welcome.    <div>No need to register instead, please be prepared to scan your free Seattle Parks and Recreation pass and the front desk.</div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-12",
+   "date_range_end": "2026-12-12",
+   "time_range": "10:30 AM - 4:30 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-craft-group/88008?locale=en-US",
+   "location": {
+    "label": "Meadowbrook Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86954,
+   "name": "Drop-In: Detective Cookie's Chess Club",
+   "desc": "Children and teens are invited to join this Chess Club. Family and community members are also welcome. Drop by to learn and play chess!",
+   "only_one_day": false,
+   "date_range_start": "2026-09-12",
+   "date_range_end": "2026-12-26",
+   "time_range": "Noon - 2:00 PM",
+   "days_of_week": "Sat",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-detective-cookie-s-chess-club/86954?locale=en-US",
+   "location": {
+    "label": "Rainier Beach Pool & Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 86937,
+   "name": "Drop-In: Bridge",
+   "desc": "Drop-in play for bridge players of all skill levels. Not a lesson. No activities 10/12.<div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-14",
+   "date_range_end": "2026-12-28",
+   "time_range": "1:00 PM - 3:00 PM",
+   "days_of_week": "Mon",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-bridge/86937?locale=en-US",
+   "location": {
+    "label": "Northgate Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87840,
+   "name": "Drop-In: Self Led Tai Chi",
+   "desc": "This group practices occur in a relaxed, supportive environment without formal instruction, focusing on mindful movement, balance, and ongoing refinement of the form. The emphasis is on consistency, shared practice, and maintaining the health and meditative benefits of Tai Chi in a friendly group setting.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-14",
+   "date_range_end": "2026-12-28",
+   "time_range": "1:15 PM - 2:15 PM",
+   "days_of_week": "Mon",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-self-led-tai-chi/87840?locale=en-US",
+   "location": {
+    "label": "Garfield Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 87891,
+   "name": "Drop-In: Improv Jam (18+)",
+   "desc": "All skill levels welcome! Join us for a game-based and guided improv jam. The volunteer lead will adjust the evening activities to participant skill level as the group builds an accessible and supportive space. No experience necessary!",
+   "only_one_day": false,
+   "date_range_start": "2026-09-14",
+   "date_range_end": "2026-12-28",
+   "time_range": "6:30 PM - 8:00 PM",
+   "days_of_week": "Mon",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-improv-jam-18/87891?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88773,
+   "name": "Water Polo Adult - Drop In",
+   "desc": "<div>Learn and play water polo.  Beginners are welcome but must know how to swim and tread water.  This program is intended for 15+ teens and adults comfortable in deep water.</div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-14",
+   "date_range_end": "2026-12-14",
+   "time_range": "8:00 PM - 9:15 PM",
+   "days_of_week": "Mon",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/water-polo-adult---drop-in/88773?locale=en-US",
+   "location": {
+    "label": "Rainier Beach Pool & Cmty Ctr"
+   },
+   "fee": {
+    "label": "View fee details"
+   }
+  },
+  {
+   "id": 86639,
+   "name": "Drop-In: Bridge",
+   "desc": "Drop in Bridge time, mixed levels.<br>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-15",
+   "date_range_end": "2026-12-15",
+   "time_range": "12:30 PM - 3:30 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-bridge/86639?locale=en-US",
+   "location": {
+    "label": "Queen Anne Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88167,
+   "name": "Drop-In: Arts and Crafts",
+   "desc": "Are you creative and like to paint or design things from scratch? Join our program and find the freedom of expression as we make tie dye t-shirts, bracelets, scented candles, paint, and much more. Must have current E-13.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-15",
+   "date_range_end": "2026-12-15",
+   "time_range": "4:00 PM - 7:30 PM",
+   "days_of_week": "Tue",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-arts-and-crafts/88167?locale=en-US",
+   "location": {
+    "label": "Yesler Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88116,
+   "name": "Drop-In: Original Gamers",
+   "desc": "Join  us monthly for classic games like Scrabble, Dominos, Monopoly, and  Dictionary.  Meet new people, connect, and enjoy community fun. Games are provided, just show up! Meets the 3rd Wednesday of each month. Free.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-16",
+   "date_range_end": "2026-12-16",
+   "time_range": "1:00 PM - 2:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-original-gamers/88116?locale=en-US",
+   "location": {
+    "label": "High Point Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88166,
+   "name": "Drop-In: Aroma, a Cooking Class",
+   "desc": "<p>This easy-to-follow cooking class will teach you basic culinary skill like chopping, slicing, dicing, and saut\u00e9ing. Take control of your kitchen by learning how to meal plan, shop for food, and help another chef. Food handlers card is required and current E-13.</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-16",
+   "date_range_end": "2026-12-16",
+   "time_range": "3:30 PM - 6:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-aroma-a-cooking-class/88166?locale=en-US",
+   "location": {
+    "label": "Yesler Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 89498,
+   "name": "Drop-In: Adult Roller Skating",
+   "desc": "Lace up, drop in, and roll and glow! Join the fun of  roller skating in a safe and welcoming environment. Whether you\u2019re experienced or new to  skating, we welcome all! Glide in and enjoy the ride. Please bring your own  skates.",
+   "only_one_day": false,
+   "date_range_start": "2026-09-16",
+   "date_range_end": "2026-11-25",
+   "time_range": "6:00 PM - 8:15 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-adult-roller-skating/89498?locale=en-US",
+   "location": {
+    "label": "Miller Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 89449,
+   "name": "Drop-In: Henna 101",
+   "desc": "Learn the basics of Henna! This is a hands-on lesson where you will be handling your own henna tubes while being guided through proper handling techniques.  You will be creating fun designs as well as learning some of the history behind it!",
+   "only_one_day": false,
+   "date_range_start": "2026-09-17",
+   "date_range_end": "2026-12-17",
+   "time_range": "4:00 PM - 5:30 PM",
+   "days_of_week": "Thu",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-henna-101/89449?locale=en-US",
+   "location": {
+    "label": "Bitter Lake Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 86923,
+   "name": "Drop-In: Bridge",
+   "desc": "Drop-in play for bridge players of all skill levels. Not a lesson. No activities 11/27.<div><br></div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-18",
+   "date_range_end": "2026-12-18",
+   "time_range": "1:30 PM - 3:45 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-bridge/86923?locale=en-US",
+   "location": {
+    "label": "Montlake Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 89528,
+   "name": "Drop-In: Youth Tutoring",
+   "desc": "Youth Tutoring is an hour-long tutoring session catered to middle school students and led by volunteer high school students and/or the Ballard Recreation Leader.<div><br></div><div>Need help in school? Drop on in! No registration required.</div><div><br></div><div>Want to tutor? Contact: pks_ballardcc@seattle.gov</div>",
+   "only_one_day": false,
+   "date_range_start": "2026-09-30",
+   "date_range_end": "2026-12-02",
+   "time_range": "6:00 PM - 7:00 PM",
+   "days_of_week": "Wed",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-youth-tutoring/89528?locale=en-US",
+   "location": {
+    "label": "Ballard Cmty Ctr"
+   },
+   "fee": {
+    "label": "Free"
+   }
+  },
+  {
+   "id": 88059,
+   "name": "Grown and Gathered (18+): Fork and Film",
+   "desc": "Back for another food-forward hit! Treat yourself to some movie-themed snacks and enjoy a feel good film: My Big Fat Greek Wedding. No registration required. Only 18+.",
+   "only_one_day": true,
+   "date_range_start": "2026-11-13",
+   "date_range_end": "",
+   "time_range": "5:30 PM - 7:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/grown-and-gathered-18-fork-and-film/88059?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  },
+  {
+   "id": 88040,
+   "name": "Grown and Gathered (18+): Creators Circle",
+   "desc": "Looking to connect with your adult neighbors and do some art? Join us for this season's Creators Circle to break the ice, relax, and enjoy building community.  Bring your favorite project-in-progress or or create using the materials provided. Only 18+.",
+   "only_one_day": true,
+   "date_range_start": "2026-12-11",
+   "date_range_end": "",
+   "time_range": "5:30 PM - 7:30 PM",
+   "days_of_week": "Fri",
+   "detail_url": "https://apm.activecommunities.com/seattle/Activity_Search/grown-and-gathered-18-creators-circle/88040?locale=en-US",
+   "location": {
+    "label": "Ravenna-Eckstein Cmty Ctr"
+   },
+   "fee": {
+    "label": "View Registration Info"
+   }
+  }
+ ],
+ "meetings": {
+  "86638": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-11",
+     "ending_date": "2026-12-18",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "27 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "10:00:00",
+       "ending_time": "13:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86639": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-15",
+     "ending_date": "2026-12-15",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "12:30:00",
+       "ending_time": "15:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86640": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-10",
+     "ending_date": "2026-12-17",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "24 Sep 2026",
+      "26 Nov 2026",
+      "10 Dec 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Thu",
+       "starting_time": "13:30:00",
+       "ending_time": "16:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86641": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-11",
+     "ending_date": "2026-12-18",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "27 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "13:30:00",
+       "ending_time": "16:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86731": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-30",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "11:00:00",
+       "ending_time": "14:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86732": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-08",
+     "ending_date": "2026-12-29",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "12:00:00",
+       "ending_time": "15:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86769": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-30",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11,25 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "14:00:00",
+       "ending_time": "16:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86802": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-01",
+     "ending_date": "2026-12-29",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "27 Oct 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "11:00:00",
+       "ending_time": "13:45:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86870": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-30",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "11:30:00",
+       "ending_time": "15:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86874": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-04",
+     "ending_date": "2026-12-04",
+     "weeks_of_month": "1st week of every month",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "18:00:00",
+       "ending_time": "19:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86923": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-18",
+     "ending_date": "2026-12-18",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "27 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "13:30:00",
+       "ending_time": "15:45:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86937": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-14",
+     "ending_date": "2026-12-28",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "12 Oct 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Mon",
+       "starting_time": "13:00:00",
+       "ending_time": "15:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "86954": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-12",
+     "ending_date": "2026-12-26",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Sat",
+       "starting_time": "12:00:00",
+       "ending_time": "14:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87076": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-16",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "18:15:00",
+       "ending_time": "20:45:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87081": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-11",
+     "ending_date": "2026-12-18",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "18,25 Sep 2026",
+      "27 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "12:00:00",
+       "ending_time": "15:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87265": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-16",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11,25 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "09:30:00",
+       "ending_time": "11:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87266": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-16",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11,25 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "13:00:00",
+       "ending_time": "15:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87267": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-11",
+     "ending_date": "2026-12-18",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "27 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "10:30:00",
+       "ending_time": "13:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87297": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-10",
+     "ending_date": "2026-12-17",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "24 Sep 2026",
+      "26 Nov 2026",
+      "10 Dec 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Thu",
+       "starting_time": "10:00:00",
+       "ending_time": "13:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87394": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-10",
+     "ending_date": "2026-11-12",
+     "weeks_of_month": "2nd week of every month",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Thu",
+       "starting_time": "17:30:00",
+       "ending_time": "19:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87478": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-30",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "24 Sep 2026",
+      "12 Oct 2026",
+      "11,26,27 Nov 2026",
+      "10,25 Dec 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Mon, Wed, Thu, Fri",
+       "starting_time": "15:00:00",
+       "ending_time": "18:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87480": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-10",
+     "ending_date": "2026-12-24",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "24 Sep 2026",
+      "26 Nov 2026",
+      "10 Dec 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue, Thu",
+       "starting_time": "09:30:00",
+       "ending_time": "11:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87701": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-16",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11,25 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "13:30:00",
+       "ending_time": "16:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87702": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-09",
+     "ending_date": "2026-12-16",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11,25 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "12:30:00",
+       "ending_time": "15:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87719": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-08",
+     "ending_date": "2026-12-15",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "24 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "17:30:00",
+       "ending_time": "18:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87813": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-08",
+     "ending_date": "2026-12-29",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "13:30:00",
+       "ending_time": "16:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87840": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-14",
+     "ending_date": "2026-12-28",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "12 Oct 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Mon",
+       "starting_time": "13:15:00",
+       "ending_time": "14:15:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87841": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-12",
+     "ending_date": "2026-12-26",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Sat",
+       "starting_time": "10:00:00",
+       "ending_time": "12:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87861": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-01",
+     "ending_date": "2026-12-31",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "7,24 Sep 2026",
+      "12 Oct 2026",
+      "11,26,27 Nov 2026",
+      "10,25 Dec 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Weekdays",
+       "starting_time": "12:00:00",
+       "ending_time": "16:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87877": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-02",
+     "ending_date": "2026-12-30",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "7 Sep 2026",
+      "12 Oct 2026",
+      "11,27 Nov 2026",
+      "25 Dec 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Mon, Wed, Fri",
+       "starting_time": "15:00:00",
+       "ending_time": "16:45:00"
+      }
+     ]
+    }
+   ]
+  },
+  "87891": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-14",
+     "ending_date": "2026-12-28",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "12 Oct 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Mon",
+       "starting_time": "18:30:00",
+       "ending_time": "20:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88008": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-12",
+     "ending_date": "2026-12-12",
+     "weeks_of_month": "2nd week of every month",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Sat",
+       "starting_time": "10:30:00",
+       "ending_time": "16:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88040": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-12-11",
+     "ending_date": "2026-12-11",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "17:30:00",
+       "ending_time": "19:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88059": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-11-13",
+     "ending_date": "2026-11-13",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "17:30:00",
+       "ending_time": "19:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88115": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-08",
+     "ending_date": "2026-12-15",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "18:30:00",
+       "ending_time": "19:45:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88116": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-16",
+     "ending_date": "2026-12-16",
+     "weeks_of_month": "3rd week of every month",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "13:00:00",
+       "ending_time": "14:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88166": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-16",
+     "ending_date": "2026-12-16",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "15:30:00",
+       "ending_time": "18:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88167": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-15",
+     "ending_date": "2026-12-15",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "16:00:00",
+       "ending_time": "19:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88168": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-12",
+     "ending_date": "2026-12-26",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Sat",
+       "starting_time": "09:30:00",
+       "ending_time": "15:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88231": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-10",
+     "ending_date": "2026-12-31",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "24 Sep 2026",
+      "26 Nov 2026",
+      "10 Dec 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Thu",
+       "starting_time": "13:30:00",
+       "ending_time": "15:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88267": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-11",
+     "ending_date": "2026-12-18",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "27 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Fri",
+       "starting_time": "18:30:00",
+       "ending_time": "20:15:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88766": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-12",
+     "ending_date": "2026-12-26",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Sat",
+       "starting_time": "10:00:00",
+       "ending_time": "15:00:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88773": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-14",
+     "ending_date": "2026-12-14",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "12 Oct 2026",
+      "23 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Mon",
+       "starting_time": "20:00:00",
+       "ending_time": "21:15:00"
+      }
+     ]
+    }
+   ]
+  },
+  "88983": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-08",
+     "ending_date": "2026-11-19",
+     "weeks_of_month": "",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue, Thu",
+       "starting_time": "17:30:00",
+       "ending_time": "18:45:00"
+      }
+     ]
+    }
+   ]
+  },
+  "89252": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-08",
+     "ending_date": "2026-12-22",
+     "weeks_of_month": "2nd, 4th week of every month",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Tue",
+       "starting_time": "18:00:00",
+       "ending_time": "19:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "89449": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-17",
+     "ending_date": "2026-12-17",
+     "weeks_of_month": "3rd week of every month",
+     "exception_dates": [],
+     "pattern_dates": [
+      {
+       "weekdays": "Thu",
+       "starting_time": "16:00:00",
+       "ending_time": "17:30:00"
+      }
+     ]
+    }
+   ]
+  },
+  "89498": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-16",
+     "ending_date": "2026-11-25",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "18:00:00",
+       "ending_time": "20:15:00"
+      }
+     ]
+    }
+   ]
+  },
+  "89528": {
+   "no_meeting_dates": false,
+   "additional_dates": [],
+   "activity_patterns": [
+    {
+     "beginning_date": "2026-09-30",
+     "ending_date": "2026-12-02",
+     "weeks_of_month": "",
+     "exception_dates": [
+      "11 Nov 2026"
+     ],
+     "pattern_dates": [
+      {
+       "weekdays": "Wed",
+       "starting_time": "18:00:00",
+       "ending_time": "19:00:00"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "locations": {
+  "Ravenna-Eckstein Park": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Ravenna-Eckstein Park",
+     "address1": "6535 Ravenna AVE NE",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98115",
+     "latitude": 47.6771,
+     "longitude": -122.3054
+    }
+   ]
+  },
+  "Garfield Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Garfield Community Center",
+     "address1": "2323 E Cherry ST",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98122",
+     "latitude": 47.6076,
+     "longitude": -122.3022
+    }
+   ]
+  },
+  "Northgate Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Northgate Community Center",
+     "address1": "10510 5th AVE NE",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98125",
+     "latitude": 47.7052,
+     "longitude": -122.3224
+    }
+   ]
+  },
+  "Japanese Gardn": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Japanese Garden",
+     "address1": "1075 Lake Washington BLVD E",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98112",
+     "latitude": 47.6297,
+     "longitude": -122.297
+    }
+   ]
+  },
+  "Bitter Lake Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Bitter Lake Community Center",
+     "address1": "13035 Linden AVE N",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98133",
+     "latitude": 47.724,
+     "longitude": -122.3487
+    }
+   ]
+  },
+  "Miller Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Miller Community Center",
+     "address1": "330 19th AVE E",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98112",
+     "latitude": 47.6219,
+     "longitude": -122.307
+    }
+   ]
+  },
+  "Meadowbrook Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Meadowbrook Community Center",
+     "address1": "10517 35th AVE NE",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98125",
+     "latitude": 47.7056,
+     "longitude": -122.2917
+    }
+   ]
+  },
+  "Ravenna-Eckstein Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Ravenna-Eckstein Community Center",
+     "address1": "6535 Ravenna AVE NE",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98115",
+     "latitude": 47.6767,
+     "longitude": -122.3043
+    }
+   ]
+  },
+  "Loyal Heights Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Loyal Heights Community Center",
+     "address1": "2101 NW 77th ST",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98117",
+     "latitude": 47.6847,
+     "longitude": -122.3828
+    }
+   ]
+  },
+  "Montlake Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Montlake Community Center",
+     "address1": "1618 E Calhoun ST",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98112",
+     "latitude": 47.6417,
+     "longitude": -122.3102
+    }
+   ]
+  },
+  "Green Lake Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Green Lake Community Center",
+     "address1": "7201 EAST GREEN LAKE DR N",
+     "city": "SEATTLE",
+     "state": "WA",
+     "zip_code": "98115",
+     "latitude": 47.6802,
+     "longitude": -122.3283
+    }
+   ]
+  },
+  "Laurelhurst Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Laurelhurst Community Center",
+     "address1": "4554 NE 41st ST",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98105",
+     "latitude": 47.6599,
+     "longitude": -122.278
+    }
+   ]
+  },
+  "Jefferson Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Jefferson Community Center",
+     "address1": "3801 BEACON AVE S",
+     "city": "SEATTLE",
+     "state": "WA",
+     "zip_code": "98108",
+     "latitude": 47.5698,
+     "longitude": -122.3085
+    }
+   ]
+  },
+  "Ballard Playfield": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Ballard Playfield",
+     "address1": "2644 NW 60th ST",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98107",
+     "latitude": 47.6727,
+     "longitude": -122.3911
+    }
+   ]
+  },
+  "Rainier Beach Pool & Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Rainier Beach Pool & Community Center",
+     "address1": "8825 Rainier AVE S",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98118",
+     "latitude": 47.5243,
+     "longitude": -122.2707
+    }
+   ]
+  },
+  "Bitter Lake Annex/Broadview Thomson Ele": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Bitter Lake Annex/Broadview Thomson Ele",
+     "address1": "13040 Greenwood AVE N",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98133",
+     "latitude": 47.7235,
+     "longitude": -122.3551
+    }
+   ]
+  },
+  "Queen Anne Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Queen Anne Community Center",
+     "address1": "1901 1st AVE W",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98119",
+     "latitude": 47.6362,
+     "longitude": -122.3591
+    }
+   ]
+  },
+  "International District/Chinatown C.C.": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "International District/Chinatown C.C.",
+     "address1": "719 8th AVE S",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98104",
+     "latitude": 47.5961,
+     "longitude": -122.3229
+    }
+   ]
+  },
+  "Ballard Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Ballard Community Center",
+     "address1": "6020 28th AVE NW",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98107",
+     "latitude": 47.6727,
+     "longitude": -122.3922
+    }
+   ]
+  },
+  "Magnuson Cmty Ctr (bldg 47)": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Magnuson Community Center (bldg 47)",
+     "address1": "7110 62nd AVE NE",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98115",
+     "latitude": 47.6806,
+     "longitude": -122.2616
+    }
+   ]
+  },
+  "Rainier Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Rainier Community Center",
+     "address1": "4600 38th AVE S",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98118",
+     "latitude": 47.5614,
+     "longitude": -122.2842
+    }
+   ]
+  },
+  "High Point Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "High Point Community Center",
+     "address1": "6920 34th AVE SW",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98126",
+     "latitude": 47.5405,
+     "longitude": -122.3747
+    }
+   ]
+  },
+  "Magnolia United Church of Christ, 3555 West McGraw St.": {
+   "location_description": "Magnolia United Church of Christ, 3555 West McGraw St.",
+   "centers": []
+  },
+  "Magnolia Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Magnolia Community Center",
+     "address1": "2550 34th AVE W",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98199",
+     "latitude": 47.6428,
+     "longitude": -122.3997
+    }
+   ]
+  },
+  "Van Asselt Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Van Asselt Community Center",
+     "address1": "2820 S Myrtle ST",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98108",
+     "latitude": 47.5394,
+     "longitude": -122.2954
+    }
+   ]
+  },
+  "Delridge Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Delridge Community Center",
+     "address1": "4501 Delridge WAY S",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98106",
+     "latitude": 47.5632,
+     "longitude": -122.3644
+    }
+   ]
+  },
+  "Yesler Cmty Ctr": {
+   "location_description": "",
+   "centers": [
+    {
+     "name": "Yesler Community Center",
+     "address1": "917 E Yesler WAY",
+     "city": "Seattle",
+     "state": "WA",
+     "zip_code": "98122",
+     "latitude": 47.6014,
+     "longitude": -122.3204
+    }
+   ]
+  }
+ }
+}

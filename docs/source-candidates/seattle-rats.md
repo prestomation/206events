@@ -1,11 +1,11 @@
 ---
 name: "Seattle RATS (Recreational Adult Team Soccer)"
-status: investigating
+status: notviable
 platform: Custom Angular SPA (Firebase-backed), no plain API found
 url: https://seattlerats.org/calendar/all-events/
 tags: [Sports]
 firstSeen: 2026-08-19
-lastChecked: 2026-08-19
+lastChecked: 2026-09-23
 ---
 
 Nonprofit adult recreational soccer league; `/calendar/all-events/` lists
@@ -25,3 +25,5 @@ cycle. Also, game schedules are logistics-heavy fixtures (division/field/
 time tables) more than public "events" in the calendar sense, which may
 make this a lower-value scrape even if a feed is found. Low priority;
 revisit if a public API surfaces.
+
+2026-09-23: Closing. The calendar is recreational-league game fixtures (division/field/time tables) behind a Firebase-backed Angular SPA; league fixtures are not public events in the calendar sense, and there is no public feed.

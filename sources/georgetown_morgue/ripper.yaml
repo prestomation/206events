@@ -1,0 +1,19 @@
+# Seasonal haunted house (late Sep - early Nov). Open nights come from the
+# public hytix.com (fearticket.com) dates API. The event id (5441 =
+# "Georgetown Morgue 2026") is per-season: when a new season goes on sale at
+# https://seattlehaunts.fearticket.com/, update the id in `url` (visible in the
+# page's embedded "myEvent" data). Off-season the calendar is legitimately empty.
+name: georgetown-morgue
+sourceRole: venue
+description: "Georgetown Morgue"
+url: "https://api2.hytix.com/v2/public/events/5441/dates"
+friendlyLink: https://seattlehaunts.com/schedule-and-events/
+tags: ["Halloween", "Georgetown"]
+geo:
+  lat: 47.5572653
+  lng: -122.3383505
+  label: "Georgetown Morgue, 5000 E Marginal Way S, Seattle, WA 98134"
+calendars:
+  - name: haunted-house
+    friendlyname: "Georgetown Morgue Haunted House"
+    timezone: America/Los_Angeles

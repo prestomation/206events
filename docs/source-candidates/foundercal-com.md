@@ -6,6 +6,7 @@ url: https://foundercal.com/events/pitch-please-10-WfJffOGKOmmbHPy
 tags: ["tech", "learning", "outdoors", "fitness"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
+pr: 1570
 ---
 
 Discovered via aggregator gap analysis. 3 events in the Seattle

@@ -1,11 +1,12 @@
 ---
 name: BodyPump
-status: investigating
+status: notviable
 platform: Unknown
 url: https://www.olympicathleticclub.com/classes/
 tags: ["fitness", "dancing", "playing-sports", "wellness"]
 firstSeen: 2026-08-25
-lastChecked: 2026-08-26
+lastChecked: 2026-09-23
+pr:
 ---
 
 Discovered via aggregator gap analysis. 18 events in the Seattle
@@ -24,3 +25,5 @@ rather than promoting to implementation — would need to confirm the
 class-schedule content fits the calendar's purpose and find the
 underlying data source (likely a booking platform API) before treating
 this as a 🔥/🟡 pick.
+
+**Closed 2026-09-23:** Not a public-events source. The listings are recurring members' group-fitness class slots (BodyPump etc.) from a gym's class-schedule widget, not public happenings; gym class schedules are out of scope for the calendar.

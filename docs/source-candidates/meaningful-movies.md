@@ -1,11 +1,11 @@
 ---
 name: Meaningful Movies Seattle
-status: investigating
+status: blocked
 platform: Unknown
 url: https://meaningfulmovies.org/events
 tags: [Film, Community]
 firstSeen: 2026-08-14
-lastChecked: 2026-08-14
+lastChecked: 2026-09-23
 ---
 
 Community documentary screening series with facilitated discussions at venues around Seattle.
@@ -14,3 +14,6 @@ Community documentary screening series with facilitated discussions at venues ar
 shell with a meta-refresh to `/.well-known/sgcaptcha/?r=%2Fevents...` — a SiteGround
 JS/CAPTCHA challenge page. WebFetch also came back empty for the same reason. Would need a
 proxy/browser-executing fetch (e.g. Browserbase-style) to evaluate further.
+
+**2026-09-23:** Re-checked `/events` and `/wp-json/tribe/events/v1/events`:
+both return the SiteGround sgcaptcha challenge. Closed as blocked.

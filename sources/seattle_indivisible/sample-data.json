@@ -1,0 +1,688 @@
+{
+ "count": 8,
+ "next": null,
+ "previous": null,
+ "data": [
+  {
+   "title": "Fridays at 4--Letter Writing and More! (4 pm Pacific/7 pm Eastern)",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/swingleft/",
+    "created_date": 1516984264,
+    "modified_date": 1786550719,
+    "org_type": "GRASSROOTS_GROUP",
+    "id": 159,
+    "name": "Swing Left",
+    "slug": "swingleft",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/swingLeft_logo_color_20220407205542908250.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/sl_events_meta_letters3_20210315184232955991.png",
+   "timeslots": [
+    {
+     "start_date": 1790377200,
+     "end_date": 1790382600,
+     "instructions": null,
+     "id": 6248826,
+     "is_full": false
+    },
+    {
+     "start_date": 1790982000,
+     "end_date": 1790987400,
+     "instructions": null,
+     "id": 6248827,
+     "is_full": false
+    },
+    {
+     "start_date": 1791586800,
+     "end_date": 1791592200,
+     "instructions": null,
+     "id": 6248828,
+     "is_full": false
+    }
+   ],
+   "tags": [
+    {
+     "id": 19849,
+     "name": "Spring Into Action"
+    }
+   ],
+   "location": {
+    "venue": "",
+    "address_lines": [
+     "",
+     ""
+    ],
+    "locality": "Ashland",
+    "region": "OR",
+    "country": "US",
+    "postal_code": "97520",
+    "location": {
+     "latitude": 42.1945758,
+     "longitude": -122.7094767
+    },
+    "congressional_district": null,
+    "state_leg_district": null,
+    "state_senate_district": null
+   },
+   "event_type": "LETTER_WRITING",
+   "created_date": 1589826431,
+   "modified_date": 1789866162,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/274619/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PUBLIC",
+   "accessibility_status": "NOT_SURE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 274619,
+   "description": "NOTE: We are a video-on community; to promote group security  and community, please sign up only if you can have your video on.\n\nJoin us on Fridays at 4 (PST)\u2014Letter Writing and More! to take action - whether you are a long-time activist or beginning your journey to fight for our democracy, you are welcome. Find your calling with our community. We offer various actions to take during our meetings, and will train for:\n\n\u2022Postcards with various groups\n\u20225 Calls to call or email elected officials\n\u2022Bluesky to amplify our voices for freedom and democracy\n\u2022Vote Forward letters and the personal story (most effective type of letter) as soon as they open up their campaigns)\n\nIn these difficult days, we live by these words: Action Metabolizes Despair. Our main focus is on taking action, but we also enjoy being together and trading encouragement and inspiration. To that end, we rely on our parent organization Indivisible Oregon, as well as others such as Robert Hubbell, Jessica Craven, Heather Cox Richardson, Simon Rosenberg and Politics Girl (Leigh McGowan). We will provide a list of useful links, substacks and podcasts. Find in us an oasis of activism that will boost your spirits and give you energy to engage in the fight of our lifetime.",
+   "timezone": "America/Los_Angeles",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": null,
+   "is_virtual": true
+  },
+  {
+   "title": "Blue Victory 2026 War Room: \"Take Back Congress\" Edition",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/swingleft/",
+    "created_date": 1516984264,
+    "modified_date": 1786550719,
+    "org_type": "GRASSROOTS_GROUP",
+    "id": 159,
+    "name": "Swing Left",
+    "slug": "swingleft",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/swingLeft_logo_color_20220407205542908250.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/Rebuild%20Democracy%20-%20FB1_20250418173200716296.png",
+   "timeslots": [
+    {
+     "start_date": 1790640000,
+     "end_date": 1790643600,
+     "instructions": null,
+     "id": 6448588,
+     "is_full": false
+    }
+   ],
+   "tags": [
+    {
+     "id": 26131,
+     "name": "Rebuild25"
+    }
+   ],
+   "location": {
+    "venue": "The White House",
+    "address_lines": [
+     "1600 Pennsylvania Avenue NW",
+     ""
+    ],
+    "locality": "Washington",
+    "region": "DC",
+    "country": "US",
+    "postal_code": "20500",
+    "location": {
+     "latitude": 38.8976763,
+     "longitude": -77.0365298
+    },
+    "congressional_district": null,
+    "state_leg_district": null,
+    "state_senate_district": null
+   },
+   "event_type": "MEETING",
+   "created_date": 1663443011,
+   "modified_date": 1789520587,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/511729/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PUBLIC",
+   "accessibility_status": "NOT_SURE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 511729,
+   "description": "*** Zoom Link in Email Confirmation and Day-Of-Event Instructions Emails ***\n\nFollow This Week's Priority Links:\nhttps://linktr.ee/BlueVictoryWarRoom \n\n# # # # # # # # # # # # # #\n\nJoin Blue Victory 2026 War Room as we celebrate the eve of Barack Obama's 65th Birthday and discuss lessons from his historic presidential campaigns based on a presentation Host Jim McBride delivered to New Leaders Council (newleaderscouncil.org) on May 16th and some developments after his trip to Netroots Nation in Philadelphia and the Obama Presidential Center Celebration in Chicago this June. This is especially relevant to answering some of the concerns about the future of the DNC and the Democratic Party as we head into the midterms and a wide open primary schedule in 2028.\n\nWe will also discuss the latest updates on supporting Democrats before Election Day in November.\n\nBlue Victory Event Host Jim McBride is a Swing Left Group Leader as well as Member of Virginia Grassroots Coalition and the Fairfax County Democratic Committee. He is focused on mobilizing grassroots networks from DC/MD/VA and beyond.\n\nJim previously served as a Harris-Walz & DNC & Biden-Harris Community Leader,  Communications Director of the DC/MD/VA Grassroots Coordinating Committee and served as the 1st Volunteer Database Coodinator for Virginia For Obama and founded Generation Obama-DC/MD/VA Chapter in 2007. \n\nFOLLOW US:\nhttps://www.facebook.com/bluevictorywarroom\nhttps://www.facebook.com/groups/bluevictorywarroom\nhttps://twitter.com/bluevictoryusa\n\nABOUT SWING LEFT:\n\nSwing Left is a national network that helps people find high impact ways to support Democratic candidates. We focus on the most flippable races as an important step towards ensuring the progressive change needed to create a more inclusive and equitable government and society.",
+   "timezone": "America/New_York",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": null,
+   "is_virtual": true
+  },
+  {
+   "title": "NO WAR. NO KINGS: Lynnwood!",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/seattleindivisible/",
+    "created_date": 1537214526,
+    "modified_date": 1771135462,
+    "org_type": "COORDINATED",
+    "id": 904,
+    "name": "Seattle Indivisible",
+    "slug": "seattleindivisible",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "WA",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/SISig_20210214023138316118.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/Image_20260228223605551403.jpeg",
+   "timeslots": [
+    {
+     "start_date": 1790723700,
+     "end_date": 1790729100,
+     "instructions": null,
+     "id": 5840448,
+     "is_full": false
+    },
+    {
+     "start_date": 1791328500,
+     "end_date": 1791333900,
+     "instructions": null,
+     "id": 5840449,
+     "is_full": false
+    },
+    {
+     "start_date": 1791933300,
+     "end_date": 1791938700,
+     "instructions": null,
+     "id": 5840450,
+     "is_full": false
+    }
+   ],
+   "tags": [],
+   "location": {
+    "venue": "Tesla Lynnwood",
+    "address_lines": [
+     "17731 Pacific Hwy",
+     ""
+    ],
+    "locality": "Lynnwood",
+    "region": "WA",
+    "country": "US",
+    "postal_code": "98037",
+    "location": {
+     "latitude": 47.8375961,
+     "longitude": -122.2997102
+    },
+    "congressional_district": null,
+    "state_leg_district": null,
+    "state_senate_district": null
+   },
+   "event_type": "VISIBILITY_EVENT",
+   "created_date": 1747338733,
+   "modified_date": 1790124003,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/790454/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PUBLIC",
+   "accessibility_status": "NOT_SURE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 790454,
+   "description": "**THEY WANT US SILENT. WE'RE DEFIANT.**\nKeith Porter, Renee Good, Alex Pretti, and other victims of ICE deserve justice. Join our protest in solidarity with Minnesota and immigrant communities across the United States as we continue to oppose Trump and the billionaires who made this fascist regime possible. \n\nWe need your voice. Let's make some noise!\n\nSee you Saturday!\n\n\u2014 Devin\n\nPS. For the full schedule of events, see DefundMusk.com/events\n\nThe local #TeslaTakedown crew including Defund Musk, Troublemakers, and Seattle Indivisible work in partnership to organize events throughout the Seattle Metro area.\n\nThis is a peaceful protest movement. We oppose violence, vandalism, and destruction of property.",
+   "timezone": "America/Los_Angeles",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": "",
+   "is_virtual": false
+  },
+  {
+   "title": "NO WAR. NO KINGS: Woodland Park Overpass!",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/seattleindivisible/",
+    "created_date": 1537214526,
+    "modified_date": 1771135462,
+    "org_type": "COORDINATED",
+    "id": 904,
+    "name": "Seattle Indivisible",
+    "slug": "seattleindivisible",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "WA",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/SISig_20210214023138316118.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/image6_20250801031016939090.jpeg",
+   "timeslots": [
+    {
+     "start_date": 1790724600,
+     "end_date": 1790728200,
+     "instructions": null,
+     "id": 5932161,
+     "is_full": false
+    },
+    {
+     "start_date": 1791329400,
+     "end_date": 1791333000,
+     "instructions": null,
+     "id": 5932162,
+     "is_full": false
+    },
+    {
+     "start_date": 1791934200,
+     "end_date": 1791937800,
+     "instructions": null,
+     "id": 5932163,
+     "is_full": false
+    }
+   ],
+   "tags": [],
+   "location": {
+    "venue": "Woodland Park N Pedestrian Bridge",
+    "address_lines": [
+     "5192 Aurora Ave N",
+     ""
+    ],
+    "locality": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "postal_code": "98103",
+    "location": {
+     "latitude": 47.6699124,
+     "longitude": -122.3472234
+    },
+    "congressional_district": "7",
+    "state_leg_district": null,
+    "state_senate_district": null
+   },
+   "event_type": "VISIBILITY_EVENT",
+   "created_date": 1750786056,
+   "modified_date": 1790122906,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/807188/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PUBLIC",
+   "accessibility_status": "NOT_SURE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 807188,
+   "description": "**Join us and help send a clear message to Musk and Trump: We're not backing down.** We're going to defeat Trump and the billionaires who put this felon in the White House. \n\nOur protests have helped force Musk from DC but our work is far from done. **Tesla's stock is UP because investors think we're going to fade away.** That's not going to happen. \n\nJoin us at HWY 99's North Woodland Park pedestrian overpass.\n\n**Every day brings a new crisis of corruption, chaos, or cruelty. Share your thoughts on the damage Musk and Trump are inflicting:**\n\n- attacks on due process and immigrants\n- abdication of checks and balances by Congress and the Courts\n- theft of our data by Musk and DOGE\n- corruption by the President!\n\nBring your banners or help crew our two banners and one Pikachu. \n\n[Parking is super convenient](https://maps.app.goo.gl/uyyEW15sor9Rxr816)\n\nSee you Tuesday! \n\n\u2014 Dan\n\nPS. For our full schedule of protests, check out DefundMusk.com.\n\n\nTesla Takedown is a peaceful protest movement. We oppose violence, vandalism and destruction of property. Please treat Tesla drivers with respect as they are most likely on our side!",
+   "timezone": "America/Los_Angeles",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": "",
+   "is_virtual": false
+  },
+  {
+   "title": "Seattle Indivisible General Meeting",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/seattleindivisible/",
+    "created_date": 1537214526,
+    "modified_date": 1771135462,
+    "org_type": "COORDINATED",
+    "id": 904,
+    "name": "Seattle Indivisible",
+    "slug": "seattleindivisible",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "WA",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/SISig_20210214023138316118.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/SeattleIMM_20251228162428241609.png",
+   "timeslots": [
+    {
+     "start_date": 1791423000,
+     "end_date": 1791428400,
+     "instructions": null,
+     "id": 6209500,
+     "is_full": false
+    },
+    {
+     "start_date": 1793845800,
+     "end_date": 1793851200,
+     "instructions": null,
+     "id": 6209501,
+     "is_full": false
+    },
+    {
+     "start_date": 1796265000,
+     "end_date": 1796270400,
+     "instructions": null,
+     "id": 6209502,
+     "is_full": false
+    }
+   ],
+   "tags": [
+    {
+     "id": 755,
+     "name": "Indivisible"
+    },
+    {
+     "id": 27838,
+     "name": "#seattleindivisible"
+    },
+    {
+     "id": 22243,
+     "name": "Seattle"
+    }
+   ],
+   "location": {
+    "venue": "Washington State Labor Council",
+    "address_lines": [
+     "321 16th Ave S",
+     ""
+    ],
+    "locality": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "postal_code": "98144",
+    "location": {
+     "latitude": 47.5994611,
+     "longitude": -122.3119033
+    },
+    "congressional_district": "9",
+    "state_leg_district": "37",
+    "state_senate_district": null
+   },
+   "event_type": "MEETING",
+   "created_date": 1766456388,
+   "modified_date": 1788490912,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/878478/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PUBLIC",
+   "accessibility_status": "ACCESSIBLE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 878478,
+   "description": "\ud83d\udcc5 **When:** First Wednesday of every month at **6:30 PM**  \n\ud83d\udccd **Where:** Washington State Labor Council\n\nJoin Seattle Indivisible for our monthly meeting as we build community, stand together, and fight back against the authoritarian agenda of Trump\u2019s second term. \n\n\ud83d\udcaa **RSVP now and bring a friend! We look forward to seeing you!**",
+   "timezone": "America/Los_Angeles",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": "",
+   "is_virtual": false
+  },
+  {
+   "title": "Seattle Indivisible Biweekly Connect",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/seattleindivisible/",
+    "created_date": 1537214526,
+    "modified_date": 1771135462,
+    "org_type": "COORDINATED",
+    "id": 904,
+    "name": "Seattle Indivisible",
+    "slug": "seattleindivisible",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "WA",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/SISig_20210214023138316118.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/SEATTLE%20INDIVISIBLE%20%281%29_20260625165008330110.png",
+   "timeslots": [
+    {
+     "start_date": 1790296200,
+     "end_date": 1790299800,
+     "instructions": null,
+     "id": 5694362,
+     "is_full": false
+    },
+    {
+     "start_date": 1790901000,
+     "end_date": 1790904600,
+     "instructions": null,
+     "id": 5694364,
+     "is_full": false
+    },
+    {
+     "start_date": 1792713600,
+     "end_date": 1792719000,
+     "instructions": null,
+     "id": 5694366,
+     "is_full": false
+    }
+   ],
+   "tags": [
+    {
+     "id": 755,
+     "name": "Indivisible"
+    },
+    {
+     "id": 27838,
+     "name": "#seattleindivisible"
+    },
+    {
+     "id": 22243,
+     "name": "Seattle"
+    }
+   ],
+   "location": {
+    "venue": "",
+    "address_lines": [
+     "",
+     ""
+    ],
+    "locality": "",
+    "region": "",
+    "country": "US",
+    "postal_code": "",
+    "location": {
+     "latitude": null,
+     "longitude": null
+    },
+    "congressional_district": null,
+    "state_leg_district": null,
+    "state_senate_district": null
+   },
+   "event_type": "MEETING",
+   "created_date": 1766940445,
+   "modified_date": 1789848216,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/878885/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PUBLIC",
+   "accessibility_status": "NOT_SURE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 878885,
+   "description": "Join Our Weekly Connect Meeting!\n\nBe part of a powerful discussion to address today\u2019s most pressing challenges. Collaborate with activists, strategize advocacy campaigns, and plan impactful actions to fight for democracy, equity, and justice. Together, we\u2019ll build momentum, mobilize resources, and take meaningful steps toward positive change. Let\u2019s organize for a stronger future!",
+   "timezone": "America/Los_Angeles",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": "",
+   "is_virtual": true
+  },
+  {
+   "title": "VOTER REGISTRATION PARTY: NE SEATTLE with Defund Musk",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/seattleindivisible/",
+    "created_date": 1537214526,
+    "modified_date": 1771135462,
+    "org_type": "COORDINATED",
+    "id": 904,
+    "name": "Seattle Indivisible",
+    "slug": "seattleindivisible",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "WA",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/SISig_20210214023138316118.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/Image%201_20260424201525264645.jpeg",
+   "timeslots": [
+    {
+     "start_date": 1790299800,
+     "end_date": 1790307000,
+     "instructions": null,
+     "id": 6401390,
+     "is_full": false
+    },
+    {
+     "start_date": 1790904600,
+     "end_date": 1790911800,
+     "instructions": null,
+     "id": 6333297,
+     "is_full": false
+    },
+    {
+     "start_date": 1791509400,
+     "end_date": 1791516600,
+     "instructions": null,
+     "id": 6401391,
+     "is_full": false
+    }
+   ],
+   "tags": [],
+   "location": {
+    "locality": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "postal_code": "98115",
+    "congressional_district": "7",
+    "state_leg_district": "46",
+    "state_senate_district": null,
+    "address_lines": [
+     "This event\u2019s address is private. Sign up for more details",
+     ""
+    ],
+    "venue": "This event\u2019s address is private. Sign up for more details"
+   },
+   "event_type": "VOTER_REG",
+   "created_date": 1777063377,
+   "modified_date": 1789790548,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/945264/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PRIVATE",
+   "accessibility_status": "ACCESSIBLE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 945264,
+   "description": "**Trump is trying to steal the midterms. We're not going to let him.** \n\nWe're organizing in communities across the Seattle area to make sure we elect a House AND Senate that will fight for us and impeach, convict, and remove this whole corrupt administration. \n\nThis community group will meet every other week (come as often as you can) to do what it takes. We'll begin with postcarding to encourage potential progressives to register to vote in purple states. Every vote will count. \n\n**Meet your neighbors, enjoy a cool drink, and help make history this November!**\n\nSee you Thursday!",
+   "timezone": "America/Los_Angeles",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": "",
+   "is_virtual": false
+  },
+  {
+   "title": "Seattle Indivisible Vote FWD Midterms Letter-Writing at Stoup Capitol Hill",
+   "summary": "",
+   "sponsor": {
+    "race_type": null,
+    "event_feed_url": "https://www.mobilize.us/seattleindivisible/",
+    "created_date": 1537214526,
+    "modified_date": 1771135462,
+    "org_type": "COORDINATED",
+    "id": 904,
+    "name": "Seattle Indivisible",
+    "slug": "seattleindivisible",
+    "is_coordinated": true,
+    "is_independent": false,
+    "is_nonelectoral": false,
+    "is_primary_campaign": false,
+    "state": "WA",
+    "district": "",
+    "candidate_name": "",
+    "logo_url": "https://mobilize-uploads-prod.s3.us-east-2.amazonaws.com/uploads/organization/SISig_20210214023138316118.png"
+   },
+   "featured_image_url": "https://mobilizeamerica.imgix.net/uploads/event/This%20will%20be%20a%20surprise%20so%20please%20SHUSH%21%2823%29_20260903004222514148.png",
+   "timeslots": [
+    {
+     "start_date": 1790298000,
+     "end_date": 1790305200,
+     "instructions": null,
+     "id": 6374360,
+     "is_full": false
+    }
+   ],
+   "tags": [
+    {
+     "id": 542,
+     "name": "Letter Writing"
+    }
+   ],
+   "location": {
+    "venue": "Stoup Brewing - Capitol Hill",
+    "address_lines": [
+     "1158 Broadway",
+     ""
+    ],
+    "locality": "Seattle",
+    "region": "WA",
+    "country": "US",
+    "postal_code": "98122",
+    "location": {
+     "latitude": 47.6128,
+     "longitude": -122.3205327
+    },
+    "congressional_district": null,
+    "state_leg_district": null,
+    "state_senate_district": null
+   },
+   "event_type": "LETTER_WRITING",
+   "created_date": 1788395839,
+   "modified_date": 1788396151,
+   "browser_url": "https://www.mobilize.us/seattleindivisible/event/1025021/",
+   "contact": null,
+   "visibility": "PUBLIC",
+   "created_by_volunteer_host": false,
+   "address_visibility": "PUBLIC",
+   "accessibility_status": "NOT_SURE",
+   "approval_status": "APPROVED",
+   "event_campaign": null,
+   "instructions": null,
+   "id": 1025021,
+   "description": "Grab a beer and help us help Vote FWD write impactful letters to swing state voters!\n\nWe will provide all supplies, though an optional suggested donation of $20 is appreciated to help us cover the cost of printing & stamps! https://secure.actblue.com/donate/seattleindivisible\n\nMore information on data-driven Vote FWD letter-writing: https://votefwd.org/\n\nPlease give us an exact RSVP so we know how much materials to prepare.",
+   "timezone": "America/Los_Angeles",
+   "high_priority": false,
+   "virtual_action_url": null,
+   "accessibility_notes": "",
+   "is_virtual": false
+  }
+ ]
+}

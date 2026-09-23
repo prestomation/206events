@@ -1,11 +1,11 @@
 ---
 name: Barnes & Noble Downtown Seattle
-status: investigating
+status: blocked
 platform: Eventbrite (unconfirmed)
 url: https://stores.barnesandnoble.com/store/2947
 tags: [Books]
 firstSeen: 2026-08-06
-lastChecked: 2026-09-03
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -25,3 +25,5 @@ variants, same pattern as the Northgate store's
 Barnes & Noble Eventbrite org (`17337409237`, 15 live events) as a
 fallback — all are other-store or virtual national events, none for
 Seattle. No change; re-check again in a future cycle.
+
+Re-checked 2026-09-23: the store page (`stores.barnesandnoble.com/store/2947` / `3592`) returns HTTP 403 (Akamai) to a plain fetch, and a web search still finds no Eventbrite organizer for the 520 Pike St store (only Northgate, which is already covered). No fetchable feed; closing as `blocked`.

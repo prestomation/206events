@@ -1,11 +1,11 @@
 ---
 name: MLB: PHI @ SEA
-status: investigating
+status: notviable
 platform: Shopify (storefront) — events page platform unconfirmed
 url: https://kellsseattle.com
 tags: ["watching-sports"]
 firstSeen: 2026-08-25
-lastChecked: 2026-09-11
+lastChecked: 2026-09-23
 ---
 
 Discovered via aggregator gap analysis. 2 events in the Seattle
@@ -22,3 +22,8 @@ likely a client-rendered sports-schedule app block. No confirmed data
 endpoint found. Also a fairly low-value/low-distinctiveness content
 type (recurring game watch-parties, largely interchangeable with any
 other sports bar) even if a feed were found. Left as `investigating`.
+
+**2026-09-23:** `/events/` redirects to Shopify `/pages/events`, which has no
+event data, embeds, or calendar widget in the HTML (only a private-party
+booking pitch). No feed; content is generic sports watch parties. Closed as
+notviable.

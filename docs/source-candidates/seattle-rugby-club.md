@@ -1,11 +1,11 @@
 ---
 name: "Seattle Rugby Club"
-status: investigating
+status: notviable
 platform: Webflow
 url: https://www.seattle.rugby/schedule
 tags: [Sports]
 firstSeen: 2026-08-16
-lastChecked: 2026-08-16
+lastChecked: 2026-09-23
 ---
 
 Seattle Rugby Club (men's + women's, founded 1966/1971), historically
@@ -21,3 +21,5 @@ Webflow CMS API check or custom HTML scraping filtered to home-only
 fixtures. Low priority (niche sport, uncertain volume of home games
 per season) — parking as `investigating` rather than doing a deeper
 platform check this cycle.
+
+2026-09-23: /schedule is static Webflow HTML (fetchable), but it is club match fixtures with no year on dates, placeholder kickoff times (most men's matches listed as "12:00 am"), mostly away games across the PNW/BC, and no venue on men's home matches. Only a handful of Magnuson home matches per season with unreliable times — closing as low-value sports-league fixtures.
