@@ -1,0 +1,14 @@
+name: wta-work-parties
+sourceRole: venue
+description: "Washington Trails Association Work Parties"
+url: "https://www.wta.org/volunteer/schedule/workparties.json"
+friendlyLink: https://www.wta.org/volunteer/schedule
+cost: free
+tags: ["Volunteer", "Outdoors"]
+# Statewide org; only work parties at trailheads inside Seattle city limits are
+# kept, and each event carries its own trailhead coordinates.
+geo: null
+calendars:
+  - name: seattle-work-parties
+    friendlyname: "WTA Trail Work Parties (Seattle)"
+    timezone: America/Los_Angeles

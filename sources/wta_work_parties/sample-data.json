@@ -1,0 +1,178 @@
+{
+  "results": {
+    "startitem": 0,
+    "enditem": 6,
+    "last": 0,
+    "seqlen": 7,
+    "items": [
+      {
+        "_id": "a2mPB000006VL4k",
+        "name": "Youth & Families at Schmitz Preserve Park",
+        "start_date_time": "2026-09-26T09:00:00-07:00",
+        "end_date_time": "2026-09-26T15:00:00-07:00",
+        "work_party_status": "Published",
+        "work_party_groups": null,
+        "group_wp_open_to_public": false,
+        "internal_work_party": null,
+        "image_url": "https://www.wta.org/site_images/trip-reports/2025/tripreport-image-2025-02-26.132958066187/@@images/image-1400-ac3b2c9daa070dd89b2837d2bdc37a49.jpeg",
+        "overview": "<p><strong>Youth ages 10+ and their families are invited to join WTA for a fun day together on trail. </strong><span>Youth participants 14-18 may attend on their own. Ages 10-13 must be accompanied by an adult.</span></p><p><span>**Solo adults showing up for a Youth &amp; Families day work party (even when registered in advance) are not eligible to attend the event, and will be asked to leave by the Crew Leader.**</span></p>",
+        "age_restriction": "Youth or Adults",
+        "work_party_type": {
+          "name": "Youth Day Work Party"
+        },
+        "trailhead": {
+          "_id": "a2xPB000003RQr7",
+          "name": "Schmitz Park Bridge",
+          "location": {
+            "latitude": 47.577194,
+            "longitude": -122.40328
+          }
+        }
+      },
+      {
+        "_id": "a2mPB000006knbl",
+        "name": "Youth & Families at Schmitz Preserve Park",
+        "start_date_time": "2026-10-24T09:00:00-07:00",
+        "end_date_time": "2026-10-24T15:00:00-07:00",
+        "work_party_status": "Published",
+        "work_party_groups": null,
+        "group_wp_open_to_public": false,
+        "internal_work_party": null,
+        "image_url": "https://www.wta.org/site_images/trip-reports/2025/tripreport-image-2025-02-26.132958066187/@@images/image-1400-ac3b2c9daa070dd89b2837d2bdc37a49.jpeg",
+        "overview": "<p><strong>Youth ages 10+ and their families are invited to join WTA for a fun day together on trail. </strong><span>Youth participants 14-18 may attend on their own. Ages 10-13 must be accompanied by an adult.</span></p><p><span>**Solo adults showing up for a Youth &amp; Families day work party (even when registered in advance) are not eligible to attend the event, and will be asked to leave by the Crew Leader.**</span></p>",
+        "age_restriction": "Youth or Adults",
+        "work_party_type": {
+          "name": "Youth Day Work Party"
+        },
+        "trailhead": {
+          "_id": "a2xPB000003RQr7",
+          "name": "Schmitz Park Bridge",
+          "location": {
+            "latitude": 47.577194,
+            "longitude": -122.40328
+          }
+        }
+      },
+      {
+        "_id": "a2mPB000006kic6",
+        "name": "Youth & Families at Schmitz Preserve Park",
+        "start_date_time": "2026-10-25T09:00:00-07:00",
+        "end_date_time": "2026-10-25T15:00:00-07:00",
+        "work_party_status": "Published",
+        "work_party_groups": null,
+        "group_wp_open_to_public": false,
+        "internal_work_party": null,
+        "image_url": "https://www.wta.org/site_images/trip-reports/2025/tripreport-image-2025-02-26.132958066187/@@images/image-1400-ac3b2c9daa070dd89b2837d2bdc37a49.jpeg",
+        "overview": "<p><strong>Youth ages 10+ and their families are invited to join WTA for a fun day together on trail. </strong><span>Youth participants 14-18 may attend on their own. Ages 10-13 must be accompanied by an adult.</span></p><p><span>**Solo adults showing up for a Youth &amp; Families day work party (even when registered in advance) are not eligible to attend the event, and will be asked to leave by the Crew Leader.**</span></p>",
+        "age_restriction": "Youth or Adults",
+        "work_party_type": {
+          "name": "Youth Day Work Party"
+        },
+        "trailhead": {
+          "_id": "a2xPB000003RQr7",
+          "name": "Schmitz Park Bridge",
+          "location": {
+            "latitude": 47.577194,
+            "longitude": -122.40328
+          }
+        }
+      },
+      {
+        "_id": "a2mPB000007KKpl",
+        "name": "Schmitz Preserve Park",
+        "start_date_time": "2026-10-28T08:30:00-07:00",
+        "end_date_time": "2026-10-28T15:30:00-07:00",
+        "work_party_status": "Published",
+        "work_party_groups": null,
+        "group_wp_open_to_public": false,
+        "internal_work_party": null,
+        "image_url": "https://www.wta.org/site_images/trip-reports/2025/tripreport-image-2025-02-26.132958066187/@@images/image-1400-ac3b2c9daa070dd89b2837d2bdc37a49.jpeg",
+        "overview": "<p><span>This beautiful park is in need of general maintenance. Come help us with priority tasks to beautify the park including brushing, drainage and some structure repairs. </span></p>",
+        "age_restriction": "Youth or Adults",
+        "work_party_type": {
+          "name": "Day Work Party"
+        },
+        "trailhead": {
+          "_id": "a2xPB000003RQr7",
+          "name": "Schmitz Park Bridge",
+          "location": {
+            "latitude": 47.577194,
+            "longitude": -122.40328
+          }
+        }
+      },
+      {
+        "_id": "a2mPB000006nzbZ",
+        "name": "North Cascades National Park",
+        "start_date_time": "2026-09-25T08:30:00-07:00",
+        "end_date_time": "2026-09-25T15:30:00-07:00",
+        "work_party_status": "Published",
+        "work_party_groups": null,
+        "group_wp_open_to_public": false,
+        "internal_work_party": null,
+        "image_url": "https://www.wta.org/site_images/trip-reports/2025/tripreport-image-2025-07-17.095448420995/@@images/image-1400-59b2acb7a9c3a9dc177b4f4c3f9a60a9.jpeg",
+        "overview": "<p>Join the WTA crew in North Cascades National Park to help fix and maintain these beloved trails! </p><p><br/></p><p>We are in the process of planning the details of this work party - more details will be added shortly!</p>",
+        "age_restriction": "Youth or Adults",
+        "work_party_type": {
+          "name": "Day Work Party"
+        },
+        "trailhead": {
+          "_id": "a2xPB000000lDwH",
+          "name": "Newhalem Creek Campground",
+          "location": {
+            "latitude": 48.670357,
+            "longitude": -121.262181
+          }
+        }
+      },
+      {
+        "_id": "a2mPB0000071KyL",
+        "name": "Middle Fork Snoqualmie",
+        "start_date_time": "2026-09-25T08:30:00-07:00",
+        "end_date_time": "2026-09-25T15:30:00-07:00",
+        "work_party_status": "Published",
+        "work_party_groups": null,
+        "group_wp_open_to_public": false,
+        "internal_work_party": null,
+        "image_url": "https://www.wta.org/site_images/hikes/middle-fork-snoqualmie-by-nathaniel-sundberg.jpeg/@@images/e7590866-029f-481e-82f6-ffc432260225.jpeg",
+        "overview": "<p><span>This crew will be working out the Middle Fork Snoqualmie trail to continue to work on our summer reroute project. Work will include finish tread work, annual maintenance and possibly some puncheon construction.</span></p>",
+        "age_restriction": "Youth or Adults",
+        "work_party_type": {
+          "name": "Day Work Party"
+        },
+        "trailhead": {
+          "_id": "a2xA00000019X3y",
+          "name": "Middle Fork Snoqualmie",
+          "location": {
+            "latitude": 47.548,
+            "longitude": -121.5384
+          }
+        }
+      },
+      {
+        "_id": "a2mPB000007BxqL",
+        "name": "Iron Goat - Wellington Trailhead",
+        "start_date_time": "2026-09-25T08:30:00-07:00",
+        "end_date_time": "2026-09-25T15:30:00-07:00",
+        "work_party_status": "Published",
+        "work_party_groups": null,
+        "group_wp_open_to_public": false,
+        "internal_work_party": null,
+        "image_url": "https://www.wta.org/site_images/hikes/bridge-on-iron-goat_linda-roe.jpeg/@@images/cdfd79ff-38c5-4c0a-a367-de1fe23b7c46.jpeg",
+        "overview": "<p>We're fixing up damage caused by the December 2025 floods!</p>",
+        "age_restriction": "Youth or Adults",
+        "work_party_type": {
+          "name": "Day Work Party"
+        },
+        "trailhead": {
+          "_id": "a2xPB000003ZuvQ",
+          "name": "Iron Goat- Wellington Trail Head",
+          "location": {
+            "latitude": 47.7474,
+            "longitude": -121.12716
+          }
+        }
+      }
+    ]
+  }
+}
