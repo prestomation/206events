@@ -1,0 +1,16 @@
+name: cozy-comedy
+sourceRole: venue
+type: eventbrite
+description: "Cozy Comedy"
+url: "https://www.eventbrite.com/o/cozy-comedy-44931221223"
+friendlyLink: https://www.eventbrite.com/o/cozy-comedy-44931221223
+tags: ["Comedy"]
+geo: null
+calendars:
+  - name: cozy-comedy
+    friendlyname: "Cozy Comedy"
+    timezone: America/Los_Angeles
+    config:
+      organizerId: "44931221223"
+      defaultLocation: "Seattle, WA"
+      defaultDurationHours: 2
