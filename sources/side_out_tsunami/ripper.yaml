@@ -1,0 +1,16 @@
+name: side-out-tsunami
+sourceRole: venue
+description: "Sideout Tsunami Pickleball Center"
+url: "https://sideouttsunami.com/events"
+friendlyLink: https://sideouttsunami.com/
+tags: ["Sports", "Mount Baker"]
+geo:
+  lat: 47.5817906
+  lng: -122.2983779
+  label: "Sideout Tsunami Pickleball Center, 2300 26th Ave S, Seattle, WA 98144"
+  osmType: way
+  osmId: 194421327
+calendars:
+  - name: calendar
+    friendlyname: "Sideout Tsunami Pickleball Center"
+    timezone: America/Los_Angeles

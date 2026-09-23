@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.reverieballroom.com/events
 tags: [Community, "Capitol Hill"]
 firstSeen: 2026-06-30
-lastChecked: 2026-09-11
+lastChecked: 2026-09-23
 ---
 **Reverie Ballroom** — `https://www.reverieballroom.com/events` — new wedding and event venue in the historic Oddfellows Building, 915 E Pine St, Capitol Hill (two restored ballrooms; opened 2026). Site mentions social dancing and performances in addition to private rentals.
 
@@ -30,3 +30,5 @@ Re-checked 2026-09-09: still 0 upcoming events. No change.
 Re-checked 2026-09-11: `/events?format=json` still returns an empty
 `data-type="page"` shell (no `itemCount`/`typeName` for an events
 collection). No change.
+
+Re-checked 2026-09-23: `/events?format=json` still returns an empty `page` shell, 0 upcoming events. No change.
