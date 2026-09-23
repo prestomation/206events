@@ -6,6 +6,7 @@ url: https://nerdnite.com/
 tags: []
 firstSeen: 2026-09-21
 lastChecked: 2026-09-23
+pr: 1572
 ---
 
 Monthly science/nerd-culture lecture night, next confirmed via search at

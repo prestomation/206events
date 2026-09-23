@@ -1,11 +1,12 @@
 ---
 name: "Dark Seattle"
-status: investigating
+status: added
 platform: Custom HTML (hand-curated)
 url: https://www.darkseattle.net/
 tags: [Music, Nightlife]
 firstSeen: 2026-09-17
-lastChecked: 2026-09-17
+lastChecked: 2026-09-23
+pr: 1573
 ---
 
 Hand-curated multi-venue "dark, danceable music near Seattle" show
@@ -42,3 +43,14 @@ Investigated 2026-09-17:
 Left as `investigating` — real and technically scrapable, but the
 dedup/scope work needed pushes this to a future cycle rather than a
 same-pass implementation.
+
+2026-09-23: Implemented as `sources/dark_seattle/` (custom HTML ripper, 111
+events from a residential IP, Seattle venues only). CI got
+`TypeError: fetch failed` for darkseattle.net in two builds (PR #1571 and
+PR #1572), so GitHub Actions IPs are blocked. Staged alone in its own PR
+with the `requires-proxy-testing` label, left at `proxy: false`, for the
+proxy-escalation skill to test the ladder.
+
+2026-09-23 (later): The PR #1573 CI build fetched darkseattle.net and got
+events, so the two earlier `fetch failed` errors were intermittent. No proxy
+is needed. Merged at `proxy: false`.
