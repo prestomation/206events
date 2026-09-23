@@ -61,8 +61,21 @@ describe('SideOutTsunamiRipper', () => {
         const { events: second } = extractSideOutTsunamiEvents(html, NOW);
 
         expect(first).toHaveLength(1);
-        expect(first[0].id).toBe('side-out-tsunami-community-scramble-2026-09-23');
+        expect(first[0].id).toBe('side-out-tsunami-community-scramble-2026-09-23-1700');
         expect(second[0].id).toBe(first[0].id);
+    });
+
+    it('includes a time-slot suffix in the fallback id so same-day showings do not collide', () => {
+        const html = `<html><head><script type="application/ld+json">[
+            {"@type":"SportsEvent","name":"Open Play","startDate":"2026-09-23T17:00:00-07:00","endDate":"2026-09-23T18:00:00-07:00"},
+            {"@type":"SportsEvent","name":"Open Play","startDate":"2026-09-23T20:00:00-07:00","endDate":"2026-09-23T21:00:00-07:00"}
+        ]</script></head><body></body></html>`;
+
+        const { events } = extractSideOutTsunamiEvents(html, NOW);
+        expect(events).toHaveLength(2);
+        expect(events[0].id).toBe('side-out-tsunami-open-play-2026-09-23-1700');
+        expect(events[1].id).toBe('side-out-tsunami-open-play-2026-09-23-2000');
+        expect(events[0].id).not.toBe(events[1].id);
     });
 
     it('defaults to a 2-hour duration when endDate is missing or invalid', () => {
@@ -107,6 +120,57 @@ describe('SideOutTsunamiRipper', () => {
         const { events, errors } = extractSideOutTsunamiEvents(html, NOW);
         expect(events).toHaveLength(1);
         expect(errors).toHaveLength(0);
+    });
+
+    it('emits a ParseError for a JSON-LD script block that fails to parse as JSON', () => {
+        const html = `<html><head>
+            <script type="application/ld+json">{not valid json</script>
+            <script type="application/ld+json">[
+                {"@type":"SportsEvent","name":"Open Play","startDate":"2026-09-23T17:00:00-07:00","endDate":"2026-09-23T18:00:00-07:00","url":"https://app.courtreserve.com/Online/Events/Details/16870/4?resId=4"}
+            ]</script>
+        </head><body></body></html>`;
+
+        const { events, errors } = extractSideOutTsunamiEvents(html, NOW);
+        expect(events).toHaveLength(1);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+        expect(errors[0].reason).toContain('Failed to parse JSON-LD');
+    });
+
+    it('emits a ParseError for a SportsEvent missing a name', () => {
+        const html = `<html><head><script type="application/ld+json">[
+            {"@type":"SportsEvent","startDate":"2026-09-23T17:00:00-07:00","endDate":"2026-09-23T18:00:00-07:00"}
+        ]</script></head><body></body></html>`;
+
+        const { events, errors } = extractSideOutTsunamiEvents(html, NOW);
+        expect(events).toHaveLength(0);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+        expect(errors[0].reason).toContain('missing name');
+    });
+
+    it('emits a ParseError for a SportsEvent missing a startDate', () => {
+        const html = `<html><head><script type="application/ld+json">[
+            {"@type":"SportsEvent","name":"Mystery Session","endDate":"2026-09-23T18:00:00-07:00"}
+        ]</script></head><body></body></html>`;
+
+        const { events, errors } = extractSideOutTsunamiEvents(html, NOW);
+        expect(events).toHaveLength(0);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+        expect(errors[0].reason).toContain('missing startDate');
+    });
+
+    it('emits a ParseError for a SportsEvent with an unparseable startDate', () => {
+        const html = `<html><head><script type="application/ld+json">[
+            {"@type":"SportsEvent","name":"Broken Date Session","startDate":"not-a-date","endDate":"2026-09-23T18:00:00-07:00"}
+        ]</script></head><body></body></html>`;
+
+        const { events, errors } = extractSideOutTsunamiEvents(html, NOW);
+        expect(events).toHaveLength(0);
+        expect(errors).toHaveLength(1);
+        expect(errors[0].type).toBe('ParseError');
+        expect(errors[0].reason).toContain('Could not parse startDate');
     });
 
     it('emits a ParseError when no JSON-LD SportsEvent entries are found', () => {

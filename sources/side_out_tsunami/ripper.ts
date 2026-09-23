@@ -104,10 +104,13 @@ function extractEventId(url: string | undefined, name: string, date: ZonedDateTi
     // "?...&reservationId=123" or "?resId=123" depending on the link shape.
     const match = url?.match(/(?:reservationId|resId)=(\d+)/);
     if (match) return `side-out-tsunami-${match[1]}`;
-    // No CourtReserve id found: fall back to a stable hash of name + date so
-    // ids don't change between builds (see AGENTS.md "Ripper Design: Stable Event IDs").
+    // No CourtReserve id found: fall back to a stable hash of name + date + time
+    // slot (multiple sessions of the same class often run same-day) so ids
+    // don't change between builds and don't collide across showings (see
+    // AGENTS.md "Ripper Design: Stable Event IDs").
     const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-    return `side-out-tsunami-${slug}-${date.toLocalDate().toString()}`;
+    const slot = date.hour().toString().padStart(2, "0") + date.minute().toString().padStart(2, "0");
+    return `side-out-tsunami-${slug}-${date.toLocalDate().toString()}-${slot}`;
 }
 
 export default class SideOutTsunamiRipper implements IRipper {
