@@ -148,8 +148,8 @@ export function parseEventPage(html: string, today: LocalDate): ParsedEventDate 
         }
     } else if (ongoingMatch) {
         // No closing date published at all — placeholder window flagged via
-        // durationUnknown so the caller can emit an UncertaintyError instead
-        // of silently publishing a made-up close date as fact.
+        // durationUnknown so the caller can note it in the description
+        // instead of silently publishing a made-up close date as fact.
         return {
             startDate: today,
             endDate: today.plusDays(ONGOING_WINDOW_DAYS),
