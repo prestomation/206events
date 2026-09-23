@@ -1,0 +1,3094 @@
+{
+ "events": {
+  "items": [
+   "6a7a35a0cca66c2f00a9a472",
+   "6a8dfcb329a7dd0d674697c4",
+   "6a961e351c197d11325c419c",
+   "6a7f507caafa6100295c9fe0",
+   "6aa09daf6562d02296858ab5",
+   "6a91f38e69166f088b95a91b",
+   "6a739745e30fe48459673433",
+   "6a8ca3e1aafa6100295ed1be",
+   "6a8ca3f13b6c71003e5b0bb8",
+   "69151a57886bb73600ba862f",
+   "6965908fc967cb4120818512",
+   "6a6ce9e99006f753531412e3",
+   "6a63d0883edb05633e902e0c",
+   "6a7f5004d4b10d0030067c52",
+   "69f56f0024bd39b0b5e92fc0",
+   "6a7b8a298c7b29006f15e1ab",
+   "6a80c10baafa6100295cdc4a",
+   "695c0705992fc18a86dbadef",
+   "6a85d94b69166f088b9349d3",
+   "6a847411b20478002993aafc",
+   "6a7fac073b6c71003e58f3e6",
+   "6998f85f8d5e2d0933608c66",
+   "6aa32476101eb7003f2f21fb",
+   "692ced2b6fe94a3600a3217d",
+   "6a8df1aa81e9d60947cc7d50",
+   "6a91f37a57c264087ad490cd",
+   "6a710898c7e02e3d006da0ed",
+   "6a76afc3e30fe4845967ddc2",
+   "6a5a998f0e562e28009a98ee",
+   "6a7faba35d8bc300315a702c",
+   "6945dda74be11d3d00d90c52",
+   "6a6ba3514523092f0033b54c",
+   "69d91c2766c3387a9d06651b",
+   "6a7e547caafa6100295c80fd",
+   "6a91f37c69166f088b95a90e",
+   "6952f84de3e3999b5c04be94",
+   "6ab0435f4ea230006f34c6be",
+   "6a34457c16554cd59fc9be14",
+   "6a5e8b699e0a050e3e53b689",
+   "6a80b39d2dac6e00371f4f84",
+   "6a07bcbe17731928001a1c75",
+   "6a91f3d2b2047800299650a8",
+   "6a91f3d2b2047800299650a9",
+   "6a91f3d2b2047800299650aa",
+   "6a91f3d2b2047800299650ab",
+   "6a921b7b3b6c71003e5c2515",
+   "6a91f3d2b2047800299650ac",
+   "6aa1e4e84b3b060030829c8b",
+   "6a80b39d2dac6e00371f4f85",
+   "6a91f3d2b2047800299650ad",
+   "6aa1e4c7ab7a8e0037c0a704",
+   "6aa0a306442d35226f67899a",
+   "696fb62b76261f2800657864",
+   "6aa0a306442d35226f67899b",
+   "6aa0a306442d35226f67899c",
+   "696fb6271e64afd01e5570c1",
+   "6aa0a306442d35226f67899d"
+  ],
+  "pagination": {
+   "count": 57,
+   "pages": 1,
+   "page": 1,
+   "limit": 100
+  }
+ },
+ "entities": {
+  "events": {
+   "6a7a35a0cca66c2f00a9a472": {
+    "id": "6a7a35a0cca66c2f00a9a472",
+    "key": "2026-08-14T00:00:00",
+    "seriesId": "6a776b72e30fe4845967f243",
+    "definition": {
+     "start": "2026-08-14",
+     "end": "2026-09-30",
+     "title": "Story Walk at SeaTac Des Moines Creek Park",
+     "description": "<p>Drop by SeaTac Des Moines Creek Park&nbsp;to take a walk along the trail&nbsp;and read a story,&nbsp;<a href=\"https://kcls.bibliocommons.com/v2/record/S82C1753204\"><em>All Around Us</em> by Xelena Gonzalez.</a><br></p>\n<p>As you walk the path, each panel will share the next page of the book. </p>\n<p>If you want to read the story again at home, stop by the library to check out a copy.</p>\n<p>In partnership with the Valley View Library (KCLS) and the City of SeaTac.</p>\n<p></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a776d1374e3b8b75db88c90",
+     "branchLocationId": null,
+     "nonBranchLocationId": "6a776b4cf213992f00ca9260",
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000014",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015",
+      "572b6201717c23254b000013",
+      "5654e87875eef9cd27000010",
+      "572b6201717c23254b000012",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-08-14T07:00:00Z",
+    "indexEnd": "2026-10-01T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a8dfcb329a7dd0d674697c4": {
+    "id": "6a8dfcb329a7dd0d674697c4",
+    "key": "2026-08-24T00:00:00",
+    "seriesId": "6a8cc466392e9c02993c6c03",
+    "definition": {
+     "start": "2026-08-24",
+     "end": "2026-09-30",
+     "title": "Bilingual Book Walk at McCormick Park: I'll Build You a Bookcase/Te Har\u00e9 Tu Propio Librero",
+     "description": "<p><strong><em><a href=\"https://kcls.bibliocommons.com/v2/record/S82C2146781\" target=\"_blank\">I'll Build You a Bookcase/</a></em><strong><em><em><a href=\"https://kcls.bibliocommons.com/v2/record/S82C2146781\" target=\"_blank\">Te Har\u00e9 Tu Propio Librero</a> </em></em>by Jean Ciborowski Fahey & illustrated by Simone Shin</strong></strong></p><p><strong><strong></strong></strong><strong></strong>Drop by McCormick Park at: 2600 NE Stephens St. Duvall, WA, to take a walk and read a story!</p>\n<p>As you walk the path, each panel will share the next page of the book.</p>\n<p>If you want to read the story again at home, stop by the library to check out a copy!</p>\n<p>In partnership with the Duvall Library (KCLS) and the City of Duvall.</p>",
+     "bibIds": [],
+     "featuredImageId": "6a8cc425feae960038078f4e",
+     "branchLocationId": "1503",
+     "nonBranchLocationId": null,
+     "locationDetails": "McCormick Park: 2600 NE Stephens St. Duvall, WA 98019",
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012",
+      "5654e8049967fa8d27000014"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5eb1aa79072bb42f001c9a69",
+      "5679e16352c7b9de5c01213e"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-08-24T07:00:00Z",
+    "indexEnd": "2026-10-01T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a961e351c197d11325c419c": {
+    "id": "6a961e351c197d11325c419c",
+    "key": "2026-09-01T00:00:00",
+    "seriesId": "6a961d6f2dac6e0037231c8e",
+    "definition": {
+     "start": "2026-09-01",
+     "end": "2026-09-30",
+     "title": "Book Walk at Kruckeberg Botanic Garden",
+     "description": "<figure><img src=\"https://kcls.bibliocommons.com/events/uploads/images/full/4c2832abffd945f7a45fe7c0a92b9035/BookWalk2026.jpg\" data-image=\"6a97903baafa61002960e937\"></figure><p></p><p><strong><a href=\"https://kcls.bibliocommons.com/v2/record/S82C2140874\">If I Were a Tree</a>&nbsp;by Andrea Zimmerman<br></strong><br>Drop by Kruckeberg Botanic Garden, 20312 15th Ave NW, Shoreline,&nbsp;WA, to take a walk and read a story.&nbsp;<br></p>\n<p>As you walk the path starting at the end of the boardwalk, each panel will share the next page of the book. </p>\n<p>Visit <a href=\"https://www.kruckeberg.org/\">https://www.kruckeberg.org/</a> for current garden hours.&nbsp;<br></p>\n<p>If you want to read the story again at home, stop by the library to check out a copy.</p>\n<p>In partnership with the King County Library System (Shoreline & Richmond Beach Libraries)&nbsp;and Kruckeberg Botanic Garden.<br><br></p>\n<p></p>\n<p></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": null,
+     "nonBranchLocationId": "6882ab4aff55b52ed8d84fa4",
+     "locationDetails": "20312 15th Ave NW, Shoreline, WA",
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "56a93aa4fa6b611f620201d0",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false,
+     "accommodations": "<p>E-mail Kruceberg Botanic Garden if you have any questions or a request for an accommodation:&nbsp;info@kruckeberg.org.&nbsp;<br><br></p>"
+    },
+    "indexStart": "2026-09-01T07:00:00Z",
+    "indexEnd": "2026-10-01T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a7f507caafa6100295c9fe0": {
+    "id": "6a7f507caafa6100295c9fe0",
+    "key": "2026-09-01T00:00:00",
+    "seriesId": "6a7a2e0188e9bf280036f010",
+    "definition": {
+     "start": "2026-09-01",
+     "end": "2026-10-31",
+     "title": "Library Spooks: All Ages Scavenger Hunt",
+     "description": "<p>It's nearly autumn&nbsp;at the Muckleshoot Library, which&nbsp;calls for a fall-themed scavenger hunt. Bringing to you: Library <del>Books</del> Spooks!</p>\n<p><strong>How to participate:</strong></p>\n<ol><li>Ask staff at the front desk for a Children\u2019s Scavenger Hunt sheet, or the&nbsp;Teen & Adult activity sheet,&nbsp;<em>A Library Haunting</em>, to begin.</li><li>Follow the instructions&nbsp;on each activity sheet to complete the challenge in the library.<br></li><li>If you have questions, staff at the front desk&nbsp;can help.<br></li><li>Collect a small prize once you complete the challenge!</li></ol>\n<p><em><em>This is a drop-in activity during <a href=\"https://kcls.org/locations/muckleshoot/\" target=\"_blank\">library open hours</a>. Sponsored by the Friends of the Muckleshoot Library.</em></em><br><br>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\"><em>access@kcls.org</em></a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a7a319ac7e02e3d006f4d79",
+     "branchLocationId": "1526",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000014",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015",
+      "572b6201717c23254b000013",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "56a93aa4fa6b611f620201d0"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-01T07:00:00Z",
+    "indexEnd": "2026-11-01T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa09daf6562d02296858ab5": {
+    "id": "6aa09daf6562d02296858ab5",
+    "key": "2026-09-02T00:00:00",
+    "seriesId": "6a98b2b41c197d11325cde84",
+    "definition": {
+     "start": "2026-09-02",
+     "end": "2026-10-13",
+     "title": "StoryWalk at MacFarland Park",
+     "description": "<p><a id=\"ember5231\" data-add-title-link=\"2538853082\" href=\"/item/show/2538853082\"></a><a id=\"ember6424\" data-add-title-link=\"2004343082\" href=\"/item/show/2004343082\"><em>Old Rock (is Not Boring)</em></a> by Deb Pilutti<br></p>\n<p>Drop by MacFarland Park, 1401 Chinook Avenue, Enumclaw, WA, to take a walk and read a story.</p>\n<p>As you walk the path, each panel will share the next page of the book.&nbsp;</p>\n<p>If you want to read the story again at home, stop by the library to check out a copy.</p>\n<p>In partnership with&nbsp;the Enumclaw Library (KCLS) and the City of Enumclaw.<br></p>\n<p><br>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br></p>",
+     "partnerId": null,
+     "bibIds": [
+      "2004343082"
+     ],
+     "featuredImageId": "6a98b2531c197d11325cde7e",
+     "branchLocationId": "119",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e09452c7b9de5c012125",
+      "5672ea0bddaae0b810019c3d"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-02T07:00:00Z",
+    "indexEnd": "2026-10-14T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f38e69166f088b95a91b": {
+    "id": "6a91f38e69166f088b95a91b",
+    "key": "2026-09-23T10:30:00",
+    "seriesId": "6a873bf069166f088b938aec",
+    "definition": {
+     "start": "2026-09-23T10:30",
+     "end": "2026-09-23T11:15",
+     "title": "Family Story Time at the Crossroads Community Center",
+     "description": "<p>Enjoy stories, music, movement and rhymes.</p>\n<p>Help develop your child\u2019s early literacy skills. Up to 15 minutes of play time follows.</p>\n<p><em>Held at <strong>Crossroads Community Center</strong> near the Library Connection @ Crossroads.</em></p>\n<p><em>16000 NE 10th Street, Bellevue, WA 98008</em></p>\n<p><em>Registration not required.</em><br><br>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "bibIds": [],
+     "featuredImageId": "654d1c60067df23e00266004",
+     "branchLocationId": null,
+     "nonBranchLocationId": "5748c826b2be2fb74600be90",
+     "locationDetails": "",
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-23T17:30:00Z",
+    "indexEnd": "2026-09-23T18:15:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a739745e30fe48459673433": {
+    "id": "6a739745e30fe48459673433",
+    "key": "2026-09-23T14:00:00",
+    "seriesId": "6a56d2efaa34e23600ef3279",
+    "definition": {
+     "start": "2026-09-23T14:00",
+     "end": "2026-09-23T15:00",
+     "title": "Sharing Your Screen Safely!",
+     "description": "<p>Discover easy ways to securely share your screen so someone you trust can fix problems or walk you through steps.<br></p>\n<p>Presented by Bridget of <a href=\"https://gentletechhelp.com/\" target=\"_blank\">Gentle Tech Help</a>.</p>\n<p>This program will not be recorded. </p>\n<p><em>Please register.</em></p>\n<p><em>You will be emailed a link no later than one hour before the program start time. If you do not see an email, check your Junk or Spam folder.</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": null,
+     "nonBranchLocationId": null,
+     "locationDetails": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "56e76b62414af7d25900d917"
+     ],
+     "isVirtual": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-23T21:00:00Z",
+    "indexEnd": "2026-09-23T22:00:00Z",
+    "isRecurring": false,
+    "numberRegistered": 79,
+    "numberWaitlistRegistered": 0,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a8ca3e1aafa6100295ed1be": {
+    "id": "6a8ca3e1aafa6100295ed1be",
+    "key": "2026-09-23T16:00:00",
+    "seriesId": "6a8c98802dac6e0037215a04",
+    "definition": {
+     "start": "2026-09-23T16:00",
+     "end": "2026-09-23T17:00",
+     "title": "Math Club Online: Core Math 6th Grade",
+     "description": "<p><strong>Math Club volunteers provide lessons to help students exercise their math skills. </strong>Classes are by suggested grade level, but students may attend lessons on any class they choose. <em>Students should log in a few minutes before class begins.<br></em><br></p>\n<p><strong>Schedule and connection information:</strong><br><u><a href=\"https://kcls.org/studyzone/#mathclub\">kcls.org/studyzone/#mathclub</a> </u>or call Ask KCLS, 425.462.9600 or 800.462.9600<br><em><em>Click on the 'Connect to Zoom' button. </em>Request \u201cMath Club\u201d and the grade you want to attend.</em><strong><br><br><strong>Core Math Lessons: suggested grade 6</strong></strong><strong><em><br>Wednesdays 4-5pm</em></strong><em><br>September 9 Intro to Ratios<br>September 16: Ratio Application in Word Problems<br>September 23: Percentages, Fractions & Decimals<br><em>September 30</em>: Arithmetic with Decimals<br>October 7: Exponents<br>October 14: Intro to Negative Numbers<br>October 21: Order of Operations & Types of Numbers<br>October 28: LCM & GCF<br>November 4: Variables<br>November 11:&nbsp;<strong>Closed</strong><br>November 18:&nbsp;Expressions<br>November 25: <strong>Closed</strong><br>December 3:&nbsp;One-Step Equations<br>December 9:&nbsp;One-Step Equation Word Problems<br>December 16:&nbsp;Inequalities with Variables<br>December 23: <strong>Closed</strong><br>December 30: <strong>Closed<strong></strong></strong></em><br></p>\n<hr>\n<p><strong>Study Zone</strong></p>\n<p>Study Zone programs provide volunteer-led academic support for grades K-12. Programs include Tutors, Math Club, Reading Buddies and Kids & Teens Talk Time. Available online and in libraries.<br></p>\n<p>Online Study Zone programs are supervised by library staff. Visit <a href=\"https://kcls.org/studyzone/?_ga=2.13200823.169538277.1686889233-31142582.1680932734&_gl=1*30t733*_ga*MzExNDI1ODIuMTY4MDkzMjczNA..*_ga_G99DMMNG39*MTY4NjkzNjkxMC4yNDAuMS4xNjg2OTM3NTgxLjAuMC4w\"><u><strong>Study Zone</strong></u></a> for the Terms of Use Agreement and steps KCLS is taking to maintain a safe and positive online space.<br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\"><em>access@kcls.org</em></a> at least seven days before the event. Automated closed captioning is always available for online events.<br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a1e32b543b41b3d006aee06",
+     "branchLocationId": null,
+     "nonBranchLocationId": null,
+     "locationDetails": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6126ebee164e9b4100a8001f",
+     "typeIds": [
+      "56e76b36414af7d25900d913",
+      "567990aa9fdb8abb6200c819",
+      "5698260cf870d8e52e057d28"
+     ],
+     "isVirtual": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-23T23:00:00Z",
+    "indexEnd": "2026-09-24T00:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a8ca3f13b6c71003e5b0bb8": {
+    "id": "6a8ca3f13b6c71003e5b0bb8",
+    "key": "2026-09-23T16:00:00",
+    "seriesId": "6a8ca11ad4b10d003008c433",
+    "definition": {
+     "start": "2026-09-23T16:00",
+     "end": "2026-09-23T17:00",
+     "title": "Math Club Online: Core Math Geometry",
+     "description": "<p><strong>Math Club volunteers provide lessons to help students exercise their math skills. </strong>Classes are by suggested grade level, but students may attend lessons on any class they choose. <em>Students should log in a few minutes before class begins.<br></em><br></p>\n<p><strong>Schedule and connection information:</strong><br><u><a href=\"https://kcls.org/studyzone/#mathclub\">kcls.org/studyzone/#mathclub</a> </u>or call Ask KCLS, 425.462.9600 or 800.462.9600<br><em><em>Click on the 'Connect to Zoom' button. </em>Request \u201cMath Club\u201d and the class you want to attend.</em><strong><br><br><br><strong><strong>Core Math Lessons: suggested grade 7-12</strong></strong><strong><em><br>Wednesdays 4-5pm</em></strong><br></strong><em>September 9: Transformations 1: Translation & Reflections<br>September 16: Transformations 2: Rotation & Dilation<br>September 23: Intro to Geometrical Proofs: Two-column, Paragraph & Flow Charts<br>September 30: Basic Plane Geometry: Planes, Lines & Angles<br>October 7: Triangle Congruence part 1: Intro<br>October 14: Triangle Congruence part 2: Proofs<br>October 21: Triangle Similarity<br>October 28: Triangle Theorems<br>November 4: Pythagorean Theorem & Special Right Triangles<br>November 11: <strong>Closed</strong><br>November 18:&nbsp;Introduction to Trigonometry & Trig Ratios<br>November 25: <strong>Closed</strong><br>December 2:&nbsp;Solving for Side w. Trig & Law of Sign and Co-Sign<br>December 9: Solving for Angle w/ Trig Functions<br>December 16: Intro to Coordinate Geometry<br>December 23: <strong>Closed</strong><br>December 30: <strong>Closed</strong></em><br></p>\n<hr>\n<p><strong>Study Zone</strong></p>\n<p>Study Zone programs provide volunteer-led academic support for grades K-12. Programs include Tutors, Math Club, Reading Buddies and Kids & Teens Talk Time. Available online and in libraries.<br></p>\n<p>Online Study Zone programs are supervised by library staff. Visit <a href=\"https://kcls.org/studyzone/?_ga=2.13200823.169538277.1686889233-31142582.1680932734&_gl=1*30t733*_ga*MzExNDI1ODIuMTY4MDkzMjczNA..*_ga_G99DMMNG39*MTY4NjkzNjkxMC4yNDAuMS4xNjg2OTM3NTgxLjAuMC4w\"><u><strong>Study Zone</strong></u></a> for the Terms of Use Agreement and steps KCLS is taking to maintain a safe and positive online space.<br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\"><em>access@kcls.org</em></a> at least seven days before the event. Automated closed captioning is always available for online events.<br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a1e32b543b41b3d006aee06",
+     "branchLocationId": null,
+     "nonBranchLocationId": null,
+     "locationDetails": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6126ebee164e9b4100a8001f",
+     "typeIds": [
+      "56e76b36414af7d25900d913",
+      "567990aa9fdb8abb6200c819",
+      "5698260cf870d8e52e057d28"
+     ],
+     "isVirtual": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-23T23:00:00Z",
+    "indexEnd": "2026-09-24T00:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "69151a57886bb73600ba862f": {
+    "id": "69151a57886bb73600ba862f",
+    "key": "2026-09-24T10:00:00",
+    "seriesId": "69069a90b864f02900226113",
+    "definition": {
+     "start": "2026-09-24T10:00",
+     "end": "2026-09-24T12:00",
+     "title": "Talk Time: English Conversation Practice",
+     "description": "<p>Practice speaking English with other English language learners and trained conversation helpers. All levels are welcome.</p><p></p>\n<p><em>Registration not required.</em><br></p>\n<p><br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a20e891c6a1dc3d00d84864",
+     "branchLocationId": "1519",
+     "nonBranchLocationId": null,
+     "locationDetails": "Meeting Room",
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5672ea0bddaae0b810019c3d"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:00:00Z",
+    "indexEnd": "2026-09-24T19:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6965908fc967cb4120818512": {
+    "id": "6965908fc967cb4120818512",
+    "key": "2026-09-24T10:00:00",
+    "seriesId": "69655bf839996c13d3cfe6c7",
+    "definition": {
+     "start": "2026-09-24T10:00",
+     "end": "2026-09-24T14:00",
+     "title": "King County Department of Local Services Office Hours",
+     "description": "<p>Get notary service and support with county building permits,&nbsp;pet license applications&nbsp;and general information about county services.</p>\n<p>With Clem Benton IV of the Department of Local Services.</p>\n<p>&nbsp;<em>Registration not required.&nbsp;</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "687aa03485662d08198d43f6",
+     "branchLocationId": "1548",
+     "nonBranchLocationId": null,
+     "locationDetails": "Study Room #1",
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "572920aeabd86f8c0f0202b5"
+     ],
+     "isFeatured": null,
+     "isFeaturedAtLocation": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:00:00Z",
+    "indexEnd": "2026-09-24T21:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a6ce9e99006f753531412e3": {
+    "id": "6a6ce9e99006f753531412e3",
+    "key": "2026-09-24T10:00:00",
+    "seriesId": "690a6d52dff9d93e00ce68e2",
+    "definition": {
+     "start": "2026-09-24T10:00",
+     "end": "2026-09-24T10:30",
+     "title": "Young Toddler Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes!</p>\n<p>Help develop your child's&nbsp;early literacy skills.</p><p><em></em><em>Registration not required.</em></p>\n\n<p><em></em>Reasonable accommodation for people with disabilities is available by request. Email access@kcls.org at least seven days before the event. Automated closed captioning is always available for online events.<br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "65e1095ce3e1ee300032d002",
+     "branchLocationId": "1509",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:00:00Z",
+    "indexEnd": "2026-09-24T17:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a63d0883edb05633e902e0c": {
+    "id": "6a63d0883edb05633e902e0c",
+    "key": "2026-09-24T10:00:00",
+    "seriesId": "68acb8e0cefea328008e86e5",
+    "definition": {
+     "start": "2026-09-24T10:00",
+     "end": "2026-09-24T10:45",
+     "title": "Baby and Toddler Story Time",
+     "description": "<p>Share rhymes, songs and bounces with your little one, and connect with other caregivers.</p>\n<p><em>Newborn to 24 months with caregiver, siblings welcome.</em><br></p>\n<p><em>Registration not required.</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1545",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:00:00Z",
+    "indexEnd": "2026-09-24T17:45:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a7f5004d4b10d0030067c52": {
+    "id": "6a7f5004d4b10d0030067c52",
+    "key": "2026-09-24T10:00:00",
+    "seriesId": "6a7e2c612dac6e00371ee2cf",
+    "definition": {
+     "start": "2026-09-24T10:00",
+     "end": "2026-09-24T14:00",
+     "title": "King County Department of Local Services Office Hours",
+     "description": "<p>Get notary service and support with county building permits,&nbsp;pet license applications&nbsp;and general information about county services.</p>\n<p>With Mason of the Department of Local Services.</p>\n<p>&nbsp;<em>Registration not required.&nbsp;</em></p><p><em>No hours on September 17, October 8, and October 15<br></em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "687aa03485662d08198d43f6",
+     "branchLocationId": "1527",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "572920aeabd86f8c0f0202b5"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:00:00Z",
+    "indexEnd": "2026-09-24T21:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "69f56f0024bd39b0b5e92fc0": {
+    "id": "69f56f0024bd39b0b5e92fc0",
+    "key": "2026-09-24T10:00:00",
+    "seriesId": "69544896d292d5a3be5e346a",
+    "definition": {
+     "start": "2026-09-24T10:00",
+     "end": "2026-09-24T11:00",
+     "title": "The Librarian is In",
+     "description": "<p>The Librarian is In! Meet with an Adult Services Librarian for one-on-one technology assistance, digital literacy skills, and help with finding information. Plus learn what the library has to offer, from books to streaming services, museum passes, programming, and more! Everyone is welcome. </p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "68ae62f8f791593d0015e050",
+     "branchLocationId": null,
+     "nonBranchLocationId": "6872b737eea0f638de3dd32e",
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "56e76b62414af7d25900d917"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:00:00Z",
+    "indexEnd": "2026-09-24T18:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a7b8a298c7b29006f15e1ab": {
+    "id": "6a7b8a298c7b29006f15e1ab",
+    "key": "2026-09-24T10:15:00",
+    "seriesId": "6a7a59c00d65ac360045d6f5",
+    "definition": {
+     "start": "2026-09-24T10:15",
+     "end": "2026-09-24T11:00",
+     "title": "Baby and Toddler Story Time",
+     "description": "<p>Enjoy books, rhymes, songs, and bounces with your baby while&nbsp;connecting with other caregivers.&nbsp;<br></p>\n\n<p></p>\n<p></p>\n<p><em><br></em></p>\n<p></p>",
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1547",
+     "nonBranchLocationId": null,
+     "locationDetails": "",
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false,
+     "isFeatured": null,
+     "partnerId": null
+    },
+    "indexStart": "2026-09-24T17:15:00Z",
+    "indexEnd": "2026-09-24T18:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a80c10baafa6100295cdc4a": {
+    "id": "6a80c10baafa6100295cdc4a",
+    "key": "2026-09-24T10:15:00",
+    "seriesId": "6a80beecb2047800299317ad",
+    "definition": {
+     "start": "2026-09-24T10:15",
+     "end": "2026-09-24T10:45",
+     "title": "Toddler Story Time ",
+     "description": "<p>Enjoy stories, music, movement and rhymes! Help develop your toddler's or baby's&nbsp;early literacy skills. Stay after for a&nbsp;short playtime and bubbles.</p>\n<p><em>Newborn to 36 months with adult, older children&nbsp;welcome.</em></p>\n<p><em></em><em>Registration not required.</em><em><br></em></p>\n",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1537",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:15:00Z",
+    "indexEnd": "2026-09-24T17:45:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "695c0705992fc18a86dbadef": {
+    "id": "695c0705992fc18a86dbadef",
+    "key": "2026-09-24T10:15:00",
+    "seriesId": "69544b46491b809c6f1012e8",
+    "definition": {
+     "start": "2026-09-24T10:15",
+     "end": "2026-09-24T11:45",
+     "title": "Talk Time: English Conversation Practice",
+     "description": "<p>Practice speaking English with other English language learners and trained conversation helpers. All levels are welcome.</p>\n<p><em>R</em><em>egistration not required.</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1533",
+     "nonBranchLocationId": null,
+     "locationDetails": "Meeting Room 1",
+     "audienceIds": [
+      "5654e87875eef9cd27000011"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5672ea0bddaae0b810019c3d"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:15:00Z",
+    "indexEnd": "2026-09-24T18:45:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a85d94b69166f088b9349d3": {
+    "id": "6a85d94b69166f088b9349d3",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a710b0ae30fe4845966a4e5",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:00",
+     "title": "Toddler Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes that&nbsp;develop your toddler's early literacy skills.&nbsp;A short&nbsp;play time follows.&nbsp;</p>\n<p><em>Ages 1 to 3 with adult. Siblings welcome. Babies who like to watch big kids also welcome.</em></p>\n<p><em></em><em></em><em>Registration not required.&nbsp;</em><em></em><br><br></p>\n",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1490",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a847411b20478002993aafc": {
+    "id": "6a847411b20478002993aafc",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a82314d386764026a1731d0",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:30",
+     "title": "Family Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes. Help develop your child\u2019s early literacy skills. A brief play time follows. </p>\n<p><em>All ages welcome with adult. </em></p>\n<p><em>Registration not required. </em></p>",
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1503",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false,
+     "isFeatured": null,
+     "partnerId": null
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a7fac073b6c71003e58f3e6": {
+    "id": "6a7fac073b6c71003e58f3e6",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a7f7b4d61e11c0051775dd4",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:15",
+     "title": "Baby Story Time",
+     "description": "<p>Newborn to age 2 with adult.</p>\n<p>Share nursery rhymes, songs and stories with your baby!</p>\n<p>Connect and have fun with other families. Play time and bubbles follow.</p>\n<p><em>Registration not required.</em></p>\n<p><em></em>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br></p>\n<p><br><br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "119",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:15:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6998f85f8d5e2d0933608c66": {
+    "id": "6998f85f8d5e2d0933608c66",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6997938b8b29ea2800d12bd7",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:30",
+     "title": "KidsQuest Little Labs: Stories That Count",
+     "description": "<p>Join a KidsQuest educator for Story Time and hands-on fun that encourages children to explore numbers, counting, and playful characters through interactive learning.<br><br>Sponsored by KidsQuest.<br></p>\n<p><em>Ages 3 to 5 with adult.</em></p>\n<p><em>No registration required. Space is limited</em></p><p><em><br><br>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br><br></em></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "698ba91181b67dfe32a59c1f",
+     "branchLocationId": "154",
+     "nonBranchLocationId": null,
+     "locationDetails": "meeting room",
+     "audienceIds": [
+      "572b6201717c23254b000013"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa32476101eb7003f2f21fb": {
+    "id": "6aa32476101eb7003f2f21fb",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6aa30f483dd190003e710e1d",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:30",
+     "title": "Family Story Time",
+     "description": "<p>Open play only (no story time) on September 17, November 5, and November 12.</p><p>Enjoy stories, music, movement, and rhymes that develop your child\u2019s early literacy skills.<em><br></em><br>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br><br><br><em></em></p>\n<p></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "654d1cd45390a829009c2f25",
+     "branchLocationId": "1489",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "567990aa9fdb8abb6200c819"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "692ced2b6fe94a3600a3217d": {
+    "id": "692ced2b6fe94a3600a3217d",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "69279e2444d0e96d007b903e",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T12:30",
+     "title": "One-on-One Ancestry Help ",
+     "description": "<p>Come for Ancestry help!&nbsp;</p>\n<p>An Eastside Genealogical Society volunteer will show you how to research your family history and genealogy with Ancestry in the Computer Lab.</p>\n<p><em>Registration not required.</em></p>\n<p><br>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br><em><br><br></em><br></p>",
+     "bibIds": [],
+     "featuredImageId": "648927b078c3da4200b4e331",
+     "branchLocationId": "1492",
+     "nonBranchLocationId": null,
+     "locationDetails": "Computer Lab, 2nd floor",
+     "audienceIds": [
+      "5654e87875eef9cd27000011"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5eb1a8c209fd613a00d841f6"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T19:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a8df1aa81e9d60947cc7d50": {
+    "id": "6a8df1aa81e9d60947cc7d50",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a8739a857c264087ad27b91",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:15",
+     "title": " Preschool Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes.&nbsp;</p>\n<p>Help develop your preschooler\u2019s early literacy skills.&nbsp;A brief play time follows the program.<br><br><em>Ages 3 to 5 with adult.&nbsp;</em></p>\n<p><em></em><em>Registration not required.&nbsp;</em>&nbsp;</p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email<a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br></p>",
+     "bibIds": [],
+     "featuredImageId": "656e0523eb28943d007a740e",
+     "branchLocationId": "1492",
+     "nonBranchLocationId": null,
+     "locationDetails": "3rd Floor Programming Space",
+     "audienceIds": [
+      "572b6201717c23254b000013"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeaturedAtLocation": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:15:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f37a57c264087ad490cd": {
+    "id": "6a91f37a57c264087ad490cd",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a8634c12dac6e003720440b",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:30",
+     "title": "Play Date with Light Lab",
+     "description": "<p>Drop in for an interactive, play-centered session.&nbsp;Enjoy meeting other families while your littles engage with peers.</p>\n<p>Explore, play and learn with our light panels!&nbsp; You can look at x-rays, practice your letters, make shadow puppets, or learn about colors.&nbsp;</p>\n<p><em>Ages 5 and younger with adult.</em></p>\n<p><em>Registration not required.</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a87526bd4b10d003007df07",
+     "branchLocationId": "1564",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e09452c7b9de5c012125",
+      "567990aa9fdb8abb6200c819"
+     ],
+     "isFeatured": null,
+     "isFeaturedAtLocation": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:30:00Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a710898c7e02e3d006da0ed": {
+    "id": "6a710898c7e02e3d006da0ed",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a6e87bb88e9bf280034ecc4",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:00",
+     "title": "Rise & Shine Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes that develop your child's early literacy skills.&nbsp;<br>Up to 30 minutes of play time follows.<em><br></em></p>\n<p><em>Newborns to 5 years old&nbsp;with adult.&nbsp;</em></p>\n<p><em></em><em>Registration not required.&nbsp;<em>Space is limited.</em></em><em><br></em></p>\n\n",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1513",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a76afc3e30fe4845967ddc2": {
+    "id": "6a76afc3e30fe4845967ddc2",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a74e051e9de65360020e74c",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:30",
+     "title": "Drop-In Technical Assistance",
+     "description": "<p>Have computer, mobile device or software questions? </p>\n<p>A staff member can provide basic level one-on-one assistance on tasks such as navigating a tablet, learning to download free eBooks and connecting through email.</p>\n<p><em>You may bring your own device, but library staff cannot provide hands-on or hardware assistance.</em></p>\n<p><em>Registration not required.</em><br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1535",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "56e76b62414af7d25900d917"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a5a998f0e562e28009a98ee": {
+    "id": "6a5a998f0e562e28009a98ee",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a56c2c6fb418a28009b03d0",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:00",
+     "title": "Family Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes to help develop your child\u2019s early literacy skills. Stay for playtime afterwards!</p>\n<p><em>Ages 3-6 (Younger and older children are welcome)</em></p>\n<p><em></em><em>Registration not required.<br></em></p>\n<p><em><br></em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events. </p>\n<p><em><br></em></p>\n<p></p>\n<p><br><br><br><em></em></p>\n<p></p>",
+     "bibIds": [],
+     "featuredImageId": "67ae3366c94495280039571a",
+     "branchLocationId": "1527",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a7faba35d8bc300315a702c": {
+    "id": "6a7faba35d8bc300315a702c",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a7f917660ccaf01c01e53bd",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:00",
+     "title": "Baby Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes!</p>\n<p>Help&nbsp;develop your baby\u2019s early literacy skills. A short play time follows.&nbsp;</p>\n<p><em><em>Newborn to 12 months with adult.</em></em></p>\n<p><em>Registration not required. First come, first seated.&nbsp;Space is limited.</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events. </p>\n<p><em><br></em></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a7f9165be148200298772cd",
+     "branchLocationId": "1518",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6945dda74be11d3d00d90c52": {
+    "id": "6945dda74be11d3d00d90c52",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6943500cb5ff4730005710ba",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T12:00",
+     "title": "English Language Learning (ELL) Classes",
+     "description": "<p>Learn English grammar, reading, writing and conversation skills with experienced instructors, in partnership with <a href=\"https://casa-latina.org/\" target=\"_blank\">Casa Latina</a>.<br></p>\n<p><em>Registration not required. Students can attend any or all classes.</em></p>\n<p><em>Walk-ins welcome. Space is limited.</em></p><p><em>This program is made possible by the KCLS Foundation.<br></em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a>.&nbsp;</p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1505",
+     "nonBranchLocationId": null,
+     "locationDetails": "Meeting Room\n\nClass will meet in the Conference Room from Jan 29 - Apr 9. ",
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5672ea0bddaae0b810019c3d"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T19:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a6ba3514523092f0033b54c": {
+    "id": "6a6ba3514523092f0033b54c",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a679f1f9943bdf31ea1ed35",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:00",
+     "title": "\u4e2d\u6587\u5bb6\u5ead\u6545\u4e8b\u4f1a / Mandarin Story Time",
+     "description": "<p>\u5bb6\u5ead\u6d3b\u52a8\u8ba1\u5212\uff0c\u8001\u5c11\u54b8\u5b9c\u3002<br>\u6b23\u8d4f\u6545\u4e8b\u3001\u97f3\u4e50\u3001\u52a8\u4f5c\u548c\u97f5\u5f8b\uff0c\u63d0\u9ad8\u5b69\u5b50\u7684\u65e9\u671f\u8bc6\u5b57\u80fd\u529b\u3002\u6b22\u8fce\u6709\u5174\u8da3\u5b66\u4e2d\u6587\u7684\u670b\u53cb\u53c3\u52a0\u3002<br><br>\u6211\u4eec\u4f1a\u6309\u8981\u6c42\u4e3a\u6b8b\u75be\u4eba\u63d0\u4f9b\u5408\u7406\u7684\u4fbf\u5229\u8bbe\u65bd\u3002\u53c2\u4e0e\u5728\u7ebf\u6d3b\u52a8\u65f6\uff0c\u5982\u9700ASL\u53e3\u8bd1\u670d\u52a1\u3001\u5b57\u5e55\u670d\u52a1\u4ee5\u53ca\uff08\u6216\u8005\uff09\u5176\u4ed6\u4fbf\u5229\u8bbe\u65bd\uff0c\u8bf7\u5728\u6d3b\u52a8\u5f00\u59cb\u524d\u81f3\u5c117\u5929\u8054\u7cfb\u56fe\u4e66\u9986\u3002\u8bf7\u53d1\u9001\u8bf7\u6c42\u81f3access@kcls.org.<br><br>Enjoy stories, music, movement and rhymes that develop your child\u2019s early literacy skills. Speakers of all languages are welcome.<br></p>\n<p>Sponsored by the Friends of the Mercer Island Library.</p>\n<p><br><em></em>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1525",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d2700001a"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "69d91c2766c3387a9d06651b": {
+    "id": "69d91c2766c3387a9d06651b",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "69ceb68bb6c4ac1fedc9ceed",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T12:00",
+     "title": "Bilingual Kaleidoscope Play & Learn / \u4ec1\u2f08\u53cc\u8bed\u5e7c\u2f09\u4e50\u56ed",
+     "description": "<p>Help prepare your young children for success in school and life!&nbsp;</p>\n<p>Children and their caregivers will enjoy stories, music, games or crafts to support children\u2019s early learning. Community services, parenting education and child care resources are available to help raise healthy children.</p>\n<p><em>Registration not required.</em><br></p>\n<p>\u4ec1\u4eba\u53cc\u8bed\u5b66\u524d\u5e7c\u513f\u4e50\u56ed\u6d3b\u52a8\u534f\u52a9\u5bb6\u5ead\u4e3a\u5e7c\u513f\u63d0\u524d\u9002\u5e94\u5b66\u6821\u548c\u751f\u6d3b\u73af\u5883\u3002\u900f\u8fc7\u5e74\u9f84\u9002\u5207\u7684\u6d3b\u52a8\u65b9\u5f0f\uff0c\u5305\u62ec\u6e38\u620f\ufe51\u53cc\u8bed\u513f\u6b4c\ufe51\u6545\u4e8b\ufe51\u624b\u5de5\ufe51\u73a9\u5177\u7b49\uff0c\u652f\u6301\u513f\u7ae5\u65e9\u671f\u6559\u5b66\u3002\u63d0\u4f9b\u793e\u533a\u670d\u52a1\ufe51\u5bb6\u5ead\u6559\u80b2\u53ca\u80b2\u513f\u8d44\u6e90\uff0c\u8ba9\u5e7c\u513f\u5bb6\u957f\u53ca\u5176\u7167\u987e\u8005\u57f9\u80b2\u5065\u5eb7\u6d3b\u6cfc\u7684\u5b69\u5b50\u3002</p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events. </p>",
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1529",
+     "nonBranchLocationId": null,
+     "locationDetails": "Meeting Room",
+     "audienceIds": [
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012",
+      "64d2c0208fb25f42009d756c",
+      "5654e8049967fa8d2700001a"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T19:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a7e547caafa6100295c80fd": {
+    "id": "6a7e547caafa6100295c80fd",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a7d29772dac6e00371eb796",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:30",
+     "title": "Family Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes that develop your child\u2019s early literacy skills. Up to 30 minutes of play time to follow.&nbsp;</p>\n<p><em>All young ages welcome with an adult.&nbsp;</em></p>\n<p><em>Registration not required.&nbsp;</em><br><br><em></em><br>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br><br><br><em></em></p>\n<p></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1502",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f37c69166f088b95a90e": {
+    "id": "6a91f37c69166f088b95a90e",
+    "key": "2026-09-24T10:30:00",
+    "seriesId": "6a8a3ac84995480655ec1bc7",
+    "definition": {
+     "start": "2026-09-24T10:30",
+     "end": "2026-09-24T11:15",
+     "title": "Family Story Time",
+     "description": "<p>Enjoy stories, music, movement and rhymes that develop your child\u2019s early literacy skills.&nbsp;A brief play time follows. </p>\n<p>0-5 years with adult.</p>\n<p>Registration not required.</p><p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br><br><br><em></em></p>\n\n<p></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1522",
+     "nonBranchLocationId": null,
+     "locationDetails": "Meeting Room",
+     "audienceIds": [
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-24T17:30:00Z",
+    "indexEnd": "2026-09-24T18:15:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6952f84de3e3999b5c04be94": {
+    "id": "6952f84de3e3999b5c04be94",
+    "key": "2026-09-25T10:00:00",
+    "seriesId": "695039012c65973d00148db8",
+    "definition": {
+     "start": "2026-09-25T10:00",
+     "end": "2026-09-25T12:00",
+     "title": "Talk Time: English Conversation Practice",
+     "description": "<p><strong>Attention: Program will be held at Shoreline Lake Forest Park Senior Center while Richmond Beach is closed.</strong></p><p><strong>18560 1st Ave NE Bldg G, Shoreline, WA 98155</strong><br><br>Practice speaking English with other English language learners and trained conversation helpers. All levels are welcome.</p>\n<p><em>R</em><em>egistration not required.</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.</p>",
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": null,
+     "nonBranchLocationId": "588bef37871d6c2200836444",
+     "locationDetails": "See Front Desk",
+     "audienceIds": [
+      "5654e87875eef9cd27000011"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5672ea0bddaae0b810019c3d"
+     ],
+     "isCancelled": false,
+     "isVirtual": false
+    },
+    "indexStart": "2026-09-25T17:00:00Z",
+    "indexEnd": "2026-09-25T19:00:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6ab0435f4ea230006f34c6be": {
+    "id": "6ab0435f4ea230006f34c6be",
+    "key": "2026-09-25T11:30:00",
+    "seriesId": "6aaef900d6577100383d94c5",
+    "definition": {
+     "start": "2026-09-25T11:30",
+     "end": "2026-09-25T12:00",
+     "title": "Gi\u1edd K\u1ec3 Chuy\u1ec7n Gia \u0110\u00ecnh / Vietnamese Story Time",
+     "description": "<p>Ch\u01b0\u01a1ng tr\u00ecnh d\u00e0nh cho gia \u0111\u00ecnh, c\u00e1c th\u00e0nh vi\u00ean thu\u1ed9c m\u1ecdi l\u1ee9a tu\u1ed5i \u0111\u1ec1u c\u00f3 th\u1ec3 tham gia c\u00f9ng v\u1edbi ng\u01b0\u1eddi l\u1edbn. <br>Th\u01b0\u1edfng th\u1ee9c nh\u1eefng c\u00e2u chuy\u1ec7n, b\u1ea3n nh\u1ea1c, v\u1eadn \u0111\u1ed9ng v\u00e0 nh\u1ecbp \u0111i\u1ec7u gi\u00fap con qu\u00fd v\u1ecb ph\u00e1t tri\u1ec3n c\u00e1c k\u1ef9 n\u0103ng \u0111\u1ecdc vi\u1ebft khi c\u00f2n nh\u1ecf.<br><br>Nh\u1eefng s\u1ef1 \u0111i\u1ec1u ch\u1ec9nh h\u1ee3p l\u00fd d\u00e0nh cho ng\u01b0\u1eddi khuy\u1ebft t\u1eadt s\u1ebd \u0111\u01b0\u1ee3c \u0111\u00e1p \u1ee9ng theo y\u00eau c\u1ea7u. Vui l\u00f2ng li\u00ean h\u1ec7 v\u1edbi th\u01b0 vi\u1ec7n \u00edt nh\u1ea5t b\u1ea3y ng\u00e0y tr\u01b0\u1edbc khi di\u1ec5n ra s\u1ef1 ki\u1ec7n \u0111\u1ec3 ch\u00fang t\u00f4i s\u1eafp x\u1ebfp c\u00e1c d\u1ecbch v\u1ee5 th\u00f4ng d\u1ecbch Ng\u00f4n Ng\u1eef K\u00fd Hi\u1ec7u M\u1ef9 (American Sign Language, ASL), hi\u1ec3n th\u1ecb ph\u1ee5 \u0111\u1ec1 v\u00e0/ho\u1eb7c nh\u1eefng \u0111i\u1ec1u ch\u1ec9nh kh\u00e1c cho c\u00e1c ch\u01b0\u01a1ng tr\u00ecnh tr\u1ef1c tuy\u1ebfn.\u202fG\u1eedi y\u00eau c\u1ea7u c\u1ee7a qu\u00fd v\u1ecb t\u1edbi \u0111\u1ecba ch\u1ec9 access@kcls.org.<br><br>Enjoy stories, music, movement and rhymes! Help develop your child\u2019s early literacy skills.</p>\n<p><em>Registration not required.</em></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\" tabindex=\"-1\" class=\"events-focus-disabled\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br><br></p>\n<p></p>",
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": null,
+     "nonBranchLocationId": "696576f71e64afd01e53f7b1",
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000010"
+     ],
+     "programId": "6092fc2d8910133a0055a335",
+     "typeIds": [
+      "5679e09452c7b9de5c012125"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-25T18:30:00Z",
+    "indexEnd": "2026-09-25T19:00:00Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a34457c16554cd59fc9be14": {
+    "id": "6a34457c16554cd59fc9be14",
+    "key": "2026-09-25T16:00:00",
+    "seriesId": "6a0f69408e677a28001d9c5b",
+    "definition": {
+     "start": "2026-09-25T16:00",
+     "end": "2026-09-25T17:30",
+     "title": "DYNO: Teen Leaders Group ",
+     "description": "<p>Are you passionate about libraries and your community? Join the DYNO (Determined Youth Neighborhood Outreach)&nbsp;Teen Leaders Group! Earn volunteer credit and have a voice in programs/events offered at the Fairwood Library, Family First Community Center, and in the greater community.</p>\n<p>Supported in part by the KCLS Foundation and the Friends of the Fairwood Library.<br><br><em><em>Held at the Family First Community Center,&nbsp;4-5:30pm.</em></em></p>\n<p><em><em></em>Ages 13 to 18.</em></p>\n<p><em></em><em>Please fill out this form to show your interest before you attend:&nbsp;<a href=\"https://bit.ly/TeenLeadersFFCC\">https://bit.ly/TeenLeadersFFCC</a>.</em></p>\n<p></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "67ddbbabc1cb842b2d8326ed",
+     "branchLocationId": null,
+     "nonBranchLocationId": "64a732d4fab24b4100e1f8f8",
+     "locationDetails": "16200 116th Ave SE, Renton, WA 98058",
+     "audienceIds": [
+      "5654e87875eef9cd27000010"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "627aa0f3a627452f003f5e87",
+     "typeIds": [
+      "57311bbc608d9a4e3c003248"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-25T23:00:00Z",
+    "indexEnd": "2026-09-26T00:30:00Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a5e8b699e0a050e3e53b689": {
+    "id": "6a5e8b699e0a050e3e53b689",
+    "key": "2026-09-25T16:00:00",
+    "seriesId": "6a5a76a8cca66c2f00a41e8f",
+    "definition": {
+     "start": "2026-09-25T16:00",
+     "end": "2026-09-25T17:15",
+     "title": "Ajolote Mixed Media Art Workshop",
+     "description": "<p>Learn about ajolotes (axolotls), the incredible salamanders&nbsp;native to Lago Xochimilco in Mexico City. Then create a mixed media collage using watercolors, paint, and markers.&nbsp;All supplies will be provided.&nbsp;Space is limited to the first 20 participants.&nbsp;</p>\n<p>Presented by Amaranta Sandys,&nbsp;<a href=\"http://www.artmaranth.com/\" target=\"_blank\" rel=\"noreferrer noopener\">www.artmaranth.com</a></p>\n<p>This event celebrates Latine Heritage Month, recognizing the achievements,&nbsp;traditions, and heritage of Hispanic and&nbsp;Latine communities.<br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": null,
+     "branchLocationId": "1510",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012",
+      "5654e8049967fa8d27000014"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "56a93abefa6b611f620201d2"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-25T23:00:00Z",
+    "indexEnd": "2026-09-26T00:15:00Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a80b39d2dac6e00371f4f84": {
+    "id": "6a80b39d2dac6e00371f4f84",
+    "key": "2026-09-26T00:00:00",
+    "seriesId": "6a7fad51a821f90037edf003",
+    "definition": {
+     "start": "2026-09-26",
+     "end": "2026-09-26",
+     "title": "Story Stroll: Watercress",
+     "description": "<p>Take a self-led \u201cHistorically Hip\u201d walk through downtown Issaquah and enjoy the picture book,&nbsp;<em><strong><a id=\"ember5955\" data-add-title-link=\"2130365082\" href=\"/item/show/2130365082\">Watercress</a></strong>,</em>&nbsp;<em><strong></strong></em>written by Andrea Wang&nbsp;and illustrated by Jason Chin.&nbsp;The story begins at the Issaquah Library and guides you along a route through historic downtown, where literature and local heritage come together.&nbsp;</p>\n<p><br>Please take <a href=\"https://www.google.com/maps/d/u/0/viewer?mid=1MTz42GptPoP_D-a1IQ-K40gq6QiMO0w&ll=47.53164191378399%2C-122.03655789999999&z=18\" target=\"_blank\">this route</a> to enjoy the book.&nbsp;</p>\n<p><strong>Sponsored by the&nbsp;Downtown Issaquah Association and the&nbsp;Friends of the Issaquah Library.</strong></p>",
+     "partnerId": null,
+     "bibIds": [
+      "2130365082"
+     ],
+     "featuredImageId": null,
+     "branchLocationId": "1513",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-26T07:00:00Z",
+    "indexEnd": "2026-09-27T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a07bcbe17731928001a1c75": {
+    "id": "6a07bcbe17731928001a1c75",
+    "key": "2026-09-26T12:00:00",
+    "seriesId": "6a04d43c055b429f3b3b33a2",
+    "definition": {
+     "start": "2026-09-26T12:00",
+     "end": "2026-09-26T12:30",
+     "title": "Story Time at the Issaquah Farmers Market",
+     "description": "<p>Join Librarian Miss Mack for stories and songs at the <a href=\"https://www.issaquahwa.gov/778/Farmers-Market\">Issaquah Farmers Market</a> at Pickering Barn!<br></p>\n<p><em>Held in the meadow. Dress for the weather and bring something to sit on. On rainy days, we'll have story time in the Hay Barn.</em></p>\n<p><em>Registration not required.<br></em></p>\n<p><strong>Thank you to the City of Issaquah Parks and Community Services.</strong></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Contact the library at least seven days before the event if you need accommodation. Send your request to access@kcls.org.<br></p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a078e11278f7c2f008d71af",
+     "branchLocationId": null,
+     "nonBranchLocationId": "6a04d4170c0f2c4503fa06b0",
+     "locationDetails": "",
+     "audienceIds": [
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": "5672ea56ddaae0b810019c47",
+     "typeIds": [
+      "5672ea21ddaae0b810019c3f"
+     ],
+     "isFeatured": null,
+     "isFeaturedAtLocation": false,
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-26T19:00:00Z",
+    "indexEnd": "2026-09-26T19:30:00Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f3d2b2047800299650a8": {
+    "id": "6a91f3d2b2047800299650a8",
+    "key": "2026-09-28T00:00:00",
+    "seriesId": "6a8e1d244cb69d003e236185",
+    "definition": {
+     "start": "2026-09-28",
+     "end": "2026-09-28",
+     "title": "Fall Plant Swap",
+     "description": "<p>Find a new plant and share your love of gardening! At this plant swap, bring a plant to take a plant.&nbsp;Labeled indoor and outdoor plants and seeds are welcome.&nbsp;</p>\n<p>There will be a limited number of free starts, planters and&nbsp;potting soil available.</p>\n<p><em>Held inside.&nbsp;</em></p>\n<p><em>Registration not required.</em><br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<em></em><br></p>",
+     "bibIds": [],
+     "featuredImageId": "64bed9d8986c588e4c393d56",
+     "branchLocationId": "1502",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000015",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-28T07:00:00Z",
+    "indexEnd": "2026-09-29T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f3d2b2047800299650a9": {
+    "id": "6a91f3d2b2047800299650a9",
+    "key": "2026-09-29T00:00:00",
+    "seriesId": "6a8e1d244cb69d003e236185",
+    "definition": {
+     "start": "2026-09-29",
+     "end": "2026-09-29",
+     "title": "Fall Plant Swap",
+     "description": "<p>Find a new plant and share your love of gardening! At this plant swap, bring a plant to take a plant.&nbsp;Labeled indoor and outdoor plants and seeds are welcome.&nbsp;</p>\n<p>There will be a limited number of free starts, planters and&nbsp;potting soil available.</p>\n<p><em>Held inside.&nbsp;</em></p>\n<p><em>Registration not required.</em><br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<em></em><br></p>",
+     "bibIds": [],
+     "featuredImageId": "64bed9d8986c588e4c393d56",
+     "branchLocationId": "1502",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000015",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-29T07:00:00Z",
+    "indexEnd": "2026-09-30T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f3d2b2047800299650aa": {
+    "id": "6a91f3d2b2047800299650aa",
+    "key": "2026-09-30T00:00:00",
+    "seriesId": "6a8e1d244cb69d003e236185",
+    "definition": {
+     "start": "2026-09-30",
+     "end": "2026-09-30",
+     "title": "Fall Plant Swap",
+     "description": "<p>Find a new plant and share your love of gardening! At this plant swap, bring a plant to take a plant.&nbsp;Labeled indoor and outdoor plants and seeds are welcome.&nbsp;</p>\n<p>There will be a limited number of free starts, planters and&nbsp;potting soil available.</p>\n<p><em>Held inside.&nbsp;</em></p>\n<p><em>Registration not required.</em><br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<em></em><br></p>",
+     "bibIds": [],
+     "featuredImageId": "64bed9d8986c588e4c393d56",
+     "branchLocationId": "1502",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000015",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-09-30T07:00:00Z",
+    "indexEnd": "2026-10-01T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f3d2b2047800299650ab": {
+    "id": "6a91f3d2b2047800299650ab",
+    "key": "2026-10-01T00:00:00",
+    "seriesId": "6a8e1d244cb69d003e236185",
+    "definition": {
+     "start": "2026-10-01",
+     "end": "2026-10-01",
+     "title": "Fall Plant Swap",
+     "description": "<p>Find a new plant and share your love of gardening! At this plant swap, bring a plant to take a plant.&nbsp;Labeled indoor and outdoor plants and seeds are welcome.&nbsp;</p>\n<p>There will be a limited number of free starts, planters and&nbsp;potting soil available.</p>\n<p><em>Held inside.&nbsp;</em></p>\n<p><em>Registration not required.</em><br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<em></em><br></p>",
+     "bibIds": [],
+     "featuredImageId": "64bed9d8986c588e4c393d56",
+     "branchLocationId": "1502",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000015",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-01T07:00:00Z",
+    "indexEnd": "2026-10-02T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a921b7b3b6c71003e5c2515": {
+    "id": "6a921b7b3b6c71003e5c2515",
+    "key": "2026-10-01T00:00:00",
+    "seriesId": "6a8f96071c197d11325b2253",
+    "definition": {
+     "start": "2026-10-01",
+     "end": "2026-10-31",
+     "title": "Paper Mache Pumpkin Contest",
+     "description": "<p>Calling all pumpkin heads! Have you ever looked at a pumpkin and thought, \"I could make that.\" Or more specifically, \"I could make a funky, cooler version of a pumpkin out of paper and potentially win a cool prize.\" Here's your chance! We're looking for super creative, funky, colorful paper mache pumpkins to decorate our library. A group of judges will vote on the pumpkins for a few different categories. If your pumpkin wins a category, you'll win a prize!</p><p>If you'd like to submit a pumpkin, please bring your finished pumpkin to the front desk at the Snoqualmie Library.&nbsp;The submission period will run from October 1 through October 31. Winners will be chosen and notified by November 7.&nbsp;</p><p>If you need paper, we've got plenty! Just ask the front desk and we'll give you a nice stack so you can craft you pumpkin.&nbsp;</p><p>Happy fall!&nbsp;</p>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6a8f92613b6c71003e5ba966",
+     "branchLocationId": "1537",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000014",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015",
+      "572b6201717c23254b000013",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "56a93a3efa6b611f62020111"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-01T07:00:00Z",
+    "indexEnd": "2026-11-01T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f3d2b2047800299650ac": {
+    "id": "6a91f3d2b2047800299650ac",
+    "key": "2026-10-02T00:00:00",
+    "seriesId": "6a8e1d244cb69d003e236185",
+    "definition": {
+     "start": "2026-10-02",
+     "end": "2026-10-02",
+     "title": "Fall Plant Swap",
+     "description": "<p>Find a new plant and share your love of gardening! At this plant swap, bring a plant to take a plant.&nbsp;Labeled indoor and outdoor plants and seeds are welcome.&nbsp;</p>\n<p>There will be a limited number of free starts, planters and&nbsp;potting soil available.</p>\n<p><em>Held inside.&nbsp;</em></p>\n<p><em>Registration not required.</em><br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<em></em><br></p>",
+     "bibIds": [],
+     "featuredImageId": "64bed9d8986c588e4c393d56",
+     "branchLocationId": "1502",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000015",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-02T07:00:00Z",
+    "indexEnd": "2026-10-03T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa1e4e84b3b060030829c8b": {
+    "id": "6aa1e4e84b3b060030829c8b",
+    "key": "2026-10-03T00:00:00",
+    "seriesId": "6aa1a5a1ab7a8e0037c092d8",
+    "definition": {
+     "start": "2026-10-03",
+     "end": "2026-10-03",
+     "title": "Lucha Libro",
+     "description": "<p>Make some noise at this wrestling rumble in the library for all ages! Reading is about to get even more action-packed.  </p>\n<p><strong>Show Times: </strong><br>12pm -&nbsp;Lucha Libro  <br>2pm -&nbsp;Mariachi Monarca <br>5pm - Lucha Libro <br></p>\n<p>The party continues all day! Stick around for activities for the whole family, including music, crafts, coloring, and on-site food from local restaurants.  </p>\n<p>No registration required.</p>\n<p>Lucha Libro will also be at <a href=\"https://kcls.bibliocommons.com/v2/events/6aa1e4c7ab7a8e0037c0a704\">Auburn Library on October 4</a>.&nbsp;</p>\n<p>Lucha Libro: the phenomenon that combines books and body slams. Wrestlers take over the library in this interactive experience\u2014it's entertainment for the whole family! <br></p>\n<p>Support for Lucha Libro was provided by a grant from the Andrew Carnegie Foundation. </p>\n<figure><img src=\"https://kcls.bibliocommons.com/events/uploads/images/full/149b720af611205977ef1785fff25c3b/Carnegie.png\" data-image=\"6aa1a4f74b3b0600308286b3\"></figure>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6aa1e46dab7a8e0037c0a6cc",
+     "branchLocationId": "1556",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000014",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015",
+      "572b6201717c23254b000013",
+      "5654e87875eef9cd27000010",
+      "572b6201717c23254b000012",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "56a93a3efa6b611f62020111",
+      "56f1af176b21c4892f02df3e",
+      "5672ea0bddaae0b810019c3d"
+     ],
+     "isFeatured": true,
+     "isFeaturedAtLocation": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-03T07:00:00Z",
+    "indexEnd": "2026-10-04T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a80b39d2dac6e00371f4f85": {
+    "id": "6a80b39d2dac6e00371f4f85",
+    "key": "2026-10-03T00:00:00",
+    "seriesId": "6a7fad51a821f90037edf003",
+    "definition": {
+     "start": "2026-10-03",
+     "end": "2026-10-03",
+     "title": "Story Stroll: Watercress",
+     "description": "<p>Take a self-led \u201cHistorically Hip\u201d walk through downtown Issaquah and enjoy the picture book,&nbsp;<em><strong><a id=\"ember5955\" data-add-title-link=\"2130365082\" href=\"/item/show/2130365082\">Watercress</a></strong>,</em>&nbsp;<em><strong></strong></em>written by Andrea Wang&nbsp;and illustrated by Jason Chin.&nbsp;The story begins at the Issaquah Library and guides you along a route through historic downtown, where literature and local heritage come together.&nbsp;</p>\n<p><br>Please take <a href=\"https://www.google.com/maps/d/u/0/viewer?mid=1MTz42GptPoP_D-a1IQ-K40gq6QiMO0w&ll=47.53164191378399%2C-122.03655789999999&z=18\" target=\"_blank\">this route</a> to enjoy the book.&nbsp;</p>\n<p><strong>Sponsored by the&nbsp;Downtown Issaquah Association and the&nbsp;Friends of the Issaquah Library.</strong></p>",
+     "partnerId": null,
+     "bibIds": [
+      "2130365082"
+     ],
+     "featuredImageId": null,
+     "branchLocationId": "1513",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-03T07:00:00Z",
+    "indexEnd": "2026-10-04T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6a91f3d2b2047800299650ad": {
+    "id": "6a91f3d2b2047800299650ad",
+    "key": "2026-10-03T00:00:00",
+    "seriesId": "6a8e1d244cb69d003e236185",
+    "definition": {
+     "start": "2026-10-03",
+     "end": "2026-10-03",
+     "title": "Fall Plant Swap",
+     "description": "<p>Find a new plant and share your love of gardening! At this plant swap, bring a plant to take a plant.&nbsp;Labeled indoor and outdoor plants and seeds are welcome.&nbsp;</p>\n<p>There will be a limited number of free starts, planters and&nbsp;potting soil available.</p>\n<p><em>Held inside.&nbsp;</em></p>\n<p><em>Registration not required.</em><br></p>\n<p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<em></em><br></p>",
+     "bibIds": [],
+     "featuredImageId": "64bed9d8986c588e4c393d56",
+     "branchLocationId": "1502",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "572b6201717c23254b000015",
+      "5654e87875eef9cd27000010",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b"
+     ],
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-03T07:00:00Z",
+    "indexEnd": "2026-10-04T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa1e4c7ab7a8e0037c0a704": {
+    "id": "6aa1e4c7ab7a8e0037c0a704",
+    "key": "2026-10-04T00:00:00",
+    "seriesId": "6aa1a789ca248a002914973e",
+    "definition": {
+     "start": "2026-10-04",
+     "end": "2026-10-04",
+     "title": "Lucha Libro",
+     "description": "<p>Make some noise at this wrestling rumble in the library for all ages! Reading is about to get even more action-packed.  </p>\n<p><strong>Show Times:</strong><br>12pm - Lucha Libro<br>2-4pm - Crafts <br>4:30pm - Lucha Libro<br></p>\n<p>The party continues all day! Stick around for activities for the whole family, including crafts, coloring, and snacks!&nbsp;</p>\n<p>No registration required.</p>\n<p>Lucha Libro will also be at <a href=\"https://kcls.bibliocommons.com/v2/events/6aa1e4e84b3b060030829c8b\">Renton Library on October 3</a>.&nbsp;</p>\n<p>Lucha Libro: the phenomenon that combines books and body slams. Wrestlers take over the library in this interactive experience\u2014it's entertainment for the whole family! <br></p>\n<p>Support for Lucha Libro was provided by a grant from the Andrew Carnegie Foundation. </p>\n<figure><img src=\"https://kcls.bibliocommons.com/events/uploads/images/full/149b720af611205977ef1785fff25c3b/Carnegie.png\" data-image=\"6aa1a4f74b3b0600308286b3\"></figure>",
+     "partnerId": null,
+     "bibIds": [],
+     "featuredImageId": "6aa1e46dab7a8e0037c0a6cc",
+     "branchLocationId": "1490",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011",
+      "58f50be55fae3b7665fe6738",
+      "572b6201717c23254b000014",
+      "62b21825857fb4749b91374a",
+      "572b6201717c23254b000015",
+      "572b6201717c23254b000013",
+      "5654e87875eef9cd27000010",
+      "572b6201717c23254b000012",
+      "5654e87875eef9cd27000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "56a93a3efa6b611f62020111",
+      "56f1af176b21c4892f02df3e",
+      "5672ea0bddaae0b810019c3d"
+     ],
+     "isFeatured": true,
+     "isFeaturedAtLocation": true,
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-04T07:00:00Z",
+    "indexEnd": "2026-10-05T06:59:59Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa0a306442d35226f67899a": {
+    "id": "6aa0a306442d35226f67899a",
+    "key": "2026-10-10T00:00:00",
+    "seriesId": "6a9afe4aa3fb9722897a4a5c",
+    "definition": {
+     "start": "2026-10-10",
+     "end": "2026-10-10",
+     "title": "Story Stroll: Apple Pie Picnic",
+     "description": "<p>Take a self-led \u201cHistorically Hip\u201d walk through downtown Issaquah and enjoy the picture book,&nbsp;<a id=\"ember5186\" data-add-title-link=\"2343522082\" href=\"/item/show/2343522082\"><em>Apple Pie Picnic</em></a><em></em>,&nbsp;<em><strong></strong></em>written by Alicia Duran&nbsp;and illustrated by Brian Fitzgerald.&nbsp;The story begins at the Issaquah Library and guides you along a route through historic downtown, where literature and local heritage come together.&nbsp;</p>\n<p><br>Please take <a href=\"https://www.google.com/maps/d/viewer?mid=1UNmpFUkuKcqJUqBo0kj0PqP5kF2qymc&ll=47.53140580890215%2C-122.0366326&z=18\" target=\"_blank\">this route</a> to enjoy the book.&nbsp;</p>\n<p><strong>Sponsored by the&nbsp;Downtown Issaquah Association and the&nbsp;Friends of the Issaquah Library.</strong></p>",
+     "partnerId": null,
+     "bibIds": [
+      "2343522082"
+     ],
+     "featuredImageId": null,
+     "branchLocationId": "1513",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-10T07:00:00Z",
+    "indexEnd": "2026-10-11T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "696fb62b76261f2800657864": {
+    "id": "696fb62b76261f2800657864",
+    "key": "2026-10-10T08:00:00",
+    "seriesId": "696581e26f926136000fe154",
+    "definition": {
+     "start": "2026-10-10T08:00",
+     "end": "2026-10-10T14:00",
+     "title": "KCLS Board of Trustees Special Meeting",
+     "description": "<p>This special meeting is the trustees' annual Board retreat.</p>\n<p><br></p><p>All are welcome to attend the King County Library System public board meetings. To learn more about the KCLS Board of Trustees, including upcoming meetings, please click <a href=\"https://kcls.org/library-board-members/\" target=\"_blank\">here</a>. For meeting agendas and minutes, please visit our <a href=\"https://meetings.boardbook.org/Public/Organization/2778\" target=\"_blank\">BoardBook website</a>.</p>\n<p><em>Attend in person.</em></p><p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events. </p>\n<p></p>",
+     "bibIds": [],
+     "featuredImageId": "6328b50539ecb58ba70c13da",
+     "branchLocationId": "1540",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "57311bbc608d9a4e3c003248"
+     ],
+     "isCancelled": false,
+     "partnerId": null
+    },
+    "indexStart": "2026-10-10T15:00:00Z",
+    "indexEnd": "2026-10-10T21:00:00Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa0a306442d35226f67899b": {
+    "id": "6aa0a306442d35226f67899b",
+    "key": "2026-10-17T00:00:00",
+    "seriesId": "6a9afe4aa3fb9722897a4a5c",
+    "definition": {
+     "start": "2026-10-17",
+     "end": "2026-10-17",
+     "title": "Story Stroll: Apple Pie Picnic",
+     "description": "<p>Take a self-led \u201cHistorically Hip\u201d walk through downtown Issaquah and enjoy the picture book,&nbsp;<a id=\"ember5186\" data-add-title-link=\"2343522082\" href=\"/item/show/2343522082\"><em>Apple Pie Picnic</em></a><em></em>,&nbsp;<em><strong></strong></em>written by Alicia Duran&nbsp;and illustrated by Brian Fitzgerald.&nbsp;The story begins at the Issaquah Library and guides you along a route through historic downtown, where literature and local heritage come together.&nbsp;</p>\n<p><br>Please take <a href=\"https://www.google.com/maps/d/viewer?mid=1UNmpFUkuKcqJUqBo0kj0PqP5kF2qymc&ll=47.53140580890215%2C-122.0366326&z=18\" target=\"_blank\">this route</a> to enjoy the book.&nbsp;</p>\n<p><strong>Sponsored by the&nbsp;Downtown Issaquah Association and the&nbsp;Friends of the Issaquah Library.</strong></p>",
+     "partnerId": null,
+     "bibIds": [
+      "2343522082"
+     ],
+     "featuredImageId": null,
+     "branchLocationId": "1513",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-17T07:00:00Z",
+    "indexEnd": "2026-10-18T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa0a306442d35226f67899c": {
+    "id": "6aa0a306442d35226f67899c",
+    "key": "2026-10-24T00:00:00",
+    "seriesId": "6a9afe4aa3fb9722897a4a5c",
+    "definition": {
+     "start": "2026-10-24",
+     "end": "2026-10-24",
+     "title": "Story Stroll: Apple Pie Picnic",
+     "description": "<p>Take a self-led \u201cHistorically Hip\u201d walk through downtown Issaquah and enjoy the picture book,&nbsp;<a id=\"ember5186\" data-add-title-link=\"2343522082\" href=\"/item/show/2343522082\"><em>Apple Pie Picnic</em></a><em></em>,&nbsp;<em><strong></strong></em>written by Alicia Duran&nbsp;and illustrated by Brian Fitzgerald.&nbsp;The story begins at the Issaquah Library and guides you along a route through historic downtown, where literature and local heritage come together.&nbsp;</p>\n<p><br>Please take <a href=\"https://www.google.com/maps/d/viewer?mid=1UNmpFUkuKcqJUqBo0kj0PqP5kF2qymc&ll=47.53140580890215%2C-122.0366326&z=18\" target=\"_blank\">this route</a> to enjoy the book.&nbsp;</p>\n<p><strong>Sponsored by the&nbsp;Downtown Issaquah Association and the&nbsp;Friends of the Issaquah Library.</strong></p>",
+     "partnerId": null,
+     "bibIds": [
+      "2343522082"
+     ],
+     "featuredImageId": null,
+     "branchLocationId": "1513",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-24T07:00:00Z",
+    "indexEnd": "2026-10-25T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "696fb6271e64afd01e5570c1": {
+    "id": "696fb6271e64afd01e5570c1",
+    "key": "2026-10-28T17:00:00",
+    "seriesId": "69657fd36724c63d00ebc94a",
+    "definition": {
+     "start": "2026-10-28T17:00",
+     "end": "2026-10-28T18:30",
+     "title": "KCLS Board of Trustees Meeting",
+     "description": "<p>All are welcome to attend the King County Library System public board meetings. To learn more about the KCLS Board of Trustees, including upcoming meetings, please click <a href=\"https://kcls.org/library-board-members/\" target=\"_blank\">here</a>. For meeting agendas and minutes, please visit our <a href=\"https://meetings.boardbook.org/Public/Organization/2778\" target=\"_blank\">BoardBook website</a>.</p><p><em>Attend in-person or <a href=\"https://nam02.safelinks.protection.outlook.com/ap/t-59584e83/?url=https://teams.microsoft.com/l/meetup-join/19%253ameeting_MWU3M2RkNWYtZGEwNC00NDA0LWEyN2YtMWQ4N2JlOGY3OWM4%2540thread.v2/0?context%3D%257b%2522Tid%2522%253a%2522ecd4c4ad-646a-442f-aaaa-d05860ad9707%2522%252c%2522Oid%2522%253a%25221b85d672-b24c-4a2d-ac02-199e878fe899%2522%257d&data=05%7c02%7cmsbassett%40kcls.org%7cfd8e9d91380d4e80e5ec08dd35a779a4%7cecd4c4ad646a442faaaad05860ad9707%7c0%7c0%7c638725715584721842%7cUnknown%7cTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7c0%7c%7c%7c&sdata=Z5IwjiM5gb0dVG4kox8So0cCJGaKTQh7ZC4tJLQRMtI%3D&reserved=0\" target=\"_blank\">online via Microsoft Teams</a>.</em></p>Reasonable accommodation for people with disabilities is available by request. Email <a href=\"mailto:access@kcls.org\">access@kcls.org</a> at least seven days before the event. Automated closed captioning is always available for online events.<br><br><p> </p>\n<p></p>",
+     "bibIds": [],
+     "featuredImageId": "6328b50539ecb58ba70c13da",
+     "branchLocationId": "1540",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "5654e87875eef9cd27000011"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "57311bbc608d9a4e3c003248"
+     ],
+     "isCancelled": false,
+     "partnerId": null
+    },
+    "indexStart": "2026-10-29T00:00:00Z",
+    "indexEnd": "2026-10-29T01:30:00Z",
+    "isRecurring": false,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   },
+   "6aa0a306442d35226f67899d": {
+    "id": "6aa0a306442d35226f67899d",
+    "key": "2026-10-31T00:00:00",
+    "seriesId": "6a9afe4aa3fb9722897a4a5c",
+    "definition": {
+     "start": "2026-10-31",
+     "end": "2026-10-31",
+     "title": "Story Stroll: Apple Pie Picnic",
+     "description": "<p>Take a self-led \u201cHistorically Hip\u201d walk through downtown Issaquah and enjoy the picture book,&nbsp;<a id=\"ember5186\" data-add-title-link=\"2343522082\" href=\"/item/show/2343522082\"><em>Apple Pie Picnic</em></a><em></em>,&nbsp;<em><strong></strong></em>written by Alicia Duran&nbsp;and illustrated by Brian Fitzgerald.&nbsp;The story begins at the Issaquah Library and guides you along a route through historic downtown, where literature and local heritage come together.&nbsp;</p>\n<p><br>Please take <a href=\"https://www.google.com/maps/d/viewer?mid=1UNmpFUkuKcqJUqBo0kj0PqP5kF2qymc&ll=47.53140580890215%2C-122.0366326&z=18\" target=\"_blank\">this route</a> to enjoy the book.&nbsp;</p>\n<p><strong>Sponsored by the&nbsp;Downtown Issaquah Association and the&nbsp;Friends of the Issaquah Library.</strong></p>",
+     "partnerId": null,
+     "bibIds": [
+      "2343522082"
+     ],
+     "featuredImageId": null,
+     "branchLocationId": "1513",
+     "nonBranchLocationId": null,
+     "audienceIds": [
+      "572b6201717c23254b000014",
+      "572b6201717c23254b000013",
+      "572b6201717c23254b000012"
+     ],
+     "languageIds": [
+      "5654e8049967fa8d27000012"
+     ],
+     "programId": null,
+     "typeIds": [
+      "5679e0f352c7b9de5c01213b",
+      "5679e09452c7b9de5c012125"
+     ],
+     "isFeatured": null,
+     "isCancelled": false
+    },
+    "indexStart": "2026-10-31T07:00:00Z",
+    "indexEnd": "2026-11-01T06:59:59Z",
+    "isRecurring": true,
+    "numberRegistered": null,
+    "numberWaitlistRegistered": null,
+    "isFull": false,
+    "registrationClosed": false
+   }
+  },
+  "locations": {
+   "1503": {
+    "id": "1503",
+    "name": "Duvall",
+    "address": {
+     "country": "US",
+     "zip": "98019",
+     "state": "WA",
+     "city": "Duvall",
+     "street": "Main Street NE",
+     "number": "15508"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -121.98613790000002,
+      "lat": 47.74028089999999
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1526": {
+    "id": "1526",
+    "name": "Muckleshoot",
+    "address": {
+     "country": "US",
+     "zip": "98092",
+     "state": "WA",
+     "city": "Auburn",
+     "street": "Auburn Enumclaw Road SE",
+     "number": "39917"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.1129707,
+      "lat": 47.2433182
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": true
+    }
+   },
+   "119": {
+    "id": "119",
+    "name": "Enumclaw",
+    "address": {
+     "country": "US",
+     "zip": "98022",
+     "state": "WA",
+     "city": "Enumclaw",
+     "street": "1st Street",
+     "number": "1700"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -121.98761289999999,
+      "lat": 47.2035657
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1519": {
+    "id": "1519",
+    "name": "Kenmore",
+    "address": {
+     "country": "US",
+     "zip": "98028",
+     "state": "WA",
+     "city": "Kenmore",
+     "street": "NE 181st Street",
+     "number": "6531"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.25233830000002,
+      "lat": 47.7593974
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1548": {
+    "id": "1548",
+    "name": "Woodinville",
+    "address": {
+     "country": "US",
+     "zip": "98072",
+     "state": "WA",
+     "city": "Woodinville",
+     "street": "Avondale Road NE",
+     "number": "17105"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.08190660000002,
+      "lat": 47.7515682
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1509": {
+    "id": "1509",
+    "name": "Federal Way",
+    "address": {
+     "country": "US",
+     "zip": "98003",
+     "state": "WA",
+     "city": "Federal Way",
+     "street": "1st Way S",
+     "number": "34200 "
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.3318314,
+      "lat": 47.2944868
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1545": {
+    "id": "1545",
+    "name": "Vashon",
+    "address": {
+     "country": "US",
+     "zip": "98070",
+     "state": "WA",
+     "city": "Vashon Island",
+     "street": "Vashon Hwy SW.",
+     "number": "17210"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.4594478,
+      "lat": 47.45086329999999
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": true
+    }
+   },
+   "1527": {
+    "id": "1527",
+    "name": "Maple Valley",
+    "address": {
+     "country": "US",
+     "zip": "98038",
+     "state": "WA",
+     "city": "Maple Valley",
+     "street": "SE 248th Street",
+     "number": "21844"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.04845769999997,
+      "lat": 47.3801092
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1547": {
+    "id": "1547",
+    "name": "White Center",
+    "address": {
+     "country": "US",
+     "zip": "98146",
+     "state": "WA",
+     "city": "Seattle",
+     "street": "SW 107th Street",
+     "number": "1409"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.35292500000003,
+      "lat": 47.506889
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": true
+    }
+   },
+   "1537": {
+    "id": "1537",
+    "name": "Snoqualmie",
+    "address": {
+     "country": "US",
+     "zip": "98065",
+     "state": "WA",
+     "city": "Snoqualmie",
+     "street": "Center Boulevard SE",
+     "number": "7824"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -121.87238560000003,
+      "lat": 47.5298532
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": true
+    }
+   },
+   "1533": {
+    "id": "1533",
+    "name": "Redmond",
+    "address": {
+     "country": "US",
+     "zip": "98052",
+     "state": "WA",
+     "city": "Redmond",
+     "street": "NE 85th Street",
+     "number": "15990"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.12807750000002,
+      "lat": 47.6789086
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1490": {
+    "id": "1490",
+    "name": "Auburn",
+    "address": {
+     "country": "US",
+     "zip": "98002",
+     "state": "WA",
+     "city": "Auburn",
+     "street": "Auburn Way S",
+     "number": "1102"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.21801590000001,
+      "lat": 47.2987505
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": true
+    }
+   },
+   "154": {
+    "id": "154",
+    "name": "Tukwila",
+    "address": {
+     "country": "US",
+     "zip": "98168",
+     "state": "WA",
+     "city": "Tukwila",
+     "street": "Tukwila International Boulevard",
+     "number": "14380"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.28445569999997,
+      "lat": 47.4740802
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1489": {
+    "id": "1489",
+    "name": "Algona-Pacific",
+    "address": {
+     "country": "US",
+     "zip": "98047",
+     "state": "WA",
+     "city": "Pacific",
+     "street": "Ellingson Road",
+     "number": "255"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.24822483593749,
+      "lat": 47.27086656059546
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1492": {
+    "id": "1492",
+    "name": "Bellevue",
+    "address": {
+     "country": "US",
+     "zip": "98004",
+     "state": "WA",
+     "city": "Bellevue",
+     "street": "110th Avenue NE",
+     "number": "1111"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.19433730000003,
+      "lat": 47.6201601
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1564": {
+    "id": "1564",
+    "name": "Newcastle",
+    "address": {
+     "country": "US",
+     "zip": "98056",
+     "state": "WA",
+     "city": "Newcastle",
+     "street": "Newcastle Way",
+     "number": "12901"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.1672107,
+      "lat": 47.5377124
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1513": {
+    "id": "1513",
+    "name": "Issaquah",
+    "address": {
+     "country": "US",
+     "zip": "98027",
+     "state": "WA",
+     "city": "Issaquah",
+     "street": "W Sunset Way",
+     "number": "10"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.03696809999997,
+      "lat": 47.5303935
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1535": {
+    "id": "1535",
+    "name": "Shoreline",
+    "address": {
+     "country": "US",
+     "zip": "98155",
+     "state": "WA",
+     "city": "Shoreline",
+     "street": "NE 175th Street",
+     "number": "345"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.32476589999999,
+      "lat": 47.7555196
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1518": {
+    "id": "1518",
+    "name": "Kirkland",
+    "address": {
+     "country": "US",
+     "zip": "98033",
+     "state": "WA",
+     "city": "Kirkland",
+     "street": "Kirkland Avenue",
+     "number": "308"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.20294810000001,
+      "lat": 47.6759865
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1505": {
+    "id": "1505",
+    "name": "Federal Way 320th",
+    "address": {
+     "country": "US",
+     "zip": "98003",
+     "state": "WA",
+     "city": "Federal Way",
+     "street": "S 320th Street",
+     "number": "848"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.3209334,
+      "lat": 47.3155306
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1525": {
+    "id": "1525",
+    "name": "Mercer Island",
+    "address": {
+     "country": "US",
+     "zip": "98040",
+     "state": "WA",
+     "city": "Mercer Island",
+     "street": "88th Ave SE",
+     "number": "4400 "
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.22119179999999,
+      "lat": 47.5669511
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1529": {
+    "id": "1529",
+    "name": "Newport Way",
+    "address": {
+     "country": "US",
+     "zip": "98006-1507",
+     "state": "WA",
+     "city": "Bellevue",
+     "street": "SE Newport Way",
+     "number": "14250"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.14908130000003,
+      "lat": 47.570467
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1502": {
+    "id": "1502",
+    "name": "Des Moines",
+    "address": {
+     "country": "US",
+     "zip": "98198",
+     "state": "WA",
+     "city": "Des Moines",
+     "street": "11th Avenue S",
+     "number": "21620"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.31943539999997,
+      "lat": 47.408173
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1522": {
+    "id": "1522",
+    "name": "Lake Hills",
+    "address": {
+     "country": "US",
+     "zip": "98007",
+     "state": "WA",
+     "city": "Bellevue",
+     "street": "Lake Hills Boulevard",
+     "number": "15590"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.1315697,
+      "lat": 47.603536
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1510": {
+    "id": "1510",
+    "name": "Greenbridge",
+    "address": {
+     "country": "US",
+     "zip": "98106",
+     "state": "WA",
+     "city": "Seattle",
+     "street": "8th Avenue SW",
+     "number": "9720"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.34511709999998,
+      "lat": 47.5161164
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1556": {
+    "id": "1556",
+    "name": "Renton",
+    "address": {
+     "country": "US",
+     "zip": "98057",
+     "state": "WA",
+     "city": "Renton",
+     "street": "Mill Avenue S",
+     "number": "100"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.2021034,
+      "lat": 47.48191689999999
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   },
+   "1540": {
+    "id": "1540",
+    "name": "Administrative Office - Service Center",
+    "address": {
+     "country": "US",
+     "zip": "98027",
+     "state": "WA",
+     "city": "Issaquah",
+     "street": "Newport Way NW",
+     "number": "960"
+    },
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.0505541,
+      "lat": 47.54052249999999
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": false
+    }
+   }
+  },
+  "places": {
+   "6a776b4cf213992f00ca9260": {
+    "id": "6a776b4cf213992f00ca9260",
+    "name": "SeaTac Des Moines Creek Trailhead\u00a0Park\u00a0",
+    "imageId": null,
+    "address": {
+     "country": "US",
+     "zip": "98198",
+     "state": "WA",
+     "city": "SeaTac",
+     "street": "18th Avenue South",
+     "number": "20300"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "timeZone": "America/Los_Angeles",
+     "centrePoint": {
+      "lng": -122.3104859,
+      "lat": 47.4174383
+     },
+     "isGeocoded": true,
+     "utcOffsetNow": "-0700"
+    }
+   },
+   "6882ab4aff55b52ed8d84fa4": {
+    "id": "6882ab4aff55b52ed8d84fa4",
+    "name": "Kruckeberg Botanic Garden",
+    "imageId": null,
+    "url": "https://www.kruckeberg.org/",
+    "phone": {
+     "globalValue": "+1-206-546-1281",
+     "value": "(206) 546-1281",
+     "rawValue": "(206) 546-1281",
+     "contactType": "phone"
+    },
+    "address": {
+     "country": "US",
+     "zip": "98177",
+     "state": "WA",
+     "city": "Shoreline",
+     "street": "15th Avenue Northwest",
+     "number": "20312"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "timeZone": "America/Los_Angeles",
+     "centrePoint": {
+      "lng": -122.376784,
+      "lat": 47.7761937
+     },
+     "isGeocoded": true,
+     "utcOffsetNow": "-0700"
+    }
+   },
+   "5748c826b2be2fb74600be90": {
+    "id": "5748c826b2be2fb74600be90",
+    "name": "Crossroads Community Center",
+    "imageId": null,
+    "url": "",
+    "phone": {
+     "rawValue": ""
+    },
+    "address": {
+     "country": "US",
+     "zip": "98008",
+     "state": "WA",
+     "city": "Bellevue",
+     "street": "Northeast 10th Street",
+     "number": "16000"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "timeZone": "America/Los_Angeles",
+     "centrePoint": {
+      "lng": -122.1276446,
+      "lat": 47.61923970000001
+     },
+     "isGeocoded": true,
+     "utcOffsetNow": "-0700"
+    }
+   },
+   "6872b737eea0f638de3dd32e": {
+    "id": "6872b737eea0f638de3dd32e",
+    "name": "Together Center",
+    "imageId": null,
+    "url": "https://togethercenter.org/",
+    "phone": {
+     "globalValue": "+1-425-869-6699",
+     "value": "(425) 869-6699",
+     "rawValue": "(425) 869-6699",
+     "contactType": "phone"
+    },
+    "address": {
+     "country": "US",
+     "zip": "98052",
+     "state": "WA",
+     "city": "Redmond",
+     "street": "Northeast 87th Street",
+     "number": "16305"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "timeZone": "America/Los_Angeles",
+     "centrePoint": {
+      "lng": -122.1228178,
+      "lat": 47.67951050000001
+     },
+     "isGeocoded": true,
+     "utcOffsetNow": "-0700"
+    }
+   },
+   "588bef37871d6c2200836444": {
+    "id": "588bef37871d6c2200836444",
+    "name": "Shoreline - Lake Forest Park Senior Center",
+    "imageId": "588bef2bb8acc72b00192827",
+    "url": "http://shorelinelfpseniorcenter.org/",
+    "phone": {
+     "globalValue": "+1-206-365-1536",
+     "value": "(206) 365-1536",
+     "rawValue": " (206) 365-1536",
+     "contactType": "phone"
+    },
+    "address": {
+     "country": "US",
+     "zip": "98155",
+     "state": "WA",
+     "city": "Shoreline",
+     "street": "1st Avenue Northeast",
+     "number": "18560"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "centrePoint": {
+      "lng": -122.32746900000001,
+      "lat": 47.7655581
+     },
+     "utcOffsetNow": "-0700",
+     "timeZone": "America/Los_Angeles",
+     "isGeocoded": true
+    }
+   },
+   "696576f71e64afd01e53f7b1": {
+    "id": "696576f71e64afd01e53f7b1",
+    "name": "Canopy White Center Community Space",
+    "imageId": null,
+    "address": {
+     "country": "US",
+     "zip": "98146",
+     "state": "WA",
+     "city": "Seattle",
+     "street": "8th Avenue Southwest",
+     "number": "10821"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "timeZone": "America/Los_Angeles",
+     "centrePoint": {
+      "lng": -122.3452923,
+      "lat": 47.5061252
+     },
+     "isGeocoded": true,
+     "utcOffsetNow": "-0700"
+    }
+   },
+   "64a732d4fab24b4100e1f8f8": {
+    "id": "64a732d4fab24b4100e1f8f8",
+    "name": "Family First Community Center",
+    "imageId": null,
+    "url": "https://familyfirstrenton.org",
+    "phone": {
+     "rawValue": ""
+    },
+    "address": {
+     "country": "US",
+     "zip": "98058",
+     "state": "WA",
+     "city": "Renton",
+     "street": "16200 116th Ave SE, Renton, WA, 9805",
+     "number": "16200"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "timeZone": "America/Los_Angeles",
+     "centrePoint": {
+      "lng": -122.185927,
+      "lat": 47.4581449
+     },
+     "isGeocoded": true,
+     "utcOffsetNow": "-0700"
+    }
+   },
+   "6a04d4170c0f2c4503fa06b0": {
+    "id": "6a04d4170c0f2c4503fa06b0",
+    "name": "Pickering Barn",
+    "imageId": null,
+    "url": "https://www.issaquahwa.gov/778/Farmers-Market",
+    "address": {
+     "country": "US",
+     "zip": "98027",
+     "state": "WA",
+     "city": "Issaquah",
+     "street": "10th Avenue Northwest",
+     "number": "1730"
+    },
+    "adjacentLocationId": null,
+    "mapLocation": {
+     "timeZone": "America/Los_Angeles",
+     "centrePoint": {
+      "lng": -122.0501131,
+      "lat": 47.5498713
+     },
+     "isGeocoded": true,
+     "utcOffsetNow": "-0700"
+    }
+   }
+  },
+  "images": {
+   "6a776d1374e3b8b75db88c90": {
+    "id": "6a776d1374e3b8b75db88c90",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/dd94806672f36d7d59bfaedd8a6ad03f/kqj6t52ce1dc1891b48d4bd0e83c6d20e6f2f.jpg"
+   },
+   "6a8cc425feae960038078f4e": {
+    "id": "6a8cc425feae960038078f4e",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/af1dc68a5ecc82a505e89dc69aee85a4/BookWalk@McCormickPark.jpg"
+   },
+   "6a7a319ac7e02e3d006f4d79": {
+    "id": "6a7a319ac7e02e3d006f4d79",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/e865a0a92e1b901dc23b46bce3324765/Untitleddesign(5).png"
+   },
+   "6a98b2531c197d11325cde7e": {
+    "id": "6a98b2531c197d11325cde7e",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/ec9b71c9a1cdeca87e2cd9f2a47bd129/OldRock.png"
+   },
+   "654d1c60067df23e00266004": {
+    "id": "654d1c60067df23e00266004",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/7b83c83fa8816200ba6d2093101d0f56/Story-Times2023_0000_Babies-Toddlers-2.png"
+   },
+   "6a1e32b543b41b3d006aee06": {
+    "id": "6a1e32b543b41b3d006aee06",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/03231a9b7181b5612004839c85c26b4c/MathClubOnlineLogo1780x445.png"
+   },
+   "6a20e891c6a1dc3d00d84864": {
+    "id": "6a20e891c6a1dc3d00d84864",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/89231c024b76a82fa6ce9d4af468f20d/TalkTimeBibEvent.jpg"
+   },
+   "687aa03485662d08198d43f6": {
+    "id": "687aa03485662d08198d43f6",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/9358f42edf6b3b8cbcfff4ce838094e7/KingCountyLocalServices.png"
+   },
+   "65e1095ce3e1ee300032d002": {
+    "id": "65e1095ce3e1ee300032d002",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/361ec9d161beb6e730034d7b51d6e8cc/ToddlerStoryTimepicture.jpg"
+   },
+   "68ae62f8f791593d0015e050": {
+    "id": "68ae62f8f791593d0015e050",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/5a5666510cfcfc45a92243aefc2ef4e4/aa5a5540-b2bc-49e6-a6b7-e1ae524bdc37_2025_FLYERS_2(1).png"
+   },
+   "698ba91181b67dfe32a59c1f": {
+    "id": "698ba91181b67dfe32a59c1f",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/7f328192df45dd38531a5f4677259e26/LittleLabScreenshotforbiblio.png"
+   },
+   "654d1cd45390a829009c2f25": {
+    "id": "654d1cd45390a829009c2f25",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/eaa84cc5f4218bf22af3c77f2b1809c5/Story-Times2023_0006_Babies-Toddlers-1.png"
+   },
+   "648927b078c3da4200b4e331": {
+    "id": "648927b078c3da4200b4e331",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/9c66447bddb0a395cf608baf8543333d/890x445genealogyancestry.png"
+   },
+   "656e0523eb28943d007a740e": {
+    "id": "656e0523eb28943d007a740e",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/1c74bbed16f438d510438a1ee4daa82d/Story-Times2023_0003_All-Ages-2.png"
+   },
+   "6a87526bd4b10d003007df07": {
+    "id": "6a87526bd4b10d003007df07",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/0f56412db081c460b788488120c0d36f/BigPlayDate.png"
+   },
+   "67ae3366c94495280039571a": {
+    "id": "67ae3366c94495280039571a",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/6162db491c0fd504f86bcf452083d96c/Xg56E8_t20_GGXR6e.jpg"
+   },
+   "6a7f9165be148200298772cd": {
+    "id": "6a7f9165be148200298772cd",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/a8b8145de6478c2c2caa9e5c3f33dd61/rstheahea(1).png"
+   },
+   "67ddbbabc1cb842b2d8326ed": {
+    "id": "67ddbbabc1cb842b2d8326ed",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/8fe2cf087285ac1bb21c753a57059b04/thumbnail_DYNOlogosmall.jpg"
+   },
+   "6a078e11278f7c2f008d71af": {
+    "id": "6a078e11278f7c2f008d71af",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/2c8719bf390cbc1c617c181f58883171/ISBiblioImages(11).png"
+   },
+   "64bed9d8986c588e4c393d56": {
+    "id": "64bed9d8986c588e4c393d56",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/e586704c2ef772af24233730d36122fe/2023_FallPlantSwap.png"
+   },
+   "6a8f92613b6c71003e5ba966": {
+    "id": "6a8f92613b6c71003e5ba966",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/d615f19b1b3e045d7cf1e0d7f4ebb8d7/papermachepumpkincontest.png"
+   },
+   "6aa1e46dab7a8e0037c0a6cc": {
+    "id": "6aa1e46dab7a8e0037c0a6cc",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/76739f8cb77cef920558913ef10b6148/39950RNAULuchaLibroBIBLIO.jpg"
+   },
+   "6328b50539ecb58ba70c13da": {
+    "id": "6328b50539ecb58ba70c13da",
+    "url": "https://kcls.bibliocommons.com/events/uploads/images/full/13b3512980f0dab8adcae3aafe9f26c9/MicrosoftTeams-image(2).png"
+   }
+  }
+ }
+}

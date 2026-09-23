@@ -6,7 +6,7 @@ url: https://www.tukwilawa.gov/event/city-council-committee-of-the-whole-meeting
 tags: ["political", "volunteering", "food", "learning"]
 firstSeen: 2026-08-25
 lastChecked: 2026-09-23
-pr:
+pr: 1574
 ---
 
 Discovered via aggregator gap analysis. 16 events in the Seattle

@@ -6,7 +6,7 @@ url: https://www.theknitterstudio.com/classes-and-events-1
 tags: []
 firstSeen: 2026-08-12
 lastChecked: 2026-09-23
-pr:
+pr: 1574
 ---
 
 Knitting/crochet shop and studio. Weekly social knit/crochet sessions plus

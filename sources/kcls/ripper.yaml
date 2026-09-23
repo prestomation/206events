@@ -1,0 +1,483 @@
+name: kcls
+sourceRole: venue
+friendlyname: "King County Library System"
+description: "King County Library System"
+# BiblioCommons gateway API behind kcls.bibliocommons.com/v2/events (public,
+# no auth). See ripper.ts. One calendar per branch (routed by the
+# branchLocationId in `config.branchId`); events at non-branch places and at
+# branches without their own calendar land in `other-locations`. Online-only
+# events are skipped.
+url: "https://gateway.bibliocommons.com/v2/libraries/kcls/events"
+friendlyLink: https://kcls.bibliocommons.com/v2/events
+tags: ["Community", "Education"]
+cost: free
+lookahead: P4W
+geo: null
+calendars:
+  - name: algona-pacific
+    friendlyname: "KCLS - Algona-Pacific"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1489"
+    geo:
+      lat: 47.2708666
+      lng: -122.2482248
+      label: "KCLS Algona-Pacific Library, 255 Ellingson Road, Pacific, WA 98047"
+    tags: ["Pacific"]
+  - name: auburn
+    friendlyname: "KCLS - Auburn"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1490"
+    geo:
+      lat: 47.2987505
+      lng: -122.2180159
+      label: "KCLS Auburn Library, 1102 Auburn Way S, Auburn, WA 98002"
+    tags: ["Auburn"]
+  - name: bellevue
+    friendlyname: "KCLS - Bellevue"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1492"
+    geo:
+      lat: 47.6201601
+      lng: -122.1943373
+      label: "KCLS Bellevue Library, 1111 110th Avenue NE, Bellevue, WA 98004"
+    tags: ["Bellevue"]
+  - name: black-diamond
+    friendlyname: "KCLS - Black Diamond"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1491"
+    geo:
+      lat: 47.31197
+      lng: -122.0126429
+      label: "KCLS Black Diamond Library, 24707 Roberts Drive, Black Diamond, WA 98010"
+    tags: ["Black Diamond"]
+  - name: bothell
+    friendlyname: "KCLS - Bothell"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1493"
+    geo:
+      lat: 47.7602661
+      lng: -122.2103764
+      label: "KCLS Bothell Library, 18215 98th Avenue NE, Bothell, WA 98011"
+    tags: ["Bothell"]
+  - name: boulevard-park
+    friendlyname: "KCLS - Boulevard Park"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1494"
+    geo:
+      lat: 47.4953817
+      lng: -122.3077873
+      label: "KCLS Boulevard Park Library, 12015 Roseberg Avenue S, Seattle, WA 98168"
+    tags: ["Boulevard Park"]
+  - name: burien
+    friendlyname: "KCLS - Burien"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1495"
+    geo:
+      lat: 47.4671057
+      lng: -122.3395945
+      label: "KCLS Burien Library, 400 SW 152nd Street, Burien, WA 98166"
+    tags: ["Burien"]
+  - name: carnation
+    friendlyname: "KCLS - Carnation"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1496"
+    geo:
+      lat: 47.6504691
+      lng: -121.9124915
+      label: "KCLS Carnation Library, 4804 Tolt Avenue, Carnation, WA 98014"
+    tags: ["Carnation"]
+  - name: covington
+    friendlyname: "KCLS - Covington"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1497"
+    geo:
+      lat: 47.359023
+      lng: -122.1218331
+      label: "KCLS Covington Library, 27100 164th Avenue SE, Covington, WA 98042"
+    tags: ["Covington"]
+  - name: crossroads
+    friendlyname: "KCLS - Crossroads"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1499"
+    geo:
+      lat: 47.6194455
+      lng: -122.1277079
+      label: "KCLS Crossroads Library, 15600 NE 8th Street, Suite K-11, Bellevue, WA 98008"
+    tags: ["Bellevue"]
+  - name: des-moines
+    friendlyname: "KCLS - Des Moines"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1502"
+    geo:
+      lat: 47.408173
+      lng: -122.3194354
+      label: "KCLS Des Moines Library, 21620 11th Avenue S, Des Moines, WA 98198"
+    tags: ["Des Moines"]
+  - name: duvall
+    friendlyname: "KCLS - Duvall"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1503"
+    geo:
+      lat: 47.7402809
+      lng: -121.9861379
+      label: "KCLS Duvall Library, 15508 Main Street NE, Duvall, WA 98019"
+    tags: ["Duvall"]
+  - name: enumclaw
+    friendlyname: "KCLS - Enumclaw"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "119"
+    geo:
+      lat: 47.2035657
+      lng: -121.9876129
+      label: "KCLS Enumclaw Library, 1700 1st Street, Enumclaw, WA 98022"
+    tags: ["Enumclaw"]
+  - name: fairwood
+    friendlyname: "KCLS - Fairwood"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1508"
+    geo:
+      lat: 47.4507033
+      lng: -122.1544044
+      label: "KCLS Fairwood Library, 17009 140th Avenue SE, Renton, WA 98058"
+    tags: ["Renton"]
+  - name: fall-city
+    friendlyname: "KCLS - Fall City"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1506"
+    geo:
+      lat: 47.568746
+      lng: -121.8939361
+      label: "KCLS Fall City Library, 33415 SE 42nd Place, Fall City, WA 98024"
+    tags: ["Fall City"]
+  - name: federal-way
+    friendlyname: "KCLS - Federal Way"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1509"
+    geo:
+      lat: 47.2944868
+      lng: -122.3318314
+      label: "KCLS Federal Way Library, 34200 1st Way S, Federal Way, WA 98003"
+    tags: ["Federal Way"]
+  - name: federal-way-320th
+    friendlyname: "KCLS - Federal Way 320th"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1505"
+    geo:
+      lat: 47.3155306
+      lng: -122.3209334
+      label: "KCLS Federal Way 320th Library, 848 S 320th Street, Federal Way, WA 98003"
+    tags: ["Federal Way"]
+  - name: issaquah
+    friendlyname: "KCLS - Issaquah"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1513"
+    geo:
+      lat: 47.5303935
+      lng: -122.0369681
+      label: "KCLS Issaquah Library, 10 W Sunset Way, Issaquah, WA 98027"
+    tags: ["Issaquah"]
+  - name: kenmore
+    friendlyname: "KCLS - Kenmore"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1519"
+    geo:
+      lat: 47.7593974
+      lng: -122.2523383
+      label: "KCLS Kenmore Library, 6531 NE 181st Street, Kenmore, WA 98028"
+    tags: ["Kenmore"]
+  - name: kent-panther-lake
+    friendlyname: "KCLS - Kent Panther Lake"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "155"
+    geo:
+      lat: 47.4184091
+      lng: -122.1967444
+      label: "KCLS Kent Panther Lake Library, 20500 108th Avenue SE, Kent, WA 98031"
+    tags: ["Kent"]
+  - name: kingsgate
+    friendlyname: "KCLS - Kingsgate"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1517"
+    geo:
+      lat: 47.729773
+      lng: -122.1763356
+      label: "KCLS Kingsgate Library, 12315 NE 143rd Street, Kirkland, WA 98034"
+    tags: ["Kirkland"]
+  - name: kirkland
+    friendlyname: "KCLS - Kirkland"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1518"
+    geo:
+      lat: 47.6759865
+      lng: -122.2029481
+      label: "KCLS Kirkland Library, 308 Kirkland Avenue, Kirkland, WA 98033"
+    tags: ["Kirkland"]
+  - name: lake-forest-park
+    friendlyname: "KCLS - Lake Forest Park"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1521"
+    geo:
+      lat: 47.7542448
+      lng: -122.2801178
+      label: "KCLS Lake Forest Park Library, 17171 Bothell Way NE, Lake Forest Park, WA 98155"
+    tags: ["Lake Forest Park"]
+  - name: lake-hills
+    friendlyname: "KCLS - Lake Hills"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1522"
+    geo:
+      lat: 47.603536
+      lng: -122.1315697
+      label: "KCLS Lake Hills Library, 15590 Lake Hills Boulevard, Bellevue, WA 98007"
+    tags: ["Bellevue"]
+  - name: maple-valley
+    friendlyname: "KCLS - Maple Valley"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1527"
+    geo:
+      lat: 47.3801092
+      lng: -122.0484577
+      label: "KCLS Maple Valley Library, 21844 SE 248th Street, Maple Valley, WA 98038"
+    tags: ["Maple Valley"]
+  - name: mercer-island
+    friendlyname: "KCLS - Mercer Island"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1525"
+    geo:
+      lat: 47.5669511
+      lng: -122.2211918
+      label: "KCLS Mercer Island Library, 4400 88th Ave SE, Mercer Island, WA 98040"
+    tags: ["Mercer Island"]
+  - name: muckleshoot
+    friendlyname: "KCLS - Muckleshoot"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1526"
+    geo:
+      lat: 47.2433182
+      lng: -122.1129707
+      label: "KCLS Muckleshoot Library, 39917 Auburn Enumclaw Road SE, Auburn, WA 98092"
+    tags: ["Auburn"]
+  - name: newcastle
+    friendlyname: "KCLS - Newcastle"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1564"
+    geo:
+      lat: 47.5377124
+      lng: -122.1672107
+      label: "KCLS Newcastle Library, 12901 Newcastle Way, Newcastle, WA 98056"
+    tags: ["Newcastle"]
+  - name: newport-way
+    friendlyname: "KCLS - Newport Way"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1529"
+    geo:
+      lat: 47.570467
+      lng: -122.1490813
+      label: "KCLS Newport Way Library, 14250 SE Newport Way, Bellevue, WA 98006"
+    tags: ["Bellevue"]
+  - name: north-bend
+    friendlyname: "KCLS - North Bend"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1528"
+    geo:
+      lat: 47.496795
+      lng: -121.783299
+      label: "KCLS North Bend Library, 115 E 4th Street, North Bend, WA 98045"
+    tags: ["North Bend"]
+  - name: redmond
+    friendlyname: "KCLS - Redmond"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1533"
+    geo:
+      lat: 47.6789086
+      lng: -122.1280775
+      label: "KCLS Redmond Library, 15990 NE 85th Street, Redmond, WA 98052"
+    tags: ["Redmond"]
+  - name: renton
+    friendlyname: "KCLS - Renton"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1556"
+    geo:
+      lat: 47.4819169
+      lng: -122.2021034
+      label: "KCLS Renton Library, 100 Mill Avenue S, Renton, WA 98057"
+    tags: ["Renton"]
+  - name: renton-highlands
+    friendlyname: "KCLS - Renton Highlands"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1557"
+    geo:
+      lat: 47.4998031
+      lng: -122.1812537
+      label: "KCLS Renton Highlands Library, 2801 NE 10th Street, Renton, WA 98056"
+    tags: ["Renton"]
+  - name: sammamish
+    friendlyname: "KCLS - Sammamish"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1534"
+    geo:
+      lat: 47.6003029
+      lng: -122.0366936
+      label: "KCLS Sammamish Library, 825 228th Avenue SE, Sammamish, WA 98075"
+    tags: ["Sammamish"]
+  - name: shoreline
+    friendlyname: "KCLS - Shoreline"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1535"
+    geo:
+      lat: 47.7555196
+      lng: -122.3247659
+      label: "KCLS Shoreline Library, 345 NE 175th Street, Shoreline, WA 98155"
+    tags: ["Shoreline"]
+  - name: skykomish
+    friendlyname: "KCLS - Skykomish"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1536"
+    geo:
+      lat: 47.708482
+      lng: -121.3609727
+      label: "KCLS Skykomish Library, 100 5th Street N, Skykomish, WA 98288"
+    tags: ["Skykomish"]
+  - name: skyway
+    friendlyname: "KCLS - Skyway"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1541"
+    geo:
+      lat: 47.4901838
+      lng: -122.2383256
+      label: "KCLS Skyway Library, 12601 76th Avenue S, Seattle, WA 98178"
+    tags: ["Skyway"]
+  - name: snoqualmie
+    friendlyname: "KCLS - Snoqualmie"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1537"
+    geo:
+      lat: 47.5298532
+      lng: -121.8723856
+      label: "KCLS Snoqualmie Library, 7824 Center Boulevard SE, Snoqualmie, WA 98065"
+    tags: ["Snoqualmie"]
+  - name: southcenter
+    friendlyname: "KCLS - Southcenter"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1538"
+    geo:
+      lat: 47.4587069
+      lng: -122.2612147
+      label: "KCLS Southcenter Library, 1386 Southcenter Mall, Tukwila, WA 98188"
+    tags: ["Tukwila"]
+  - name: tukwila
+    friendlyname: "KCLS - Tukwila"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "154"
+    geo:
+      lat: 47.4740802
+      lng: -122.2844557
+      label: "KCLS Tukwila Library, 14380 Tukwila International Boulevard, Tukwila, WA 98168"
+    tags: ["Tukwila"]
+  - name: valley-view
+    friendlyname: "KCLS - Valley View"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1546"
+    geo:
+      lat: 47.4432294
+      lng: -122.2737101
+      label: "KCLS Valley View Library, 17850 Military Road S, SeaTac, WA 98188"
+    tags: ["SeaTac"]
+  - name: vashon
+    friendlyname: "KCLS - Vashon"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1545"
+    geo:
+      lat: 47.4508633
+      lng: -122.4594478
+      label: "KCLS Vashon Library, 17210 Vashon Hwy SW., Vashon Island, WA 98070"
+    tags: ["Vashon"]
+  - name: white-center
+    friendlyname: "KCLS - White Center"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1547"
+    geo:
+      lat: 47.506889
+      lng: -122.352925
+      label: "KCLS White Center Library, 1409 SW 107th Street, Seattle, WA 98146"
+    tags: ["White Center"]
+  - name: woodinville
+    friendlyname: "KCLS - Woodinville"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1548"
+    geo:
+      lat: 47.7515682
+      lng: -122.0819066
+      label: "KCLS Woodinville Library, 17105 Avondale Road NE, Woodinville, WA 98072"
+    tags: ["Woodinville"]
+  - name: woodmont
+    friendlyname: "KCLS - Woodmont"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1549"
+    geo:
+      lat: 47.3610092
+      lng: -122.3083746
+      label: "KCLS Woodmont Library, 26809 Pacific Highway S, Des Moines, WA 98198"
+    tags: ["Des Moines"]
+  - name: other-locations
+    friendlyname: "KCLS - Other Locations"
+    timezone: America/Los_Angeles
+    config:
+      otherLocations: true
+  - name: greenbridge
+    friendlyname: "KCLS - Greenbridge"
+    timezone: America/Los_Angeles
+    config:
+      branchId: "1510"
+    geo:
+      lat: 47.5159898
+      lng: -122.3450915
+      label: "KCLS Greenbridge Library, 9720 8th Ave SW, Seattle, WA 98106"
+      osmType: way
+      osmId: 652546155
+    tags: ["White Center"]
