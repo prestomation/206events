@@ -95391,19 +95391,25 @@
     },
     "northwest-film-forum:wto-99-2026-11-30": {
       "fields": {
-        "imageUrl": "|UNRESOLVABLE"
+        "imageUrl": "|UNRESOLVABLE",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/wp-json/wp/v2/media (featured_media)"
+      "evidence": "https://nwfilmforum.org/films/wto-99/"
     },
     "northwest-film-forum:zi-2026-11-12": {
       "fields": {
-        "imageUrl": "|https://nwfilmforum.org/wp-content/uploads/2026/09/zi1600-3.png"
+        "imageUrl": "|https://nwfilmforum.org/wp-content/uploads/2026/09/zi1600-3.png",
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "evidence": "https://nwfilmforum.org/wp-json/wp/v2/media (featured_media)"
+      "evidence": "https://nwfilmforum.org/films/zi/"
     },
     "seatoday:cityspark-19975730": {
       "unresolvable": true,
@@ -95464,6 +95470,586 @@
       "resolvedAt": "2026-09-23",
       "source": "agent",
       "reason": "JS-rendered embed page; no harvestable per-event image"
+    },
+    "do206:do206-2026-10-19-pj-edwards-live-16mm-film-night-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/19/pj-edwards-live-16mm-film-night-tickets"
+    },
+    "do206:do206-2026-10-21-seattle-center-sculpture-walk-2026-tickets": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/seattle-center-sculpture-walk-2026-tickets"
+    },
+    "do206:do206-2026-09-28-celebrating-dolly-parton-i-will-always-love-you-tickets": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 30.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/9/28/celebrating-dolly-parton-i-will-always-love-you-tickets"
+    },
+    "do206:do206-2026-10-21-6-doug-walker-lecture-reception-tickets": {
+      "fields": {
+        "cost": {
+          "min": 8.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/6-doug-walker-lecture-reception-tickets"
+    },
+    "do206:do206-2026-10-21-lioneer-w-gavin-prophet-tickets": {
+      "fields": {
+        "cost": {
+          "min": 12.0,
+          "max": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/lioneer-w-gavin-prophet-tickets"
+    },
+    "do206:do206-2026-10-21-morgan-james-tickets": {
+      "fields": {
+        "cost": {
+          "min": 43.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/morgan-james-tickets"
+    },
+    "do206:do206-2026-10-21-ovation-tickets": {
+      "fields": {
+        "cost": {
+          "min": 120.0,
+          "max": 140.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/ovation-tickets"
+    },
+    "do206:do206-2026-10-21-the-original-food-and-culture-tour-of-pike-place-market-tickets": {
+      "fields": {
+        "cost": {
+          "min": 59.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/the-original-food-and-culture-tour-of-pike-place-market-tickets"
+    },
+    "do206:do206-2026-10-21-this-is-halloween-tickets": {
+      "fields": {
+        "cost": {
+          "min": 35.0,
+          "max": 75.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/this-is-halloween-tickets"
+    },
+    "do206:do206-2026-10-14-post-show-panel-discussion-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/14/post-show-panel-discussion-tickets"
+    },
+    "do206:do206-2026-10-21-comedy-class-graduation-show-with-andrew-frank-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/comedy-class-graduation-show-with-andrew-frank-tickets"
+    },
+    "do206:do206-2026-10-21-demon-hunter-storm-the-gates-of-hell-20th-anniversary-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/demon-hunter-storm-the-gates-of-hell-20th-anniversary-tour-tickets"
+    },
+    "do206:do206-2026-10-21-duo-comedy-showcase-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/duo-comedy-showcase-tickets"
+    },
+    "do206:do206-2026-10-21-eq-seattle-hot-girl-rave-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/eq-seattle-hot-girl-rave-tickets"
+    },
+    "do206:do206-2026-10-21-improv-greenhouse-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/improv-greenhouse-tickets"
+    },
+    "do206:do206-2026-10-21-india-ramey-w-special-guests-brittany-collins-the-waymores-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/india-ramey-w-special-guests-brittany-collins-the-waymores-tickets"
+    },
+    "do206:do206-2026-10-21-jay-webb-with-caitlynne-curtis-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/jay-webb-with-caitlynne-curtis-tickets"
+    },
+    "do206:do206-2026-10-21-julia-wolf-with-bee-blackwell-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/julia-wolf-with-bee-blackwell-tickets"
+    },
+    "do206:do206-2026-10-21-kota-the-friend-with-special-guests-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/kota-the-friend-with-special-guests-tickets"
+    },
+    "do206:do206-2026-10-21-luke-callen-bad-posture-club-don-piano-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/luke-callen-bad-posture-club-don-piano-tickets"
+    },
+    "do206:do206-2026-10-21-nouvelles-femmes-band-of-outsiders-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/nouvelles-femmes-band-of-outsiders-tickets"
+    },
+    "do206:do206-2026-10-21-raphael-ghanem-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/raphael-ghanem-tickets"
+    },
+    "do206:do206-2026-10-21-seattle-mariners-ballpark-tour-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/seattle-mariners-ballpark-tour-tickets"
+    },
+    "do206:do206-2026-10-21-sunset-rollercoaster-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/sunset-rollercoaster-tickets"
+    },
+    "do206:do206-2026-10-21-the-war-and-treaty-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/the-war-and-treaty-tickets"
+    },
+    "do206:do206-2026-10-21-this-is-lorelei-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/this-is-lorelei-tickets"
+    },
+    "do206:do206-2026-10-21-throwaway-style-showcase-ft-debt-rag-miscomings-dj-martin-douglas-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://do206.com/events/2026/10/21/throwaway-style-showcase-ft-debt-rag-miscomings-dj-martin-douglas-tickets"
+    },
+    "seattle-makers:seattle-makers-154862": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169256": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169257": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169266": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169269": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169272": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169275": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169281": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169287": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169290": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169293": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "seattle-makers:seattle-makers-169296": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seattlemakers.org/events/"
+    },
+    "rabbit_box:6ab1589e786fea14c337a876": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/karoke-with-snax-the-bunny"
+    },
+    "rabbit_box:6ab15b9a5fb8783ea8381881": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/rabbit-box-jam-hosted-by-lamont-hendrix-1-4nan3"
+    },
+    "rabbit_box:6ab1a5249d9de9760a41aa78": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/max-gomez"
+    },
+    "rabbit_box:6ab1b6deefbbf85dbeb99adf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/members-cocktail-party"
+    },
+    "queer-social-club:6aab388ee6c13043232dc380": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "reason": "Event canceled by organizers"
+    },
+    "queer-social-club:6ab18b1bd85be21c0870deb6": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/so-you-do-drag"
+    },
+    "queer-social-club:6ab18c49f820042ee21413c1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/enchanted-ravens-birthday-cake"
+    },
+    "pike-place-market:ppm-dia-de-muertos-at-pike-place-market": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/dia-de-muertos-at-pike-place-market/?occurrence=2026-10-23"
+    },
+    "plant-amnesty:6aada820f760907907ecd138": {
+      "fields": {
+        "cost": {
+          "min": 125.0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://www.plantamnesty.org/all-upcoming-events-classes/november7-reno-workshop"
+    },
+    "seatoday:cityspark-19375679": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19626996": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975718": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975719": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975720": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975725": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975729": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975732": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975743": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
+    },
+    "seatoday:cityspark-19975746": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-23",
+      "source": "agent",
+      "evidence": "https://seatoday.6amcity.com/events"
     }
   }
 }
