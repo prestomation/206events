@@ -4,6 +4,7 @@
 name: dark-seattle
 sourceRole: aggregator
 description: "Dark Seattle"
+proxy: "outofband" # darkseattle.net fails with "fetch failed" from GitHub runner IPs most of the time
 url: "https://www.darkseattle.net/"
 friendlyLink: https://www.darkseattle.net/
 tags: ["Music", "Nightlife"]

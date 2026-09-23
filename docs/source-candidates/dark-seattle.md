@@ -1,6 +1,6 @@
 ---
 name: "Dark Seattle"
-status: added
+status: proxy
 platform: Custom HTML (hand-curated)
 url: https://www.darkseattle.net/
 tags: [Music, Nightlife]
@@ -54,3 +54,5 @@ proxy-escalation skill to test the ladder.
 2026-09-23 (later): The PR #1573 CI build fetched darkseattle.net and got
 events, so the two earlier `fetch failed` errors were intermittent. No proxy
 is needed. Merged at `proxy: false`.
+
+2026-09-23 (after merge): CI failed to fetch the site again in the PR #1574 build (3 failures, 1 success in total). Moved to `proxy: "outofband"` so the residential runner fetches it and it no longer blocks other PRs.
