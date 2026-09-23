@@ -1,0 +1,10 @@
+geo: null
+name: city-of-tukwila
+sourceRole: aggregator
+friendlyname: City of Tukwila Events
+description: City of Tukwila community calendar, covering food bank and resource days, recycling and hazardous-waste collection events, Green Tukwila volunteer work parties, farmers markets, and public City Council and commission meetings
+icsUrl: https://www.tukwilawa.gov/?post_type=tribe_events&ical=1&eventDisplay=list
+infoUrl: https://www.tukwilawa.gov/events/
+tags:
+  - Community
+  - Tukwila

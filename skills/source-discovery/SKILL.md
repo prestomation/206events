@@ -56,7 +56,7 @@ Also try discovery-oriented searches:
 
 For each search result that looks like a Seattle event source, evaluate:
 
-1. **Seattle-area?** Must be **Seattle-focused** — primarily serving Seattle audiences. Venues with a few events in nearby cities (Bellevue, Kirkland, etc.) are OK as long as most events are in Seattle proper.
+1. **King County?** Sources anywhere in King County are OK (Seattle, Bellevue, Kirkland, Redmond, Renton, Kent, Shoreline, Mercer Island, and so on). Sources entirely outside King County (Tacoma and Pierce County, Snohomish County, out of state) are not appropriate. A source with a fixed `geo` needs a neighborhood tag: use the city name, and register it in `city.config.ts` if it is new.
 2. **Has a public events page or feed?** Must have a URL with event listings
 3. **Matches a known ripper type?** Must be one of:
    - ICS/iCal feed (add a file to `sources/external/<name>.yaml`)
@@ -304,7 +304,7 @@ Include a "🔍 Source Discovery" section in the daily report:
 - **Always implement highest-confidence source first** — don't skip to low-confidence custom scrapers when a verified built-in type is available
 - **One source per cycle** — implement, verify, iterate with Q, then report. Don't stack multiple sources in one cycle.
 - **Always delegate to a coding agent** to implement the ripper — do not write code directly
-- **Seattle-focused only** — sources must primarily serve Seattle audiences. A few events outside city limits is OK (e.g., Seattle Uncorked with some Eastside events). Venues entirely outside Seattle (Edmonds, Everett, Kent) are not appropriate.
+- **King County only** — sources anywhere in King County are OK. A few events outside the county is OK (for example, a regional group with some Snohomish County events). Venues entirely outside King County (Edmonds, Everett, Tacoma) are not appropriate.
 - **Rotate search queries** — don't run the same searches every day
 - **Check `docs/source-candidates/` first** — `ls` the directory, look for the slug; read the file's frontmatter to see status and history. Avoid re-proposing evaluated sources.
 - **Flag dead sources** — but don't disable them without human approval

@@ -1,0 +1,13 @@
+name: king-county-events
+sourceRole: aggregator
+description: "King County Events"
+# Socrata Open Data dataset behind kingcounty.gov's events pages (the Parks
+# events page embeds this query in window.SOCRATA_API). See ripper.ts.
+url: "https://data.kingcounty.gov/resource/grxi-zqg2.json"
+friendlyLink: https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks/get-involved/parks-events
+tags: ["Community", "Parks"]
+geo: null
+calendars:
+  - name: king-county-events
+    friendlyname: "King County Events"
+    timezone: America/Los_Angeles

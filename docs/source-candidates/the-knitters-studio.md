@@ -1,6 +1,6 @@
 ---
 name: "The Knitters Studio"
-status: notviable
+status: added
 platform: Custom HTML (Squarespace static page, not an Events collection)
 url: https://www.theknitterstudio.com/classes-and-events-1
 tags: []
@@ -26,3 +26,5 @@ Investigated 2026-08-12:
   needs an address lookup before implementation
 
 **2026-09-23:** Outside Seattle. Address lookup done: the shop is at 958 111th Ave NE, Bellevue, WA 98004 (Squarespace map block; phone 425-532-7041). Also still only a plain Squarespace page (no Events collection, no ICS), so it would need a free-text scraper anyway.
+
+**2026-09-23 (re-evaluated under King County rule, added):** Bellevue is in King County. The classes and pop-ups are free text ("Satudays Oct.24, 31..."), too irregular to scrape reliably. But the page publishes a stable weekly schedule for the drop-in Social Knit or Crochet sessions: Wednesdays 10am to noon, Thursdays 6 to 8pm, Fridays 3 to 5pm. Added as recurring `sources/recurring/knitters-studio-social-knit.yaml` (venue, geo 47.6186227,-122.1917799, 958 111th Ave NE, Bellevue; tags Arts + Bellevue). ONLY_SOURCE build: 3 recurring series (one per weekday). The paid classes are not included.

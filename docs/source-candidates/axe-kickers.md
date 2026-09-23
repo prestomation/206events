@@ -29,3 +29,5 @@ either. Still unresolved whether a real recurring-league schedule exists
 behind the marketing page; leaving as `investigating`.
 
 Re-checked 2026-09-23: the site footer gives the address as 10843 1st Ave S, Seattle WA 98168 — Boulevard Park, unincorporated King County, outside Seattle city limits. The `/events` page is still static marketing text (the one tournament is "Next Date TBD"), and the Wix warmup data carries no Wix Events app data. Closing as `notviable` (outside Seattle, no dated events).
+
+**Re-evaluated 2026-09-23 (King County rule):** Boulevard Park (unincorporated King County) is now in-area, so geography is no longer the blocker. Still notviable: `/events` lists one tournament as "Next Date TBD", `/live-music` only says "Come by Friday and Saturday nights for live music and open axe throwing" with no dated shows, lineups, or set times, and `/league` describes an 8-week IATF league with no published season dates. No dated public events to ingest; a recurring entry would be a guess (no start time is published).

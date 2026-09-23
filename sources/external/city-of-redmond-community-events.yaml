@@ -1,0 +1,10 @@
+geo: null
+name: city-of-redmond-community-events
+sourceRole: aggregator
+friendlyname: City of Redmond Community Events
+description: Community events from the City of Redmond, including Redmond Lights, family shows, holiday celebrations, and programs at the Redmond Community Center at Marymoor Village
+icsUrl: https://www.redmond.gov/common/modules/iCalendar/iCalendar.aspx?catID=22&feed=calendar
+infoUrl: https://www.redmond.gov/Calendar.aspx?CID=22
+tags:
+  - Community
+  - Redmond

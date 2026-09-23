@@ -1,0 +1,10 @@
+geo: null
+name: city-of-mercer-island
+sourceRole: aggregator
+friendlyname: City of Mercer Island Events
+description: City of Mercer Island calendar, covering park restoration work parties and nature walks, parenting and senior programs, emergency-preparedness classes, community blood drives, and public City Council and commission meetings
+icsUrl: https://www.mercerisland.gov/calendar/ical/%2A/calendar.ics
+infoUrl: https://www.mercerisland.gov/calendar
+tags:
+  - Community
+  - Mercer Island

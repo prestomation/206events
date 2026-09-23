@@ -1,6 +1,6 @@
 ---
 name: Puget Soundkeeper Marine Debris Cleanups
-status: blocked
+status: added
 platform: WordPress
 url: https://pugetsoundkeeper.org/volunteer/marine-debris-cleanups
 tags: [Volunteering, Outdoors]
@@ -25,3 +25,17 @@ this environment. Not stageable per the blocked-here rule; leaving as
 `candidate` and re-testing next cycle.
 
 2026-09-23: Re-checked: `pugetsoundkeeper.org/events/` and `/events/?ical=1` return HTTP 403, and `/wp-json/tribe/events/v1/events` returns a Sucuri CloudProxy JavaScript challenge ("Javascript is required"). A plain residential fetch gets the same challenge, so this would need the browserbase rung. The event volume is only about 3 cleanups a year, so it's not worth escalating. Marked blocked.
+
+2026-09-23 (re-verified, verdict overturned): the 403 / Sucuri block is
+**User-Agent-based**, not IP-based. A bot-style UA
+(`Mozilla/5.0 (compatible; ...)`) gets 403 on every path, but a browser UA
+(or plain `curl/8.0`) gets HTTP 200 on the Tribe ICS
+`/?post_type=tribe_events&ical=1&eventDisplay=list` and on
+`/wp-json/tribe/events/v1/events`. The build fetches external ICS with a
+Chrome UA, so no proxy is needed. Volume is also far higher than the ~3/yr
+first noted: 48 Tribe events in 2026 (kayak cleanups, creek restoration days,
+the Sound Sweep series, Duwamish Alive, and more), mostly in Seattle/King
+County, with a few partner cleanups elsewhere on the Sound. Added as
+`sources/external/puget-soundkeeper.yaml` (geo: null, sourceRole: venue, tags
+Volunteer/Outdoors); `ONLY_SOURCE=puget-soundkeeper` gave 7 upcoming events
+and 0 errors.

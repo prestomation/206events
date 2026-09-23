@@ -15,3 +15,5 @@ Sample event: "Auburn Food Truck Tuesdays - La Costeñita Cuisine" (2026-08-25T1
 Description: La Costeñita Cuisine food truck at Auburn Food Truck Tuesdays, serving vegetarian Mexican food.
 
 2026-09-23: StreetFoodFinder is a national food-truck location platform; the sample event is Auburn Food Truck Tuesdays (Auburn, outside Seattle). Individual Seattle trucks should be added per-truck via the food-truck-source skill, not via this platform domain.
+
+**Re-evaluated 2026-09-23 (King County rule):** Auburn is now in scope, but it is still notviable. StreetFoodFinder is a national food-truck platform, and truck pages now return HTTP 403 to our fetcher (`/lacostenita`). Individual King County trucks should be added one at a time from their own feeds via the food-truck-source skill.

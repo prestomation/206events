@@ -31,3 +31,6 @@ Re-checked 2026-09-16 (source-discovery run implementing Union Seattle):
 still `upcoming: 0`, `past: 1`. No change.
 
 2026-09-23: Closed: `/events-calendar?format=json` still `upcoming: 0`, `past: 1` (single past "Gays Eating Garlic Bread in the Park" event). Site is dormant; re-open if it starts posting events.
+
+2026-09-23 (re-verified): re-fetched `?format=json`. Still `upcoming` 0,
+`past` 1 (2026-06-06). Notviable confirmed.

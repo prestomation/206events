@@ -15,3 +15,10 @@ Sample event: "Evening Service (West Seattle)" (2026-08-25T02:00:00.000Z)
 Description: Monday evening meditation with two sitting periods, short walking meditation between them, followed by discussion. In-person at Fauntleroy United Church of Christ, 9140 California Ave SW, West Seattle
 
 2026-09-23: Closed: pszc.org is the Puget Sound Zen Center; its calendar is primarily Zen Buddhist meditation services/sittings ("Evening Service"), i.e. primarily religious programming, which the quality gate excludes.
+
+2026-09-23 (re-verified): its own schema.org description is "dedicated to
+fostering Buddhist wisdom and compassion through the practice and study of
+Rinzai Zen Buddhism". Its Tribe ICS (`/calendar/?ical=1`, 30 events) is almost
+entirely Morning/Evening/Sunday Services. Primarily religious, so notviable is
+confirmed (the Vashon/West Seattle location would be fine under the King
+County rule).

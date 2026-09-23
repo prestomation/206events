@@ -15,3 +15,5 @@ Sample event: "Community Event: Carnation Farmers Market - Told MacDonald Park" 
 Description: Community Event: Carnation Farmers Market at Told MacDonald Park. Farmers market featuring local produce, crafts, and community vendors.
 
 **Closed 2026-09-23 (notviable):** Duplicate of `king-county-parks-events.md` (same King County Parks events page / Socrata feed; that file sorts first and carries the investigation). Feed is county-wide with no Seattle-city events under the parks filter: outside Seattle.
+
+**Re-checked 2026-09-23 (King County rule; duplicate):** Same King County Parks events page / Socrata feed as `king-county-parks-events.md`, which sorts first and is now implemented as `sources/king_county_events/` (`king-county-events`). Closed as a duplicate.

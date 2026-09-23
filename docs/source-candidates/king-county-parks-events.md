@@ -1,6 +1,6 @@
 ---
 name: King County Parks Events
-status: notviable
+status: added
 platform: Socrata Open Data API (JSON)
 url: https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks/get-involved/parks-events
 tags: [Outdoors, Government]
@@ -35,3 +35,5 @@ volume would likely drop close to zero). Holding as `candidate`; not
 implementing without a Seattle-only filter and higher volume.
 
 **Closed 2026-09-23 (notviable):** Re-queried the Socrata endpoint `data.kingcounty.gov/resource/grxi-zqg2.json` across all categories (not just `parks=true`) with start_time > 2026-09-23: 48 events. The `parks=true` events are all outside Seattle (Marymoor/Redmond, Dockton Forest/Vashon). The unfiltered feed is mostly county admin (holiday closures, inquest hearings, contractor orientations, test "Hello World" rows) and hazardous-waste collections in Renton/Burien/Bothell; only ~2 in-Seattle items (Lake City House, Magnuson Park resource fairs). Fails the Seattle-focused gate: outside Seattle.
+
+**Re-opened 2026-09-23 (King County rule; added):** County-wide scope is now in bounds. Added `sources/king_county_events/` (source `king-county-events`, custom `JSONRipper`, `geo: null`, `sourceRole: aggregator`) reading the Socrata dataset `data.kingcounty.gov/resource/grxi-zqg2.json` across all categories with a SoQL `start_time` window (6 months). Keeps rows in public-facing categories (parks, recreation, arts_culture, events, volunteer, environment, recycling_trash, health, local_services) and drops county admin rows (closures/holidays, inquest hearings, contractor orientations, "Hello World" test rows, online trainings, multi-day Household Hazardous Waste drop-off windows). Uses the row's GeoJSON point for coordinates. Verified with `ONLY_SOURCE=king-county-events`: 11 events, 0 errors (Smoke on the Sound at Marymoor, Sustainamania in Bothell, resource fairs at Lake City/Magnuson, Home Improvement Fair in White Center, Transit Trek to Dockton Forest, etc.).

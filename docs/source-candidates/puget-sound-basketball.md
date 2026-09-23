@@ -20,3 +20,9 @@ schedule page is scrapable without login (some links go to `/dashboard/hod`,
 suggesting some content may be gated behind a player account).
 
 2026-09-23: Closed: adult rec basketball league. The schedule is league game fixtures and "Hoops on Demand" drop-in games for registered players (some behind `/dashboard`). That's sports-league fixtures with no public-event value, and it's a regional (Puget Sound) league, not Seattle-specific.
+
+2026-09-23 (re-verified): `/schedule` is a public page, but its content is
+team-vs-team league fixtures with referee assignments (e.g. "Scotts Tots vs
+Team KAT GPT", Seattle Central College #2) and "HoD" drop-in games for
+registered players. The Seattle location is fine under the King County rule,
+but these are league fixtures, so notviable is confirmed.

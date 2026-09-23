@@ -24,3 +24,5 @@ Investigated 2026-08-17:
   as `candidate` for a follow-up look.
 
 **Re-checked 2026-09-23 (notviable):** The `/events` page embeds a Yodel widget (`events.yodel.today/y/widget/69cd3fa1b9fe80e015e338a4`, a JS-rendered Next.js app). Its ~24 listed events are pulled from other calendars (e.g. "spl event calendar" story times, which the `spl` source already covers), and many are outside Seattle (Carnation, Shoreline, Lake Forest Park, Kenmore). It's an aggregator of aggregators with little original Seattle content. Closing as notviable.
+
+**Re-checked 2026-09-23 (King County rule; notviable):** Shoreline/Kenmore/Lake Forest Park/Carnation listings are now in bounds, but the blocker was never geography alone. The `/events` page is a Yodel widget (`events.yodel.today/y/widget/69cd3fa1b9fe80e015e338a4`) that republishes other calendars: its listings are KCLS BiblioCommons story times (now covered by the new `kcls` source), SPL Trumba events (covered by `spl`), and a few Facebook, Tixr, and Seattle Reconomy items. It is an aggregator of aggregators with almost no original content, so it is still notviable.
