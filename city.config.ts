@@ -81,6 +81,7 @@ const cityConfig = {
         "Beacon Hill",
         "Belltown",
         "Bothell",
+        "Broadview",
         "Capitol Hill",
         "Central District",
         "Columbia City",
