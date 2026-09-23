@@ -1,4 +1,7 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
+import { mkdtemp, rm, writeFile } from "fs/promises";
+import { tmpdir } from "os";
+import { join } from "path";
 import {
     scorePair,
     tierFor,
@@ -8,6 +11,7 @@ import {
     resolutionsFromCache,
     pairKey,
     titleOnlySignal,
+    loadDuplicateCache,
     DedupEvent,
 } from "./cross-source-dedup.js";
 
@@ -375,5 +379,47 @@ describe("pairKey unicode normalization", () => {
         const bNFC = ev({ icsUrl: "seatoday-arts.ics", summary: nfcSummary, date });
 
         expect(pairKey(aNFD, bNFD)).toBe(pairKey(aNFC, bNFC));
+    });
+});
+
+describe("loadDuplicateCache", () => {
+    let dir: string;
+
+    afterEach(async () => {
+        if (dir) await rm(dir, { recursive: true, force: true });
+    });
+
+    it("returns an empty cache when the file doesn't exist (cold start)", async () => {
+        dir = await mkdtemp(join(tmpdir(), "dedup-cache-"));
+        const cache = await loadDuplicateCache(join(dir, "does-not-exist.json"));
+        expect(cache).toEqual({ resolutions: {} });
+    });
+
+    it("loads a well-formed cache file", async () => {
+        dir = await mkdtemp(join(tmpdir(), "dedup-cache-"));
+        const file = join(dir, "cache.json");
+        await writeFile(file, JSON.stringify({ resolutions: { "a::b": { decision: "confirmed" } } }));
+        const cache = await loadDuplicateCache(file);
+        expect(cache.resolutions["a::b"]).toEqual({ decision: "confirmed" });
+    });
+
+    // Regression test for the incident where event-uncertainty-cache.json's
+    // missing "version" field was silently swallowed into an empty cache for
+    // days rather than failing the build. loadDuplicateCache must throw
+    // (not warn-and-continue) on anything other than a missing file, so a
+    // broken committed cache fails the build/PR check instead of quietly
+    // discarding every confirmed/rejected pair.
+    it("throws (does not silently fall back) on malformed JSON", async () => {
+        dir = await mkdtemp(join(tmpdir(), "dedup-cache-"));
+        const file = join(dir, "cache.json");
+        await writeFile(file, "{ not valid json");
+        await expect(loadDuplicateCache(file)).rejects.toThrow(/not valid JSON/);
+    });
+
+    it("throws (does not silently fall back) on the wrong shape", async () => {
+        dir = await mkdtemp(join(tmpdir(), "dedup-cache-"));
+        const file = join(dir, "cache.json");
+        await writeFile(file, JSON.stringify({ entries: {} })); // missing "resolutions"
+        await expect(loadDuplicateCache(file)).rejects.toThrow(/unexpected shape/);
     });
 });

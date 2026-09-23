@@ -43,6 +43,7 @@ import {
   findDuplicates,
   applyDuplicateMarks,
   resolutionsFromCache,
+  loadDuplicateCache,
   type DuplicateCache,
 } from "./cross-source-dedup.js";
 import {
@@ -598,21 +599,10 @@ export const main = async () => {
 
   // Load the cross-source duplicate-resolver cache (pairKey -> confirmed/rejected).
   // Committed file, populated by the duplicate-resolver skill; tolerant of a
-  // cold start. See docs/cross-source-event-dedup.md.
-  let duplicateCache: DuplicateCache = { resolutions: {} };
-  try {
-    const raw = await readFile('event-duplicate-cache.json', 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === 'object' && typeof parsed.resolutions === 'object' && parsed.resolutions !== null) {
-      duplicateCache = parsed as DuplicateCache;
-    } else {
-      console.warn('event-duplicate-cache.json has unexpected shape, starting with empty cache');
-    }
-  } catch (err: any) {
-    if (err?.code !== 'ENOENT') {
-      console.warn(`event-duplicate-cache.json unreadable, starting with empty cache: ${err?.message ?? err}`);
-    }
-  }
+  // cold start (ENOENT only) but throws on a malformed/wrong-shape file
+  // rather than silently discarding it. See loadDuplicateCache and
+  // docs/cross-source-event-dedup.md.
+  const duplicateCache: DuplicateCache = await loadDuplicateCache('event-duplicate-cache.json');
 
   // Load the general-purpose fetch cache and inject it into the fetch layer so
   // every source (rippers, external ICS, platform APIs) is fetched live at most

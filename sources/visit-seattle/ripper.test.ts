@@ -134,4 +134,18 @@ describe('parseEventPage', () => {
         expect(result.endDate.dayOfMonth()).toBe(31);
         expect(result.location).toBe('Frye Art Museum');
     });
+
+    it('parses "Ongoing" exhibitions with no closing date as a placeholder window', () => {
+        const html = `<html><body>
+            <h4><span>Ongoing</span> | <span> Seattle Art Museum</span></h4>
+        </body></html>`;
+        const today = LocalDate.of(2026, 8, 20);
+        const result = parseEventPage(html, today);
+        expect('type' in result).toBe(false);
+        if ('type' in result) return;
+        expect(result.startDate.equals(today)).toBe(true);
+        expect(result.endDate.isAfter(today)).toBe(true);
+        expect(result.location).toBe('Seattle Art Museum');
+        expect(result.durationUnknown).toBe(true);
+    });
 });

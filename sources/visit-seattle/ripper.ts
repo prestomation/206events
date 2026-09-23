@@ -12,7 +12,15 @@ export interface ParsedEventDate {
     startDate: LocalDate;
     endDate: LocalDate;
     location: string;
+    // True for "Ongoing" exhibitions with no published closing date — endDate
+    // is a placeholder window, not a real date scraped from the page.
+    durationUnknown?: boolean;
 }
+
+// Open-ended museum exhibitions ("Ongoing") get a placeholder window so they
+// still show up on the calendar; the real close date is unknown until the
+// venue publishes one.
+const ONGOING_WINDOW_DAYS = 60;
 
 function decodeHtmlEntities(s: string): string {
     return s
@@ -72,6 +80,8 @@ export function parseEventPage(html: string, today: LocalDate): ParsedEventDate 
     const wordSingleMatch = dateStr.match(/^(\w+)\s+(\d{1,2}),\s+(\d{4})$/);
     // Ongoing exhibitions: "Now through August 9, 2026"
     const nowThroughMatch = dateStr.match(/^Now through (\w+)\s+(\d{1,2}),\s+(\d{4})$/);
+    // Open-ended exhibitions with no published closing date at all
+    const ongoingMatch = dateStr === 'Ongoing';
 
     if (rangeMatch) {
         const [, sm, sd, sy, em, ed, ey] = rangeMatch;
@@ -136,6 +146,16 @@ export function parseEventPage(html: string, today: LocalDate): ParsedEventDate 
         } catch {
             return { type: 'ParseError', reason: `Invalid date in "Now through": ${dateStr}`, context: dateStr };
         }
+    } else if (ongoingMatch) {
+        // No closing date published at all — placeholder window flagged via
+        // durationUnknown so the caller can note it in the description
+        // instead of silently publishing a made-up close date as fact.
+        return {
+            startDate: today,
+            endDate: today.plusDays(ONGOING_WINDOW_DAYS),
+            location,
+            durationUnknown: true,
+        };
     } else {
         return { type: 'ParseError', reason: `Unrecognized date format: ${dateStr}`, context: dateStr };
     }
@@ -199,6 +219,17 @@ export default class VisitSeattleRipper implements IRipper {
                     date: startDateTime,
                     duration: Duration.ofHours(durationHours),
                     summary: item.title,
+                    // Not routed through the UncertaintyError/cache system: that
+                    // system resolves "duration" as a fixed offset applied on
+                    // top of event.date, but this ripper re-anchors date to
+                    // "today" on every build (matching the "Now through"
+                    // convention above), so a cached duration would silently
+                    // drift the apparent close date forward by exactly one day
+                    // per day instead of converging on the venue's real one.
+                    // The note below is the honest signal instead.
+                    description: parsed.durationUnknown
+                        ? 'Closing date not yet announced by the venue — shown with a placeholder window.'
+                        : undefined,
                     location: parsed.location,
                     url: item.link,
                 });

@@ -109,30 +109,47 @@ export function lookupVenueSetting(
 }
 
 export async function loadUncertaintyCache(filePath: string): Promise<UncertaintyCache> {
+    // A missing file is a legitimate cold start (fresh clone, first build of
+    // a template copy) and degrades gracefully to an empty cache. Anything
+    // else — malformed JSON, or valid JSON in the wrong shape — means the
+    // *committed* cache exists but is broken, which is always a bug, not a
+    // cold start. Silently falling back to an empty cache in that case is
+    // exactly how a missing "version" field once went unnoticed for days:
+    // every build quietly discarded all 10,000+ resolutions and reported
+    // "0 resolved from cache" without anyone reading a console.warn. Throw
+    // instead, so a broken cache fails the build loudly (index.ts sets
+    // process.exitCode = 1 on any uncaught error from main()), which fails
+    // the PR check that would otherwise land the breakage.
+    let raw: string;
     try {
-        const raw = await readFile(filePath, 'utf-8');
-        const parsed = JSON.parse(raw);
-        if (
-            typeof parsed === 'object' &&
-            parsed !== null &&
-            typeof parsed.version === 'number' &&
-            typeof parsed.entries === 'object' &&
-            parsed.entries !== null
-        ) {
-            return parsed as UncertaintyCache;
-        }
-        console.warn(`${filePath} has unexpected shape, starting with empty cache`);
-        return { version: 1, entries: {} };
+        raw = await readFile(filePath, 'utf-8');
     } catch (err: any) {
         if (err?.code === 'ENOENT') {
             return { version: 1, entries: {} };
         }
-        if (err instanceof SyntaxError) {
-            console.warn(`${filePath} is not valid JSON, starting with empty cache: ${err.message}`);
-            return { version: 1, entries: {} };
-        }
         throw err;
     }
+
+    let parsed: unknown;
+    try {
+        parsed = JSON.parse(raw);
+    } catch (err) {
+        throw new Error(`${filePath} is not valid JSON: ${(err as Error).message}`);
+    }
+
+    if (
+        typeof parsed === 'object' &&
+        parsed !== null &&
+        typeof (parsed as any).version === 'number' &&
+        typeof (parsed as any).entries === 'object' &&
+        (parsed as any).entries !== null
+    ) {
+        return parsed as UncertaintyCache;
+    }
+    throw new Error(
+        `${filePath} has an unexpected shape (expected { version: number, entries: object }) — ` +
+        `fix the file rather than letting the build silently ignore it`
+    );
 }
 
 export async function saveUncertaintyCache(cache: UncertaintyCache, filePath: string): Promise<void> {

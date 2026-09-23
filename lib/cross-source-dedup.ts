@@ -10,10 +10,15 @@
 //   MED  → duplicate-candidate queue, drained by the duplicate-resolver skill
 //   LOW  → ignored
 //
-// It is a pure, build-time transform over the events-index entries. It only
-// MARKS events (a shared `duplicateGroupId` + `dedupedSources` on the
-// canonical, `duplicateOf` on the suppressed) — it never drops events or
-// touches any .ics feed. See docs/cross-source-event-dedup.md.
+// The dedup logic itself (scoring, tiering, marking) is a pure, build-time
+// transform over the events-index entries. It only MARKS events (a shared
+// `duplicateGroupId` + `dedupedSources` on the canonical, `duplicateOf` on
+// the suppressed) — it never drops events or touches any .ics feed. This
+// file also owns loadDuplicateCache(), the one bit of file I/O needed to
+// read the committed resolver cache the pure logic consumes. See
+// docs/cross-source-event-dedup.md.
+
+import { readFile } from 'fs/promises';
 
 export interface DedupEvent {
     icsUrl: string;
@@ -451,6 +456,49 @@ export interface DuplicateCache {
 }
 
 export const EMPTY_DUPLICATE_CACHE: DuplicateCache = { resolutions: {} };
+
+// A missing file is a legitimate cold start (fresh clone, first build of a
+// template copy) and degrades gracefully to an empty cache. Anything else —
+// malformed JSON, or valid JSON in the wrong shape — means the *committed*
+// cache exists but is broken, which is always a bug, not a cold start.
+// Throw instead of silently discarding every confirmed/rejected pair: see
+// the near-identical incident with event-uncertainty-cache.json's missing
+// "version" field, where a silent fallback let a broken cache go unnoticed
+// for days (lib/event-uncertainty-cache.ts loadUncertaintyCache has the
+// same guard). index.ts sets process.exitCode = 1 on any uncaught error
+// from main(), so this fails the PR check that would otherwise land the
+// breakage.
+export async function loadDuplicateCache(filePath: string): Promise<DuplicateCache> {
+    let raw: string;
+    try {
+        raw = await readFile(filePath, 'utf-8');
+    } catch (err: any) {
+        if (err?.code === 'ENOENT') {
+            return { resolutions: {} };
+        }
+        throw err;
+    }
+
+    let parsed: unknown;
+    try {
+        parsed = JSON.parse(raw);
+    } catch (err) {
+        throw new Error(`${filePath} is not valid JSON: ${(err as Error).message}`);
+    }
+
+    if (
+        typeof parsed === 'object' &&
+        parsed !== null &&
+        typeof (parsed as any).resolutions === 'object' &&
+        (parsed as any).resolutions !== null
+    ) {
+        return parsed as DuplicateCache;
+    }
+    throw new Error(
+        `${filePath} has an unexpected shape (expected { resolutions: object }) — ` +
+        `fix the file rather than letting the build silently ignore it`
+    );
+}
 
 // Parse a raw (JSON) duplicate cache into the resolved-decisions map that
 // findDuplicates consumes. Tolerant of a missing/blank file (cold start).

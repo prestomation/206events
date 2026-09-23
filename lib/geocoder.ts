@@ -1705,6 +1705,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // Union location, since this resolves events going forward.
   'waterways cruises and events': { lat: 47.6557074, lng: -122.3801098 }, // 3919 18th Ave W, Fisherman's Terminal Dock 9, Magnolia
   'west: international district community center': { lat: 47.5960270, lng: -122.3226387 }, // International District/Chinatown Community Center, 719 8th Ave S
+  'wet clay cafe': { lat: 47.6494094, lng: -122.3435910 }, // 1109 N 35th St, Fremont — Nominatim 404s on the "#Suite A" suffix
   'woodlawn hall': { lat: 47.6825149, lng: -122.3266868 }, // 7400 Woodlawn Ave NE, Green Lake — Abbey Arts Presents' community hall
 };
 
