@@ -5,7 +5,7 @@ platform: Squarespace
 url: https://www.phinneybooks.com/upcoming-events/
 tags: [Books, Greenwood]
 firstSeen: 2026-07-04
-lastChecked: 2026-09-09
+lastChecked: 2026-09-23
 pr:
 ---
 
@@ -28,3 +28,5 @@ Re-checked 2026-07-22: still 0 upcoming events (Squarespace `?format=json` upcom
 Re-checked 2026-08-23: still 0 upcoming events (`itemCount: 176`, 30 `past`, 0 `upcoming`). No change.
 
 Re-checked 2026-09-09: still 0 upcoming events. No change.
+
+Re-checked 2026-09-23: still 0 upcoming events (`itemCount: 176`, 30 `past`, 0 `upcoming`). No change.

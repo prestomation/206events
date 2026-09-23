@@ -101,6 +101,7 @@ const cityConfig = {
         "Madrona",
         "Magnolia",
         "Maple Leaf",
+        "Mount Baker",
         "Northgate",
         "Phinney",
         "Pike Place",
