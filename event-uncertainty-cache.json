@@ -99202,6 +99202,233 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "reason": "Checked BiblioCommons events API (gateway.bibliocommons.com/v2/libraries/kcls/events) directly: this event's definition.featuredImageId is unset, so no image is available for it."
+    },
+    "west-seattle-chamber:business-after-hours-castle-climbing-club-12905": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/business-after-hours-castle-climbing-club-12905"
+    },
+    "west-seattle-chamber:business-after-hours-west-seattle-salon-12900": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/business-after-hours-west-seattle-salon-12900"
+    },
+    "west-seattle-chamber:chamber-essentials-workshop-10-20-2026-10125": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-10-20-2026-10125"
+    },
+    "west-seattle-chamber:chamber-essentials-workshop-11-17-2026-10126": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-11-17-2026-10126"
+    },
+    "west-seattle-chamber:health-wellness-meetup-village-green-17113": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/health-wellness-meetup-village-green-17113"
+    },
+    "west-seattle-chamber:men-s-therapy-group-09-29-2026-15027": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-09-29-2026-15027"
+    },
+    "west-seattle-chamber:men-s-therapy-group-10-06-2026-15028": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-10-06-2026-15028"
+    },
+    "west-seattle-chamber:men-s-therapy-group-10-13-2026-15029": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-10-13-2026-15029"
+    },
+    "west-seattle-chamber:men-s-therapy-group-10-20-2026-15030": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-10-20-2026-15030"
+    },
+    "west-seattle-chamber:men-s-therapy-group-10-27-2026-15031": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-10-27-2026-15031"
+    },
+    "west-seattle-chamber:men-s-therapy-group-11-03-2026-15032": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-11-03-2026-15032"
+    },
+    "west-seattle-chamber:men-s-therapy-group-11-10-2026-15033": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-11-10-2026-15033"
+    },
+    "west-seattle-chamber:men-s-therapy-group-11-17-2026-15034": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-11-17-2026-15034"
+    },
+    "west-seattle-chamber:men-s-therapy-group-11-24-2026-15035": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/men-s-therapy-group-11-24-2026-15035"
+    },
+    "west-seattle-chamber:november-luncheon-12887": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/november-luncheon-12887"
+    },
+    "west-seattle-chamber:october-luncheon-candidate-forum-10-08-2026-12886": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/october-luncheon-candidate-forum-10-08-2026-12886"
+    },
+    "west-seattle-chamber:small-business-owner-retirement-plans-11-06-2026-17368": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/small-business-owner-retirement-plans-11-06-2026-17368"
+    },
+    "west-seattle-chamber:webinar-google-analytics-basics-17271": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/webinar-google-analytics-basics-17271"
+    },
+    "west-seattle-chamber:west-seattle-chamber-adopt-a-street-clean-up-17268": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/west-seattle-chamber-adopt-a-street-clean-up-17268"
+    },
+    "west-seattle-chamber:women-s-therapy-group-counseling-west-seattle-10-05-2026-14839": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/women-s-therapy-group-counseling-west-seattle-10-05-2026-14839"
+    },
+    "west-seattle-chamber:women-s-therapy-group-counseling-west-seattle-10-19-2026-14840": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/women-s-therapy-group-counseling-west-seattle-10-19-2026-14840"
+    },
+    "west-seattle-chamber:women-s-therapy-group-counseling-west-seattle-11-02-2026-14841": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/women-s-therapy-group-counseling-west-seattle-11-02-2026-14841"
+    },
+    "west-seattle-chamber:women-s-therapy-group-counseling-west-seattle-11-16-2026-14842": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/women-s-therapy-group-counseling-west-seattle-11-16-2026-14842"
+    },
+    "west-seattle-chamber:women-s-therapy-group-counseling-west-seattle-11-30-2026-14843": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
+      "evidence": "https://westseattle.wschamber.com/events/details/women-s-therapy-group-counseling-west-seattle-11-30-2026-14843"
+    },
+    "cidbia:cidbia-6a98909dc56c055337e81a8a-202703230000": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Proxi.co widget API event has no cover_image field (checked directly).",
+      "evidence": "https://app.proxi.co/api/public/events/66a82b2c8cb3161b7d22dc0d"
+    },
+    "icm:icm-plan-9-boot-camp-fall-2025-2027-9-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "icm.museum/?events lists this as a plain-text event-entry (h2/date/location only) with no images anywhere on the page (checked directly).",
+      "evidence": "https://icm.museum/?events"
+    },
+    "stroum-jcc:151553": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events REST API (sjcc.org/wp-json/tribe/events/v1/events) returns image: false for this event (checked directly).",
+      "evidence": "https://sjcc.org/wp-json/tribe/events/v1/events/151553"
+    },
+    "stroum-jcc:151870": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events REST API (sjcc.org/wp-json/tribe/events/v1/events) returns image: false for this event (checked directly).",
+      "evidence": "https://sjcc.org/wp-json/tribe/events/v1/events/151870"
+    },
+    "stroum-jcc:151884": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events REST API (sjcc.org/wp-json/tribe/events/v1/events) returns image: false for this event (checked directly).",
+      "evidence": "https://sjcc.org/wp-json/tribe/events/v1/events/151884"
+    },
+    "dogwoodplaypark:344f72e9-626e-4c30-b2dc-4f1e4f262bfa": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_7784a7dbb5bb483ba384648a0bbc195b~mv2.jpg/v1/fill/w_6000,h_3375,al_c,q_90/037af7_7784a7dbb5bb483ba384648a0bbc195b~mv2.jpg"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/short-snout-meet-up-frenchie-boston-pug-12"
+    },
+    "dogwoodplaypark:cfe32e31-b639-472d-afba-45986372d0cd": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_c60ab564351f480c882ae15ae946ba65~mv2.jpg/v1/fill/w_2048,h_1536,al_c,q_90/037af7_c60ab564351f480c882ae15ae946ba65~mv2.jpg"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/husky-malamute-meet-up-6"
+    },
+    "dogwoodplaypark:f89aa8e3-6406-40a2-bb03-8d8a4e0bade3": {
+      "fields": {
+        "imageUrl": "https://static.wixstatic.com/media/037af7_60c0121532494f55a638fd013b0d7d4a~mv2.jpg/v1/fill/w_4032,h_3024,al_c,q_90/037af7_60c0121532494f55a638fd013b0d7d4a~mv2.jpg"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.dogwoodplaypark.com/event-details/golden-retriever-meet-up-32"
     }
   }
 }

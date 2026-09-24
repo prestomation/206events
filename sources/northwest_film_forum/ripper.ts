@@ -70,6 +70,18 @@ export function extractTitle(html: string): string | null {
 }
 
 /**
+ * Extracts the WordPress `og:image` meta tag — the film poster or event
+ * flyer on /films/, /events/, and /education/workshops/ pages alike. Public
+ * for testing.
+ */
+export function extractImageUrl(html: string): string | undefined {
+    const m = html.match(/<meta property="og:image" content="([^"]+)"/);
+    if (!m) return undefined;
+    const url = decode(m[1]).trim();
+    return url.length ? url : undefined;
+}
+
+/**
  * Extracts a *valid* `itemprop="startDate"` meta content as a LocalDateTime.
  * On /films/ pages this is a real ISO local datetime
  * (`2026-07-10T19:00:00`). On /events/ and some /education/workshops/ pages
@@ -419,6 +431,7 @@ export function parseDetailPage(
 
     const offersUrl = extractOffersUrl(html);
     const location = extractLocation(html);
+    const imageUrl = extractImageUrl(html);
 
     const localDateTime = extractCleanStartDate(html) ?? extractFreeTextDateTime(html);
     if (localDateTime) {
@@ -432,6 +445,7 @@ export function parseDetailPage(
             location: location ?? undefined,
             url,
             cost: COST,
+            imageUrl,
         };
         return [event];
     }
@@ -456,6 +470,7 @@ export function parseDetailPage(
             location: location ?? undefined,
             url,
             cost: COST,
+            imageUrl,
         };
         const unknownFields: UncertaintyField[] = ["startTime", "duration"];
         const uncertainty: UncertaintyError = {
@@ -481,6 +496,7 @@ export function parseDetailPage(
                 location: location ?? undefined,
                 url,
                 cost: COST,
+                imageUrl,
             };
         });
     }
@@ -503,6 +519,7 @@ export function parseDetailPage(
                 location: location ?? undefined,
                 url,
                 cost: COST,
+                imageUrl,
             };
             const uncertainty: UncertaintyError = {
                 type: "Uncertainty",
@@ -535,6 +552,7 @@ export function parseDetailPage(
                 location: location ?? undefined,
                 url,
                 cost: COST,
+                imageUrl,
             };
             results.push(event);
         }
