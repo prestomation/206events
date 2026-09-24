@@ -151,6 +151,13 @@ describe("detail pages", () => {
         expect(results[0].cost).toBeUndefined();
     });
 
+    it("an explicit isAccessibleForFree: false also wins over a stale/inconsistent page Cost field", () => {
+        const ld: JsonLdEvent = { name: "Paid Workshop", startDate: "2026-10-05 10:00 AM", isAccessibleForFree: false };
+        const results = parseDetailEvent(ld, `${BASE}paid-workshop/`, "free");
+        if (!("date" in results[0])) throw new Error("expected event");
+        expect(results[0].cost).toBeUndefined();
+    });
+
     it("falls back to a 'free' claim in the title or description when isAccessibleForFree is absent (live example, 2026-09-24)", () => {
         const ld: JsonLdEvent = {
             name: "Free Wooden Boat Story Time at SLU",

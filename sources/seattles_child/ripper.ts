@@ -202,10 +202,15 @@ export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string, costField?: "
     // free" signal from the source — it must win over a lower-confidence
     // text match (e.g. a "free parking" mention in the description
     // shouldn't override it and mark the event free).
-    const cost = ev.isAccessibleForFree === true || costField === "free"
-        ? { min: 0 }
-        : ev.isAccessibleForFree === false
-            ? undefined
+    // isAccessibleForFree: false is checked first and short-circuits every
+    // other signal (free-text fallback, the page's own Cost field) — an
+    // explicit, structured "this is not free" from the source must win over
+    // any lower-confidence or potentially-stale signal, not just the text
+    // fallback.
+    const cost = ev.isAccessibleForFree === false
+        ? undefined
+        : ev.isAccessibleForFree === true || costField === "free"
+            ? { min: 0 }
             : hasUnnegatedMatch([title, description].filter(Boolean).join(" "), FREE_TEXT_RE)
                 ? { min: 0 }
                 : costField === "fee"
