@@ -1,7 +1,7 @@
 import { Duration, OffsetDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import "@js-joda/timezone";
 import { parse } from "node-html-parser";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
 
@@ -85,6 +85,7 @@ export function extractSideOutTsunamiEvents(
         if (seen.has(id)) continue;
         seen.add(id);
 
+        const cost: EventCost = { paid: true };
         events.push({
             id,
             ripped: new Date(),
@@ -93,6 +94,7 @@ export function extractSideOutTsunamiEvents(
             summary: decode(data.name),
             location: LOCATION,
             url: data.url || undefined,
+            cost,
         });
     }
 

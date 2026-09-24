@@ -1,5 +1,5 @@
 import { ChronoUnit, Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { parse, HTMLElement } from "node-html-parser";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
@@ -177,6 +177,12 @@ export default class Do206Ripper implements IRipper {
             event.lat = lat;
             event.lng = lng;
             event.geocodeSource = 'ripper';
+        }
+
+        // Permalinks ending in "-tickets" or "-tickets-XXXX" are ticketed paid events.
+        if (/-tickets(-[a-z0-9]+)?$/.test(permalink)) {
+            const cost: EventCost = { paid: true };
+            event.cost = cost;
         }
 
         return event;

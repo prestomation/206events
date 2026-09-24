@@ -1,5 +1,5 @@
 import { ChronoUnit, Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { parse, HTMLElement } from "node-html-parser";
 import '@js-joda/timezone';
@@ -176,6 +176,7 @@ export default class ClubSakeRipper implements IRipper {
                 if (seen.has(parsed.id)) continue;
                 seen.add(parsed.id);
 
+                const cost: EventCost = { paid: true };
                 events.push({
                     id: parsed.id,
                     ripped: new Date(),
@@ -185,6 +186,7 @@ export default class ClubSakeRipper implements IRipper {
                     description: parsed.category,
                     location: parsed.location,
                     url: parsed.url,
+                    cost,
                 });
             }
         }
