@@ -63,6 +63,22 @@
           }
         ]
       }
+    },
+    {
+      "urlId": "workshop-dwayne-sackey",
+      "title": "Faceted + Altered Tea Bowls",
+      "excerpt": "<p style=\"text-align: justify; white-space: pre-wrap\" data-rte-preserve-empty=\"true\">Welcoming Dwayne Sackey to Vortex Pottery to teach a weekend workshop on Faceted + Altered Tea Bowls!</p><h3 style=\"text-align: justify; white-space: pre-wrap\" data-rte-preserve-empty=\"true\"><strong><span>October 10 &amp; 11, 2026 | Saturday &amp; Sunday | </span>9.30 AM - 4 PM</strong></h3><p style=\"white-space:pre-wrap;\" data-rte-preserve-empty=\"true\">Seats are limited.</p>",
+      "fullUrl": "/pottery-classes-seattle-washington/p/workshop-dwayne-sackey",
+      "structuredContent": {
+        "_type": "StoreItem",
+        "productType": 3,
+        "variants": [
+          {
+            "attributes": {},
+            "price": 32500
+          }
+        ]
+      }
     }
   ]
 }

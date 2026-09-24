@@ -118,6 +118,122 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(result!.endHour).toBe(19);
         expect(result!.endMinute).toBe(0);
     });
+
+    test('does not misparse an unrelated word before a day number as a typo\'d month (regression)', () => {
+        // "Market" shares a 3-letter prefix with "March" but is not a typo
+        // of it; must not silently produce a March date.
+        expect(ripper.parseDateTimeFromText('Join us for our Holiday Market 12 from 10am-2pm. Vendors welcome!')).toBeNull();
+    });
+
+    test('does not misparse a name that happens to be an exact prefix of a month name (regression)', () => {
+        // "Marc" is a real given name and an exact prefix of "march", but
+        // not the (3-letter) abbreviation for it; must not silently
+        // produce a March date.
+        expect(ripper.parseDateTimeFromText("Say hi to Marc 5 from 10am-2pm today!")).toBeNull();
+    });
+
+    test('finds a known-typo month later in the text instead of stopping at an earlier non-month date-shaped phrase (regression)', () => {
+        // A second-round regression: scanning for only the *first* syntactic
+        // match (even generalized to any word) still let an earlier
+        // unrelated phrase block a real, typo'd-but-resolvable date further
+        // on. findDateTimeMatch must keep scanning candidates within a
+        // shape, not just take the first one.
+        const result = ripper.parseDateTimeFromText(
+            'Come to our Merchandise 5 from 10am-2pm sale! Then our real event on Octotber 15 from 5-7pm.'
+        );
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(15);
+        expect(result!.startHour).toBe(17);
+        expect(result!.endHour).toBe(19);
+    });
+
+    test('finds a correctly-spelled month later in the text instead of stopping at an earlier date-shaped phrase (regression)', () => {
+        // The generic month-word fallback (for known typos) must only run
+        // when no correctly-spelled month exists anywhere in the text — an
+        // earlier version tried the generic pattern first and could match
+        // "Market 12 from 10am-2pm" before ever reaching the real,
+        // correctly-spelled date later in the same description, silently
+        // dropping a well-formed event.
+        const result = ripper.parseDateTimeFromText(
+            "Join us for our monthly Vendor Market 12 from 10am-2pm! Then don't miss our special dog meetup on October 15 from 5-7pm."
+        );
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(15);
+        expect(result!.startHour).toBe(17);
+        expect(result!.endHour).toBe(19);
+    });
+
+    test('tolerates a typo\'d month name via "from" pattern, e.g. "Octotber 2" for "October 2"', () => {
+        // Live regression: https://www.cobyscafe.com/product/x/2Z5TBRBNQU3S6DK4UF7TB447
+        const result = ripper.parseDateTimeFromText(
+            'Join us for a Pomeranian 𝗠𝗲𝗲𝘁𝘂𝗽 on 𝗙𝗿𝗶𝗱𝗮𝘆, Octotber 2 from 5-6:30𝗣𝗠. Mixes welcome!'
+        );
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(2);
+        expect(result!.startHour).toBe(17);
+        expect(result!.endHour).toBe(18);
+        expect(result!.endMinute).toBe(30);
+    });
+
+    test('parses emoji-delimited date with a year and no am/pm on the start time, e.g. "📅 Month Day, Year⏰ H:MM–H:MM PM"', () => {
+        // Live regression: https://www.cobyscafe.com/product/x/TLIT44TO4VYP5FV3QNQH445G
+        const result = ripper.parseDateTimeFromText(
+            '📍 Coby’s Café, Seattle📅 Saturday, October 3, 2026⏰ 5:30–7:30 PM🐶 Friendly dogs welcome'
+        );
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(3);
+        expect(result!.startHour).toBe(17);
+        expect(result!.startMinute).toBe(30);
+        expect(result!.endHour).toBe(19);
+        expect(result!.endMinute).toBe(30);
+    });
+});
+
+describe('CobysCafeRipper - resolveMonthIndex', () => {
+    const ripper = new CobysCafeRipper();
+
+    test('resolves full and abbreviated month names', () => {
+        expect(ripper.resolveMonthIndex('October')).toBe(9);
+        expect(ripper.resolveMonthIndex('Oct')).toBe(9);
+        expect(ripper.resolveMonthIndex('September')).toBe(8);
+    });
+
+    test('resolves an explicitly-listed known upstream typo', () => {
+        expect(ripper.resolveMonthIndex('Octotber')).toBe(9);
+        expect(ripper.resolveMonthIndex('OCTOTBER')).toBe(9); // case-insensitive
+    });
+
+    test('returns -1 for a non-month word, including one merely resembling a month', () => {
+        expect(ripper.resolveMonthIndex('Workshop')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Ju')).toBe(-1);
+        // Regression: earlier versions used a generic shared-prefix or
+        // edit-distance fallback here, which cross-matched ordinary English
+        // words that merely resemble a month name — silently misdating an
+        // unrelated event instead of correctly failing to parse. The
+        // explicit MONTH_TYPO_OVERRIDES lookup can't do that: only an exact,
+        // deliberately-added typo string resolves.
+        expect(ripper.resolveMonthIndex('Market')).toBe(-1);   // shares "Mar" with March
+        expect(ripper.resolveMonthIndex('Match')).toBe(-1);    // 1 substitution from March
+        expect(ripper.resolveMonthIndex('Jury')).toBe(-1);     // 1 substitution from July
+        expect(ripper.resolveMonthIndex('Augusta')).toBe(-1);  // August + 1 inserted letter
+        expect(ripper.resolveMonthIndex('Octobber')).toBe(-1); // not the one listed typo
+    });
+
+    test('does not cross-match a word that is an exact but non-3-letter prefix of a month name (regression)', () => {
+        // A fourth-round regression: once the month regex captures any
+        // word (for MONTH_TYPO_OVERRIDES), accepting "any-length prefix"
+        // here — not just the standard 3-letter abbreviation — let a word
+        // that happens to be a genuine, exact prefix of a month name
+        // resolve as that month, e.g. "Marc" (a real given name) -> March.
+        expect(ripper.resolveMonthIndex('Marc')).toBe(-1);   // prefix of "march", not the 3-letter abbreviation
+        expect(ripper.resolveMonthIndex('Octob')).toBe(-1);  // prefix of "october"
+        expect(ripper.resolveMonthIndex('Apri')).toBe(-1);   // prefix of "april"
+        expect(ripper.resolveMonthIndex('Sept')).toBe(-1);   // 4-letter abbreviation, not the standard 3-letter one
+    });
 });
 
 describe('CobysCafeRipper - parseProductHtml', () => {
