@@ -145,6 +145,14 @@ describe("parseFeesText", () => {
         expect(parseFeesText("Regular: $35, Early Bird: $25")).toEqual({ min: 25 });
     });
 
+    test("a cheaper untagged amount beats a pricier general-admission-labeled one", () => {
+        expect(parseFeesText("Door: $20, General Admission: $30")).toEqual({ min: 20 });
+    });
+
+    test("returns undefined (never Infinity) when every amount is member-tagged", () => {
+        expect(parseFeesText("Individual Member: $15, Family Member: $20")).toBeUndefined();
+    });
+
     test("takes the first amount when multiple prices aren't member tiers (live example: session vs. package)", () => {
         expect(parseFeesText("$30/session.  4 sessions for $102 (use within 8 weeks)."))
             .toEqual({ min: 30 });

@@ -100,6 +100,12 @@ const FREE_SIGNAL_RE = /suggested donation|donation[- ]based|pay[- ]what[- ]you[
 // the comma group `\d+` alone stops at the comma and truncates "$1,250" to 1).
 const DOLLARS = "\\d{1,3}(?:,\\d{3})*(?:\\.\\d{1,2})?|\\d+(?:\\.\\d{1,2})?";
 const RANGE_RE = new RegExp(`\\$(${DOLLARS})\\s*(?:-|–|to)\\s*\\$?(${DOLLARS})`, "i");
+// A range alone isn't enough signal — "$500-$1000" could be anything (a
+// fundraising total, a prize purse). Requires a price-related word shortly
+// before the match (e.g. "Sliding scale $15-25", "Cost is $10 to $20") so an
+// unrelated dollar range elsewhere in the body isn't mistaken for the price.
+// Deliberately excludes "fee", for the same reason as KEYWORD_PRICE_RE above.
+const RANGE_CONTEXT_RE = /\b(?:sliding scale|cost|price|admission|tickets?|investment|range)\b[^.$]{0,20}$/i;
 // Deliberately excludes "fee" — the pricing rubric treats fees (materials,
 // processing, registration add-ons) as distinct from and excluded from the
 // general-admission price, so a body mentioning "materials fee $5" must not
@@ -129,10 +135,13 @@ export function extractCostFromBody(body: string | undefined): EventCost | undef
     if (!text) return undefined;
     if (hasUnnegatedMatch(text, FREE_SIGNAL_RE)) return { min: 0 };
     const range = text.match(RANGE_RE);
-    if (range) {
-        const min = parseDollars(range[1]);
-        const max = parseDollars(range[2]);
-        if (max > min) return { min, max };
+    if (range && range.index !== undefined) {
+        const prefix = text.slice(Math.max(0, range.index - 30), range.index);
+        if (RANGE_CONTEXT_RE.test(prefix)) {
+            const min = parseDollars(range[1]);
+            const max = parseDollars(range[2]);
+            if (max > min) return { min, max };
+        }
     }
     const keyword = firstNonTieredPrice(text, KEYWORD_PRICE_RE);
     if (keyword) return { min: parseDollars(keyword) };

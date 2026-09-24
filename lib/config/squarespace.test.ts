@@ -529,6 +529,12 @@ describe('SquarespaceRipper', () => {
             expect(extractCostFromBody('<p>Cost is $10 to $20.</p>')).toEqual({ min: 10, max: 20 });
         });
 
+        test('does not mistake an unrelated dollar range for the admission price', () => {
+            expect(extractCostFromBody(
+                "<p>We raised $500-$1000 for the food bank at last year's meetup!</p>"
+            )).toBeUndefined();
+        });
+
         test('extracts a keyword-labeled price', () => {
             expect(extractCostFromBody('<p>Investment: $45 for the full workshop.</p>')).toEqual({ min: 45 });
             expect(extractCostFromBody('<p>Tickets $12.50 at the door.</p>')).toEqual({ min: 12.5 });

@@ -165,33 +165,29 @@ export function parseFeesText(raw: string | undefined): EventCost | undefined {
     if (hasUnnegatedMatch(text, FEES_NOTAFLOF_RE)) return { min: 0 };
 
     // Collect every dollar amount on the field along with what its
-    // immediately-preceding text labels it as. Order-independent — the
-    // cheapest matching amount wins regardless of which tier is listed
-    // first (GrowthZone listings aren't consistently ordered).
+    // immediately-preceding text labels it as, excluding any tagged as a
+    // member/discount tier. The cheapest of the rest is the
+    // general-admission price the rubric calls for — order-independent
+    // (GrowthZone listings aren't consistently ordered) and label-agnostic
+    // (an untagged amount, e.g. "$30/session", is just as eligible as one
+    // explicitly labeled "General Admission").
     FEES_AMOUNT_RE.lastIndex = 0;
     let m: RegExpExecArray | null;
-    const all: number[] = [];
-    const general: number[] = [];
-    const nonMember: number[] = [];
+    const candidates: number[] = [];
+    let sawAnyAmount = false;
     while ((m = FEES_AMOUNT_RE.exec(text))) {
-        const amount = parseDollars(m[1]);
+        sawAnyAmount = true;
         const prefix = text.slice(Math.max(0, m.index - 30), m.index);
         const isGeneral = FEES_GENERAL_TIER_RE.test(prefix);
         const isMember = !isGeneral && FEES_MEMBER_TIER_RE.test(prefix);
-        all.push(amount);
-        if (isGeneral) general.push(amount);
-        if (!isMember) nonMember.push(amount);
+        if (isMember) continue;
+        candidates.push(parseDollars(m[1]));
     }
-    if (general.length > 0) return { min: Math.min(...general) };
-    if (all.length === 1) return { min: all[0] };
-    if (all.length > 1) {
-        // Some amounts were tagged as a member-only discount and excluded —
-        // the cheapest of the rest is the general-admission price. If none
-        // were tagged (e.g. "$30/session, 4 sessions for $102" — a per-visit
-        // price vs. a bulk package, not a tier), the cheapest of all of them
-        // is simply the cheapest way in, matching the rubric either way.
-        return { min: Math.min(...(nonMember.length < all.length ? nonMember : all)) };
-    }
+    if (candidates.length > 0) return { min: Math.min(...candidates) };
+    // Every dollar amount on the field was member-tagged (e.g. "Individual
+    // Member: $15, Family Member: $20") — no general-admission price is
+    // determinable, so this stays a gap rather than guessing.
+    if (sawAnyAmount) return undefined;
 
     // No dollar amount anywhere — only now trust a bare "free" claim.
     if (hasUnnegatedMatch(text, FEES_FREE_WORD_RE)) return { min: 0 };
