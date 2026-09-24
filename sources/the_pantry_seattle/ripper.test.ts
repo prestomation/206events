@@ -4,10 +4,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import '@js-joda/timezone';
 import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
-import { parsePantryItems, parsePantryItem, parsePantryDate, PantryItem } from './ripper.js';
+import { parsePantryItems, parsePantryItem, parsePantryDate, extractClassHeroImage, PantryItem } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const items: PantryItem[] = JSON.parse(fs.readFileSync(path.join(__dirname, 'sample-data.json'), 'utf8')).data;
+const classPageHtml = fs.readFileSync(path.join(__dirname, 'sample-class-page.html'), 'utf8');
 
 describe('The Pantry ripper', () => {
     it('parses every item in the sample without errors', () => {
@@ -40,5 +41,15 @@ describe('The Pantry ripper', () => {
         expect(parsePantryItems([items[0], items[0]])).toHaveLength(1);
         const bad = parsePantryItem({ ...items[0], startDate: 'garbage' });
         expect('type' in bad && bad.type).toBe('ParseError');
+    });
+
+    it('extracts the hero photo from a class page, not the instructor headshot', () => {
+        expect(extractClassHeroImage(classPageHtml)).toBe(
+            'https://the-pantry-prod.imgix.net/tomatoes_2022-09-16-205414_vtlf.jpg?ar=1.6666666666667&fit=crop&fm=webp&fp-x=0.5&fp-y=0.5&ixlib=php-2.1.1&q=50&w=1244',
+        );
+    });
+
+    it('returns undefined when a page has no hero figure', () => {
+        expect(extractClassHeroImage('<html><body><p>no photo here</p></body></html>')).toBeUndefined();
     });
 });
