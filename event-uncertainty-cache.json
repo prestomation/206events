@@ -38061,11 +38061,12 @@
         "duration": 32400,
         "cost": {
           "min": 0
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://udistrictseattle.com/chowdown"
+      "evidence": "https://udistrictseattle.com/chowdown - outdoor street party/food festival in U District"
     },
     "u-district-partnership:u-district-street-fair-2027-05-15": {
       "unresolvable": true,
@@ -55606,11 +55607,12 @@
         "cost": {
           "min": 0
         },
-        "location": "Seattle Center, 305 Harrison St., Seattle, WA 98109"
+        "location": "Seattle Center, 305 Harrison St., Seattle, WA 98109",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.thecraftmap.com/fair/the-italian-festival-seattle-wa"
+      "evidence": "https://www.thecraftmap.com/fair/the-italian-festival-seattle-wa - outdoor Italian festival"
     },
     "craft-map-seattle:turkish-festival-26th-seattle-wa-2026-10-10": {
       "unresolvable": true,
@@ -67514,12 +67516,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-05",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://ilovelynnwood.com/oktoberfest/",
-      "lastSeen": "2026-09-05"
+      "evidence": "https://ilovelynnwood.com/oktoberfest/ - Oktoberfest outdoor festival in Lynnwood"
     },
     "events12:bellevue-fashion-show-106562-2026-09-26": {
       "fields": {
@@ -90368,11 +90370,12 @@
       "fields": {
         "startTime": "10:00",
         "duration": 32400,
-        "location": "Seattle Center, 305 Harrison St, Seattle, WA 98109"
+        "location": "Seattle Center, 305 Harrison St, Seattle, WA 98109",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-09-21",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.thecraftmap.com/fair/the-italian-festival-at-seattle-center-seattle-wa"
+      "evidence": "https://www.thecraftmap.com/fair/the-italian-festival-at-seattle-center-seattle-wa - outdoor festival at Seattle Center grounds"
     },
     "craft-map-seattle:artist-attic-sale-seattle-wa-2026-09-26": {
       "unresolvable": true,
@@ -93372,11 +93375,12 @@
       "fields": {
         "cost": {
           "min": 45.0
-        }
+        },
+        "setting": "indoor"
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://feverup.com/en/seattle/candlelight"
+      "evidence": "Candlelight concert at the Nordic Museum - indoor venue at 2655 NW Market St"
     },
     "events12:free-things-to-do-119028-2026-09-23": {
       "unresolvable": true,
@@ -95142,6 +95146,232 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "reason": "Luma hides venue address behind registration; no public street address available"
+    },
+    "venue:osm:way:1291989983": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:1291989983 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:160980421": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:160980421 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:161502323": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:161502323 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:196614933": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:196614933 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:222078978": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:222078978 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:224436893": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:224436893 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:228779140": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:228779140 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:235386606": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:235386606 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:238098805": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:238098805 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:34151089": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:34151089 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:35089137": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:35089137 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:37024763": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:37024763 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:40833037": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:40833037 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:50536560": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:50536560 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:53589225": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:53589225 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:56176613": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:56176613 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:77965447": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way:77965447 - building=yes tag (community centre/civic/place_of_worship)"
+    },
+    "venue:osm:way:229839975": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Japanese Garden has both indoor teahouse and outdoor garden areas; events may be in either"
+    },
+    "venue:osm:node:12982792265": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "Fourth Emerald Games is a retail game store - brick and mortar indoor commercial space (no OSM tags but label confirms game store)"
+    },
+    "venue:osm:node:150970845": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "OSM node is the West Seattle neighborhood label, not a specific venue - cannot classify setting"
+    },
+    "venue:osm:node:2286321665": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "Bitter Lake Annex / Broadview Thomson Elementary School - indoor school/community building"
+    },
+    "venue:loc:counseling west seattle, seattle, wa": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "Therapist/counseling office - indoor professional space"
+    },
+    "venue:loc:mama be well healing studio, 4034a california ave sw, seattle, wa 98116": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "Healing studio at 4034A California Ave SW - indoor wellness studio"
+    },
+    "venue:loc:meadowbrook community center, 10517 35th ave ne, seattle, wa 98125": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "Meadowbrook Community Center - indoor Seattle Parks community center building"
+    },
+    "venue:loc:must register: virtual - zoom link provided upon registration": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Virtual/online event - no physical setting applicable"
+    },
+    "venue:loc:ravenna-eckstein community center, 6535 ravenna ave ne, seattle, wa 98115": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "Ravenna-Eckstein Community Center - indoor Seattle Parks community center"
+    },
+    "venue:loc:the lab @ 1010, 1010 south bailey street, seattle, wa 98108": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "The LAB @ 1010 - indoor event/performance space at 1010 S Bailey St Seattle"
+    },
+    "seattle-parks-activecommunities:sprac-87076-2026-09-23": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076 - Seattle Parks recreation center indoor drop-in activity"
+    },
+    "seattle-parks-activecommunities:sprac-87076-2026-09-30": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076 - Seattle Parks recreation center indoor drop-in activity"
     }
   }
 }
