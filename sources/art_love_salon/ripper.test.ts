@@ -163,6 +163,11 @@ describe('ArtLoveSalonRipper - parseHoursRange', () => {
         expect(result).toEqual({ startHour: 16, startMinute: 0, endHour: 19, endMinute: 0 });
     });
 
+    test('parses a compact range with surrounding text/punctuation (unanchored, like the full-format regex)', () => {
+        expect(ripper.parseHoursRange('5-9pm.')).toEqual({ startHour: 17, startMinute: 0, endHour: 21, endMinute: 0 });
+        expect(ripper.parseHoursRange(' 5-9pm ')).toEqual({ startHour: 17, startMinute: 0, endHour: 21, endMinute: 0 });
+    });
+
     test('returns null for an unrecognized format', () => {
         expect(ripper.parseHoursRange('TBD')).toBeNull();
     });

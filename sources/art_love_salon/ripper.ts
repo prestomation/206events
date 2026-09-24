@@ -308,8 +308,10 @@ export default class ArtLoveSalonRipper implements IRipper {
         // range that crosses noon (e.g. "11-2pm" meaning 11 AM to 2 PM);
         // that ambiguous shape isn't resolvable from the text alone and
         // falls through to the caller's "could not parse" error instead of
-        // guessing.
-        const compactMatch = hours.match(/^(\d{1,2})(?::(\d{2}))?\s*-\s*(\d{1,2})(?::(\d{2}))?\s*(AM|PM)$/i);
+        // guessing. Left unanchored, like the full-format regex above, so a
+        // stray trailing period or surrounding text doesn't itself defeat
+        // the match.
+        const compactMatch = hours.match(/(\d{1,2})(?::(\d{2}))?\s*-\s*(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
         if (compactMatch) {
             const ampm = compactMatch[5];
             const startHour = this.to24Hour(compactMatch[1], ampm);

@@ -9,6 +9,23 @@ const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june',
 const LOCATION = "Coby's Cafe, 101 Nickerson St Building B Suite 200, Seattle, WA 98109";
 const TIMEZONE = ZoneId.of('America/Los_Angeles');
 
+/** Standard Levenshtein edit distance between two short strings (month-length inputs only). */
+function levenshteinDistance(a: string, b: string): number {
+    const rows = a.length + 1;
+    const cols = b.length + 1;
+    const dp: number[][] = Array.from({ length: rows }, () => new Array(cols).fill(0));
+    for (let i = 0; i < rows; i++) dp[i][0] = i;
+    for (let j = 0; j < cols; j++) dp[0][j] = j;
+    for (let i = 1; i < rows; i++) {
+        for (let j = 1; j < cols; j++) {
+            dp[i][j] = a[i - 1] === b[j - 1]
+                ? dp[i - 1][j - 1]
+                : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+        }
+    }
+    return dp[rows - 1][cols - 1];
+}
+
 export default class CobysCafeRipper implements IRipper {
     private fetchFn: FetchFn = fetch;
 
@@ -254,10 +271,14 @@ export default class CobysCafeRipper implements IRipper {
      * (0-based), or -1 if it doesn't resemble any month. Two strategies:
      *   1. The known month name starts with the word (handles exact full
      *      names and any-length prefixes/abbreviations, e.g. "Sep", "Sept").
-     *   2. The word's own first three letters match a month's first three
-     *      letters (handles a typo further into the word, e.g. "Octotber"
-     *      for "October" — all twelve months have unique 3-letter prefixes,
-     *      so this can't cross-match the wrong month).
+     *   2. The word is within one Levenshtein edit (insert/delete/substitute)
+     *      of a full month name, and within one character of its length —
+     *      handles a single typo anywhere in the word (e.g. "Octotber" for
+     *      "October", one inserted "t"). Deliberately checked against the
+     *      *full* name only (not the 3-letter abbreviation): a bare
+     *      shared-prefix check would also match unrelated words that happen
+     *      to start the same way (e.g. "Market" vs "March"), silently
+     *      misdating an event instead of correctly failing to parse.
      * Public for testing.
      */
     resolveMonthIndex(word: string): number {
@@ -267,7 +288,7 @@ export default class CobysCafeRipper implements IRipper {
         if (w.length < 3) return -1;
         const exactIdx = MONTHS.findIndex(m => m.startsWith(w));
         if (exactIdx !== -1) return exactIdx;
-        return MONTHS.findIndex(m => m.slice(0, 3) === w.slice(0, 3));
+        return MONTHS.findIndex(m => Math.abs(m.length - w.length) <= 1 && levenshteinDistance(m, w) <= 1);
     }
 
     private decodeHtmlEntities(text: string): string {

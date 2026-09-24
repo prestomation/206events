@@ -119,6 +119,12 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(result!.endMinute).toBe(0);
     });
 
+    test('does not misparse an unrelated word before a day number as a typo\'d month (regression)', () => {
+        // "Market" shares a 3-letter prefix with "March" but is not a typo
+        // of it; must not silently produce a March date.
+        expect(ripper.parseDateTimeFromText('Join us for our Holiday Market 12 from 10am-2pm. Vendors welcome!')).toBeNull();
+    });
+
     test('tolerates a typo\'d month name via "from" pattern, e.g. "Octotber 2" for "October 2"', () => {
         // Live regression: https://www.cobyscafe.com/product/x/2Z5TBRBNQU3S6DK4UF7TB447
         const result = ripper.parseDateTimeFromText(
@@ -163,6 +169,20 @@ describe('CobysCafeRipper - resolveMonthIndex', () => {
     test('returns -1 for a non-month or too-short word', () => {
         expect(ripper.resolveMonthIndex('Workshop')).toBe(-1);
         expect(ripper.resolveMonthIndex('Ju')).toBe(-1);
+    });
+
+    test('does not cross-match an unrelated word that merely shares a 3-letter prefix with a month', () => {
+        // Regression: an earlier version matched on shared first-3-letters
+        // alone, so ordinary words could be silently misparsed as a month
+        // (e.g. "Market" -> "March"), producing a wrong event date instead
+        // of correctly failing to parse.
+        expect(ripper.resolveMonthIndex('Market')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Mayor')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Decor')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Marching')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Junction')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Novice')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Separate')).toBe(-1);
     });
 });
 

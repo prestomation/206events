@@ -113,16 +113,13 @@ function getFirstHeadingText(excerptHtml: string): string | null {
     return decode(heading.text).replace(/\s+/g, " ").trim();
 }
 
-// Public for testing. Extracts the "<Weekday>s - <Month> D to <Month> D,
-// YYYY" heading text into a concrete weekly date range. The stated year
-// trails the *end* date; the start date's year is the same unless the start
-// month falls after the end month, which means the range crosses a year
-// boundary (e.g. "December 15 to January 19, 2027") and the start is really
-// in the preceding year.
-export function extractHeadingDateRange(excerptHtml: string): DateRange | null {
-    const text = getFirstHeadingText(excerptHtml);
-    if (!text) return null;
-
+// Extracts the "<Weekday>s - <Month> D to <Month> D, YYYY" shape from
+// already-extracted heading text into a concrete weekly date range. The
+// stated year trails the *end* date; the start date's year is the same
+// unless the start month falls after the end month, which means the range
+// crosses a year boundary (e.g. "December 15 to January 19, 2027") and the
+// start is really in the preceding year.
+function parseWeeklyRangeFromHeadingText(text: string): DateRange | null {
     const m = HEADING_DATE_RANGE_RE.exec(text);
     if (!m) return null;
     const [, , startMonthName, startDay, endMonthName, endDay, yearStr] = m;
@@ -142,6 +139,16 @@ export function extractHeadingDateRange(excerptHtml: string): DateRange | null {
     }
 }
 
+// Public for testing. Extracts an excerpt's weekly date range directly from
+// its raw HTML — parseItem instead calls getFirstHeadingText once and reuses
+// the extracted text for both this shape and the workshop shape below, so
+// this wrapper (and extractWorkshopHeading's) only re-parses the HTML when
+// called on their own, e.g. from a test.
+export function extractHeadingDateRange(excerptHtml: string): DateRange | null {
+    const text = getFirstHeadingText(excerptHtml);
+    return text ? parseWeeklyRangeFromHeadingText(text) : null;
+}
+
 // A one-off guest workshop (as opposed to a recurring weekly class) carries
 // an explicit two-day list plus its own time range in the same heading,
 // e.g. "October 10 & 11, 2026 | Saturday & Sunday | 9.30 AM - 4 PM" — unlike
@@ -159,11 +166,7 @@ interface WorkshopDates {
     time: TimeRange;
 }
 
-// Public for testing.
-export function extractWorkshopHeading(excerptHtml: string): WorkshopDates | null {
-    const text = getFirstHeadingText(excerptHtml);
-    if (!text) return null;
-
+function parseWorkshopFromHeadingText(text: string): WorkshopDates | null {
     const m = WORKSHOP_HEADING_RE.exec(text);
     if (!m) return null;
     const [, monthName, day1Str, day2Str, yearStr, h1, min1, mer1, h2, min2, mer2] = m;
@@ -188,6 +191,13 @@ export function extractWorkshopHeading(excerptHtml: string): WorkshopDates | nul
         endMinute: min2 ? parseInt(min2, 10) : 0,
     };
     return { dates, time };
+}
+
+// Public for testing. See the note on extractHeadingDateRange above about
+// why parseItem doesn't call this directly.
+export function extractWorkshopHeading(excerptHtml: string): WorkshopDates | null {
+    const text = getFirstHeadingText(excerptHtml);
+    return text ? parseWorkshopFromHeadingText(text) : null;
 }
 
 function minPriceOf(variants: SquarespaceVariant[]): EventCost | undefined {
@@ -222,10 +232,13 @@ function buildEvent(item: SquarespaceItem, date: LocalDate, time: TimeRange, cos
 // ParseError (per AGENTS.md's "parse methods must never return null" rule).
 export function parseItem(item: SquarespaceItem): (RipperCalendarEvent | RipperError)[] {
     const cost = minPriceOf(item.structuredContent?.variants ?? []);
+    // Extracted once and reused below — both shapes read the same excerpt
+    // heading, and parsing the HTML twice per item would be wasted work.
+    const headingText = getFirstHeadingText(item.excerpt ?? "");
 
     // The common shape: a recurring weekly class, whose weekday cadence and
     // date range live in the heading and whose time-of-day lives in the title.
-    const range = extractHeadingDateRange(item.excerpt ?? "");
+    const range = headingText ? parseWeeklyRangeFromHeadingText(headingText) : null;
     if (range) {
         const time = parseTitleTimeRange(item.title);
         if (!time) {
@@ -242,7 +255,7 @@ export function parseItem(item: SquarespaceItem): (RipperCalendarEvent | RipperE
 
     // A one-off guest workshop: an explicit two-day list plus its own time
     // range, both from the heading — the title has no time of day at all.
-    const workshop = extractWorkshopHeading(item.excerpt ?? "");
+    const workshop = headingText ? parseWorkshopFromHeadingText(headingText) : null;
     if (workshop) {
         return workshop.dates.map(date => buildEvent(item, date, workshop.time, cost));
     }
