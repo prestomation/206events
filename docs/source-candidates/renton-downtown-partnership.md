@@ -6,7 +6,7 @@ url: https://www.rentondowntown.com/events/
 tags: [Community, Renton]
 firstSeen: 2026-09-24
 lastChecked: 2026-09-24
-pr:
+pr: 1594
 ---
 
 Business-improvement organization for Downtown Renton (King County). Hosts
