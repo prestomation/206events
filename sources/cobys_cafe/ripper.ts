@@ -284,8 +284,14 @@ export default class CobysCafeRipper implements IRipper {
     /**
      * Resolves a month word captured from free text to a MONTHS index
      * (0-based), or -1 if it doesn't resemble any month:
-     *   1. The known month name starts with the word (handles exact full
-     *      names and any-length prefixes/abbreviations, e.g. "Sep", "Sept").
+     *   1. The word is the exact full month name, or the exact standard
+     *      3-letter abbreviation ("Sep", not an arbitrary-length prefix like
+     *      "Sept" or "Octob"). Since the month regex now captures *any*
+     *      alphabetic word (to support MONTH_TYPO_OVERRIDES below, not just
+     *      an enumerated month token), accepting any-length prefixes here
+     *      would let an unrelated word that happens to fully prefix a month
+     *      name (e.g. "Marc" -> "march", "Octob" -> "october") silently
+     *      resolve as that month — the exact-length restriction closes that.
      *   2. The word is an exact, explicitly-listed known typo (see
      *      MONTH_TYPO_OVERRIDES) — deliberately not a generic fuzzy/edit-
      *      distance match, which would also cross-match ordinary English
@@ -295,11 +301,7 @@ export default class CobysCafeRipper implements IRipper {
      */
     resolveMonthIndex(word: string): number {
         const w = word.toLowerCase();
-        // Require at least 3 letters (the shortest real month abbreviation,
-        // e.g. "jun"/"jul") so a 1-2 letter word can't ambiguously
-        // prefix-match more than one month (e.g. "Ju" -> June or July).
-        if (w.length < 3) return -1;
-        const exactIdx = MONTHS.findIndex(m => m.startsWith(w));
+        const exactIdx = MONTHS.findIndex(m => m === w || (w.length === 3 && m.startsWith(w)));
         if (exactIdx !== -1) return exactIdx;
         return MONTH_TYPO_OVERRIDES[w] ?? -1;
     }

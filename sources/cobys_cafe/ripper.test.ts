@@ -125,6 +125,13 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(ripper.parseDateTimeFromText('Join us for our Holiday Market 12 from 10am-2pm. Vendors welcome!')).toBeNull();
     });
 
+    test('does not misparse a name that happens to be an exact prefix of a month name (regression)', () => {
+        // "Marc" is a real given name and an exact prefix of "march", but
+        // not the (3-letter) abbreviation for it; must not silently
+        // produce a March date.
+        expect(ripper.parseDateTimeFromText("Say hi to Marc 5 from 10am-2pm today!")).toBeNull();
+    });
+
     test('finds a known-typo month later in the text instead of stopping at an earlier non-month date-shaped phrase (regression)', () => {
         // A second-round regression: scanning for only the *first* syntactic
         // match (even generalized to any word) still let an earlier
@@ -214,6 +221,18 @@ describe('CobysCafeRipper - resolveMonthIndex', () => {
         expect(ripper.resolveMonthIndex('Jury')).toBe(-1);     // 1 substitution from July
         expect(ripper.resolveMonthIndex('Augusta')).toBe(-1);  // August + 1 inserted letter
         expect(ripper.resolveMonthIndex('Octobber')).toBe(-1); // not the one listed typo
+    });
+
+    test('does not cross-match a word that is an exact but non-3-letter prefix of a month name (regression)', () => {
+        // A fourth-round regression: once the month regex captures any
+        // word (for MONTH_TYPO_OVERRIDES), accepting "any-length prefix"
+        // here — not just the standard 3-letter abbreviation — let a word
+        // that happens to be a genuine, exact prefix of a month name
+        // resolve as that month, e.g. "Marc" (a real given name) -> March.
+        expect(ripper.resolveMonthIndex('Marc')).toBe(-1);   // prefix of "march", not the 3-letter abbreviation
+        expect(ripper.resolveMonthIndex('Octob')).toBe(-1);  // prefix of "october"
+        expect(ripper.resolveMonthIndex('Apri')).toBe(-1);   // prefix of "april"
+        expect(ripper.resolveMonthIndex('Sept')).toBe(-1);   // 4-letter abbreviation, not the standard 3-letter one
     });
 });
 
