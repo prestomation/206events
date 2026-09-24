@@ -93664,13 +93664,15 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-10-19-2026-11299"
+      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-10-19-2026-11299",
+      "lastSeen": "2026-09-24"
     },
     "west-seattle-chamber:health-and-wellness-meetup-11-03-2026-17114": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "No venue or location listed on the event page"
+      "reason": "No venue or location listed on the event page",
+      "lastSeen": "2026-09-24"
     },
     "west-seattle-chamber:government-advocacy-comittee-meeting-11-16-2026-11300": {
       "fields": {
@@ -93678,7 +93680,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-11-16-2026-11300"
+      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-11-16-2026-11300",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50393": {
       "fields": {
@@ -95144,7 +95147,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:238098805 - building=yes tag (community centre/civic/place_of_worship)"
+      "evidence": "https://www.openstreetmap.org/way:238098805 - building=yes tag (community centre/civic/place_of_worship)",
+      "lastSeen": "2026-09-24"
     },
     "venue:osm:way:34151089": {
       "fields": {
@@ -95222,7 +95226,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Fourth Emerald Games is a retail game store - brick and mortar indoor commercial space (no OSM tags but label confirms game store)"
+      "evidence": "Fourth Emerald Games is a retail game store - brick and mortar indoor commercial space (no OSM tags but label confirms game store)",
+      "lastSeen": "2026-09-24"
     },
     "venue:osm:node:150970845": {
       "unresolvable": true,
@@ -95244,7 +95249,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Therapist/counseling office - indoor professional space"
+      "evidence": "Therapist/counseling office - indoor professional space",
+      "lastSeen": "2026-09-24"
     },
     "venue:loc:mama be well healing studio, 4034a california ave sw, seattle, wa 98116": {
       "fields": {
@@ -95470,7 +95476,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/small-business-owner-retirement-plans-10-02-2026-17367"
+      "evidence": "https://westseattle.wschamber.com/events/details/small-business-owner-retirement-plans-10-02-2026-17367",
+      "lastSeen": "2026-09-24"
     },
     "u-district-partnership:seattle-boba-fest-2026-08-01": {
       "unresolvable": true,
@@ -99847,7 +99854,7 @@
     "danceus-tango:danceus-tango-166059771866132-2026-09-28": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99857,7 +99864,7 @@
     "danceus-tango:danceus-tango-16605977262778-2026-09-28": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99867,7 +99874,7 @@
     "rainier-beach-action-coalition:0gqqkkpvcf80jo9j1ssaahjjig": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99877,7 +99884,7 @@
     "rainier-beach-action-coalition:4ur3qqih2rp864bgtdp4r86mgg": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99899,7 +99906,7 @@
     "stroum-jcc:148827": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99909,7 +99916,7 @@
     "stroum-jcc:149816": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99919,7 +99926,7 @@
     "stroum-jcc:150625": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99929,7 +99936,7 @@
     "stroum-jcc:150657": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99939,7 +99946,7 @@
     "stroum-jcc:152240": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99949,7 +99956,7 @@
     "stroum-jcc:152247": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99959,7 +99966,7 @@
     "stroum-jcc:152249": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99969,7 +99976,7 @@
     "stroum-jcc:152251": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99979,7 +99986,7 @@
     "stroum-jcc:152253": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99989,7 +99996,7 @@
     "stroum-jcc:152257": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -99999,7 +100006,7 @@
     "stroum-jcc:152259": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100009,7 +100016,7 @@
     "stroum-jcc:152261": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100019,7 +100026,7 @@
     "stroum-jcc:152263": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100029,7 +100036,7 @@
     "stroum-jcc:152299": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100039,7 +100046,7 @@
     "stroum-jcc:151867": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100049,7 +100056,7 @@
     "stroum-jcc:151872": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100059,7 +100066,7 @@
     "stroum-jcc:151874": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100069,7 +100076,7 @@
     "stroum-jcc:151882": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100079,7 +100086,7 @@
     "stroum-jcc:151053": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100131,7 +100138,7 @@
     "foundercal-free-coworking-wednesdays-surf-incubator-316499778": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100141,7 +100148,7 @@
     "foundercal-cancelling-the-trauma-template-in-ai-generated-kids-media-and-all-media-surf-inc-eTEkwmFnj9AutDV": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100151,8 +100158,8 @@
     "foundercal-chicago-style-improv-jam-for-educators-founders-and-creative-humans-316478138": {
       "fields": {
         "cost": {
-          "min": 5.0,
-          "max": 25.0
+          "min": 5,
+          "max": 25
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100162,8 +100169,8 @@
     "foundercal-children-s-media-creators-coworking-316502309": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100173,7 +100180,7 @@
     "foundercal-h2-presents-in-good-company-55JKnSsYWrCkjjB": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100183,7 +100190,7 @@
     "foundercal-no-budget-no-problem-hire-and-mentor-human-interns-with-ai-kelly-tutors-x-surf-i-gXp5Ugzr66Ocyc8": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100193,7 +100200,7 @@
     "foundercal-the-ai-week-tl-dr-unconference-kelly-tutors-x-surf-incubator-LYGjqW2ze0KRngl": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-24",
@@ -100203,7 +100210,7 @@
     "foundercal-save-the-date-dubhacks-2026-313454468": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
