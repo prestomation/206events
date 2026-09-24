@@ -1,0 +1,12 @@
+name: renton-downtown-partnership
+sourceRole: aggregator
+type: squarespace
+description: "Renton Downtown Partnership"
+url: "https://www.rentondowntown.com/events/"
+friendlyLink: https://www.rentondowntown.com/events/
+tags: ["Community", "Renton"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Renton Downtown Partnership"
+    timezone: America/Los_Angeles
