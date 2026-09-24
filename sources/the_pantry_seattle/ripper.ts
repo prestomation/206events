@@ -2,6 +2,7 @@ import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, Ripper
 import { Duration, LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
+import { parse } from "node-html-parser";
 import '@js-joda/timezone';
 
 /**
@@ -13,12 +14,20 @@ import '@js-joda/timezone';
  * returning `{ data: [...], meta: { pagination: { current_page, total_pages } } }`.
  * Each item is one dated session (a "classdate") with start/end datetimes in
  * `YYYY-MM-DDTHH:mm:ss-0700` form and a `relatedEvent` describing the class.
+ *
+ * `relatedEvent.imageUrl` is currently always empty in this JSON API (a data
+ * gap on The Pantry's end, confirmed 2026-09), but the class/dinner's own
+ * page (`relatedEvent.url`) does carry a real hero photo in its markup. Many
+ * classdates share one class page, so we fetch each *distinct* class page at
+ * most once per build (bounded, small concurrency) and backfill the image
+ * onto every classdate event that lacks one.
  */
 
 const API = "https://thepantryseattle.com/api/events.json";
 const LOOKAHEAD_DAYS = 120;
 const MAX_PAGES = 60;
 const VENUE = "The Pantry, 1417 NW 70th St, Seattle, WA 98117";
+const IMAGE_FETCH_CONCURRENCY = 4;
 
 export interface PantryItem {
     id: number | string;
@@ -139,6 +148,55 @@ async function fetchClassPrices(classUrls: string[], fetchFn: FetchFn): Promise<
     return prices;
 }
 
+/**
+ * Extracts the class/dinner hero photo from a thepantryseattle.com class
+ * page. The hero always renders inside a `<figure class="image is-5by3 …">`
+ * (ahead of any instructor headshot, which uses `is-square`), so matching on
+ * that class is enough to avoid picking up a headshot instead. Public for
+ * testing.
+ */
+export function extractClassHeroImage(html: string): string | undefined {
+    const root = parse(html);
+    const img = root.querySelector("figure.is-5by3 img");
+    const src = img?.getAttribute("src")?.trim();
+    return src || undefined;
+}
+
+async function pool<T, R>(inputs: T[], limit: number, fn: (t: T) => Promise<R>): Promise<R[]> {
+    const results: R[] = new Array(inputs.length);
+    let next = 0;
+    const workers = Array.from({ length: Math.min(limit, inputs.length) }, async () => {
+        while (next < inputs.length) {
+            const i = next++;
+            results[i] = await fn(inputs[i]);
+        }
+    });
+    await Promise.all(workers);
+    return results;
+}
+
+/**
+ * Fetches each distinct class/dinner page in `urls` at most once and returns
+ * the extracted hero image per URL. A page that fails to fetch or parse is
+ * simply omitted — the caller leaves that event's `imageUrl` unset rather
+ * than failing the build over a best-effort backfill.
+ */
+async function fetchClassHeroImages(urls: string[], fetchFn: FetchFn): Promise<Map<string, string>> {
+    const byUrl = new Map<string, string>();
+    await pool(urls, IMAGE_FETCH_CONCURRENCY, async url => {
+        try {
+            const res = await fetchFn(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; 206events/1.0)" } });
+            if (!res.ok) return;
+            const img = extractClassHeroImage(await res.text());
+            if (img) byUrl.set(url, img);
+        } catch {
+            // Best-effort backfill; a fetch failure just leaves the gap for
+            // the next build (or the photo-resolver) to pick up.
+        }
+    });
+    return byUrl;
+}
+
 export default class ThePantrySeattleRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
@@ -168,6 +226,28 @@ export default class ThePantrySeattleRipper implements IRipper {
         const now = ZonedDateTime.now();
         const events = parsed.filter((r): r is RipperCalendarEvent => "date" in r && !r.date.isBefore(now.minusHours(3)));
         const errors = parsed.filter((r): r is RipperError => "type" in r);
+
+        // Backfill the class/dinner hero image for events the JSON API left
+        // imageless (see module doc). Only fetch each distinct class page
+        // once, and only for pages we'll actually use.
+        const classUrlByEventId = new Map<string, string>();
+        for (const item of items) {
+            if (item.relatedEvent?.imageUrl) continue;
+            const classUrl = item.relatedEvent?.url;
+            if (classUrl) classUrlByEventId.set(`pantry-${item.id}`, classUrl);
+        }
+        const neededUrls = [...new Set(
+            events.filter(e => !e.imageUrl && classUrlByEventId.has(e.id!)).map(e => classUrlByEventId.get(e.id!)!),
+        )];
+        if (neededUrls.length > 0) {
+            const imageByClassUrl = await fetchClassHeroImages(neededUrls, fetchFn);
+            for (const event of events) {
+                if (event.imageUrl) continue;
+                const classUrl = classUrlByEventId.get(event.id!);
+                const image = classUrl ? imageByClassUrl.get(classUrl) : undefined;
+                if (image) event.imageUrl = image;
+            }
+        }
 
         return [{
             name: cal.name,

@@ -6,6 +6,11 @@ friendlyLink: https://www.issaquahwa.gov/Calendar.aspx
 geo: null
 cost: free
 tags: ["Issaquah"]
+# The CivicPlus iCalendar feed (VEVENT) carries no image field, and there is
+# no single venue (events span many Issaquah locations) — use a city photo as
+# the fallback and keep these out of the per-event photo-gap queue.
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/84/Issaquah_aerial%2C_April_2023.png"
+skipEventPhotos: true
 calendars:
   # CivicPlus iCalendar category ids — see https://www.issaquahwa.gov/iCalendar.aspx
   - name: community-events

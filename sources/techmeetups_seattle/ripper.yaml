@@ -10,6 +10,12 @@ tags: ["Tech"]
 geo: null
 # Tech meetup groups (Meetup/Luma) are free community gatherings.
 cost: free
+# The page's own images are generic stock photos (see ripper.ts), not
+# per-event art, and there is no single venue (each meetup has its own
+# address) — use the site's own Seattle og:image as the fallback and keep
+# events out of the per-event photo-gap queue.
+imageUrl: "https://techmeetups.io/og/seattle.png"
+skipEventPhotos: true
 calendars:
   - name: in-person
     friendlyname: "Seattle Tech Meetups (TechMeetups.io)"

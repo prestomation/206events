@@ -6,6 +6,13 @@ friendlyLink: https://anc.apm.activecommunities.com/seattle/activity/search
 tags: ["Community", "Parks"]
 weatherSetting: "mixed"
 geo: null
+# The ActiveNet list/detail JSON (checked 2026-09) carries no image field at
+# all — confirmed on several activities' detail responses — so per-event
+# photos aren't harvestable. Use a Seattle Parks & Recreation department
+# photo as the fallback for every event; skipEventPhotos keeps the ~500
+# programs across ~40 community centers out of the per-event photo-gap queue.
+imageUrl: "https://www.seattle.gov/images/images/Departments/ParksAndRecreation/Banners/GreenLake_310x160.jpg"
+skipEventPhotos: true
 calendars:
   - name: special-events
     friendlyname: "Seattle Parks & Rec Special Events"

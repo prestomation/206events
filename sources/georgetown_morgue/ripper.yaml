@@ -20,6 +20,10 @@ geo:
   osmType: node
   osmId: 2349883332
 imageUrl: "https://seattlehaunts.com/wp-content/uploads/2020/09/MorgueGallery.jpg"
+# Every "event" is the same haunted house on a different open night (the
+# hytix dates API has no per-date image) — the venue photo above is the
+# intended image for every night.
+skipEventPhotos: true
 calendars:
   - name: haunted-house
     friendlyname: "Georgetown Morgue Haunted House"

@@ -11,6 +11,10 @@ geo:
   osmType: way
   osmId: 194421327
 imageUrl: "https://cdn.sanity.io/images/iyv131o2/production/b51ddc7bd29bd52b2a924cf17208efd6c8ef4d2c-1549x1549.png"
+# The events page's JSON-LD (SportsEvent — bookable classes/leagues/open-play
+# sessions) carries no `image` field (checked 2026-09); the venue photo above
+# is the intended image for every event.
+skipEventPhotos: true
 calendars:
   - name: calendar
     friendlyname: "Sideout Tsunami Pickleball Center"

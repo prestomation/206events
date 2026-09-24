@@ -8,6 +8,7 @@ import {
     extractDetailUrls,
     slugFromUrl,
     extractTitle,
+    extractImageUrl,
     extractCleanStartDate,
     extractFreeTextDateTime,
     extractDateOnlyStartDates,
@@ -113,6 +114,28 @@ describe("extractTitle", () => {
 
     it("returns null when no h1 itemprop=name is present", () => {
         expect(extractTitle("<html><body>nothing here</body></html>")).toBeNull();
+    });
+});
+
+describe("extractImageUrl", () => {
+    it("extracts the og:image poster from a /films/ page", () => {
+        expect(extractImageUrl(readSample("sample-data-film.html"))).toBe(
+            "https://nwfilmforum.org/wp-content/uploads/2023/08/films_stop-making-sense-40th_carousel-4_a24.jpg",
+        );
+    });
+
+    it("extracts the og:image flyer from an /events/ page", () => {
+        expect(extractImageUrl(readSample("sample-data-event.html"))).toBe(
+            "https://nwfilmforum.org/wp-content/uploads/2026/06/squeakyfest26-1600.png",
+        );
+    });
+
+    it("returns undefined when no og:image meta tag is present", () => {
+        expect(extractImageUrl("<html><head></head><body>nothing here</body></html>")).toBeUndefined();
+    });
+
+    it("returns undefined for an empty og:image content", () => {
+        expect(extractImageUrl('<meta property="og:image" content="" />')).toBeUndefined();
     });
 });
 
@@ -382,6 +405,9 @@ describe("parseDetailPage", () => {
         expect(event.duration.toMinutes()).toBe(88);
         expect(event.location).toBe("Northwest Film Forum, 1515 12th Ave, Seattle WA 98122");
         expect(event.url).toBe(FILM_URL);
+        expect(event.imageUrl).toBe(
+            "https://nwfilmforum.org/wp-content/uploads/2023/08/films_stop-making-sense-40th_carousel-4_a24.jpg",
+        );
     });
 
     it("parses an /events/ page using the free-text date/time fallback", () => {
