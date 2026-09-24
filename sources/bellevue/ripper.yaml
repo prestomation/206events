@@ -5,6 +5,7 @@ url: "https://bellevuewa.gov/calendar?cat=community-events"
 friendlyLink: https://bellevuewa.gov/calendar?cat=community-events
 geo: null
 tags: ["Bellevue"]
+cost: free
 calendars:
   - name: community-events
     friendlyname: "City of Bellevue Community Events"
