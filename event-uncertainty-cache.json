@@ -49219,43 +49219,58 @@
     },
     "events12:live-theater-119957-2026-09-23": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/hamlet"
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (5th Avenue Theatre professional production)"
     },
     "events12:live-theater-119957-2026-09-24": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/hamlet"
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (5th Avenue Theatre professional production)"
     },
     "events12:live-theater-119957-2026-09-25": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/hamlet"
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (5th Avenue Theatre professional production)"
     },
     "events12:live-theater-119957-2026-09-26": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/hamlet"
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (5th Avenue Theatre professional production)"
     },
     "events12:live-theater-119957-2026-09-27": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/hamlet"
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (5th Avenue Theatre professional production)"
     },
     "northwest-film-forum:two-angels-in-the-night-a-gregg-araki-double-feature-2027-08-28": {
       "unresolvable": true,
@@ -74850,19 +74865,25 @@
     },
     "events12:live-theater-119957-2026-10-04": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/hamlet"
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (5th Avenue Theatre professional production)"
     },
     "events12:live-theater-119957-2026-10-05": {
       "fields": {
-        "setting": "indoor"
+        "setting": "indoor",
+        "cost": {
+          "paid": true
+        }
       },
-      "resolvedAt": "2026-09-23",
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.unionartscenter.org/hamlet"
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (5th Avenue Theatre professional production)"
     },
     "events12:live-theater-119957-2026-10-06": {
       "unresolvable": true,
@@ -93594,6 +93615,786 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://theatre33.ludus.com/index.php?show_id=200548277"
+    },
+    "do206:do206-2026-09-28-damn-near-big-machines-dis-chord-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-01-dusty-45s-ft-look-sharp-aim-true-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-15-swamp-romp-iii-ft-rae-erick-irons-tara-chugh-more-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-16-emo-nite-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-20-the-original-food-and-culture-tour-of-pike-place-market-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-amy-hall-album-release-clean-fight-bitch-fits-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-brian-culbertson-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-charles-wesley-godwin-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-diles-que-no-me-maten-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-dossey-camp-crush-daughters-of-venus-deepest-darkest-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-epik-high-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-fuqit-broken-hill-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-geese-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-grace-enger-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-harp-twins-volfgang-twins-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-icons-of-pop-culture-gala-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-kottonmouth-kings-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-loose-cannons-improv-feat-mucho-improv-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-lyle-lovett-and-his-small-large-band-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-mountain-holler-the-western-dawn-with-the-low-lonesome-sound-love-victory-rose-sean-croizier-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-resavoir-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-rocky-horror-improv-show-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-shakey-graves-with-wild-pink-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-sidney-hauser-sasha-berliner-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-the-wildwoods-w-guests-at-the-sunset-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-the-wildwoods-w-guests-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-this-is-halloween-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-this-is-halloween-tickets-ebm0lqd": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-tom-hamilton-band-with-guest-swindler-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "do206:do206-2026-10-22-xiphoid-dementia-infinexhuma-knifecream-other-tickets": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://do206.com/events/ (ticketed event, price not published in feed)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-01-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-02-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-03-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-04-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-05-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-06-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-07-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-08-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-09-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-10-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-11-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:edgeworks-seattle-2026-12-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-01-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-02-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-03-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-04-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-05-13": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-06-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-07-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-08-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-09-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-10-14": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-11-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:half-moon-bouldering-2026-12-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-01-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-02-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-03-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-04-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-05-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-06-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-07-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-08-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-09-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-10-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-11-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:momentum-2026-12-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-01-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-02-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-03-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-04-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-05-19": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-06-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-07-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-08-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-09-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-10-20": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-11-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "she-rocks-pnw:vertical-world-seattle-2026-12-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
     }
   }
 }

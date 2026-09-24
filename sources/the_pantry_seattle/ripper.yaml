@@ -8,6 +8,7 @@ geo:
   lat: 47.6793796
   lng: -122.3748352
   label: "The Pantry, 1417 NW 70th St, Seattle, WA 98117"
+imageUrl: "https://the-pantry-prod.imgix.net/Main-Page-Background.jpg"
 calendars:
   - name: classes
     friendlyname: "The Pantry Cooking Classes & Dinners"

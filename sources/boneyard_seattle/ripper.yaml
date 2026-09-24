@@ -10,6 +10,7 @@ geo:
   label: "BoneYard Seattle, 2603 S Jackson St, Seattle, WA 98144"
   osmType: way
   osmId: 228737305
+imageUrl: "https://static.wixstatic.com/media/e3c0bd_f905e68e475a4563834019416f21b40f~mv2.jpg"
 calendars:
   - name: events
     friendlyname: "BoneYard Seattle"
