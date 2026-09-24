@@ -1,5 +1,5 @@
 import { Duration, LocalDate, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -23,6 +23,7 @@ const TIMEZONE = ZoneId.of("America/Los_Angeles");
 // so the event-uncertainty-resolver skill can fill in the real time later.
 const DEFAULT_UNKNOWN_TIME_HOUR = 12;
 const DEFAULT_UNKNOWN_TIME_MINUTE = 0;
+const COST: EventCost = { paid: true };
 
 const MONTHS = [
     "January", "February", "March", "April", "May", "June",
@@ -430,6 +431,7 @@ export function parseDetailPage(
             summary: title,
             location: location ?? undefined,
             url,
+            cost: COST,
         };
         return [event];
     }
@@ -453,6 +455,7 @@ export function parseDetailPage(
             summary: title,
             location: location ?? undefined,
             url,
+            cost: COST,
         };
         const unknownFields: UncertaintyField[] = ["startTime", "duration"];
         const uncertainty: UncertaintyError = {
@@ -477,6 +480,7 @@ export function parseDetailPage(
                 summary: title,
                 location: location ?? undefined,
                 url,
+                cost: COST,
             };
         });
     }
@@ -498,6 +502,7 @@ export function parseDetailPage(
                 summary: title,
                 location: location ?? undefined,
                 url,
+                cost: COST,
             };
             const uncertainty: UncertaintyError = {
                 type: "Uncertainty",
@@ -529,6 +534,7 @@ export function parseDetailPage(
                 summary: title,
                 location: location ?? undefined,
                 url,
+                cost: COST,
             };
             results.push(event);
         }

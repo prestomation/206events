@@ -5,6 +5,8 @@ url: "https://seattledrumschool.com/events/feed/"
 friendlyLink: "https://seattledrumschool.com/events/"
 tags: ["Music", "Georgetown"]
 geo: null
+# Website and structured data confirm "Free Community Cultural Event, all ages".
+cost: free
 calendars:
   - name: seattle-drum-school
     friendlyname: "Seattle Drum School of Music"

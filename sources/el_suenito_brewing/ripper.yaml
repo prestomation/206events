@@ -12,6 +12,8 @@ geo:
   osmType: node
   osmId: 2144365141
 imageUrl: "https://static.wixstatic.com/media/624478_e028dfdb3f354c64a6091c49d467f125~mv2.jpg"
+# Recurring free events (trivia nights, community gatherings) at no cover charge.
+cost: free
 calendars:
   - name: el-suenito-brewing
     friendlyname: "El Sueñito Brewing"

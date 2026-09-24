@@ -5,6 +5,8 @@ url: "https://icm.museum/?events"
 friendlyLink: https://icm.museum/?events
 tags: ["Museums", "Education", "Tukwila"]
 imageUrl: "https://icm.museum/images/about1.jpg"
+# Admission is free for members; $9 suggested donation for non-members.
+cost: free
 geo:
   lat: 47.4489
   lng: -122.2473

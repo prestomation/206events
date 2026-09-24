@@ -8,6 +8,8 @@ tags: ["Tech"]
 # Seattle events are kept; each carries its own venue address. The listing
 # only covers roughly the coming week.
 geo: null
+# Tech meetup groups (Meetup/Luma) are free community gatherings.
+cost: free
 calendars:
   - name: in-person
     friendlyname: "Seattle Tech Meetups (TechMeetups.io)"
