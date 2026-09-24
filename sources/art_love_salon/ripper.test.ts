@@ -168,6 +168,18 @@ describe('ArtLoveSalonRipper - parseHoursRange', () => {
         expect(ripper.parseHoursRange(' 5-9pm ')).toEqual({ startHour: 17, startMinute: 0, endHour: 21, endMinute: 0 });
     });
 
+    test('infers AM for the start of a compact range that crosses noon, e.g. "9-5pm"', () => {
+        // Applying the single trailing "pm" to both sides would give
+        // 21:00-17:00 (invalid, start after end); the only sensible
+        // same-day reading is 9 AM - 5 PM.
+        expect(ripper.parseHoursRange('9-5pm')).toEqual({ startHour: 9, startMinute: 0, endHour: 17, endMinute: 0 });
+        expect(ripper.parseHoursRange('11-2pm')).toEqual({ startHour: 11, startMinute: 0, endHour: 14, endMinute: 0 });
+    });
+
+    test('still applies the shared meridiem to both sides when it already produces a forward range', () => {
+        expect(ripper.parseHoursRange('5-9pm')).toEqual({ startHour: 17, startMinute: 0, endHour: 21, endMinute: 0 });
+    });
+
     test('returns null for an unrecognized format', () => {
         expect(ripper.parseHoursRange('TBD')).toBeNull();
     });

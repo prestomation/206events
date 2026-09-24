@@ -303,19 +303,24 @@ export default class ArtLoveSalonRipper implements IRipper {
         }
 
         // Compact range with one shared AM/PM at the end, e.g. "5-9pm" or
-        // "5:30-9pm". Applies that single meridiem to both sides — correct
-        // for the common case (an evening slot like "5-9pm") but not for a
-        // range that crosses noon (e.g. "11-2pm" meaning 11 AM to 2 PM);
-        // that ambiguous shape isn't resolvable from the text alone and
-        // falls through to the caller's "could not parse" error instead of
-        // guessing. Left unanchored, like the full-format regex above, so a
+        // "5:30-9pm". Applies that single meridiem to both sides first —
+        // correct for the common case (an evening slot like "5-9pm"). A
+        // range that actually crosses noon (e.g. "9-5pm" meaning 9 AM to
+        // 5 PM, or "11-2pm" meaning 11 AM to 2 PM) would invert under that
+        // assumption (start > end); when it does, the start must be the
+        // other meridiem instead — mirrors the equivalent inference
+        // sources/cobys_cafe/ripper.ts's parser applies for its analogous
+        // shorthand. Left unanchored, like the full-format regex above, so a
         // stray trailing period or surrounding text doesn't itself defeat
         // the match.
         const compactMatch = hours.match(/(\d{1,2})(?::(\d{2}))?\s*-\s*(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
         if (compactMatch) {
             const ampm = compactMatch[5];
-            const startHour = this.to24Hour(compactMatch[1], ampm);
             const endHour = this.to24Hour(compactMatch[3], ampm);
+            let startHour = this.to24Hour(compactMatch[1], ampm);
+            if (startHour > endHour) {
+                startHour = this.to24Hour(compactMatch[1], ampm.toUpperCase() === 'PM' ? 'AM' : 'PM');
+            }
             if (startHour <= endHour) {
                 return {
                     startHour,

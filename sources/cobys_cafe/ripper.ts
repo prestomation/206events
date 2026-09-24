@@ -167,29 +167,16 @@ export default class CobysCafeRipper implements IRipper {
         // so the regexes below can match regardless of styling.
         text = text.normalize('NFKC');
 
-        const fullMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
-        const abbrevMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1, 3)).join('|');
-
-        // Pass 1: the strict, enumerated month pattern (a real month name or
-        // abbreviation, correctly spelled). Tried first and exclusively
-        // against the whole text so a correctly-spelled date anywhere in a
-        // longer description is always found, even if an unrelated word
-        // earlier in the text would otherwise happen to look date-shaped.
-        let match = this.findDateTimeMatch(text, `${fullMonthPattern}|${abbrevMonthPattern}`);
-        if (!match) {
-            // Pass 2: only reached when NO correctly-spelled month exists
-            // anywhere in the text, so widening the month position to any
-            // word can't steal a match away from a real date elsewhere.
-            // resolveMonthIndex only accepts a handful of known upstream
-            // typos here (see MONTH_TYPO_OVERRIDES), so an unrelated word
-            // still correctly falls through to "no parseable date" below.
-            match = this.findDateTimeMatch(text, `[A-Za-z]+`);
-            if (!match) return null;
-        }
+        const match = this.findDateTimeMatch(text);
+        if (!match) return null;
 
         const [, monthName, dayStr, startHourStr, startMinStr, startAmPm,
             endHourStr, endMinStr, endAmPm] = match;
 
+        // findDateTimeMatch already verified monthName resolves (that's how
+        // it picked this candidate over any earlier non-month word), so this
+        // can't be -1 — re-deriving it here just avoids a second lookup
+        // table/regex or plumbing the resolved index through the return value.
         const monthIdx = this.resolveMonthIndex(monthName);
         if (monthIdx === -1) return null;
 
@@ -223,23 +210,37 @@ export default class CobysCafeRipper implements IRipper {
     }
 
     /**
-     * Tries all three known heading/description shapes against `text` with
-     * `monthPattern` in the month position, returning the first match
-     * aligned to the primary pattern's capture slots
+     * Tries all three known heading/description shapes against `text`, in
+     * priority order, returning the first candidate whose captured month
+     * word actually resolves (via resolveMonthIndex), aligned to
      * `[, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]`,
-     * or null if none match. Split out of parseDateTimeFromText so it can be
-     * run twice — once with a strict enumerated month pattern, once with a
-     * generic word — without duplicating the three regexes. Public for testing.
+     * or null if none do.
+     *
+     * The month position matches any word, not just an enumerated month
+     * name — that's what lets a known upstream typo (see
+     * MONTH_TYPO_OVERRIDES) still resolve. But naively taking the *first*
+     * syntactic match within a shape would let an earlier, unrelated
+     * "<word> <day> from <time>-<time>"-shaped phrase (e.g. "Vendor Market
+     * 12 from 10am-2pm") steal the match away from a real date later in the
+     * same text. So each shape is scanned for *every* candidate occurrence
+     * (via matchAll) and the first one whose month actually resolves wins;
+     * only once a whole shape produces zero resolving candidates does the
+     * next shape get tried. Public for testing.
      */
-    findDateTimeMatch(text: string, monthPattern: string): RegExpMatchArray | string[] | null {
+    findDateTimeMatch(text: string): RegExpMatchArray | string[] | null {
+        const monthWord = `[A-Za-z]+`;
+
         // Primary pattern: "Month Day from StartTime–EndTimePM"
         const re = new RegExp(
             `(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
+            `(${monthWord})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
             `\\s+from\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
-            'i'
+            'gi'
         );
+        for (const m of text.matchAll(re)) {
+            if (this.resolveMonthIndex(m[1]) !== -1) return m;
+        }
 
         // Alternate pattern: "between StartTime–EndTimePM on [Weekday,] Month Day"
         // Matches e.g. "between 1 PM–3 PM on Saturday, May 30"
@@ -247,9 +248,16 @@ export default class CobysCafeRipper implements IRipper {
             `between\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s+on\\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})`,
-            'i'
+            `(${monthWord})\\s+(\\d{1,2})`,
+            'gi'
         );
+        for (const m of text.matchAll(reAlt)) {
+            // Rearrange to align with the primary pattern's named slots:
+            // primary: [, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]
+            // alt:     [, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm, monthName, dayStr]
+            const [full, sh, sm, sa, eh, em, ea, mon, day] = m;
+            if (this.resolveMonthIndex(mon) !== -1) return [full, mon, day, sh, sm, sa, eh, em, ea];
+        }
 
         // Last-resort fallback: "Month Day[, Year] <up to 20 non-digit chars> StartTime - EndTime",
         // with no "from"/"between...on" keyword required, and the start time's
@@ -260,26 +268,17 @@ export default class CobysCafeRipper implements IRipper {
         // "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm") but doesn't actually require
         // an emoji — only tried after the more specific patterns above fail.
         const reEmoji = new RegExp(
-            `(${monthPattern})\\s+(\\d{1,2})(?:,?\\s*\\d{4})?` +
+            `(${monthWord})\\s+(\\d{1,2})(?:,?\\s*\\d{4})?` +
             `[^\\d]{0,20}` +
             `(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
-            'i'
+            'gi'
         );
-
-        const match = text.match(re);
-        if (match) return match;
-
-        const altMatch = text.match(reAlt);
-        if (altMatch) {
-            // Rearrange altMatch captures to align with the primary pattern's named slots:
-            // primary: [, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]
-            // alt:     [, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm, monthName, dayStr]
-            const [full, sh, sm, sa, eh, em, ea, mon, day] = altMatch;
-            return [full, mon, day, sh, sm, sa, eh, em, ea];
+        for (const m of text.matchAll(reEmoji)) {
+            if (this.resolveMonthIndex(m[1]) !== -1) return m;
         }
 
-        return text.match(reEmoji);
+        return null;
     }
 
     /**

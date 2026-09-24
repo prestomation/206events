@@ -125,6 +125,22 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(ripper.parseDateTimeFromText('Join us for our Holiday Market 12 from 10am-2pm. Vendors welcome!')).toBeNull();
     });
 
+    test('finds a known-typo month later in the text instead of stopping at an earlier non-month date-shaped phrase (regression)', () => {
+        // A second-round regression: scanning for only the *first* syntactic
+        // match (even generalized to any word) still let an earlier
+        // unrelated phrase block a real, typo'd-but-resolvable date further
+        // on. findDateTimeMatch must keep scanning candidates within a
+        // shape, not just take the first one.
+        const result = ripper.parseDateTimeFromText(
+            'Come to our Merchandise 5 from 10am-2pm sale! Then our real event on Octotber 15 from 5-7pm.'
+        );
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(15);
+        expect(result!.startHour).toBe(17);
+        expect(result!.endHour).toBe(19);
+    });
+
     test('finds a correctly-spelled month later in the text instead of stopping at an earlier date-shaped phrase (regression)', () => {
         // The generic month-word fallback (for known typos) must only run
         // when no correctly-spelled month exists anywhere in the text — an
