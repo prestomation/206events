@@ -289,6 +289,12 @@ export function parseCost(label: string | undefined): EventCost | undefined {
     // ActiveCommunities returns "View fee details" for all paid activities; the
     // actual price requires clicking through to the JS-rendered activity page.
     if (/^view fee details$/i.test(t)) return { paid: true };
+    // "View Registration Info" labels SPR community drop-in programs (mahjong,
+    // bridge, board games, roller skating, dance, etc.) that are free but require
+    // online sign-up. In contrast, "View fee details" labels paid activities
+    // (aquatics, etc.). Multiple descriptions confirm: "dedicated for free, open
+    // pickleball play", "Free.", "free and open to community members".
+    if (/^view registration info$/i.test(t)) return { min: 0 };
     return undefined;
 }
 

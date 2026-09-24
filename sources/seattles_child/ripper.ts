@@ -43,6 +43,7 @@ export interface JsonLdEvent {
     endDate?: string;
     description?: string;
     image?: string[] | string;
+    isAccessibleForFree?: boolean;
     location?: {
         name?: string | boolean;
         address?: {
@@ -183,6 +184,7 @@ export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string): (RipperCalen
         location: buildLocation(ev),
         url: pageUrl,
         imageUrl: image || undefined,
+        ...(ev.isAccessibleForFree === true ? { cost: { min: 0 } } : {}),
     };
 
     const results: (RipperCalendarEvent | RipperError)[] = [event];
