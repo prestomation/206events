@@ -16,6 +16,10 @@ export function isStoreHoursEntry(title: string | undefined): boolean {
 // signal themselves in the description with the word "free" or donation language.
 const FREE_TEXT_RE = /\bfree\b|\bby donation\b|\bdonation[- ]based\b|\bsuggested donation\b|\bpay what you (?:can|will)\b/i;
 
+export function hasFreeSignal(text: string): boolean {
+    return FREE_TEXT_RE.test(text);
+}
+
 function stripHtmlTags(html: string): string {
     return html.replace(/<[^>]+>/g, ' ');
 }
