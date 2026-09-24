@@ -2,6 +2,8 @@ geo:
   lat: 47.6186227
   lng: -122.1917799
   label: "The Knitters Studio, 958 111th Ave NE, Bellevue, WA 98004"
+  osmType: way
+  osmId: 99253500
 name: knitters-studio-social-knit
 sourceRole: venue
 friendlyname: The Knitters Studio Social Knit & Crochet
