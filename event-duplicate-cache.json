@@ -28223,6 +28223,26 @@
     "seatoday-seatoday-community.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-24"
+    },
+    "do206-do206.ics Michelle Branch|2026-09-27T20:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Michelle Branch with SASAMI|2026-09-27T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-24",
+      "note": "Same concert at The Showbox; do206 omits opener SASAMI; venue calendar is canonical"
+    },
+    "do206-do206.ics Paris Paloma|2026-09-26T20:00:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Paris Paloma with Renee Christine|2026-09-26T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-24",
+      "note": "Same concert at Showbox SoDo; do206 omits opener Renee Christine; venue calendar is canonical"
+    },
+    "kcls-skyway.ics Garden Hotline Presents: Composting at Home|2026-09-23T18:30:00-07:00[America/Los_Angeles]::king-county-events-king-county-events.ics Free Workshop - Composting at Home|2026-09-23T18:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-24",
+      "note": "Identical bibliocommons URL; same event listed by KCLS branch calendar and King County aggregator"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: The Wildwoods w/ False Hemlock|2026-10-22T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: The Wildwoods w/ False Hemlock AT The Sunset|2026-10-22T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-24",
+      "note": "Both titles say 'AT The Sunset'; Tractor Tavern is presenting a show at Sunset Tavern — same event, two calendars"
     }
   }
 }
