@@ -29570,8 +29570,7 @@
       },
       "resolvedAt": "2026-07-11",
       "source": "agent",
-      "evidence": "https://seattle.gov/parks/recreation/beautiful-game-series",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://seattle.gov/parks/recreation/beautiful-game-series"
     },
     "venue:osm:way:344320893": {
       "fields": {
@@ -33782,8 +33781,7 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/337831268",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way/337831268"
     },
     "venue:osm:way:77966334": {
       "fields": {
@@ -33791,8 +33789,7 @@
       },
       "resolvedAt": "2026-07-18",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/77966334",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way/77966334"
     },
     "venue:loc:kitsap county fairgrounds & events center, 1200 fairgrounds rd nw, bremerton, wa 98311": {
       "unresolvable": true,
@@ -35601,8 +35598,7 @@
       },
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/26007965",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way/26007965"
     },
     "venue:osm:way:25123756": {
       "fields": {
@@ -37112,8 +37108,7 @@
       },
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/53588546",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way/53588546"
     },
     "seatoday:cityspark-19455733": {
       "unresolvable": true,
@@ -69567,8 +69562,7 @@
       },
       "resolvedAt": "2026-09-06",
       "source": "agent",
-      "evidence": "https://fremontartscouncil.org/luminata",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://fremontartscouncil.org/luminata"
     },
     "venue:osm:node:2404211190": {
       "fields": {
@@ -74151,8 +74145,7 @@
       },
       "resolvedAt": "2026-09-13",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/60193648 — event label says 'Ravenna Eckstein Park Upper Field', outdoor park field adjacent to community center",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way/60193648 — event label says 'Ravenna Eckstein Park Upper Field', outdoor park field adjacent to community center"
     },
     "venue:osm:node:6399553587": {
       "fields": {
@@ -93498,7 +93491,7 @@
     "events12:music-by-candlelight-nordic-museum-119604-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 45
+          "min": 45.0
         },
         "setting": "indoor"
       },
@@ -93571,7 +93564,7 @@
     "climate-pledge-arena:tm-vvG1HZ_2Sp1qJd": {
       "fields": {
         "cost": {
-          "min": 35
+          "min": 35.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93601,7 +93594,7 @@
     "stg:tm-vvG1HZ_C5unlvs": {
       "fields": {
         "cost": {
-          "min": 60
+          "min": 60.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93651,7 +93644,7 @@
     "seatoday:cityspark-19434507": {
       "fields": {
         "cost": {
-          "min": 265
+          "min": 265.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94208,7 +94201,7 @@
     "seattle-chamber-music:scms-5711": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94218,7 +94211,7 @@
     "seattle-chamber-music:scms-5784": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94228,7 +94221,7 @@
     "seattle-chamber-music:scms-5787": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94238,7 +94231,7 @@
     "seattle-chamber-music:scms-5792": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94248,7 +94241,7 @@
     "seattle-chamber-music:scms-5805": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94258,7 +94251,7 @@
     "seattle-chamber-music:scms-5809": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94268,7 +94261,7 @@
     "seattle-chamber-music:scms-5917": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94278,7 +94271,7 @@
     "seattle-chamber-music:scms-5922": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94945,8 +94938,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:160980421 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:160980421 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:161502323": {
       "fields": {
@@ -94954,8 +94946,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:161502323 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:161502323 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:196614933": {
       "fields": {
@@ -94963,8 +94954,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:196614933 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:196614933 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:222078978": {
       "fields": {
@@ -94972,8 +94962,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:222078978 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:222078978 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:224436893": {
       "fields": {
@@ -94981,8 +94970,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:224436893 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:224436893 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:228779140": {
       "fields": {
@@ -94990,8 +94978,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:228779140 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:228779140 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:235386606": {
       "fields": {
@@ -94999,8 +94986,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:235386606 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:235386606 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:238098805": {
       "fields": {
@@ -95016,8 +95002,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:34151089 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:34151089 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:35089137": {
       "fields": {
@@ -95025,8 +95010,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:35089137 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:35089137 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:37024763": {
       "fields": {
@@ -95034,8 +95018,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:37024763 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:37024763 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:40833037": {
       "fields": {
@@ -95043,8 +95026,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:40833037 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:40833037 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:50536560": {
       "fields": {
@@ -95052,8 +95034,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:50536560 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:50536560 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:53589225": {
       "fields": {
@@ -95061,8 +95042,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:53589225 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:53589225 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:56176613": {
       "fields": {
@@ -95070,8 +95050,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:56176613 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:56176613 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:77965447": {
       "fields": {
@@ -95079,8 +95058,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way:77965447 - building=yes tag (community centre/civic/place_of_worship)",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://www.openstreetmap.org/way:77965447 - building=yes tag (community centre/civic/place_of_worship)"
     },
     "venue:osm:way:229839975": {
       "unresolvable": true,
@@ -95108,8 +95086,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Bitter Lake Annex / Broadview Thomson Elementary School - indoor school/community building",
-      "lastSeen": "2026-09-24"
+      "evidence": "Bitter Lake Annex / Broadview Thomson Elementary School - indoor school/community building"
     },
     "venue:loc:counseling west seattle, seattle, wa": {
       "fields": {
@@ -95133,8 +95110,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Meadowbrook Community Center - indoor Seattle Parks community center building",
-      "lastSeen": "2026-09-24"
+      "evidence": "Meadowbrook Community Center - indoor Seattle Parks community center building"
     },
     "venue:loc:must register: virtual - zoom link provided upon registration": {
       "unresolvable": true,
@@ -95148,8 +95124,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Ravenna-Eckstein Community Center - indoor Seattle Parks community center",
-      "lastSeen": "2026-09-24"
+      "evidence": "Ravenna-Eckstein Community Center - indoor Seattle Parks community center"
     },
     "venue:loc:the lab @ 1010, 1010 south bailey street, seattle, wa 98108": {
       "fields": {
@@ -95165,8 +95140,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076 - Seattle Parks recreation center indoor drop-in activity",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076 - Seattle Parks recreation center indoor drop-in activity"
     },
     "seattle-parks-activecommunities:sprac-87076-2026-09-30": {
       "fields": {
@@ -95174,8 +95148,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076 - Seattle Parks recreation center indoor drop-in activity",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076 - Seattle Parks recreation center indoor drop-in activity"
     },
     "venue:loc:mama be well healing studio 4034a california ave sw seattle, wa 98116, seattle, wa": {
       "fields": {
@@ -95205,8 +95178,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076"
     },
     "seattle-parks-activecommunities:sprac-89538-2026-09-27": {
       "fields": {
@@ -95214,8 +95186,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89538",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89538"
     },
     "seattle-parks-activecommunities:sprac-89539-2026-09-27": {
       "fields": {
@@ -95223,8 +95194,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89539",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89539"
     },
     "seattle-parks-activecommunities:sprac-89540-2026-09-27": {
       "fields": {
@@ -95232,8 +95202,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89540",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89540"
     },
     "discover-slu:discover-slu-hydro-flask-trade-in-tour": {
       "fields": {
@@ -95245,7 +95214,7 @@
     "seatoday:cityspark-20006995": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95254,7 +95223,7 @@
     "seatoday:cityspark-19889226": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95263,7 +95232,7 @@
     "seatoday:cityspark-19007351": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95272,7 +95241,7 @@
     "seatoday:cityspark-19626296": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
