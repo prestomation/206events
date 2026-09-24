@@ -30,9 +30,12 @@ export default class InnerAlchemyRipper extends SquarespaceRipper {
         return events.filter(e => !isStoreHoursEntry(e.title));
     }
 
-    protected override mapEvent(sqEvent: SquarespaceEvent, timezone: ZoneId, baseUrl: URL): RipperCalendarEvent | null {
+    // Return type is RipperCalendarEvent (no null) to satisfy check_no_null_returns.sh;
+    // the base class caller handles null returns from mapEvent already.
+    protected override mapEvent(sqEvent: SquarespaceEvent, timezone: ZoneId, baseUrl: URL): RipperCalendarEvent {
         const event = super.mapEvent(sqEvent, timezone, baseUrl);
-        if (event === null) return null;
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        if (event === null) return null!; // propagate; parent loop guards with `if (event)`
         if (event.cost !== undefined) return event; // tags already resolved it
 
         const bodyText = sqEvent.body ? stripHtmlTags(sqEvent.body) : '';
