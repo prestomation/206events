@@ -42878,7 +42878,7 @@
     "charlies-queer-books:charlies-queer-books-6039920261005": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-23",
@@ -76871,7 +76871,7 @@
       "fields": {
         "imageUrl": "https://assets.swoogo.com/uploads/full/6276755-6967ff3bf2825.png",
         "cost": {
-          "min": 250.0
+          "min": 250
         }
       },
       "resolvedAt": "2026-09-16",
@@ -76882,7 +76882,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/micronetonline/image/upload/f_auto/c_crop,h_1200,w_1200,x_0,y_0/q_auto/f_auto/q_auto/v1786057670/tenants/7dd5c4e2-37d0-4159-a6d6-029e738e1c1e/3035d2ff2bc34fe7963ccfd1dc94f033/T-N-Sept-GZ-Tile.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-16",
@@ -76893,7 +76893,7 @@
       "fields": {
         "imageUrl": "https://res.cloudinary.com/micronetonline/image/upload/f_auto/c_crop,h_900,w_900,x_0,y_0/q_auto/f_auto/q_auto/v1788294218/tenants/7dd5c4e2-37d0-4159-a6d6-029e738e1c1e/2912d4346a66477ba30ef59210ac288f/POWERED-BY-2.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-16",
@@ -84981,7 +84981,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2026-11-08": {
       "fields": {
@@ -84991,7 +84992,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2026-12-13": {
       "fields": {
@@ -85001,7 +85003,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-01-10": {
       "fields": {
@@ -85011,7 +85014,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-02-14": {
       "fields": {
@@ -85021,7 +85025,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-03-14": {
       "fields": {
@@ -85031,7 +85036,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-04-11": {
       "fields": {
@@ -85041,7 +85047,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-05-09": {
       "fields": {
@@ -85051,7 +85058,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-06-13": {
       "fields": {
@@ -85061,7 +85069,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-07-11": {
       "fields": {
@@ -85071,7 +85080,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-08-08": {
       "fields": {
@@ -85081,7 +85091,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-09-12": {
       "fields": {
@@ -85091,7 +85102,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-10-10": {
       "fields": {
@@ -85101,7 +85113,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-11-14": {
       "fields": {
@@ -85111,7 +85124,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2027-12-12": {
       "fields": {
@@ -85121,7 +85135,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2028-01-09": {
       "fields": {
@@ -85131,7 +85146,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2028-02-13": {
       "fields": {
@@ -85141,7 +85157,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2028-03-12": {
       "fields": {
@@ -85151,7 +85168,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2028-04-09": {
       "fields": {
@@ -85161,7 +85179,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12078-2028-05-14": {
       "fields": {
@@ -85171,17 +85190,19 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2/ — Event page: '2nd Sundays at 2' explicitly listed as Free",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12683-2026-10-17": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/the-littles-workshops-return/ — Event page: '$25 - Call to Sign Up'"
+      "evidence": "https://seattledrumschool.com/events/the-littles-workshops-return/ — Event page: '$25 - Call to Sign Up'",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2026-09-26": {
       "fields": {
@@ -85191,7 +85212,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2026-10-31": {
       "fields": {
@@ -85201,7 +85223,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2026-11-28": {
       "fields": {
@@ -85211,7 +85234,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2026-12-26": {
       "fields": {
@@ -85221,7 +85245,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-01-30": {
       "fields": {
@@ -85231,7 +85256,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-02-27": {
       "fields": {
@@ -85241,7 +85267,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-03-27": {
       "fields": {
@@ -85251,7 +85278,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-04-24": {
       "fields": {
@@ -85261,7 +85289,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-05-29": {
       "fields": {
@@ -85271,7 +85300,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-06-26": {
       "fields": {
@@ -85281,7 +85311,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-07-31": {
       "fields": {
@@ -85291,7 +85322,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-08-28": {
       "fields": {
@@ -85301,7 +85333,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-09-25": {
       "fields": {
@@ -85311,7 +85344,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-10-30": {
       "fields": {
@@ -85321,7 +85355,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-11-27": {
       "fields": {
@@ -85331,7 +85366,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2027-12-25": {
       "fields": {
@@ -85341,7 +85377,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2028-01-29": {
       "fields": {
@@ -85351,7 +85388,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2028-02-26": {
       "fields": {
@@ -85361,7 +85399,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2028-03-25": {
       "fields": {
@@ -85371,7 +85410,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-12801-2028-04-29": {
       "fields": {
@@ -85381,7 +85421,8 @@
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ — Event page: '$10-$20 donation requested' (suggested donation, not a mandatory fee)",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-13521-2026-09-19": {
       "fields": {
@@ -85396,7 +85437,7 @@
     "seattle-drum-school:seattle-drum-school-13575-2026-09-17": {
       "fields": {
         "cost": {
-          "min": 50.0
+          "min": 50
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85406,32 +85447,35 @@
     "seattle-drum-school:seattle-drum-school-13575-2026-09-24": {
       "fields": {
         "cost": {
-          "min": 50.0
+          "min": 50
         }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session"
+      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-13575-2026-10-01": {
       "fields": {
         "cost": {
-          "min": 50.0
+          "min": 50
         }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session"
+      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-13575-2026-10-08": {
       "fields": {
         "cost": {
-          "min": 50.0
+          "min": 50
         }
       },
       "resolvedAt": "2026-09-16",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session"
+      "evidence": "https://seattledrumschool.com/events/come-run-the-robots/ — Event page: '$50' per 50-minute session",
+      "lastSeen": "2026-09-24"
     },
     "seattle-drum-school:seattle-drum-school-13601-2026-09-22": {
       "fields": {
@@ -85446,7 +85490,7 @@
     "do206:do206-2026-10-15-antibalas-tickets": {
       "fields": {
         "cost": {
-          "min": 47.0
+          "min": 47
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85456,7 +85500,7 @@
     "do206:do206-2026-10-15-brian-noyes-luke-sweeney-bryan-john-appleby-tickets": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85486,8 +85530,8 @@
     "do206:do206-2026-10-15-daniel-squadron-tickets": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 35.0
+          "min": 10,
+          "max": 35
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85497,8 +85541,8 @@
     "do206:do206-2026-10-15-daniel-squadron-with-austin-jenkins-tickets": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 35.0
+          "min": 10,
+          "max": 35
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85538,8 +85582,8 @@
     "do206:do206-2026-10-15-matt-pond-pa-bathtub-cigs-tickets": {
       "fields": {
         "cost": {
-          "min": 24.0,
-          "max": 28.0
+          "min": 24,
+          "max": 28
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85549,8 +85593,8 @@
     "do206:do206-2026-10-15-naomi-wachira-nanseera-tickets": {
       "fields": {
         "cost": {
-          "min": 18.0,
-          "max": 23.0
+          "min": 18,
+          "max": 23
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85570,8 +85614,8 @@
     "do206:do206-2026-10-15-spencer-krug-wolf-parade-tickets": {
       "fields": {
         "cost": {
-          "min": 18.0,
-          "max": 28.0
+          "min": 18,
+          "max": 28
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85581,8 +85625,8 @@
     "do206:do206-2026-10-15-this-is-halloween-tickets": {
       "fields": {
         "cost": {
-          "min": 35.0,
-          "max": 75.0
+          "min": 35,
+          "max": 75
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85592,8 +85636,8 @@
     "do206:do206-2026-10-15-this-is-halloween-tickets-dr9qxzm": {
       "fields": {
         "cost": {
-          "min": 35.0,
-          "max": 75.0
+          "min": 35,
+          "max": 75
         }
       },
       "resolvedAt": "2026-09-16",
@@ -85713,8 +85757,8 @@
     "kremwerk:6aaa4350efd9391a7b73cfee": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 15.0
+          "min": 10,
+          "max": 15
         }
       },
       "resolvedAt": "2026-09-16",
@@ -87124,7 +87168,7 @@
     "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-10-02": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87134,7 +87178,7 @@
     "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-10-09": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87144,7 +87188,7 @@
     "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-10-16": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87154,7 +87198,7 @@
     "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-11-06": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87164,7 +87208,7 @@
     "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-11-13": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87174,7 +87218,7 @@
     "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-11-20": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87184,7 +87228,7 @@
     "gator-boy-productions:gator-boy-productions-gator-boy-s-juke-joint-2026-12-11": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87204,7 +87248,7 @@
     "gator-boy-productions:gator-boy-productions-louisiana-dance-party-2026-10-04": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87264,7 +87308,7 @@
     "rabbit_box:6aa854132f710533a26869ad": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87274,7 +87318,7 @@
     "rabbit_box:6aaaad86fa7051307c8343ec": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87284,7 +87328,7 @@
     "rabbit_box:6aab151814a70d387deb1b5a": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-17",
@@ -87991,7 +88035,7 @@
     "mr_bs_meadery:6aab1cdc468e3e0d503718d7": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88001,7 +88045,7 @@
     "mr_bs_meadery:6aab1d34bdd0bd1cd8404d37": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88051,7 +88095,7 @@
     "queer-social-club:6aab37c6532378691eae4633": {
       "fields": {
         "cost": {
-          "min": 5.0
+          "min": 5
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88171,7 +88215,7 @@
     "do206:do206-2026-10-16-antibalas-tickets": {
       "fields": {
         "cost": {
-          "min": 47.0
+          "min": 47
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88181,7 +88225,7 @@
     "do206:do206-2026-10-16-antibalas-tickets-9ed1o6d": {
       "fields": {
         "cost": {
-          "min": 47.0
+          "min": 47
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88191,8 +88235,8 @@
     "do206:do206-2026-10-16-as-many-weirdos-as-possible-tickets": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 35.0
+          "min": 10,
+          "max": 35
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88242,7 +88286,7 @@
     "do206:do206-2026-10-16-improv-happy-hour-festival-edition-tickets": {
       "fields": {
         "cost": {
-          "min": 12.0
+          "min": 12
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88292,8 +88336,8 @@
     "do206:do206-2026-10-16-kyle-watson-tickets": {
       "fields": {
         "cost": {
-          "min": 20.0,
-          "max": 25.0
+          "min": 20,
+          "max": 25
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88303,8 +88347,8 @@
     "do206:do206-2026-10-16-liz-longley-at-the-rabbit-box-tickets": {
       "fields": {
         "cost": {
-          "min": 25.0,
-          "max": 30.0
+          "min": 25,
+          "max": 30
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88374,8 +88418,8 @@
     "do206:do206-2026-10-16-this-is-halloween-tickets": {
       "fields": {
         "cost": {
-          "min": 35.0,
-          "max": 75.0
+          "min": 35,
+          "max": 75
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88385,8 +88429,8 @@
     "do206:do206-2026-10-16-this-is-halloween-tickets-b9zv3xj": {
       "fields": {
         "cost": {
-          "min": 35.0,
-          "max": 75.0
+          "min": 35,
+          "max": 75
         }
       },
       "resolvedAt": "2026-09-17",
@@ -88407,7 +88451,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/07/barbaraforeverposter-1200x1778.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-18",
@@ -88429,7 +88473,7 @@
     "kremwerk:6aac6749cb751d658f20a30a": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-18",
@@ -88439,7 +88483,7 @@
     "kremwerk:6aac6c676b93522196a1a89a": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-18",
@@ -88449,7 +88493,7 @@
     "kremwerk:6aac6d5fa42e0d223e2a2268": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-18",
@@ -88914,7 +88958,8 @@
       },
       "resolvedAt": "2026-09-19",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/must-sing-now/ - '$10-$20 donation requested' = suggested donation"
+      "evidence": "https://seattledrumschool.com/events/must-sing-now/ - '$10-$20 donation requested' = suggested donation",
+      "lastSeen": "2026-09-24"
     },
     "side-rail-collective:6aac656c12d8d14a9327e0cd": {
       "fields": {
@@ -88939,7 +88984,7 @@
     "sleight-of-hand-cellars:6aac09faf756524df9cb240f": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-09-19",
@@ -89141,7 +89186,7 @@
     "do206:do206-2026-10-17-antibalas-tickets": {
       "fields": {
         "cost": {
-          "min": 47.0
+          "min": 47
         }
       },
       "resolvedAt": "2026-09-19",
@@ -89151,7 +89196,7 @@
     "do206:do206-2026-10-17-antibalas-tickets-6z7b86j": {
       "fields": {
         "cost": {
-          "min": 47.0
+          "min": 47
         }
       },
       "resolvedAt": "2026-09-19",
@@ -89202,7 +89247,7 @@
     "do206:do206-2026-10-17-improv-happy-hour-festival-edition-tickets": {
       "fields": {
         "cost": {
-          "min": 12.0,
+          "min": 12,
           "max": 22.35
         }
       },
@@ -89213,8 +89258,8 @@
     "do206:do206-2026-10-17-maria-bamford-tickets": {
       "fields": {
         "cost": {
-          "min": 49.0,
-          "max": 205.0
+          "min": 49,
+          "max": 205
         }
       },
       "resolvedAt": "2026-09-19",
@@ -89380,7 +89425,7 @@
         "startTime": "10:00",
         "duration": 18000,
         "cost": {
-          "min": 30.0
+          "min": 30
         }
       },
       "resolvedAt": "2026-09-23",
@@ -89665,7 +89710,7 @@
     "seatoday:cityspark-19953309": {
       "fields": {
         "cost": {
-          "min": 50.0
+          "min": 50
         }
       },
       "resolvedAt": "2026-09-20",
@@ -89969,7 +90014,7 @@
     "halcyon-brewing:6aac3c92c00435431ab7f1f9": {
       "fields": {
         "cost": {
-          "min": 25.0
+          "min": 25
         }
       },
       "resolvedAt": "2026-09-20",
@@ -90701,7 +90746,7 @@
       "fields": {
         "imageUrl": "https://nwfilmforum.org/wp-content/uploads/2026/03/lateautumnposter-1200x1800.jpg",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-21",
@@ -90779,7 +90824,7 @@
     "burke-museum:burke-nature-night": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-21",
@@ -90794,12 +90839,13 @@
       },
       "resolvedAt": "2026-09-21",
       "source": "agent",
-      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2-youth-music-community/"
+      "evidence": "https://seattledrumschool.com/events/2nd-sundays-at-2-youth-music-community/",
+      "lastSeen": "2026-09-24"
     },
     "rabbit_box:6aae180eebacdc5f43d3eb37": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-21",
@@ -90809,7 +90855,7 @@
     "cornish:cornish-54002419488229": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-21",
@@ -90819,7 +90865,7 @@
     "cornish:cornish-54002419489254": {
       "fields": {
         "cost": {
-          "min": 40.0
+          "min": 40
         }
       },
       "resolvedAt": "2026-09-21",
@@ -91574,7 +91620,7 @@
     "improv-place:improv-place-evt-PzOf2QKkfXGhSth": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-22",
@@ -91667,7 +91713,7 @@
     "seattle-growers-market:69bd79ecd582c315958e0c02": {
       "fields": {
         "cost": {
-          "min": 185.0
+          "min": 185
         }
       },
       "resolvedAt": "2026-09-22",
@@ -91697,7 +91743,7 @@
     "do206:do206-2026-10-20-allan-rayman-tickets": {
       "fields": {
         "cost": {
-          "min": 56.0
+          "min": 56
         }
       },
       "resolvedAt": "2026-09-22",
@@ -91930,7 +91976,7 @@
     "tabletop-village:_6cq3ic2564rjib9o7513cb9k8d0k8ba28l1j8b9h68q3eh26891kad1j84_R20260322T010000@google.com-2027-03-20": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-22",
@@ -91940,7 +91986,7 @@
     "tabletop-village:1g980d2qv88j5e9ifkc0ino6oc_R20260703T010000@google.com-2027-03-18": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-22",
@@ -92040,7 +92086,7 @@
     "sol-yoga-seattle:6aadcf2ed1b4d56dad3388d1": {
       "fields": {
         "cost": {
-          "min": 60.0
+          "min": 60
         }
       },
       "resolvedAt": "2026-09-22",
@@ -92090,7 +92136,7 @@
     "seattle-blues-dance-collective:sbdc-d7cd4aecfa87afa97a13d66a9d5fa7ec4fde93e0f54b6510b5ad23e878051e0b": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-22",
@@ -92401,7 +92447,7 @@
     "the-cuff-complex:6ab1d218440c2e3aa12a4ee7": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-22",
@@ -92411,7 +92457,7 @@
     "the-cuff-complex:6ab1d287ca1aad18ebc45b86": {
       "fields": {
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-22",
@@ -92449,7 +92495,7 @@
     "kremwerk:6ab19a676d62263ec5b3f3ae": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-22",
@@ -92459,7 +92505,7 @@
     "kremwerk:6ab1ba7cf1743f714ebb736f": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-22",
@@ -92552,7 +92598,7 @@
       "fields": {
         "imageUrl": "|UNRESOLVABLE",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92563,7 +92609,7 @@
       "fields": {
         "imageUrl": "|https://nwfilmforum.org/wp-content/uploads/2026/09/zi1600-3.png",
         "cost": {
-          "min": 15.0
+          "min": 15
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92653,8 +92699,8 @@
     "do206:do206-2026-09-28-celebrating-dolly-parton-i-will-always-love-you-tickets": {
       "fields": {
         "cost": {
-          "min": 10.0,
-          "max": 30.0
+          "min": 10,
+          "max": 30
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92664,7 +92710,7 @@
     "do206:do206-2026-10-21-6-doug-walker-lecture-reception-tickets": {
       "fields": {
         "cost": {
-          "min": 8.0
+          "min": 8
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92674,8 +92720,8 @@
     "do206:do206-2026-10-21-lioneer-w-gavin-prophet-tickets": {
       "fields": {
         "cost": {
-          "min": 12.0,
-          "max": 20.0
+          "min": 12,
+          "max": 20
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92685,7 +92731,7 @@
     "do206:do206-2026-10-21-morgan-james-tickets": {
       "fields": {
         "cost": {
-          "min": 43.0
+          "min": 43
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92695,8 +92741,8 @@
     "do206:do206-2026-10-21-ovation-tickets": {
       "fields": {
         "cost": {
-          "min": 120.0,
-          "max": 140.0
+          "min": 120,
+          "max": 140
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92706,7 +92752,7 @@
     "do206:do206-2026-10-21-the-original-food-and-culture-tour-of-pike-place-market-tickets": {
       "fields": {
         "cost": {
-          "min": 59.0
+          "min": 59
         }
       },
       "resolvedAt": "2026-09-23",
@@ -92716,8 +92762,8 @@
     "do206:do206-2026-10-21-this-is-halloween-tickets": {
       "fields": {
         "cost": {
-          "min": 35.0,
-          "max": 75.0
+          "min": 35,
+          "max": 75
         }
       },
       "resolvedAt": "2026-09-23",
@@ -93047,7 +93093,7 @@
     "rabbit_box:6ab1a5249d9de9760a41aa78": {
       "fields": {
         "cost": {
-          "min": 20.0
+          "min": 20
         }
       },
       "resolvedAt": "2026-09-23",
@@ -93073,7 +93119,7 @@
     "queer-social-club:6ab18b1bd85be21c0870deb6": {
       "fields": {
         "cost": {
-          "min": 10.0
+          "min": 10
         }
       },
       "resolvedAt": "2026-09-23",
@@ -93103,7 +93149,7 @@
     "plant-amnesty:6aada820f760907907ecd138": {
       "fields": {
         "cost": {
-          "min": 125.0
+          "min": 125
         }
       },
       "resolvedAt": "2026-09-23",
@@ -93374,7 +93420,7 @@
     "events12:music-by-candlelight-nordic-museum-119604-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 45.0
+          "min": 45
         },
         "setting": "indoor"
       },
@@ -93447,7 +93493,7 @@
     "climate-pledge-arena:tm-vvG1HZ_2Sp1qJd": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93477,7 +93523,7 @@
     "stg:tm-vvG1HZ_C5unlvs": {
       "fields": {
         "cost": {
-          "min": 60.0
+          "min": 60
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93527,7 +93573,7 @@
     "seatoday:cityspark-19434507": {
       "fields": {
         "cost": {
-          "min": 265.0
+          "min": 265
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94424,7 +94470,7 @@
     "seattle-chamber-music:scms-5711": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94434,7 +94480,7 @@
     "seattle-chamber-music:scms-5784": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94444,7 +94490,7 @@
     "seattle-chamber-music:scms-5787": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94454,7 +94500,7 @@
     "seattle-chamber-music:scms-5792": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94464,7 +94510,7 @@
     "seattle-chamber-music:scms-5805": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94474,7 +94520,7 @@
     "seattle-chamber-music:scms-5809": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94484,7 +94530,7 @@
     "seattle-chamber-music:scms-5917": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94494,7 +94540,7 @@
     "seattle-chamber-music:scms-5922": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95372,6 +95418,60 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076 - Seattle Parks recreation center indoor drop-in activity"
+    },
+    "venue:loc:mama be well healing studio 4034a california ave sw seattle, wa 98116, seattle, wa": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/grief-support-group-monday-evening-09-28-2026-13006"
+    },
+    "venue:loc:must register: virtual - zoom link provided upon registration, seattle, wa": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "virtual/online event with no physical venue; indoor/outdoor classification does not apply"
+    },
+    "venue:loc:the lab @ 1010 1010 south bailey street seattle, wa 98108, seattle, wa": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattledrumschool.com/the-lab-1010"
+    },
+    "seattle-parks-activecommunities:sprac-87076-2026-10-07": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/drop-in-juggling/87076"
+    },
+    "seattle-parks-activecommunities:sprac-89538-2026-09-27": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89538"
+    },
+    "seattle-parks-activecommunities:sprac-89539-2026-09-27": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89539"
+    },
+    "seattle-parks-activecommunities:sprac-89540-2026-09-27": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89540"
     }
   }
 }
