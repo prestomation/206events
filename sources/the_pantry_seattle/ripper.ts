@@ -1,6 +1,7 @@
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { Duration, LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { firstNonTieredPrice } from "../../lib/config/cost-text.js";
 import { decode } from "html-entities";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
@@ -47,22 +48,17 @@ export interface PantryItem {
     } | null;
 }
 
-// Excludes a tiered/discounted label immediately before "Price:" (e.g.
-// "Member Price: $100") so a general-admission page listing both a member
-// and a regular price doesn't get the cheaper member rate — the pricing
-// rubric anchors on the general-admission adult price, ignoring member/child/
-// senior tiers. A bare "Price:" (no qualifier) still matches normally.
-const PANTRY_TIER_PREFIX = /(?:member|student|senior|child|kids?|youth|volunteer)\s+$/i;
+// Skips a member/student/senior/child/youth/volunteer-tiered price (e.g.
+// "Member Price: $100") in favor of the next match (e.g. "Regular Price:
+// $145") — the pricing rubric anchors on the general-admission adult price,
+// ignoring discount tiers. Shared with the Squarespace body extraction; see
+// firstNonTieredPrice's doc comment for the "Nonmember" word-boundary note.
+const PANTRY_PRICE_RE = /Price:\s*<b>\$(\d[\d,]*)<\/b>/gi;
 
 /** Extracts admission cost from a Pantry class/dinner page HTML. Pattern: `Price: <b>$NNN</b>`. */
 export function extractPantryPrice(html: string): EventCost | undefined {
-    const priceRe = /Price:\s*<b>\$(\d[\d,]*)<\/b>/gi;
-    let m: RegExpExecArray | null;
-    while ((m = priceRe.exec(html))) {
-        const prefix = html.slice(Math.max(0, m.index - 20), m.index);
-        if (PANTRY_TIER_PREFIX.test(prefix)) continue;
-        return { min: parseFloat(m[1].replace(/,/g, "")) };
-    }
+    const price = firstNonTieredPrice(html, PANTRY_PRICE_RE);
+    if (price) return { min: parseFloat(price.replace(/,/g, "")) };
     if (/Price:\s*<b>Free<\/b>/i.test(html)) return { min: 0 };
     return undefined;
 }

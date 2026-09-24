@@ -534,6 +534,11 @@ describe('SquarespaceRipper', () => {
             expect(extractCostFromBody('<p>Tickets $12.50 at the door.</p>')).toEqual({ min: 12.5 });
         });
 
+        test('handles a thousands-comma-grouped price without truncating it', () => {
+            expect(extractCostFromBody('<p>Investment: $1,250 for the full retreat.</p>')).toEqual({ min: 1250 });
+            expect(extractCostFromBody('<p>Sliding scale $1,000-$1,500.</p>')).toEqual({ min: 1000, max: 1500 });
+        });
+
         test('extracts a price mentioned right after a time (live example)', () => {
             expect(extractCostFromBody('<p>Every Tuesday 7-8pm, $25</p>')).toEqual({ min: 25 });
         });

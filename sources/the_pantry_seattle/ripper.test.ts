@@ -68,6 +68,9 @@ describe('The Pantry ripper', () => {
         // Only a tiered price on the page — falls through rather than
         // publishing the discounted rate as general admission.
         expect(extractPantryPrice('<p>Member Price: <b>$100</b></p>')).toBeUndefined();
+        // "Nonmember" is a general-admission label, not a discount tier —
+        // the word-boundary check must not treat it as one.
+        expect(extractPantryPrice('<p>Nonmember Price: <b>$145</b></p>')).toEqual({ min: 145 });
     });
 
     it('applies a resolved class price to every session sharing that class URL', () => {

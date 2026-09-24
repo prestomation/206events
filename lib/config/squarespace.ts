@@ -1,6 +1,7 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
+import { firstNonTieredPrice } from "./cost-text.js";
 import { parse } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -95,21 +96,20 @@ const FREE_PHRASE_RE = /\b(free admission|free event|free entry|free to attend|f
 // phrase a few words later (e.g. "This is not a free class — tickets are
 // $50"), so check this before trusting NOTAFLOF_RE/FREE_PHRASE_RE.
 const FREE_NEGATION_RE = /\bnot\s+(?:a\s+|an\s+)?(?:really\s+)?free\b|\bno longer free\b|\bisn.t free\b/i;
-const RANGE_RE = /\$(\d+(?:\.\d{1,2})?)\s*(?:-|–|to)\s*\$?(\d+(?:\.\d{1,2})?)/i;
+// A dollar amount, optionally thousands-comma-grouped (e.g. "$1,250" — a
+// multi-day retreat or workshop package can easily clear four figures; without
+// the comma group `\d+` alone stops at the comma and truncates "$1,250" to 1).
+const DOLLARS = "\\d{1,3}(?:,\\d{3})*(?:\\.\\d{1,2})?|\\d+(?:\\.\\d{1,2})?";
+const RANGE_RE = new RegExp(`\\$(${DOLLARS})\\s*(?:-|–|to)\\s*\\$?(${DOLLARS})`, "i");
 // Deliberately excludes "fee" — the pricing rubric treats fees (materials,
 // processing, registration add-ons) as distinct from and excluded from the
 // general-admission price, so a body mentioning "materials fee $5" must not
 // be read as the event's $5 admission cost.
-const KEYWORD_PRICE_RE = /\b(?:cost|price|admission|tickets?|investment)\s*[:\s]\s*\$(\d+(?:\.\d{1,2})?)/gi;
-// A discount-tier word immediately before the matched keyword (e.g. "Member
-// price: $15") means this is not the general-admission price the rubric
-// calls for — skip it and look for the next match on the page instead (e.g.
-// a later "Regular price: $25").
-const TIER_PREFIX_RE = /\b(?:member|student|senior|child|kids?|youth|volunteer)\s+$/i;
+const KEYWORD_PRICE_RE = new RegExp(`\\b(?:cost|price|admission|tickets?|investment)\\s*[:\\s]\\s*\\$(${DOLLARS})`, "gi");
 // Restricted to punctuation/whitespace between the time and the price (no
 // letters) so an unrelated dollar amount later in the same sentence — e.g.
 // "Doors at 7pm, drinks $8 extra" — can't be mistaken for the admission cost.
-const TIME_ADJACENT_PRICE_RE = /\b\d{1,2}(?::\d{2})?\s*(?:am|pm)\b[,\s-]{0,4}\$(\d+(?:\.\d{1,2})?)(?!\d)/i;
+const TIME_ADJACENT_PRICE_RE = new RegExp(`\\b\\d{1,2}(?::\\d{2})?\\s*(?:am|pm)\\b[,\\s-]{0,4}\\$(${DOLLARS})(?!\\d)`, "i");
 
 /**
  * Strips HTML tags and collapses whitespace, for regex-scanning a Squarespace
@@ -125,6 +125,10 @@ function toPlainText(html: string | undefined): string {
     return parse(html.replace(/>\s*</g, "> <")).textContent.replace(/\s+/g, " ").trim();
 }
 
+function parseDollars(s: string): number {
+    return parseFloat(s.replace(/,/g, ""));
+}
+
 export function extractCostFromBody(body: string | undefined): EventCost | undefined {
     const text = toPlainText(body);
     if (!text) return undefined;
@@ -133,19 +137,14 @@ export function extractCostFromBody(body: string | undefined): EventCost | undef
     }
     const range = text.match(RANGE_RE);
     if (range) {
-        const min = parseFloat(range[1]);
-        const max = parseFloat(range[2]);
+        const min = parseDollars(range[1]);
+        const max = parseDollars(range[2]);
         if (max > min) return { min, max };
     }
-    KEYWORD_PRICE_RE.lastIndex = 0;
-    let keyword: RegExpExecArray | null;
-    while ((keyword = KEYWORD_PRICE_RE.exec(text))) {
-        const prefix = text.slice(Math.max(0, keyword.index - 20), keyword.index);
-        if (TIER_PREFIX_RE.test(prefix)) continue;
-        return { min: parseFloat(keyword[1]) };
-    }
+    const keyword = firstNonTieredPrice(text, KEYWORD_PRICE_RE);
+    if (keyword) return { min: parseDollars(keyword) };
     const timeAdjacent = text.match(TIME_ADJACENT_PRICE_RE);
-    if (timeAdjacent) return { min: parseFloat(timeAdjacent[1]) };
+    if (timeAdjacent) return { min: parseDollars(timeAdjacent[1]) };
     return undefined;
 }
 
