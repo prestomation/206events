@@ -1707,6 +1707,107 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'west: international district community center': { lat: 47.5960270, lng: -122.3226387 }, // International District/Chinatown Community Center, 719 8th Ave S
   'wet clay cafe': { lat: 47.6494094, lng: -122.3435910 }, // 1109 N 35th St, Fremont — Nominatim 404s on the "#Suite A" suffix
   'woodlawn hall': { lat: 47.6825149, lng: -122.3266868 }, // 7400 Woodlawn Ave NE, Green Lake — Abbey Arts Presents' community hall
+
+  // --- 2026-09-24 geo-resolver batch: "has street address" / "venue name
+  // only" unresolvable entries from geo-cache.py analyze, plus a few plain
+  // street intersections. Numbered West Seattle addresses (California Ave
+  // SW, Delridge Way SW, Fauntleroy Way SW, and the SW-prefixed east-west
+  // streets) forward-geocode cleanly via Nominatim to named businesses at
+  // the exact house number — several duplicate addresses already covered
+  // by an earlier batch's venue-prefixed key are aliased to those existing
+  // coords rather than re-geocoded. Named venues (Latvian Community Center,
+  // Little Saigon Creative, Origen Seattle, Revitalize Spa, West Seattle
+  // Chamber, Green River College Kent campus, Meydenbauer Center, Lincoln
+  // High School) were confirmed via the venue's own site/listing (never
+  // reverse-geocoded) before forward-geocoding the verified address. A
+  // handful of plain street intersections with no venue name were resolved
+  // via the Overpass API (shared node between the two named ways) where
+  // Nominatim's own free-text search couldn't combine two street names.
+  // Skipped as correctly unresolvable: rotating/multiple/various locations,
+  // "all national/state parks", private residences, org names with no
+  // fixed venue (AAF Seattle, Seattle Creates — both use rotating venues
+  // per their own calendars), RSVP-gated/virtual/broadcast locations, a
+  // bare "Seattle, USA" (too imprecise to be useful), two intersections
+  // Overpass found no shared node for (42nd Ave SW & SW Dakota St / &
+  // Findlay St — the streets don't appear to directly meet in OSM's data),
+  // and a route spanning two distinct downtown points (Jimi Hendrix Park to
+  // City Hall Park). One entry ('1st wednesday, 10am-1pm (pst) ... kent,
+  // wa') is a recurring-schedule string that leaked into the location
+  // field — a ripper bug, not a geocoder gap; left unresolvable.
+  "1012 sw trenton, west seattle": { lat: 47.525614, lng: -122.3486763, osmType: 'way', osmId: 353711111 }, // Highland Park Elementary School, 1012 SW Trenton St, Seattle, WA
+  "10401 47th sw, west seattle": { lat: 47.509993, lng: -122.3920178 }, // 10401 47th Ave SW, Seattle, WA (Endolyne)
+  "11003 31st sw, west seattle": { lat: 47.5038129, lng: -122.3729305 }, // 11003 31st Ave SW, Seattle, WA
+  "2306 california sw, west seattle": { lat: 47.5826988, lng: -122.3862243 }, // 2306 California Ave SW, Seattle, WA
+  "2700 california sw, west seattle": { lat: 47.5781643, lng: -122.3844001, osmType: 'way', osmId: 53610787 }, // Hiawatha Community Center, 2700 California Ave SW, Seattle, WA
+  "3003 61st sw, west seattle": { lat: 47.5775947, lng: -122.4109498, osmType: 'way', osmId: 233293332 }, // Log House Museum, 3003 61st Ave SW, Seattle, WA
+  "3278 california sw, west seattle": { lat: 47.5734054, lng: -122.3865672, osmType: 'node', osmId: 11656990675 }, // Sebastiano's, 3278 California Ave SW, Seattle, WA
+  "3401 sw myrtle, west seattle": { lat: 47.5388892, lng: -122.3756064, osmType: 'way', osmId: 496469763 }, // Our Lady of Guadalupe School, 3401 SW Myrtle St, Seattle, WA
+  "3405 california sw, west seattle": { lat: 47.5735911, lng: -122.3871562, osmType: 'way', osmId: 236505772 }, // Larry's Tavern, 3405 California Ave SW, Seattle, WA
+  "3618 sw alaska, west seattle": { lat: 47.5612838, lng: -122.3782993 }, // same address as the existing "inner alchemy sanctuary & studio @ 3618 sw alaska" entry — bare-address variant
+  "3809 delridge way sw, west seattle": { lat: 47.5696307, lng: -122.3627866, osmType: 'way', osmId: 228915128 }, // Ounces Taproom & Beer Garden, 3809 Delridge Way SW, Seattle, WA
+  "3816 17th sw, west seattle": { lat: 47.5692154, lng: -122.3557734 }, // 3816 17th Ave SW, Seattle, WA
+  "4034 california sw, west seattle": { lat: 47.5672386, lng: -122.3865543 }, // same address as the existing "mama be well healing studio @ 4034 california sw" entry — bare-address variant
+  "4105 california sw, west seattle": { lat: 47.5663002, lng: -122.3871798, osmType: 'way', osmId: 450278368 }, // First Lutheran Church, 4105 California Ave SW, Seattle, WA
+  "4208 sw 100th, west seattle": { lat: 47.5139762, lng: -122.3864056 }, // 4208 SW 100th St, Seattle, WA
+  "4210 sw admiral way, west seattle": { lat: 47.5814621, lng: -122.3856811 }, // 4210 SW Admiral Way, Seattle, WA
+  "4210 sw genesee, west seattle": { lat: 47.5647714, lng: -122.3857303 }, // 4210 SW Genesee St, Seattle, WA
+  "4217 sw oregon, west seattle": { lat: 47.5626534, lng: -122.3862787 }, // same address as the existing "center for active living @ 4217 sw oregon" entry — bare-address variant
+  "4302 sw alaska, west seattle": { lat: 47.561274, lng: -122.387089, osmType: 'node', osmId: 10894634438 }, // Corner Pocket, 4302 SW Alaska St, Seattle, WA
+  "4457 fauntleroy way sw, west seattle": { lat: 47.5633323, lng: -122.3792449, osmType: 'way', osmId: 231348879 }, // Sherwin-Williams, 4457 Fauntleroy Way SW, Seattle, WA
+  "4509 california sw, west seattle": { lat: 47.5626236, lng: -122.3869793, osmType: 'node', osmId: 440839210 }, // Bonjour Việt Nam, 4509 California Ave SW, Seattle, WA
+  "4511 california sw, west seattle": { lat: 47.5625293, lng: -122.3870064, osmType: 'node', osmId: 2397401916 }, // The Beer Junction, 4511 California Ave SW, Seattle, WA
+  "4517 california sw, west seattle": { lat: 47.5624137, lng: -122.3870173, osmType: 'node', osmId: 2397401920 }, // Rush Hour, 4517 California Ave SW, Seattle, WA
+  "4541 california sw, west seattle": { lat: 47.5617448, lng: -122.3869958, osmType: 'node', osmId: 2397401943 }, // The Hydrant, 4541 California Ave SW, Seattle, WA
+  "4547 california sw, west seattle": { lat: 47.5615399, lng: -122.3869769, osmType: 'node', osmId: 2397401948 }, // Jet City Labs, 4547 California Ave SW, Seattle, WA
+  "4707 california sw, west seattle": { lat: 47.5609189, lng: -122.3869873, osmType: 'node', osmId: 1178215999 }, // Emerald Water Anglers, 4707 California Ave SW, Seattle, WA
+  "4711 california sw, west seattle": { lat: 47.5607163, lng: -122.3870227, osmType: 'node', osmId: 2397401967 }, // ArtsWest, 4711 California Ave SW, Seattle, WA
+  "4717 california sw, west seattle": { lat: 47.5606177, lng: -122.3870106, osmType: 'node', osmId: 2397401970 }, // Poggie Tavern, 4717 California Ave SW, Seattle, WA
+  "4811 california sw, west seattle": { lat: 47.5586893, lng: -122.3870659, osmType: 'node', osmId: 2396696020 }, // Walter's Wine Shop, 4811 California Ave SW, Seattle, WA
+  "5048 california sw, west seattle": { lat: 47.5561107, lng: -122.386683, osmType: 'node', osmId: 2396741021 }, // Till Dawn, 5048 California Ave SW, Seattle, WA
+  "5200 35th sw, west seattle": { lat: 47.5556085, lng: -122.3751077 }, // 5200 35th Ave SW, Seattle, WA
+  "5275 california sw, west seattle": { lat: 47.5541895, lng: -122.3873843, osmType: 'way', osmId: 231264464 }, // West Seattle Nursery, 5275 California Ave SW, Seattle, WA
+  "5423 delridge way sw, west seattle": { lat: 47.5531844, lng: -122.3632981, osmType: 'way', osmId: 31697704 }, // Seattle Public Library - Delridge Branch, 5423 Delridge Way SW, Seattle, WA
+  "5446 california sw, west seattle": { lat: 47.5525162, lng: -122.3867483, osmType: 'way', osmId: 231270542 }, // Keller Williams West Seattle, 5446 California Ave SW, Seattle, WA
+  "6000 16th sw, west seattle": { lat: 47.5481933, lng: -122.3523391 }, // same address as the existing "olympic hall, room 100, south seattle college" entry — bare-address variant
+  "6031 37th sw, west seattle": { lat: 47.5474017, lng: -122.3793524 }, // 6031 37th Ave SW, Seattle, WA
+  "6459 california sw, west seattle": { lat: 47.5450433, lng: -122.3874243, osmType: 'node', osmId: 2396443698 }, // Zeeks Pizza - West Seattle, 6459 California Ave SW, Seattle, WA
+  "6957 california sw, west seattle": { lat: 47.5411785, lng: -122.3875739 }, // 6957 California Ave SW, Seattle, WA
+  "7125 fauntleroy way sw, west seattle": { lat: 47.5385971, lng: -122.3915594 }, // same address as the existing "the kenney @ 7125 fauntleroy way sw" entry — bare-address variant
+  "7904 35th sw, west seattle": { lat: 47.5316606, lng: -122.3761768 }, // same address as the existing "kenyon hall @ 7904 35th sw" entry — bare-address variant
+  "9131 california sw, west seattle": { lat: 47.5217017, lng: -122.3878878, osmType: 'node', osmId: 8377320043 }, // Hall at Fauntleroy, 9131 California Ave SW, Seattle, WA
+  "9140 california sw, west seattle": { lat: 47.5210606, lng: -122.3870664 }, // same address as the existing "fauntleroy church @ 9140 california sw" entry — bare-address variant
+  "9444 delridge way sw, west seattle": { lat: 47.5181083, lng: -122.355474, osmType: 'way', osmId: 238099138 }, // Mr. B's Mead Center, 9444 Delridge Way SW, Seattle, WA
+  "9447 35th sw, west seattle": { lat: 47.5179208, lng: -122.3772254 }, // 9447 35th Ave SW, Seattle, WA
+  "9454 delridge way sw, west seattle": { lat: 47.5178407, lng: -122.3553382, osmType: 'node', osmId: 2459613074 }, // Triangle Pub, 9454 Delridge Way SW, Seattle, WA
+  "10843 1st ave. s., top hat": { lat: 47.5055957, lng: -122.3340529, osmType: 'way', osmId: 652545351 }, // 10843 1st Ave S, Seattle, WA (Top Hat, unincorporated King County)
+  "1253 s. cloverdale st., south park": { lat: 47.5263642, lng: -122.3167944, osmType: 'way', osmId: 263821300 }, // 1253 S Cloverdale St, Seattle, WA (South Park)
+  "19109 bothell way ne, bothell, wa 98011": { lat: 47.7663379, lng: -122.2103423, osmType: 'way', osmId: 774601522 }, // 19109 Bothell Way NE, Bothell, WA 98011
+  "425 harvard ave e, seattle, wa 98102, 425 harvard ave e, seattle, wa, 98102, united states": { lat: 47.6229165, lng: -122.3223263, osmType: 'way', osmId: 37057155 }, // Seattle Public Library - Capitol Hill Branch, 425 Harvard Ave E, Seattle, WA 98102
+  "stein, 801 front street, leavenworth, wa, 98826": { lat: 47.5949353, lng: -120.6620453, osmType: 'way', osmId: 125371318 }, // 801 Front St, Leavenworth, WA 98826 — precedent: other out-of-area PNW venues already in this table
+  "hangar 30, magnuson park, 6310 northeast 74th street, seattle, wa": { lat: 47.682846, lng: -122.260988 }, // same historic Navy hangar as the existing "hangar 30 at magnuson park" entry — bare-name/address variant
+  "50th st i-5 overpass, 5th avenue northeast & northeast 50th street, seattle, wa 98105": { lat: 47.6649676, lng: -122.322864, osmType: 'node', osmId: 29545426 }, // Overpass-confirmed intersection node, NE 50th St & 5th Ave NE, Seattle, WA (Bryant/Laurelhurst)
+  "meet your guide at the corner:, western ave and virginia st, seattle, wa": { lat: 47.6103443, lng: -122.3436686, osmType: 'node', osmId: 53114273 }, // Overpass-confirmed intersection node, Western Ave & Virginia St, Seattle, WA
+  "near sw director st. & upper fauntleroy way sw": { lat: 47.5229331, lng: -122.3927358, osmType: 'node', osmId: 11689836222 }, // Overpass-confirmed intersection node, SW Director St & Fauntleroy Way SW, Seattle, WA (Fauntleroy)
+  "california sw & sw alaska, west seattle": { lat: 47.5612096, lng: -122.3871937 }, // same intersection as the existing "west seattle junction @ california ave sw & sw alaska st" entry
+  "california sw and sw charlestown, west seattle": { lat: 47.5701927, lng: -122.3867815, osmType: 'node', osmId: 53114587 }, // Overpass-confirmed intersection node, California Ave SW & SW Charlestown St, Seattle, WA
+  "counseling west seattle, seattle, wa": { lat: 47.5411785, lng: -122.3875739 }, // Counseling West Seattle, 6957 California Ave SW, Seattle, WA — same address as the bare "6957 california sw" entry above
+  "endolyne area": { lat: 47.5167189, lng: -122.393588, osmType: 'node', osmId: 150948474 }, // Endolyne neighborhood, West Seattle
+  "from lincoln park to don armeni boat ramp": { lat: 47.5315833, lng: -122.396496, osmType: 'way', osmId: 31065701 }, // approximate — anchored on Lincoln Park (route start point); the route continues north to Don Armeni Boat Ramp
+  "green river college, kent campus, kent, wa": { lat: 47.3843009, lng: -122.2352296, osmType: 'way', osmId: 353932767 }, // Green River College, 417 Ramsay Way, Kent, WA
+  "latvian community center, seattle, wa": { lat: 47.7147561, lng: -122.3252676, osmType: 'way', osmId: 235232598 }, // Latvian Community Center, 11710 3rd Ave NE, Seattle, WA 98125
+  "lemieux library, lower plaza": { lat: 47.6106523, lng: -122.317137 }, // Lemieux Library, 901 12th Ave, Seattle, WA — same Seattle University campus coordinate already used for other SU buildings
+  "lincoln high school parking lot": { lat: 47.659936, lng: -122.3396589, osmType: 'way', osmId: 722008342 }, // Lincoln High School, 4400 Interlake Ave N, Seattle, WA (Wallingford)
+  "little saigon creative, seattle, wa us": { lat: 47.5973, lng: -122.3154454, osmType: 'way', osmId: 704087297 }, // Little Saigon Creative, 1227 S Weller St Suite A, Seattle, WA 98144
+  "marymoor park, parking lot g": { lat: 47.6586619, lng: -122.1111053, osmType: 'relation', osmId: 6641326 }, // Marymoor Park, 6046 W Lake Sammamish Pkwy NE, Redmond, WA
+  "meydenbauer center": { lat: 47.6158804, lng: -122.1918774, osmType: 'way', osmId: 33725931 }, // Meydenbauer Convention Center, Bellevue, WA
+  "museum of glass": { lat: 47.2458241, lng: -122.4338197 }, // same address as the existing "museum of glass gift shop" entry — bare-name variant
+  "origen seattle": { lat: 47.6010087, lng: -122.3318762, osmType: 'node', osmId: 2351695524 }, // Origen Seattle, 172 S Washington St, Seattle, WA 98104 (Pioneer Square/First Hill)
+  "revitalize spa follow signs to the entrance, seattle, wa": { lat: 47.5288457, lng: -122.353644, osmType: 'way', osmId: 231280148 }, // Revitalize Holistic Spa, 8142 15th Ave SW, Seattle, WA 98106 (Highland Park)
+  "schmitz park bridge, wa": { lat: 47.5741899, lng: -122.4000652, osmType: 'way', osmId: 32401639 }, // Schmitz Preserve Park, West Seattle, WA
+  "town hall seattle": { lat: 47.6090191, lng: -122.3299377 }, // same address as the existing Town Hall Seattle entries above — bare-name variant, 1119 8th Ave, Seattle, WA
+  "university of washington – husky union building": { lat: 47.6557, lng: -122.305 }, // alias of the HUB entry in UW_BUILDING_COORDS
+  "west seattle chamber office, seattle, wa": { lat: 47.5523942, lng: -122.3866596, osmType: 'way', osmId: 231270545 }, // West Seattle Chamber of Commerce, 5450 California Ave SW #101, Seattle, WA 98136
+  "zulu's board game cafe": { lat: 47.7599233, lng: -122.2042918 }, // same venue as the existing "zulu's guildhall" entry (sources/external/zulus-games.yaml) — Zulu's Games Event Center, 10131b Main St, Bothell, WA 98011
 };
 
 /**
