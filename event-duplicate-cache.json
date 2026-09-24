@@ -28248,6 +28248,21 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-24",
       "note": "Same Club TNT event at Timbre Room on 10/22; 19hz aggregator listing and kremwerk venue listing"
+    },
+    "do206-do206.ics Daði Freyr|2026-10-23T20:30:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Daði Freyr with Bríet|2026-10-23T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-24",
+      "note": "do206 aggregator listing vs Showbox SoDo venue listing; same show, identical time"
+    },
+    "do206-do206.ics MEERNAA with Meat Hair, Paul Spring & Steven Van Betten|2026-10-23T21:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics MEERNAA with Meat Hair, Paul Spring & Steven Van Betten|2026-10-23T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-24",
+      "note": "do206 aggregator vs Conor Byrne Pub venue; same show, 1hr time difference likely door vs set time"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Genevieve Artadi ft. Louis Cole & Chiquita Magic w/ support by Chiquita Magic|2026-12-13T20:00:00-08:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Genevieve Artadi ft. Louis Cole & Chiquita Magic|2026-12-13T20:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-24",
+      "note": "Tractor Tavern cross-lists at Sunset Tavern; both calendars show same show at same time"
     }
   }
 }
