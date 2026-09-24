@@ -35,10 +35,16 @@ describe('Stroum JCC Ripper', () => {
     expect(e.imageUrl).toMatch(/^https:\/\//);
   });
 
-  test('decodes HTML entities in titles and leaves cost unset when unpriced', () => {
+  test('decodes HTML entities in titles and leaves cost unset when unpriced and no free/volunteer signal', () => {
     const e = byId('149716');
     expect(e.summary).toBe('Local Author Talk: “The Remarkable Rachel Romain”');
     expect(e.cost).toBeUndefined();
+  });
+
+  test('falls back to "free" or volunteer-opportunity language in the description when the Cost field is blank (live example, 2026-09-24)', () => {
+    // "Volunteers may help harvest fresh fruit..." — a volunteer
+    // opportunity has no admission cost.
+    expect(byId('149816').cost).toEqual({ min: 0 });
   });
 
   test('leaves location unset for missing and TBA venues', () => {

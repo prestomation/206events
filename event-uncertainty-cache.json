@@ -95443,7 +95443,7 @@
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/upcycle-sewing-denim-catnip-toys/"
     },
-        "kcls:kcls-68893bf9b354fd28002e38b7": {
+    "kcls:kcls-68893bf9b354fd28002e38b7": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
@@ -99448,24 +99448,33 @@
       "evidence": "https://westseattle.wschamber.com/events/details/business-after-hours-west-seattle-salon-12900"
     },
     "west-seattle-chamber:chamber-essentials-workshop-10-20-2026-10125": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
       "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-10-20-2026-10125"
     },
     "west-seattle-chamber:chamber-essentials-workshop-11-17-2026-10126": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
       "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-11-17-2026-10126"
     },
     "west-seattle-chamber:health-wellness-meetup-village-green-17113": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
       "evidence": "https://westseattle.wschamber.com/events/details/health-wellness-meetup-village-green-17113"
     },
     "west-seattle-chamber:men-s-therapy-group-09-29-2026-15027": {
@@ -99820,36 +99829,6 @@
       "source": "agent",
       "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-dec/89115?locale=en-US"
     },
-    "west-seattle-chamber:health-wellness-meetup-village-green-17113": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/health-wellness-meetup-village-green-17113"
-    },
-    "west-seattle-chamber:chamber-essentials-workshop-10-20-2026-10125": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-10-20-2026-10125"
-    },
-    "west-seattle-chamber:chamber-essentials-workshop-11-17-2026-10126": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-11-17-2026-10126"
-    },
     "west-seattle-chamber:feg-cozy-gaming-sunday-09-27-2026-16653": {
       "fields": {
         "cost": {
@@ -100119,6 +100098,86 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-11-28-2026-16357"
+    },
+    "stroum-jcc:149716": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/local-author-talk-the-remarkable-rachel-romain/"
+    },
+    "stroum-jcc:151050": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibit-michael-shapiro-ketubah-renaissance/"
+    },
+    "stroum-jcc:151053": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibit-author-photographer-lloyd-wolf-a-joyful-noise-klezmer-in-motion/"
+    },
+    "stroum-jcc:151574": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/outsmarting-scammers-protect-yourself-from-todays-scams/"
+    },
+    "stroum-jcc:151850": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-book-club-enormous-wings-author-laurie-frankel/"
+    },
+    "stroum-jcc:151865": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-book-club-heaven-and-earth-grocery-store/"
+    },
+    "stroum-jcc:152475": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/november-sjcc-book-club-island-of-the-missing-trees/"
+    },
+    "stroum-jcc:152036": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/winning-her-wings/"
     }
   }
 }
