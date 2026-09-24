@@ -7,13 +7,18 @@
  * general-admission one the pricing rubric calls for.
  */
 
+// Single source of truth for every discount-tier regex below (and reused by
+// sources/west_seattle_chamber/ripper.ts) — the pricing rubric excludes all
+// of these from the general-admission price it wants.
+export const TIER_WORDS = "members?|student|senior|child|kids?|youth|volunteer";
+
 // A discount-tier word immediately before a matched price label (e.g.
 // "Member price: $15") means this is not the general-admission price the
 // rubric calls for — the caller should skip it and look for the next match
 // on the page instead (e.g. a later "Regular price: $25"). The leading `\b`
 // matters: without it "member" also matches inside "Nonmember", which is
 // itself a general-admission label, not a discount tier.
-const TIER_PREFIX_RE = /\b(?:member|student|senior|child|kids?|youth|volunteer)\s+$/i;
+const TIER_PREFIX_RE = new RegExp(`\\b(?:${TIER_WORDS})\\s+$`, "i");
 
 /**
  * Runs `priceRe` (must have the `g` flag) against `text` and returns the
@@ -32,19 +37,27 @@ export function isTierPrefixed(text: string, index: number): boolean {
     return TIER_PREFIX_RE.test(prefix);
 }
 
-// Unanchored: matches a tier word *anywhere* in a short prefix, not just
-// immediately before the price. Needed when the match itself doesn't start
-// with the price keyword (e.g. a bare `$15-$20` range, where "Member" and
-// "price:" are two separate words both ahead of the dollar sign) — the
-// anchored TIER_PREFIX_RE only catches a tier word directly adjacent to
-// what it's given, which is enough when the caller's regex match starts at
-// the keyword (as KEYWORD_PRICE_RE and the Pantry "Price:" pattern do) but
-// not when it starts at the "$" itself.
-const TIER_WORD_ANYWHERE_RE = /\b(?:members?|student|senior|child|kids?|youth|volunteer)\b/i;
+// Requires the tier word to actually *label* the price immediately being
+// checked — followed shortly by a colon that is the last thing before it
+// (its own, or another word's, e.g. "Member price:") — rather than matching
+// any tier word that happens to fall within the lookback window. Needed
+// when the match itself doesn't start with the price keyword (e.g. a bare
+// `$15-$20` range, where "Member" and "price:" are two separate words both
+// ahead of the dollar sign) — the anchored TIER_PREFIX_RE only catches a
+// tier word directly adjacent to what it's given, which is enough when the
+// caller's regex match starts at the keyword (as KEYWORD_PRICE_RE and the
+// Pantry "Price:" pattern do) but not when it starts at the "$" itself.
+// The trailing `$` anchor matters twice over: without the colon requirement,
+// an unrelated mention (e.g. "kids welcome! Admission: $10-$20") would
+// falsely flag a legitimate range as tiered; without anchoring the colon to
+// the *end* of the lookback window, an unrelated EARLIER label still inside
+// that window (e.g. "Member price: $15-$20, Regular price: $25-$35" — when
+// checking the second, correctly general-admission range) would too.
+const TIER_LABEL_RE = new RegExp(`\\b(?:${TIER_WORDS})\\b[^.$]{0,15}:\\s*$`, "i");
 
-/** True when a short window before `index` contains a discount-tier word anywhere, not just immediately adjacent. */
-export function isNearTierWord(text: string, index: number, window = 30): boolean {
-    return TIER_WORD_ANYWHERE_RE.test(text.slice(Math.max(0, index - window), index));
+/** True when a short window before `index` contains a discount-tier word labeling something (followed by a colon), not just mentioned incidentally. */
+export function isNearTierWord(text: string, index: number, window = 40): boolean {
+    return TIER_LABEL_RE.test(text.slice(Math.max(0, index - window), index));
 }
 
 /**

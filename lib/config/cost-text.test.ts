@@ -59,4 +59,9 @@ describe('isNearTierWord', () => {
         const text = 'Regular price: $25-$35';
         expect(isNearTierWord(text, text.indexOf('$'))).toBe(false);
     });
+
+    test('does not treat an incidental tier-word mention (not labeling a price) as tiered', () => {
+        const text = 'Family friendly show, kids welcome! Admission: $10-$20';
+        expect(isNearTierWord(text, text.indexOf('$'))).toBe(false);
+    });
 });

@@ -11,7 +11,7 @@ import {
     UncertaintyField,
 } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
-import { parseDollars, hasUnnegatedMatch } from "../../lib/config/cost-text.js";
+import { parseDollars, hasUnnegatedMatch, TIER_WORDS } from "../../lib/config/cost-text.js";
 import { parse as parseHtml, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -151,7 +151,7 @@ const FEES_FREE_WORD_RE = /\bfree\b/gi;
 // A discount-tier word immediately before a dollar amount (e.g. "Members:
 // $25") — excluded from the general-admission price, same rubric as
 // firstNonTieredPrice.
-const FEES_MEMBER_TIER_RE = /\b(?:members?|student|senior|child|kids?|youth|volunteer)\s*:?\s*$/i;
+const FEES_MEMBER_TIER_RE = new RegExp(`\\b(?:${TIER_WORDS})\\s*:?\\s*$`, "i");
 // An explicitly labeled general-public tier (as opposed to a member/discount
 // tier) — the pricing rubric's "anchor on general-admission adult" price.
 const FEES_GENERAL_TIER_RE = /\b(?:general admission|general public|non-?member(?:s)?|walk-?in(?: rate)?)\s*:?\s*$/i;

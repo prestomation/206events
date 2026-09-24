@@ -1,7 +1,7 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { parse } from "node-html-parser";
 import { decode } from "html-entities";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
 import { hasUnnegatedMatch } from "../../lib/config/cost-text.js";
 import "@js-joda/timezone";
@@ -175,6 +175,35 @@ function buildLocation(ev: JsonLdEvent): string | undefined {
  * UncertaintyError when the start time is missing). Seattle/single-day
  * filtering happens in the caller.
  */
+/**
+ * Combines every cost signal available for one event, in priority order:
+ *
+ * 1. `isAccessibleForFree === false` — an explicit, structured "not free"
+ *    claim from the source's own JSON-LD. Wins over everything else: even a
+ *    same-page "Free" in the separate Cost field could be a stale/
+ *    inconsistent CMS value, and a "free" substring in the description
+ *    (e.g. "free parking") is a plain text-match false-positive risk. It
+ *    does NOT discard a corroborating costField === "fee", though — that
+ *    signal agrees ("not free"), so it still upgrades the result from an
+ *    unknown gap to a confirmed { paid: true }.
+ * 2. `isAccessibleForFree === true` or the page's own Cost field says
+ *    "free" — both are structured, source-provided signals.
+ * 3. An unnegated "free" claim in the title/description text — lower
+ *    confidence than 1-2, but still the venue's own words.
+ * 4. The page's own Cost field says "fee" — confirms paid, amount unknown.
+ * 5. No signal at all — leave the cost gap for a human to resolve.
+ */
+export function resolveCost(
+    isAccessibleForFree: boolean | undefined, costField: "free" | "fee" | undefined,
+    title: string, description: string | undefined,
+): EventCost | undefined {
+    if (isAccessibleForFree === false) return costField === "fee" ? { paid: true } : undefined;
+    if (isAccessibleForFree === true || costField === "free") return { min: 0 };
+    if (hasUnnegatedMatch([title, description].filter(Boolean).join(" "), FREE_TEXT_RE)) return { min: 0 };
+    if (costField === "fee") return { paid: true };
+    return undefined;
+}
+
 export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string, costField?: "free" | "fee"): (RipperCalendarEvent | RipperError)[] {
     const title = decode(ev.name ?? "").trim();
     if (!title) {
@@ -202,20 +231,7 @@ export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string, costField?: "
     // free" signal from the source — it must win over a lower-confidence
     // text match (e.g. a "free parking" mention in the description
     // shouldn't override it and mark the event free).
-    // isAccessibleForFree: false is checked first and short-circuits every
-    // other signal (free-text fallback, the page's own Cost field) — an
-    // explicit, structured "this is not free" from the source must win over
-    // any lower-confidence or potentially-stale signal, not just the text
-    // fallback.
-    const cost = ev.isAccessibleForFree === false
-        ? undefined
-        : ev.isAccessibleForFree === true || costField === "free"
-            ? { min: 0 }
-            : hasUnnegatedMatch([title, description].filter(Boolean).join(" "), FREE_TEXT_RE)
-                ? { min: 0 }
-                : costField === "fee"
-                    ? { paid: true as const }
-                    : undefined;
+    const cost = resolveCost(ev.isAccessibleForFree, costField, title, description);
 
     const event: RipperCalendarEvent = {
         id: `seattles-child-${slugFromUrl(pageUrl)}-${dateKey}`,

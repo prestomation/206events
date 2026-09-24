@@ -158,6 +158,13 @@ describe("detail pages", () => {
         expect(results[0].cost).toBeUndefined();
     });
 
+    it("isAccessibleForFree: false does not discard a corroborating costField 'fee' — both agree it's paid", () => {
+        const ld: JsonLdEvent = { name: "Paid Workshop", startDate: "2026-10-05 10:00 AM", isAccessibleForFree: false };
+        const results = parseDetailEvent(ld, `${BASE}paid-workshop/`, "fee");
+        if (!("date" in results[0])) throw new Error("expected event");
+        expect(results[0].cost).toEqual({ paid: true });
+    });
+
     it("falls back to a 'free' claim in the title or description when isAccessibleForFree is absent (live example, 2026-09-24)", () => {
         const ld: JsonLdEvent = {
             name: "Free Wooden Boat Story Time at SLU",
