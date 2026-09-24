@@ -1,7 +1,7 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
-import { firstNonTieredPrice } from "./cost-text.js";
+import { firstNonTieredPrice, parseDollars, hasUnnegatedMatch } from "./cost-text.js";
 import { parse } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -90,12 +90,11 @@ function extractCostFromTags(tags: string[] | undefined): EventCost | undefined 
 // free, not a $10 fixed price. The `.{0,60}` gap (rather than requiring the
 // terminal word immediately after "are"/"is") tolerates adverbs and other
 // phrasing between "donations" and the word that signals it's optional.
-const NOTAFLOF_RE = /\b(suggested donation|pay[- ]what[- ]you[- ]can|pwyc|notaflof|no one (?:is |will be )?turned away|donations?\b(?:(?!\.).){0,60}?\b(?:appreciated|welcome|accepted|encouraged|optional))\b/i;
-const FREE_PHRASE_RE = /\b(free admission|free event|free entry|free to attend|free class|free workshop|free offering|free community (?:meditation|gathering|event|class|workshop)|no cover)\b/i;
-// "Not [a] free ..." / "no longer free" negates an otherwise-matching free
-// phrase a few words later (e.g. "This is not a free class — tickets are
-// $50"), so check this before trusting NOTAFLOF_RE/FREE_PHRASE_RE.
-const FREE_NEGATION_RE = /\bnot\s+(?:a\s+|an\s+)?(?:really\s+)?free\b|\bno longer free\b|\bisn.t free\b/i;
+// Combined into one alternation with the `g` flag so hasUnnegatedMatch can
+// check negation locally around *each* match (e.g. "is not a free-for-all
+// open mic ... is free to attend" must not let the first, unrelated idiom
+// suppress the second, real free-admission phrase later in the same text).
+const FREE_SIGNAL_RE = /suggested donation|donation[- ]based|pay[- ]what[- ]you[- ]can|pwyc|notaflof|no one (?:is |will be )?turned away|donations?\b(?:(?!\.).){0,60}?\b(?:appreciated|welcome|accepted|encouraged|optional)|free admission|free event|free entry|free to attend|free class|free workshop|free offering|free community (?:meditation|gathering|event|class|workshop)|no cover/gi;
 // A dollar amount, optionally thousands-comma-grouped (e.g. "$1,250" — a
 // multi-day retreat or workshop package can easily clear four figures; without
 // the comma group `\d+` alone stops at the comma and truncates "$1,250" to 1).
@@ -125,16 +124,10 @@ function toPlainText(html: string | undefined): string {
     return parse(html.replace(/>\s*</g, "> <")).textContent.replace(/\s+/g, " ").trim();
 }
 
-function parseDollars(s: string): number {
-    return parseFloat(s.replace(/,/g, ""));
-}
-
 export function extractCostFromBody(body: string | undefined): EventCost | undefined {
     const text = toPlainText(body);
     if (!text) return undefined;
-    if (!FREE_NEGATION_RE.test(text) && (NOTAFLOF_RE.test(text) || FREE_PHRASE_RE.test(text))) {
-        return { min: 0 };
-    }
+    if (hasUnnegatedMatch(text, FREE_SIGNAL_RE)) return { min: 0 };
     const range = text.match(RANGE_RE);
     if (range) {
         const min = parseDollars(range[1]);

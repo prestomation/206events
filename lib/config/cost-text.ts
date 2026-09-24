@@ -1,9 +1,10 @@
 /**
- * Shared helpers for extracting an admission price from freeform page text
- * (used by the Squarespace body-text extraction and the Pantry class-page
- * scraper — both scan HTML/plain text for a "Price: $NNN"-style label and
- * need to skip a member/child/senior-tiered price in favor of the
- * general-admission one the pricing rubric calls for).
+ * Shared helpers for extracting an admission price from freeform page text.
+ * Used by the Squarespace body-text extraction, the Pantry class-page
+ * scraper, and the West Seattle Chamber Fees/Admission field parser — all
+ * three scan HTML/plain text for dollar amounts and free-admission phrasing,
+ * and need to skip a member/child/senior-tiered price in favor of the
+ * general-admission one the pricing rubric calls for.
  */
 
 // A discount-tier word immediately before a matched price label (e.g.
@@ -29,4 +30,31 @@ export function firstNonTieredPrice(text: string, priceRe: RegExp): string | und
         return m[1];
     }
     return undefined;
+}
+
+/** Parses a possibly comma-grouped dollar-amount capture (e.g. "1,250") into a number. */
+export function parseDollars(s: string): number {
+    return parseFloat(s.replace(/,/g, ""));
+}
+
+// "Not [a] free ..." / "no longer free" / "isn't free" negates an
+// otherwise-matching free phrase immediately after it.
+const LOCAL_NEGATION_RE = /\bnot\s+(?:a\s+|an\s+)?(?:really\s+)?$|\bno longer\s*$|\bisn.t\s*$/i;
+
+/**
+ * Tests whether `freeSignalRe` (must have the `g` flag) matches `text`
+ * anywhere that isn't immediately preceded by a negation. Checked locally
+ * around each match — not across the whole text — so an unrelated negated
+ * idiom elsewhere (e.g. "not a free-for-all") can't suppress a genuine,
+ * separate free-admission phrase later in the same text. Resets
+ * `freeSignalRe.lastIndex` before scanning.
+ */
+export function hasUnnegatedMatch(text: string, freeSignalRe: RegExp): boolean {
+    freeSignalRe.lastIndex = 0;
+    let m: RegExpExecArray | null;
+    while ((m = freeSignalRe.exec(text))) {
+        const prefix = text.slice(Math.max(0, m.index - 20), m.index);
+        if (!LOCAL_NEGATION_RE.test(prefix)) return true;
+    }
+    return false;
 }

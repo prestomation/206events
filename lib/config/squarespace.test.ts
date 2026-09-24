@@ -552,6 +552,12 @@ describe('SquarespaceRipper', () => {
             expect(extractCostFromBody('<p>Heads up: this event is no longer free. Cost: $30.</p>')).toEqual({ min: 30 });
         });
 
+        test('an unrelated negated idiom elsewhere does not suppress a real, separate free phrase', () => {
+            expect(extractCostFromBody(
+                '<p>Note: this is not a free-for-all open mic. The evening itself is free to attend, just be respectful of the format.</p>'
+            )).toEqual({ min: 0 });
+        });
+
         test('skips a member/tiered price and picks the general-admission one', () => {
             expect(extractCostFromBody('<p>Member price: $15, Regular price: $25.</p>')).toEqual({ min: 25 });
             expect(extractCostFromBody('<p>Student price: $10.</p>')).toBeUndefined();

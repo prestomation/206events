@@ -105,6 +105,14 @@ describe("helpers", () => {
         expect(parseCost(undefined)).toBeUndefined();
     });
 
+    it("never defaults to free when the label has a dollar sign it doesn't fully understand", () => {
+        // A label with a real price we can't cleanly parse (extra words
+        // around the amount) must never fall through to the drop-in "assume
+        // free" default — that would publish a wrong $0 for a paid item.
+        expect(parseCost("$15.00 per class", true)).toBeUndefined();
+        expect(parseCost("Starting at $5", true)).toBeUndefined();
+    });
+
     it("resolves locations from center detail, else description/label", () => {
         const loc = resolveLocation("Japanese Gardn", bundle.locations);
         expect(loc.location).toContain("1075 Lake Washington");

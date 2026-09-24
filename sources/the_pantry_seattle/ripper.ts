@@ -1,7 +1,7 @@
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { Duration, LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
-import { firstNonTieredPrice } from "../../lib/config/cost-text.js";
+import { firstNonTieredPrice, parseDollars } from "../../lib/config/cost-text.js";
 import { decode } from "html-entities";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
@@ -58,7 +58,7 @@ const PANTRY_PRICE_RE = /Price:\s*<b>\$(\d[\d,]*)<\/b>/gi;
 /** Extracts admission cost from a Pantry class/dinner page HTML. Pattern: `Price: <b>$NNN</b>`. */
 export function extractPantryPrice(html: string): EventCost | undefined {
     const price = firstNonTieredPrice(html, PANTRY_PRICE_RE);
-    if (price) return { min: parseFloat(price.replace(/,/g, "")) };
+    if (price) return { min: parseDollars(price) };
     if (/Price:\s*<b>Free<\/b>/i.test(html)) return { min: 0 };
     return undefined;
 }

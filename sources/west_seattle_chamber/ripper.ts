@@ -11,6 +11,7 @@ import {
     UncertaintyField,
 } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { parseDollars, hasUnnegatedMatch } from "../../lib/config/cost-text.js";
 import { parse as parseHtml, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -133,41 +134,67 @@ function extractLocation(root: HTMLElement): string | undefined {
     return undefined;
 }
 
-function parseDollars(s: string): number {
-    return parseFloat(s.replace(/,/g, ""));
-}
-
 // The GrowthZone detail page's dedicated "Fees/Admission" field (verified
 // live 2026-09-24, e.g. "WS Chamber Members: $25 General Admission: $35
 // Walk-In Rate: $35", "$30/session. 4 sessions for $102...", "Free"). Unlike
 // scanning a whole freeform description, this field exists specifically to
 // state the price, so a bare "Free" here is high-confidence.
-const FEES_NOTAFLOF_RE = /\bsuggested donation\b|\bdonation[- ]based\b|\bpay[- ]what[- ]you[- ]can\b|\bpwyc\b|\bno one (?:is |will be )?turned away\b|\bdonations?\b(?:(?!\.).){0,40}?\b(?:appreciated|welcome|accepted|encouraged|optional)\b/i;
+//
+// NOTAFLOF/suggested-donation phrasing always means free regardless of any
+// dollar amount mentioned alongside it (e.g. "Suggested donation $10-20" is
+// still free, not a $10 fixed price) — checked unconditionally, before any
+// amount scanning. A bare "free" is checked only when no dollar amount
+// competes with it (see parseFeesText), to avoid misreading "Free for
+// members, $15 general" as free.
+const FEES_NOTAFLOF_RE = /suggested donation|donation[- ]based|pay[- ]what[- ]you[- ]can|pwyc|no one (?:is |will be )?turned away|donations?\b(?:(?!\.).){0,40}?\b(?:appreciated|welcome|accepted|encouraged|optional)/gi;
+const FEES_FREE_WORD_RE = /\bfree\b/gi;
+// A discount-tier word immediately before a dollar amount (e.g. "Members:
+// $25") — excluded from the general-admission price, same rubric as
+// firstNonTieredPrice.
+const FEES_MEMBER_TIER_RE = /\bmembers?\s*:?\s*$/i;
 // An explicitly labeled general-public tier (as opposed to a member/discount
 // tier) — the pricing rubric's "anchor on general-admission adult" price.
-const FEES_GENERAL_TIER_RE = /\b(?:general admission|general public|non-?member(?:s)?|walk-?in(?: rate)?)\s*:?\s*\$(\d[\d,]*(?:\.\d{1,2})?)/i;
+const FEES_GENERAL_TIER_RE = /\b(?:general admission|general public|non-?member(?:s)?|walk-?in(?: rate)?)\s*:?\s*$/i;
+const FEES_AMOUNT_RE = /\$(\d[\d,]*(?:\.\d{1,2})?)/g;
 
 /** Parses the chamber page's "Fees/Admission" field text into an EventCost. Public for testing. */
 export function parseFeesText(raw: string | undefined): EventCost | undefined {
     if (!raw) return undefined;
     const text = raw.trim();
     if (!text || /^(n\/a|none|no cost|varies from event to event)$/i.test(text)) return undefined;
-    if (FEES_NOTAFLOF_RE.test(text)) return { min: 0 };
+    if (hasUnnegatedMatch(text, FEES_NOTAFLOF_RE)) return { min: 0 };
 
-    const general = text.match(FEES_GENERAL_TIER_RE);
-    if (general) return { min: parseDollars(general[1]) };
-
-    const amounts = [...text.matchAll(/\$(\d[\d,]*(?:\.\d{1,2})?)/g)].map(m => parseDollars(m[1]));
-    if (amounts.length === 1) return { min: amounts[0] };
-    if (amounts.length > 1) {
-        // Multiple amounts with no explicit general/walk-in label above: if a
-        // "member" discount tier is mentioned, the higher figure is the
-        // general-public price; otherwise (e.g. "$30/session, 4 sessions for
-        // $102") the first amount is the base per-visit price, not a tier.
-        return { min: /\bmembers?\b/i.test(text) ? Math.max(...amounts) : amounts[0] };
+    // Collect every dollar amount on the field along with what its
+    // immediately-preceding text labels it as. Order-independent — the
+    // cheapest matching amount wins regardless of which tier is listed
+    // first (GrowthZone listings aren't consistently ordered).
+    FEES_AMOUNT_RE.lastIndex = 0;
+    let m: RegExpExecArray | null;
+    const all: number[] = [];
+    const general: number[] = [];
+    const nonMember: number[] = [];
+    while ((m = FEES_AMOUNT_RE.exec(text))) {
+        const amount = parseDollars(m[1]);
+        const prefix = text.slice(Math.max(0, m.index - 30), m.index);
+        const isGeneral = FEES_GENERAL_TIER_RE.test(prefix);
+        const isMember = !isGeneral && FEES_MEMBER_TIER_RE.test(prefix);
+        all.push(amount);
+        if (isGeneral) general.push(amount);
+        if (!isMember) nonMember.push(amount);
+    }
+    if (general.length > 0) return { min: Math.min(...general) };
+    if (all.length === 1) return { min: all[0] };
+    if (all.length > 1) {
+        // Some amounts were tagged as a member-only discount and excluded —
+        // the cheapest of the rest is the general-admission price. If none
+        // were tagged (e.g. "$30/session, 4 sessions for $102" — a per-visit
+        // price vs. a bulk package, not a tier), the cheapest of all of them
+        // is simply the cheapest way in, matching the rubric either way.
+        return { min: Math.min(...(nonMember.length < all.length ? nonMember : all)) };
     }
 
-    if (/\bfree\b/i.test(text) && !/\bnot\s+free\b/i.test(text)) return { min: 0 };
+    // No dollar amount anywhere — only now trust a bare "free" claim.
+    if (hasUnnegatedMatch(text, FEES_FREE_WORD_RE)) return { min: 0 };
     return undefined;
 }
 

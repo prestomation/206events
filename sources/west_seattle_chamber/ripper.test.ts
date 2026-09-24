@@ -140,6 +140,11 @@ describe("parseFeesText", () => {
             .toEqual({ min: 35 });
     });
 
+    test("picks the cheapest general-admission tier regardless of listing order", () => {
+        expect(parseFeesText("Walk-In Rate: $40 General Admission: $30")).toEqual({ min: 30 });
+        expect(parseFeesText("Regular: $35, Early Bird: $25")).toEqual({ min: 25 });
+    });
+
     test("takes the first amount when multiple prices aren't member tiers (live example: session vs. package)", () => {
         expect(parseFeesText("$30/session.  4 sessions for $102 (use within 8 weeks)."))
             .toEqual({ min: 30 });
