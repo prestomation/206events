@@ -36738,7 +36738,8 @@
       "unresolvable": true,
       "reason": "Making Strides Against Breast Cancer walk: end time not listed on event page",
       "resolvedAt": "2026-09-23",
-      "source": "agent"
+      "source": "agent",
+      "lastSeen": "2026-09-24"
     },
     "venue:loc:elisabeth c. miller library (emlb)": {
       "fields": {
@@ -42579,7 +42580,8 @@
       },
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "evidence": "https://www.openstreetmap.org/way/56629742"
+      "evidence": "https://www.openstreetmap.org/way/56629742",
+      "lastSeen": "2026-09-24"
     },
     "venue:osm:way:675018019": {
       "fields": {
@@ -49402,19 +49404,22 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-opening-night": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-preview-performance-x50304": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "dogwoodplaypark:7b528a47-aac5-4ec9-a00b-24e3b7f77070": {
       "fields": {
@@ -49727,7 +49732,7 @@
       "resolvedAt": "2026-08-23",
       "source": "agent",
       "evidence": "https://www.seattlerep.org/plays/202627-season/freak-the-mighty (Bagley Wright Theater, Seattle Rep's indoor mainstage; matches sources/seattle_rep/ripper.yaml geo.osmType/osmId)",
-      "lastSeen": "2026-08-28"
+      "lastSeen": "2026-09-24"
     },
     "discover-slu:discover-slu-video-fundamentals-1-2026-2-2-2-2-2-2": {
       "fields": {
@@ -55976,19 +55981,22 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-preview-performance": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-preview-performance": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:seattle-center-sculpture-walk-2026-x46412": {
       "unresolvable": true,
@@ -57132,13 +57140,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:serenade-x47351": {
       "fields": {
@@ -57280,13 +57290,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-preview-performance-x50305": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:serenade-x47352": {
       "fields": {
@@ -57436,7 +57448,8 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-makers:seattle-makers-160408": {
       "fields": {
@@ -57786,13 +57799,15 @@
       "resolvedAt": "2026-09-23",
       "source": "agent",
       "reason": "Seattle Center source does not expose end times",
-      "partialFingerprint": "1inh66n"
+      "partialFingerprint": "1inh66n",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:kehlani": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-humane:seattle-humane-sea-meow-con-2026-11-07": {
       "fields": {
@@ -62975,13 +62990,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-preview-performance-x50307": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "venue:loc:lincoln park": {
       "fields": {
@@ -63405,7 +63422,8 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "stg:tm-vvG1HZ_2Ust_J8": {
       "fields": {
@@ -68604,7 +68622,8 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-humane:seattle-humane-pax-west-2027-09-04": {
       "fields": {
@@ -69763,19 +69782,22 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:tyler-childers": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "venue:loc:cal anderson park shelter house": {
       "fields": {
@@ -71523,19 +71545,22 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-x50310": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:serenade-x47353": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "SAF:187258072": {
       "fields": {
@@ -72442,13 +72467,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:serenade-x50711": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "the-beer-junction:6a3b18cf35588b40269b4d0c": {
       "fields": {
@@ -74325,7 +74352,8 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-humane:seattle-humane-cider-summit-2027-09-11": {
       "unresolvable": true,
@@ -74710,13 +74738,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-x50311": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "tabletop-village:4lj3hu9flcv0ojh2iv8vd6l161_R20220610T220000@google.com-2027-03-12": {
       "unresolvable": true,
@@ -75073,19 +75103,22 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:jungle-world-tour": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-x50312": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "events12:music-by-candlelight-arctic-club-hotel-119604-2026-09-27-1200": {
       "unresolvable": true,
@@ -75097,7 +75130,8 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "events12:live-theater-119957-2026-10-04": {
       "fields": {
@@ -76216,13 +76250,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:serenade-x47355": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "charlies-queer-books:charlies-queer-books-992120261011": {
       "unresolvable": true,
@@ -88901,19 +88937,22 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:serenade-x47356": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-x50313": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "charlies-queer-books:charlies-queer-books-1236120261015": {
       "unresolvable": true,
@@ -89783,13 +89822,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:seattle-kraken-vs-calgary-flames-x48930": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "mopop:mopop-salt-n-pepa-performance-at-mopop-2026-10-22": {
       "unresolvable": true,
@@ -91004,13 +91045,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-mask-required-x50631": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "stg:tm-vvG1HZ_66UGlyC": {
       "fields": {
@@ -91917,13 +91960,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-x50632": {
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "charlies-queer-books:charlies-queer-books-992020261018": {
       "fields": {
@@ -93610,7 +93655,8 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-23",
       "source": "agent",
-      "reason": "Seattle Center source does not expose end times"
+      "reason": "Seattle Center source does not expose end times",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-children-s-media-creators-coworking-316405554": {
       "fields": {
@@ -93838,7 +93884,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50393 - event end time 10:00 PM encoded in URL as eventEndTime=22:00:00"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50393 - event end time 10:00 PM encoded in URL as eventEndTime=22:00:00",
+      "lastSeen": "2026-09-24"
     },
     "seattle-center:eureka-day-open-captioning": {
       "fields": {
@@ -93846,7 +93893,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-open-captioning - page shows '7:30 p.m. to 10:00 p.m.'"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-open-captioning - page shows '7:30 p.m. to 10:00 p.m.'",
+      "lastSeen": "2026-09-24"
     },
     "climate-pledge-arena:tm-vvG1HZ_G3OJQ5w": {
       "fields": {
@@ -95557,7 +95605,8 @@
         "duration": 7200
       },
       "resolvedAt": "2026-09-24",
-      "source": "agent"
+      "source": "agent",
+      "lastSeen": "2026-09-24"
     },
     "pacific-science-center:984829": {
       "unresolvable": true,
@@ -100575,6 +100624,30 @@
       "source": "agent",
       "evidence": "https://www.axs.com/events/1612155/ninajirachi-tickets",
       "lastSeen": "2026-09-24"
+    },
+    "seattle_center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50394": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50394"
+    },
+    "seattle_center:eureka-day-x50634": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-x50634"
+    },
+    "waterfront_park:waterfront-park-7375-202611131730": {
+      "fields": {
+        "duration": 11700
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://waterfrontparkseattle.org/blog/event/dinner-with-friends-2026/?date=202611131730"
     }
   }
 }
