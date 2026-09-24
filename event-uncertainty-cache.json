@@ -95428,6 +95428,122 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/tea-ceremony---chado-urasenke-tankokai-seattle-association/89540"
+    },
+    "discover-slu:discover-slu-hydro-flask-trade-in-tour": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent"
+    },
+    "seatoday:cityspark-20006995": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent"
+    },
+    "seatoday:cityspark-19889226": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent"
+    },
+    "seatoday:cityspark-19007351": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent"
+    },
+    "seatoday:cityspark-19626296": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent"
+    },
+    "seattle-center:carin-leon-de-sonora-para-el-mundo-tour": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent"
+    },
+    "pacific-science-center:984829": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Multiple showtimes per day (family 1pm-3:40pm Fri-Sun, after dark 7pm-9:40pm Thu-Sun); opening date Oct 15 is Wednesday when no shows are scheduled"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Past event (Aug 1, 2026); no start time documented on event page"
+    },
+    "seatoday:cityspark-19887560": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "6amcity source JS-rendered; specific event cost not verifiable from fetcher"
+    },
+    "seatoday:cityspark-19523288": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "6amcity source JS-rendered; specific event cost not verifiable from fetcher"
+    },
+    "stg:tm-vvG1HZ_oS_lKr3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403; ticket price unavailable"
+    },
+    "stg:tm-vvG1HZ_oS_nKr6": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403; ticket price unavailable"
+    },
+    "stg:tm-vvG1HZ_C5ui5d_": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403; ticket price unavailable"
+    },
+    "stg:tm-vvG1HZ_K1zWDwz": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403; ticket price unavailable"
+    },
+    "stg:tm-vvG1HZ_K5K-CxR": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403; ticket price unavailable"
+    },
+    "stg:tm-vvG1HZ_K5KNmNF": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403; ticket price unavailable"
+    },
+    "stg:tm-vvG1HZ_K5KxrxB": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Ticketmaster returned HTTP 403; ticket price unavailable"
     }
   }
 }
