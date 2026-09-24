@@ -93369,7 +93369,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://booklarder.com/products/author-talk-demo-erin-jeanne-mcdowell-bake-anything"
+      "evidence": "https://booklarder.com/products/author-talk-demo-erin-jeanne-mcdowell-bake-anything - event 6:30-8pm"
     },
     "events12:music-by-candlelight-nordic-museum-119604-2026-09-26": {
       "fields": {
@@ -93424,7 +93424,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50393 - event end time 10:00 PM encoded in URL as eventEndTime=22:00:00"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50393"
     },
     "seattle-center:eureka-day-open-captioning": {
       "fields": {
@@ -93432,7 +93432,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-open-captioning - page shows '7:30 p.m. to 10:00 p.m.'"
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-open-captioning"
     },
     "climate-pledge-arena:tm-vvG1HZ_G3OJQ5w": {
       "fields": {
@@ -93442,7 +93442,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Ticketmaster NHL game — ticketed, price varies by seat"
+      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-san-jose-sharks-seattle-washington-12-22-2026/event/0F0064C4A099A2F2"
     },
     "climate-pledge-arena:tm-vvG1HZ_2Sp1qJd": {
       "fields": {
@@ -93462,7 +93462,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
+      "evidence": "https://www.ticketmaster.com/disneys-beauty-and-the-beast-touring-seattle-washington-12-23-2026/event/0F00651CD9A43774"
     },
     "stg:tm-vvG1HZ_oS_ESqO": {
       "fields": {
@@ -93472,7 +93472,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
+      "evidence": "https://www.ticketmaster.com/disneys-beauty-and-the-beast-touring-seattle-washington-12-22-2026/event/0F00651CD99F3760"
     },
     "stg:tm-vvG1HZ_C5unlvs": {
       "fields": {
@@ -93492,7 +93492,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
+      "evidence": "https://www.ticketmaster.com/lucy-darling-of-the-holidays-seattle-washington-12-21-2026/event/0F006532B8EDBCA6"
     },
     "stg:tm-vvG1HZ_K1zHlwm": {
       "fields": {
@@ -93502,7 +93502,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
+      "evidence": "https://www.ticketmaster.com/lucy-darling-of-the-holidays-seattle-washington-12-22-2026/event/0F006532B8F2BCAE"
     },
     "seatoday:cityspark-19759213": {
       "fields": {
@@ -93512,7 +93512,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Community mindfulness walk in public park — free outdoor activity"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/mindfulness-walk-pioneer-park-se/19759213/2026-10-06T00 - free outdoor mindfulness walk in a public park"
     },
     "seatoday:cityspark-20002092": {
       "fields": {
@@ -93522,7 +93522,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Candidate forum for legislative districts — free public civic event"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/2026-candidate-showcase-5th-33rd-47th-legislative-districts/20002092/2026-10-06T00 - public candidate forum, free to attend"
     },
     "seatoday:cityspark-19434507": {
       "fields": {
@@ -93568,7 +93568,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "Metal concert at venue — ticketed, price not shown on CitySpark listing"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/dying-fetus-sanguisugabogg/18891104/2026-10-06T00 - concert ticket event"
     },
     "foundercal:foundercal-identity-ai-and-cybersecurity-securing-the-enterprise-in-an-agentic-world-316481475": {
       "fields": {
@@ -93613,7 +93613,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "SPL bilingual storytime — free library public programming"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/bilingual-family-story-time-la-hora-de-cuentos-familiares-biling-es/19977880/2026-09-24T00 - SPL bilingual story time, free library event"
     },
     "seatoday:cityspark-19979985": {
       "fields": {
