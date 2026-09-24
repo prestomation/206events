@@ -4,6 +4,7 @@ description: "City of Issaquah"
 url: "https://www.issaquahwa.gov/Calendar.aspx"
 friendlyLink: https://www.issaquahwa.gov/Calendar.aspx
 geo: null
+cost: free
 tags: ["Issaquah"]
 calendars:
   # CivicPlus iCalendar category ids — see https://www.issaquahwa.gov/iCalendar.aspx

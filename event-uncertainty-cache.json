@@ -93376,7 +93376,7 @@
     "events12:music-by-candlelight-nordic-museum-119604-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 45.0
+          "min": 45
         },
         "setting": "indoor"
       },
@@ -93449,7 +93449,7 @@
     "climate-pledge-arena:tm-vvG1HZ_2Sp1qJd": {
       "fields": {
         "cost": {
-          "min": 35.0
+          "min": 35
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93479,7 +93479,7 @@
     "stg:tm-vvG1HZ_C5unlvs": {
       "fields": {
         "cost": {
-          "min": 60.0
+          "min": 60
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93529,7 +93529,7 @@
     "seatoday:cityspark-19434507": {
       "fields": {
         "cost": {
-          "min": 265.0
+          "min": 265
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94426,7 +94426,7 @@
     "seattle-chamber-music:scms-5711": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94436,7 +94436,7 @@
     "seattle-chamber-music:scms-5784": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94446,7 +94446,7 @@
     "seattle-chamber-music:scms-5787": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94456,7 +94456,7 @@
     "seattle-chamber-music:scms-5792": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94466,7 +94466,7 @@
     "seattle-chamber-music:scms-5805": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94476,7 +94476,7 @@
     "seattle-chamber-music:scms-5809": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94486,7 +94486,7 @@
     "seattle-chamber-music:scms-5917": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94496,7 +94496,7 @@
     "seattle-chamber-music:scms-5922": {
       "fields": {
         "cost": {
-          "min": 65.0
+          "min": 65
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95439,7 +95439,7 @@
     "seatoday:cityspark-20006995": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95448,7 +95448,7 @@
     "seatoday:cityspark-19889226": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95457,7 +95457,7 @@
     "seatoday:cityspark-19007351": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95466,7 +95466,7 @@
     "seatoday:cityspark-19626296": {
       "fields": {
         "cost": {
-          "min": 0.0
+          "min": 0
         }
       },
       "resolvedAt": "2026-09-24",
