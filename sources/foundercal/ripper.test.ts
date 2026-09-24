@@ -10,6 +10,8 @@ import FoundercalRipper, {
     parseEventPage,
     locationFromPlace,
     isOnlineOnly,
+    parseCost,
+    JsonLdEvent,
     ParsedEvent,
 } from './ripper.js';
 
@@ -89,6 +91,41 @@ describe('foundercal event page', () => {
     it('detects online-only events', () => {
         expect(isOnlineOnly({ eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode' })).toBe(true);
         expect(isOnlineOnly({ eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode' })).toBe(false);
+    });
+});
+
+describe('parseCost', () => {
+    const base: JsonLdEvent = { name: 'Some Event' };
+
+    it('prefers the offers.price (live example, 2026-09-24: a Luma event with a $55-$75 sliding range)', () => {
+        expect(parseCost({ ...base, isAccessibleForFree: false, offers: { price: '55.00', priceCurrency: 'USD' } }))
+            .toEqual({ min: 55 });
+    });
+
+    it('handles a zero offers.price as free, even if it arrives as a JSON number rather than a string', () => {
+        expect(parseCost({ ...base, offers: { price: '0.00' as string } })).toEqual({ min: 0 });
+        // schema.org allows Offer.price as Number or Text; TS only declares
+        // string, but a runtime value that's actually a number must not be
+        // silently dropped by a falsy-zero check.
+        expect(parseCost({ ...base, offers: { price: 0 as unknown as string } })).toEqual({ min: 0 });
+    });
+
+    it('treats isAccessibleForFree: true as free', () => {
+        expect(parseCost({ ...base, isAccessibleForFree: true })).toEqual({ min: 0 });
+    });
+
+    it('treats a bare isAccessibleForFree: false (no offers) as paid, amount unknown', () => {
+        expect(parseCost({ ...base, name: '[Save the Date] DubHacks 2026', isAccessibleForFree: false }))
+            .toEqual({ paid: true });
+    });
+
+    it('does not assert paid when the title says "free" and isAccessibleForFree is an unreliable false (live example, 2026-09-24)', () => {
+        expect(parseCost({ ...base, name: 'Free Coworking Wednesdays @ SURF Incubator', isAccessibleForFree: false }))
+            .toBeUndefined();
+    });
+
+    it('returns undefined when there is no signal at all', () => {
+        expect(parseCost(base)).toBeUndefined();
     });
 });
 
