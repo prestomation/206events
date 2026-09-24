@@ -76752,14 +76752,10 @@
       "evidence": "https://www.ticketmaster.com/syd-beard-tour-seattle-washington-11-10-2026/event/0F00652EB6077C70"
     },
     "seatoday:cityspark-19908761": {
-      "fields": {
-        "cost": {
-          "paid": true
-        }
-      },
-      "resolvedAt": "2026-09-16",
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/meet-and-green/19908761/2026-09-29T00"
+      "reason": "No event image accessible via cityspark/6amcity embed URL; event has cost resolved as paid"
     },
     "seatoday:cityspark-19676537": {
       "fields": {
@@ -93851,12 +93847,12 @@
     },
     "west-seattle-chamber:government-advocacy-comittee-meeting-10-19-2026-11299": {
       "fields": {
-        "location": "Virtual (Zoom)"
+        "location": "Virtual (Zoom)",
+        "imageUrl": "https://chambermaster.blob.core.windows.net/userfiles/UserFiles/chambers/1229/Image/2025_BAH/GAC.png"
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-10-19-2026-11299",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-10-19-2026-11299"
     },
     "west-seattle-chamber:health-and-wellness-meetup-11-03-2026-17114": {
       "unresolvable": true,
@@ -93867,12 +93863,12 @@
     },
     "west-seattle-chamber:government-advocacy-comittee-meeting-11-16-2026-11300": {
       "fields": {
-        "location": "Virtual (Zoom)"
+        "location": "Virtual (Zoom)",
+        "imageUrl": "https://chambermaster.blob.core.windows.net/userfiles/UserFiles/chambers/1229/Image/2025_BAH/GAC.png"
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-11-16-2026-11300",
-      "lastSeen": "2026-09-24"
+      "evidence": "https://westseattle.wschamber.com/events/details/government-advocacy-comittee-meeting-11-16-2026-11300"
     },
     "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50393": {
       "fields": {
