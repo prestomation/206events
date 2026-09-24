@@ -271,14 +271,19 @@ export default class CobysCafeRipper implements IRipper {
      * (0-based), or -1 if it doesn't resemble any month. Two strategies:
      *   1. The known month name starts with the word (handles exact full
      *      names and any-length prefixes/abbreviations, e.g. "Sep", "Sept").
-     *   2. The word is within one Levenshtein edit (insert/delete/substitute)
-     *      of a full month name, and within one character of its length —
-     *      handles a single typo anywhere in the word (e.g. "Octotber" for
-     *      "October", one inserted "t"). Deliberately checked against the
-     *      *full* name only (not the 3-letter abbreviation): a bare
-     *      shared-prefix check would also match unrelated words that happen
-     *      to start the same way (e.g. "Market" vs "March"), silently
-     *      misdating an event instead of correctly failing to parse.
+     *   2. The word is exactly one character *longer* than a full month name
+     *      and one Levenshtein insertion away from it — i.e. the month name
+     *      with one extra letter typo'd in, e.g. "Octotber" for "October"
+     *      (one inserted "t"). Deliberately narrower than "one edit of any
+     *      kind": a same-length single-*substitution* match is far too
+     *      permissive, since many ordinary English words are one
+     *      substitution away from a month name (e.g. "Match"/"Marsh"/
+     *      "Merch" from "March", "Jury"/"Judy" from "July") and would
+     *      silently misdate an event that merely mentions one of those
+     *      words near a day number. Also only applies to month names of at
+     *      least 5 letters — the short names (may/june/july) are more
+     *      likely to have a real short English word one insertion away
+     *      (e.g. "Mayo") than an actual typo.
      * Public for testing.
      */
     resolveMonthIndex(word: string): number {
@@ -288,7 +293,7 @@ export default class CobysCafeRipper implements IRipper {
         if (w.length < 3) return -1;
         const exactIdx = MONTHS.findIndex(m => m.startsWith(w));
         if (exactIdx !== -1) return exactIdx;
-        return MONTHS.findIndex(m => Math.abs(m.length - w.length) <= 1 && levenshteinDistance(m, w) <= 1);
+        return MONTHS.findIndex(m => m.length >= 5 && w.length === m.length + 1 && levenshteinDistance(m, w) === 1);
     }
 
     private decodeHtmlEntities(text: string): string {

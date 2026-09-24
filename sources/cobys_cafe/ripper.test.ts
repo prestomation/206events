@@ -184,6 +184,23 @@ describe('CobysCafeRipper - resolveMonthIndex', () => {
         expect(ripper.resolveMonthIndex('Novice')).toBe(-1);
         expect(ripper.resolveMonthIndex('Separate')).toBe(-1);
     });
+
+    test('does not cross-match a same-length word one substitution away from a month (regression)', () => {
+        // A second-round regression: an intermediate version replaced the
+        // 3-letter-prefix fallback with "any single Levenshtein edit,"
+        // which still cross-matched same-length words one substitution away
+        // from a month name — just via a different mechanism.
+        expect(ripper.resolveMonthIndex('Match')).toBe(-1); // 1 substitution from "March"
+        expect(ripper.resolveMonthIndex('Marsh')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Merch')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Jury')).toBe(-1); // 1 substitution from "July"
+        expect(ripper.resolveMonthIndex('Judy')).toBe(-1);
+    });
+
+    test('only tolerates an insertion-style typo (word one letter longer than the month), not a substitution', () => {
+        expect(ripper.resolveMonthIndex('Octotber')).toBe(9); // insertion: "October" + 1 letter
+        expect(ripper.resolveMonthIndex('Octobber')).toBe(9); // insertion: doubled "b"
+    });
 });
 
 describe('CobysCafeRipper - parseProductHtml', () => {
