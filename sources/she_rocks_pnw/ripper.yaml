@@ -10,6 +10,11 @@ tags: ["Sports", "Community"]
 geo: null
 # Website states "Discounted day passes ($15) and free rentals are available" for gym nights.
 cost: 15
+# The gym-night-dates page is plain text (day/time/date list per host gym) —
+# no images anywhere on it — so use the org's own logo as the fallback for
+# every gym night and keep events out of the per-event photo-gap queue.
+imageUrl: "https://images.squarespace-cdn.com/content/559df2b1e4b032ccf0e68136/1484153217357-YQX0YMVRZW855KMGU0KZ/SheRocks_Purple_Transparent.png?content-type=image%2Fpng"
+skipEventPhotos: true
 calendars:
   - name: gym-nights
     friendlyname: "She Rocks Gym Nights"

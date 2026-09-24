@@ -6,6 +6,13 @@ friendlyLink: https://bellevuewa.gov/calendar?cat=community-events
 geo: null
 tags: ["Bellevue"]
 cost: free
+# Neither the listing cards nor the individual event pages (checked 2026-09)
+# carry an event-specific image — just the site's generic header banner and
+# city seal — and there is no single venue (events span many city locations).
+# Use that same banner as the fallback and keep events out of the per-event
+# photo-gap queue.
+imageUrl: "https://bellevuewa.gov/sites/default/files/styles/header_image/public/media/header_image/2019-05/New%20home%20Images%20at%20500.jpg"
+skipEventPhotos: true
 calendars:
   - name: community-events
     friendlyname: "City of Bellevue Community Events"

@@ -7,6 +7,11 @@ url: "https://data.kingcounty.gov/resource/grxi-zqg2.json"
 friendlyLink: https://kingcounty.gov/en/dept/dnrp/nature-recreation/parks-recreation/king-county-parks/get-involved/parks-events
 tags: ["Community", "Parks"]
 geo: null
+# The Socrata dataset (checked 2026-09) has no image field, and this is a
+# countywide aggregator with no single venue — use a King County photo as the
+# fallback and keep events out of the per-event photo-gap queue.
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Seattle_-_King_County_Courthouse_and_King_County_Administration_Building_01.jpg"
+skipEventPhotos: true
 calendars:
   - name: king-county-events
     friendlyname: "King County Events"
