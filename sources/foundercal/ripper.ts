@@ -1,6 +1,7 @@
 import { Duration, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyField } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { hasUnnegatedMatch } from "../../lib/config/cost-text.js";
 import '@js-joda/timezone';
 import { createHash } from "crypto";
 
@@ -53,6 +54,35 @@ export interface JsonLdEvent {
     isAccessibleForFree?: boolean;
     location?: JsonLdPlace | JsonLdPlace[];
     organizer?: { name?: string };
+    offers?: { price?: string; priceCurrency?: string };
+}
+
+const FREE_TITLE_RE = /\bfree\b/gi;
+
+/**
+ * Foundercal re-publishes each source (Luma, Meetup, Eventbrite...) event's
+ * own price as a schema.org Offer with a single `price` string (verified
+ * live 2026-09-24 against a Luma event whose own page separately confirmed
+ * a $55-$75 sliding range — foundercal's `offers.price` carried "55.00",
+ * the minimum, matching the rubric's "cheapest general-admission" exactly).
+ *
+ * `isAccessibleForFree` is source-provided but not fully reliable: one live
+ * event titled "Free Coworking Wednesdays @ SURF Incubator" carries
+ * `isAccessibleForFree: false` anyway (verified 2026-09-24) — so an
+ * unnegated "free" in the title, which the organizer chose to put there
+ * themselves, is checked and trusted ahead of a bare `false` with no
+ * corroborating price. `isAccessibleForFree: false` alongside an `offers`
+ * price, or with no free-titled contradiction, still resolves to
+ * `{ paid: true }` rather than being left an unknown gap forever.
+ */
+export function parseCost(ev: JsonLdEvent): { min: number } | { paid: true } | undefined {
+    const price = ev.offers?.price ? parseFloat(ev.offers.price) : undefined;
+    if (price !== undefined && !isNaN(price)) return { min: price };
+    if (ev.isAccessibleForFree === true) return { min: 0 };
+    if (ev.isAccessibleForFree === false) {
+        return hasUnnegatedMatch(ev.name ?? "", FREE_TITLE_RE) ? undefined : { paid: true };
+    }
+    return undefined;
 }
 
 /** Returns the schema.org Event object embedded in an event page, if any. */
@@ -158,6 +188,7 @@ export function parseEventPage(
     if (ev.organizer?.name) descParts.push(`Organizer: ${ev.organizer.name}`);
     descParts.push(`Listed on foundercal: ${pageUrl}`);
 
+    const cost = parseCost(ev);
     const event: RipperCalendarEvent = {
         id: `foundercal-${slugFromPath(path)}`,
         ripped: new Date(),
@@ -168,7 +199,7 @@ export function parseEventPage(
         location,
         url: ev.url || pageUrl,
         imageUrl: ev.image,
-        ...(ev.isAccessibleForFree === true ? { cost: { min: 0 } } : {}),
+        ...(cost !== undefined ? { cost } : {}),
     };
 
     // Changes when upstream adds an end time or a street address, which
