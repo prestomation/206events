@@ -93483,7 +93483,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/surf-incubator/events/316419472/ - event ends 11:30 AM (2h)"
+      "evidence": "https://www.meetup.com/surf-incubator/events/316419472/ - event ends 11:30 AM (2h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-your-data-stack-wasn-t-built-for-ai-agents-at-clickhouse-316196700": {
       "fields": {
@@ -93494,7 +93495,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/pydata_seattle/events/316196700/ - event ends 7:00 PM (2h)"
+      "evidence": "https://www.meetup.com/pydata_seattle/events/316196700/ - event ends 7:00 PM (2h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-project-hack-night-and-social-316259929": {
       "fields": {
@@ -93505,7 +93507,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/psppython/events/316259929/ - event ends 8:00 PM (2h)"
+      "evidence": "https://www.meetup.com/psppython/events/316259929/ - event ends 8:00 PM (2h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-chicago-style-improv-jam-for-educators-founders-and-creative-humans-316478138": {
       "fields": {
@@ -93513,7 +93516,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/edtechseattle/events/316478138/ - event ends 7:00 PM (1.5h)"
+      "evidence": "https://www.meetup.com/edtechseattle/events/316478138/ - event ends 7:00 PM (1.5h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-hack-northwest-315795351": {
       "fields": {
@@ -93524,7 +93528,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795351/ - hackathon Oct 5 9AM to Oct 6 5PM (32h)"
+      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795351/ - hackathon Oct 5 9AM to Oct 6 5PM (32h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-seattle-startup-drinks-316291225": {
       "fields": {
@@ -93532,7 +93537,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/startupfriends/events/316291225/ - event ends 6:30 PM (2h)"
+      "evidence": "https://www.meetup.com/startupfriends/events/316291225/ - event ends 6:30 PM (2h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-oct-20-seattle-physical-ai-workshop-and-meetup-316214904": {
       "fields": {
@@ -93540,7 +93546,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattle-computer-vision-meetup/events/316214904/ - event ends 8:30 PM (3h)"
+      "evidence": "https://www.meetup.com/seattle-computer-vision-meetup/events/316214904/ - event ends 8:30 PM (3h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-seattle-givecamp-2026-315795625": {
       "fields": {
@@ -93551,31 +93558,36 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795625/ - charity hackathon Oct 16 6PM to Oct 18 5PM (47h)"
+      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795625/ - charity hackathon Oct 16 6PM to Oct 18 5PM (47h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-seattle-consumer-ai-founders-meetup-b2c-Qwj7KKrxWsGHTFt": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly"
+      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-software-for-one-rgPX8FnXop0ZbWN": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly"
+      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-ai-governance-in-person-online-law-lawyers-and-liability-sHhftX0cEeUgW29": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly"
+      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-agentic-enterprise-ai-hackathon-with-box-aws-dnNzW2vzp6JPg4u": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly"
+      "reason": "Luma event requires registration to see exact location; only Seattle, WA shown publicly",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-save-the-date-dubhacks-2026-313454468": {
       "fields": {
@@ -93583,7 +93595,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattle-hackathons/events/313454468/ - hackathon Oct 17 9AM to Oct 18 3PM (30h)"
+      "evidence": "https://www.meetup.com/seattle-hackathons/events/313454468/ - hackathon Oct 17 9AM to Oct 18 3PM (30h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-seattle-ai-week-2026-2026-10-26": {
       "fields": {
@@ -93592,7 +93605,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://lu.ma/seattleaiweek2026"
+      "evidence": "https://lu.ma/seattleaiweek2026",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-save-the-date-nasa-space-apps-seattle-313454439": {
       "fields": {
@@ -93601,7 +93615,8 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattle-hackathons/events/313454439/"
+      "evidence": "https://www.meetup.com/seattle-hackathons/events/313454439/",
+      "lastSeen": "2026-09-24"
     },
     "bellevue:bellevue-tree-giveaway-2026-10-24": {
       "unresolvable": true,
@@ -93826,13 +93841,15 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattledataaiandsecurity/events/316481475/ - event ends 8:00 PM (3.5h)"
+      "evidence": "https://www.meetup.com/seattledataaiandsecurity/events/316481475/ - event ends 8:00 PM (3.5h)",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-everyones-selling-aeo-geo-nobody-can-prove-it-worked-DEiD68Ov41WqlGH": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Luma event page shows Register to See Address - location gated behind registration"
+      "reason": "Luma event page shows Register to See Address - location gated behind registration",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-sea-ai-week-wha-seattle-building-more-inclusive-healthcare-ai-through-innovation-and-policy-Ec5ohMX5eOcdtxV": {
       "unresolvable": true,
@@ -93844,13 +93861,15 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Luma event page shows Register to See Address - location gated behind registration"
+      "reason": "Luma event page shows Register to See Address - location gated behind registration",
+      "lastSeen": "2026-09-24"
     },
     "foundercal:foundercal-cascadiajs-2027-lnaYPvSZF8EnaHw": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Only Seattle, WA, USA listed on Luma - no specific venue announced yet for June 2027 conference"
+      "reason": "Only Seattle, WA, USA listed on Luma - no specific venue announced yet for June 2027 conference",
+      "lastSeen": "2026-09-24"
     },
     "seatoday:cityspark-19977880": {
       "fields": {
@@ -95052,7 +95071,8 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Luma hides venue address behind registration; no public street address available"
+      "reason": "Luma hides venue address behind registration; no public street address available",
+      "lastSeen": "2026-09-24"
     },
     "venue:osm:way:1291989983": {
       "fields": {
@@ -99813,6 +99833,444 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://www.kremwerk.com/"
+    },
+    "cornish:cornish-54041393832793": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://events.seattleu.edu/event/aerp-from-the-beginning-to-now"
+    },
+    "danceus-tango:danceus-tango-166059771866132-2026-09-28": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/166059771866132/argentine-tango-for-absolute-beginners-seattle-wa/"
+    },
+    "danceus-tango:danceus-tango-16605977262778-2026-09-28": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/16605977262778/tango-nuevo-all-levels-class-seattle-wa/"
+    },
+    "rainier-beach-action-coalition:0gqqkkpvcf80jo9j1ssaahjjig": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.rbcoalition.org/event-calendar/"
+    },
+    "rainier-beach-action-coalition:4ur3qqih2rp864bgtdp4r86mgg": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.rbcoalition.org/event-calendar/"
+    },
+    "rainier-beach-action-coalition:01shaotc5isb6ogffhjcdmubv3": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Website is JS-rendered (Styled Calendar widget) and Branden's Safe House domain is unreachable; cannot verify art class pricing."
+    },
+    "rainier-beach-action-coalition:7c6fiq61fc35ekupauj806uppp": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Website is JS-rendered (Styled Calendar widget) and Branden's Safe House domain is unreachable; cannot verify art class pricing."
+    },
+    "stroum-jcc:148827": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/humans-of-october-7/"
+    },
+    "stroum-jcc:149816": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/volunteer-with-city-fruit-harvest-for-the-community/"
+    },
+    "stroum-jcc:150625": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibitspeaker-hyphen-graphic-novels-of-jewish-diversity/"
+    },
+    "stroum-jcc:150657": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibit-hyphen-graphic-novels-of-jewish-diversity/"
+    },
+    "stroum-jcc:152240": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/october-challah-bake/"
+    },
+    "stroum-jcc:152247": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/november-challah-bake/"
+    },
+    "stroum-jcc:152249": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/december-challah-bake/"
+    },
+    "stroum-jcc:152251": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/january-challah-bake/"
+    },
+    "stroum-jcc:152253": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/february-challah-bake/"
+    },
+    "stroum-jcc:152257": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/march-challah-bake/"
+    },
+    "stroum-jcc:152259": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/april-challah-bake/"
+    },
+    "stroum-jcc:152261": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/may-challah-bake/"
+    },
+    "stroum-jcc:152263": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/june-challah-bake/"
+    },
+    "stroum-jcc:152299": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sunday-mitzvah-party-volunteer-with-birthday-dreams/"
+    },
+    "stroum-jcc:151867": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-dinner-at-our-house-october/"
+    },
+    "stroum-jcc:151872": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-dinner-at-our-house-january/"
+    },
+    "stroum-jcc:151874": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-dinner-at-our-house-february/"
+    },
+    "stroum-jcc:151882": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-dinner-at-our-house-april/"
+    },
+    "stroum-jcc:151053": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibit-author-photographer-lloyd-wolf-a-joyful-noise-klezmer-in-motion/"
+    },
+    "stroum-jcc:149716": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151050": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151574": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151850": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151865": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:152036": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:152475": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "foundercal-free-coworking-wednesdays-surf-incubator-316499778": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/surf-incubator/events/316499778/"
+    },
+    "foundercal-cancelling-the-trauma-template-in-ai-generated-kids-media-and-all-media-surf-inc-eTEkwmFnj9AutDV": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://luma.com/fvlnc080"
+    },
+    "foundercal-chicago-style-improv-jam-for-educators-founders-and-creative-humans-316478138": {
+      "fields": {
+        "cost": {
+          "min": 5.0,
+          "max": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/edtechseattle/events/316478138/"
+    },
+    "foundercal-children-s-media-creators-coworking-316502309": {
+      "fields": {
+        "cost": {
+          "min": 10.0,
+          "max": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/surf-incubator/events/316502309/"
+    },
+    "foundercal-h2-presents-in-good-company-55JKnSsYWrCkjjB": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://luma.com/xqls2dhn"
+    },
+    "foundercal-no-budget-no-problem-hire-and-mentor-human-interns-with-ai-kelly-tutors-x-surf-i-gXp5Ugzr66Ocyc8": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://luma.com/3x30d49z"
+    },
+    "foundercal-the-ai-week-tl-dr-unconference-kelly-tutors-x-surf-incubator-LYGjqW2ze0KRngl": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://luma.com/sgm3apcb"
+    },
+    "foundercal-save-the-date-dubhacks-2026-313454468": {
+      "fields": {
+        "cost": {
+          "min": 0.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://dh26.dubhacks.co/"
+    },
+    "foundercal-seattleaiweek-ai-summit-pFlRFVmbhzsYYj4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://luma.com/gi2fceh5"
+    },
+    "foundercal-seattleaiweek-opening-reception-vSul3qlk5A9RdNZ": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://luma.com/9hfhvzkt"
+    },
+    "foundercal-a-parent-kid-ai-business-problem-solving-lab-FHI7MoBofFuaYxR": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event page either 404 or does not display ticket price; cannot verify cost."
+    },
+    "foundercal-ai-takes-over-the-chicago-style-improv-jam-kelly-tutors-surf-incubator-g4G1qnGpL8BQMfp": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event page either 404 or does not display ticket price; cannot verify cost."
+    },
+    "foundercal-convergence-summit-quantum-and-ai-in-the-northwest-XH4jYm1zi5ChonZ": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event page either 404 or does not display ticket price; cannot verify cost."
+    },
+    "foundercal-oct-20-seattle-physical-ai-workshop-and-meetup-316214904": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event page either 404 or does not display ticket price; cannot verify cost."
+    },
+    "foundercal-parent-kid-ai-business-pitch-workshop-presentation-kelly-tutors-x-sound-startups-V2SFyB3GLzo6GEi": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event page either 404 or does not display ticket price; cannot verify cost."
+    },
+    "foundercal-seattle-ai-week-2026-2026-10-26": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event page either 404 or does not display ticket price; cannot verify cost."
+    },
+    "foundercal-wha-seattle-ai-meets-healthcare-and-policy-xXpGEHyOvo1wUV1": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Event page either 404 or does not display ticket price; cannot verify cost."
     }
   }
 }
