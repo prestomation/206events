@@ -56,7 +56,7 @@ export function isTierPrefixed(text: string, index: number): boolean {
 // range, "Member" is far more than 15 chars back) from bleeding through.
 const TIER_LABEL_RE = new RegExp(`\\b(?:${TIER_WORDS})\\b[^.$]{0,15}$`, "i");
 
-/** True when a short window before `index` contains a discount-tier word labeling something (followed by a colon), not just mentioned incidentally. */
+/** True when a short window immediately before `index` ends in a discount-tier word (optionally followed by a short label like "price"), not just mentioned incidentally further back. */
 export function isNearTierWord(text: string, index: number, window = 40): boolean {
     return TIER_LABEL_RE.test(text.slice(Math.max(0, index - window), index));
 }
