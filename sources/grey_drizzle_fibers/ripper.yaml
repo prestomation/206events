@@ -5,6 +5,8 @@ description: "Grey Drizzle Fibers"
 url: "https://www.greydrizzlefibers.com/events"
 friendlyLink: https://www.greydrizzlefibers.com/events
 geo: null
+# Events are free pop-up trunk shows and fiber arts meetups; no admission charge.
+cost: free
 tags: ["Community"]
 calendars:
   - name: grey-drizzle-fibers

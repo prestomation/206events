@@ -5,6 +5,8 @@ url: "https://seattlemathmuseum.org/events"
 friendlyLink: https://seattlemathmuseum.org/events
 tags: ["Education", "Community"]
 geo: null
+# Math museum events (volunteer nights, community programs) are free admission.
+cost: free
 calendars:
   - name: all-events
     friendlyname: "Seattle Universal Math Museum"

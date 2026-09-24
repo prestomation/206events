@@ -1,5 +1,6 @@
 import { Duration, LocalDateTime, ZonedDateTime, ZoneId } from "@js-joda/core";
 import {
+    EventCost,
     IRipper,
     Ripper,
     RipperCalendar,
@@ -17,6 +18,7 @@ const USER_AGENT = "Mozilla/5.0 (compatible; 206events/1.0)";
 const ICS_URL = "https://calendar.google.com/calendar/ical/c_lk5nf8ne5ih2qtirija6h8vbqg%40group.calendar.google.com/public/basic.ics";
 const TIMEZONE = ZoneId.of("America/Los_Angeles");
 const DEFAULT_DURATION = Duration.ofHours(2);
+const COST: EventCost = { paid: true };
 const FALLBACK_LOCATION = "616 8th Ave S, Seattle, WA 98104";
 // How far ahead to expand weekly/monthly recurring series. The feed's
 // RRULEs run indefinitely (no UNTIL for the store's current lineup), so
@@ -139,6 +141,7 @@ export function buildEvent(
         description: description && description.trim().length > 0 ? decode(description.trim()) : undefined,
         location: location && location.trim().length > 0 ? decode(location.trim()) : FALLBACK_LOCATION,
         url: eventUrl(),
+        cost: COST,
     };
 }
 
