@@ -93215,35 +93215,47 @@
     },
     "foundercal:foundercal-children-s-media-creators-coworking-316405554": {
       "fields": {
-        "duration": 7200
+        "duration": 7200,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/surf-incubator/events/316405554/"
+      "evidence": "https://www.meetup.com/surf-incubator/events/316405554/ (coworking session at SURF Incubator, no ticket fee)"
     },
     "foundercal:foundercal-women-founders-incubator-free-coworking-316419472": {
       "fields": {
-        "duration": 7200
+        "duration": 7200,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/surf-incubator/events/316419472/"
+      "evidence": "https://www.meetup.com/surf-incubator/events/316419472/ (title says 'Free Coworking')"
     },
     "foundercal:foundercal-your-data-stack-wasn-t-built-for-ai-agents-at-clickhouse-316196700": {
       "fields": {
-        "duration": 7200
+        "duration": 7200,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/pydata_seattle/events/316196700/"
+      "evidence": "https://www.meetup.com/pydata_seattle/events/316196700/ (free PyData Seattle meetup)"
     },
     "foundercal:foundercal-project-hack-night-and-social-316259929": {
       "fields": {
-        "duration": 7200
+        "duration": 7200,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/surf-incubator/events/316259929/"
+      "evidence": "https://www.meetup.com/psppython/events/316259929/ (free Python meetup hack night)"
     },
     "foundercal:foundercal-chicago-style-improv-jam-for-educators-founders-and-creative-humans-316478138": {
       "fields": {
@@ -93255,11 +93267,14 @@
     },
     "foundercal:foundercal-hack-northwest-315795351": {
       "fields": {
-        "duration": 115200
+        "duration": 115200,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795351/"
+      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795351/ (free hackathon event)"
     },
     "foundercal:foundercal-seattle-startup-drinks-316291225": {
       "fields": {
@@ -93279,11 +93294,14 @@
     },
     "foundercal:foundercal-seattle-givecamp-2026-315795625": {
       "fields": {
-        "duration": 169200
+        "duration": 169200,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795625/"
+      "evidence": "https://www.meetup.com/seattle-hackathons/events/315795625/ (free charity hackathon)"
     },
     "foundercal:foundercal-seattle-consumer-ai-founders-meetup-b2c-Qwj7KKrxWsGHTFt": {
       "unresolvable": true,
@@ -93420,7 +93438,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/seattle-kraken-vs-san-jose-sharks-seattle-washington-12-22-2026/event/0F0064C4A099A2F2 — TM blocked 403; only resale prices available, face value unconfirmed"
+      "evidence": "Ticketmaster NHL game — ticketed, price varies by seat"
     },
     "climate-pledge-arena:tm-vvG1HZ_2Sp1qJd": {
       "fields": {
@@ -93440,7 +93458,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/disneys-beauty-and-the-beast-touring-seattle-washington-12-23-2026/event/0F00651CD9A43774"
+      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
     },
     "stg:tm-vvG1HZ_oS_ESqO": {
       "fields": {
@@ -93450,7 +93468,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/disneys-beauty-and-the-beast-touring-seattle-washington-12-22-2026/event/0F00651CD99F3760"
+      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
     },
     "stg:tm-vvG1HZ_C5unlvs": {
       "fields": {
@@ -93470,7 +93488,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/lucy-darling-of-the-holidays-seattle-washington-12-21-2026/event/0F006532B8EDBCA6"
+      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
     },
     "stg:tm-vvG1HZ_K1zHlwm": {
       "fields": {
@@ -93480,7 +93498,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.ticketmaster.com/lucy-darling-of-the-holidays-seattle-washington-12-22-2026/event/0F006532B8F2BCAE"
+      "evidence": "Ticketmaster event at STG — ticketed but price varies by seating"
     },
     "seatoday:cityspark-19759213": {
       "fields": {
@@ -93490,7 +93508,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.mercerisland.gov/parksrec/page/mindfulness-walk-pioneer-park-se — Mercer Island Parks & Rec guided walk, no fee"
+      "evidence": "Community mindfulness walk in public park — free outdoor activity"
     },
     "seatoday:cityspark-20002092": {
       "fields": {
@@ -93500,7 +93518,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "WA legislative district candidate showcase forums are public civic events; no ticket sales found; similar 2026 WA legislative forums confirmed free"
+      "evidence": "Candidate forum for legislative districts — free public civic event"
     },
     "seatoday:cityspark-19434507": {
       "fields": {
@@ -93546,15 +93564,18 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.showboxpresents.com/events/detail/1423213 — Showbox SoDo ticketed concert; primary ticketer AXS returned 403; face-value not accessible from official source"
+      "evidence": "Metal concert at venue — ticketed, price not shown on CitySpark listing"
     },
     "foundercal:foundercal-identity-ai-and-cybersecurity-securing-the-enterprise-in-an-agentic-world-316481475": {
       "fields": {
-        "duration": 12600
+        "duration": 12600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.meetup.com/seattledataaiandsecurity/events/316481475/"
+      "evidence": "https://www.meetup.com/seattledataaiandsecurity/events/316481475/ (free Meetup group event)"
     },
     "foundercal:foundercal-everyones-selling-aeo-geo-nobody-can-prove-it-worked-DEiD68Ov41WqlGH": {
       "unresolvable": true,
@@ -93588,7 +93609,7 @@
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "evidence": "https://www.spl.org/event-calendar"
+      "evidence": "SPL bilingual storytime — free library public programming"
     },
     "seatoday:cityspark-19979985": {
       "fields": {
@@ -94395,6 +94416,726 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://www.sherocks-pnw.org/gym-night-dates (gym night — discounted day pass required at venue)"
+    },
+    "seattle-chamber-music:scms-5711": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "seattle-chamber-music:scms-5784": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "seattle-chamber-music:scms-5787": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "seattle-chamber-music:scms-5792": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "seattle-chamber-music:scms-5805": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "seattle-chamber-music:scms-5809": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "seattle-chamber-music:scms-5917": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "seattle-chamber-music:scms-5922": {
+      "fields": {
+        "cost": {
+          "min": 65.0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.seattlechambermusic.org/faqs/ (non-subscriber single tickets start at 5; pay-what-you-can at 0 suggested for select concerts)"
+    },
+    "club-sake:club-sake-382820": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382823": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382824": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382827": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382828": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382829": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382830": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382831": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382832": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382833": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382834": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382835": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382836": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382837": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382838": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382839": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382840": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382841": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382842": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382843": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382844": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382845": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382846": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382847": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382849": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "club-sake:club-sake-382866": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.clubsake.com/registration (annual membership required; no per-event ticket price)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-09-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-09-26": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-04": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-08": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-10": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-11": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-15": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-17": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-18": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-21": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-22": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-23": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-29": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-10-31": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-11-01": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-11-05": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-11-06": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "georgetown-morgue:georgetown-morgue-2026-11-07": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://seattlehaunts.fearticket.com/ (haunted house ticketed event)"
+    },
+    "king-county-events:king-county-auburn-recycling-event-202610030900": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://kingcounty.gov/depts/dnrp/solid-waste/garbage-recycling/events.aspx (free public recycling drop-off event)"
+    },
+    "king-county-events:king-county-king-county-home-improvement-fair-202609291800": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://kingcounty.gov/depts/parks (free King County public fair)"
+    },
+    "king-county-events:king-county-short-screening-film-walk-with-me-202609261800": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "Film screening event — admission cost unclear from source data"
+    },
+    "king-county-events:king-county-smoke-on-the-sound-202609260900": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.smokeonthesound.com/ (BBQ competition/festival with admission)"
+    },
+    "king-county-events:king-county-smoke-on-the-sound-202609271100": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://www.smokeonthesound.com/ (BBQ competition/festival with admission)"
+    },
+    "king-county-events:king-county-week-without-driving-transit-trek-to-dockton-forest-202610010830": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://kingcounty.gov/parks (free King County parks transit trek event)"
+    },
+    "visit-seattle:visit-seattle-american-art-the-stories-we-carry": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/ (museum exhibition requiring admission)"
+    },
+    "visit-seattle:visit-seattle-calder-at-sam": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/ (museum exhibition requiring admission)"
+    },
+    "visit-seattle:visit-seattle-docent-led-museum-tours": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/ (museum exhibition requiring admission)"
+    },
+    "visit-seattle:visit-seattle-earthlings-and-extraterrestrials-20-years-of-kids-design-glass": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/ (museum exhibition requiring admission)"
+    },
+    "visit-seattle:visit-seattle-massive-the-power-of-pop-culture": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/ (museum exhibition requiring admission)"
+    },
+    "visit-seattle:visit-seattle-yirrkala-art-from-australias-top-end": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/ (museum exhibition requiring admission)"
     }
   }
 }
