@@ -9,6 +9,18 @@ const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june',
 const LOCATION = "Coby's Cafe, 101 Nickerson St Building B Suite 200, Seattle, WA 98109";
 const TIMEZONE = ZoneId.of('America/Los_Angeles');
 
+// Known upstream typos for month names, keyed by the exact lowercased typo'd
+// word. An explicit lookup rather than a generic fuzzy/edit-distance
+// matcher: a distance-based check would also cross-match ordinary English
+// words that happen to sit near a month name in edit-distance space (e.g.
+// "Match"/"Marsh" or "Augusta"/"Aprils"), silently misdating an unrelated
+// event instead of correctly failing to parse. Add a new entry here only
+// for a typo actually observed on the live site.
+const MONTH_TYPO_OVERRIDES: Record<string, number> = {
+    // "Octotber 2" for "October 2" — https://www.cobyscafe.com/product/x/2Z5TBRBNQU3S6DK4UF7TB447
+    octotber: 9,
+};
+
 export default class CobysCafeRipper implements IRipper {
     private fetchFn: FetchFn = fetch;
 
@@ -155,62 +167,17 @@ export default class CobysCafeRipper implements IRipper {
         // so the regexes below can match regardless of styling.
         text = text.normalize('NFKC');
 
-        const fullMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
-        const abbrevMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1, 3)).join('|');
-        const monthPattern = `${fullMonthPattern}|${abbrevMonthPattern}`;
-
-        // Primary pattern: "Month Day from StartTime–EndTimePM"
-        const re = new RegExp(
-            `(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
-            `\\s+from\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
-            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
-            'i'
-        );
-
-        // Alternate pattern: "between StartTime–EndTimePM on [Weekday,] Month Day"
-        // Matches e.g. "between 1 PM–3 PM on Saturday, May 30"
-        const reAlt = new RegExp(
-            `between\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
-            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
-            `\\s+on\\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})`,
-            'i'
-        );
-
-        // Last-resort fallback: "Month Day <up to 15 non-digit chars> StartTime - EndTime",
-        // with no "from"/"between...on" keyword required. Matches the emoji-delimited style
-        // some sources use (e.g. "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm") but doesn't actually
-        // require an emoji — only tried after the more specific patterns above fail.
-        const reEmoji = new RegExp(
-            `(${monthPattern})\\s+(\\d{1,2})` +
-            `[^\\d]{0,15}` +
-            `(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
-            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
-            'i'
-        );
-
-        let match = text.match(re);
-        if (match) {
-            // Primary pattern matched — fall through to shared parsing below
-        } else {
-            const altMatch = text.match(reAlt);
-            if (altMatch) {
-                // Rearrange altMatch captures to align with the primary pattern's named slots:
-                // primary: [, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]
-                // alt:     [, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm, monthName, dayStr]
-                const [full, sh, sm, sa, eh, em, ea, mon, day] = altMatch;
-                match = [full, mon, day, sh, sm, sa, eh, em, ea];
-            } else {
-                match = text.match(reEmoji);
-                if (!match) return null;
-            }
-        }
+        const match = this.findDateTimeMatch(text);
+        if (!match) return null;
 
         const [, monthName, dayStr, startHourStr, startMinStr, startAmPm,
             endHourStr, endMinStr, endAmPm] = match;
 
-        const monthIdx = MONTHS.findIndex(m => m.startsWith(monthName.toLowerCase()));
+        // findDateTimeMatch already verified monthName resolves (that's how
+        // it picked this candidate over any earlier non-month word), so this
+        // can't be -1 — re-deriving it here just avoids a second lookup
+        // table/regex or plumbing the resolved index through the return value.
+        const monthIdx = this.resolveMonthIndex(monthName);
         if (monthIdx === -1) return null;
 
         const month = monthIdx + 1;
@@ -240,6 +207,103 @@ export default class CobysCafeRipper implements IRipper {
         }
 
         return { year, month, day, startHour, startMinute, endHour, endMinute };
+    }
+
+    /**
+     * Tries all three known heading/description shapes against `text`, in
+     * priority order, returning the first candidate whose captured month
+     * word actually resolves (via resolveMonthIndex), aligned to
+     * `[, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]`,
+     * or null if none do.
+     *
+     * The month position matches any word, not just an enumerated month
+     * name — that's what lets a known upstream typo (see
+     * MONTH_TYPO_OVERRIDES) still resolve. But naively taking the *first*
+     * syntactic match within a shape would let an earlier, unrelated
+     * "<word> <day> from <time>-<time>"-shaped phrase (e.g. "Vendor Market
+     * 12 from 10am-2pm") steal the match away from a real date later in the
+     * same text. So each shape is scanned for *every* candidate occurrence
+     * (via matchAll) and the first one whose month actually resolves wins;
+     * only once a whole shape produces zero resolving candidates does the
+     * next shape get tried. Public for testing.
+     */
+    findDateTimeMatch(text: string): RegExpMatchArray | string[] | null {
+        const monthWord = `[A-Za-z]+`;
+
+        // Primary pattern: "Month Day from StartTime–EndTimePM"
+        const re = new RegExp(
+            `(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
+            `(${monthWord})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
+            `\\s+from\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
+            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
+            'gi'
+        );
+        for (const m of text.matchAll(re)) {
+            if (this.resolveMonthIndex(m[1]) !== -1) return m;
+        }
+
+        // Alternate pattern: "between StartTime–EndTimePM on [Weekday,] Month Day"
+        // Matches e.g. "between 1 PM–3 PM on Saturday, May 30"
+        const reAlt = new RegExp(
+            `between\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
+            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
+            `\\s+on\\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
+            `(${monthWord})\\s+(\\d{1,2})`,
+            'gi'
+        );
+        for (const m of text.matchAll(reAlt)) {
+            // Rearrange to align with the primary pattern's named slots:
+            // primary: [, monthName, dayStr, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm]
+            // alt:     [, startHourStr, startMinStr, startAmPm, endHourStr, endMinStr, endAmPm, monthName, dayStr]
+            const [full, sh, sm, sa, eh, em, ea, mon, day] = m;
+            if (this.resolveMonthIndex(mon) !== -1) return [full, mon, day, sh, sm, sa, eh, em, ea];
+        }
+
+        // Last-resort fallback: "Month Day[, Year] <up to 20 non-digit chars> StartTime - EndTime",
+        // with no "from"/"between...on" keyword required, and the start time's
+        // am/pm optional (inferred from the end time below, same as the primary
+        // pattern) since an emoji-delimited listing may only mark the end time,
+        // e.g. "📅 October 3, 2026⏰ 5:30–7:30 PM". Also matches the more
+        // classic emoji style some sources use (e.g.
+        // "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm") but doesn't actually require
+        // an emoji — only tried after the more specific patterns above fail.
+        const reEmoji = new RegExp(
+            `(${monthWord})\\s+(\\d{1,2})(?:,?\\s*\\d{4})?` +
+            `[^\\d]{0,20}` +
+            `(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
+            `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
+            'gi'
+        );
+        for (const m of text.matchAll(reEmoji)) {
+            if (this.resolveMonthIndex(m[1]) !== -1) return m;
+        }
+
+        return null;
+    }
+
+    /**
+     * Resolves a month word captured from free text to a MONTHS index
+     * (0-based), or -1 if it doesn't resemble any month:
+     *   1. The word is the exact full month name, or the exact standard
+     *      3-letter abbreviation ("Sep", not an arbitrary-length prefix like
+     *      "Sept" or "Octob"). Since the month regex now captures *any*
+     *      alphabetic word (to support MONTH_TYPO_OVERRIDES below, not just
+     *      an enumerated month token), accepting any-length prefixes here
+     *      would let an unrelated word that happens to fully prefix a month
+     *      name (e.g. "Marc" -> "march", "Octob" -> "october") silently
+     *      resolve as that month — the exact-length restriction closes that.
+     *   2. The word is an exact, explicitly-listed known typo (see
+     *      MONTH_TYPO_OVERRIDES) — deliberately not a generic fuzzy/edit-
+     *      distance match, which would also cross-match ordinary English
+     *      words that happen to sit near a month name (e.g. "Match" or
+     *      "Augusta"), silently misdating an unrelated event.
+     * Public for testing.
+     */
+    resolveMonthIndex(word: string): number {
+        const w = word.toLowerCase();
+        const exactIdx = MONTHS.findIndex(m => m === w || (w.length === 3 && m.startsWith(w)));
+        if (exactIdx !== -1) return exactIdx;
+        return MONTH_TYPO_OVERRIDES[w] ?? -1;
     }
 
     private decodeHtmlEntities(text: string): string {

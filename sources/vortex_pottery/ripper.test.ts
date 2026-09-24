@@ -7,6 +7,7 @@ import {
     parseItem,
     parseTitleTimeRange,
     extractHeadingDateRange,
+    extractWorkshopHeading,
 } from './ripper.js';
 import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
 
@@ -185,13 +186,57 @@ describe('VortexPotteryRipper', () => {
         });
     });
 
+    describe('extractWorkshopHeading', () => {
+        it('parses a two-day guest-workshop heading with period-separated minutes ("9.30 AM - 4 PM")', () => {
+            const item = findItem(items, 'workshop-dwayne-sackey');
+            const workshop = extractWorkshopHeading(item.excerpt ?? '');
+            expect(workshop).not.toBeNull();
+            expect(workshop!.dates.map(d => d.toString())).toEqual(['2026-10-10', '2026-10-11']);
+            expect(workshop!.time).toEqual({ startHour: 9, startMinute: 30, endHour: 16, endMinute: 0 });
+        });
+
+        it('returns null for a weekly-class heading (handled by extractHeadingDateRange instead)', () => {
+            const item = findItem(items, 'mondays');
+            expect(extractWorkshopHeading(item.excerpt ?? '')).toBeNull();
+        });
+
+        it('returns null for empty or unrecognized excerpt text', () => {
+            expect(extractWorkshopHeading('')).toBeNull();
+            expect(extractWorkshopHeading('<h3>Just some other text</h3>')).toBeNull();
+        });
+    });
+
+    describe('parseItem - one-off guest workshop', () => {
+        it('expands the live "Faceted + Altered Tea Bowls" regression into its two weekend days', () => {
+            // Live regression: this heading shape ("Month D & D, YYYY | Weekday
+            // & Weekday | H.MM AM - H PM") previously fell through to "Could
+            // not find a weekly date range in the excerpt heading".
+            const item = findItem(items, 'workshop-dwayne-sackey');
+            const results = parseItem(item as any);
+            const events = results.filter(isEvent).sort((a, b) => a.date.compareTo(b.date));
+
+            expect(results.filter(e => 'type' in e)).toHaveLength(0);
+            expect(events).toHaveLength(2);
+            expect(events[0].date.toLocalDate().toString()).toBe('2026-10-10');
+            expect(events[1].date.toLocalDate().toString()).toBe('2026-10-11');
+            for (const e of events) {
+                expect(e.date.hour()).toBe(9);
+                expect(e.date.minute()).toBe(30);
+                expect(e.duration.toMinutes()).toBe(390); // 9:30 AM - 4:00 PM
+                expect(e.cost).toEqual({ min: 325 });
+                expect(e.summary).toBe('Faceted + Altered Tea Bowls');
+            }
+            expect(new Set(events.map(e => e.id)).size).toBe(2);
+        });
+    });
+
     describe('parseItems', () => {
-        it('produces 24 events across the 4 current class listings (6 weeks each)', () => {
+        it('produces 26 events across the 4 weekly classes (6 weeks each) plus the 1 two-day workshop', () => {
             const results = parseItems(items as any);
             const events = results.filter(isEvent);
             const errors = results.filter((r): r is RipperError => 'type' in r);
             expect(errors).toHaveLength(0);
-            expect(events).toHaveLength(24);
+            expect(events).toHaveLength(26);
         });
 
         it('produces no null entries — every result is an event or a RipperError', () => {

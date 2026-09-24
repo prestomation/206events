@@ -95498,8 +95498,8 @@
     "seattle-makers:seattle-makers-169446": {
       "fields": {
         "cost": {
-          "min": 0,
-          "max": 20
+          "min": 0.0,
+          "max": 20.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95509,8 +95509,8 @@
     "seattle-makers:seattle-makers-169452": {
       "fields": {
         "cost": {
-          "min": 75,
-          "max": 110
+          "min": 75.0,
+          "max": 110.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95520,8 +95520,8 @@
     "seattle-makers:seattle-makers-169455": {
       "fields": {
         "cost": {
-          "min": 75,
-          "max": 110
+          "min": 75.0,
+          "max": 110.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95531,8 +95531,8 @@
     "seattle-makers:seattle-makers-169461": {
       "fields": {
         "cost": {
-          "min": 75,
-          "max": 110
+          "min": 75.0,
+          "max": 110.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95542,8 +95542,8 @@
     "seattle-makers:seattle-makers-169465": {
       "fields": {
         "cost": {
-          "min": 0,
-          "max": 20
+          "min": 0.0,
+          "max": 20.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95553,8 +95553,8 @@
     "seattle-makers:seattle-makers-169468": {
       "fields": {
         "cost": {
-          "min": 75,
-          "max": 100
+          "min": 75.0,
+          "max": 100.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95564,8 +95564,8 @@
     "seattle-makers:seattle-makers-169486": {
       "fields": {
         "cost": {
-          "min": 75,
-          "max": 110
+          "min": 75.0,
+          "max": 110.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95575,8 +95575,8 @@
     "seattle-makers:seattle-makers-169539": {
       "fields": {
         "cost": {
-          "min": 45,
-          "max": 55
+          "min": 45.0,
+          "max": 55.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95586,15 +95586,15 @@
     "seattle-makers:seattle-makers-169545": {
       "fields": {
         "cost": {
-          "min": 45,
-          "max": 55
+          "min": 45.0,
+          "max": 55.0
         }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/upcycle-sewing-denim-catnip-toys/"
     },
-    "kcls:kcls-68893bf9b354fd28002e38b7": {
+        "kcls:kcls-68893bf9b354fd28002e38b7": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
