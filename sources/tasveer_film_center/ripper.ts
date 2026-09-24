@@ -1,5 +1,5 @@
 import { Duration, Instant, ZonedDateTime, ZoneId } from "@js-joda/core";
-import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -74,6 +74,9 @@ export function parseShowing(showing: IndyShowing, timezone: ZoneId): RipperCale
     const screen = showing.screen?.name?.trim();
     const description = [synopsis, screen ? `Screen: ${screen}` : ""].filter(Boolean).join("\n\n");
 
+    // Tasveer's GraphQL API does not expose ticket prices; all public showings are paid.
+    const cost: EventCost = { paid: true };
+
     return {
         id: `tasveer-${showing.id}`,
         ripped: new Date(),
@@ -84,6 +87,7 @@ export function parseShowing(showing: IndyShowing, timezone: ZoneId): RipperCale
         location: LOCATION,
         url: movie?.urlSlug ? `${SITE_ORIGIN}/movie/${movie.urlSlug}` : `${SITE_ORIGIN}/home`,
         imageUrl: movie?.posterImage ? `${IMAGE_BASE}/${movie.posterImage}?w=800&auto=format` : undefined,
+        cost,
     };
 }
 

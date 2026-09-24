@@ -1,6 +1,6 @@
 import { JSONRipper } from "../../lib/config/jsonscrapper.js";
 import { Duration, Instant, ZonedDateTime } from "@js-joda/core";
-import { RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
+import { EventCost, RipperEvent, RipperCalendarEvent } from "../../lib/config/schema.js";
 
 // Georgetown Morgue (Seattle Haunts) sells tickets through fearticket.com,
 // which runs on the hytix.com platform. The ticketing SPA reads open nights
@@ -90,6 +90,7 @@ export default class GeorgetownMorgueRipper extends JSONRipper {
             };
         }
 
+        const cost: EventCost = { paid: true };
         return {
             id: `georgetown-morgue-${day}`,
             ripped: new Date(),
@@ -99,6 +100,7 @@ export default class GeorgetownMorgueRipper extends JSONRipper {
             description: `Seattle's haunted house attraction in Georgetown. Timed entry; tickets: ${TICKETS_URL}`,
             location: VENUE_LOCATION,
             url: VENUE_URL,
+            cost,
         };
     }
 }

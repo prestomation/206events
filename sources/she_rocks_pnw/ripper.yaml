@@ -8,6 +8,8 @@ tags: ["Sports", "Community"]
 # no single venue; each event carries its gym's address. Only the Seattle
 # gyms are emitted (Lynnwood/Shoreline hosts are filtered in the ripper).
 geo: null
+# Website states "Discounted day passes ($15) and free rentals are available" for gym nights.
+cost: 15
 calendars:
   - name: gym-nights
     friendlyname: "She Rocks Gym Nights"
