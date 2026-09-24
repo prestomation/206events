@@ -65,6 +65,50 @@ function extractCostFromTags(tags: string[] | undefined): EventCost | undefined 
     return undefined;
 }
 
+// Squarespace event bodies are freeform rich text; the venue frequently writes
+// the price directly into the description rather than exposing it as
+// structured data (e.g. "Every Tuesday 7-8pm, $25", "Investment: $45",
+// "Sliding scale $15-25", "Suggested donation $20"). This is a best-effort,
+// conservative extraction — it only fires on a small set of high-precision
+// patterns and otherwise returns undefined (falls through to the cost-gap
+// queue, same as if this never ran).
+const NOTAFLOF_RE = /\b(suggested donation|pay[- ]what[- ]you[- ]can|pwyc|notaflof|no one (?:is |will be )?turned away|donations?\s+(?:of\s+\$[\d.]+(?:\s*(?:-|–|to)\s*\$?[\d.]+)?\s+)?(?:are\s+|is\s+)?(?:appreciated|welcome|accepted|encouraged|optional))\b/i;
+const FREE_PHRASE_RE = /\b(free admission|free event|free entry|free to attend|free class|free workshop|free offering|free community (?:meditation|gathering|event|class|workshop)|no cover)\b/i;
+const RANGE_RE = /\$(\d+(?:\.\d{1,2})?)\s*(?:-|–|to)\s*\$?(\d+(?:\.\d{1,2})?)/i;
+const KEYWORD_PRICE_RE = /\b(?:cost|price|fee|admission|tickets?|investment)\s*[:\s]\s*\$(\d+(?:\.\d{1,2})?)/i;
+const TIME_ADJACENT_PRICE_RE = /\b\d{1,2}(?::\d{2})?\s*(?:am|pm)\b[^.$]{0,15}\$(\d+(?:\.\d{1,2})?)(?!\d)/i;
+
+/**
+ * Strips HTML tags and collapses whitespace, for regex-scanning a Squarespace
+ * body field. Squarespace bodies are a sequence of block elements
+ * (`<p>...</p><p>...</p>`) with no whitespace between the closing and
+ * opening tags, so a naive textContent concatenates adjacent paragraphs with
+ * no separator (e.g. "...Spirit" + "Every Tuesday..." → "SpiritEvery...").
+ * Inserting a space at every tag boundary first prevents words either side
+ * of a block break from fusing into one token.
+ */
+function toPlainText(html: string | undefined): string {
+    if (!html) return "";
+    return parse(html.replace(/>\s*</g, "> <")).textContent.replace(/\s+/g, " ").trim();
+}
+
+export function extractCostFromBody(body: string | undefined): EventCost | undefined {
+    const text = toPlainText(body);
+    if (!text) return undefined;
+    if (NOTAFLOF_RE.test(text) || FREE_PHRASE_RE.test(text)) return { min: 0 };
+    const range = text.match(RANGE_RE);
+    if (range) {
+        const min = parseFloat(range[1]);
+        const max = parseFloat(range[2]);
+        if (max > min) return { min, max };
+    }
+    const keyword = text.match(KEYWORD_PRICE_RE);
+    if (keyword) return { min: parseFloat(keyword[1]) };
+    const timeAdjacent = text.match(TIME_ADJACENT_PRICE_RE);
+    if (timeAdjacent) return { min: parseFloat(timeAdjacent[1]) };
+    return undefined;
+}
+
 /**
  * Base ripper for Squarespace-powered event pages.
  *
@@ -266,7 +310,7 @@ export class SquarespaceRipper implements IRipper {
             description = this.stripHtml(description).trim();
         }
 
-        const cost = extractCostFromTags(sqEvent.tags);
+        const cost = extractCostFromTags(sqEvent.tags) ?? extractCostFromBody(sqEvent.body);
 
         return {
             id: sqEvent.id,

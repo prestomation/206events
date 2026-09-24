@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { SquarespaceRipper, SquarespaceEvent } from './squarespace.js';
+import { SquarespaceRipper, SquarespaceEvent, extractCostFromBody } from './squarespace.js';
 import { Duration, ZoneId, ZonedDateTime } from '@js-joda/core';
 import { RipperCalendar, RipperCalendarEvent, RipperConfig } from './schema.js';
 import '@js-joda/timezone';
@@ -300,6 +300,40 @@ describe('SquarespaceRipper', () => {
             expect(event.cost).toBeUndefined();
         });
 
+        test('falls back to a price mentioned in the body when no cost tag is present (live example, inner-alchemy 2026-09-24)', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'qigong1',
+                title: 'Qigong for the Body, Mind & Spirit',
+                startDate: 1771106400000,
+                body: '<p>Qigong for the Body, Mind &amp; Spirit</p><p>Every Tuesday 7-8pm, $25</p><p>Chris with Northern Acupuncture is excited to present an ongoing Qigong class...</p>',
+            };
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.cost).toEqual({ min: 25 });
+        });
+
+        test('a cost tag wins over a body-text price', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'tagwins1',
+                title: 'Free Community Walk',
+                startDate: 1771106400000,
+                tags: ['Free + No Cover'],
+                body: '<p>Suggested donation of $10 at the door, but truly free + no cover.</p>',
+            };
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.cost).toEqual({ min: 0 });
+        });
+
+        test('leaves cost undefined when the body mentions no price at all', () => {
+            const sqEvent: SquarespaceEvent = {
+                id: 'nobody1',
+                title: 'Community Potluck',
+                startDate: 1771106400000,
+                body: '<p>Bring a dish to share and meet your neighbors!</p>',
+            };
+            const event = ripper.testMapEvent(sqEvent, timezone, baseUrl) as RipperCalendarEvent;
+            expect(event.cost).toBeUndefined();
+        });
+
         test('builds full event URL from relative fullUrl', () => {
             const sqEvent: SquarespaceEvent = {
                 id: 'url1',
@@ -460,6 +494,54 @@ describe('SquarespaceRipper', () => {
             } finally {
                 vi.useRealTimers();
             }
+        });
+    });
+
+    describe('extractCostFromBody', () => {
+        test('detects a NOTAFLOF / suggested-donation phrase as free', () => {
+            expect(extractCostFromBody('<p>Suggested donation $15-25, no one turned away.</p>')).toEqual({ min: 0 });
+            expect(extractCostFromBody('<p>Pay-what-you-can, PWYC.</p>')).toEqual({ min: 0 });
+        });
+
+        test('an optional donation with a dollar amount is still free (live example, inner-alchemy 2026-09-24)', () => {
+            // A real amount appears in the text, but it's explicitly framed as
+            // optional/appreciated on top of a stated free offering — the
+            // rubric's NOTAFLOF rule wins over the dollar amount.
+            expect(extractCostFromBody(
+                '<p>Y12SR is a free offering. Donations of $10-$15 are deeply appreciated. Your presence matters most.</p>'
+            )).toEqual({ min: 0 });
+            expect(extractCostFromBody('<p>Donations welcome at the door.</p>')).toEqual({ min: 0 });
+        });
+
+        test('detects an explicit free-admission phrase', () => {
+            expect(extractCostFromBody('<p>Free admission, all ages welcome.</p>')).toEqual({ min: 0 });
+            expect(extractCostFromBody('<p>Free workshop, RSVP required.</p>')).toEqual({ min: 0 });
+        });
+
+        test('detects a "free community" gathering phrase (live example, inner-alchemy 2026-09-24)', () => {
+            expect(extractCostFromBody(
+                '<p>Heavily Meditated: A Free Community Meditation Experience Guided by Maari Falsetto.</p>'
+            )).toEqual({ min: 0 });
+        });
+
+        test('extracts a sliding-scale range as {min, max}', () => {
+            expect(extractCostFromBody('<p>Sliding scale $15-25 per class.</p>')).toEqual({ min: 15, max: 25 });
+            expect(extractCostFromBody('<p>Cost is $10 to $20.</p>')).toEqual({ min: 10, max: 20 });
+        });
+
+        test('extracts a keyword-labeled price', () => {
+            expect(extractCostFromBody('<p>Investment: $45 for the full workshop.</p>')).toEqual({ min: 45 });
+            expect(extractCostFromBody('<p>Tickets $12.50 at the door.</p>')).toEqual({ min: 12.5 });
+        });
+
+        test('extracts a price mentioned right after a time (live example)', () => {
+            expect(extractCostFromBody('<p>Every Tuesday 7-8pm, $25</p>')).toEqual({ min: 25 });
+        });
+
+        test('returns undefined when no price signal is present', () => {
+            expect(extractCostFromBody('<p>Join us for a fun evening with friends!</p>')).toBeUndefined();
+            expect(extractCostFromBody(undefined)).toBeUndefined();
+            expect(extractCostFromBody('')).toBeUndefined();
         });
     });
 });
