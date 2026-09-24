@@ -102,6 +102,14 @@ describe('parseCost', () => {
             .toEqual({ min: 55 });
     });
 
+    it('handles a zero offers.price as free, even if it arrives as a JSON number rather than a string', () => {
+        expect(parseCost({ ...base, offers: { price: '0.00' as string } })).toEqual({ min: 0 });
+        // schema.org allows Offer.price as Number or Text; TS only declares
+        // string, but a runtime value that's actually a number must not be
+        // silently dropped by a falsy-zero check.
+        expect(parseCost({ ...base, offers: { price: 0 as unknown as string } })).toEqual({ min: 0 });
+    });
+
     it('treats isAccessibleForFree: true as free', () => {
         expect(parseCost({ ...base, isAccessibleForFree: true })).toEqual({ min: 0 });
     });

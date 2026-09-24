@@ -61,22 +61,27 @@ const FREE_TITLE_RE = /\bfree\b/gi;
 
 /**
  * Foundercal re-publishes each source (Luma, Meetup, Eventbrite...) event's
- * own price as a schema.org Offer with a single `price` string (verified
- * live 2026-09-24 against a Luma event whose own page separately confirmed
- * a $55-$75 sliding range — foundercal's `offers.price` carried "55.00",
- * the minimum, matching the rubric's "cheapest general-admission" exactly).
+ * own price as a schema.org Offer with a `price` (verified live 2026-09-24
+ * against a Luma event whose own page separately confirmed a $55-$75
+ * sliding range — foundercal's `offers.price` carried "55.00", the minimum,
+ * matching the rubric's "cheapest general-admission" exactly). This always
+ * wins when present, ahead of `isAccessibleForFree`, since it's the only
+ * signal with an actual number attached.
  *
  * `isAccessibleForFree` is source-provided but not fully reliable: one live
  * event titled "Free Coworking Wednesdays @ SURF Incubator" carries
- * `isAccessibleForFree: false` anyway (verified 2026-09-24) — so an
- * unnegated "free" in the title, which the organizer chose to put there
- * themselves, is checked and trusted ahead of a bare `false` with no
- * corroborating price. `isAccessibleForFree: false` alongside an `offers`
- * price, or with no free-titled contradiction, still resolves to
- * `{ paid: true }` rather than being left an unknown gap forever.
+ * `isAccessibleForFree: false` anyway (verified 2026-09-24, and with no
+ * `offers` price to settle it either way). When an unnegated "free" in the
+ * title — the organizer's own words — contradicts a bare `false` like that,
+ * neither signal is trusted over the other; the event is left as an
+ * unresolved gap for a human to check, rather than confidently asserting
+ * `{ paid: true }` for an event whose own title says otherwise.
+ * `isAccessibleForFree: false` with no such title contradiction still
+ * resolves to `{ paid: true }` rather than being left an unknown gap
+ * forever (e.g. "[Save the Date] DubHacks 2026").
  */
 export function parseCost(ev: JsonLdEvent): { min: number } | { paid: true } | undefined {
-    const price = ev.offers?.price ? parseFloat(ev.offers.price) : undefined;
+    const price = ev.offers?.price !== undefined ? parseFloat(String(ev.offers.price)) : undefined;
     if (price !== undefined && !isNaN(price)) return { min: price };
     if (ev.isAccessibleForFree === true) return { min: 0 };
     if (ev.isAccessibleForFree === false) {
