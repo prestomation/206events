@@ -9,6 +9,7 @@ import {
     detailUrl,
     extractDetailSlugs,
     parseDetailPage,
+    parseFeesText,
     slugDate,
 } from "./ripper.js";
 import { RipperCalendarEvent, UncertaintyError } from "../../lib/config/schema.js";
@@ -69,6 +70,9 @@ describe("parseDetailPage", () => {
         expect(ev.url).toBe("https://westseattle.wschamber.com/events/details/business-after-hours-tbd-09-23-2026-12899");
         expect(ev.description).toContain("West Seattle Coworking");
         expect(ev.description).not.toMatch(/^Description/);
+        // Fees/Admission field: "WS Chamber Members: Included in membership,
+        // FREE! General Admission: $10 per person" — general-admission wins.
+        expect(ev.cost).toEqual({ min: 10 });
     });
 
     test("uses a venue-name-only location anchored to Seattle", () => {
@@ -95,6 +99,9 @@ describe("parseDetailPage", () => {
         const ev = results[0] as RipperCalendarEvent;
         expect(ev.summary).toBe("Fourth Emerald Games Pokémon League");
         expect(ev.location).toBe("Fourth Emerald Games, 4517 California Ave SW, Seattle, WA 98116");
+        // No Fees/Admission block on this fixture — stays a cost gap rather
+        // than guessing.
+        expect(ev.cost).toBeUndefined();
     });
 
     test("emits a location UncertaintyError when no location is published", () => {
@@ -122,5 +129,50 @@ describe("parseDetailPage", () => {
         const html = `<h1 class="gz-pagetitle">Thing</h1><span itemprop="startDate" content="soon"></span>`;
         const results = parseDetailPage(html, "x-1");
         expect(results[0]).toMatchObject({ type: "ParseError" });
+    });
+});
+
+describe("parseFeesText", () => {
+    test("prefers an explicitly labeled general-admission tier over a member rate (live example)", () => {
+        expect(parseFeesText("WS Chamber Members: Included in membership, FREE! General Admission: $10 per person"))
+            .toEqual({ min: 10 });
+        expect(parseFeesText("WS Chamber Members: $25 General Admission: $35 Walk-In Rate: $35"))
+            .toEqual({ min: 35 });
+    });
+
+    test("takes the first amount when multiple prices aren't member tiers (live example: session vs. package)", () => {
+        expect(parseFeesText("$30/session.  4 sessions for $102 (use within 8 weeks)."))
+            .toEqual({ min: 30 });
+    });
+
+    test("takes the higher amount when a member tier is present with no explicit general label", () => {
+        expect(parseFeesText("Members $15 / Guests $25")).toEqual({ min: 25 });
+    });
+
+    test("a single stated price applies regardless of wording", () => {
+        expect(parseFeesText("$20 per person")).toEqual({ min: 20 });
+    });
+
+    test("treats a bare free claim as free only when no dollar amount competes with it", () => {
+        expect(parseFeesText("Free")).toEqual({ min: 0 });
+        expect(parseFeesText("This event is free to attend.")).toEqual({ min: 0 });
+    });
+
+    test("recognizes NOTAFLOF / suggested-donation language as free", () => {
+        expect(parseFeesText("Suggested donation $10-20, no one turned away.")).toEqual({ min: 0 });
+        expect(parseFeesText("Donations are welcome but not required.")).toEqual({ min: 0 });
+        // Live example: "Conscious Connections" (2026-09-24).
+        expect(parseFeesText("Donation Based")).toEqual({ min: 0 });
+    });
+
+    test("treats the generic placeholder and empty text as no signal", () => {
+        expect(parseFeesText("Varies from event to event")).toBeUndefined();
+        expect(parseFeesText("N/A")).toBeUndefined();
+        expect(parseFeesText("")).toBeUndefined();
+        expect(parseFeesText(undefined)).toBeUndefined();
+    });
+
+    test("returns undefined when the field has text but no price or free signal", () => {
+        expect(parseFeesText("Registration required, see website for details.")).toBeUndefined();
     });
 });
