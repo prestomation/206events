@@ -7,13 +7,18 @@
  * general-admission one the pricing rubric calls for.
  */
 
+// Single source of truth for every discount-tier regex below (and reused by
+// sources/west_seattle_chamber/ripper.ts) — the pricing rubric excludes all
+// of these from the general-admission price it wants.
+export const TIER_WORDS = "members?|student|senior|child|kids?|youth|volunteer";
+
 // A discount-tier word immediately before a matched price label (e.g.
 // "Member price: $15") means this is not the general-admission price the
 // rubric calls for — the caller should skip it and look for the next match
 // on the page instead (e.g. a later "Regular price: $25"). The leading `\b`
 // matters: without it "member" also matches inside "Nonmember", which is
 // itself a general-admission label, not a discount tier.
-const TIER_PREFIX_RE = /\b(?:member|student|senior|child|kids?|youth|volunteer)\s+$/i;
+const TIER_PREFIX_RE = new RegExp(`\\b(?:${TIER_WORDS})\\s+$`, "i");
 
 /**
  * Runs `priceRe` (must have the `g` flag) against `text` and returns the
@@ -22,12 +27,55 @@ const TIER_PREFIX_RE = /\b(?:member|student|senior|child|kids?|youth|volunteer)\
  * the same compiled regex can be reused across calls.
  */
 export function firstNonTieredPrice(text: string, priceRe: RegExp): string | undefined {
-    priceRe.lastIndex = 0;
+    const m = firstNonTieredMatch(text, priceRe);
+    return m ? m[1] : undefined;
+}
+
+/** True when `text` immediately before `index` ends in a discount-tier word. */
+export function isTierPrefixed(text: string, index: number): boolean {
+    const prefix = text.slice(Math.max(0, index - 40), index);
+    return TIER_PREFIX_RE.test(prefix);
+}
+
+// Requires the tier word to be close to — within 15 chars of — the price
+// immediately being checked, and anchored at the *end* of the lookback
+// window (immediately before the price, not just somewhere within it).
+// Needed when the match itself doesn't start with the price keyword (e.g. a
+// bare `$15-$20` range, where "Member" and "price" are two separate words
+// both ahead of the dollar sign) — the anchored TIER_PREFIX_RE only catches
+// a tier word directly adjacent to what it's given, which is enough when
+// the caller's regex match starts at the keyword (as KEYWORD_PRICE_RE and
+// the Pantry "Price:" pattern do) but not when it starts at the "$" itself.
+// No colon is required — "Member price $15-$20" (no punctuation) and
+// "Member price: $15-$20" both label the same way — the tight 15-char
+// budget alone is what keeps an unrelated, more-distant mention (e.g. "kids
+// welcome! Admission: $10-$20", 19+ chars from "kids" to the price) from
+// matching. The end-anchor is what keeps an unrelated EARLIER label still
+// inside the wider lookback window (e.g. "Member price: $15-$20, Regular
+// price: $25-$35" — when checking the second, correctly general-admission
+// range, "Member" is far more than 15 chars back) from bleeding through.
+const TIER_LABEL_RE = new RegExp(`\\b(?:${TIER_WORDS})\\b[^.$]{0,15}$`, "i");
+
+/** True when a short window immediately before `index` ends in a discount-tier word (optionally followed by a short label like "price"), not just mentioned incidentally further back. */
+export function isNearTierWord(text: string, index: number, window = 40): boolean {
+    return TIER_LABEL_RE.test(text.slice(Math.max(0, index - window), index));
+}
+
+/**
+ * Same scan as firstNonTieredPrice, but returns the full match (so a caller
+ * needing more than one capture group — e.g. a price *range*'s min and max —
+ * can use it too), and accepts an optional extra `accept` predicate a match
+ * must also satisfy (e.g. "has a price-related word nearby"). Resets
+ * `re.lastIndex` before scanning.
+ */
+export function firstNonTieredMatch(
+    text: string, re: RegExp, accept: (m: RegExpExecArray) => boolean = () => true,
+): RegExpExecArray | undefined {
+    re.lastIndex = 0;
     let m: RegExpExecArray | null;
-    while ((m = priceRe.exec(text))) {
-        const prefix = text.slice(Math.max(0, m.index - 40), m.index);
-        if (TIER_PREFIX_RE.test(prefix)) continue;
-        return m[1];
+    while ((m = re.exec(text))) {
+        if (isTierPrefixed(text, m.index) || !accept(m)) continue;
+        return m;
     }
     return undefined;
 }

@@ -149,6 +149,11 @@ describe("parseFeesText", () => {
         expect(parseFeesText("Door: $20, General Admission: $30")).toEqual({ min: 20 });
     });
 
+    test("excludes student/senior/child/youth/volunteer tiers, not just member", () => {
+        expect(parseFeesText("Student: $10, General Admission: $25")).toEqual({ min: 25 });
+        expect(parseFeesText("Senior: $12, Child: $8, Adult: $20")).toEqual({ min: 20 });
+    });
+
     test("returns undefined (never Infinity) when every amount is member-tagged", () => {
         expect(parseFeesText("Individual Member: $15, Family Member: $20")).toBeUndefined();
     });

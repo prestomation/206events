@@ -529,6 +529,12 @@ describe('SquarespaceRipper', () => {
             expect(extractCostFromBody('<p>Cost is $10 to $20.</p>')).toEqual({ min: 10, max: 20 });
         });
 
+        test('skips a member-tier range in favor of a general-admission one', () => {
+            expect(extractCostFromBody(
+                '<p>Member price: $15-$20, Regular price: $25-$35.</p>'
+            )).toEqual({ min: 25, max: 35 });
+        });
+
         test('does not mistake an unrelated dollar range for the admission price', () => {
             expect(extractCostFromBody(
                 "<p>We raised $500-$1000 for the food bank at last year's meetup!</p>"
