@@ -6,7 +6,7 @@ url: https://www.bothellwa.gov/calendar.aspx?CID=23
 tags: [Community, Bothell]
 firstSeen: 2026-09-24
 lastChecked: 2026-09-24
-pr:
+pr: 1595
 ---
 
 City of Bothell community calendar. Same CivicPlus "Calendar.aspx"
