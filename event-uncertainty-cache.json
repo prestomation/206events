@@ -100626,7 +100626,8 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://artlove.org/art/photos/events/1025_big_e7f603d8182ba08f.jpg"
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
@@ -101195,6 +101196,134 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://westseattle.wschamber.com/events/details/grief-support-group-monday-evening-11-30-2026-13015"
+    },
+    "19hz:19hz-2026/10/30-Area 253: A Halloween Harm Reduction FundRAVEr": {
+      "fields": {
+        "duration": 16200
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://donorbox.org/events/957085/steps/choose_tickets"
+    },
+    "19hz:19hz-2026/09/24-Voltaje": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No end time listed in source"
+    },
+    "19hz:19hz-2026/09/27-Cory Simpson": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No end time listed in source"
+    },
+    "19hz:19hz-2026/09/29-Modbang": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No end time listed in source"
+    },
+    "19hz:19hz-2026/10/31-The Gaslamp Killer": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No end time listed in source"
+    },
+    "19hz:19hz-2026/10/16-Vampire Goth Night: Jordan Fiction, Corpse Dust, Kota Kira": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No end time listed in source; ticket site blocked"
+    },
+    "19hz:19hz-2026/10/10-Black Affair Kiki Ball": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No end time listed in source; ticket site blocked"
+    },
+    "kcls:kcls-6925f573f8747e3e00240ff2": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6925f58896a5073700686aa0": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-695dd5546724c63d00eab1ab": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6977fb4c834cbb3dea29844b": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-69c174f481b67dfe32ae7059": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-69d9174a5c04bc0fc061f940": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6a383ed62ea730c17ab87ec7": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6a5a99ce4523092f0030cd15": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6a7b8a1161e11c005177088b": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6a822da23b6c71003e594a1d": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6a91f3d557c264087ad4914a": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6a9220782dac6e00372280cc": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6aa09f916562d02296858b19": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
+    },
+    "kcls:kcls-6aadaa17a5dbde002aa5a2fe": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No per-event image for library programs"
     }
   }
 }
