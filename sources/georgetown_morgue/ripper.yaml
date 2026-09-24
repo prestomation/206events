@@ -13,6 +13,12 @@ geo:
   lat: 47.5572653
   lng: -122.3383505
   label: "Georgetown Morgue, 5000 E Marginal Way S, Seattle, WA 98134"
+  # Nominatim's node at this address is tagged "Hudson" (a different named
+  # tenant, 16m away) rather than "Georgetown Morgue" itself — same
+  # multi-tenant building, same precedent as other reused-node entries in
+  # lib/geocoder.ts (e.g. "tango-experts studio").
+  osmType: node
+  osmId: 2349883332
 imageUrl: "https://seattlehaunts.com/wp-content/uploads/2020/09/MorgueGallery.jpg"
 calendars:
   - name: haunted-house
