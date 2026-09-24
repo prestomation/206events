@@ -87,6 +87,7 @@ describe("helpers", () => {
     it("parses fee labels", () => {
         expect(parseCost("Free")).toEqual({ min: 0 });
         expect(parseCost("$15.00")).toEqual({ min: 15 });
+        expect(parseCost("View fee details")).toEqual({ paid: true });
         expect(parseCost("View Registration Info")).toBeUndefined();
     });
 

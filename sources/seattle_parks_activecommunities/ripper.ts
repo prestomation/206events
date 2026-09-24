@@ -286,6 +286,9 @@ export function parseCost(label: string | undefined): EventCost | undefined {
     if (/^free$/i.test(t)) return { min: 0 };
     const m = t.match(/^\$(\d+(?:\.\d{1,2})?)$/);
     if (m) return { min: parseFloat(m[1]) };
+    // ActiveCommunities returns "View fee details" for all paid activities; the
+    // actual price requires clicking through to the JS-rendered activity page.
+    if (/^view fee details$/i.test(t)) return { paid: true };
     return undefined;
 }
 
