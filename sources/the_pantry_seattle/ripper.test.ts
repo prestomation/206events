@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import '@js-joda/timezone';
 import { RipperCalendarEvent, RipperError } from '../../lib/config/schema.js';
-import { parsePantryItems, parsePantryItem, parsePantryDate, extractClassHeroImage, PantryItem } from './ripper.js';
+import { parsePantryItems, parsePantryItem, parsePantryDate, extractClassHeroImage, extractPantryPrice, PantryItem } from './ripper.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const items: PantryItem[] = JSON.parse(fs.readFileSync(path.join(__dirname, 'sample-data.json'), 'utf8')).data;
@@ -51,5 +51,31 @@ describe('The Pantry ripper', () => {
 
     it('returns undefined when a page has no hero figure', () => {
         expect(extractClassHeroImage('<html><body><p>no photo here</p></body></html>')).toBeUndefined();
+    });
+
+    it('extracts price from a class page (verified against a live page 2026-09-24)', () => {
+        expect(extractPantryPrice('foo Price: <b>$145</b> bar')).toEqual({ min: 145 });
+        expect(extractPantryPrice('Price: <b>$1,250</b>')).toEqual({ min: 1250 });
+        expect(extractPantryPrice('Price: <b>Free</b>')).toEqual({ min: 0 });
+        expect(extractPantryPrice('<div>no price on this page</div>')).toBeUndefined();
+    });
+
+    it('skips a member/tiered price and picks the general-admission one', () => {
+        expect(extractPantryPrice('<p>Member Price: <b>$100</b></p><p>Regular Price: <b>$145</b></p>'))
+            .toEqual({ min: 145 });
+        expect(extractPantryPrice('<p>Student Price: <b>$80</b></p><p>Price: <b>$120</b></p>'))
+            .toEqual({ min: 120 });
+        // Only a tiered price on the page — falls through rather than
+        // publishing the discounted rate as general admission.
+        expect(extractPantryPrice('<p>Member Price: <b>$100</b></p>')).toBeUndefined();
+        // "Nonmember" is a general-admission label, not a discount tier —
+        // the word-boundary check must not treat it as one.
+        expect(extractPantryPrice('<p>Nonmember Price: <b>$145</b></p>')).toEqual({ min: 145 });
+    });
+
+    it('applies a resolved class price to every session sharing that class URL', () => {
+        const prices = new Map([[items[0].relatedEvent!.url!, { min: 145 }]]);
+        const events = parsePantryItems(items, prices).filter((r): r is RipperCalendarEvent => 'date' in r);
+        expect(events[0].cost).toEqual({ min: 145 });
     });
 });

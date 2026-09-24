@@ -56,4 +56,10 @@ describe("Tasveer Film Center ripper", () => {
         expect(events).toHaveLength(0);
         expect(errors[0].type).toBe("ParseError");
     });
+
+    it("marks every showing paid, amount unknown (API exposes no ticket price)", () => {
+        const { events } = parseShowings(sample, tz, past);
+        expect(events.length).toBeGreaterThan(0);
+        for (const e of events) expect(e.cost).toEqual({ paid: true });
+    });
 });

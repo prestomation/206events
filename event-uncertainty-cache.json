@@ -100017,6 +100017,381 @@
       "source": "agent",
       "evidence": "https://www.dogwoodplaypark.com/event-details/golden-retriever-meet-up-32"
     },
+    "seattle-parks-activecommunities:sprac-80075-2026-12-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/family-ornament-painting-party/80075?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87279-2026-10-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/jefferson-halloween-carnival/87279?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87986-2026-10-23": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/montlake-fall-fest/87986?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87994-2026-12-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/volunteer-luminaria-walk-set-up-crew/87994?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87995-2026-12-17": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/volunteer-luminaria-walk-prep-work/87995?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87996-2026-12-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/volunteer-luminaria-walk-clean-up-crew/87996?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87998-2026-12-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/special-event-meadowbrook-luminaria-walk/87998?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87999-2026-10-02": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/special-event-fall-harvest-fest/87999?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88340-2026-10-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/pumpkin-palooza/88340?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88360-2026-10-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/costume-crawl-tot-gym/88360?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88420-2026-12-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/family-ornament-painting-party/88420?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88448-2026-10-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/rainier-beach-harvest-fest/88448?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88795-2026-11-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/seattle-fire-department-cpr-class---nov-7/88795?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-89113-2026-10-02": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-oct/89113?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-89114-2026-11-06": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-nov/89114?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-89115-2026-12-04": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-dec/89115?locale=en-US"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-09-27-2026-16653": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page; venue website 404"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-10-11-2026-16524": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page; venue website 404"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-10-25-2026-16654": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page; venue website 404"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-11-08-2026-16525": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page; venue website 404"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-11-22-2026-16655": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page; venue website 404"
+    },
+    "west-seattle-chamber:feg-monthly-tourney-10-10-2026-16982": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from month to month per event listing"
+    },
+    "west-seattle-chamber:feg-monthly-tourney-11-14-2026-16983": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from month to month per event listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-09-24-2026-16806": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-01-2026-16807": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-08-2026-16808": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-15-2026-16809": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-22-2026-16810": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-29-2026-16811": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-05-2026-16812": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-12-2026-16813": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-19-2026-16814": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-26-2026-16815": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Fees vary from event to event per listing"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-09-26-2026-16348": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-03-2026-16349": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-10-2026-16350": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-17-2026-16351": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-24-2026-16352": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-31-2026-16353": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-07-2026-16354": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-14-2026-16355": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-21-2026-16356": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-28-2026-16357": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "No price info on chamber event page"
+    },
+    "stroum-jcc:149716": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151050": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151053": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibit-author-photographer-lloyd-wolf-a-joyful-noise-klezmer-in-motion/",
+      "lastSeen": "2026-09-24"
+    },
+    "stroum-jcc:151574": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151850": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:151865": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:152475": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
+    "stroum-jcc:152036": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
+    },
     "fiuts:6ab2ef5b34b1f457e680a0a7": {
       "fields": {
         "cost": {
@@ -100314,59 +100689,6 @@
       "source": "agent",
       "evidence": "https://sjcc.org/event/sjcc-dinner-at-our-house-april/",
       "lastSeen": "2026-09-24"
-    },
-    "stroum-jcc:151053": {
-      "fields": {
-        "cost": {
-          "min": 0
-        }
-      },
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "evidence": "https://sjcc.org/event/exhibit-author-photographer-lloyd-wolf-a-joyful-noise-klezmer-in-motion/",
-      "lastSeen": "2026-09-24"
-    },
-    "stroum-jcc:149716": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
-    },
-    "stroum-jcc:151050": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
-    },
-    "stroum-jcc:151574": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
-    },
-    "stroum-jcc:151850": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
-    },
-    "stroum-jcc:151865": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
-    },
-    "stroum-jcc:152036": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
-    },
-    "stroum-jcc:152475": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Tribe Events API cost field is empty; no pricing listed on event page."
     },
     "foundercal:foundercal-free-coworking-wednesdays-surf-incubator-316499778": {
       "fields": {
@@ -100936,168 +101258,6 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://westseattle.wschamber.com/events/details/exhale-stories-about-grief-17532"
-    },
-    "west-seattle-chamber:feg-cozy-gaming-sunday-09-27-2026-16653": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page; venue website 404"
-    },
-    "west-seattle-chamber:feg-cozy-gaming-sunday-10-11-2026-16524": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page; venue website 404"
-    },
-    "west-seattle-chamber:feg-cozy-gaming-sunday-10-25-2026-16654": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page; venue website 404"
-    },
-    "west-seattle-chamber:feg-cozy-gaming-sunday-11-08-2026-16525": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page; venue website 404"
-    },
-    "west-seattle-chamber:feg-cozy-gaming-sunday-11-22-2026-16655": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page; venue website 404"
-    },
-    "west-seattle-chamber:feg-monthly-tourney-10-10-2026-16982": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from month to month per event listing"
-    },
-    "west-seattle-chamber:feg-monthly-tourney-11-14-2026-16983": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from month to month per event listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-09-24-2026-16806": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-10-01-2026-16807": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-10-08-2026-16808": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-10-15-2026-16809": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-10-22-2026-16810": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-10-29-2026-16811": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-11-05-2026-16812": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-11-12-2026-16813": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-11-19-2026-16814": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-pokémon-league-11-26-2026-16815": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "Fees vary from event to event per listing"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-09-26-2026-16348": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-10-03-2026-16349": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-10-10-2026-16350": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-10-17-2026-16351": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-10-24-2026-16352": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-10-31-2026-16353": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-11-07-2026-16354": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-11-14-2026-16355": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-11-21-2026-16356": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
-    },
-    "west-seattle-chamber:feg-super-smash-saturday-11-28-2026-16357": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-24",
-      "source": "agent",
-      "reason": "No price info on chamber event page"
     },
     "west-seattle-chamber:grief-support-group-monday-evening-09-28-2026-13006": {
       "fields": {

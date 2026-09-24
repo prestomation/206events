@@ -3,6 +3,7 @@ import { parse } from "node-html-parser";
 import { decode } from "html-entities";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, UncertaintyError } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { hasUnnegatedMatch } from "../../lib/config/cost-text.js";
 import "@js-joda/timezone";
 
 /**
@@ -29,6 +30,16 @@ const LISTING_URL = `${BASE_URL}/calendar/`;
 const MAX_PAGES = 25;
 const TZ = ZoneId.of("America/Los_Angeles");
 const MAX_EVENT_HOURS = 24;
+
+// Fallback for events with no `isAccessibleForFree` in the JSON-LD but an
+// explicit "free" claim in the title/description (verified live 2026-09-24,
+// e.g. title "Free Wooden Boat Story Time at SLU", description "Free Wooden
+// Boat Storytime at South Lake Union! Join Sue Kimpton..."). `\bfree\b`
+// alone (no "admission"/"event" qualifier needed) is safe here because
+// hasUnnegatedMatch still guards against a negated claim, and Seattle's
+// Child listing prose reliably means "free to attend" whenever it says the
+// word at all — never "freedom", "free-range", etc. (word-boundary safe).
+const FREE_TEXT_RE = /\bfree\b/gi;
 
 export interface ListingEntry {
     url: string;
@@ -79,6 +90,20 @@ export function parseListing(html: string): ListingEntry[] {
         });
     }
     return entries;
+}
+
+/**
+ * The detail page's own "Cost" field — a separate, structured element
+ * outside the JSON-LD (`<div class="event-cost">...<h2>Cost</h2><p>Free</p>`
+ * or `<p>Fee</p>`), verified live 2026-09-24. Only ever "Free" or "Fee" (a
+ * flag, not an amount), so a "Fee" event still needs its dollar figure
+ * resolved separately — but at least distinguishes free from paid instead of
+ * leaving every unflagged event equally uncertain.
+ */
+export function extractCostField(html: string): "free" | "fee" | undefined {
+    const m = html.match(/<div class="event-cost">[\s\S]{0,300}?<p>(Free|Fee)<\/p>/i);
+    if (!m) return undefined;
+    return m[1].toLowerCase() as "free" | "fee";
 }
 
 /** Return the schema.org Event JSON-LD object embedded in a detail page, if any. */
@@ -150,7 +175,7 @@ function buildLocation(ev: JsonLdEvent): string | undefined {
  * UncertaintyError when the start time is missing). Seattle/single-day
  * filtering happens in the caller.
  */
-export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string): (RipperCalendarEvent | RipperError)[] {
+export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string, costField?: "free" | "fee"): (RipperCalendarEvent | RipperError)[] {
     const title = decode(ev.name ?? "").trim();
     if (!title) {
         return [{ type: "ParseError", reason: "Event JSON-LD has no name", context: pageUrl }];
@@ -173,6 +198,13 @@ export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string): (RipperCalen
     const image = Array.isArray(ev.image) ? ev.image[0] : ev.image;
     const description = ev.description ? decode(ev.description).trim() : undefined;
     const dateKey = start.dt.toLocalDate().toString();
+    const cost = ev.isAccessibleForFree === true || costField === "free"
+        ? { min: 0 }
+        : hasUnnegatedMatch([title, description].filter(Boolean).join(" "), FREE_TEXT_RE)
+            ? { min: 0 }
+            : costField === "fee"
+                ? { paid: true as const }
+                : undefined;
 
     const event: RipperCalendarEvent = {
         id: `seattles-child-${slugFromUrl(pageUrl)}-${dateKey}`,
@@ -184,7 +216,7 @@ export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string): (RipperCalen
         location: buildLocation(ev),
         url: pageUrl,
         imageUrl: image || undefined,
-        ...(ev.isAccessibleForFree === true ? { cost: { min: 0 } } : {}),
+        ...(cost !== undefined ? { cost } : {}),
     };
 
     const results: (RipperCalendarEvent | RipperError)[] = [event];
@@ -257,7 +289,7 @@ export default class SeattlesChildRipper implements IRipper {
             // single-day events only.
             if (!isSeattleEvent(ld) || isMultiDaySpan(ld)) continue;
 
-            const results = parseDetailEvent(ld, entry.url);
+            const results = parseDetailEvent(ld, entry.url, extractCostField(html));
             const primary = results[0];
             if ("date" in primary && primary.id) {
                 if (seenIds.has(primary.id)) continue;
