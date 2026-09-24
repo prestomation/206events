@@ -538,6 +538,20 @@ describe('SquarespaceRipper', () => {
             expect(extractCostFromBody('<p>Every Tuesday 7-8pm, $25</p>')).toEqual({ min: 25 });
         });
 
+        test('does not mistake an unrelated dollar amount later in the sentence for the time-adjacent price', () => {
+            expect(extractCostFromBody('<p>Doors at 7pm, drinks $8 extra.</p>')).toBeUndefined();
+        });
+
+        test('a negated free phrase does not classify the event as free', () => {
+            expect(extractCostFromBody('<p>This is not a free class — Tickets: $50.</p>')).toEqual({ min: 50 });
+            expect(extractCostFromBody('<p>Heads up: this event is no longer free. Cost: $30.</p>')).toEqual({ min: 30 });
+        });
+
+        test('skips a member/tiered price and picks the general-admission one', () => {
+            expect(extractCostFromBody('<p>Member price: $15, Regular price: $25.</p>')).toEqual({ min: 25 });
+            expect(extractCostFromBody('<p>Student price: $10.</p>')).toBeUndefined();
+        });
+
         test('returns undefined when no price signal is present', () => {
             expect(extractCostFromBody('<p>Join us for a fun evening with friends!</p>')).toBeUndefined();
             expect(extractCostFromBody(undefined)).toBeUndefined();

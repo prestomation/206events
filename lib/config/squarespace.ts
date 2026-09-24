@@ -72,6 +72,17 @@ function extractCostFromTags(tags: string[] | undefined): EventCost | undefined 
 // conservative extraction — it only fires on a small set of high-precision
 // patterns and otherwise returns undefined (falls through to the cost-gap
 // queue, same as if this never ran).
+//
+// IMPORTANT: whatever this returns becomes `event.cost`, which
+// `applyCostBackfill` (lib/uncertainty-merge.ts) treats as "ripper already
+// priced it" — permanently outranking any later event-uncertainty-cache
+// resolution and dropping the event out of the costGaps queue for good.
+// Unlike extractCostFromTags (an exact tag match with no ambiguity), this is
+// a heuristic over freeform prose, so a wrong extraction here has no correction
+// path short of editing this file. That raises the bar for each pattern:
+// keep them narrow and specific enough that a false positive is unlikely,
+// and prefer returning undefined (leaving it in the gap queue for a human)
+// over a plausible-looking guess.
 // "Donations ... appreciated/welcome/accepted/encouraged/optional" is a
 // pay-what-you-want framing regardless of any dollar amount mentioned in
 // between — e.g. "Donations of $10-$15 are deeply appreciated" is still
@@ -80,13 +91,25 @@ function extractCostFromTags(tags: string[] | undefined): EventCost | undefined 
 // phrasing between "donations" and the word that signals it's optional.
 const NOTAFLOF_RE = /\b(suggested donation|pay[- ]what[- ]you[- ]can|pwyc|notaflof|no one (?:is |will be )?turned away|donations?\b(?:(?!\.).){0,60}?\b(?:appreciated|welcome|accepted|encouraged|optional))\b/i;
 const FREE_PHRASE_RE = /\b(free admission|free event|free entry|free to attend|free class|free workshop|free offering|free community (?:meditation|gathering|event|class|workshop)|no cover)\b/i;
+// "Not [a] free ..." / "no longer free" negates an otherwise-matching free
+// phrase a few words later (e.g. "This is not a free class — tickets are
+// $50"), so check this before trusting NOTAFLOF_RE/FREE_PHRASE_RE.
+const FREE_NEGATION_RE = /\bnot\s+(?:a\s+|an\s+)?(?:really\s+)?free\b|\bno longer free\b|\bisn.t free\b/i;
 const RANGE_RE = /\$(\d+(?:\.\d{1,2})?)\s*(?:-|–|to)\s*\$?(\d+(?:\.\d{1,2})?)/i;
 // Deliberately excludes "fee" — the pricing rubric treats fees (materials,
 // processing, registration add-ons) as distinct from and excluded from the
 // general-admission price, so a body mentioning "materials fee $5" must not
 // be read as the event's $5 admission cost.
-const KEYWORD_PRICE_RE = /\b(?:cost|price|admission|tickets?|investment)\s*[:\s]\s*\$(\d+(?:\.\d{1,2})?)/i;
-const TIME_ADJACENT_PRICE_RE = /\b\d{1,2}(?::\d{2})?\s*(?:am|pm)\b[^.$]{0,15}\$(\d+(?:\.\d{1,2})?)(?!\d)/i;
+const KEYWORD_PRICE_RE = /\b(?:cost|price|admission|tickets?|investment)\s*[:\s]\s*\$(\d+(?:\.\d{1,2})?)/gi;
+// A discount-tier word immediately before the matched keyword (e.g. "Member
+// price: $15") means this is not the general-admission price the rubric
+// calls for — skip it and look for the next match on the page instead (e.g.
+// a later "Regular price: $25").
+const TIER_PREFIX_RE = /\b(?:member|student|senior|child|kids?|youth|volunteer)\s+$/i;
+// Restricted to punctuation/whitespace between the time and the price (no
+// letters) so an unrelated dollar amount later in the same sentence — e.g.
+// "Doors at 7pm, drinks $8 extra" — can't be mistaken for the admission cost.
+const TIME_ADJACENT_PRICE_RE = /\b\d{1,2}(?::\d{2})?\s*(?:am|pm)\b[,\s-]{0,4}\$(\d+(?:\.\d{1,2})?)(?!\d)/i;
 
 /**
  * Strips HTML tags and collapses whitespace, for regex-scanning a Squarespace
@@ -105,15 +128,22 @@ function toPlainText(html: string | undefined): string {
 export function extractCostFromBody(body: string | undefined): EventCost | undefined {
     const text = toPlainText(body);
     if (!text) return undefined;
-    if (NOTAFLOF_RE.test(text) || FREE_PHRASE_RE.test(text)) return { min: 0 };
+    if (!FREE_NEGATION_RE.test(text) && (NOTAFLOF_RE.test(text) || FREE_PHRASE_RE.test(text))) {
+        return { min: 0 };
+    }
     const range = text.match(RANGE_RE);
     if (range) {
         const min = parseFloat(range[1]);
         const max = parseFloat(range[2]);
         if (max > min) return { min, max };
     }
-    const keyword = text.match(KEYWORD_PRICE_RE);
-    if (keyword) return { min: parseFloat(keyword[1]) };
+    KEYWORD_PRICE_RE.lastIndex = 0;
+    let keyword: RegExpExecArray | null;
+    while ((keyword = KEYWORD_PRICE_RE.exec(text))) {
+        const prefix = text.slice(Math.max(0, keyword.index - 20), keyword.index);
+        if (TIER_PREFIX_RE.test(prefix)) continue;
+        return { min: parseFloat(keyword[1]) };
+    }
     const timeAdjacent = text.match(TIME_ADJACENT_PRICE_RE);
     if (timeAdjacent) return { min: parseFloat(timeAdjacent[1]) };
     return undefined;
