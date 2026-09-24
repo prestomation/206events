@@ -64,4 +64,14 @@ describe('isNearTierWord', () => {
         const text = 'Family friendly show, kids welcome! Admission: $10-$20';
         expect(isNearTierWord(text, text.indexOf('$'))).toBe(false);
     });
+
+    test('recognizes a tier label with no colon punctuation', () => {
+        const text = 'Member price $15-$20';
+        expect(isNearTierWord(text, text.indexOf('$'))).toBe(true);
+    });
+
+    test('an unrelated earlier label inside the window does not bleed through to a later, untiered price', () => {
+        const text = 'Member price: $15-$20, Regular price: $25-$35';
+        expect(isNearTierWord(text, text.lastIndexOf('$'))).toBe(false);
+    });
 });
