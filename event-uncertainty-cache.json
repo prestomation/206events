@@ -76755,7 +76755,7 @@
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "No event image accessible via cityspark/6amcity embed URL; event has cost resolved as paid"
+      "reason": "No event image accessible via cityspark/6amcity embed URL"
     },
     "seatoday:cityspark-19676537": {
       "fields": {
