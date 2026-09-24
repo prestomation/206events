@@ -53,11 +53,18 @@ const SPECIAL_EXCLUDE = /^\s*(field trip|transportation\b)|\bouting\b|\btourname
 
 // Drop-in items that are facility schedules or supervised rooms rather than
 // community programs — lap swim, pickleball courts, gym time, tot/teen rooms.
+// This list is what makes `parseCost`'s assumeFreeDropIn default safe (see
+// its doc comment): it must keep excluding every category SPR charges a
+// per-visit fee for, since anything that survives it and lacks a real price
+// label gets defaulted to free. Verified against the live ANC API 2026-09-24.
+// If SPR ever launches a new paid drop-in category, it needs a keyword added
+// here — this is a maintained allowlist-by-exclusion, not a closed set.
 const DROP_IN_EXCLUDE = new RegExp([
     "swim", "pool", "water fitness", "water polo", "aquatic", "lifeguard", "masters",
     "pickleball", "basketball", "volleyball", "badminton", "soccer", "futsal", "tennis",
-    "handball", "frisbee", "dodgeball", "hockey", "double dutch", "\\bgym\\b", "fitness",
-    "weight room", "\\blap\\b", "aerobic", "yoga", "zumba", "walking",
+    "ping pong", "handball", "frisbee", "dodgeball", "hockey", "double dutch",
+    "\\bgym\\b", "fitness", "weight room", "\\blap\\b", "aerobic", "yoga", "zumba",
+    "walking", "climbing", "archery", "batting cage", "golf", "racquetball", "squash",
     "tot room", "toddler", "\\bteens?\\b", "tween", "afterschool", "homework", "tutoring",
     "late night", "registration support",
 ].join("|"), "i");

@@ -72,10 +72,20 @@ function extractCostFromTags(tags: string[] | undefined): EventCost | undefined 
 // conservative extraction — it only fires on a small set of high-precision
 // patterns and otherwise returns undefined (falls through to the cost-gap
 // queue, same as if this never ran).
-const NOTAFLOF_RE = /\b(suggested donation|pay[- ]what[- ]you[- ]can|pwyc|notaflof|no one (?:is |will be )?turned away|donations?\s+(?:of\s+\$[\d.]+(?:\s*(?:-|–|to)\s*\$?[\d.]+)?\s+)?(?:are\s+|is\s+)?(?:appreciated|welcome|accepted|encouraged|optional))\b/i;
+// "Donations ... appreciated/welcome/accepted/encouraged/optional" is a
+// pay-what-you-want framing regardless of any dollar amount mentioned in
+// between — e.g. "Donations of $10-$15 are deeply appreciated" is still
+// free, not a $10 fixed price. The `.{0,60}` gap (rather than requiring the
+// terminal word immediately after "are"/"is") tolerates adverbs and other
+// phrasing between "donations" and the word that signals it's optional.
+const NOTAFLOF_RE = /\b(suggested donation|pay[- ]what[- ]you[- ]can|pwyc|notaflof|no one (?:is |will be )?turned away|donations?\b(?:(?!\.).){0,60}?\b(?:appreciated|welcome|accepted|encouraged|optional))\b/i;
 const FREE_PHRASE_RE = /\b(free admission|free event|free entry|free to attend|free class|free workshop|free offering|free community (?:meditation|gathering|event|class|workshop)|no cover)\b/i;
 const RANGE_RE = /\$(\d+(?:\.\d{1,2})?)\s*(?:-|–|to)\s*\$?(\d+(?:\.\d{1,2})?)/i;
-const KEYWORD_PRICE_RE = /\b(?:cost|price|fee|admission|tickets?|investment)\s*[:\s]\s*\$(\d+(?:\.\d{1,2})?)/i;
+// Deliberately excludes "fee" — the pricing rubric treats fees (materials,
+// processing, registration add-ons) as distinct from and excluded from the
+// general-admission price, so a body mentioning "materials fee $5" must not
+// be read as the event's $5 admission cost.
+const KEYWORD_PRICE_RE = /\b(?:cost|price|admission|tickets?|investment)\s*[:\s]\s*\$(\d+(?:\.\d{1,2})?)/i;
 const TIME_ADJACENT_PRICE_RE = /\b\d{1,2}(?::\d{2})?\s*(?:am|pm)\b[^.$]{0,15}\$(\d+(?:\.\d{1,2})?)(?!\d)/i;
 
 /**

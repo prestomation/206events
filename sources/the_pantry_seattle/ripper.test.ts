@@ -60,6 +60,16 @@ describe('The Pantry ripper', () => {
         expect(extractPantryPrice('<div>no price on this page</div>')).toBeUndefined();
     });
 
+    it('skips a member/tiered price and picks the general-admission one', () => {
+        expect(extractPantryPrice('<p>Member Price: <b>$100</b></p><p>Regular Price: <b>$145</b></p>'))
+            .toEqual({ min: 145 });
+        expect(extractPantryPrice('<p>Student Price: <b>$80</b></p><p>Price: <b>$120</b></p>'))
+            .toEqual({ min: 120 });
+        // Only a tiered price on the page — falls through rather than
+        // publishing the discounted rate as general admission.
+        expect(extractPantryPrice('<p>Member Price: <b>$100</b></p>')).toBeUndefined();
+    });
+
     it('applies a resolved class price to every session sharing that class URL', () => {
         const prices = new Map([[items[0].relatedEvent!.url!, { min: 145 }]]);
         const events = parsePantryItems(items, prices).filter((r): r is RipperCalendarEvent => 'date' in r);

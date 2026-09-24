@@ -47,10 +47,22 @@ export interface PantryItem {
     } | null;
 }
 
+// Excludes a tiered/discounted label immediately before "Price:" (e.g.
+// "Member Price: $100") so a general-admission page listing both a member
+// and a regular price doesn't get the cheaper member rate — the pricing
+// rubric anchors on the general-admission adult price, ignoring member/child/
+// senior tiers. A bare "Price:" (no qualifier) still matches normally.
+const PANTRY_TIER_PREFIX = /(?:member|student|senior|child|kids?|youth|volunteer)\s+$/i;
+
 /** Extracts admission cost from a Pantry class/dinner page HTML. Pattern: `Price: <b>$NNN</b>`. */
 export function extractPantryPrice(html: string): EventCost | undefined {
-    const m = html.match(/Price:\s*<b>\$(\d[\d,]*)<\/b>/i);
-    if (m) return { min: parseFloat(m[1].replace(/,/g, "")) };
+    const priceRe = /Price:\s*<b>\$(\d[\d,]*)<\/b>/gi;
+    let m: RegExpExecArray | null;
+    while ((m = priceRe.exec(html))) {
+        const prefix = html.slice(Math.max(0, m.index - 20), m.index);
+        if (PANTRY_TIER_PREFIX.test(prefix)) continue;
+        return { min: parseFloat(m[1].replace(/,/g, "")) };
+    }
     if (/Price:\s*<b>Free<\/b>/i.test(html)) return { min: 0 };
     return undefined;
 }
