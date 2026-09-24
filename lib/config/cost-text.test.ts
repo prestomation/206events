@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { firstNonTieredPrice } from './cost-text.js';
+import { firstNonTieredPrice, firstNonTieredMatch, isNearTierWord } from './cost-text.js';
 
 describe('firstNonTieredPrice', () => {
     const priceRe = /Price:\s*\$(\d[\d,]*)/gi;
@@ -25,5 +25,38 @@ describe('firstNonTieredPrice', () => {
 
     test('returns undefined when there is no match at all', () => {
         expect(firstNonTieredPrice('no price mentioned here', priceRe)).toBeUndefined();
+    });
+});
+
+describe('firstNonTieredMatch', () => {
+    const rangeRe = /\$(\d+)-\$(\d+)/gi;
+
+    test('skips a tiered range and returns the full match for the next one', () => {
+        // A bare "$15-$20" range doesn't start with the tier word itself
+        // (unlike "Member price: $145", where the match starts at "price"),
+        // so isTierPrefixed's adjacency check alone can't see "Member" —
+        // callers whose match doesn't include the keyword combine this with
+        // isNearTierWord (see lib/config/squarespace.ts's RANGE_RE usage).
+        const text = 'Member price: $15-$20, Regular price: $25-$35.';
+        const m = firstNonTieredMatch(text, rangeRe, match => !isNearTierWord(text, match.index));
+        expect(m?.[1]).toBe('25');
+        expect(m?.[2]).toBe('35');
+    });
+
+    test('an extra accept() predicate can reject an otherwise-untiered match', () => {
+        expect(firstNonTieredMatch('$10-$20', rangeRe, () => false)).toBeUndefined();
+        expect(firstNonTieredMatch('$10-$20', rangeRe, () => true)?.[1]).toBe('10');
+    });
+});
+
+describe('isNearTierWord', () => {
+    test('finds a tier word anywhere in the preceding window, not just immediately adjacent', () => {
+        const text = 'Member price: $15-$20';
+        expect(isNearTierWord(text, text.indexOf('$'))).toBe(true);
+    });
+
+    test('returns false when no tier word is nearby', () => {
+        const text = 'Regular price: $25-$35';
+        expect(isNearTierWord(text, text.indexOf('$'))).toBe(false);
     });
 });

@@ -198,13 +198,19 @@ export function parseDetailEvent(ev: JsonLdEvent, pageUrl: string, costField?: "
     const image = Array.isArray(ev.image) ? ev.image[0] : ev.image;
     const description = ev.description ? decode(ev.description).trim() : undefined;
     const dateKey = start.dt.toLocalDate().toString();
+    // isAccessibleForFree: false is an explicit, structured "this is not
+    // free" signal from the source — it must win over a lower-confidence
+    // text match (e.g. a "free parking" mention in the description
+    // shouldn't override it and mark the event free).
     const cost = ev.isAccessibleForFree === true || costField === "free"
         ? { min: 0 }
-        : hasUnnegatedMatch([title, description].filter(Boolean).join(" "), FREE_TEXT_RE)
-            ? { min: 0 }
-            : costField === "fee"
-                ? { paid: true as const }
-                : undefined;
+        : ev.isAccessibleForFree === false
+            ? undefined
+            : hasUnnegatedMatch([title, description].filter(Boolean).join(" "), FREE_TEXT_RE)
+                ? { min: 0 }
+                : costField === "fee"
+                    ? { paid: true as const }
+                    : undefined;
 
     const event: RipperCalendarEvent = {
         id: `seattles-child-${slugFromUrl(pageUrl)}-${dateKey}`,

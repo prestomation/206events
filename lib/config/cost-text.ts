@@ -22,12 +22,46 @@ const TIER_PREFIX_RE = /\b(?:member|student|senior|child|kids?|youth|volunteer)\
  * the same compiled regex can be reused across calls.
  */
 export function firstNonTieredPrice(text: string, priceRe: RegExp): string | undefined {
-    priceRe.lastIndex = 0;
+    const m = firstNonTieredMatch(text, priceRe);
+    return m ? m[1] : undefined;
+}
+
+/** True when `text` immediately before `index` ends in a discount-tier word. */
+export function isTierPrefixed(text: string, index: number): boolean {
+    const prefix = text.slice(Math.max(0, index - 40), index);
+    return TIER_PREFIX_RE.test(prefix);
+}
+
+// Unanchored: matches a tier word *anywhere* in a short prefix, not just
+// immediately before the price. Needed when the match itself doesn't start
+// with the price keyword (e.g. a bare `$15-$20` range, where "Member" and
+// "price:" are two separate words both ahead of the dollar sign) — the
+// anchored TIER_PREFIX_RE only catches a tier word directly adjacent to
+// what it's given, which is enough when the caller's regex match starts at
+// the keyword (as KEYWORD_PRICE_RE and the Pantry "Price:" pattern do) but
+// not when it starts at the "$" itself.
+const TIER_WORD_ANYWHERE_RE = /\b(?:members?|student|senior|child|kids?|youth|volunteer)\b/i;
+
+/** True when a short window before `index` contains a discount-tier word anywhere, not just immediately adjacent. */
+export function isNearTierWord(text: string, index: number, window = 30): boolean {
+    return TIER_WORD_ANYWHERE_RE.test(text.slice(Math.max(0, index - window), index));
+}
+
+/**
+ * Same scan as firstNonTieredPrice, but returns the full match (so a caller
+ * needing more than one capture group — e.g. a price *range*'s min and max —
+ * can use it too), and accepts an optional extra `accept` predicate a match
+ * must also satisfy (e.g. "has a price-related word nearby"). Resets
+ * `re.lastIndex` before scanning.
+ */
+export function firstNonTieredMatch(
+    text: string, re: RegExp, accept: (m: RegExpExecArray) => boolean = () => true,
+): RegExpExecArray | undefined {
+    re.lastIndex = 0;
     let m: RegExpExecArray | null;
-    while ((m = priceRe.exec(text))) {
-        const prefix = text.slice(Math.max(0, m.index - 40), m.index);
-        if (TIER_PREFIX_RE.test(prefix)) continue;
-        return m[1];
+    while ((m = re.exec(text))) {
+        if (isTierPrefixed(text, m.index) || !accept(m)) continue;
+        return m;
     }
     return undefined;
 }

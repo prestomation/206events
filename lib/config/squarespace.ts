@@ -1,7 +1,7 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
-import { firstNonTieredPrice, parseDollars, hasUnnegatedMatch } from "./cost-text.js";
+import { firstNonTieredPrice, firstNonTieredMatch, isNearTierWord, parseDollars, hasUnnegatedMatch } from "./cost-text.js";
 import { parse } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -99,7 +99,7 @@ const FREE_SIGNAL_RE = /suggested donation|donation[- ]based|pay[- ]what[- ]you[
 // multi-day retreat or workshop package can easily clear four figures; without
 // the comma group `\d+` alone stops at the comma and truncates "$1,250" to 1).
 const DOLLARS = "\\d{1,3}(?:,\\d{3})*(?:\\.\\d{1,2})?|\\d+(?:\\.\\d{1,2})?";
-const RANGE_RE = new RegExp(`\\$(${DOLLARS})\\s*(?:-|–|to)\\s*\\$?(${DOLLARS})`, "i");
+const RANGE_RE = new RegExp(`\\$(${DOLLARS})\\s*(?:-|–|to)\\s*\\$?(${DOLLARS})`, "gi");
 // A range alone isn't enough signal — "$500-$1000" could be anything (a
 // fundraising total, a prize purse). Requires a price-related word shortly
 // before the match (e.g. "Sliding scale $15-25", "Cost is $10 to $20") so an
@@ -134,14 +134,15 @@ export function extractCostFromBody(body: string | undefined): EventCost | undef
     const text = toPlainText(body);
     if (!text) return undefined;
     if (hasUnnegatedMatch(text, FREE_SIGNAL_RE)) return { min: 0 };
-    const range = text.match(RANGE_RE);
-    if (range && range.index !== undefined) {
-        const prefix = text.slice(Math.max(0, range.index - 30), range.index);
-        if (RANGE_CONTEXT_RE.test(prefix)) {
-            const min = parseDollars(range[1]);
-            const max = parseDollars(range[2]);
-            if (max > min) return { min, max };
-        }
+    // Skips both a range with no price-related word nearby (RANGE_CONTEXT_RE)
+    // and one tagged as a member/discount tier, so a "Member price: $15-$20,
+    // Regular price: $25-$35" body doesn't return the cheaper member range.
+    const range = firstNonTieredMatch(text, RANGE_RE, m =>
+        !isNearTierWord(text, m.index) && RANGE_CONTEXT_RE.test(text.slice(Math.max(0, m.index - 30), m.index)));
+    if (range) {
+        const min = parseDollars(range[1]);
+        const max = parseDollars(range[2]);
+        if (max > min) return { min, max };
     }
     const keyword = firstNonTieredPrice(text, KEYWORD_PRICE_RE);
     if (keyword) return { min: parseDollars(keyword) };
