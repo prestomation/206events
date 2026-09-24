@@ -1,0 +1,10 @@
+geo: null
+name: city-of-bothell
+sourceRole: aggregator
+friendlyname: City of Bothell Events
+description: City of Bothell community calendar, covering pet fairs, coworking meetups, tabletop game nights, trick-or-treat and holiday events, career expos, and public City Council and commission meetings
+icsUrl: https://www.bothellwa.gov/common/modules/iCalendar/iCalendar.aspx?catID=23&feed=calendar
+infoUrl: https://www.bothellwa.gov/calendar.aspx?CID=23
+tags:
+  - Community
+  - Bothell
