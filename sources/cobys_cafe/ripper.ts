@@ -155,14 +155,17 @@ export default class CobysCafeRipper implements IRipper {
         // so the regexes below can match regardless of styling.
         text = text.normalize('NFKC');
 
-        const fullMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1)).join('|');
-        const abbrevMonthPattern = MONTHS.map(m => m[0].toUpperCase() + m.slice(1, 3)).join('|');
-        const monthPattern = `${fullMonthPattern}|${abbrevMonthPattern}`;
+        // A generic alphabetic token in the month position, resolved afterward
+        // by resolveMonthIndex (below) rather than matched against an exact
+        // enumerated month name/abbreviation. That lets a misspelled month
+        // name still parse, since the source occasionally typos it (e.g.
+        // "Octotber 2" for "October 2").
+        const monthWord = `[A-Za-z]+`;
 
         // Primary pattern: "Month Day from StartTime–EndTimePM"
         const re = new RegExp(
             `(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
+            `(${monthWord})\\s+(\\d{1,2})(?:,?\\s+\\d{4})?` +
             `\\s+from\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
             'i'
@@ -174,18 +177,22 @@ export default class CobysCafeRipper implements IRipper {
             `between\\s+(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
             `\\s+on\\s+(?:(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\\s+)?` +
-            `(${monthPattern})\\s+(\\d{1,2})`,
+            `(${monthWord})\\s+(\\d{1,2})`,
             'i'
         );
 
-        // Last-resort fallback: "Month Day <up to 15 non-digit chars> StartTime - EndTime",
-        // with no "from"/"between...on" keyword required. Matches the emoji-delimited style
-        // some sources use (e.g. "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm") but doesn't actually
-        // require an emoji — only tried after the more specific patterns above fail.
+        // Last-resort fallback: "Month Day[, Year] <up to 20 non-digit chars> StartTime - EndTime",
+        // with no "from"/"between...on" keyword required, and the start time's
+        // am/pm optional (inferred from the end time below, same as the primary
+        // pattern) since an emoji-delimited listing may only mark the end time,
+        // e.g. "📅 October 3, 2026⏰ 5:30–7:30 PM". Also matches the more
+        // classic emoji style some sources use (e.g.
+        // "🗓️ Sunday, Sep 6🕒 5:30 pm - 7:00 pm") but doesn't actually require
+        // an emoji — only tried after the more specific patterns above fail.
         const reEmoji = new RegExp(
-            `(${monthPattern})\\s+(\\d{1,2})` +
-            `[^\\d]{0,15}` +
-            `(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)` +
+            `(${monthWord})\\s+(\\d{1,2})(?:,?\\s*\\d{4})?` +
+            `[^\\d]{0,20}` +
+            `(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)?` +
             `\\s*[\\u2013\\-]\\s*(\\d{1,2})(?::(\\d{2}))?\\s*(am|pm)`,
             'i'
         );
@@ -210,7 +217,7 @@ export default class CobysCafeRipper implements IRipper {
         const [, monthName, dayStr, startHourStr, startMinStr, startAmPm,
             endHourStr, endMinStr, endAmPm] = match;
 
-        const monthIdx = MONTHS.findIndex(m => m.startsWith(monthName.toLowerCase()));
+        const monthIdx = this.resolveMonthIndex(monthName);
         if (monthIdx === -1) return null;
 
         const month = monthIdx + 1;
@@ -240,6 +247,27 @@ export default class CobysCafeRipper implements IRipper {
         }
 
         return { year, month, day, startHour, startMinute, endHour, endMinute };
+    }
+
+    /**
+     * Resolves a month word captured from free text to a MONTHS index
+     * (0-based), or -1 if it doesn't resemble any month. Two strategies:
+     *   1. The known month name starts with the word (handles exact full
+     *      names and any-length prefixes/abbreviations, e.g. "Sep", "Sept").
+     *   2. The word's own first three letters match a month's first three
+     *      letters (handles a typo further into the word, e.g. "Octotber"
+     *      for "October" — all twelve months have unique 3-letter prefixes,
+     *      so this can't cross-match the wrong month).
+     * Public for testing.
+     */
+    resolveMonthIndex(word: string): number {
+        const w = word.toLowerCase();
+        // Require at least 3 letters (the shortest real month name/abbreviation,
+        // e.g. "may"/"jun") so a stray short word can't ambiguously prefix-match.
+        if (w.length < 3) return -1;
+        const exactIdx = MONTHS.findIndex(m => m.startsWith(w));
+        if (exactIdx !== -1) return exactIdx;
+        return MONTHS.findIndex(m => m.slice(0, 3) === w.slice(0, 3));
     }
 
     private decodeHtmlEntities(text: string): string {

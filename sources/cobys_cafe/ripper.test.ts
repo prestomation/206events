@@ -118,6 +118,52 @@ describe('CobysCafeRipper - parseDateTimeFromText', () => {
         expect(result!.endHour).toBe(19);
         expect(result!.endMinute).toBe(0);
     });
+
+    test('tolerates a typo\'d month name via "from" pattern, e.g. "Octotber 2" for "October 2"', () => {
+        // Live regression: https://www.cobyscafe.com/product/x/2Z5TBRBNQU3S6DK4UF7TB447
+        const result = ripper.parseDateTimeFromText(
+            'Join us for a Pomeranian 𝗠𝗲𝗲𝘁𝘂𝗽 on 𝗙𝗿𝗶𝗱𝗮𝘆, Octotber 2 from 5-6:30𝗣𝗠. Mixes welcome!'
+        );
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(2);
+        expect(result!.startHour).toBe(17);
+        expect(result!.endHour).toBe(18);
+        expect(result!.endMinute).toBe(30);
+    });
+
+    test('parses emoji-delimited date with a year and no am/pm on the start time, e.g. "📅 Month Day, Year⏰ H:MM–H:MM PM"', () => {
+        // Live regression: https://www.cobyscafe.com/product/x/TLIT44TO4VYP5FV3QNQH445G
+        const result = ripper.parseDateTimeFromText(
+            '📍 Coby’s Café, Seattle📅 Saturday, October 3, 2026⏰ 5:30–7:30 PM🐶 Friendly dogs welcome'
+        );
+        expect(result).not.toBeNull();
+        expect(result!.month).toBe(10);
+        expect(result!.day).toBe(3);
+        expect(result!.startHour).toBe(17);
+        expect(result!.startMinute).toBe(30);
+        expect(result!.endHour).toBe(19);
+        expect(result!.endMinute).toBe(30);
+    });
+});
+
+describe('CobysCafeRipper - resolveMonthIndex', () => {
+    const ripper = new CobysCafeRipper();
+
+    test('resolves full and abbreviated month names', () => {
+        expect(ripper.resolveMonthIndex('October')).toBe(9);
+        expect(ripper.resolveMonthIndex('Oct')).toBe(9);
+        expect(ripper.resolveMonthIndex('September')).toBe(8);
+    });
+
+    test('resolves a typo further into the word via the first-three-letters fallback', () => {
+        expect(ripper.resolveMonthIndex('Octotber')).toBe(9);
+    });
+
+    test('returns -1 for a non-month or too-short word', () => {
+        expect(ripper.resolveMonthIndex('Workshop')).toBe(-1);
+        expect(ripper.resolveMonthIndex('Ju')).toBe(-1);
+    });
 });
 
 describe('CobysCafeRipper - parseProductHtml', () => {

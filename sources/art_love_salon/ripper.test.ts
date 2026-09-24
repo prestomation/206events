@@ -96,6 +96,16 @@ describe('ArtLoveSalonRipper - parseEventDetail error handling', () => {
         expect(result).toHaveProperty('type', 'ParseError');
     });
 
+    test('returns a distinct ParseError (not "Could not parse hours \\"null\\"") when hours is JSON null', () => {
+        const html = '<script>self.__next_f.push([1,"5:{\\"initialEvent\\":{\\"id\\":3685,\\"name\\":\\"Brilliance beyond the Stage\\",\\"start_date\\":\\"2026-10-01 00:00:00\\",\\"hours\\":null}}"])</script>';
+        const result = ripper.parseEventDetail(html, 3685);
+        expect(result).toHaveProperty('type', 'ParseError');
+        if ('type' in result) {
+            expect(result.reason).toContain('No hours published');
+            expect(result.reason).not.toContain('"null"');
+        }
+    });
+
     test('returns a ParseError (not a thrown TypeError) when the name field is missing or null', () => {
         const html = '<script>self.__next_f.push([1,"5:{\\"initialEvent\\":{\\"id\\":43,\\"name\\":null,\\"start_date\\":\\"2026-10-01 00:00:00\\",\\"hours\\":\\"4:00 PM - 5:00 PM\\"}}"])</script>';
         expect(() => ripper.parseEventDetail(html, 43)).not.toThrow();
@@ -129,6 +139,41 @@ describe('ArtLoveSalonRipper - parseEventDetail duration edge cases', () => {
         if ('duration' in result) {
             expect(result.duration.toMinutes()).toBe(120);
             expect(result.duration.toMinutes()).not.toBe(24 * 60);
+        } else {
+            throw new Error('expected an event, got ' + JSON.stringify(result));
+        }
+    });
+});
+
+describe('ArtLoveSalonRipper - parseHoursRange', () => {
+    const ripper = new ArtLoveSalonRipper();
+
+    test('parses a compact single-meridiem range like "5-9pm"', () => {
+        const result = ripper.parseHoursRange('5-9pm');
+        expect(result).toEqual({ startHour: 17, startMinute: 0, endHour: 21, endMinute: 0 });
+    });
+
+    test('parses a compact range with minutes on one side, e.g. "5:30-9pm"', () => {
+        const result = ripper.parseHoursRange('5:30-9pm');
+        expect(result).toEqual({ startHour: 17, startMinute: 30, endHour: 21, endMinute: 0 });
+    });
+
+    test('still parses the full two-meridiem format', () => {
+        const result = ripper.parseHoursRange('4:00 PM - 7:00 PM');
+        expect(result).toEqual({ startHour: 16, startMinute: 0, endHour: 19, endMinute: 0 });
+    });
+
+    test('returns null for an unrecognized format', () => {
+        expect(ripper.parseHoursRange('TBD')).toBeNull();
+    });
+
+    test('the live "5-9pm" event now parses end-to-end instead of erroring', () => {
+        const html = '<script>self.__next_f.push([1,"5:{\\"initialEvent\\":{\\"id\\":1025,\\"name\\":\\"DOWNTOWN ART WALK\\",\\"start_date\\":\\"2026-10-02 00:00:00\\",\\"hours\\":\\"5-9pm\\"}}"])</script>';
+        const result = ripper.parseEventDetail(html, 1025);
+        expect(result).toHaveProperty('date');
+        if ('date' in result) {
+            expect(result.date.hour()).toBe(17);
+            expect(result.duration.toMinutes()).toBe(240);
         } else {
             throw new Error('expected an event, got ' + JSON.stringify(result));
         }

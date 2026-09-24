@@ -45,7 +45,9 @@ interface PublicDisplayEventDetail {
     id: number;
     name: string;
     start_date: string;
-    hours?: string;
+    // The API omits the field entirely for some events and returns an
+    // explicit JSON null for others — both mean "no hours published".
+    hours?: string | null;
     description?: string;
     photos?: PublicDisplayPhoto[];
 }
@@ -223,15 +225,19 @@ export default class ArtLoveSalonRipper implements IRipper {
         const dateStr = (detail.start_date ?? '').slice(0, 10);
 
         const hours = detail.hours;
-        const timeMatch = hours?.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-        if (!timeMatch) {
-            return { type: 'ParseError', reason: `Could not parse hours "${hours}" for "${name}"`, context: detailUrl };
+        if (!hours) {
+            // Explicit JSON null or a missing field — genuinely no hours
+            // published anywhere on the page, as opposed to an unrecognized
+            // format (handled below). Worth its own message since `hours`
+            // isn't a string to quote here.
+            return { type: 'ParseError', reason: `No hours published for "${name}"`, context: detailUrl };
         }
 
-        const startHour = this.to24Hour(timeMatch[1], timeMatch[3]);
-        const startMinute = parseInt(timeMatch[2], 10);
-        const endHour = this.to24Hour(timeMatch[4], timeMatch[6]);
-        const endMinute = parseInt(timeMatch[5], 10);
+        const parsedHours = this.parseHoursRange(hours);
+        if (!parsedHours) {
+            return { type: 'ParseError', reason: `Could not parse hours "${hours}" for "${name}"`, context: detailUrl };
+        }
+        const { startHour, startMinute, endHour, endMinute } = parsedHours;
 
         const [year, month, day] = dateStr.split('-').map(n => parseInt(n, 10));
         let date: ZonedDateTime;
@@ -270,5 +276,54 @@ export default class ArtLoveSalonRipper implements IRipper {
     to24Hour(hourStr: string, ampm: string): number {
         const hour = parseInt(hourStr, 10) % 12;
         return ampm.toUpperCase() === 'PM' ? hour + 12 : hour;
+    }
+
+    /**
+     * Parses the `hours` field's free-text time range into 24-hour
+     * start/end components. Handles two shapes seen on PublicDisplay.ART
+     * event pages:
+     *   - Full: "12:00 PM - 1:00 PM" — each side carries its own AM/PM.
+     *   - Compact: "5-9pm" / "5:30-9pm" — a single shared AM/PM covers
+     *     both sides, and minutes are optional on either side. This is
+     *     the plain-English shorthand organizers type directly into the
+     *     PublicDisplay.ART admin (as opposed to the fuller format the
+     *     platform's own UI generates), so both need support.
+     * Returns null when neither shape matches.
+     */
+    // Public for testing
+    parseHoursRange(hours: string): { startHour: number; startMinute: number; endHour: number; endMinute: number } | null {
+        const fullMatch = hours.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+        if (fullMatch) {
+            return {
+                startHour: this.to24Hour(fullMatch[1], fullMatch[3]),
+                startMinute: parseInt(fullMatch[2], 10),
+                endHour: this.to24Hour(fullMatch[4], fullMatch[6]),
+                endMinute: parseInt(fullMatch[5], 10),
+            };
+        }
+
+        // Compact range with one shared AM/PM at the end, e.g. "5-9pm" or
+        // "5:30-9pm". Applies that single meridiem to both sides — correct
+        // for the common case (an evening slot like "5-9pm") but not for a
+        // range that crosses noon (e.g. "11-2pm" meaning 11 AM to 2 PM);
+        // that ambiguous shape isn't resolvable from the text alone and
+        // falls through to the caller's "could not parse" error instead of
+        // guessing.
+        const compactMatch = hours.match(/^(\d{1,2})(?::(\d{2}))?\s*-\s*(\d{1,2})(?::(\d{2}))?\s*(AM|PM)$/i);
+        if (compactMatch) {
+            const ampm = compactMatch[5];
+            const startHour = this.to24Hour(compactMatch[1], ampm);
+            const endHour = this.to24Hour(compactMatch[3], ampm);
+            if (startHour <= endHour) {
+                return {
+                    startHour,
+                    startMinute: compactMatch[2] ? parseInt(compactMatch[2], 10) : 0,
+                    endHour,
+                    endMinute: compactMatch[4] ? parseInt(compactMatch[4], 10) : 0,
+                };
+            }
+        }
+
+        return null;
     }
 }
