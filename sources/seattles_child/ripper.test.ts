@@ -6,6 +6,7 @@ import "@js-joda/timezone";
 import {
     parseListing,
     extractJsonLdEvent,
+    extractCostField,
     parseLdDateTime,
     isSeattleEvent,
     isMultiDaySpan,
@@ -51,6 +52,20 @@ describe("parseLdDateTime", () => {
     it("returns null for garbage", () => {
         expect(parseLdDateTime("sometime soon")).toBeNull();
         expect(parseLdDateTime(undefined)).toBeNull();
+    });
+});
+
+describe("extractCostField", () => {
+    it("reads Free/Fee from the page's own Cost block (live HTML shape, 2026-09-24)", () => {
+        const freeHtml = '<div class="event-cost"><div class="row"><div class="col-md-6 mb-3 mb-md-0"><h2>Cost</h2><p>Free</p></p></div></p></div></p></div>';
+        expect(extractCostField(freeHtml)).toBe("free");
+
+        const feeHtml = '<div class="event-cost"><div class="row"><div class="col-md-6 mb-3 mb-md-0"><h2>Cost</h2><p>Fee</p></p></div></p></div></p></div>';
+        expect(extractCostField(feeHtml)).toBe("fee");
+    });
+
+    it("returns undefined when the page has no Cost block", () => {
+        expect(extractCostField("<html><body>no cost info here</body></html>")).toBeUndefined();
     });
 });
 
@@ -120,6 +135,46 @@ describe("detail pages", () => {
 
         const ldFalse: JsonLdEvent = { name: "Paid Workshop", startDate: "2026-10-05 10:00 AM", isAccessibleForFree: false };
         const r2 = parseDetailEvent(ldFalse, `${BASE}paid-workshop/`);
+        if (!("date" in r2[0])) throw new Error("expected event");
+        expect(r2[0].cost).toBeUndefined();
+    });
+
+    it("falls back to a 'free' claim in the title or description when isAccessibleForFree is absent (live example, 2026-09-24)", () => {
+        const ld: JsonLdEvent = {
+            name: "Free Wooden Boat Story Time at SLU",
+            startDate: "2026-09-27 02:00 PM",
+            endDate: "2026-09-27 02:45 PM",
+            description: "Free Wooden Boat Storytime at South Lake Union! Join Sue Kimpton for storytime in the Boathouse.",
+        };
+        const results = parseDetailEvent(ld, `${BASE}free-wooden-boat-story-time-at-slu/`);
+        if (!("date" in results[0])) throw new Error("expected event");
+        expect(results[0].cost).toEqual({ min: 0 });
+    });
+
+    it("uses the page's own Cost field (Free/Fee) when JSON-LD and text give no signal (live example, 2026-09-24)", () => {
+        const ldFree: JsonLdEvent = { name: "Toy Boat Building at South Lake Union", startDate: "2026-09-27 11:00 AM" };
+        const freeResult = parseDetailEvent(ldFree, `${BASE}toy-boat-building/`, "free");
+        if (!("date" in freeResult[0])) throw new Error("expected event");
+        expect(freeResult[0].cost).toEqual({ min: 0 });
+
+        const ldFee: JsonLdEvent = { name: "Beauty and the Beast: Opening Night", startDate: "2026-12-22 07:00 PM" };
+        const feeResult = parseDetailEvent(ldFee, `${BASE}beauty-and-the-beast/`, "fee");
+        if (!("date" in feeResult[0])) throw new Error("expected event");
+        expect(feeResult[0].cost).toEqual({ paid: true });
+    });
+
+    it("does not mistake 'freedom' or a negated free claim for a free-admission signal", () => {
+        const ldFreedom: JsonLdEvent = { name: "Freedom Day at NAAM", startDate: "2026-10-05 10:00 AM" };
+        const r1 = parseDetailEvent(ldFreedom, `${BASE}freedom-day/`);
+        if (!("date" in r1[0])) throw new Error("expected event");
+        expect(r1[0].cost).toBeUndefined();
+
+        const ldNegated: JsonLdEvent = {
+            name: "Members Preview Night",
+            startDate: "2026-10-05 10:00 AM",
+            description: "This is not a free event — tickets required for non-members.",
+        };
+        const r2 = parseDetailEvent(ldNegated, `${BASE}members-preview/`);
         if (!("date" in r2[0])) throw new Error("expected event");
         expect(r2[0].cost).toBeUndefined();
     });

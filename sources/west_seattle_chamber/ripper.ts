@@ -1,5 +1,6 @@
 import { Duration, Instant, LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
 import {
+    EventCost,
     IRipper,
     Ripper,
     RipperCalendar,
@@ -10,6 +11,7 @@ import {
     UncertaintyField,
 } from "../../lib/config/schema.js";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { parseDollars, hasUnnegatedMatch } from "../../lib/config/cost-text.js";
 import { parse as parseHtml, HTMLElement } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -132,6 +134,71 @@ function extractLocation(root: HTMLElement): string | undefined {
     return undefined;
 }
 
+// The GrowthZone detail page's dedicated "Fees/Admission" field (verified
+// live 2026-09-24, e.g. "WS Chamber Members: $25 General Admission: $35
+// Walk-In Rate: $35", "$30/session. 4 sessions for $102...", "Free"). Unlike
+// scanning a whole freeform description, this field exists specifically to
+// state the price, so a bare "Free" here is high-confidence.
+//
+// NOTAFLOF/suggested-donation phrasing always means free regardless of any
+// dollar amount mentioned alongside it (e.g. "Suggested donation $10-20" is
+// still free, not a $10 fixed price) — checked unconditionally, before any
+// amount scanning. A bare "free" is checked only when no dollar amount
+// competes with it (see parseFeesText), to avoid misreading "Free for
+// members, $15 general" as free.
+const FEES_NOTAFLOF_RE = /suggested donation|donation[- ]based|pay[- ]what[- ]you[- ]can|pwyc|no one (?:is |will be )?turned away|donations?\b(?:(?!\.).){0,40}?\b(?:appreciated|welcome|accepted|encouraged|optional)/gi;
+const FEES_FREE_WORD_RE = /\bfree\b/gi;
+// A discount-tier word immediately before a dollar amount (e.g. "Members:
+// $25") — excluded from the general-admission price, same rubric as
+// firstNonTieredPrice.
+const FEES_MEMBER_TIER_RE = /\bmembers?\s*:?\s*$/i;
+// An explicitly labeled general-public tier (as opposed to a member/discount
+// tier) — the pricing rubric's "anchor on general-admission adult" price.
+const FEES_GENERAL_TIER_RE = /\b(?:general admission|general public|non-?member(?:s)?|walk-?in(?: rate)?)\s*:?\s*$/i;
+const FEES_AMOUNT_RE = /\$(\d[\d,]*(?:\.\d{1,2})?)/g;
+
+/** Parses the chamber page's "Fees/Admission" field text into an EventCost. Public for testing. */
+export function parseFeesText(raw: string | undefined): EventCost | undefined {
+    if (!raw) return undefined;
+    const text = raw.trim();
+    if (!text || /^(n\/a|none|no cost|varies from event to event)$/i.test(text)) return undefined;
+    if (hasUnnegatedMatch(text, FEES_NOTAFLOF_RE)) return { min: 0 };
+
+    // Collect every dollar amount on the field along with what its
+    // immediately-preceding text labels it as, excluding any tagged as a
+    // member/discount tier. The cheapest of the rest is the
+    // general-admission price the rubric calls for — order-independent
+    // (GrowthZone listings aren't consistently ordered) and label-agnostic
+    // (an untagged amount, e.g. "$30/session", is just as eligible as one
+    // explicitly labeled "General Admission").
+    FEES_AMOUNT_RE.lastIndex = 0;
+    let m: RegExpExecArray | null;
+    const candidates: number[] = [];
+    let sawAnyAmount = false;
+    while ((m = FEES_AMOUNT_RE.exec(text))) {
+        sawAnyAmount = true;
+        const prefix = text.slice(Math.max(0, m.index - 30), m.index);
+        const isGeneral = FEES_GENERAL_TIER_RE.test(prefix);
+        const isMember = !isGeneral && FEES_MEMBER_TIER_RE.test(prefix);
+        if (isMember) continue;
+        candidates.push(parseDollars(m[1]));
+    }
+    if (candidates.length > 0) return { min: Math.min(...candidates) };
+    // Every dollar amount on the field was member-tagged (e.g. "Individual
+    // Member: $15, Family Member: $20") — no general-admission price is
+    // determinable, so this stays a gap rather than guessing.
+    if (sawAnyAmount) return undefined;
+
+    // No dollar amount anywhere — only now trust a bare "free" claim.
+    if (hasUnnegatedMatch(text, FEES_FREE_WORD_RE)) return { min: 0 };
+    return undefined;
+}
+
+function extractFeesText(root: HTMLElement): string | undefined {
+    const text = cleanText(root.querySelector("div.gz-event-fees p")?.text);
+    return text.length > 0 ? text : undefined;
+}
+
 /**
  * Parses one GrowthZone event-detail page. The page carries schema.org
  * microdata: `itemprop="name"` title, `startDate`/`endDate` UTC instants in
@@ -173,6 +240,7 @@ export function parseDetailPage(html: string, slug: string): RipperEvent[] {
 
     const location = extractLocation(root)
         ?? KNOWN_ORGANIZER_LOCATIONS.find(k => summary.startsWith(k.titlePrefix))?.location;
+    const cost = parseFeesText(extractFeesText(root));
 
     const event: RipperCalendarEvent = {
         id: slug,
@@ -184,6 +252,7 @@ export function parseDetailPage(html: string, slug: string): RipperEvent[] {
         location: location ?? FALLBACK_LOCATION,
         url: detailUrl(slug),
         imageUrl,
+        ...(cost !== undefined ? { cost } : {}),
     };
 
     if (location) return [event];

@@ -1,6 +1,7 @@
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError } from "../../lib/config/schema.js";
 import { Duration, LocalDate, ZonedDateTime, ZoneId } from "@js-joda/core";
 import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
+import { firstNonTieredPrice, parseDollars } from "../../lib/config/cost-text.js";
 import { decode } from "html-entities";
 import { parse } from "node-html-parser";
 import '@js-joda/timezone';
@@ -47,10 +48,17 @@ export interface PantryItem {
     } | null;
 }
 
+// Skips a member/student/senior/child/youth/volunteer-tiered price (e.g.
+// "Member Price: $100") in favor of the next match (e.g. "Regular Price:
+// $145") — the pricing rubric anchors on the general-admission adult price,
+// ignoring discount tiers. Shared with the Squarespace body extraction; see
+// firstNonTieredPrice's doc comment for the "Nonmember" word-boundary note.
+const PANTRY_PRICE_RE = /Price:\s*<b>\$(\d[\d,]*)<\/b>/gi;
+
 /** Extracts admission cost from a Pantry class/dinner page HTML. Pattern: `Price: <b>$NNN</b>`. */
 export function extractPantryPrice(html: string): EventCost | undefined {
-    const m = html.match(/Price:\s*<b>\$(\d[\d,]*)<\/b>/i);
-    if (m) return { min: parseFloat(m[1].replace(/,/g, "")) };
+    const price = firstNonTieredPrice(html, PANTRY_PRICE_RE);
+    if (price) return { min: parseDollars(price) };
     if (/Price:\s*<b>Free<\/b>/i.test(html)) return { min: 0 };
     return undefined;
 }

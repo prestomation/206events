@@ -2,6 +2,7 @@ import { LocalDateTime, ZonedDateTime, Duration, ZoneId, LocalDate } from "@js-j
 import { decode } from "html-entities";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { getFetchForConfig } from "../../lib/config/proxy-fetch.js";
+import { hasUnnegatedMatch } from "../../lib/config/cost-text.js";
 import '@js-joda/timezone';
 
 // Stroum JCC (Mercer Island) runs WordPress + The Events Calendar (Tribe
@@ -13,6 +14,11 @@ import '@js-joda/timezone';
 // We use the JSON REST API rather than the site's `?ical=1` ICS export
 // because the host's bot check serves a "Checking your browser" page to the
 // Chrome User-Agent that the external-ICS fetcher sends.
+
+// Description-text fallback for parseCost, below: an explicit "free" claim,
+// or "volunteer" phrasing (a volunteer opportunity has no admission cost —
+// you're the one donating time, not paying to attend).
+const STROUM_FREE_TEXT_RE = /\bfree\b|\bvolunteer (?:with|opportunity|shifts?)\b|\bvolunteers? (?:may|will)\b/gi;
 export default class StroumJccRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
@@ -110,7 +116,7 @@ export default class StroumJccRipper implements IRipper {
                 location: this.parseLocation(event.venue),
                 url: event.url,
                 imageUrl: event.image?.url || undefined,
-                cost: this.parseCost(event.cost_details),
+                cost: this.parseCost(event.cost_details, event.description),
             };
         } catch (error) {
             return {
@@ -132,13 +138,20 @@ export default class StroumJccRipper implements IRipper {
         return parts.join(", ");
     }
 
-    private parseCost(costDetails: any): EventCost | undefined {
+    private parseCost(costDetails: any, description?: string): EventCost | undefined {
         const values: string[] = costDetails?.values ?? [];
         const parsed = values.map((v) => parseFloat(v)).filter((n) => !isNaN(n));
-        if (parsed.length === 0) return undefined;
-        const min = Math.min(...parsed);
-        const max = Math.max(...parsed);
-        return max > min ? { min, max } : { min };
+        if (parsed.length > 0) {
+            const min = Math.min(...parsed);
+            const max = Math.max(...parsed);
+            return max > min ? { min, max } : { min };
+        }
+        // The Tribe "Event Cost" field is frequently left blank even for
+        // genuinely free programs — the organizer states it in prose instead
+        // (verified live 2026-09-24, e.g. "At this free, monthly event...",
+        // "Volunteer with the J! Join us in the SJCC kitchen...").
+        if (description && hasUnnegatedMatch(description, STROUM_FREE_TEXT_RE)) return { min: 0 };
+        return undefined;
     }
 
     private cleanHtml(html: string): string {

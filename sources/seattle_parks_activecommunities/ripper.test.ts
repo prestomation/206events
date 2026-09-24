@@ -87,8 +87,30 @@ describe("helpers", () => {
     it("parses fee labels", () => {
         expect(parseCost("Free")).toEqual({ min: 0 });
         expect(parseCost("$15.00")).toEqual({ min: 15 });
-        expect(parseCost("View fee details")).toEqual({ paid: true });
-        expect(parseCost("View Registration Info")).toEqual({ min: 0 });
+        expect(parseCost("View fee details")).toBeUndefined();
+        expect(parseCost("View Registration Info")).toBeUndefined();
+    });
+
+    it("assumes free only when asked to and no real price label is present", () => {
+        // Drop-in category: a vague label with no dollar amount means free —
+        // every priced drop-in (aquatics, courts) is filtered out upstream by
+        // isCommunityDropIn before parseCost ever sees it.
+        expect(parseCost("View Registration Info", true)).toEqual({ min: 0 });
+        expect(parseCost("View fee details", true)).toEqual({ min: 0 });
+        expect(parseCost(undefined, true)).toEqual({ min: 0 });
+        // A real price always wins over the drop-in default.
+        expect(parseCost("$8.50", true)).toEqual({ min: 8.5 });
+        // Special events never get the default — an unpriced label stays a gap.
+        expect(parseCost("View Registration Info")).toBeUndefined();
+        expect(parseCost(undefined)).toBeUndefined();
+    });
+
+    it("never defaults to free when the label has a dollar sign it doesn't fully understand", () => {
+        // A label with a real price we can't cleanly parse (extra words
+        // around the amount) must never fall through to the drop-in "assume
+        // free" default — that would publish a wrong $0 for a paid item.
+        expect(parseCost("$15.00 per class", true)).toBeUndefined();
+        expect(parseCost("Starting at $5", true)).toBeUndefined();
     });
 
     it("resolves locations from center detail, else description/label", () => {
@@ -132,6 +154,11 @@ describe("parseSpecialEvents (sample data)", () => {
     it("ids are unique", () => {
         expect(new Set(evs.map(e => e.id)).size).toBe(evs.length);
     });
+
+    it("never guesses a cost for special events without a real fee label (stays a cost gap)", () => {
+        const unpriced = evs.filter(e => !e.cost);
+        expect(unpriced.length).toBeGreaterThan(0);
+    });
 });
 
 describe("parseDropIns (sample data)", () => {
@@ -146,6 +173,12 @@ describe("parseDropIns (sample data)", () => {
 
     it("excludes facility schedules", () => {
         expect(evs.some(e => /swim|pickleball/i.test(e.summary))).toBe(false);
+    });
+
+    it("gives every community drop-in a cost — a real fee label if present, else free", () => {
+        expect(evs.length).toBeGreaterThan(0);
+        for (const e of evs) expect(e.cost).toBeDefined();
+        expect(evs.some(e => e.cost && "min" in e.cost && e.cost.min === 0)).toBe(true);
     });
 
     it("respects the horizon", () => {

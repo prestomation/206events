@@ -1,6 +1,7 @@
 import { Duration, Instant, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "./schema.js";
 import { getFetchForConfig, FetchFn } from "./proxy-fetch.js";
+import { firstNonTieredPrice, parseDollars, hasUnnegatedMatch } from "./cost-text.js";
 import { parse } from "node-html-parser";
 import { decode } from "html-entities";
 import '@js-joda/timezone';
@@ -62,6 +63,90 @@ function extractCostFromTags(tags: string[] | undefined): EventCost | undefined 
     if (lower.some(t => FREE_TAG_FRAGMENTS.some(f => t.includes(f)))) {
         return { min: 0 };
     }
+    return undefined;
+}
+
+// Squarespace event bodies are freeform rich text; the venue frequently writes
+// the price directly into the description rather than exposing it as
+// structured data (e.g. "Every Tuesday 7-8pm, $25", "Investment: $45",
+// "Sliding scale $15-25", "Suggested donation $20"). This is a best-effort,
+// conservative extraction — it only fires on a small set of high-precision
+// patterns and otherwise returns undefined (falls through to the cost-gap
+// queue, same as if this never ran).
+//
+// IMPORTANT: whatever this returns becomes `event.cost`, which
+// `applyCostBackfill` (lib/uncertainty-merge.ts) treats as "ripper already
+// priced it" — permanently outranking any later event-uncertainty-cache
+// resolution and dropping the event out of the costGaps queue for good.
+// Unlike extractCostFromTags (an exact tag match with no ambiguity), this is
+// a heuristic over freeform prose, so a wrong extraction here has no correction
+// path short of editing this file. That raises the bar for each pattern:
+// keep them narrow and specific enough that a false positive is unlikely,
+// and prefer returning undefined (leaving it in the gap queue for a human)
+// over a plausible-looking guess.
+// "Donations ... appreciated/welcome/accepted/encouraged/optional" is a
+// pay-what-you-want framing regardless of any dollar amount mentioned in
+// between — e.g. "Donations of $10-$15 are deeply appreciated" is still
+// free, not a $10 fixed price. The `.{0,60}` gap (rather than requiring the
+// terminal word immediately after "are"/"is") tolerates adverbs and other
+// phrasing between "donations" and the word that signals it's optional.
+// Combined into one alternation with the `g` flag so hasUnnegatedMatch can
+// check negation locally around *each* match (e.g. "is not a free-for-all
+// open mic ... is free to attend" must not let the first, unrelated idiom
+// suppress the second, real free-admission phrase later in the same text).
+const FREE_SIGNAL_RE = /suggested donation|donation[- ]based|pay[- ]what[- ]you[- ]can|pwyc|notaflof|no one (?:is |will be )?turned away|donations?\b(?:(?!\.).){0,60}?\b(?:appreciated|welcome|accepted|encouraged|optional)|free admission|free event|free entry|free to attend|free class|free workshop|free offering|free community (?:meditation|gathering|event|class|workshop)|no cover/gi;
+// A dollar amount, optionally thousands-comma-grouped (e.g. "$1,250" — a
+// multi-day retreat or workshop package can easily clear four figures; without
+// the comma group `\d+` alone stops at the comma and truncates "$1,250" to 1).
+const DOLLARS = "\\d{1,3}(?:,\\d{3})*(?:\\.\\d{1,2})?|\\d+(?:\\.\\d{1,2})?";
+const RANGE_RE = new RegExp(`\\$(${DOLLARS})\\s*(?:-|–|to)\\s*\\$?(${DOLLARS})`, "i");
+// A range alone isn't enough signal — "$500-$1000" could be anything (a
+// fundraising total, a prize purse). Requires a price-related word shortly
+// before the match (e.g. "Sliding scale $15-25", "Cost is $10 to $20") so an
+// unrelated dollar range elsewhere in the body isn't mistaken for the price.
+// Deliberately excludes "fee", for the same reason as KEYWORD_PRICE_RE above.
+const RANGE_CONTEXT_RE = /\b(?:sliding scale|cost|price|admission|tickets?|investment|range)\b[^.$]{0,20}$/i;
+// Deliberately excludes "fee" — the pricing rubric treats fees (materials,
+// processing, registration add-ons) as distinct from and excluded from the
+// general-admission price, so a body mentioning "materials fee $5" must not
+// be read as the event's $5 admission cost.
+const KEYWORD_PRICE_RE = new RegExp(`\\b(?:cost|price|admission|tickets?|investment)\\s*[:\\s]\\s*\\$(${DOLLARS})`, "gi");
+// Restricted to punctuation/whitespace between the time and the price (no
+// letters) so an unrelated dollar amount later in the same sentence — e.g.
+// "Doors at 7pm, drinks $8 extra" — can't be mistaken for the admission cost.
+const TIME_ADJACENT_PRICE_RE = new RegExp(`\\b\\d{1,2}(?::\\d{2})?\\s*(?:am|pm)\\b[,\\s-]{0,4}\\$(${DOLLARS})(?!\\d)`, "i");
+
+/**
+ * Strips HTML tags and collapses whitespace, for regex-scanning a Squarespace
+ * body field. Squarespace bodies are a sequence of block elements
+ * (`<p>...</p><p>...</p>`) with no whitespace between the closing and
+ * opening tags, so a naive textContent concatenates adjacent paragraphs with
+ * no separator (e.g. "...Spirit" + "Every Tuesday..." → "SpiritEvery...").
+ * Inserting a space at every tag boundary first prevents words either side
+ * of a block break from fusing into one token.
+ */
+function toPlainText(html: string | undefined): string {
+    if (!html) return "";
+    return parse(html.replace(/>\s*</g, "> <")).textContent.replace(/\s+/g, " ").trim();
+}
+
+export function extractCostFromBody(body: string | undefined): EventCost | undefined {
+    const text = toPlainText(body);
+    if (!text) return undefined;
+    if (hasUnnegatedMatch(text, FREE_SIGNAL_RE)) return { min: 0 };
+    const range = text.match(RANGE_RE);
+    if (range && range.index !== undefined) {
+        const prefix = text.slice(Math.max(0, range.index - 30), range.index);
+        if (RANGE_CONTEXT_RE.test(prefix)) {
+            const min = parseDollars(range[1]);
+            const max = parseDollars(range[2]);
+            if (max > min) return { min, max };
+        }
+    }
+    const keyword = firstNonTieredPrice(text, KEYWORD_PRICE_RE);
+    if (keyword) return { min: parseDollars(keyword) };
+    const timeAdjacent = text.match(TIME_ADJACENT_PRICE_RE);
+    if (timeAdjacent) return { min: parseDollars(timeAdjacent[1]) };
     return undefined;
 }
 
@@ -266,7 +351,7 @@ export class SquarespaceRipper implements IRipper {
             description = this.stripHtml(description).trim();
         }
 
-        const cost = extractCostFromTags(sqEvent.tags);
+        const cost = extractCostFromTags(sqEvent.tags) ?? extractCostFromBody(sqEvent.body);
 
         return {
             id: sqEvent.id,

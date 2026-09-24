@@ -53,11 +53,18 @@ const SPECIAL_EXCLUDE = /^\s*(field trip|transportation\b)|\bouting\b|\btourname
 
 // Drop-in items that are facility schedules or supervised rooms rather than
 // community programs — lap swim, pickleball courts, gym time, tot/teen rooms.
+// This list is what makes `parseCost`'s assumeFreeDropIn default safe (see
+// its doc comment): it must keep excluding every category SPR charges a
+// per-visit fee for, since anything that survives it and lacks a real price
+// label gets defaulted to free. Verified against the live ANC API 2026-09-24.
+// If SPR ever launches a new paid drop-in category, it needs a keyword added
+// here — this is a maintained allowlist-by-exclusion, not a closed set.
 const DROP_IN_EXCLUDE = new RegExp([
     "swim", "pool", "water fitness", "water polo", "aquatic", "lifeguard", "masters",
     "pickleball", "basketball", "volleyball", "badminton", "soccer", "futsal", "tennis",
-    "handball", "frisbee", "dodgeball", "hockey", "double dutch", "\\bgym\\b", "fitness",
-    "weight room", "\\blap\\b", "aerobic", "yoga", "zumba", "walking",
+    "ping pong", "handball", "frisbee", "dodgeball", "hockey", "double dutch",
+    "\\bgym\\b", "fitness", "weight room", "\\blap\\b", "aerobic", "yoga", "zumba",
+    "walking", "climbing", "archery", "batting cage", "golf", "racquetball", "squash",
     "tot room", "toddler", "\\bteens?\\b", "tween", "afterschool", "homework", "tutoring",
     "late night", "registration support",
 ].join("|"), "i");
@@ -280,21 +287,47 @@ export function cleanText(html: string | undefined): string {
         .trim();
 }
 
-export function parseCost(label: string | undefined): EventCost | undefined {
-    if (!label) return undefined;
-    const t = label.trim();
-    if (/^free$/i.test(t)) return { min: 0 };
-    const m = t.match(/^\$(\d+(?:\.\d{1,2})?)$/);
-    if (m) return { min: parseFloat(m[1]) };
-    // ActiveCommunities returns "View fee details" for all paid activities; the
-    // actual price requires clicking through to the JS-rendered activity page.
-    if (/^view fee details$/i.test(t)) return { paid: true };
-    // "View Registration Info" labels SPR community drop-in programs (mahjong,
-    // bridge, board games, roller skating, dance, etc.) that are free but require
-    // online sign-up. In contrast, "View fee details" labels paid activities
-    // (aquatics, etc.). Multiple descriptions confirm: "dedicated for free, open
-    // pickleball play", "Free.", "free and open to community members".
-    if (/^view registration info$/i.test(t)) return { min: 0 };
+/**
+ * `assumeFreeDropIn`: the list API never gives community drop-in programs
+ * (mahjong, bridge, board games, poetry, improv…) a real price — the label is
+ * always "Free" or a generic "View Registration Info"/"View fee details"
+ * placeholder that also appears on priced items elsewhere in the catalog.
+ * `isCommunityDropIn` (below) has already excluded every drop-in item that
+ * carries a real per-visit fee (aquatics, courts, gyms — verified live against
+ * the ANC API 2026-09-24: every dollar-amount `fee.label` in the drop-in
+ * category belonged to an excluded aquatics/facility item). So once an item
+ * clears that filter, an unpriced label means free, not unknown — only
+ * used from `parseDropIns`, never from `parseSpecialEvents` (whose one-off
+ * community events occasionally carry a real fee, e.g. a paid CPR
+ * certification add-on, so those fall through to the cost-gap queue instead
+ * of being guessed).
+ *
+ * Deliberately does NOT treat a bare "View fee details" label as paid: true
+ * for special events either — verified live that every drop-in item with
+ * that label is an already-excluded aquatics facility booking, and the one
+ * special event carrying it (Montlake Fall Fest) has a cost resolution in
+ * the uncertainty cache (its own page states child wristbands are priced but
+ * "adult chaperones are free") that a ripper-parsed cost would silently
+ * shadow (ripper-parsed always wins over the cache — see applyCostBackfill).
+ * Same reasoning for "View Registration Info": even though most drop-in
+ * items carrying it are free (confirmed live: "dedicated for free, open
+ * pickleball play", "free and open to community members"), a special event
+ * with that label may not be (e.g. a workshop requiring paid registration),
+ * so only the drop-in default trusts it, never a bare label match here.
+ */
+export function parseCost(label: string | undefined, assumeFreeDropIn = false): EventCost | undefined {
+    if (label) {
+        const t = label.trim();
+        if (/^free$/i.test(t)) return { min: 0 };
+        const m = t.match(/^\$(\d+(?:\.\d{1,2})?)$/);
+        if (m) return { min: parseFloat(m[1]) };
+        // A dollar sign we don't fully understand (e.g. "$15.00 per class")
+        // means there IS a real price on the label — don't fall through to
+        // the drop-in default and guess free for it; leave it as a gap
+        // instead of publishing a wrong $0.
+        if (t.includes("$")) return undefined;
+    }
+    if (assumeFreeDropIn) return { min: 0 };
     return undefined;
 }
 
@@ -329,6 +362,7 @@ export function resolveLocation(label: string | undefined, locations: Record<str
 function makeEvent(
     item: ActivityItem, date: LocalDate, start: LocalTime, end: LocalTime,
     zone: ZoneId, locations: Record<string, ActivityDetail>, idSuffix: string,
+    assumeFreeDropIn = false,
 ): RipperCalendarEvent {
     const loc = resolveLocation(item.location?.label, locations);
     const desc = cleanText(item.desc);
@@ -346,7 +380,7 @@ function makeEvent(
         event.lat = loc.lat;
         event.lng = loc.lng;
     }
-    const cost = parseCost(item.fee?.label);
+    const cost = parseCost(item.fee?.label, assumeFreeDropIn);
     if (cost) event.cost = cost;
     return event;
 }
@@ -444,7 +478,7 @@ export function parseDropIns(
         for (const o of occ) {
             const suffix = (perDay.get(o.date.toString()) ?? 0) > 1
                 ? `-${o.start.toString().replace(":", "").slice(0, 4)}` : "";
-            const ev = makeEvent(item, o.date, o.start, o.end, zone, locations, suffix);
+            const ev = makeEvent(item, o.date, o.start, o.end, zone, locations, suffix, true);
             if (seen.has(ev.id!)) continue;
             seen.add(ev.id!);
             out.push(ev);

@@ -93491,7 +93491,7 @@
     "events12:music-by-candlelight-nordic-museum-119604-2026-09-26": {
       "fields": {
         "cost": {
-          "min": 45
+          "min": 45.0
         },
         "setting": "indoor"
       },
@@ -93515,7 +93515,10 @@
     },
     "west-seattle-chamber:government-advocacy-comittee-meeting-10-19-2026-11299": {
       "fields": {
-        "location": "Virtual (Zoom)"
+        "location": "Virtual (Zoom)",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
@@ -93529,7 +93532,10 @@
     },
     "west-seattle-chamber:government-advocacy-comittee-meeting-11-16-2026-11300": {
       "fields": {
-        "location": "Virtual (Zoom)"
+        "location": "Virtual (Zoom)",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-24",
       "source": "agent",
@@ -93564,7 +93570,7 @@
     "climate-pledge-arena:tm-vvG1HZ_2Sp1qJd": {
       "fields": {
         "cost": {
-          "min": 35
+          "min": 35.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93594,7 +93600,7 @@
     "stg:tm-vvG1HZ_C5unlvs": {
       "fields": {
         "cost": {
-          "min": 60
+          "min": 60.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -93644,7 +93650,7 @@
     "seatoday:cityspark-19434507": {
       "fields": {
         "cost": {
-          "min": 265
+          "min": 265.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94201,7 +94207,7 @@
     "seattle-chamber-music:scms-5711": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94211,7 +94217,7 @@
     "seattle-chamber-music:scms-5784": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94221,7 +94227,7 @@
     "seattle-chamber-music:scms-5787": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94231,7 +94237,7 @@
     "seattle-chamber-music:scms-5792": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94241,7 +94247,7 @@
     "seattle-chamber-music:scms-5805": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94251,7 +94257,7 @@
     "seattle-chamber-music:scms-5809": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94261,7 +94267,7 @@
     "seattle-chamber-music:scms-5917": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -94271,7 +94277,7 @@
     "seattle-chamber-music:scms-5922": {
       "fields": {
         "cost": {
-          "min": 65
+          "min": 65.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95214,7 +95220,7 @@
     "seatoday:cityspark-20006995": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95223,7 +95229,7 @@
     "seatoday:cityspark-19889226": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95232,7 +95238,7 @@
     "seatoday:cityspark-19007351": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95241,7 +95247,7 @@
     "seatoday:cityspark-19626296": {
       "fields": {
         "cost": {
-          "min": 0
+          "min": 0.0
         }
       },
       "resolvedAt": "2026-09-24",
@@ -95437,7 +95443,7 @@
       "source": "agent",
       "evidence": "https://seattlemakers.org/events/upcycle-sewing-denim-catnip-toys/"
     },
-        "kcls:kcls-68893bf9b354fd28002e38b7": {
+    "kcls:kcls-68893bf9b354fd28002e38b7": {
       "unresolvable": true,
       "resolvedAt": "2026-09-24",
       "source": "agent",
@@ -99442,24 +99448,33 @@
       "evidence": "https://westseattle.wschamber.com/events/details/business-after-hours-west-seattle-salon-12900"
     },
     "west-seattle-chamber:chamber-essentials-workshop-10-20-2026-10125": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
       "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-10-20-2026-10125"
     },
     "west-seattle-chamber:chamber-essentials-workshop-11-17-2026-10126": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
       "evidence": "https://westseattle.wschamber.com/events/details/chamber-essentials-workshop-11-17-2026-10126"
     },
     "west-seattle-chamber:health-wellness-meetup-village-green-17113": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-09-24",
       "source": "agent",
-      "reason": "Event detail page has no img.gz-event-img element (checked directly); GrowthZone listing carries no photo for this event.",
       "evidence": "https://westseattle.wschamber.com/events/details/health-wellness-meetup-village-green-17113"
     },
     "west-seattle-chamber:men-s-therapy-group-09-29-2026-15027": {
@@ -99653,6 +99668,516 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "evidence": "https://www.dogwoodplaypark.com/event-details/golden-retriever-meet-up-32"
+    },
+    "seattle-parks-activecommunities:sprac-80075-2026-12-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/family-ornament-painting-party/80075?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87279-2026-10-24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/jefferson-halloween-carnival/87279?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87986-2026-10-23": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/montlake-fall-fest/87986?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87994-2026-12-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/volunteer-luminaria-walk-set-up-crew/87994?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87995-2026-12-17": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/volunteer-luminaria-walk-prep-work/87995?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87996-2026-12-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/volunteer-luminaria-walk-clean-up-crew/87996?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87998-2026-12-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/special-event-meadowbrook-luminaria-walk/87998?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-87999-2026-10-02": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/special-event-fall-harvest-fest/87999?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88340-2026-10-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/pumpkin-palooza/88340?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88360-2026-10-28": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/costume-crawl-tot-gym/88360?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88420-2026-12-12": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/family-ornament-painting-party/88420?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88448-2026-10-25": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/rainier-beach-harvest-fest/88448?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-88795-2026-11-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/seattle-fire-department-cpr-class---nov-7/88795?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-89113-2026-10-02": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-oct/89113?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-89114-2026-11-06": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-nov/89114?locale=en-US"
+    },
+    "seattle-parks-activecommunities:sprac-89115-2026-12-04": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://apm.activecommunities.com/seattle/Activity_Search/open-mic-poetry-night-dec/89115?locale=en-US"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-09-27-2026-16653": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-cozy-gaming-sunday-09-27-2026-16653"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-10-11-2026-16524": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-cozy-gaming-sunday-10-11-2026-16524"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-10-25-2026-16654": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-cozy-gaming-sunday-10-25-2026-16654"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-11-08-2026-16525": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-cozy-gaming-sunday-11-08-2026-16525"
+    },
+    "west-seattle-chamber:feg-cozy-gaming-sunday-11-22-2026-16655": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-cozy-gaming-sunday-11-22-2026-16655"
+    },
+    "west-seattle-chamber:feg-monthly-tourney-10-10-2026-16982": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-monthly-tourney-10-10-2026-16982"
+    },
+    "west-seattle-chamber:feg-monthly-tourney-11-14-2026-16983": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-monthly-tourney-11-14-2026-16983"
+    },
+    "west-seattle-chamber:feg-pokémon-league-09-24-2026-16806": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-09-24-2026-16806"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-01-2026-16807": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-10-01-2026-16807"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-08-2026-16808": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-10-08-2026-16808"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-15-2026-16809": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-10-15-2026-16809"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-22-2026-16810": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-10-22-2026-16810"
+    },
+    "west-seattle-chamber:feg-pokémon-league-10-29-2026-16811": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-10-29-2026-16811"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-05-2026-16812": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-11-05-2026-16812"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-12-2026-16813": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-11-12-2026-16813"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-19-2026-16814": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-11-19-2026-16814"
+    },
+    "west-seattle-chamber:feg-pokémon-league-11-26-2026-16815": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-pok%C3%A9mon-league-11-26-2026-16815"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-09-26-2026-16348": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-09-26-2026-16348"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-03-2026-16349": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-10-03-2026-16349"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-10-2026-16350": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-10-10-2026-16350"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-17-2026-16351": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-10-17-2026-16351"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-24-2026-16352": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-10-24-2026-16352"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-10-31-2026-16353": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-10-31-2026-16353"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-07-2026-16354": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-11-07-2026-16354"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-14-2026-16355": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-11-14-2026-16355"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-21-2026-16356": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-11-21-2026-16356"
+    },
+    "west-seattle-chamber:feg-super-smash-saturday-11-28-2026-16357": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/feg-super-smash-saturday-11-28-2026-16357"
+    },
+    "stroum-jcc:149716": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/local-author-talk-the-remarkable-rachel-romain/"
+    },
+    "stroum-jcc:151050": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibit-michael-shapiro-ketubah-renaissance/"
+    },
+    "stroum-jcc:151053": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/exhibit-author-photographer-lloyd-wolf-a-joyful-noise-klezmer-in-motion/"
+    },
+    "stroum-jcc:151574": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/outsmarting-scammers-protect-yourself-from-todays-scams/"
+    },
+    "stroum-jcc:151850": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-book-club-enormous-wings-author-laurie-frankel/"
+    },
+    "stroum-jcc:151865": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/sjcc-book-club-heaven-and-earth-grocery-store/"
+    },
+    "stroum-jcc:152475": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/november-sjcc-book-club-island-of-the-missing-trees/"
+    },
+    "stroum-jcc:152036": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-24",
+      "source": "agent",
+      "evidence": "https://sjcc.org/event/winning-her-wings/"
     }
   }
 }
