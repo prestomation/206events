@@ -2,6 +2,8 @@ geo:
   lat: 47.5606146
   lng: -122.3871768
   label: "Poggie Tavern, 4717 California Ave SW, Seattle, WA 98116"
+  osmType: node
+  osmId: 2397401970
 name: poggie-tavern-karaoke
 sourceRole: venue
 friendlyname: Karaoke Tuesdays at Poggie Tavern
