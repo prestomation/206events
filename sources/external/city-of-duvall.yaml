@@ -1,0 +1,10 @@
+geo: null
+name: city-of-duvall
+sourceRole: aggregator
+friendlyname: City of Duvall Events
+description: City of Duvall community calendar, covering Mayor Meetup coffee chats, the SnoValley Flood Forum, Cultural Commission programs, and public City Council and committee meetings
+icsUrl: https://www.duvallwa.gov/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar
+infoUrl: https://www.duvallwa.gov/calendar.aspx
+tags:
+  - Community
+  - Duvall
