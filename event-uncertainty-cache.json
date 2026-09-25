@@ -101488,6 +101488,42 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "reason": "No per-event image for library programs"
+    },
+    "venue:loc:discovery park south parking lot,discovery park south parking lot, seattle, wa 98199, usa": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-25",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/discovery-park"
+    },
+    "venue:osm:way:14024017": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-09-25",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/olympic-sculpture-park/paccar-pavilion"
+    },
+    "renton-downtown-partnership:6a8f274ac89bee03771b9562": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-25",
+      "source": "agent",
+      "evidence": "https://www.rentondowntown.com/events/halloween"
+    },
+    "west-seattle-nursery:6ab4514fc8c1762a99215863": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-25",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/street-trees-of-seattle-book-signing-with-taha"
     }
   }
 }

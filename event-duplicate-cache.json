@@ -28263,6 +28263,41 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-24",
       "note": "Tractor Tavern cross-lists at Sunset Tavern; both calendars show same show at same time"
+    },
+    "external-city-of-bothell.ics First of four Glorydays: Tabletop Roleplaying Game|2026-10-17T14:00:00-07:00[America/Los_Angeles]::kcls-bothell.ics Glorydays: A Tabletop Roleplaying Game|2026-10-17T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-25",
+      "note": "Same event: Glorydays tabletop RPG at KCLS Bothell Library Oct 17 2pm. City of Bothell aggregator lists same KCLS event. Location matches (18215 98th Ave NE). KCLS is the venue source."
+    },
+    "seatoday-seatoday-all.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-25",
+      "note": "Same event: Family Story Time at SPL Capitol Hill Sep 25. Same CitySpark event ID 20020376 appears in multiple seatoday calendars."
+    },
+    "seatoday-seatoday-all.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-25",
+      "note": "Same event: CitySpark event 20020376 in multiple seatoday tag calendars."
+    },
+    "seatoday-seatoday-all.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-25",
+      "note": "Same event: seatoday aggregator vs SPL Capitol Hill venue source. Same title, date, time. spl-capitol-hill is the venue source."
+    },
+    "seatoday-seatoday-arts.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-25",
+      "note": "Same event: CitySpark 20020376 in seatoday arts vs learning calendars."
+    },
+    "seatoday-seatoday-arts.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-25",
+      "note": "Same event: seatoday arts aggregator vs SPL Capitol Hill venue source."
+    },
+    "seatoday-seatoday-learning.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-25",
+      "note": "Same event: seatoday learning aggregator vs SPL Capitol Hill venue source."
     }
   }
 }
