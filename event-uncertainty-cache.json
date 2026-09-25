@@ -100804,6 +100804,12 @@
       "source": "agent",
       "reason": "Ticketweb listing page does not expose a price statically (JS-rendered ticket widget); no price range published yet",
       "partialFingerprint": "2bcpvs"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-25",
+      "source": "agent",
+      "reason": "Past event (Aug 1, 2026); no start time documented on event page; page re-lists past event annually — restored after --date-in-key-older-than prune incorrectly dropped it (u-district-partnership is called out by name in skills/event-uncertainty-resolver/SKILL.md as unsafe for this flag since its page keeps re-emitting the same past-dated event)"
     }
   }
 }
