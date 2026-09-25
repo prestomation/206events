@@ -1,0 +1,28 @@
+# verified: 2026-09-25 ok (confirmed via rentonfarmersmarket.com search snippets + rentonwa.gov 25th-season announcement; direct fetch of rentonfarmersmarket.com blocked by sgcaptcha from this environment)
+geo:
+  lat: 47.4800149
+  lng: -122.2085558
+  label: "Piazza Park, 233 Burnett Ave S, Renton, WA 98057"
+  osmType: way
+  osmId: 74845544
+name: renton-farmers-market
+sourceRole: venue
+friendlyname: Renton Farmers Market
+description: Weekly farmers market in downtown Renton's Piazza Park, running annually since 2002. Local produce, food vendors, and live music.
+timezone: America/Los_Angeles
+location: Piazza Park, 233 Burnett Ave S, Renton, WA 98057
+url: https://www.rentonfarmersmarket.com/
+tags:
+  - Outdoors
+  - Renton
+  - FarmersMarket
+cost: free
+schedules:
+  - schedule: every Tuesday
+    start_time: "15:00"
+    duration: PT4H
+    months:
+      - 6
+      - 7
+      - 8
+      - 9

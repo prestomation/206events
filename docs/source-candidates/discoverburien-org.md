@@ -27,3 +27,22 @@ Investigated 2026-09-24:
   support; not a dead end, just needs either an enhancement to the
   built-in squarespace type (calendarView support) or a small custom
   ripper. Re-evaluate as a 🔴 Low custom-scraper candidate in a future cycle.
+
+Re-checked 2026-09-25: the plain `/calendar?format=json` fetch (no query
+params beyond `format=json`) still succeeds and returns the current
+month's `calendarView`/`monthFilter` items as before. But any request
+adding a `month=<epoch>` param to crawl forward into future months —
+tried both `?month=<epoch-ms>&format=json` and `?format=json&month=<epoch-ms>`
+— gets served a Squarespace "Please Stand By" bot-challenge page instead
+of JSON, even though the identical unparameterized URL keeps working
+seconds before/after. A `/calendar/<year>/<month>` path-style URL (in case
+this Squarespace config routes month navigation that way) returns the
+site's normal non-JSON HTML instead of the calendar collection, so that
+alternate URL shape isn't the right one either. Net effect: only the
+*current* month's mixed past/future items are reachable from this
+environment; there is no way found yet to page forward without triggering
+the challenge. Still 🔴 Low / not implementable without either (a) a
+`browserbase`-style JS-executing fetch to get past the challenge on
+`month=`-parameterized requests, or (b) Squarespace calendarView support
+landing in the built-in ripper type with some other pagination approach.
+Left as `investigating`.
