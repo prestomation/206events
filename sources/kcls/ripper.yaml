@@ -14,6 +14,10 @@ cost: free
 lookahead: P4W
 geo: null
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/King_County_Library_System_logo.svg/500px-King_County_Library_System_logo.svg.png"
+# BiblioCommons event pages carry only the KCLS logo, never a per-event photo
+# (verified on 3 distinct branch program pages: ELL Classes, Community Vans
+# Office Hours, Talk Time). Events display the venue logo above instead.
+skipEventPhotos: true
 calendars:
   - name: algona-pacific
     friendlyname: "KCLS - Algona-Pacific"
