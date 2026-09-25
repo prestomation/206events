@@ -6,7 +6,7 @@ url: https://www.duvallwa.gov/calendar.aspx
 tags: [Community, Duvall]
 firstSeen: 2026-09-25
 lastChecked: 2026-09-25
-pr:
+pr: 1598
 ---
 
 City of Duvall community calendar (King County, Sammamish Valley). Confirmed
