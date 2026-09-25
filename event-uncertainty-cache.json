@@ -101488,6 +101488,13 @@
       "resolvedAt": "2026-09-24",
       "source": "agent",
       "reason": "No per-event image for library programs"
+    },
+    "seatoday:cityspark-20020376": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-25",
+      "source": "agent",
+      "reason": "Event occurred today (2026-09-25); CitySpark embed is JS-rendered and inaccessible. No cost field returned by CitySpark API (Free/Price/IsTicketed all absent). Event now past — uncertainty will naturally clear from next build.",
+      "partialFingerprint": "1y5syre"
     }
   }
 }

@@ -1808,6 +1808,9 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   "university of washington – husky union building": { lat: 47.6557, lng: -122.305 }, // alias of the HUB entry in UW_BUILDING_COORDS
   "west seattle chamber office, seattle, wa": { lat: 47.5523942, lng: -122.3866596, osmType: 'way', osmId: 231270545 }, // West Seattle Chamber of Commerce, 5450 California Ave SW #101, Seattle, WA 98136
   "zulu's board game cafe": { lat: 47.7599233, lng: -122.2042918 }, // same venue as the existing "zulu's guildhall" entry (sources/external/zulus-games.yaml) — Zulu's Games Event Center, 10131b Main St, Bothell, WA 98011
+  "zulus board game cafe": { lat: 47.7599233, lng: -122.2042918 }, // spelling variant (no apostrophe) from City of Bothell ICS — same venue as "zulu's board game cafe"
+  "triangle junction": { lat: 47.7597325, lng: -122.2073518 }, // Triangle Junction, 18134 Bothell Way NE, Bothell WA 98011 — from City of Bothell calendar
+  "main street in downtown bothell": { lat: 47.7601522, lng: -122.2046161 }, // Main Street, Downtown Bothell WA — generic downtown Bothell location from City of Bothell calendar
 };
 
 /**
