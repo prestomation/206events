@@ -6,7 +6,7 @@ url: https://www.mynecessitea.com/calendar
 tags: ["Food", "West Seattle"]
 firstSeen: 2026-09-26
 lastChecked: 2026-09-26
-pr:
+pr: 1602
 ---
 
 Woman-owned tea room at 3237B California Ave SW, Seattle, WA 98116 (West
