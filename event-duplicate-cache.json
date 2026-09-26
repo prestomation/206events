@@ -28643,6 +28643,216 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-26",
       "note": "19hz.info is an electronic music aggregator (sourceRole: aggregator) listing Seattle shows. socialHOUSE is a promoter at Substation. Same show Nov 18 7pm."
+    },
+    "badslava-open-mics-all-events.ics Open Mic at Skylark Cafe & Club|2026-09-30T19:30:00-07:00[America/Los_Angeles]::recurring-skylark-cafe-open-mic.ics Skylark Cafe — Wednesday Open Mic|2026-09-30T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same weekly Wednesday open mic at Skylark Cafe, identical address, same time"
+    },
+    "badslava-open-mics-all-events.ics Open Mic at The Growler Guys|2026-09-29T21:00:00-07:00[America/Los_Angeles]::dark-room-comedy-dark-room-comedy.ics Comedy Night at The Growler Guys|2026-09-29T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same weekly Tuesday 9pm show at The Growler Guys; dark-room-comedy's own page describes it as an open-mic-format comedy night ('anyone can sign up to perform'), matching badslava's generic 'Open Mic' listing"
+    },
+    "barboza-barboza.ics Violet Grohl with Suzy Clue|2026-10-25T19:00:00-07:00[America/Los_Angeles]::do206-do206.ics Violet Grohl|2026-10-25T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same show at Barboza; do206's shorter title omits the supporting act (Suzy Clue) that Barboza's own listing includes"
+    },
+    "dark-seattle-shows.ics Wayfarer, John Haughm|2026-12-11T20:30-08:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor & Heirophant Present: Wayfarer w/ Nox Novacula, John Haughm|2026-12-11T20:30:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Identical ticketweb.com event URL on both sides (14312564) — same show, dark-seattle-shows' title just drops the presenter/support-act prefix"
+    },
+    "events12-seattle-events.ics Tea festival|2026-09-26T12:00:00-07:00[America/Los_Angeles]::mynecessitea-all-events.ics Northwest Tea Festival 2026|2026-09-26T10:00:00.330-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same annual Northwest Tea Festival at Seattle Center Exhibition Hall; location label text matches closely, the multi-km coordinate gap is a geocoding artifact on one side, not a different venue"
+    },
+    "external-nw-asian-weekly.ics 2026 Northwest Tea Festival|2026-09-26T00:00:00-07:00[America/Los_Angeles]::mynecessitea-all-events.ics Northwest Tea Festival 2026|2026-09-26T10:00:00.330-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same annual Northwest Tea Festival at Seattle Center Exhibition Hall; location label text matches closely, the multi-km coordinate gap is a geocoding artifact on one side, not a different venue"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "City of Seattle's own recreation calendar entry relisted by SEAtoday/CitySpark; identical title and start time"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "City of Seattle's own recreation calendar entry relisted by SEAtoday/CitySpark; identical title and start time"
+    },
+    "external-seattle-gov-city-wide.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "City of Seattle's own recreation calendar entry relisted by SEAtoday/CitySpark; identical title and start time"
+    },
+    "external-seattle-gov-city-wide.ics East Duwamish Work Party|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics East Duwamish Work Party|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle Parks Foundation republishing the City of Seattle Green City Partnerships volunteer work party listing; identical title, date and time, matching address on the city side"
+    },
+    "external-seattle-gov-city-wide.ics Forest Restoration - Longfellow Creek at Graham|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Forest Restoration - Longfellow Creek at Graham|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle Parks Foundation republishing the City of Seattle Green City Partnerships volunteer work party listing; identical title, date and time, matching address on the city side"
+    },
+    "external-seattle-gov-city-wide.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same Leschi Park program relisted by SEAtoday/CitySpark and the City of Seattle calendar; identical title/time, addresses agree (105m apart, same park)"
+    },
+    "external-seattle-gov-city-wide.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same Leschi Park program relisted by SEAtoday/CitySpark and the City of Seattle calendar; identical title/time, addresses agree (105m apart, same park)"
+    },
+    "external-seattle-gov-city-wide.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same Leschi Park program relisted by SEAtoday/CitySpark and the City of Seattle calendar; identical title/time, addresses agree (105m apart, same park)"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "City of Seattle's own recreation calendar entry relisted by SEAtoday/CitySpark; identical title and start time"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "City of Seattle's own recreation calendar entry relisted by SEAtoday/CitySpark; identical title and start time"
+    },
+    "external-seattle-gov-parks-recreation.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "City of Seattle's own recreation calendar entry relisted by SEAtoday/CitySpark; identical title and start time"
+    },
+    "external-seattle-gov-parks-recreation.ics East Duwamish Work Party|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics East Duwamish Work Party|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle Parks Foundation republishing the City of Seattle Green City Partnerships volunteer work party listing; identical title, date and time, matching address on the city side"
+    },
+    "external-seattle-gov-parks-recreation.ics Forest Restoration - Longfellow Creek at Graham|2026-09-26T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Forest Restoration - Longfellow Creek at Graham|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle Parks Foundation republishing the City of Seattle Green City Partnerships volunteer work party listing; identical title, date and time, matching address on the city side"
+    },
+    "external-seattle-gov-parks-recreation.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same Leschi Park program relisted by SEAtoday/CitySpark and the City of Seattle calendar; identical title/time, addresses agree (105m apart, same park)"
+    },
+    "external-seattle-gov-parks-recreation.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same Leschi Park program relisted by SEAtoday/CitySpark and the City of Seattle calendar; identical title/time, addresses agree (105m apart, same park)"
+    },
+    "external-seattle-gov-parks-recreation.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Mindful Moments|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same Leschi Park program relisted by SEAtoday/CitySpark and the City of Seattle calendar; identical title/time, addresses agree (105m apart, same park)"
+    },
+    "seatoday-seatoday-all.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics 3 Patterns That Break New Businesses | Financial Strategy for Values-Driven Founders, Part 2|2026-10-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 3 Patterns That Break New Businesses | Financial Strategy for Values-Driven Founders, Part 2|2026-10-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Building Your Future: A Supportive Class for First Time Homebuyers|2026-10-07T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Building Your Future: A Supportive Class for First Time Homebuyers|2026-10-07T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Building Your Future: A Supportive Class for First Time Homebuyers|2026-10-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Building Your Future: A Supportive Class for First Time Homebuyers|2026-10-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Business EXPO 2014|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Business EXPO 2014|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics CLOUD TECTONICS|2026-10-09T07:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics CLOUD TECTONICS|2026-10-09T07:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Client Appreciation|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Client Appreciation|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Encaustic Basics Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Encaustic Basics Workshop|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-all.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-arts.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-09T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-09T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-community.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics BirdWalk|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-community.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-community.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seatoday-seatoday-learning.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Glazer's Anniversary | Bug Walk! with Kristi Odom at Union Bay|2026-09-26T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same underlying seatoday/CitySpark event (identical PId) surfaced in two of the source's own category calendars"
+    },
+    "seattle-center-seattle-center-events.ics Eureka Day: Sensory-Friendly|2026-10-10T14:00:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Eureka Day|2026-10-10T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same specific sensory-friendly performance of Eureka Day at Seattle Rep's Leo K. Theater (Seattle Center campus); identical date/time, Seattle Center's own listing just adds the accessibility qualifier to the title"
     }
   }
 }
