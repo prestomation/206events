@@ -1,0 +1,20 @@
+# verified: 2026-09-26 ok
+name: mynecessitea
+sourceRole: venue
+type: squarespace
+description: "My Necessitea"
+url: "https://www.mynecessitea.com/calendar"
+friendlyLink: https://www.mynecessitea.com/calendar
+tags: ["Food", "West Seattle"]
+imageUrl: "https://images.squarespace-cdn.com/content/v1/5168806ae4b02d086334f2e9/1609437742802-KWG518SYTTIRODZOFZB0/My+Necessitea+Logo.png"
+geo:
+  lat: 47.5745519
+  lng: -122.3870315
+  label: "My Necessitea, 3237B California Ave SW, Seattle, WA 98116"
+  osmType: way
+  osmId: 570544447
+  osmChecked: "2026-09-26"
+calendars:
+  - name: all-events
+    friendlyname: "My Necessitea"
+    timezone: America/Los_Angeles
