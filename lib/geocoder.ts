@@ -1811,6 +1811,20 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   "zulus board game cafe": { lat: 47.7599233, lng: -122.2042918 }, // spelling variant (no apostrophe) from City of Bothell ICS — same venue as "zulu's board game cafe"
   "triangle junction": { lat: 47.7597325, lng: -122.2073518 }, // Triangle Junction, 18134 Bothell Way NE, Bothell WA 98011 — from City of Bothell calendar
   "main street in downtown bothell": { lat: 47.7601522, lng: -122.2046161 }, // Main Street, Downtown Bothell WA — generic downtown Bothell location from City of Bothell calendar
+
+  // --- 2026-09-26 geo-resolver batch: remaining "has street address" /
+  // "venue name only" unresolvable entries. Skipped as correctly
+  // unresolvable (checked, no confident match): "the poet" and "spice bar"
+  // (no matching Seattle venue by that name found via Nominatim or web
+  // search), "20224 pond view ln ne, ... poulsbo, wa" (a real residential
+  // address that Nominatim's structured/unstructured search can't locate —
+  // likely a private residence not addressable in OSM), "california sw in
+  // heart of fauntleroy" / "california sw intersections" (vague multi-block
+  // descriptions, no single cross street named), and "roam, pono ranch,
+  // skal" (three distinct Ballard bars named together, not one venue).
+  "811 1st ave suite 91m, 811 1st avenue, #suite 91m, seattle, wa": { lat: 47.6034802, lng: -122.3354924, osmType: 'relation', osmId: 3115695 }, // Colman Commons, Colman Building, 811 1st Ave, Seattle, WA 98104
+  "fairwinds - brittany park, mill creek, wa": { lat: 47.7517666, lng: -122.1624099, osmType: 'way', osmId: 27915520 }, // Fairwinds - Brittany Park senior living community, 17143 133rd Ave NE, Woodinville, WA 98072 (source labeled it "Mill Creek" but OSM/Nominatim place this exact-name venue in Woodinville)
+  "frog pond parking lot, magnuson park": { lat: 47.6742009, lng: -122.2581739 }, // approximate — the 65th Ave NE entrance into Magnuson Park, locally known as the "Frog Pond" park-and-ride lot (per Seattle Parks/WTA trail descriptions); no separate OSM feature for the lot itself
 };
 
 /**
