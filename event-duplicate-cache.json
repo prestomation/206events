@@ -28263,6 +28263,386 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-24",
       "note": "Tractor Tavern cross-lists at Sunset Tavern; both calendars show same show at same time"
+    },
+    "external-city-of-bothell.ics First of four Glorydays: Tabletop Roleplaying Game|2026-10-17T14:00:00-07:00[America/Los_Angeles]::kcls-bothell.ics Glorydays: A Tabletop Roleplaying Game|2026-10-17T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event: Glorydays tabletop RPG at KCLS Bothell Library Oct 17 2pm. City of Bothell aggregator lists same KCLS event. KCLS is the venue source."
+    },
+    "do206-do206.ics Acapulco Lips + The Helltones (Oak) + Girl Swallows Nightingale (Oak) + Special Guests|2026-10-24T20:30:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Acapulco Lips + The Helltones (Oak) + Girl Swallows Nightingale (Oak) + Special Guests|2026-10-24T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "do206 aggregator vs Conor Byrne Pub venue source; same show, 30-min time difference is doors vs showtime"
+    },
+    "do206-do206.ics Freak Slug|2026-10-24T20:00:00-07:00[America/Los_Angeles]::neumos-neumos.ics Freak Slug with Mamalarky|2026-10-24T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "do206 aggregator vs Neumos venue source; same show Oct 24"
+    },
+    "do206-do206.ics Paul Cauthen|2026-10-24T21:00:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Paul Cauthen with Leon Majcen|2026-10-24T21:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "do206 aggregator vs Showbox SoDo venue source; same show Oct 24"
+    },
+    "do206-do206.ics Tyler Ballgame w/ Guests|2026-10-24T20:30:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tyler Ballgame w/ Sharon Silva|2026-10-24T20:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "do206 aggregator vs Tractor Tavern venue source; same show, supporting act named in venue listing"
+    },
+    "external-seattle-city-of-lit.ics  Blanket Fort Reading Party|2026-11-23T10:30:00-08:00[America/Los_Angeles]::spl-authors-books-authors-books.ics Blanket Fort Reading Party|2026-11-23T10:30:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "seattle-city-of-lit aggregator vs SPL venue source; same event Nov 23"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle gov city-wide calendar vs seatoday aggregator; same Parks event Oct 8"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle gov city-wide calendar vs seatoday arts; same Parks event Oct 8"
+    },
+    "external-seattle-gov-city-wide.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle gov city-wide calendar vs seatoday community; same Parks event Oct 8"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle Parks calendar vs seatoday all; same event Oct 8"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle Parks calendar vs seatoday arts; same event Oct 8"
+    },
+    "external-seattle-gov-parks-recreation.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Summer Art|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Seattle Parks calendar vs seatoday community; same event Oct 8"
+    },
+    "external-uw-campus-events.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-college-of-arts-sciences.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-campus-events.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-geography.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-campus-events.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-hcde.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-campus-events.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-campus-events.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-campus-events.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-geography.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-hcde.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-college-of-arts-sciences.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-geography.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-hcde.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-geography.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-geography.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-geography.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-hcde.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-libraries-seattle.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-hcde.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-hcde.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-libraries-seattle.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-law.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-libraries-seattle.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-school-of-law.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]::external-uw-school-of-music.ics Christmas Day|2026-12-25T00:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW-wide holiday listed in all department calendars"
+    },
+    "external-uw-campus-events.ics Livestream- Retiring from the UWRP: An Overview|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Livestream- Retiring from the UWRP: An Overview|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW campus calendar vs seatoday aggregator; same UW webinar event"
+    },
+    "external-uw-campus-events.ics Livestream- Retiring from the UWRP: An Overview|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Livestream- Retiring from the UWRP: An Overview|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW campus calendar vs seatoday learning; same UW webinar event"
+    },
+    "external-uw-campus-events.ics Teaching Technologies Office Hours|2026-12-24T11:00:00-08:00[America/Los_Angeles]::external-uw-graduate-school.ics Teaching Technologies Office Hours|2026-12-24T11:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW campus-wide event listed in both main and grad school calendars; same session Dec 24 11am"
+    },
+    "external-uw-campus-events.ics Teaching Technologies Office Hours|2026-12-24T14:00:00-08:00[America/Los_Angeles]::external-uw-graduate-school.ics Teaching Technologies Office Hours|2026-12-24T14:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "UW campus-wide event listed in both main and grad school calendars; same session Dec 24 2pm"
+    },
+    "renegade-craft-fair-all-events.ics Renegade Craft Fair Seattle|2026-10-10T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Renegade Craft|2026-10-10T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Renegade Craft Fair venue source vs Seattle Center calendar; same annual fair at Seattle Center Oct 10"
+    },
+    "seatoday-seatoday-all.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-arts.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-08T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 Bellevue Jazz & Blues Music Series|2026-10-08T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics 7 Day Beginner's Leather Shoe Making Workshop in Iconic Pike Place Market|2026-09-26T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Leather Tote Making Workshop in Iconic Pike Place Market|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-26",
+      "note": "Different workshops: 'Leather Shoe Making' (9am) vs 'Leather Tote Making' (10am) — different titles, different start times, different event IDs"
+    },
+    "seatoday-seatoday-all.ics Leather Tote Making Workshop in Iconic Pike Place Market|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 7 Day Beginner's Leather Shoe Making Workshop in Iconic Pike Place Market|2026-09-26T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-26",
+      "note": "Different workshops: 'Leather Tote Making' (10am) vs 'Leather Shoe Making' (9am) — different titles, different start times, different event IDs"
+    },
+    "seatoday-seatoday-all.ics DEI Committee- PLACE HOLDER|2026-10-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics DEI Committee- PLACE HOLDER|2026-10-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics DO YOU LIKE SCARY MOVIES?: Horror Movie Trivia Night!|2026-10-06T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics DO YOU LIKE SCARY MOVIES?: Horror Movie Trivia Night!|2026-10-06T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics DO YOU LIKE SCARY MOVIES?: Horror Movie Trivia Night!|2026-10-06T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics DO YOU LIKE SCARY MOVIES?: Horror Movie Trivia Night!|2026-10-06T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-arts.ics DO YOU LIKE SCARY MOVIES?: Horror Movie Trivia Night!|2026-10-06T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics DO YOU LIKE SCARY MOVIES?: Horror Movie Trivia Night!|2026-10-06T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics EDUCATION COMMITTEE MEETING|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics EDUCATION COMMITTEE MEETING|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics EDUCATION COMMITTEE MEETING|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EDUCATION COMMITTEE MEETING|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-community.ics EDUCATION COMMITTEE MEETING|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EDUCATION COMMITTEE MEETING|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars (CitySpark 20020376)"
+    },
+    "seatoday-seatoday-all.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars (CitySpark 20020376)"
+    },
+    "seatoday-seatoday-all.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "seatoday aggregator vs SPL Capitol Hill venue source; same SPL event (CitySpark 20020376)"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars (CitySpark 20020376)"
+    },
+    "seatoday-seatoday-arts.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "seatoday arts aggregator vs SPL Capitol Hill venue source; same event"
+    },
+    "seatoday-seatoday-learning.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]::spl-capitol-hill.ics Family Story Time: Celebrating Dolly Parton|2026-09-25T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "seatoday learning aggregator vs SPL Capitol Hill venue source; same event"
+    },
+    "seatoday-seatoday-all.ics GAMECHANGER Entrepreneurs & Professionals Conference|2026-09-26T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics GAMECHANGER Entrepreneurs & Professionals Conference|2026-09-26T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics GSBA Capitol Hill Monthly Safety Call|2026-10-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics GSBA Capitol Hill Monthly Safety Call|2026-10-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics GSBA Capitol Hill Monthly Safety Call|2026-10-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics GSBA Capitol Hill Monthly Safety Call|2026-10-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-community.ics GSBA Capitol Hill Monthly Safety Call|2026-10-08T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics GSBA Capitol Hill Monthly Safety Call|2026-10-08T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics October Luncheon|2026-10-08T11:30:00-07:00[America/Los_Angeles]::west-seattle-chamber-west-seattle-chamber.ics October Luncheon: Candidate Forum|2026-10-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "seatoday aggregator vs West Seattle Chamber venue source; same event Oct 8 11:30am (seatoday truncated subtitle)"
+    },
+    "seatoday-seatoday-food.ics October Luncheon|2026-10-08T11:30:00-07:00[America/Los_Angeles]::west-seattle-chamber-west-seattle-chamber.ics October Luncheon: Candidate Forum|2026-10-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "seatoday food tag vs West Seattle Chamber venue source; same event Oct 8 11:30am"
+    },
+    "seatoday-seatoday-learning.ics October Luncheon|2026-10-08T11:30:00-07:00[America/Los_Angeles]::west-seattle-chamber-west-seattle-chamber.ics October Luncheon: Candidate Forum|2026-10-08T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "seatoday learning tag vs West Seattle Chamber venue source; same event Oct 8 11:30am"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-10-08T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-10-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Red Cross Blood Drive|2026-10-08T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-10-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-arts.ics Red Cross Blood Drive|2026-10-08T09:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Red Cross Blood Drive|2026-10-08T09:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Native Plant Nursery|2026-10-08T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Restoration Event | Native Plant Nursery|2026-10-08T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Restoration Event | Native Plant Nursery|2026-10-08T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Native Plant Nursery|2026-10-08T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-community.ics Restoration Event | Native Plant Nursery|2026-10-08T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Restoration Event | Native Plant Nursery|2026-10-08T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Tasveer Film Festival|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Tasveer Film Festival|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Tasveer Film Festival|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tasveer Film Festival|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-arts.ics Tasveer Film Festival|2026-10-08T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Tasveer Film Festival|2026-10-08T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Two Free Guided Tours in Schmitz Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Two Free Guided Tours in Schmitz Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-all.ics Two Free Guided Tours in Schmitz Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Two Free Guided Tours in Schmitz Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "seatoday-seatoday-arts.ics Two Free Guided Tours in Schmitz Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Two Free Guided Tours in Schmitz Park|2026-09-26T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "Same event in multiple seatoday tag calendars"
+    },
+    "19hz-all-events.ics Julian Fijma|2026-11-18T19:00:00-08:00[America/Los_Angeles]::substation-substation.ics socialHOUSE Presents: Julian Fijma|2026-11-18T19:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-26",
+      "note": "19hz.info is an electronic music aggregator (sourceRole: aggregator) listing Seattle shows. socialHOUSE is a promoter at Substation. Same show Nov 18 7pm."
     }
   }
 }

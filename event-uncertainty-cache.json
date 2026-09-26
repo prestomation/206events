@@ -100805,11 +100805,83 @@
       "reason": "Ticketweb listing page does not expose a price statically (JS-rendered ticket widget); no price range published yet",
       "partialFingerprint": "2bcpvs"
     },
-    "u-district-partnership:seattle-boba-fest-2026-08-01": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-25",
+    "venue:loc:discovery park south parking lot,discovery park south parking lot, seattle, wa 98199, usa": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-26",
       "source": "agent",
-      "reason": "Past event (Aug 1, 2026); no start time documented on event page; page re-lists past event annually — restored after --date-in-key-older-than prune incorrectly dropped it (u-district-partnership is called out by name in skills/event-uncertainty-resolver/SKILL.md as unsafe for this flag since its page keeps re-emitting the same past-dated event)"
+      "evidence": "https://www.seattle.gov/parks/find/parks/discovery-park"
+    },
+    "venue:osm:way:14024017": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-09-26",
+      "source": "agent",
+      "evidence": "https://www.seattleartmuseum.org/visit/olympic-sculpture-park/paccar-pavilion"
+    },
+    "renton-downtown-partnership:6a8f274ac89bee03771b9562": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-26",
+      "source": "agent",
+      "evidence": "https://www.rentondowntown.com/events/halloween"
+    },
+    "west-seattle-nursery:6ab4514fc8c1762a99215863": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-26",
+      "source": "agent",
+      "evidence": "https://www.westseattlenursery.com/events-classes/street-trees-of-seattle-book-signing-with-taha"
+    },
+    "venue:osm:node:2429623453": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-26",
+      "source": "agent",
+      "evidence": "https://www.seattle.gov/parks/find/parks/hitt-s-hill-park"
+    },
+    "seatoday:cityspark-20026881": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-26",
+      "source": "agent",
+      "evidence": "https://www.hatback.com/seattle-seahawks/",
+      "partialFingerprint": "fvke4h"
+    },
+    "seatoday:cityspark-20026901": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-26",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/sweet-thang-sundays-rb-brunch-tickets-1334253230329",
+      "partialFingerprint": "l2hhzs"
+    },
+    "seatoday:cityspark-19440741": {
+      "fields": {
+        "cost": {
+          "min": 7.5,
+          "max": 9.5
+        }
+      },
+      "resolvedAt": "2026-09-26",
+      "source": "agent",
+      "evidence": "https://clockoutlounge.com/tm-event/raised-by-tv-events-presents-all-ages-lotr-films-trivia-night/",
+      "partialFingerprint": "1ras980"
     }
   }
 }
