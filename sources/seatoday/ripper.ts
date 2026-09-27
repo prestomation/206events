@@ -327,11 +327,15 @@ export default class SEAtodayRipper implements IRipper {
     /**
      * Extract the "Location Link:" value CitySpark embeds in the description
      * for some syndicated calendars (e.g. Seattle Public Library's Trumba
-     * feed). Returns null when the description has no such line.
+     * feed). The value appears either on its own line after a blank line
+     * ("Location Link:\n\nCentral Library") or inline on the same line
+     * ("Location Link: Online") — see sources/seatoday/sample-data.json for
+     * both forms pulled from the live feed. Returns null when the
+     * description has no such line.
      */
     private extractLocationLink(description?: string): string | null {
         if (!description) return null;
-        const match = description.match(/Location Link:\s*\n\n([^\n]+)/);
+        const match = description.match(/Location Link:\s*([^\n]+)/);
         return match ? match[1].trim() : null;
     }
 

@@ -15135,7 +15135,7 @@
       },
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D205616700"
+      "evidence": "cost: https://6amcity.com/wa/seattle/events/embed#/details/living-with-conviction-sentenced-to-debt-for-life-in-washington-state-exhibit/18572479/2026-07-07T00; location: https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D205616700"
     },
     "seatoday:cityspark-19212085": {
       "fields": {
@@ -15831,11 +15831,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "location": "Seattle Public Library - Capitol Hill Branch, 425 Harvard Ave E, Seattle, WA 98102"
       },
-      "resolvedAt": "2026-06-25",
+      "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/cello-concert-with-gretchen-yanover/18988895/2026-07-01T00"
+      "evidence": "cost: https://6amcity.com/wa/seattle/events/embed#/details/cello-concert-with-gretchen-yanover/18988895/2026-07-01T00; location: https://www.spl.org/event-calendar?trumbaEmbed=view%3Devent%26eventid%3D209063662"
     },
     "seatoday:cityspark-19147615": {
       "fields": {
