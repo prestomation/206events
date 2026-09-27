@@ -56849,11 +56849,12 @@
       "fields": {
         "cost": {
           "paid": true
-        }
+        },
+        "imageUrl": "https://www.chihulygardenandglass.com/img/_1200x630_crop_center-center_82_none/Refract_101421_Gather_MSP-2.jpg?mtime=1662584207"
       },
-      "resolvedAt": "2026-09-02",
+      "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "chihulygardenandglass.com: GATHER opening night party for REFRACT is ticketed; price not publicly listed"
+      "evidence": "cost: chihulygardenandglass.com: GATHER opening night party for REFRACT is ticketed; price not publicly listed. | imageUrl: https://www.chihulygardenandglass.com/events/gather-kick-off-party-for-refract (og:image meta tag, verified live 200 + visually confirms the glasshouse at night during the party)"
     },
     "chihuly-garden-and-glass:chihuly-pilates-in-the-glasshouse-3-20261006": {
       "fields": {
@@ -99526,6 +99527,36 @@
       "resolvedAt": "2026-09-27",
       "source": "agent",
       "reason": "Bar page ties happy hour to Kraken puck-drop with no fixed time (\"From puck drop to final whistle\"); third-party schedule sources for this date give conflicting/unverifiable timezone-ambiguous game times"
+    },
+    "icm:icm-portland-retro-gaming-expo-2026-10-9": {
+      "fields": {
+        "imageUrl": "https://retrogamingexpo.com/images/pageHeader_2026.jpg"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://retrogamingexpo.com (site header banner, dated \"October 9-11, 2026\" matching this event exactly)"
+    },
+    "stroum-jcc:152939": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "sjcc.org event page has no og:image or event-specific image, only a generic \"register now\" button graphic"
+    },
+    "west-seattle-chamber:business-relocation-info-session-17534": {
+      "fields": {
+        "imageUrl": "https://chambermaster.blob.core.windows.net/userfiles/UserFiles/chambers/1229/Image/2026_Events/wseventrelost2026.png"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/business-relocation-info-session-17534 (event flyer embedded in listing: \"WEST SEATTLE LINK EXTENSION... 5:30 PM - 6:30 PM OCT 01\", matches this event date/time exactly)"
+    },
+    "west-seattle-chamber:ribbon-cutting-starbird-chicken-17535": {
+      "fields": {
+        "imageUrl": "https://chambermaster.blob.core.windows.net/userfiles/UserFiles/chambers/1229/Image/Unknown-1.jpeg"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://westseattle.wschamber.com/events/details/ribbon-cutting-starbird-chicken-17535 (event flyer embedded in listing: \"JOIN US FOR STARBIRD'S GRAND OPENING! SEPTEMBER 28 | 11AM\", matches this event exactly)"
     }
   }
 }
