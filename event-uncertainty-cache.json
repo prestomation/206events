@@ -56854,7 +56854,7 @@
       },
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://www.chihulygardenandglass.com/events/gather-kick-off-party-for-refract (og:image meta tag, verified live 200 + visually confirms the glasshouse at night during the party)"
+      "evidence": "cost: chihulygardenandglass.com: GATHER opening night party for REFRACT is ticketed; price not publicly listed. | imageUrl: https://www.chihulygardenandglass.com/events/gather-kick-off-party-for-refract (og:image meta tag, verified live 200 + visually confirms the glasshouse at night during the party)"
     },
     "chihuly-garden-and-glass:chihuly-pilates-in-the-glasshouse-3-20261006": {
       "fields": {
@@ -99557,12 +99557,6 @@
       "resolvedAt": "2026-09-27",
       "source": "agent",
       "evidence": "https://westseattle.wschamber.com/events/details/ribbon-cutting-starbird-chicken-17535 (event flyer embedded in listing: \"JOIN US FOR STARBIRD'S GRAND OPENING! SEPTEMBER 28 | 11AM\", matches this event exactly)"
-    },
-    "rainier-beach-community-club:rbcc-meaningful-movies-2027-09-19": {
-      "unresolvable": true,
-      "resolvedAt": "2026-09-27",
-      "source": "agent",
-      "reason": "og:image on the recurring Meaningful Movies series page is a specific documentary poster for whatever film is currently featured; this event is over a year out and the image would almost certainly be wrong by then"
     }
   }
 }
