@@ -1,0 +1,13 @@
+name: wa-food-trucks
+sourceRole: aggregator
+description: "Washington State Food Truck Finder"
+url: "https://findfoodtrucks.wafoodtrucks.org/"
+friendlyLink: "https://findfoodtrucks.wafoodtrucks.org/"
+cost: free
+geo: null
+tags: ["FoodTruck"]
+calendars:
+  - name: wa-food-trucks
+    friendlyname: "WA Food Truck Finder"
+    timezone: America/Los_Angeles
+    tags: ["FoodTruck"]
