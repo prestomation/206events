@@ -1,0 +1,12 @@
+name: vashon-events
+sourceRole: aggregator
+type: squarespace
+description: "Vashon Events"
+url: "https://www.vashonevents.org/events"
+friendlyLink: https://www.vashonevents.org/events
+tags: ["Vashon", "Community"]
+geo: null
+calendars:
+  - name: all-events
+    friendlyname: "Vashon Events"
+    timezone: America/Los_Angeles

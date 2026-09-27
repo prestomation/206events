@@ -1,12 +1,12 @@
 ---
 name: Vashon Events
-status: candidate
+status: added
 platform: Squarespace
 url: https://www.vashonevents.org/events
-tags: [Vashon]
+tags: [Vashon, Community]
 firstSeen: 2026-09-26
-lastChecked: 2026-09-26
-pr:
+lastChecked: 2026-09-27
+pr: TBD
 ---
 
 Community events organization for Vashon Island (King County). Confirmed
@@ -21,3 +21,9 @@ overlap with some listings here — check for duplicates against
 `sources/vashon_center_for_the_arts/` when implementing; cross-source dedup
 should catch true duplicates automatically. Built-in `squarespace` type,
 high confidence — no custom scraper needed.
+
+Implemented 2026-09-27: `sources/vashon_events/ripper.yaml`, built-in
+`squarespace` type, `sourceRole: aggregator`, `geo: null`, tags `["Vashon",
+"Community"]`. `ONLY_SOURCE=vashon-events npm run generate-calendars`
+confirmed 36 events, 0 errors. Cross-source dedup against
+`vashon_center_for_the_arts` runs automatically in the full build.
