@@ -26,6 +26,13 @@ function normalizeMonth(name: string): string {
 const MAX_PAGES = 10;
 const BASE_URL = "https://www.seattlecenter.com";
 
+// Seattle Center's own Google Maps links use bare building names (e.g. "Armory")
+// with no campus qualifier. Geocoders resolve those ambiguously — bare "Armory"
+// matches the unrelated Naval Reserve Armory (MOHAI) in South Lake Union instead
+// of Seattle Center's own Armory building — so qualify known-ambiguous names to
+// match the 'seattle center armory' entry in lib/geocoder.ts's KNOWN_VENUE_COORDS.
+const AMBIGUOUS_BARE_VENUES = new Set(['armory']);
+
 export default class SeattleCenterRipper implements IRipper {
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const calendars: { [key: string]: { events: RipperEvent[], friendlyName: string, tags: string[] } } = {};
@@ -211,8 +218,14 @@ export default class SeattleCenterRipper implements IRipper {
 
         let venue = decodeURIComponent(match[1].replace(/\+/g, ' '));
         // Clean up address suffixes like ", Seattle, WA 98109"
-        venue = venue.replace(/,\s*(Seattle|WA).*$/i, '');
-        return venue.trim() || null;
+        venue = venue.replace(/,\s*(Seattle|WA).*$/i, '').trim();
+        if (!venue) return null;
+
+        if (AMBIGUOUS_BARE_VENUES.has(venue.toLowerCase())) {
+            venue = `Seattle Center ${venue}`;
+        }
+
+        return venue;
     }
 
     public parseDateTime(dateStr: string, timeStr: string, timezone: ZoneRegion): ZonedDateTime | null {

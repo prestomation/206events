@@ -84,10 +84,14 @@ describe('SeattleCenterRipper', () => {
             expect(ripper.extractLocation(link)).toBe("Seattle Children's Theatre");
         });
 
-        it('cleans up address suffixes from venue name', () => {
+        it('qualifies the bare Armory building name with "Seattle Center" so it geocodes to the right venue', () => {
+            // Regression test for #1621: bare "Armory" is ambiguous to geocoders
+            // (they resolve it to the unrelated Naval Reserve Armory/MOHAI in South
+            // Lake Union instead of Seattle Center's own Armory building), so it must
+            // be qualified to match the 'seattle center armory' KNOWN_VENUE_COORDS entry.
             const html = parse('<a href="https://www.google.com/maps/place/Armory,+Seattle,+WA+98109/@47.62" class="event-list__location-link">Location</a>');
             const link = html.querySelector('.event-list__location-link');
-            expect(ripper.extractLocation(link)).toBe('Armory');
+            expect(ripper.extractLocation(link)).toBe('Seattle Center Armory');
         });
 
         it('extracts Climate Pledge Arena', () => {
@@ -129,7 +133,7 @@ describe('SeattleCenterRipper', () => {
             expect(calEvents[1].date.dayOfMonth()).toBe(15);
             expect(calEvents[1].date.hour()).toBe(11);
             expect(calEvents[1].duration.toHours()).toBe(2);
-            expect(calEvents[1].location).toBe('Armory');
+            expect(calEvents[1].location).toBe('Seattle Center Armory');
             expect(calEvents[1].description).toContain('Vietnamese Lunar New Year');
 
             // Third event: Ghost at 7:00 p.m. on Feb 15
