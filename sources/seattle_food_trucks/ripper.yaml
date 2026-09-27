@@ -1,5 +1,15 @@
+# 2026-09-27: build-health flagged every calendar in this ripper with
+# "Failed to fetch pods: 403 Forbidden". Confirmed live: seattlefoodtruck.com
+# now serves a Cloudflare "Just a moment..." JS challenge page to a plain
+# fetch (verified from this environment's residential-adjacent IP too, not
+# just CI) — a bot-detection block, not a stale/expired URL. Staging the
+# proxy ladder entry point per docs/proxy-verification.md; per the
+# JS-challenge shortcut, the out-of-band proxy-escalation run should skip
+# straight to the browserbase rung rather than trying outofband first (a
+# residential fetch gets the same challenge page).
 name: seattle-food-trucks
 sourceRole: venue
+proxy: "outofband"
 description: "Seattle Food Trucks"
 url: "https://www.seattlefoodtruck.com/api/events"
 friendlyLink: "https://www.seattlefoodtruck.com"
