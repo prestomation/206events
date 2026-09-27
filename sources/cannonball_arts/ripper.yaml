@@ -1,4 +1,8 @@
-# verified: 2026-05-16 ok
+# verified: 2026-09-27 ok — the site migrated off Squarespace to a custom
+# Next.js/Sanity-backed site, but still emits the same schema.org ItemList
+# JSON-LD this ripper parses (confirmed live), so the parser is unaffected.
+# 0 upcoming events currently listed (itemListElement: []) — small venue with
+# intermittent programming, not a broken feed.
 name: cannonball-arts
 sourceRole: venue
 description: "Cannonball Arts Center"
@@ -16,3 +20,4 @@ calendars:
   - name: all-events
     friendlyname: "Cannonball Arts Center"
     timezone: America/Los_Angeles
+    expectEmpty: true

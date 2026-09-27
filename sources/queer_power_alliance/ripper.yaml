@@ -1,3 +1,6 @@
+# 2026-09-27: build-health flagged 0 events. Confirmed via the live
+# Squarespace JSON endpoint (0 upcoming, 30 past) — small community org with
+# intermittent programming, not a broken feed.
 name: queer-power-alliance
 type: squarespace
 sourceRole: venue
@@ -10,3 +13,4 @@ calendars:
   - name: all-events
     friendlyname: "Queer Power Alliance Events"
     timezone: America/Los_Angeles
+    expectEmpty: true

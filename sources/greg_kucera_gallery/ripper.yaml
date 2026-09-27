@@ -15,7 +15,11 @@ geo:
   osmType: node
   osmId: 2351712117
 calendars:
-  # 2026-09-02: 1 upcoming event now posted; removing expectEmpty
+  # 2026-09-27: build-health flagged 0 events again. Confirmed via the live
+  # Squarespace JSON endpoint (0 upcoming, 29 past). Small gallery with
+  # intermittent openings — re-adding expectEmpty; remove again whenever a
+  # future build finds an upcoming event (as on 2026-09-02).
   - name: greg-kucera-gallery
     friendlyname: "Greg Kucera Gallery"
     timezone: America/Los_Angeles
+    expectEmpty: true

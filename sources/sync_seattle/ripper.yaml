@@ -8,6 +8,10 @@
 # intermittent "Vibes After Five" mixers — re-adding expectEmpty; remove
 # again whenever a future build finds an upcoming event.
 # 2026-09-26: 1 upcoming event found; removed expectEmpty.
+# 2026-09-27: build-health flagged 0 events again. Confirmed via the live
+# Eventbrite organizer page: no upcoming events listed. Same intermittent
+# pattern as before — re-adding expectEmpty; remove again whenever a future
+# build finds an upcoming event.
 name: sync-seattle
 sourceRole: venue
 type: eventbrite
@@ -21,6 +25,7 @@ calendars:
   - name: sync-seattle
     friendlyname: "Sync Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "45161572473"
       defaultLocation: "Seattle, WA"

@@ -11,9 +11,13 @@ url: "https://www.eventbrite.com/o/seattle-downtown-community-council-dcc-102942
 friendlyLink: https://www.seattledcc.org/
 tags: ["Community", "Downtown"]
 calendars:
+  # 2026-09-27: build-health flagged 0 events. Confirmed via the live
+  # Eventbrite organizer page ("No upcoming events") — volunteer-run coalition
+  # with intermittent programming, not a broken feed.
   - name: seattle-downtown-community-council
     friendlyname: "Seattle Downtown Community Council"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "102942974681"
       defaultLocation: "Downtown Seattle, WA"

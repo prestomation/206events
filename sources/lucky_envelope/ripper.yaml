@@ -18,6 +18,10 @@ geo:
   osmId: 4321475708
 imageUrl: "https://static1.squarespace.com/static/630403f15865200f779338ce/t/637e89f98f9fba3705f9dd4b/1669237241795/LEB_CIB_BlueBG_Horizontal.png?format=1500w"
 calendars:
+  # 2026-09-27: build-health flagged 0 events. Confirmed via the live
+  # Squarespace JSON endpoint (0 upcoming, 30 past) — a currently quiet
+  # taproom calendar, not a broken feed.
   - name: all-events
     friendlyname: "Lucky Envelope Brewing"
     timezone: America/Los_Angeles
+    expectEmpty: true

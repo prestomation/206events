@@ -1,10 +1,12 @@
-# verified: 2026-06-08 ok (Sitecore GraphQL)
+# verified: 2026-09-27 ok — seattlesymphony.org now permanently redirects to
+# benaroyahall.org (site rebrand); the calendar backend also migrated from
+# Sitecore GraphQL to a plain Umbraco endpoint. See ripper.ts doc comment.
 name: benaroya-hall
 sourceRole: venue
 friendlyname: "Benaroya Hall"
 description: "Benaroya Hall (Seattle Symphony)"
-url: "https://www.seattlesymphony.org/concerttickets/calendar"
-friendlyLink: https://www.seattlesymphony.org/benaroyahall
+url: "https://benaroyahall.org/calendar"
+friendlyLink: https://benaroyahall.org
 tags: ["Music", "Downtown"]
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/96/Benaroya_Hall%2C_Seattle%2C_Washington%2C_USA.jpg"
 geo:
@@ -33,6 +35,10 @@ calendars:
     config:
       # Catch-all for any remaining Benaroya Hall complex room (Octave 9,
       # Grand Lobby, Green Room, Norcliffe, Soundbridge, generic "Benaroya
-      # Hall") not already routed to Taper or Nordstrom above.
+      # Hall") not already routed to Taper or Nordstrom above. venueMatch is
+      # informational only for a catchAll route — ripper.ts's routeVenue()
+      # always assigns it whatever no specific route claims, since the
+      # current API's venue names don't carry a literal "Benaroya Hall"
+      # substring to match against.
       venueMatch: "Benaroya Hall"
       catchAll: true

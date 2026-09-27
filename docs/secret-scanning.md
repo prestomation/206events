@@ -41,7 +41,6 @@ Current source-credential env vars:
 |---|---|---|
 | `candlelight` | `CANDLELIGHT_ALGOLIA_API_KEY` | Search-only Algolia key |
 | `pioneer_square_market` | `PIONEER_SQUARE_MARKET_ANON_KEY` | Supabase anon (read-only) key |
-| `benaroya_hall` | `BENAROYA_SITECORE_API_KEY` | Sitecore read-only Item Service key |
 
 Because the secret has to be added to GitHub by the maintainer, a source that
 needs a new credential reports zero events in CI until the secret exists. When
