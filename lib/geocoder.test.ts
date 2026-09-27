@@ -193,6 +193,24 @@ describe('extractHybridPhysicalLocation', () => {
     expect(extractHybridPhysicalLocation('Zoom Webinar')).toBeNull();
     expect(extractHybridPhysicalLocation('The Crocodile')).toBeNull();
   });
+
+  it('extracts the physical venue when "Hybrid" precedes online/virtual', () => {
+    // external-seattle-gov-arts phrases hybrid events as "Hybrid - Online or
+    // In-person at <venue>" rather than starting directly with "Online".
+    expect(
+      extractHybridPhysicalLocation(
+        'Hybrid - Online or In-person at ARTS at King Street Station (303 S. Jackson Street 3rd floor, Seattle, WA 98104)',
+      ),
+    ).toBe('ARTS at King Street Station (303 S. Jackson Street 3rd floor, Seattle, WA 98104)');
+    expect(extractHybridPhysicalLocation('Hybrid: Virtual or in-person at City Hall')).toBe('City Hall');
+  });
+
+  it('still returns null for a bare "Hybrid (...)" with no "or ... at <venue>" clause', () => {
+    expect(extractHybridPhysicalLocation('Hybrid (OAC office & Zoom)')).toBeNull();
+    expect(
+      extractHybridPhysicalLocation('Hybrid Meeting (in-person & virtual) - Meeting link & location information below'),
+    ).toBeNull();
+  });
 });
 
 describe('lookupGeoCache', () => {
@@ -1073,6 +1091,51 @@ describe.skipIf(!HAS_VENUE_DATA)('lookupKnownVenue', () => {
   it('matches "Cerium Networks" despite the source mislabeling its Tukwila address as Seattle', () => {
     const result = lookupKnownVenue('Cerium Networks, 14240 Interurban Ave S #170, Seattle, 98168, United States');
     expect(result).toEqual({ lat: 47.4761948, lng: -122.2570857 });
+  });
+
+  // 2026-09-27 geo-resolver batch — spot checks of a representative sample
+  // of the new entries (short prefix keys, exact-string keys, and reused
+  // coordinates), not an exhaustive list of every addition.
+  describe('2026-09-27 geo-resolver batch additions', () => {
+    it('matches short venue-name prefixes regardless of the address suffix that follows', () => {
+      expect(lookupKnownVenue('Jack Hyde Park - 2000 Ruston Way Tacoma, WA')).toEqual({ lat: 47.274448, lng: -122.46041 });
+      expect(lookupKnownVenue('T-Mobile Park, 1516 First Avenue South, Seattle, WA 98134')).toEqual({
+        lat: 47.5913974,
+        lng: -122.332507,
+      });
+      expect(lookupKnownVenue('The Tractor Tavern, 5213 Ballard Avenue N.w., Seattle, WA 98107')).toEqual({
+        lat: 47.6657081,
+        lng: -122.382803,
+      });
+    });
+
+    it('matches a truncated venue name (source data cut off mid-address)', () => {
+      const result = lookupKnownVenue('Lakewood Seward Park Community Club 4916 S. Angeline Street Seat');
+      expect(result).toEqual({ lat: 47.5596018, lng: -122.2710791 });
+    });
+
+    it('matches an exact-string key for a one-off address fragment with a generic venue name', () => {
+      const result = lookupKnownVenue(
+        "the church of jesus christ of latter-day saints, 9256 nels nelson rd nw, bremerton, wa",
+      );
+      expect(result).toEqual({ lat: 47.6458943, lng: -122.6601679 });
+    });
+
+    it('matches the leading-comma Seattle University room variants', () => {
+      expect(lookupKnownVenue(', Campion Ballroom')).toEqual({ lat: 47.6068, lng: -122.3195 });
+      expect(lookupKnownVenue(', Student Center 1st Floor')).toEqual({ lat: 47.6095, lng: -122.3188 });
+    });
+
+    it('matches the Google Maps place-URL for Wallingford Farmers Market and its plain-name variant', () => {
+      const url =
+        'https://www.google.com/maps/place/Wallingford+Farmers+Market/@47.6635123,-122.3331515,16.68z/data=!4m6!3m5!1s0x5490145744a22a99:0x2df93443a9ce7080!8m2!3d47.6638867!4d-122.3333528!16s%2Fg%2F1tkktkqn?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D';
+      expect(lookupKnownVenue(url)).toEqual({ lat: 47.6638867, lng: -122.3333528 });
+      expect(lookupKnownVenue('Wallingford Farmers Market')).toEqual({ lat: 47.6638867, lng: -122.3333528 });
+    });
+
+    it('matches "The Poet" as the Tacoma venue inside Manuscript, not a Seattle guess', () => {
+      expect(lookupKnownVenue('The Poet')).toEqual({ lat: 47.2620059, lng: -122.446054 });
+    });
   });
 
   it('matches "Raging River trailhead" once normalizeLocation drops the address line', () => {
