@@ -6,7 +6,7 @@ url: https://www.vashonevents.org/events
 tags: [Vashon, Community]
 firstSeen: 2026-09-26
 lastChecked: 2026-09-27
-pr: TBD
+pr: 1607
 ---
 
 Community events organization for Vashon Island (King County). Confirmed
