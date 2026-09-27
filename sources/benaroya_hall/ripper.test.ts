@@ -79,19 +79,25 @@ describe("BenaroyaHallRipper", () => {
         ]);
     });
 
-    it("posts the fixed -1 filter defaults (not empty strings)", async () => {
+    it("posts the fixed -1/empty-string filter defaults correctly", async () => {
         await new BenaroyaHallRipper().rip(makeRipper());
         const [url, init] = mockFetch.mock.calls[0];
         expect(url).toBe(
             "https://benaroyahall.org/umbraco/api/performances/GetGridCalendarShows",
         );
         const body = new URLSearchParams(init.body as string);
+        // These six default to "-1" in the site's own Vue state.
         expect(body.get("keywordId")).toBe("-1");
         expect(body.get("genre")).toBe("-1");
         expect(body.get("seriesKeywordId")).toBe("-1");
         expect(body.get("audienceKeywordId")).toBe("-1");
         expect(body.get("accessibilityKeywordId")).toBe("-1");
         expect(body.get("timeSlot")).toBe("-1");
+        // These three default to "" instead — getting this asymmetry wrong
+        // makes the endpoint silently return an empty body (see ripper.ts).
+        expect(body.get("locationKeywordId")).toBe("");
+        expect(body.get("programs")).toBe("");
+        expect(body.get("query")).toBe("");
         expect(body.get("selectedFilters")).toBe("[]");
     });
 
@@ -116,6 +122,24 @@ describe("BenaroyaHallRipper", () => {
         expect(
             allErrors.some((e) => e.reason?.includes("No Venue")),
         ).toBe(false);
+    });
+
+    it("skips an off-site (non-Benaroya) performance without error, not just an unmatched-venue one", async () => {
+        const cals = await new BenaroyaHallRipper().rip(makeRipper());
+        const allSummaries = cals.flatMap((c) => c.events.map((e) => e.summary));
+        // "Garfield High School Auditorium" matches no specific route and
+        // isn't in ON_SITE_VENUE_SUBSTRINGS, so the catch-all must NOT claim
+        // it — this is the regression the old Sitecore-era ripper guarded
+        // against (community concerts at off-site venues), and the rewrite's
+        // routeVenue() must keep guarding against it even though the new
+        // API's venue names no longer carry a literal "Benaroya Hall" suffix.
+        expect(allSummaries).not.toContain("Community Concert at Garfield");
+        const allErrors = cals.flatMap((c) => c.errors);
+        expect(
+            allErrors.some((e) => e.reason?.includes("Garfield")),
+        ).toBe(false);
+        // And it must not have been miscounted into the catch-all either.
+        expect(byName(cals, "benaroya-other").events.length).toBe(1);
     });
 
     it("filters out past performances", async () => {

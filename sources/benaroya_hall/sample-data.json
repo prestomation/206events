@@ -102,5 +102,18 @@
         "buyPageUrl": "",
         "isPast": false,
         "hideInSearchResults": false
+    },
+    {
+        "id": 5555,
+        "title": "Community Concert at Garfield",
+        "description": "",
+        "start": "2099-10-10T19:00:00.0000000",
+        "venue": "Garfield High School Auditorium",
+        "location": "Garfield High School Auditorium, 400 23rd Ave, Seattle, WA 98122",
+        "image": null,
+        "learnMoreUrl": "",
+        "buyPageUrl": "",
+        "isPast": false,
+        "hideInSearchResults": false
     }
 ]

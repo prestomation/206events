@@ -38,9 +38,31 @@ import { getFetchForConfig, FetchFn } from "../../lib/config/proxy-fetch.js";
  * `venue` field never carries a literal "Benaroya Hall" suffix to match
  * against (that only sometimes appears in the separate, much less reliable
  * `location` field, which can even name the wrong room) — so the catch-all
- * here claims whatever no specific route claims, rather than requiring its
- * own `venueMatch` text to appear in the venue name.
+ * here claims whatever no specific route claims, PROVIDED the venue name
+ * matches one of ON_SITE_VENUE_SUBSTRINGS below.
+ *
+ * That allowlist matters because the old Sitecore feed walked every "Event
+ * Page" content node site-wide, which included the Symphony's occasional
+ * off-site community concerts (a school auditorium, a park) — the old
+ * ripper explicitly filtered those out rather than mis-filing them under
+ * Benaroya Hall. Querying this endpoint with every combination of its own
+ * `locationKeywordId` scopes ("All", "Seattle Symphony", "Benaroya Hall";
+ * 2026-09-27) never once surfaced a venue outside the known on-site rooms,
+ * which suggests this performance-grid endpoint may now be scoped to
+ * ticketed on-site shows only — but that's not guaranteed to hold forever,
+ * so the allowlist keeps the original off-site guard intact rather than
+ * trusting an unverifiable assumption about the upstream API's scope.
  */
+const ON_SITE_VENUE_SUBSTRINGS = [
+    "Taper",
+    "Nordstrom",
+    "Octave 9",
+    "Grand Lobby",
+    "Green Room",
+    "Norcliffe",
+    "Soundbridge",
+    "Benaroya Hall",
+];
 
 const API_ORIGIN = "https://benaroyahall.org";
 const CALENDAR_ENDPOINT = `${API_ORIGIN}/umbraco/api/performances/GetGridCalendarShows`;
@@ -138,8 +160,14 @@ export default class BenaroyaHallRipper implements IRipper {
             now.getTime() + LOOKAHEAD_DAYS * 24 * 60 * 60 * 1000,
         );
 
-        // These filter fields default to "-1" (not "") in the site's own Vue
-        // state — see the class doc comment above.
+        // The keyword/genre/series/audience/accessibility/time filters default
+        // to the string "-1" in the site's own Vue state (see the class doc
+        // comment above) — but locationKeywordId, programs, and query default
+        // to "" instead, because their Vue state defaults are non-numeric
+        // sentinels ("all", [], "") that the app's own buildCalendarPayload()
+        // maps to an empty string, not "-1". Getting this asymmetry wrong in
+        // either direction (all "-1" or all "") makes the endpoint return an
+        // empty body rather than an error, so it's easy to silently regress.
         const body = new URLSearchParams({
             keywordId: "-1",
             genre: "-1",
@@ -265,8 +293,11 @@ export default class BenaroyaHallRipper implements IRipper {
     /**
      * Route a venue name to a calendar. Specific calendars (non-catchAll)
      * win over the catch-all, which claims whatever no specific route
-     * claims — see the class doc comment for why it no longer requires its
-     * own `venueMatch` text to appear in the venue name.
+     * claims — PROVIDED the venue name is a known on-site room
+     * (ON_SITE_VENUE_SUBSTRINGS). A venue matching neither a specific route
+     * nor the on-site allowlist is treated the same as no venue at all: an
+     * off-site performance, skipped rather than mis-filed under Benaroya
+     * Hall. See the class doc comment for the full rationale.
      */
     private routeVenue(
         venueName: string,
@@ -278,7 +309,13 @@ export default class BenaroyaHallRipper implements IRipper {
                 !r.catchAll && r.venueMatch && venueName.includes(r.venueMatch),
         );
         if (specific) return specific;
-        return routes.find((r) => r.catchAll);
+
+        const catchAll = routes.find((r) => r.catchAll);
+        if (!catchAll) return undefined;
+        const isKnownOnSiteRoom = ON_SITE_VENUE_SUBSTRINGS.some((p) =>
+            venueName.includes(p),
+        );
+        return isKnownOnSiteRoom ? catchAll : undefined;
     }
 }
 
