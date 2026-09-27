@@ -1,0 +1,2980 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WSFTA Food Truck Finder</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Find food trucks throughout Washington State. Search by location, date, cuisine, or food truck name and discover where participating Washington food trucks will be serving.">
+<meta name="keywords" content="Washington food trucks, food trucks near me, Washington State food truck finder, mobile food vendors, food truck locations, food truck schedules, Seattle food trucks, Tacoma food trucks, Spokane food trucks, Vancouver Washington food trucks">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Washington State Food Truck Association">
+
+<link rel="canonical" href="https://findfoodtrucks.wafoodtrucks.org/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Washington State Food Truck Finder">
+<meta property="og:title" content="Washington State Food Truck Finder">
+<meta property="og:description" content="Search by location, date, cuisine, or food truck name to find participating food trucks throughout Washington State.">
+<meta property="og:url" content="https://findfoodtrucks.wafoodtrucks.org/">
+<meta property="og:image" content="https://findfoodtrucks.wafoodtrucks.org/img/WAFTAlogo.png">
+<meta property="og:image:alt" content="Washington State Food Truck Association">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Washington State Food Truck Finder">
+<meta name="twitter:description" content="Find participating food trucks and serving locations throughout Washington State.">
+<meta name="twitter:image" content="https://findfoodtrucks.wafoodtrucks.org/img/WAFTAlogo.png">
+<meta name="twitter:image:alt" content="Washington State Food Truck Association">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/css/styles.css?ver=9%2F26%2F2026+11%3A29%3A23+PM">
+    <link rel="manifest" href="manifest.json">   
+		<meta name="theme-color" content="#2f5d50">		
+		<link rel="apple-touch-icon" href="img/app-icon-192.png">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-title" content="WA Food Trucks">
+        
+</head>
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+        navigator.serviceWorker.register("service-worker.js");
+    });
+}
+</script>
+<body>
+
+<img src="img/WAFTAlogo.png" class="siteLogo" alt="WSFTA" title="Refresh page" onclick="location.reload();" style="cursor:pointer;">
+
+<div class="topbar">
+    <h2>Washington State Food&nbsp;Truck&nbsp;Finder</h2>
+          <div class="menuButton" onclick="toggleMenu()">&#9776;</div>
+
+			<div id="navMenu" class="navMenu">
+
+			    <div class="menuHeader">Menu</div>
+
+			    <a href="/default.asp">Home</a>
+			    <a href="/members/default.asp">Manage My Truck</a>
+			    <a href="/about.asp">About Food Truck Finder</a>
+			    <a href="/faq.asp">FAQ</a>		    
+			    <a href="https://wafoodtrucks.org" target="_blank">Washington State Food Truck Association </a>
+          <a href="/members/logout.asp">Log Out</a>
+			</div>
+</div>
+
+<div class="introBar">
+    Find a truck by keyword, date, or city.
+</div>
+<div class="searchbox searchOpen" id="searchbox">
+<div class="searchboxInner" id="searchboxInner">
+<form method="get" action="/default.asp" class="finderSearchForm">
+
+    <div class="finderSearchRow finderFilterRow">
+        <label for="q"><strong>Search:</strong></label>
+        <input type="text" id="q" name="q" value="" placeholder="Keyword">
+
+        <label for="d"><strong>Date:</strong></label>
+        <input type="date" id="d" name="d" value="">
+
+        <span class="cityFilterGroup">
+            <label for="mapJump"><strong>City:</strong></label>
+            <input type="text" id="mapJump" name="c" value="" placeholder="City or town" autocomplete="off">
+        </span>
+    </div>
+
+    <div class="finderSearchRow searchButtons">
+        <button type="submit">Search</button>
+
+        <!-- <button type="button" id="foodNearMeBtn">Food Near Me</button> -->
+
+        <button type="button" onclick="window.location='/default.asp'">
+            Clear All
+        </button>
+
+        
+    </div>
+
+
+</form>
+<div id="distanceStatus" class="distanceStatus"></div>
+</div>
+<div id="searchToggleTab" class="searchToggleTab" role="button" tabindex="0" aria-expanded="true">⌃ Collapse search ⌃</div>
+</div>
+
+
+<div id="results-summary" class="results-summary"></div>
+
+
+<div class="map-container">
+    <div id="map">
+        <!-- <button id="locateBtn" class="locate-btn" title="Go to My Location">⌖</button> -->
+        <button type="button" id="locateBtn" class="locate-btn" title="Go to My Location">⌖</button>
+    </div>
+</div>
+
+<div id="truckModalOverlay" class="truckModalOverlay" style="display:none;">
+    <div class="truckModalCard">
+        <button type="button" id="truckModalClose" class="truckModalClose">×</button>
+        <div id="truckModalContent"></div>
+    </div>
+</div>
+
+
+
+<div class="resultsTip"><strong>Tip:</strong> Tap a truck name to view full profile and upcoming events.</div>
+
+<div id="truckCardResults" class="results truckCardResults"></div>
+
+<div class="footer">
+          &copy; 2026 Washington State Food Truck Association, LLC.
+    All&nbsp;Rights&nbsp;Reserved.
+    <br>
+    Food Truck Finder technology provided by
+    <a href="https://victorytechsolutions.com" target="_blank"> Victory&nbsp;Tech&nbsp;Solutions</a>.<br><br>
+    <a href="/privacy.asp" > Privacy Statement</a> |
+    <a href="/terms.asp"> Terms of Service</a> |
+    <a href="/credits.asp"> Credits</a>  
+</div>
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>321 Icecream Parlor</h3>
+        <div>Nitro ice cream &amp; donuts in a food trailer.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>A Bite of Shanghai</h3>
+        <div>Specializes in classic favorites like Shao Bing.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Action Bar</h3>
+        <div>Specializing in smoked comfort food.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Alaska Weathervane Scallops</h3>
+        <div>Offering Pan Seared Alaska Weathervane Scallops</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Alaskan Dumplings</h3>
+        <div>Serving in King and Pierce County.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Amy's Coffee</h3>
+        <div>A mobile coffee shop built on 40 years of love for the craft &#8212; and a belief that good coffee brings people together.</div>
+        <div class="small"><strong>Keywords:</strong> Coffee, mobile, Spokane</div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.2868352,-120.212613' target='_blank' title='Open in Google Maps'>📍</a> <strong>Catering Events</strong><br>Out and about in Spokane County<br>Mon 8/31/2026 12:30:00 pm - Thu 12/31/2026 12:30:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Anthony's Finn</h3>
+        <div>Award winning seafood.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Asian Crazy</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Avenue Catering</h3>
+        <div>We offer our most popular catering menus to order online for pick-up or drop-off</div>
+        <div class="small"><strong>Keywords:</strong> fresh fabulous food custom</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Ben &amp; Jerry's</h3>
+        <div>We make the best possible ice cream in the nicest way possible.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Boss Mama's Kitchen</h3>
+        <div>Good ol' fashion burgers, and grilled cheese to satisfy your hunger needs!</div>
+        <div class="small"><strong>Keywords:</strong> Pierce County, Catering, Burgers</div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1964188,-122.2767928' target='_blank' title='Open in Google Maps'>📍</a> <strong>Cockrell Hard Cider</strong><br>6613 114th Ave Ct E, PUYALLUP<br>Fri 10/2/2026 4:00:00 pm - Fri 10/2/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1964188,-122.2767928' target='_blank' title='Open in Google Maps'>📍</a> <strong>Cockrell Hard Cider</strong><br>6613 114th Ave Ct E, PUYALLUP<br>Fri 10/2/2026 4:00:00 pm - Fri 10/2/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1587271,-122.2798894' target='_blank' title='Open in Google Maps'>📍</a> <strong>1st Annual Trunk or Treat w/ The Puyallup Police Department</strong><br>1015 39th Ave SE, Puyallup<br>Fri 10/30/2026 5:00:00 pm - Fri 10/30/2026 9:00:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Brank's BBQ &amp; Catering</h3>
+        <div>Family owned and operated! Dine in, Take out &amp; Catering.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Bun and Press</h3>
+        <div>Cambodian cheese steak sandwich, Cambodian Drinks, smoothie</div>
+        <div class="small"><strong>Keywords:</strong> Cheesesteak, panini, Cambodian cheesesteak, smoothies, frappes,</div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.4548341,-122.2523855' target='_blank' title='Open in Google Maps'>📍</a> <strong>Seattle Boss Markets</strong><br>300 Andover Park W, Tukwila<br>Sun 9/27/2026 12:00:00 pm - Sun 9/27/2026 5:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.2448799,-122.5245684' target='_blank' title='Open in Google Maps'>📍</a> <strong>Tacoma Community College</strong><br>6501 S 19th St, Tacoma<br>Mon 10/5/2026 10:30:00 am - Mon 10/5/2026 1:30:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Cathouse Pizza</h3>
+        <div>New York style pizza, pastas, grinders &amp; salads.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Chaotic Eats</h3>
+        <div>Dishing out the BEST corndogs, True Hawaiian shave Ice, and fresh churros.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Chelita's Taqueria</h3>
+        <div>Mexican style food trailer serving authentic Mexican food. Tacos, Quesadillas, Birra, Tortas, Burritos, all made with love.</div>
+        <div class="small"><strong>Keywords:</strong> Mexican food, birria, quesabirrias, tacos, quesadillas, tortas</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Cloud Rock Coffee Co</h3>
+        <div>Mobile coffee shop serving crafted espresso, tea, energy drinks, sodas, and light bites</div>
+        <div class="small"><strong>Keywords:</strong> coffee, cafe, snacks, breakfast, beverage, drinks</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Corndoggery, The</h3>
+        <div>America&#8217;s favorite pastime &amp;#10084;&amp;#65039; Gourmet handmade dipped corndogs for everyone!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Crave by Suite J</h3>
+        <div>A desire to bring a modern &amp; more gourmet spin to the traditional street fare!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.617505,-122.341418' target='_blank' title='Open in Google Maps'>📍</a> <strong>Urban Yard</strong><br>2300 7th Ave, Seattle<br>Mon 9/28/2026 10:00:00 am - Mon 9/28/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.617505,-122.341418' target='_blank' title='Open in Google Maps'>📍</a> <strong>Urban Yard</strong><br>2300 7th Ave, Seattle<br>Tue 9/29/2026 10:00:00 am - Tue 9/29/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.617505,-122.341418' target='_blank' title='Open in Google Maps'>📍</a> <strong>Urban Yard</strong><br>2300 7th Ave, Seattle<br>Wed 9/30/2026 10:00:00 am - Wed 9/30/2026 7:00:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Deez Donuts</h3>
+        <div>Mobile Mini Donut Trailer. &amp;#127849; Mini Donuts. &amp;#127850;Homemade Baked Treats.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Delfino's Chicago Style Pizza</h3>
+        <div>Serving personal size deep dish.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Dick's Drive-In</h3>
+        <div>Serving fresh, never frozen burgers and hand-dipped shakes since 1954.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Dirty Dawgz</h3>
+        <div>A one-of-a-kind mobile food vendor serving gourmet hot dogs, sausages, and loaded nachos throughout the PNW.</div>
+        <div class="small"><strong>Keywords:</strong> hot dogs, gourmet hot dogs, sausages, nachos, food truck, catering, Seattle, Burien, Renton, Tukwila, King County</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Dolce Vita PNW</h3>
+        <div>Gelato, Desserts &amp; Espresso
+Serving in King and Pierce County.</div>
+        <div class="small"><strong>Keywords:</strong> Dessert, espresso, coffee, gelato, ice cream, pastries, drinks</div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.621462,-122.3509886' target='_blank' title='Open in Google Maps'>📍</a> <strong>Festa Italiana at Seattle Center</strong><br>305 Harrison St, Seattle<br>Fri 9/25/2026 5:00:00 pm - Sun 9/27/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.3580037,-122.0229864' target='_blank' title='Open in Google Maps'>📍</a> <strong>Summit Park</strong><br>23675 SE Tahoma Way, Maple Valley<br>Sat 10/3/2026 8:00:00 am - Sat 10/3/2026 4:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.3580037,-122.0229864' target='_blank' title='Open in Google Maps'>📍</a> <strong>Summit Park</strong><br>23675 SE Tahoma Way, Maple Valley<br>Sat 10/10/2026 8:00:00 am - Sat 10/10/2026 4:00:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Dreamy Drinks</h3>
+        <div>We serve premium bubble tea and espresso.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>DubSea Food Truck</h3>
+        <div>A summer collegiate baseball team-owned food truck located in West Seattle.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>El Koreano</h3>
+        <div>A fusion of Korean and Mexican cuisine.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Express Mexican Grill</h3>
+        <div>Authentic Mexican food truck, contact us for your next event!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Five Hooks Seafood</h3>
+        <div>We only use the freshest fish and shrimp. Every piece is hand cut.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Five Hooks Seafood</h3>
+        <div>We take pride in using he freshest ingredients! We hand breaded our crispy specialties in house and make from scratch our clam chowder and tartar sauce!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Fulla Za</h3>
+        <div>Mobile pizza oven and catering on Whidbey Island. From farm to oven.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Galileo's Mobile Italian Pizzeria</h3>
+        <div>Bringing an authentic Italian experience to the Pacific Northwest!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Gonzo Panini</h3>
+        <div>Servin up super awesome Italian-inspired toasted sandwiches!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Good Morning Tacos</h3>
+        <div>Good Morning is Seattle's breakfast taco food truck.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Habibi Tacos</h3>
+        <div>Halal Mexican Food Cart Specializing in Authentic Birria Tacos</div>
+        <div class="small"><strong>Keywords:</strong> Food Cart, Mexican, Halal, Birria, Tacos</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Impeckable Chicken</h3>
+        <div>Seattle&#8217;s fried chicken sandwich food truck!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Juicy J's Smoked Burgers</h3>
+        <div>Juicy J&#8217;s Smoked Burgers is an 100% plant-based establishment.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Kama'aina Grill</h3>
+        <div>Serving Authentic Hawaiian Style Plate Lunches</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Kamayan Spokane LLC</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Kona Ice of Maple Valley</h3>
+        <div>We're the coolest shaved ice truck in town. We bring the party to you!</div>
+        <div class="small"><strong>Keywords:</strong> shaved ice, dessert</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>L'Italiano</h3>
+        <div>Bringing authentic flavors of Italian cuisine, with fresh dishes made daily.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.6636505,-122.1054223' target='_blank' title='Open in Google Maps'>📍</a> <strong>Postdoc Brewing - Redmond</strong><br>17625 NE 65th St #100, Redmond, Redmond<br>Fri 10/16/2026 4:00:00 pm - Fri 10/16/2026 8:00:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>La Cocina de Jalisco</h3>
+        <div>Authentic flavors of Jalisco, made from scratch with love.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>La Costenita Cuisine</h3>
+        <div>La Coste&#241;ita Cuisine brings high-quality catering services to the Seattle area.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>La Riviera Maya Food Truck</h3>
+        <div>Driven by a shared love for Central American cuisine,.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Le Nomade</h3>
+        <div>Vietnamese Street Food &#183; Catering &#183; Events</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Longhorn Barbecue</h3>
+        <div>Longhorn has been delivering exceptional Catering Services for 65-years!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Lucky Lucianos</h3>
+        <div>Pulled pork sandwiches &amp; tacos.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Lumpia Love</h3>
+        <div>Lumpia Love is a celebration of Filipino culture through food.</div>
+        <div class="small"><strong>Keywords:</strong> Filipino, Asian, Vegetarian</div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.2455013,-122.438329' target='_blank' title='Open in Google Maps'>📍</a> <strong>Haunted Farmers Market</strong><br>Corner of S. 54th &amp; S. Washington Street, Tacoma<br>Sun 9/27/2026 10:00:00 am - Sun 9/27/2026 4:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1887762,-122.2944843' target='_blank' title='Open in Google Maps'>📍</a> <strong>Puyallup Farmers Market</strong><br>330  S Meridian, Puyallup<br>Sat 10/3/2026 9:00:00 am - Sat 10/3/2026 2:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1887762,-122.2944843' target='_blank' title='Open in Google Maps'>📍</a> <strong>Puyallup Farmers Market</strong><br>330  S Meridian, Puyallup<br>Sat 10/10/2026 9:00:00 am - Sat 10/10/2026 2:00:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Makin Lil Donuts</h3>
+        <div>Hot fresh mini donuts at events in Western Washington.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Mamitran</h3>
+        <div>Seattle&#8217;s premier Vietnamese food truck.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Mandy Moo Cow</h3>
+        <div>Are you in the MOO'd for something sweet? Native &amp; family owned mobile soft serve. All-natural vanilla, chocolate, and twist served in scratch-made waffle cones or cups. Clean ingredients, classic toppings, zero compromises.</div>
+        <div class="small"><strong>Keywords:</strong> Dessert Soft Serve Ice Cream Local Waffle Cones</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Mauka Hawaiian Shave Ice</h3>
+        <div>Serving Pierce and King County. Serving you all taste of Hawaii!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>McLendon Family Deli</h3>
+        <div>Mclendon Family Deli is serving gourmet sandwiches, soups, and salads anywhere.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Mixed Plate Food Truck</h3>
+        <div>Serving delicious Asian and Pacific Islands influenced dishes.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Momo Express</h3>
+        <div>Vietnamese Mobile Restaurant</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Momo Express</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Momo's</h3>
+        <div>Mediterranean Food Est. 2019</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Orenji Sushi and Noodles</h3>
+        <div>Serving vibrant flavors of Japan, family owned and operated since 2017.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Outdoor Grind Coffee Co</h3>
+        <div>Espresso Trailer based on North Bend, WA.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Outsider BBQ</h3>
+        <div>Texas-style barbecue with a Turkish twist Since 2022.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Paparepas</h3>
+        <div>Authentic Venezuelan Restaurants &amp; Catering in Seattle.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Pedro's Santa Maria Style BBQ</h3>
+        <div>Traditional Santa Maria Style BBQ carefully prepared over red oak flames</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Perking Spot Coffee</h3>
+        <div>Mobile coffee van serving the King County area.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Philippine Cuisine / The Crafty Granny</h3>
+        <div>Filipino food truck serving adobo, pancit, lumpia and more in Richland, WA.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Pizza Maniac PNW</h3>
+        <div>Bringing the taste of San Diego's Pizza Maniac to the PNW with a twist!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Pizza Resistance</h3>
+        <div>As a PNW mobile vegan pizzeria, we highlight fresh, local &amp; sustainable.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Pizzamaniac</h3>
+        <div>West Coast wood-fired pizza&#8212;featuring a crispy, American-style crust inspired by the time-honored traditions of classic East Coast pies.</div>
+        <div class="small"><strong>Keywords:</strong> Pizza Catering Wood</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Puget Sound Pizza</h3>
+        <div>Puget Sound's Best Pizza &amp; Karaoke! Pizza, Salad, Sandwiches....</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>PZZA</h3>
+        <div>Detroit Style Deep Dish Pizza.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Queen's of Fire Pizza</h3>
+        <div>A family-owned food truck serving authentic wood-fired pizza in Whatcom County!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Upcoming Dates/Locations:</strong></div>
+            <div class="small"><div class='scheduleItem scheduleToday'><a href='https://www.google.com/maps/search/?api=1&query=48.7544012,-122.478836' target='_blank' title='Open in Google Maps'>📍</a> <strong>Bellingham Seafeast</strong><br>Squalicom Harbor, Bellingham<br>Sat 9/26/2026 10:00:00 am - Sun 9/27/2026 5:00:00 pm</div></div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Radio Fryer Foods</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Sabrina's Street Melts</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Saint Lawrence - Catholic Community Services</h3>
+        <div>Rotating mobile menu of delicious and savory chef-creations!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Sassquatch Baking Girl</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Sassy Squeezers Lemonade</h3>
+        <div>Available for events!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Simple Drinks - Smoothie Truck</h3>
+        <div>We serve delicious real fruit smoothies with no concentrates, ice, or artificial colors. We also serve Italian sodas, coffee, and tea.</div>
+        <div class="small"><strong>Keywords:</strong> fruit smoothies, smoothies, coffee, tea, Italian sodas, drinks</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Spice Shuttle</h3>
+        <div>Indian Bangla and Austrian cuisine</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Split Open and Melt</h3>
+        <div>Serving Seattle cheese steaks is what we do best!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Stanford's</h3>
+        <div>Stanford's Food Truck offers fresh, high-quality comfort food featuring gourmet burgers, Philly steak sandwiches, BBQ chicken sandwiches, chicken strips, mac and cheese, fries, and refreshing beverages for private, corporate, and community events.</div>
+        <div class="small"><strong>Keywords:</strong> Stanford's Food Truck delivers delicious, freshly prepared meals for festivals, corporate events, weddings, sporting events, schools, and private gatherings throughout the Seattle area. Our menu features customer favorites including Angus beef cheeseburge</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Stanfords</h3>
+        <div>Stanford's is on the road with a brand-new Food Truck! Available for events!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Supreme Smashburgers</h3>
+        <div>Smash your cravings with our mouthwatering burgers on wheels! &amp;#127828;&amp;#127839;</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Swagg-n-Wagon Wings &amp; Things</h3>
+        <div>The Best-Fried chicken in the NW</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Swanky Scoop</h3>
+        <div>Small batch ice cream cart. Dairy, non-dairy, and gluten free options.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Sweet Lil' Goldies</h3>
+        <div>Serving mini-pancakes, available for special events!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Taco Cortes</h3>
+        <div>Taco Cortes Brings Comfort Mexican Food To you!</div>
+        <div class="small"><strong>Keywords:</strong> Mexican Food, Food truck Service, Tacos, Burritos, Quesadillas</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Tacos Mirrey</h3>
+        <div>Elevating Tacos to a New Level</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Tandem Catering</h3>
+        <div>Featuring custom recipes of Beer Battered Fish, Crab Cakes, Oysters &amp; more....</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Thaim to Roll</h3>
+        <div>Thai food and smoothies!!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>The Box (Asian Fusion) Food Truck</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>The Box On Wheels</h3>
+        <div>Asian Fusion Restaurant and Food Truck.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>The Frying Dutchman</h3>
+        <div>Pierce County's favorite fish &amp; chip food truck serving wild, sustainable fish, fresh tacos, housemade sauces, fresh fruit lemonade, and more!</div>
+        <div class="small"><strong>Keywords:</strong> Fish &amp; Chips, Fish and Chips, Seafood, Fish Tacos, Shrimp, Shrimp Tacos, Chicken Tenders, Chicken Tacos, Tacos, Wild Cod, Fried Fish, Gluten-Free, Vegan, Catering, Food Truck Catering, Puyallup, Milton, Edgewood, Sumner</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>The People's Burger</h3>
+        <div>Custom made to order burgers using local and fresh produce.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>The Shortcake Bar</h3>
+        <div>Creating the best homemade shortcake in the world using real ingredients!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Tisket Tasket</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Tolu - Modern Fijian Cuisine</h3>
+        <div>We take pride in bringing together the bold flavors of our Fijian roots.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Trinity Coffee</h3>
+        <div>A mobile coffee truck serving in Pierce &amp; King County.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Turmeric N More</h3>
+        <div>Turmeric &#8216;n More is Global Infusion Flavors your taste buds will love!</div>
+        <div class="small"><strong>Keywords:</strong> Global Infusion Flavors, Organic, Vegetarian, Vegan, Butter Chicken Naan Wrap, Infusion Tacos, Flatbread Pizza, Halal</div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Urban Secret Pizza</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Vulpine Espresso (Coffee)</h3>
+        <div>Cute vintage 1965 Miley horse trailer turned cafe for your next event!</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Wanted Coffee Company</h3>
+        <div>A mobile coffee vendor located in Pierce County.</div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+    
+    
+    <!-- <div id="truckCardResults" class="results truckCardResults"> -->
+    <!--
+    <div class="truckcard">
+        <h3>Yummy Catch</h3>
+        <div></div>
+        <div class="small"><strong>Keywords:</strong> </div>
+
+        
+            <div class="small"><strong>Status:</strong> No upcoming events currently scheduled.</div>
+        
+    </div>
+    -->
+
+
+
+<style>
+.truckGroupMarker {
+    background: transparent;
+    border: 0;
+}
+
+.truckGroupMarkerCircle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #2f5d50;
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.45);
+}
+
+.truckGroupPopup {
+    min-width: 145px;
+    max-width: 200px;
+}
+
+/* The grouped-truck list is a direct child of #map rather than a Leaflet
+   popup pane, allowing it to sit above Leaflet controls on mobile. */
+.truckGroupMapOverlay {
+    position: absolute;
+    z-index: 20000;
+    display: none;
+    min-width: 145px;
+    max-width: 200px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 6px 24px rgba(0,0,0,.28);
+}
+
+.truckGroupMapOverlay::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    transform: translateX(-50%) rotate(45deg);
+    box-shadow: 3px 3px 7px rgba(0,0,0,.10);
+}
+
+.truckGroupMapOverlayContent {
+    position: relative;
+    z-index: 1;
+}
+
+.truckGroupPopupLink {
+    display: block;
+    width: 100%;
+    padding: 7px 4px;
+    border: 0;
+    border-bottom: 1px solid #dddddd;
+    background: transparent;
+    color: #174f7a;
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+}
+
+.truckGroupPopupLink:last-child {
+    border-bottom: 0;
+}
+
+.truckGroupPopupLink:hover,
+.truckGroupPopupLink:focus {
+    text-decoration: underline;
+}
+</style>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+<!-- markerCount: 101 -->	
+	
+const trucks = [{truckName:"321 Icecream Parlor",description:"Nitro ice cream &amp; donuts in a food trailer.",fullDescription:"",keywords:"",phone:"(253) 495-4629",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61550302994765",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3151a989f1053a03e0a3_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Puyallup",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.1853785,lng:-122.2928974,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"A Bite of Shanghai",description:"Specializes in classic favorites like Shao Bing.",fullDescription:"",keywords:"",phone:"",website:"https://www.a-bite-of-shanghai.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61575044975605",instagram:"",photo:"https://cdn.membershipworks.com/u/68dd6958bd4f9ef74c0af5ea_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tacoma",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.29931,lng:-122.51615,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Action Bar",description:"Specializing in smoked comfort food.",fullDescription:"",keywords:"",phone:"",website:"www.actionsportsbar.com/action-food-truck-1",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/ActionBar",instagram:"",photo:"https://cdn.membershipworks.com/u/689b7619242bfc92b3081652_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Kent",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.3830671,lng:-122.234771,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Alaska Weathervane Scallops",description:"Offering Pan Seared Alaska Weathervane Scallops",fullDescription:"",keywords:"",phone:"",website:"https://alaskascallop.net/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/AlaskaWeathervaneScallopsFoodTruck",instagram:"instagram.com/alaskascallop/",photo:"https://cdn.membershipworks.com/u/662c3148a989f1053a03e06b_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Lakewood",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.1717649,lng:-122.518458,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Alaskan Dumplings",description:"Serving in King and Pierce County.",fullDescription:"",keywords:"",phone:"",website:"alaskandumplings.com",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/alaskandumplingscafe",instagram:"instagram.com/alaskandumplings",photo:"https://cdn.membershipworks.com/u/6a0fa56ff01efc27640993de_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Sumner",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.22164,lng:-122.22682,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Amy's Coffee",description:"A mobile coffee shop built on 40 years of love for the craft &#8212; and a belief that good coffee brings people together.",fullDescription:"Forty years ago as a college student in Seattle, I fell in love with coffee and coffee culture, well before the commercialization of coffee put a coffee shop on every corner! I&#8217;ve been dreaming about having a shop of my own ever since.\n\nAmy&#8217;s Coffee is that dream &#8212; just on wheels! You&#8217;ll find me all over Spokane &#8212; in neighborhoods, at local markets, community gatherings, and more.  We cater too - weddings, corporate events, schools, family reunions - you name it!",keywords:"Coffee, mobile, Spokane",phone:"509-220-7419",website:"https://amyscoffee.net",email:"amy@amyscoffee.net",sms:"",tiktok:"",menu:"",ordering:"",facebook:"https://@amyscoffeenow",instagram:"https://@amyscoffeenow",photo:"../uploads/trucks/truck_238_20260810_122310.jpeg",additionalPhotos:"../uploads/photos/truck_238_20260810_122630_0.jpg|../uploads/photos/truck_238_20260810_122630_1.jpg|../uploads/photos/truck_238_20260810_122631_2.jpg|../uploads/photos/truck_238_20260810_122631_3.jpg|../uploads/photos/truck_238_20260810_122631_4.jpg|../uploads/photos/truck_238_20260810_122631_5.png",firstLocation:"Catering Events",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=47.2868352,-120.212613",firstTime:"Mon 8/31/2026 12:30:00 pm - Thu 12/31/2026 12:30:00 pm",homeCity:"Spokane",homeState:"WA",scheduleCount:1,isServingNow:true,lat:47.2868352,lng:-120.212613,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.2868352,-120.212613' target='_blank' title='Open in Google Maps'>📍</a> <strong>Catering Events</strong><br>Out and about in Spokane County<br>Mon 8/31/2026 12:30:00 pm - Thu 12/31/2026 12:30:00 pm</div>"},{truckName:"Anthony's Finn",description:"Award winning seafood.",fullDescription:"",keywords:"",phone:"",website:"www.anthonys.com/finn-the-food-truck/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/anthonysfinn",instagram:"",photo:"https://cdn.membershipworks.com/u/6849f95ab48b7bd70e0e4911_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Asian Crazy",description:"",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100086249689320",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3149a989f1053a03e06e_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Renton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4796927,lng:-122.2079218,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Avenue Catering",description:"We offer our most popular catering menus to order online for pick-up or drop-off",fullDescription:"Avenue Catering is the premier custom caterer for Greater Western Washington. Plated or buffet, delivery, or drop-off; a true custom catering service creating meals to complement your tastes, and event.\n\nAvenue Catering also has a state-of-the-art Mobile Catering Kitchen to better serve your catering needs at your location, no matter how remote!",keywords:"fresh fabulous food custom",phone:"3607555880",website:"https://www.cateringbyavenue.com",email:"info@CateringByAvenue.com",sms:"3604201161",tiktok:"",menu:"uploads/menus/menu_13_20260812_002059.pdf",ordering:"https://fresh-food2u.com/",facebook:"https://facebook.com/avenuecatering676",instagram:"https://www.instagram.com/aceskagit/",photo:"../uploads/trucks/truck_13_20260701_134911.jpg",additionalPhotos:"../uploads/photos/truck_13_20260630_025502_2.png|../uploads/photos/truck_13_20260630_040826_1.jpg|../uploads/photos/truck_13_20260630_120637_1.jpg|../uploads/photos/truck_13_20260810_042712_0.jpg|../uploads/photos/truck_13_20260810_042713_1.jpg|../uploads/photos/truck_13_20260810_042713_2.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Burlington",homeState:"WA",scheduleCount:0,isServingNow:false,lat:48.4708274,lng:-122.330289,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Ben &amp; Jerry's",description:"We make the best possible ice cream in the nicest way possible.",fullDescription:"",keywords:"",phone:"",website:"https://www.benjerry.com/greenlake",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/BenJerryWashington",instagram:"instagram.com/benjerryswashington/",photo:"https://cdn.membershipworks.com/u/69dfe3e0f833f24fee00a007_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6859,lng:-122.3374,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Boss Mama's Kitchen",description:"Good ol' fashion burgers, and grilled cheese to satisfy your hunger needs!",fullDescription:"Boss Mama&#8217;s Kitchen is an award&#8209;winning food truck built from the ground up in 2016 and fueled by passion, hustle, and heart. For 10 years, we&#8217;ve served hot, fresh food with the kind of customer service that keeps people coming back. Making people happy through a great meal is something special &#8212; and it&#8217;s why we love what we do, and why we absolutely love our customers.",keywords:"Pierce County, Catering, Burgers",phone:"253-222-8631",website:"https://www.bossmamaskitchen.com",email:"bossmamaskitchen@comcast.net",sms:"",tiktok:"",menu:"",ordering:"",facebook:"https://www.facebook.com/profile.php?id=100063767671885",instagram:"https://www.instagram.com/bossmamaskitchen/",photo:"../uploads/trucks/truck_15_20260715_182253.jpg",additionalPhotos:"../uploads/photos/truck_15_20260715_182326_0.jpg|../uploads/photos/truck_15_20260715_182616_0.jpg|../uploads/photos/truck_15_20260715_182629_0.jpg|../uploads/photos/truck_15_20260715_182646_0.jpg",firstLocation:"Cockrell Hard Cider",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=47.1964188,-122.2767928",firstTime:"Fri 10/2/2026 4:00:00 pm - Fri 10/2/2026 7:00:00 pm",homeCity:"Puyallup",homeState:"WA",scheduleCount:3,isServingNow:false,lat:47.1964188,lng:-122.2767928,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1964188,-122.2767928' target='_blank' title='Open in Google Maps'>📍</a> <strong>Cockrell Hard Cider</strong><br>6613 114th Ave Ct E, PUYALLUP<br>Fri 10/2/2026 4:00:00 pm - Fri 10/2/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1964188,-122.2767928' target='_blank' title='Open in Google Maps'>📍</a> <strong>Cockrell Hard Cider</strong><br>6613 114th Ave Ct E, PUYALLUP<br>Fri 10/2/2026 4:00:00 pm - Fri 10/2/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1587271,-122.2798894' target='_blank' title='Open in Google Maps'>📍</a> <strong>1st Annual Trunk or Treat w/ The Puyallup Police Department</strong><br>1015 39th Ave SE, Puyallup<br>Fri 10/30/2026 5:00:00 pm - Fri 10/30/2026 9:00:00 pm</div>"},{truckName:"Brank's BBQ &amp; Catering",description:"Family owned and operated! Dine in, Take out &amp; Catering.",fullDescription:"",keywords:"",phone:"",website:"https://www.branksbbq.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/branksbbq/photos",instagram:"instagram.com/branksbbq/",photo:"https://cdn.membershipworks.com/u/6939e3546b0cc007cf0070b5_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Sumner",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2031566,lng:-122.2403966,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Bun and Press",description:"Cambodian cheese steak sandwich, Cambodian Drinks, smoothie",fullDescription:"This vibrant food truck serves a unique fusion of Philly cheesesteaks, Cambodian-inspired sandwiches, and toasted paninis, all paired with a refreshing menu of smoothies, frappes, and other drinks.",keywords:"Cheesesteak, panini, Cambodian cheesesteak, smoothies, frappes,",phone:"2535699664",website:"",email:"bunpress88@gmail.com",sms:"",tiktok:"",menu:"",ordering:"https://bunpress.square.site/",facebook:"https://facebook.com/Bunpressfoodtruck",instagram:"https://instagram.com/bun_press_food_truck/",photo:"https://cdn.membershipworks.com/u/6883c00c5f0002e67308fc59_lgl.jpg",additionalPhotos:"",firstLocation:"Seattle Boss Markets",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=47.4548341,-122.2523855",firstTime:"Sun 9/27/2026 12:00:00 pm - Sun 9/27/2026 5:00:00 pm",homeCity:"Bonney Lake",homeState:"WA",scheduleCount:2,isServingNow:false,lat:47.4548341,lng:-122.2523855,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.4548341,-122.2523855' target='_blank' title='Open in Google Maps'>📍</a> <strong>Seattle Boss Markets</strong><br>300 Andover Park W, Tukwila<br>Sun 9/27/2026 12:00:00 pm - Sun 9/27/2026 5:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.2448799,-122.5245684' target='_blank' title='Open in Google Maps'>📍</a> <strong>Tacoma Community College</strong><br>6501 S 19th St, Tacoma<br>Mon 10/5/2026 10:30:00 am - Mon 10/5/2026 1:30:00 pm</div>"},{truckName:"Cathouse Pizza",description:"New York style pizza, pastas, grinders &amp; salads.",fullDescription:"",keywords:"",phone:"",website:"https://cathousepizza.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/cathousepizza",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314ba989f1053a03e07e_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Snohomish",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.91187,lng:-122.09663,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Chaotic Eats",description:"Dishing out the BEST corndogs, True Hawaiian shave Ice, and fresh churros.",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/ChaoticEatsFoodTruck",instagram:"instagram.com/chaotic_eats_llc/",photo:"https://cdn.membershipworks.com/u/662c314ba989f1053a03e080_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Yelm",homeState:"WA",scheduleCount:0,isServingNow:false,lat:46.9420431,lng:-122.6059582,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Chelita's Taqueria",description:"Mexican style food trailer serving authentic Mexican food. Tacos, Quesadillas, Birra, Tortas, Burritos, all made with love.",fullDescription:"",keywords:"Mexican food, birria, quesabirrias, tacos, quesadillas, tortas",phone:"2064190658",website:"",email:"info@chelitastaqueria.com",sms:"",tiktok:"https://www.tiktok.com/@chelitas_taqueria",menu:"",ordering:"https://order.online/store/-46309658/?pickup=true&amp;hideModal=true&amp;utm_source=gfo&amp;rwg_token=AE37R_htiR4e-qSKM8PGaU2qSGhlGt-T5ktdBxSZBBWsFT0mXkyKM8O4ZlCkaRE-oDDT2EKs2lH4T1RAr7C4SBSf4-i6YpGRAQ%3D%3D",facebook:"https://www.facebook.com/people/Chelitas-Taqueria/61589531250155/?rdid=JS0jISbknGPcJOWz&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1FbLim5qmy%2F",instagram:"https://www.instagram.com/chelitas_taqueria/",photo:"",additionalPhotos:"../uploads/photos/truck_239_20260810_161730_0.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seatac",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4559835,lng:-122.2806792,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Cloud Rock Coffee Co",description:"Mobile coffee shop serving crafted espresso, tea, energy drinks, sodas, and light bites",fullDescription:"We are a mobile beverage trailer based in the beautiful Pacific Northwest, serving up handcrafted drinks with a splash of island-inspired charm. \n\nFounded by Kayla and Natalie, Cloud Rock was born from a love of coffee, creativity, and the joy of slowing down with something thoughtfully made, and delicious in hand. From specialty coffee and teas to energy drinks and sparkling sodas, we bring the good vibes wherever we roll. \n\nAs a full service, stylistic cafe on wheels, we emphasize simplicity, and authenticity. No artificial flavors/dyes. \n\nWith warm and bubbly baristas, and a wide range of menu items, there is a little bit of Cloud Rock for everyone!",keywords:"coffee, cafe, snacks, breakfast, beverage, drinks",phone:"4252489632",website:"https://www.cloudrockcoffeeco.com/",email:"cloudrockcoffeeco@gmail.com",sms:"",tiktok:"",menu:"uploads/menus/menu_20_20260819_123956.pdf",ordering:"",facebook:"https://www.facebook.com/share/1RqNkGAsUG/?mibextid=wwXIfr",instagram:"https://www.instagram.com/cloudrockcoffee/",photo:"../uploads/trucks/truck_20_20260819_121235.jpeg",additionalPhotos:"../uploads/photos/truck_20_20260819_122442_0.jpg|../uploads/photos/truck_20_20260819_124129_0.png|../uploads/photos/truck_20_20260819_124331_0.png|../uploads/photos/truck_20_20260819_124407_0.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Brier",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.7845419,lng:-122.274294,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Corndoggery, The",description:"America&#8217;s favorite pastime &#10084;&#65039; Gourmet handmade dipped corndogs for everyone!",fullDescription:"",keywords:"",phone:"",website:"https://corndoggery.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"https://www.facebook.com/Corndoggery/",instagram:"https://www.instagram.com/the.corndoggery",photo:"https://cdn.membershipworks.com/u/662c314ca989f1053a03e083_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Puyallup",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.1849009,lng:-122.29214,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Crave by Suite J",description:"A desire to bring a modern &amp; more gourmet spin to the traditional street fare!",fullDescription:"",keywords:"",phone:"",website:"https://www.cravestreetgourmet.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"http://www.facebook.com/cravebysuitej",instagram:"http://www.instagram.com/cravestreetgourmet",photo:"https://cdn.membershipworks.com/u/6674ae47b79b7cc67604acf3_lgl.jpg",additionalPhotos:"",firstLocation:"Urban Yard",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=47.617505,-122.341418",firstTime:"Mon 9/28/2026 10:00:00 am - Mon 9/28/2026 7:00:00 pm",homeCity:"Seattle",homeState:"WA",scheduleCount:3,isServingNow:false,lat:47.617505,lng:-122.341418,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.617505,-122.341418' target='_blank' title='Open in Google Maps'>📍</a> <strong>Urban Yard</strong><br>2300 7th Ave, Seattle<br>Mon 9/28/2026 10:00:00 am - Mon 9/28/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.617505,-122.341418' target='_blank' title='Open in Google Maps'>📍</a> <strong>Urban Yard</strong><br>2300 7th Ave, Seattle<br>Tue 9/29/2026 10:00:00 am - Tue 9/29/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.617505,-122.341418' target='_blank' title='Open in Google Maps'>📍</a> <strong>Urban Yard</strong><br>2300 7th Ave, Seattle<br>Wed 9/30/2026 10:00:00 am - Wed 9/30/2026 7:00:00 pm</div>"},{truckName:"Deez Donuts",description:"Mobile Mini Donut Trailer. &#127849; Mini Donuts. &#127850;Homemade Baked Treats.",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/DeezDonuts79",instagram:"instagram.com/deezdonuts79?fbclid=IwY2xjawOudYlleHRuA2FlbQIxMABicmlkETFnUWVhWDVDTmU0MXFLazlQc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnpwL-isYUkIU1MQhrUiog7x00E1glpaf68hv1xvA6h_WYoHPN2dFTctqR1i_aem_o3Gv3vkSU2jBIKI8xVFO2w",photo:"https://cdn.membershipworks.com/u/669041e8487e8179b00e1ac2_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Richland",homeState:"WA",scheduleCount:0,isServingNow:false,lat:46.28042,lng:-119.2751996,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Delfino's Chicago Style Pizza",description:"Serving personal size deep dish.",fullDescription:"",keywords:"",phone:"",website:"https://delfinospizza.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/Delfinospizza",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314ba989f1053a03e07d_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Dick's Drive-In",description:"Serving fresh, never frozen burgers and hand-dipped shakes since 1954.",fullDescription:"",keywords:"",phone:"",website:"https://www.ddir.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/DicksDriveIn",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3157a989f1053a03e0ca_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Dirty Dawgz",description:"A one-of-a-kind mobile food vendor serving gourmet hot dogs, sausages, and loaded nachos throughout the PNW.",fullDescription:"Dirty Dawgz is a veteran-owned mobile food business serving gourmet hot dogs, sausages, loaded nachos, and customizable favorites throughout the Pacific Northwest. Our menu includes signature creations like the Seattle Dawg, Coney Dawg, Renton Ave Dawg, West Seattle Dawg, Maple Valley Dawg, and 3 Tree Point Dawg, along with beef, chicken, hot link, kids, and veggie options. From community festivals and farmers markets to corporate lunches, private events, and catering, Dirty Dawgz brings bold flavors, friendly service, and a fun experience wherever we go. Mean Dawgz, Nice Buns.",keywords:"hot dogs, gourmet hot dogs, sausages, nachos, food truck, catering, Seattle, Burien, Renton, Tukwila, King County",phone:"(206) 446-8801",website:"https://www.getdirtydawgz.com/",email:"info@getdirtydawgz.com",sms:"",tiktok:"",menu:"uploads/menus/menu_56_20260906_090730.pdf",ordering:"https://www.getdirtydawgz.com/menu-1",facebook:"https://www.facebook.com/GetDirtyDawgz",instagram:"https://www.instagram.com/getdirtydawgz",photo:"../uploads/trucks/truck_56_20260906_085901.jpg",additionalPhotos:"../uploads/photos/truck_56_20260906_090704_0.jpg|../uploads/photos/truck_56_20260906_090705_1.jpg|../uploads/photos/truck_56_20260906_090705_2.jpg|../uploads/photos/truck_56_20260906_090705_3.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Burien",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4509136,lng:-122.379604,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Dolce Vita PNW",description:"Gelato, Desserts &amp; Espresso\nServing in King and Pierce County.",fullDescription:"Seattle made Gelatiamo gelato, Macrina Bakery toasted cornettos filled with gelato and toppings, cookie ice cream sandwiches &amp; gourmet sundaes bring dessert to a whole new level!  \n\nCaffe Umbria espresso, organic chai, matcha, iced tea, lemonade, and Italian sodas available too!\n\nWith multiple dietary options available there is something for everyone. Our creative presentation elevates any event creating a unique experience for your guests. Call, text, or email us anytime to book your event!",keywords:"Dessert, espresso, coffee, gelato, ice cream, pastries, drinks",phone:"5097748554",website:"https://dolcevitapnw.com/",email:"alissamontra321@gmail.com",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"https://instagram.com/dolcevita.catering/",photo:"https://cdn.membershipworks.com/u/6747565405bac9544a047063_lgl.jpg",additionalPhotos:"",firstLocation:"Festa Italiana at Seattle Center",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=47.621462,-122.3509886",firstTime:"Fri 9/25/2026 5:00:00 pm - Sun 9/27/2026 7:00:00 pm",homeCity:"Puyallup",homeState:"WA",scheduleCount:7,isServingNow:true,lat:47.621462,lng:-122.3509886,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.621462,-122.3509886' target='_blank' title='Open in Google Maps'>📍</a> <strong>Festa Italiana at Seattle Center</strong><br>305 Harrison St, Seattle<br>Fri 9/25/2026 5:00:00 pm - Sun 9/27/2026 7:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.3580037,-122.0229864' target='_blank' title='Open in Google Maps'>📍</a> <strong>Summit Park</strong><br>23675 SE Tahoma Way, Maple Valley<br>Sat 10/3/2026 8:00:00 am - Sat 10/3/2026 4:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.3580037,-122.0229864' target='_blank' title='Open in Google Maps'>📍</a> <strong>Summit Park</strong><br>23675 SE Tahoma Way, Maple Valley<br>Sat 10/10/2026 8:00:00 am - Sat 10/10/2026 4:00:00 pm</div>"},{truckName:"Dreamy Drinks",description:"We serve premium bubble tea and espresso.",fullDescription:"",keywords:"",phone:"",website:"https://www.dreamydrinks.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/dreamydrinks",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314da989f1053a03e08c_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Marysville",homeState:"WA",scheduleCount:0,isServingNow:false,lat:48.0517637,lng:-122.1770818,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"DubSea Food Truck",description:"A summer collegiate baseball team-owned food truck located in West Seattle.",fullDescription:"",keywords:"",phone:"",website:"https://www.facebook.com/gofishsticks",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/gofishsticks",instagram:"",photo:"https://cdn.membershipworks.com/u/68e6a1c1561d05efd00f64c9_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Burien",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4668384,lng:-122.3405305,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"El Koreano",description:"A fusion of Korean and Mexican cuisine.",fullDescription:"",keywords:"",phone:"",website:"https://www.elkoreano.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/ElKoreanoFoodTruck",instagram:"instagram.com/el_koreano_foodtruck/",photo:"https://cdn.membershipworks.com/u/662c314da989f1053a03e08d_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tukwila",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.46361,lng:-122.24447,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Express Mexican Grill",description:"Authentic Mexican food truck, contact us for your next event!",fullDescription:"",keywords:"",phone:"",website:"https://www.expressmexicangrill.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"",photo:"https://cdn.membershipworks.com/u/6661f1fa763b811fcd064542_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Everett",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.97927,lng:-122.19279,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Five Hooks Seafood",description:"We only use the freshest fish and shrimp. Every piece is hand cut.",fullDescription:"",keywords:"",phone:"",website:"https://fivehooksseafood.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/FiveHooksFishGrill",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3157a989f1053a03e0ce_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Covington",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.3595592,lng:-122.118012,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Five Hooks Seafood",description:"We take pride in using he freshest ingredients! We hand breaded our crispy specialties in house and make from scratch our clam chowder and tartar sauce!",fullDescription:"",keywords:"",phone:"562-713-2746",website:"https://fivehooksseafood.com/",email:"Saitop12@gmail.com",sms:"",tiktok:"",menu:"uploads/menus/menu_245_20260831_181127.pdf",ordering:"",facebook:"http://facebook.com/FiveHooksFishGrill",instagram:"",photo:"../uploads/trucks/truck_245_20260831_181058.jpeg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Kent",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.3278775,lng:-122.0750193,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Fulla Za",description:"Mobile pizza oven and catering on Whidbey Island. From farm to oven.",fullDescription:"",keywords:"",phone:"",website:"https://www.fullaza.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"instagram.com/fullaza.mobilepizza/",photo:"https://cdn.membershipworks.com/u/692c93042250fea9c40abf7d_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.9982761,lng:-122.4395026,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Galileo's Mobile Italian Pizzeria",description:"Bringing an authentic Italian experience to the Pacific Northwest!",fullDescription:"",keywords:"",phone:"",website:"https://www.galileospizzeria.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100086467808060",instagram:"instagram.com/foodwithfabio",photo:"https://cdn.membershipworks.com/u/6984e9789f3d6b683b07ee73_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tacoma",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.25276,lng:-122.44444,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Gonzo Panini",description:"Servin up super awesome Italian-inspired toasted sandwiches!",fullDescription:"",keywords:"",phone:"",website:"https://www.facebook.com/GonzoPanini/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/GonzoPanini/",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314ea989f1053a03e092_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Milton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2481558,lng:-122.312899,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Good Morning Tacos",description:"Good Morning is Seattle's breakfast taco food truck.",fullDescription:"",keywords:"",phone:"",website:"https://www.goodmorningtacos.com",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/goodmorningbreakfasttacos",instagram:"instagram.com/goodmorning.tacos/",photo:"https://cdn.membershipworks.com/u/662c3150a989f1053a03e0a0_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.60621,lng:-122.33207,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Habibi Tacos",description:"Halal Mexican Food Cart Specializing in Authentic Birria Tacos",fullDescription:"Habibi Tacos is a Mexican-owned food cart specializing in authentic Halal birria tacos and Mexican cuisine. We use quality ingredients, including grass-fed beef, and aim to serve delicious, high-quality food while making authentic Mexican cuisine accessible to everyone in our community. We proudly serve events throughout the Greater Seattle area.",keywords:"Food Cart, Mexican, Halal, Birria, Tacos",phone:"4259547096",website:"",email:"habibi.tacoswa@gmail.com",sms:"",tiktok:"https://www.tiktok.com/@habibitacoswa",menu:"",ordering:"",facebook:"https://www.facebook.com/profile.php?id=61583416722344",instagram:"https://www.instagram.com/habibi.tacoswa/",photo:"../uploads/trucks/truck_244_20260831_140751.jpg",additionalPhotos:"../uploads/photos/truck_244_20260831_140800_0.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tukwila",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4627356,lng:-122.2559156,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Impeckable Chicken",description:"Seattle&#8217;s fried chicken sandwich food truck!",fullDescription:"",keywords:"",phone:"",website:"https://www.impeckablechicken.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/ImpeckableChicken",instagram:"instagram.com/impeckablechicken.com",photo:"https://cdn.membershipworks.com/u/662c3156a989f1053a03e0c4_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.60621,lng:-122.33207,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Juicy J's Smoked Burgers",description:"Juicy J&#8217;s Smoked Burgers is an 100% plant-based establishment.",fullDescription:"",keywords:"",phone:"",website:"https://smokedburgers.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100086006593041",instagram:"instagram.com/juicyjsmokedburgers",photo:"https://cdn.membershipworks.com/u/69a9cc2dbce8fa265d0f0c34_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Poulsbo",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.735928,lng:-122.6465372,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Kama'aina Grill",description:"Serving Authentic Hawaiian Style Plate Lunches",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/Kamaainagrill",instagram:"",photo:"https://cdn.membershipworks.com/u/690ce6020ab58fd30a073654_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Fife",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2392665,lng:-122.3570664,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Kamayan Spokane LLC",description:"",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"",photo:"https://cdn.membershipworks.com/u/6a20635ac9a89b076c0a6872_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Spokane",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6579711,lng:-117.4235319,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Kona Ice of Maple Valley",description:"We're the coolest shaved ice truck in town. We bring the party to you!",fullDescription:"Treat your taste buds to the most amazingly fine, flavored shaved ice this side of the islands. The Kona Ice experience will amplify any event! From our steel drum music to the signature Flavorwave&#174; where guests can flavor their own shaved ice, we guarantee to bring the fun, laughter and flavor.\n\nWhether indoors or outdoors, we handle a whole variety of events including schools, corporations, daycares, summer programs, youth sports, picnics, weddings, and major sporting events and festivals.\n\nWe also specialize in fundraising, so just show us where to park and who to make the check out to! Plus, we come to you. It doesn't get much easier than that.\n\nWe can serve hundreds of people per hour. Contact us today!",keywords:"shaved ice, dessert",phone:"425-900-5519",website:"https://linktr.ee/konaice",email:"Bradshaw@Kona-ice.com",sms:"",tiktok:"",menu:"",ordering:"",facebook:"https://www.facebook.com/KonaIceofMapleValley",instagram:"https://www.instagram.com/konaiceofmaplevalley",photo:"../uploads/trucks/truck_72_20260807_110543.jpg",additionalPhotos:"../uploads/photos/truck_72_20260807_110613_0.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Maple Valley",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.3664231,lng:-122.0437127,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"L'Italiano",description:"Bringing authentic flavors of Italian cuisine, with fresh dishes made daily.",fullDescription:"",keywords:"",phone:"",website:"https://wearelitaliano.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/litalianofoodtruck",instagram:"instagram.com/litaliano_foodtruck",photo:"https://cdn.membershipworks.com/u/662c3152a989f1053a03e0aa_lgl.jpg",additionalPhotos:"",firstLocation:"Postdoc Brewing - Redmond",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=47.6636505,-122.1054223",firstTime:"Fri 10/16/2026 4:00:00 pm - Fri 10/16/2026 8:00:00 pm",homeCity:"Bellevue",homeState:"WA",scheduleCount:1,isServingNow:false,lat:47.6636505,lng:-122.1054223,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.6636505,-122.1054223' target='_blank' title='Open in Google Maps'>📍</a> <strong>Postdoc Brewing - Redmond</strong><br>17625 NE 65th St #100, Redmond, Redmond<br>Fri 10/16/2026 4:00:00 pm - Fri 10/16/2026 8:00:00 pm</div>"},{truckName:"La Cocina de Jalisco",description:"Authentic flavors of Jalisco, made from scratch with love.",fullDescription:"",keywords:"",phone:"",website:"https://www.twobusytocook.com/lacocinadejalisco",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100094097277722",instagram:"instagram.com/lacocinadejalisco/",photo:"https://cdn.membershipworks.com/u/69b97cf786a98c6df80da050_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Fife",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2392665,lng:-122.3570664,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"La Costenita Cuisine",description:"La Coste&#241;ita Cuisine brings high-quality catering services to the Seattle area.",fullDescription:"",keywords:"",phone:"",website:"https://www.lacostenitacuisine.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100087468969881",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314ba989f1053a03e07c_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.55172,lng:-122.36305,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"La Riviera Maya Food Truck",description:"Driven by a shared love for Central American cuisine,.",fullDescription:"",keywords:"",phone:"",website:"https://www.rivieramayafoodtruck.com",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/LaRiveraMayaFoodTruck",instagram:"instagram.com/larivieramayafoodtruck/",photo:"https://cdn.membershipworks.com/u/69826825b0f61e779906d339_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Woodinville",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.7542651,lng:-122.1634582,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Le Nomade",description:"Vietnamese Street Food &#183; Catering &#183; Events",fullDescription:"",keywords:"",phone:"",website:"https://lenomadecafe.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"instagram.com/lenomadeonwheels/",photo:"https://cdn.membershipworks.com/u/69b9f103f8ecf095ec03fb26_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Longhorn Barbecue",description:"Longhorn has been delivering exceptional Catering Services for 65-years!",fullDescription:"",keywords:"",phone:"",website:"https://longhornbarbecue.com/food-trucks",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61562976086461",instagram:"",photo:"https://cdn.membershipworks.com/u/6793cc65c720938ded06c638_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Milton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2481558,lng:-122.312899,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Lucky Lucianos",description:"Pulled pork sandwiches &amp; tacos.",fullDescription:"",keywords:"",phone:"",website:"https://luckylucianosfoodtruck.com",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"instagram.com/luckylucianosft/",photo:"https://cdn.membershipworks.com/u/69af29725453486fea053b7b_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Issaquah",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.5300699,lng:-122.0329148,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Lumpia Love",description:"Lumpia Love is a celebration of Filipino culture through food.",fullDescription:"At Lumpia Love food truck, we are on the move in Pierce County serving your Filipino favorites.  We are a female owned and family operated business that has been serving the community since 2013. Lumpia Love can be found at local farmers markets, community events and private caterings.  We also provide party trays for smaller events.",keywords:"Filipino, Asian, Vegetarian",phone:"2532093872",website:"https://lumpialovestore.com/",email:"LumpiaLoveFoodTruck@gmail.com",sms:"",tiktok:"",menu:"uploads/menus/menu_80_20260810_215025.pdf",ordering:"",facebook:"https://www.facebook.com/@LumpiaLoveFoodTruck/",instagram:"https://instagram.com/lumpialove_foodtruck/",photo:"https://cdn.membershipworks.com/u/662c3152a989f1053a03e0ae_lgl.jpg",additionalPhotos:"../uploads/photos/truck_80_20260810_214232_0.jpeg|../uploads/photos/truck_80_20260810_214232_1.jpeg|../uploads/photos/truck_80_20260810_214233_3.jpeg|../uploads/photos/truck_80_20260810_214233_4.jpeg|../uploads/photos/truck_80_20260810_214233_5.jpeg|../uploads/photos/truck_80_20260810_214724_0.jpeg",firstLocation:"Haunted Farmers Market",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=47.2455013,-122.438329",firstTime:"Sun 9/27/2026 10:00:00 am - Sun 9/27/2026 4:00:00 pm",homeCity:"Tacoma",homeState:"WA",scheduleCount:5,isServingNow:false,lat:47.2455013,lng:-122.438329,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.2455013,-122.438329' target='_blank' title='Open in Google Maps'>📍</a> <strong>Haunted Farmers Market</strong><br>Corner of S. 54th &amp; S. Washington Street, Tacoma<br>Sun 9/27/2026 10:00:00 am - Sun 9/27/2026 4:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1887762,-122.2944843' target='_blank' title='Open in Google Maps'>📍</a> <strong>Puyallup Farmers Market</strong><br>330  S Meridian, Puyallup<br>Sat 10/3/2026 9:00:00 am - Sat 10/3/2026 2:00:00 pm</div><div class='scheduleItem'><a href='https://www.google.com/maps/search/?api=1&query=47.1887762,-122.2944843' target='_blank' title='Open in Google Maps'>📍</a> <strong>Puyallup Farmers Market</strong><br>330  S Meridian, Puyallup<br>Sat 10/10/2026 9:00:00 am - Sat 10/10/2026 2:00:00 pm</div>"},{truckName:"Makin Lil Donuts",description:"Hot fresh mini donuts at events in Western Washington.",fullDescription:"",keywords:"",phone:"",website:"https://www.facebook.com/makinlildonuts",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/makinlildonuts",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314ea989f1053a03e091_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tacoma",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.25276,lng:-122.44444,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Mamitran",description:"Seattle&#8217;s premier Vietnamese food truck.",fullDescription:"",keywords:"",phone:"",website:"https://www.mamitran.com/menu",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/mamitranvietnamese",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314fa989f1053a03e09b_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.60621,lng:-122.33207,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Mandy Moo Cow",description:"Are you in the MOO'd for something sweet? Native &amp; family owned mobile soft serve. All-natural vanilla, chocolate, and twist served in scratch-made waffle cones or cups. Clean ingredients, classic toppings, zero compromises.",fullDescription:"Our Native, female-owned family business is serving pure childhood nostalgia with a serious upgrade. We keep things clean and local. Enjoy real cream, classic vanilla, and natural cane sugar.\n&#10060; NO Artificial Dyes\n&#10060; NO High-Fructose Corn Syrup\n&#10060; NO Harmful Preservatives\n\nDevour a smooth vanilla, chocolate or swirl cone piled high with your choice of legendary toppings! Go classic with hot fudge and caramel, or get adventurous with Reese&#8217;s drizzle, Biscoff cookie butter drizzle, and our decadent Dubai-inspired chocolate and pistachio creation. Your perfect treat is waiting! Are you in the MOO'd for something sweet?",keywords:"Dessert Soft Serve Ice Cream Local Waffle Cones",phone:"2532780806",website:"https://mandymoocow.com/",email:"moo@mandymoocow.com",sms:"",tiktok:"",menu:"uploads/menus/menu_83_20260810_165132.pdf",ordering:"",facebook:"https://www.facebook.com/profile.php?id=61574280912943",instagram:"https://www.instagram.com/mandymoocowtacoma/",photo:"../uploads/trucks/truck_83_20260810_165305.png",additionalPhotos:"../uploads/photos/truck_83_20260810_165213_0.jpg|../uploads/photos/truck_83_20260810_173001_0.jpg|../uploads/photos/truck_83_20260810_173015_0.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Lakewood",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.1637708,lng:-122.5490937,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Mauka Hawaiian Shave Ice",description:"Serving Pierce and King County. Serving you all taste of Hawaii!",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/maukahawaiianshaveice",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3153a989f1053a03e0b2_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"McLendon Family Deli",description:"Mclendon Family Deli is serving gourmet sandwiches, soups, and salads anywhere.",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61586923413970",instagram:"instagram.com/mclendons.deli/",photo:"https://cdn.membershipworks.com/u/69025b6b5e04b6d26a0f8124_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tukwila",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.5050621,lng:-122.2892841,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Mixed Plate Food Truck",description:"Serving delicious Asian and Pacific Islands influenced dishes.",fullDescription:"",keywords:"",phone:"",website:"greaterspokanefoodtrucks.com",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/mixedplatefoodtruck",instagram:"instagram.com/mixedplatefoodtruck/",photo:"https://cdn.membershipworks.com/u/69938166dfcaabcad00f95a2_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Spokane",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6579711,lng:-117.4235319,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Momo Express",description:"Vietnamese Mobile Restaurant",fullDescription:"",keywords:"",phone:"",website:"https://www.facebook.com/momoxpressfoodtruck",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/momoxpressfoodtruck",instagram:"instagram.com/momoxpressfoodtruck",photo:"https://cdn.membershipworks.com/u/662c3154a989f1053a03e0b5_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4963395,lng:-122.3370412,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Momo Express",description:"",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"",photo:"../uploads/trucks/truck_242_20260821_133108.jpg",additionalPhotos:"../uploads/photos/truck_242_20260821_133151_0.jpeg|../uploads/photos/truck_242_20260821_133151_1.jpg|../uploads/photos/truck_242_20260821_133151_2.jpeg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6038321,lng:-122.330062,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Momo's",description:"Mediterranean Food Est. 2019",fullDescription:"",keywords:"",phone:"",website:"https://www.momosmediterraneanfood.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"instagram.com/momosmediterraneanfood/?fbclid=IwY2xjawQo7cJleHRuA2FlbQIxMABicmlkETE2UTQ0dFg1ZHZTZElWMjBKc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHmtckOmFOlRfe4j1MGFcO2brlimOwnZtmHbJqqeOZ32M3xdDwbQfAvRty0ZI_aem_7FW0A9ba0PHTOT0_XAe_uQ",photo:"https://cdn.membershipworks.com/u/69bc0d58459db7b2e00b5a03_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Orenji Sushi and Noodles",description:"Serving vibrant flavors of Japan, family owned and operated since 2017.",fullDescription:"",keywords:"",phone:"",website:"https://orenjisushinoodles.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100063763471612",instagram:"",photo:"https://cdn.membershipworks.com/u/687e9649e48e56c128075d6d_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Issaquah",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.5300699,lng:-122.0329148,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Outdoor Grind Coffee Co",description:"Espresso Trailer based on North Bend, WA.",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"",photo:"https://cdn.membershipworks.com/u/67dc4f0f16fb2ef6c009cc83_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"North Bend",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4956579,lng:-121.7867775,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Outsider BBQ",description:"Texas-style barbecue with a Turkish twist Since 2022.",fullDescription:"",keywords:"",phone:"",website:"https://outsiderbbq.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100087971895436",instagram:"instagram.com/outsider_bbq/",photo:"https://cdn.membershipworks.com/u/662c3155a989f1053a03e0be_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.65571,lng:-122.36474,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Paparepas",description:"Authentic Venezuelan Restaurants &amp; Catering in Seattle.",fullDescription:"",keywords:"",phone:"",website:"https://www.paparepas.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/paparepasseattle",instagram:"",photo:"https://cdn.membershipworks.com/u/662c314ea989f1053a03e093_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Renton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.44924,lng:-122.18625,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Pedro's Santa Maria Style BBQ",description:"Traditional Santa Maria Style BBQ carefully prepared over red oak flames",fullDescription:"",keywords:"",phone:"",website:"https://www.pedrosmbbq.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/Pedrosmbbq",instagram:"instagram.com/pedrosmbbq/",photo:"https://cdn.membershipworks.com/u/662c3155a989f1053a03e0c0_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Bremerton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.5650067,lng:-122.6269768,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Perking Spot Coffee",description:"Mobile coffee van serving the King County area.",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/perkingspot",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3151a989f1053a03e0a2_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Kirkland",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6768927,lng:-122.2059833,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Philippine Cuisine / The Crafty Granny",description:"Filipino food truck serving adobo, pancit, lumpia and more in Richland, WA.",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/philippinecuisinetricities",instagram:"",photo:"https://cdn.membershipworks.com/u/6650d774988fea6bb7090b9b_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Richland",homeState:"WA",scheduleCount:0,isServingNow:false,lat:46.239409,lng:-119.2934654,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Pizza Maniac PNW",description:"Bringing the taste of San Diego's Pizza Maniac to the PNW with a twist!",fullDescription:"",keywords:"",phone:"",website:"https://www.thepizzamaniac.com",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/pizzamaniacpnw",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3156a989f1053a03e0c3_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Renton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.42255,lng:-122.14218,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Pizza Resistance",description:"As a PNW mobile vegan pizzeria, we highlight fresh, local &amp; sustainable.",fullDescription:"",keywords:"",phone:"",website:"https://www.eatvegan.pizza/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/ThePizzaResistance",instagram:"",photo:"https://cdn.membershipworks.com/u/68d6cb42a523b09e970e1a43_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Snohomish",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.957735,lng:-122.0058344,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Pizzamaniac",description:"West Coast wood-fired pizza&#8212;featuring a crispy, American-style crust inspired by the time-honored traditions of classic East Coast pies.",fullDescription:"PizzaManiac is a mobile wood-fired pizza kitchen serving handcrafted pizzas made fresh with quality ingredients, bold flavors, and plenty of passion. We travel throughout the Seattle area, bringing our blazing-hot oven to festivals, community events, private parties, and local gathering spots. Follow us to find our next location and experience the irresistible aroma, crispy crust, and fresh-from-the-oven flavor that make PizzaManiac worth tracking down.",keywords:"Pizza Catering Wood",phone:"",website:"https://thepizzamaniac.com",email:"PizzaManiacPNW@gmail.com",sms:"",tiktok:"https://PizzaManiacPNW",menu:"uploads/menus/menu_231_20260806_195702.pdf",ordering:"",facebook:"https://PizzaManiacPNW",instagram:"https://pizzamaniacpnw",photo:"../uploads/trucks/truck_231_20260809_141532.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Renton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4799078,lng:-122.2034496,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Puget Sound Pizza",description:"Puget Sound's Best Pizza &amp; Karaoke! Pizza, Salad, Sandwiches....",fullDescription:"",keywords:"",phone:"",website:"https://pugetsoundpizza.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/PugetSoundPizza",instagram:"instagram.com/pugetsoundpizza/",photo:"https://cdn.membershipworks.com/u/662c3156a989f1053a03e0c5_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tacoma",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.25743,lng:-122.44098,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"PZZA",description:"Detroit Style Deep Dish Pizza.",fullDescription:"",keywords:"",phone:"",website:"https://67.pizza/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61585004345479",instagram:"instagram.com/67pizza_/#",photo:"https://cdn.membershipworks.com/u/6940483f1c9f350d7a0c7813_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Kirkland",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.7044244,lng:-122.2099552,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Queen's of Fire Pizza",description:"A family-owned food truck serving authentic wood-fired pizza in Whatcom County!",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61565497210962",instagram:"instagram.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fqueensoffirepizza%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExUW9oU2czV25IOE9VWE1VZXNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR7jTJr-KBsThquXSJGiyOMKsyWOjGSHKS1te3YEl7IWOiKUaaqpP0mQR3SpKA_aem_UzPJV2XRocjd9qzrKaFPAg&amp;h=AT2EhJ87i9Oa5mQrPR0_InKaIeRBdb-X2WrWe7xqjcxbhS-Teg6k_8rgSsqOs0oy6-uQXhQhpkU3wR91TRaOx3PLz3epQmEwmH6xv0l2BC7XzL1t23qSWePyzwfT4ONGaYQ1rtiu140b_CbzvsnP",photo:"https://cdn.membershipworks.com/u/67ec1f6386cb6cc82e0be62f_lgl.jpg",additionalPhotos:"",firstLocation:"Bellingham Seafeast",firstMap:"https://www.google.com/maps/search/?api=1&amp;query=48.7544012,-122.478836",firstTime:"Sat 9/26/2026 10:00:00 am - Sun 9/27/2026 5:00:00 pm",homeCity:"Birch Bay",homeState:"WA",scheduleCount:1,isServingNow:true,lat:48.7544012,lng:-122.478836,isActiveLocation:true,scheduleHtml:"<div class='scheduleItem scheduleToday'><a href='https://www.google.com/maps/search/?api=1&query=48.7544012,-122.478836' target='_blank' title='Open in Google Maps'>📍</a> <strong>Bellingham Seafeast</strong><br>Squalicom Harbor, Bellingham<br>Sat 9/26/2026 10:00:00 am - Sun 9/27/2026 5:00:00 pm</div>"},{truckName:"Radio Fryer Foods",description:"",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100042174651287&amp;sk=photos",instagram:"",photo:"https://cdn.membershipworks.com/u/69a88e7b15bd681de10e0caf_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Shelton",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2150945,lng:-123.1007066,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Sabrina's Street Melts",description:"",fullDescription:"",keywords:"",phone:"",website:"https://sabrinasstreetmelts.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/sabrinasstreetmelts",instagram:"instagram.com/sabrinasstreetmelts",photo:"https://cdn.membershipworks.com/u/67e72f978d291fddc508b8fa_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Sumner",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2031566,lng:-122.2403966,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Saint Lawrence - Catholic Community Services",description:"Rotating mobile menu of delicious and savory chef-creations!",fullDescription:"",keywords:"",phone:"",website:"https://ccsww.org/services/st-lawrence-food-truck/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"",photo:"https://cdn.membershipworks.com/u/662c3157a989f1053a03e0c9_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Lakewood",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.16139,lng:-122.51841,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Sassquatch Baking Girl",description:"",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61579008121064&amp;rdid=9jdVGiy7zG2yHJ1G&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17BAXYAVaN%2F#",instagram:"",photo:"https://cdn.membershipworks.com/u/69f907cf50aa89ab140a52ba_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Forks",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.950355,lng:-124.3854867,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Sassy Squeezers Lemonade",description:"Available for events!",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61564349216670",instagram:"instagram.com/sassy_squeezers_lemonade",photo:"https://cdn.membershipworks.com/u/66a7eb3ff39cab82730d8b29_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tukwila",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.4748399,lng:-122.2726248,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Simple Drinks - Smoothie Truck",description:"We serve delicious real fruit smoothies with no concentrates, ice, or artificial colors. We also serve Italian sodas, coffee, and tea.",fullDescription:"",keywords:"fruit smoothies, smoothies, coffee, tea, Italian sodas, drinks",phone:"509-601-0331",website:"https://linktr.ee/simpledrinkssmoothietruck",email:"simpledrinkswa@gmail.com",sms:"",tiktok:"",menu:"https://tr.ee/oAdQpZ98em",ordering:"",facebook:"https://www.facebook.com/profile.php?id=61585005733548",instagram:"https://www.instagram.com/simpledrinkswa/",photo:"../uploads/trucks/truck_243_20260819_132647.png",additionalPhotos:"../uploads/photos/truck_243_20260819_132733_0.jpg|../uploads/photos/truck_243_20260819_132733_1.jpg|../uploads/photos/truck_243_20260819_132733_2.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2868352,lng:-120.212613,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Spice Shuttle",description:"Indian Bangla and Austrian cuisine",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61565076315575",instagram:"",photo:"https://cdn.membershipworks.com/u/66fc3e547317f9b5ff0153b8_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Split Open and Melt",description:"Serving Seattle cheese steaks is what we do best!",fullDescription:"",keywords:"",phone:"",website:"https://melt-co.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/splitopenandmeltllc",instagram:"instagram.com/splitopenandmeltllc/",photo:"https://cdn.membershipworks.com/u/67c5f31f1ab4f282b70e0925_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Lynnwood",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.8209301,lng:-122.3151313,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Stanford's",description:"Stanford's Food Truck offers fresh, high-quality comfort food featuring gourmet burgers, Philly steak sandwiches, BBQ chicken sandwiches, chicken strips, mac and cheese, fries, and refreshing beverages for private, corporate, and community events.",fullDescription:"Stanford's Food Truck delivers delicious, freshly prepared meals for festivals, corporate events, weddings, sporting events, schools, and private gatherings throughout the Seattle area. Our menu features customer favorites including Angus beef cheeseburgers, Philly steak sandwiches, BBQ chicken sandwiches, crispy chicken strips, creamy four-cheese mac and cheese, hand-cut fries, and refreshing beverages. We pride ourselves on excellent customer service, high-quality ingredients, and providing a memorable dining experience at every event. Whether serving a small private party or a large community festival, Stanford's Food Truck is committed to bringing great food and exceptional hospitality to every guest.",keywords:"Stanford's Food Truck delivers delicious, freshly prepared meals for festivals, corporate events, weddings, sporting events, schools, and private gatherings throughout the Seattle area. Our menu features customer favorites including Angus beef cheeseburge",phone:"253 468 0475",website:"https://www.stanfords.com",email:"ledwards@stanfords.com",sms:"",tiktok:"",menu:"uploads/menus/menu_246_20260909_174738.pdf",ordering:"https://stanfords.com/order-now/",facebook:"https://www.facebook.com/StanfordsRestaurant",instagram:"https://www.instagram.com/stanfordsrestaurants",photo:"../uploads/trucks/truck_246_20260909_174610.jpg",additionalPhotos:"../uploads/photos/truck_246_20260909_174830_0.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.7065519,lng:-122.3274466,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Stanfords",description:"Stanford's is on the road with a brand-new Food Truck! Available for events!",fullDescription:"",keywords:"",phone:"",website:"https://stanfords.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/stanfordsfoodtruck",instagram:"",photo:"https://cdn.membershipworks.com/u/68bf0e60cc092abb960687e5_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.70628,lng:-122.32545,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Supreme Smashburgers",description:"Smash your cravings with our mouthwatering burgers on wheels! &#127828;&#127839;",fullDescription:"",keywords:"",phone:"",website:"https://supremesmashburgers.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=100089210717554",instagram:"instagram.com/supremesmashburgers/",photo:"https://cdn.membershipworks.com/u/662c3159a989f1053a03e0d7_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Spanaway",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.103988,lng:-122.4345661,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Swagg-n-Wagon Wings &amp; Things",description:"The Best-Fried chicken in the NW",fullDescription:"",keywords:"",phone:"2068198256",website:"https://www.facebook.com/swaggnwagon",email:"Swaggnwagon@gmail.com",sms:"",tiktok:"",menu:"",ordering:"",facebook:"https://www.facebook.com/swaggnwagon",instagram:"",photo:"https://cdn.membershipworks.com/u/68d1b07e00fd96ab8603daa8_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Federal Way",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.313494,lng:-122.33931,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Swanky Scoop",description:"Small batch ice cream cart. Dairy, non-dairy, and gluten free options.",fullDescription:"",keywords:"",phone:"",website:"https://swankyscoop.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/SwankyScoop",instagram:"instagram.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fswankyscoop%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExRXBoVENBVkxUMklzQ2VocnNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4CSfAD4so7C7oQF9XPmzkvoc-zrk_kEraAog_Afs55CAgTD3ELYtF4m6ayyA_aem_4i4ajf86Z1lLVItKUmBtpw&amp;h=AT2-br2YvyFLnmRIUHdseNZ36mnYRefm85YuqQtNCGqZ1HYLcq2E267RH0VYr5RWZlepA4XzuOgsZ5kdfNutfoYGJhvI8GRRLR8Ds1pyqW0SHnrPeT21f6_vJpueQ4LhKrv8AC5u1vAEwwGWrnLS",photo:"https://cdn.membershipworks.com/u/662c3159a989f1053a03e0d8_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Woodinville",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.7542651,lng:-122.1634582,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Sweet Lil' Goldies",description:"Serving mini-pancakes, available for special events!",fullDescription:"",keywords:"",phone:"",website:"beacons.ai/sweetlilgoldies",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/sweetlilgoldies",instagram:"instagram.com/sweetlilgoldies/",photo:"https://cdn.membershipworks.com/u/69603f0cb0bfd87f640322bd_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6061389,lng:-122.3328481,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Taco Cortes",description:"Taco Cortes Brings Comfort Mexican Food To you!",fullDescription:"From a Simple Menu to a more complex, we take comfort mexican Food To You. Birthday Parties, Private, Corporate, and Public Events.",keywords:"Mexican Food, Food truck Service, Tacos, Burritos, Quesadillas",phone:"2066968789",website:"https://www.tacoexpressfoodtruck.com/home",email:"tacoexpressllc@gmail.com",sms:"",tiktok:"",menu:"uploads/menus/menu_115_20260820_233029.pdf",ordering:"",facebook:"https://www.facebook.com/TacoExpressLLC",instagram:"https://www.instagram.com/taqueriatacocortes/",photo:"https://cdn.membershipworks.com/u/662c3159a989f1053a03e0da_lgl.jpg",additionalPhotos:"../uploads/photos/truck_115_20260904_135408_0.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.5438937,lng:-122.386664,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Tacos Mirrey",description:"Elevating Tacos to a New Level",fullDescription:"",keywords:"",phone:"",website:"https://www.tacosmirrey.com/en/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/tacosmirreyUS",instagram:"",photo:"https://cdn.membershipworks.com/u/66304745f8b86f79ea0e5232_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Edgewood",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.23147,lng:-122.28954,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Tandem Catering",description:"Featuring custom recipes of Beer Battered Fish, Crab Cakes, Oysters &amp; more....",fullDescription:"",keywords:"",phone:"",website:"tandemcateringandevents.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/TandemCateringandEvents",instagram:"",photo:"https://cdn.membershipworks.com/u/6984de15dc07e50046072652_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Snohomish",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.9128756,lng:-122.0981848,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Thaim to Roll",description:"Thai food and smoothies!!",fullDescription:"",keywords:"",phone:"",website:"https://thaimtoroll.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/thaimtoroll",instagram:"",photo:"https://cdn.membershipworks.com/u/662c315aa989f1053a03e0dc_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Sumner",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2031566,lng:-122.2403966,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"The Box (Asian Fusion) Food Truck",description:"",fullDescription:"",keywords:"",phone:"425-821-0777",website:"https://theboxonwheels.com/",email:"theboxonwheels@gmail.com",sms:"",tiktok:"",menu:"",ordering:"",facebook:"https://www.facebook.com/theboxonwheels/",instagram:"https://www.instagram.com/theboxandburgers/",photo:"",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Kirkland",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6765382,lng:-122.2070775,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"The Box On Wheels",description:"Asian Fusion Restaurant and Food Truck.",fullDescription:"",keywords:"",phone:"",website:"https://theboxonwheels.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/theboxonwheels",instagram:"instagram.com/theboxandburgers/",photo:"https://cdn.membershipworks.com/u/662c3156a989f1053a03e0c7_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Kirkland",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6768927,lng:-122.2059833,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"The Frying Dutchman",description:"Pierce County's favorite fish &amp; chip food truck serving wild, sustainable fish, fresh tacos, housemade sauces, fresh fruit lemonade, and more!",fullDescription:"The Frying Dutchman is a locally owned Pierce County food truck serving fresh, made-to-order favorites. Our signature fish &amp; chips feature hand-cut wild cod, beer-battered and fried to a golden crisp, served with thick-cut fries and our housemade dill tartar sauce. Our menu also includes jumbo shrimp, chicken tenders, and fish, shrimp, chicken, and vegan tofu tacos topped with fresh fruit salsa. Gluten-free options are available, too.\n\nWe take pride in using wild, sustainable fish and locally sourced produce, along with a variety of housemade dipping sauces. Wash it all down with one of our refreshing lemonades topped with fresh seasonal fruit puree!\n\nFind The Frying Dutchman serving weekday lunches throughout Pierce County, or bring the truck to you! We also offer private catering for weddings, company parties and picnics, birthdays, family reunions, and other special events.",keywords:"Fish &amp; Chips, Fish and Chips, Seafood, Fish Tacos, Shrimp, Shrimp Tacos, Chicken Tenders, Chicken Tacos, Tacos, Wild Cod, Fried Fish, Gluten-Free, Vegan, Catering, Food Truck Catering, Puyallup, Milton, Edgewood, Sumner",phone:"",website:"https://www.eatthedutch.com/",email:"admin@EatTheDutch.com",sms:"",tiktok:"",menu:"https://www.eatthedutch.com/our-food/",ordering:"",facebook:"https://www.facebook.com/EatTheDutch",instagram:"https://www.instagram.com/eat_the_dutch",photo:"../uploads/trucks/truck_63_20260909_094806.png",additionalPhotos:"../uploads/photos/truck_63_20260909_094741_0.jpg|../uploads/photos/truck_63_20260909_095100_0.jpg|../uploads/photos/truck_63_20260909_095100_1.jpg|../uploads/photos/truck_63_20260909_095100_2.jpg|../uploads/photos/truck_63_20260909_095100_3.jpg",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Edgewood",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2318245,lng:-122.2843724,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"The People's Burger",description:"Custom made to order burgers using local and fresh produce.",fullDescription:"",keywords:"",phone:"",website:"https://www.thepeoplesburger.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"instagram.com/thepeoplesburger",photo:"https://cdn.membershipworks.com/u/662c3155a989f1053a03e0c1_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.59436,lng:-122.33347,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"The Shortcake Bar",description:"Creating the best homemade shortcake in the world using real ingredients!",fullDescription:"",keywords:"",phone:"",website:"https://shortcakebar.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/theshortcakebar",instagram:"",photo:"https://cdn.membershipworks.com/u/662c315aa989f1053a03e0de_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Seattle",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.60621,lng:-122.33207,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Tisket Tasket",description:"",fullDescription:"",keywords:"",phone:"",website:"https://www.facebook.com/tisket.tasket.truck",email:"",sms:"",tiktok:"",menu:"uploads/menus/menu_122_20260914_145101.pdf",ordering:"",facebook:"www.facebook.com/tisket.tasket.truck",instagram:"",photo:"https://cdn.membershipworks.com/u/662c315ba989f1053a03e0e4_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"White Center",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.5105,lng:-122.35538,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Tolu - Modern Fijian Cuisine",description:"We take pride in bringing together the bold flavors of our Fijian roots.",fullDescription:"",keywords:"",phone:"",website:"https://toluseattle.com/fijian-cuisine",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/toluseattle",instagram:"",photo:"https://cdn.membershipworks.com/u/683dddcdcc7cdb8a400a0462_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tukwila",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.474,lng:-122.261,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Trinity Coffee",description:"A mobile coffee truck serving in Pierce &amp; King County.",fullDescription:"",keywords:"",phone:"",website:"https://trinitycoffee.org/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61571278676007",instagram:"",photo:"https://cdn.membershipworks.com/u/672957d8030cd2a89f088de8_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Puyallup",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.1853785,lng:-122.2928974,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Turmeric N More",description:"Turmeric &#8216;n More is Global Infusion Flavors your taste buds will love!",fullDescription:"We are a proud, family-owned company rooted in community and driven by connection. Food brings people together, and we thrive on creating those moments&#8212;whether it&#8217;s at a farmers' market, festival, or neighborhood gathering. Every dish we serve is crafted with intention, using organic ingredients whenever possible and honoring the global influences that inspire our recipes.",keywords:"Global Infusion Flavors, Organic, Vegetarian, Vegan, Butter Chicken Naan Wrap, Infusion Tacos, Flatbread Pizza, Halal",phone:"425-472-6978",website:"https://turmericnmore.com/",email:"info@turmericnmore.com",sms:"",tiktok:"",menu:"https://turmericnmore.com/menu",ordering:"",facebook:"https://www.facebook.com/turmericnmore/",instagram:"https://www.instagram.com/turmericnmore/",photo:"https://cdn.membershipworks.com/u/69f227da4d965ab26804c0ab_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Lynnwood",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.821279,lng:-122.3124369,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Urban Secret Pizza",description:"",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"",photo:"https://cdn.membershipworks.com/u/69ea5838636fd1e0c20b61e9_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Sumner",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2031566,lng:-122.2403966,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Vulpine Espresso (Coffee)",description:"Cute vintage 1965 Miley horse trailer turned cafe for your next event!",fullDescription:"",keywords:"",phone:"",website:"https://vulpineespresso.com/",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/vulpineespresso",instagram:"instagram.com/vulpineespresso/",photo:"https://cdn.membershipworks.com/u/6914bebb593e87ecaf0cbec7_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Sammamish",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.6162683,lng:-122.0355736,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Wanted Coffee Company",description:"A mobile coffee vendor located in Pierce County.",fullDescription:"",keywords:"",phone:"",website:"",email:"",sms:"",tiktok:"",menu:"",ordering:"",facebook:"www.facebook.com/profile.php?id=61579983568485",instagram:"",photo:"https://cdn.membershipworks.com/u/68b9f81512d7cf88e205d828_lgl.jpg",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Tacoma",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.2551307,lng:-122.4419643,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."},{truckName:"Yummy Catch",description:"",fullDescription:"",keywords:"",phone:"7148652712",website:"",email:"yummycatchfoodtruck@yahoo.com",sms:"",tiktok:"",menu:"",ordering:"",facebook:"",instagram:"",photo:"",additionalPhotos:"",firstLocation:"",firstMap:"",firstTime:"",homeCity:"Edmonds",homeState:"WA",scheduleCount:0,isServingNow:false,lat:47.8105738,lng:-122.3774952,isActiveLocation:false,scheduleHtml:"No upcoming events currently scheduled."}];
+
+
+const summary = document.getElementById('results-summary');
+
+if (summary) {
+    if (trucks.length === 0) {
+        summary.innerHTML = 'No food trucks found';
+    } else if (trucks.length === 1) {
+        summary.innerHTML = '1 food truck visible';
+    } else {
+        summary.innerHTML = `${trucks.length} food trucks visible`;
+    }
+}
+
+const searchKeyword = "";
+const searchDate = "";
+const searchCity = "";
+const hasSearch = searchKeyword !== "" || searchDate !== "" || searchCity !== "";
+let activeCityFilter = searchCity;
+
+const map = L.map('map').setView([47.5542867, -122.2778320], 5);
+
+const mapElement = document.getElementById("map");
+const groupMapOverlay = document.createElement("div");
+groupMapOverlay.className = "truckGroupMapOverlay";
+groupMapOverlay.setAttribute("role", "dialog");
+groupMapOverlay.setAttribute("aria-label", "Food trucks at this location");
+
+const groupMapOverlayContent = document.createElement("div");
+groupMapOverlayContent.className = "truckGroupMapOverlayContent";
+groupMapOverlay.appendChild(groupMapOverlayContent);
+mapElement.appendChild(groupMapOverlay);
+
+function closeGroupMapOverlay() {
+    groupMapOverlay.style.display = "none";
+    groupMapOverlayContent.innerHTML = "";
+}
+
+function positionGroupMapOverlay(lat, lng) {
+    const point = map.latLngToContainerPoint([lat, lng]);
+    const mapWidth = mapElement.clientWidth;
+    const overlayWidth = groupMapOverlay.offsetWidth;
+    const overlayHeight = groupMapOverlay.offsetHeight;
+    const edgePadding = 8;
+
+    let left = point.x - (overlayWidth / 2);
+    left = Math.max(edgePadding, Math.min(left, mapWidth - overlayWidth - edgePadding));
+
+    let top = point.y - overlayHeight - 24;
+    if (top < edgePadding) {
+        top = edgePadding;
+    }
+
+    groupMapOverlay.style.left = Math.round(left) + "px";
+    groupMapOverlay.style.top = Math.round(top) + "px";
+}
+
+function openGroupMapOverlay(group, originalEvent) {
+    if (originalEvent) {
+        L.DomEvent.stopPropagation(originalEvent);
+    }
+
+    groupMapOverlayContent.innerHTML = "";
+
+    group.trucks
+        .slice()
+        .sort(function(a, b) {
+            return a.truckName.localeCompare(b.truckName);
+        })
+        .forEach(function(truck) {
+            const link = document.createElement("button");
+            link.type = "button";
+            link.className = "truckGroupPopupLink";
+            link.textContent = truck.truckName;
+            link.addEventListener("click", function(event) {
+                event.stopPropagation();
+                closeGroupMapOverlay();
+                openTruckModal(truck.popupHtml);
+            });
+            groupMapOverlayContent.appendChild(link);
+        });
+
+    groupMapOverlay.style.display = "block";
+    positionGroupMapOverlay(group.lat, group.lng);
+}
+
+map.on("click movestart zoomstart resize", closeGroupMapOverlay);
+
+const activeIcon = L.icon({
+    iconUrl: 'img/active.png',
+    iconSize: [22, 34],
+    iconAnchor: [12, 34],
+    popupAnchor: [0, -34]
+});
+
+const inactiveIcon = L.icon({
+    iconUrl: 'img/inactive.png',
+    iconSize: [22, 34],
+    iconAnchor: [12, 34],
+    popupAnchor: [0, -34]
+});
+
+let userLocationMarker = null;
+let distanceOrigin = null;
+let distanceOriginMode = "map";
+let distanceFilterActive = false;
+const mapEntries = [];
+const withinMilesSelect = document.getElementById("withinMiles");
+const foodNearMeBtn = document.getElementById("foodNearMeBtn");
+const mapJumpInput = document.getElementById("mapJump");
+const distanceStatus = document.getElementById("distanceStatus");
+
+const searchbox = document.getElementById("searchbox");
+const searchToggleTab = document.getElementById("searchToggleTab");
+
+function setSearchCollapsed(collapsed) {
+    if (!searchbox || !searchToggleTab) return;
+
+    if (collapsed) {
+        searchbox.classList.add("searchCollapsed");
+        searchbox.classList.remove("searchOpen");
+        searchToggleTab.setAttribute("aria-expanded", "false");
+        searchToggleTab.innerHTML = "⌄ Expand for Search or click the ⌖ on map ⌄";
+    } else {
+        searchbox.classList.remove("searchCollapsed");
+        searchbox.classList.add("searchOpen");
+        searchToggleTab.setAttribute("aria-expanded", "true");
+        searchToggleTab.innerHTML = "⌃ Collapse search ⌃";
+    }
+
+    updateResultsSummary(getVisibleTruckCount());
+
+    setTimeout(function() {
+        if (typeof map !== "undefined") {
+            map.invalidateSize();
+        }
+    }, 300);
+}
+
+if (searchToggleTab) {
+    searchToggleTab.addEventListener("click", function() {
+        setSearchCollapsed(!searchbox.classList.contains("searchCollapsed"));
+    });
+
+    searchToggleTab.addEventListener("keydown", function(e) {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setSearchCollapsed(!searchbox.classList.contains("searchCollapsed"));
+        }
+    });
+}
+
+if (!hasSearch) {
+    setSearchCollapsed(true);
+} else {
+    setSearchCollapsed(false);
+}
+
+function showUserLocation(lat, lng, zoomToUser) {
+    if (userLocationMarker) {
+        map.removeLayer(userLocationMarker);
+    }
+
+    userLocationMarker = L.circleMarker([lat, lng], {
+        radius: 8,
+        fillColor: "#0066ff",
+        color: "#ffffff",
+        weight: 3,
+        opacity: 1,
+        fillOpacity: 1
+    }).addTo(map).bindPopup("Your Current Location");
+
+    if (zoomToUser && (!withinMilesSelect || withinMilesSelect.value === "")) {
+        map.setView([lat, lng], 13);
+    }
+}
+
+// Street (Humanitarian OpenStreetMap)
+const street = L.tileLayer(
+    'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+    {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors, HOT'
+    }
+);
+
+// Satellite imagery
+const satelliteImage = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    {
+        maxZoom: 19,
+        attribution: '&copy; Esri'
+    }
+);
+
+// Labels for satellite
+const satelliteLabels = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
+    {
+        maxZoom: 19,
+        attribution: '&copy; Esri'
+    }
+);
+
+const satellite = L.layerGroup([satelliteImage, satelliteLabels]);
+
+const terrain = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}',
+    {
+        maxZoom: 19,
+        attribution: '&copy; Esri'
+    }
+);
+
+// Default layer
+terrain.addTo(map);
+
+L.control.layers(
+    {
+        "Map": terrain,
+        "Satellite": satellite,
+        "Streets": street
+    }
+).addTo(map);
+
+const bounds = [];
+
+function milesBetween(lat1, lon1, lat2, lon2) {
+    const R = 3958.8;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+
+    lat1 = lat1 * Math.PI / 180;
+    lat2 = lat2 * Math.PI / 180;
+
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1) * Math.cos(lat2) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function getDistanceOrigin() {
+    if (distanceOrigin) {
+        return distanceOrigin;
+    }
+
+    const center = map.getCenter();
+
+    return {
+        lat: center.lat,
+        lng: center.lng,
+        label: "map center"
+    };
+}
+
+function getSelectedWithinMiles() {
+    if (!withinMilesSelect) return NaN;
+    return parseFloat(withinMilesSelect.value);
+}
+
+function fitMapToWithinDistance() {
+    const miles = getSelectedWithinMiles();
+
+    if (isNaN(miles) || miles <= 0) {
+        return;
+    }
+
+    // Within is now a quick zoom helper around the current map center.
+    // Example: 10 miles means the visible map should be about 10 miles tall.
+    const center = map.getCenter();
+    const halfMiles = miles / 2.0;
+    const latDelta = halfMiles / 69.0;
+    const lngDelta = halfMiles / (69.0 * Math.cos(center.lat * Math.PI / 180));
+
+    const radiusBounds = L.latLngBounds(
+        [center.lat - latDelta, center.lng - lngDelta],
+        [center.lat + latDelta, center.lng + lngDelta]
+    );
+
+    map.fitBounds(radiusBounds, {
+        paddingTopLeft: [0, 0],
+        paddingBottomRight: [0, 0],
+        animate: false
+    });
+
+    map.panTo([center.lat, center.lng], { animate: false });
+}
+
+function saveDistanceOrigin(lat, lng, label, mode) {
+    if (mode === "user") {
+        localStorage.setItem("wsftaDistanceOrigin", JSON.stringify({
+            lat: lat,
+            lng: lng,
+            label: label,
+            mode: mode
+        }));
+    }
+}
+
+function restoreSavedDistanceOrigin() {
+    if (!withinMilesSelect || withinMilesSelect.value === "") {
+        return false;
+    }
+
+    const savedOrigin = localStorage.getItem("wsftaDistanceOrigin");
+
+    if (!savedOrigin) {
+        return false;
+    }
+
+    try {
+        const parsed = JSON.parse(savedOrigin);
+
+        if (!isNaN(parseFloat(parsed.lat)) && !isNaN(parseFloat(parsed.lng))) {
+            distanceOrigin = {
+                lat: parseFloat(parsed.lat),
+                lng: parseFloat(parsed.lng),
+                label: parsed.label || "your last location"
+            };
+
+            distanceOriginMode = parsed.mode || "saved";
+            distanceFilterActive = true;
+            return true;
+        }
+    } catch (err) {
+        localStorage.removeItem("wsftaDistanceOrigin");
+    }
+
+    return false;
+}
+
+function updateDistanceStatus(visibleCount, totalCount) {
+    if (!distanceStatus) return;
+
+    distanceStatus.innerHTML = "Showing trucks currently visible on the map.";
+}
+
+function getVisibleTruckCount() {
+    let visibleCount = 0;
+
+    mapEntries.forEach(function(entry) {
+        if (!entry.card || entry.card.style.display !== "none") {
+            visibleCount++;
+        }
+    });
+
+    return visibleCount;
+}
+
+function formatFilterDate(dateValue) {
+    if (!dateValue) return "";
+
+    const parts = dateValue.split("-");
+    if (parts.length !== 3) return dateValue;
+
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10);
+    const day = parseInt(parts[2], 10);
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    if (isNaN(year) || isNaN(month) || isNaN(day) || month < 1 || month > 12) {
+        return dateValue;
+    }
+
+    let suffix = "th";
+    if (day % 100 < 11 || day % 100 > 13) {
+        if (day % 10 === 1) suffix = "st";
+        if (day % 10 === 2) suffix = "nd";
+        if (day % 10 === 3) suffix = "rd";
+    }
+
+    return monthNames[month - 1] + " " + day + suffix + ", " + year;
+}
+
+function getFilterDescription() {
+    let description = "";
+
+    if (searchKeyword !== "") {
+        description = searchKeyword;
+    }
+
+    if (searchDate !== "") {
+        if (description !== "") description += " ";
+        description += "on " + formatFilterDate(searchDate);
+    }
+
+    if (activeCityFilter !== "") {
+        if (description !== "") description += " ";
+        description += "in " + activeCityFilter;
+    }
+
+    return description;
+}
+
+function updateResultsSummary(visibleCount) {
+    if (!summary) return;
+
+    summary.innerHTML = "";
+
+    const mainLine = document.createElement("span");
+    mainLine.className = "resultsSummaryMain";
+
+    if (visibleCount === 0) {
+        mainLine.textContent = "No food trucks found.";
+    } else if (visibleCount === 1) {
+        mainLine.innerHTML = 'Showing 1 food truck. View <span id="showListLink" class="showListLink">list ↓</span>.';
+    } else {
+        mainLine.innerHTML = `Showing ${visibleCount} food trucks. Jump to <span id="showListLink" class="showListLink">list ↓↓</span>`;
+    }
+
+    summary.appendChild(mainLine);
+
+    const filterDescription = getFilterDescription();
+
+    if (filterDescription !== "") {
+        const filterLine = document.createElement("div");
+        filterLine.className = "resultsFilterLine";
+
+        const filterText = document.createElement("span");
+        filterText.textContent = 'Filtered by "' + filterDescription + '"';
+        filterLine.appendChild(filterText);
+
+        if (searchbox && searchbox.classList.contains("searchCollapsed")) {
+            const resetButton = document.createElement("button");
+            resetButton.type = "button";
+            resetButton.className = "filterResetButton";
+            resetButton.textContent = "Reset";
+            resetButton.addEventListener("click", function() {
+                window.location = "/default.asp";
+            });
+            filterLine.appendChild(resetButton);
+        }
+
+        summary.appendChild(filterLine);
+    }
+
+    const showListLink = document.getElementById("showListLink");
+
+    if (showListLink) {
+        showListLink.onclick = function () {
+            document.getElementById("truckCardResults").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        };
+    }
+}
+
+
+function applyDistanceFilter() {
+    let visibleCount = 0;
+    const visibleBounds = map.getBounds();
+
+    mapEntries.forEach(function(entry) {
+        const showEntry = visibleBounds.contains([entry.lat, entry.lng]);
+
+        if (showEntry) {
+            visibleCount++;
+            if (!map.hasLayer(entry.marker)) {
+                entry.marker.addTo(map);
+            }
+            if (entry.card) {
+                entry.card.style.display = "";
+            }
+        } else {
+            if (map.hasLayer(entry.marker)) {
+                map.removeLayer(entry.marker);
+            }
+            if (entry.card) {
+                entry.card.style.display = "none";
+            }
+        }
+    });
+
+    updateResultsSummary(visibleCount);
+    updateDistanceStatus(visibleCount, mapEntries.length);
+}
+
+function setDistanceOrigin(lat, lng, label, mode) {
+    distanceOrigin = {
+        lat: lat,
+        lng: lng,
+        label: label
+    };
+    distanceOriginMode = mode || "manual";
+
+    saveDistanceOrigin(lat, lng, label, distanceOriginMode);
+
+    map.panTo([lat, lng], { animate: false });
+
+    if (withinMilesSelect && withinMilesSelect.value !== "") {
+        fitMapToWithinDistance();
+    }
+
+    applyDistanceFilter();
+}
+
+function decodePopupText(value) {
+    const box = document.createElement('textarea');
+    box.innerHTML = value || '';
+    return box.value;
+}
+
+function buildPopupPhotos(mainPhoto, additionalPhotos) {
+    const photos = [];
+
+    function cleanPhoto(photoUrl) {
+        photoUrl = decodePopupText(photoUrl || '').trim();
+        photoUrl = photoUrl.replace(/^['"]+|['"]+$/g, '').trim();
+        photoUrl = photoUrl.replace(/\\\//g, '/');
+
+        // Photos uploaded from /members are stored as ../uploads/...
+        // This public page is already one level higher, so use uploads/...
+        if (photoUrl.indexOf('../uploads/') === 0) {
+            photoUrl = photoUrl.substring(3);
+        }
+
+        return photoUrl;
+    }
+
+    function addPhoto(photoUrl) {
+        photoUrl = cleanPhoto(photoUrl);
+
+        if (photoUrl && photos.indexOf(photoUrl) === -1 && photos.length < 7) {
+            photos.push(photoUrl);
+        }
+    }
+
+    addPhoto(mainPhoto);
+
+    additionalPhotos = decodePopupText(additionalPhotos || '').trim();
+
+    if (additionalPhotos) {
+        if (additionalPhotos.charAt(0) === '[') {
+            try {
+                JSON.parse(additionalPhotos).forEach(addPhoto);
+            } catch (err) {
+                additionalPhotos.split(/[|,;\n\r]+/).forEach(addPhoto);
+            }
+        } else {
+            // The ASP code sends photo records pipe-delimited.
+            // Keep the full stored path intact, including ../uploads/...
+            additionalPhotos.split(/[|,;\n\r]+/).forEach(addPhoto);
+        }
+    }
+
+    return photos;
+}
+
+
+function buildTruckDescriptionHtml(t) {
+    const description = (t.description || '').trim();
+    const fullDescription = (t.fullDescription || '').trim();
+
+    if (!description && !fullDescription) {
+        return '';
+    }
+
+    if (!fullDescription) {
+        return `
+            <div class="truckPopupDescription">
+                ${description}
+            </div>
+        `;
+    }
+
+    return `
+        <div class="truckPopupDescription truckExpandableDescription">
+            ${description ? `
+                <div class="truckDescriptionSummary">
+                    ${description}
+                    <button type="button" class="truckDescriptionToggle truckDescriptionMore" aria-expanded="false">...more</button>
+                </div>
+            ` : ``}
+            <div class="truckFullDescription"${description ? ` hidden` : ``}><span>${fullDescription}</span>${description ? `<button type="button" class="truckDescriptionToggle truckDescriptionLess" aria-expanded="true">...less</button>` : ``}</div>
+        </div>
+    `;
+}
+
+document.addEventListener("click", function (event) {
+    const toggle = event.target.closest(".truckDescriptionToggle");
+
+    if (!toggle) {
+        return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const descriptionBox = toggle.closest(".truckExpandableDescription");
+
+    if (!descriptionBox) {
+        return;
+    }
+
+    const fullDescription = descriptionBox.querySelector(".truckFullDescription");
+    const moreButton = descriptionBox.querySelector(".truckDescriptionMore");
+
+    if (!fullDescription) {
+        return;
+    }
+
+    const isExpanding = fullDescription.hasAttribute("hidden");
+
+    if (isExpanding) {
+        fullDescription.removeAttribute("hidden");
+        if (moreButton) {
+            moreButton.setAttribute("hidden", "");
+            moreButton.setAttribute("aria-expanded", "true");
+        }
+    } else {
+        fullDescription.setAttribute("hidden", "");
+        if (moreButton) {
+            moreButton.removeAttribute("hidden");
+            moreButton.setAttribute("aria-expanded", "false");
+        }
+    }
+});
+
+const markerGroups = {};
+
+trucks.forEach(function(t) {
+    const lat = parseFloat(t.lat);
+    const lng = parseFloat(t.lng);
+
+    if (!isNaN(lat) && !isNaN(lng)) {
+
+					const socialHtml = `
+					<div class="popupSocialLinks">
+
+					    ${t.website ? `
+					        <a href="${t.website}" target="_blank" title="Website">
+					            <img src="img/web.png" alt="Website">
+					        </a>` : ``}
+
+					    ${t.phone ? `
+					        <a href="tel:${t.phone}" title="Call">
+					            <img src="img/call.png" alt="Call">
+					        </a>` : ``}
+
+					    ${t.sms ? `
+					        <a href="sms:${t.sms}" title="Text">
+					            <img src="img/sms.png" alt="SMS">
+					        </a>` : ``}
+
+					    ${t.email ? `
+					        <a href="mailto:${t.email}" title="Email">
+					            <img src="img/email.png" alt="Email">
+					        </a>` : ``}
+
+					    ${t.facebook ? `
+					        <a href="${t.facebook}" target="_blank" title="Facebook">
+					            <img src="img/facebook.png" alt="Facebook">
+					        </a>` : ``}
+
+					    ${t.instagram ? `
+					        <a href="${t.instagram}" target="_blank" title="Instagram">
+					            <img src="img/instagram.png" alt="Instagram">
+					        </a>` : ``}
+
+					    ${t.tiktok ? `
+					        <a href="${t.tiktok}" target="_blank" title="TikTok">
+					            <img src="img/tiktok.png" alt="TikTok">
+					        </a>` : ``}
+
+					</div>
+					`;
+
+					const actionButtonsHtml = `
+					    <div class="popupActionButtons">
+					        ${t.menu ? `<a class="truckPopupButton popupmenubutton" href="${t.menu}" target="_blank">MENU</a>` : ``}
+					        ${t.ordering ? `<a class="truckPopupButton orderButton" href="${t.ordering}" target="_blank">Online Ordering</a>` : ``}
+					    </div>
+					`;
+
+        const statusTitle = t.isServingNow ? '🟢 TODAY' : '';
+        const statusHtml = t.isActiveLocation ? `
+            <div class="truckPopupStatus">
+                <div class="truckPopupStatusTitle">${statusTitle}</div>
+                <div>${t.firstLocation}</div>
+                <div>${t.firstTime}</div>
+                ${t.firstMap ? `<a class="truckPopupDirections" href="${t.firstMap}" target="_blank">📍 Directions</a>` : ``}
+            </div>
+        ` : `
+    <div class="truckPopupStatus">
+        <div class="truckPopupStatusTitle">⚪ No upcoming events currently scheduled.</div>
+        <div class="truckPopupStatusTitle" style="margin-left:27px; font-size:0.9em; color:#666;">Home base: ${t.homeCity}, ${t.homeState}</div>
+    </div>
+`;
+
+        const moreEvents = t.scheduleCount > 3 ? `<div class="truckPopupFooter">...and ${t.scheduleCount - 3} more scheduled stop${(t.scheduleCount - 3) === 1 ? '' : 's'}.</div>` : ``;
+
+        const photos = buildPopupPhotos(t.photo, t.additionalPhotos);
+
+        const photoHtml = photos.length > 0 ? `
+            <div class="popupPhotoSlider" data-photos="${encodeURIComponent(JSON.stringify(photos))}">
+                <button type="button" class="popupPhotoArrow popupPhotoPrev" aria-label="Previous photo">&lt;</button>
+                <img class="truckPopupPhoto" src="${photos[0]}" alt="${t.truckName}">
+                <button type="button" class="popupPhotoArrow popupPhotoNext" aria-label="Next photo">&gt;</button>
+                <div class="popupPhotoCount">1/${photos.length}</div>
+            </div>
+        ` : ``;
+
+const popupHtml = `
+<div class="truckPopupCard">
+
+    ${photoHtml}
+
+    <h3>${t.truckName}</h3>
+
+    ${socialHtml}
+
+    ${actionButtonsHtml}
+
+    ${buildTruckDescriptionHtml(t)}
+
+    ${
+        t.isActiveLocation
+        ? `<div class="truckPopupScheduleTitle">Upcoming Locations</div>
+           <div class="truckPopupSchedule">
+               ${t.scheduleHtml}
+           </div>
+           ${moreEvents}`
+        : statusHtml
+    }
+    
+    
+
+</div>
+`;
+
+
+const cardResults = document.getElementById("truckCardResults");
+let cardWrap = null;
+
+if (cardResults) {
+    cardWrap = document.createElement("div");
+    
+    
+    cardWrap.innerHTML = `
+<div class="truckPopupCard truckResultCard">
+
+    ${photoHtml}
+
+    <h3 class="truckResultName" role="button" tabindex="0">${t.truckName} <span class="infoIcon">&#9432;</span></h3>
+
+    ${socialHtml}
+
+    ${actionButtonsHtml}
+
+    ${buildTruckDescriptionHtml(t)}
+
+    ${statusHtml}
+
+</div>
+`;
+    
+    
+    
+    cardResults.appendChild(cardWrap);
+
+    const resultName = cardWrap.querySelector(".truckResultName");
+    if (resultName) {
+        resultName.addEventListener("click", function () {
+            openTruckModal(popupHtml);
+        });
+
+        resultName.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openTruckModal(popupHtml);
+            }
+        });
+    }
+
+    initPopupPhotoSlider(cardWrap);
+}
+
+
+
+				      const coordinateKey = lat.toFixed(6) + "," + lng.toFixed(6);
+
+if (!markerGroups[coordinateKey]) {
+    markerGroups[coordinateKey] = {
+        lat: lat,
+        lng: lng,
+        trucks: []
+    };
+}
+
+markerGroups[coordinateKey].trucks.push({
+    truckName: decodePopupText(t.truckName),
+    popupHtml: popupHtml,
+    isActiveLocation: t.isActiveLocation,
+    card: cardWrap
+});
+
+bounds.push([lat, lng]);
+    }
+});
+
+Object.keys(markerGroups).forEach(function(coordinateKey) {
+    const group = markerGroups[coordinateKey];
+    let marker;
+
+    if (group.trucks.length === 1) {
+        const truck = group.trucks[0];
+
+        marker = L.marker([group.lat, group.lng], {
+            icon: truck.isActiveLocation ? activeIcon : inactiveIcon
+        }).addTo(map);
+
+        marker.on("click", function () {
+            openTruckModal(truck.popupHtml);
+        });
+    } else {
+        const groupIcon = L.divIcon({
+            className: "truckGroupMarker",
+            html: "<div class='truckGroupMarkerCircle'>" + group.trucks.length + "</div>",
+            iconSize: [34, 34],
+            iconAnchor: [17, 17],
+            popupAnchor: [0, -18]
+        });
+
+        marker = L.marker([group.lat, group.lng], {
+            icon: groupIcon
+        }).addTo(map);
+
+        marker.on("click", function(event) {
+            openGroupMapOverlay(group, event.originalEvent);
+        });
+    }
+
+    group.trucks.forEach(function(truck) {
+        mapEntries.push({
+            marker: marker,
+            card: truck.card,
+            lat: group.lat,
+            lng: group.lng
+        });
+    });
+});
+
+if (bounds.length > 0) {
+    map.fitBounds(bounds, {
+        paddingTopLeft: [50, 220],
+        paddingBottomRight: [50, 50]
+    });
+
+    map.zoomIn(2);
+}
+
+
+function openTruckModal(html) {
+    document.body.style.overflow = "hidden";
+
+    const overlay = document.getElementById("truckModalOverlay");
+    const content = document.getElementById("truckModalContent");
+
+    content.innerHTML = html;
+    overlay.style.display = "flex";
+
+    initPopupPhotoSlider(content);
+}
+
+function closeTruckModal() {
+    document.body.style.overflow = "";
+
+    document.getElementById("truckModalOverlay").style.display = "none";
+    document.getElementById("truckModalContent").innerHTML = "";
+}
+
+document.getElementById('truckModalClose').addEventListener('click', closeTruckModal);
+
+document.getElementById('truckModalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeTruckModal();
+    }
+});
+
+function initPopupPhotoSlider(container) {
+    const slider = container.querySelector('.popupPhotoSlider');
+    if (!slider) return;
+
+    const img = slider.querySelector('.truckPopupPhoto');
+    const prev = slider.querySelector('.popupPhotoPrev');
+    const next = slider.querySelector('.popupPhotoNext');
+    const count = slider.querySelector('.popupPhotoCount');
+
+    let photos = [];
+
+    try {
+        photos = JSON.parse(decodeURIComponent(slider.dataset.photos || '%5B%5D'));
+    } catch (err) {
+        photos = [];
+    }
+
+    let index = 0;
+
+    function showPhoto() {
+        img.src = photos[index];
+        if (count) {
+            count.innerHTML = (index + 1) + '/' + photos.length;
+        }
+    }
+
+		if (photos.length <= 1) {
+		    if (prev) prev.style.display = 'none';
+		    if (next) next.style.display = 'none';
+		    if (count) count.style.display = 'none';
+		    return;
+		}
+
+    prev.addEventListener('click', function() {
+        index = (index - 1 + photos.length) % photos.length;
+        showPhoto();
+    });
+
+    next.addEventListener('click', function() {
+        index = (index + 1) % photos.length;
+        showPhoto();
+    });
+}
+
+L.DomEvent.disableClickPropagation(document.getElementById("locateBtn"));
+L.DomEvent.disableScrollPropagation(document.getElementById("locateBtn"));
+
+const locateBtn = document.getElementById("locateBtn");
+
+L.DomEvent.disableClickPropagation(locateBtn);
+L.DomEvent.disableScrollPropagation(locateBtn);
+
+locateBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!navigator.geolocation) {
+        alert("Your browser does not support location.");
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+            showUserLocation(
+                position.coords.latitude,
+                position.coords.longitude,
+                true
+            );
+            setDistanceOrigin(
+                position.coords.latitude,
+                position.coords.longitude,
+                "your location",
+                "user"
+            );
+        },
+        function(error) {
+            alert("Unable to get your location.");
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+    );
+});
+
+if (withinMilesSelect) {
+    const savedWithinMiles = localStorage.getItem("wsftaWithinMiles");
+
+    if (savedWithinMiles !== null) {
+        withinMilesSelect.value = savedWithinMiles;
+    }
+
+    withinMilesSelect.addEventListener("change", function() {
+        localStorage.setItem("wsftaWithinMiles", withinMilesSelect.value);
+
+        if (withinMilesSelect.value !== "") {
+            fitMapToWithinDistance();
+        }
+
+        applyDistanceFilter();
+    });
+}
+
+if (foodNearMeBtn) {
+    foodNearMeBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        if (!navigator.geolocation) {
+            alert("Your browser does not support location. Using the map center instead.");
+            distanceOrigin = null;
+            distanceOriginMode = "map";
+            distanceFilterActive = true;
+            if (withinMilesSelect && withinMilesSelect.value === "") {
+                withinMilesSelect.value = "10";
+                localStorage.setItem("wsftaWithinMiles", "10");
+            }
+            fitMapToWithinDistance();
+            applyDistanceFilter();
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                showUserLocation(
+                    position.coords.latitude,
+                    position.coords.longitude,
+                    true
+                );
+
+                if (withinMilesSelect) {
+                    withinMilesSelect.value = "10";
+                    localStorage.setItem("wsftaWithinMiles", "10");
+                }
+
+                setDistanceOrigin(
+                    position.coords.latitude,
+                    position.coords.longitude,
+                    "your location",
+                    "user"
+                );
+            },
+            function(error) {
+                alert("Location access was not allowed. Using the map center instead.");
+                distanceOrigin = null;
+                distanceOriginMode = "map";
+                distanceFilterActive = true;
+
+                if (withinMilesSelect && withinMilesSelect.value === "") {
+                    withinMilesSelect.value = "10";
+                    localStorage.setItem("wsftaWithinMiles", "10");
+                }
+
+                fitMapToWithinDistance();
+                applyDistanceFilter();
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            }
+        );
+    });
+}
+
+function jumpToCityOrTown() {
+    if (!mapJumpInput) return;
+
+    const place = mapJumpInput.value.trim();
+
+    if (place === "") {
+        alert("Enter a city or town.");
+        return;
+    }
+
+    const query = place + ", Washington, USA";
+    const url = "https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=us&q=" + encodeURIComponent(query);
+
+    if (distanceStatus) {
+        distanceStatus.innerHTML = "Moving map to " + place + "...";
+    }
+
+    fetch(url)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(results) {
+            if (!results || results.length === 0) {
+                alert("I couldn't find that city or town in Washington.");
+                updateDistanceStatus(0, mapEntries.length);
+                return;
+            }
+
+            const result = results[0];
+            activeCityFilter = place;
+            updateResultsSummary(getVisibleTruckCount());
+
+            if (result.boundingbox && result.boundingbox.length === 4) {
+                const south = parseFloat(result.boundingbox[0]);
+                const north = parseFloat(result.boundingbox[1]);
+                const west = parseFloat(result.boundingbox[2]);
+                const east = parseFloat(result.boundingbox[3]);
+
+                if (!isNaN(south) && !isNaN(north) && !isNaN(west) && !isNaN(east)) {
+                    map.fitBounds([[south, west], [north, east]], {
+                        paddingTopLeft: [50, 80],
+                        paddingBottomRight: [50, 50]
+                    });
+                    return;
+                }
+            }
+
+            const lat = parseFloat(result.lat);
+            const lon = parseFloat(result.lon);
+
+            if (!isNaN(lat) && !isNaN(lon)) {
+                map.setView([lat, lon], 12);
+            }
+        })
+        .catch(function() {
+            alert("Unable to look up that city or town right now.");
+            updateDistanceStatus(0, mapEntries.length);
+        });
+}
+
+map.on("moveend", function() {
+    applyDistanceFilter();
+});
+
+applyDistanceFilter();
+
+if (searchCity !== "") {
+    jumpToCityOrTown();
+}
+
+</script>
+
+<script src="/includes/common.js?ver=9/26/2026 11:29:24 PM"></script>
+</body>
+</html>
