@@ -1,6 +1,9 @@
 name: art-love-salon
 sourceRole: venue
 description: "Art Love Salon"
+# The gallery's own site states admission is always free ("Seattle's
+# zero-commission gallery... free events, and free workshops").
+cost: free
 url: "https://publicdisplay.art/calendar"
 friendlyLink: https://www.artlovesalon.org
 tags: ["Arts", "Downtown"]

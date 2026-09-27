@@ -2,6 +2,11 @@ name: halcyon-brewing
 sourceRole: venue
 type: squarespace
 description: "Halcyon Brewing Co"
+# Brewery taproom: entry is always free (you pay for beer/food, not
+# admission). Verified across 8 distinct gap events (comedy shows,
+# improv, anniversary party, game-day screenings) — several explicitly
+# say "FREE"/"Free for the community", none mention a cover charge.
+cost: free
 url: "https://www.halcyonbrewingco.com/events"
 friendlyLink: https://www.halcyonbrewingco.com/events
 tags: ["Beer", "Greenwood"]

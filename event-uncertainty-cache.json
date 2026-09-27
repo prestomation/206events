@@ -99552,11 +99552,658 @@
     },
     "west-seattle-chamber:ribbon-cutting-starbird-chicken-17535": {
       "fields": {
-        "imageUrl": "https://chambermaster.blob.core.windows.net/userfiles/UserFiles/chambers/1229/Image/Unknown-1.jpeg"
+        "imageUrl": "https://chambermaster.blob.core.windows.net/userfiles/UserFiles/chambers/1229/Image/Unknown-1.jpeg",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://westseattle.wschamber.com/events/details/ribbon-cutting-starbird-chicken-17535 (event flyer embedded in listing: \"JOIN US FOR STARBIRD'S GRAND OPENING! SEPTEMBER 28 | 11AM\", matches this event exactly)"
+      "evidence": "https://westseattle.wschamber.com/events/details/ribbon-cutting-starbird-chicken-17535 (imageUrl: event flyer embedded in listing, \"JOIN US FOR STARBIRD'S GRAND OPENING! SEPTEMBER 28 | 11AM\", matches this event exactly. cost: \"free and open to the public\", first 200 guests get a free meal.)"
+    },
+    "seatoday:cityspark-20033921": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "MoPOP members-only event (\"Not a member yet? Become a member today\") — no separate per-event ticket price; membership-gated admission does not map to a per-event cost"
+    },
+    "seatoday:cityspark-20034016": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "CitySpark API description: Seattle Public Library \"Homework Help\" — free program, snacks provided, no registration/fee"
+    },
+    "burke-museum:burke-pablo-diaz-artist-studio": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.burkemuseum.org/calendar/pablo-diaz-artist-studio (\"FREE admission for Free First Thursday\")"
+    },
+    "first-hill-improvement-association:6ab8705219788035f2f05496": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/1/vaccine-clinic (\"This free clinic will have flu and covid vaccines. No registration required.\")"
+    },
+    "rainier-beach-community-club:rbcc-meaningful-movies-2027-09-19": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://rainierbeachcommunityclub.org/events/meaningful-movies (\"Free to All (donations gratefully accepted)\" — a stable series-level policy statement, not tied to a specific screening)"
+    },
+    "rabbit_box:6ab5b4e9f817c36bf00988a8": {
+      "fields": {
+        "cost": {
+          "min": 12.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/lzapnuede17cxd74msobk9oh55uleb (\"GA Seated $12 adv. // $15 door\")"
+    },
+    "seattle-blues-dance-collective:sbdc-0f28f1532b65bb76b49af16162aa563b840fcde82920f2fb7d7f0df48a272f43": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "seattlebluesdance.com is a client-rendered SPA showing only \"Loading...\"; Humanitix host page (their ticketing platform) currently lists no live events; no price found anywhere"
+    },
+    "seattle-parks-activecommunities:sprac-91117-2026-10-06": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Montlake Emergency Hub 101 Training — grassroots all-volunteer Seattle Neighborhood emergency-prep program (seattleemergencyhubs.org), no fee structure found; ActiveCommunities registration used for headcount only"
+    },
+    "sol-yoga-seattle:6a983aa7b1911444973d7e98": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.solyogaseattle.com/events/sol-sound-bath-... (\"Purchase a $50 SOL Event pass and pre-register up to 30 days prior\")"
+    },
+    "the-cuff-complex:6ab5b9a3bb73842713997775": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.cuffcomplex.com/events/a-cuff-halloween-double-feature (cheapest presale tier: \"Friday Presale: $10\")"
+    },
+    "watershed-pub:watershed-pub-opening_late_at_2_pm_for_staff_meeting-2026-10-07": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.watershedpub.com/events#opening_late_at_2_pm_for_staff_meeting — an operating-hours notice (\"Opening Late at 2pm for Staff Meeting\"), not a ticketed event; no admission concept applies"
+    },
+    "wing-luke:6ab84d91b51d16395315605b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.wingluke.org/eventscalendar/2026-holiday-market (\"FREE - admission not included\")"
+    },
+    "ballard-brewed:6ab8b333d10ed73ffc374893": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.ballardbrewed.com/events/happy-thanksgiving-1 — an all-day holiday hours notice (\"Happy Thanksgiving!\"), not a ticketed event"
+    },
+    "mr_bs_meadery:6ab590596eb9877a1e5d99af": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.mrbsmeadery.com/events/bxex3e8gr83mtyn0ukznsf2ahl6dnj (\"All ages and free Live musical performance!\")"
+    },
+    "mr_bs_meadery:6ab591bcd9a6e93d242a053e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.mrbsmeadery.com/events/mending-day-at-mr-bs — free drop-in mending meetup, \"Needles, thread, and other equipment will be provided\", no ticket/price language anywhere"
+    },
+    "outdoors-for-all:outdoors-for-all-19351-2026-11-09": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://outdoorsforall.org/events/indoor-spin-class/ — nonprofit adaptive-recreation program; page mentions \"financial aid options\" (implying a real fee) but no price is shown"
+    },
+    "outdoors-for-all:outdoors-for-all-19351-2026-11-16": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://outdoorsforall.org/events/indoor-spin-class/ — nonprofit adaptive-recreation program; page mentions \"financial aid options\" (implying a real fee) but no price is shown"
+    },
+    "cornish:cornish-54064870033485": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://events.seattleu.edu/event/a-night-with-caryl-churchill (\"Cost: TBD\")"
+    },
+    "cornish:cornish-54064870034510": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://events.seattleu.edu/event/a-night-with-caryl-churchill (\"Cost: TBD\")"
+    },
+    "cornish:cornish-54064870035535": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://events.seattleu.edu/event/a-night-with-caryl-churchill (\"Cost: TBD\")"
+    },
+    "danceus-swing:danceus-165480871911716-2026-09-30": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/165480871911716/swing-it-wednesdays-at-polish-cultural-center-seattle-wa/ — swingitseattle.com drop-in social, no price found on event page, register page, or class-info page"
+    },
+    "danceus-swing:danceus-165480872035224-2026-10-02": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/165480872035224/swing-it-saturdays-at-polish-cultural-center-seattle-wa/ — swingitseattle.com drop-in social, no price found on event page, register page, or class-info page"
+    },
+    "danceus-swing:danceus-16548087208160-2026-10-03": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/16548087208160/dance-every-first-third-ssdc-sunday-seattle-wa/ (guest \"dance only\" tier: \"$15\"; member discounted price ignored per rubric)"
+    },
+    "danceus-swing:danceus-165480872789424-2026-10-03": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.danceus.org/event/165480872789424/swing-saturdays-salsa-con-todo-seattle-wa/ ; salsacontodo.com/copy-of-drop-ins states \"Most Saturdays 9:00PM - 12AM $15\""
+    },
+    "vashon-events:6a52ffb0f8420846decc3cdc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Vashon Heritage Museum — web search confirms \"no admission fee... admission is often by donation\""
+    },
+    "vashon-events:6a6d3c162d2ead56b2adfba3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "VIVA Annual Member Show at Vashon Center for the Arts gallery — \"Admission to the gallery is always free\" (confirmed via VCA site)"
+    },
+    "vashon-events:6a6e50a9cb96280641e1f119": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "First Friday Gallery Cruise — standard free community gallery walk (multiple galleries/artists/merchants), no admission fee for the walk itself"
+    },
+    "vashon-events:6a6e50f4f016a45823dc1576": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "First Friday Gallery Cruise — standard free community gallery walk (multiple galleries/artists/merchants), no admission fee for the walk itself"
+    },
+    "vashon-events:6a6e513315ef21284108f063": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "First Friday Gallery Cruise — standard free community gallery walk (multiple galleries/artists/merchants), no admission fee for the walk itself"
+    },
+    "vashon-events:6a9f3a57c68d443834b3ea24": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/10/ela-lamblin-artist-talk-singer-the-whale (\"Free and open to the public\")"
+    },
+    "vashon-events:6a9f3bb64854834fd816fc44": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Exhibition walk-through at Vashon Center for the Arts gallery — \"Admission to the gallery is always free\""
+    },
+    "vashon-events:6a9f3c2e7e0d0478a57bc8a3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Brooke Gassiot: Tidal Bodies exhibit at Vashon Center for the Arts gallery — \"Admission to the gallery is always free\""
+    },
+    "vashon-events:6aa048dbb2ca60122286c663": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Visions in Color exhibit at Vashon Center for the Arts gallery — \"Admission to the gallery is always free\""
+    },
+    "vashon-events:6aa0ca6a7783e2634e3d5e22": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/17/vashon-art-bazaar — a maker/artisan market at Blue Heron Education Center; no admission price mentioned, standard free-entry market pattern"
+    },
+    "vashon-events:6aa43161475122546150ac4c": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/4/autumn-chrch (cheapest GA adult tier: \"The Congregation (GA) Adult: $25.00\"; VIP/reserved/youth/reduced tiers ignored per rubric)"
+    },
+    "vashon-events:6aa48361f2bb7f5daf1bd09b": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/9/26/hair-tinsel-pop-up (\"It only takes fifteen minutes and $30 for our favorite tinsel technician to do her magic\")"
+    },
+    "vashon-events:6aaab5b13dbb4c13e4084241": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/3/vashon-cider-fest — \"Tasting tickets available onsite\" implies free entry with paid tastings inside (21+); no entry fee mentioned"
+    },
+    "vashon-events:6aaad844871b933d1616d961": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/2/farewell-wine-shop-vashon — potluck-style closing party (\"bring a shareable dish\"), no admission fee mentioned"
+    },
+    "vashon-events:6ab2a07d373a982b0fe3fce5": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "no fee or ticketing signal anywhere on the page (\"registration is open\" but no price, no \"buy tickets\" language); a multi-week improv class series at Vashon Recess Lab"
+    },
+    "vashon-events:6ab469ac27f4ac7dabc2bc10": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/17/fall-fix-it-caf (\"Free or donation. Register at www.vashonfixit.com\")"
+    },
+    "vashon-events:6ab47dff09c1d259b04b20d4": {
+      "fields": {
+        "cost": {
+          "min": 20.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/23/laura-veirs-with-karl-blau (cheapest GA adult tier: \"General Admission: $20.00\"; VIP/patron/reduced/youth tiers ignored per rubric)"
+    },
+    "vashon-events:6ab5e74fe103ff37950a71f3": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/4/croaker-in-the-garden — live music at Palouse Winery, no cover charge mentioned, only an optional $25 pre-order cheese plate (paid activity inside, entry itself free per rubric)"
+    },
+    "vashon-events:6ab5ed94c243e31e23b869df": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "no pricing information anywhere on the page for this trivia night"
+    },
+    "vashon-events:6ab7c8407018c204b8dedd6a": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/11/22/albiani-art-talks (\"$25 General | $23 Senior | Youth Free\"; senior/youth tiers ignored per rubric)"
+    },
+    "vashon-events:6ab7c8adb51d163953ecb8bc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/3/us-playing-at-palouse — live music at Palouse Winery, no cover charge mentioned, only an optional $25 pre-order cheese plate (paid activity inside, entry itself free per rubric)"
+    },
+    "kremwerk:6ab59ba4e29eb214d2ffc334": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/31/freakshow — \"get tickets!\" link to external ticketing (tickets.kremwerk.com), no price shown on either page (JS-rendered widget)"
+    },
+    "kremwerk:6ab5b6b1c25a4c0b916d2e95": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/10/turbo-featuring-mirin-doja-klippee — \"get tickets!\" link to external ticketing, no price shown on the venue page"
+    },
+    "kremwerk:6ab5bd5dba48854b945cb1f7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/17/club-v-presents-big-vee — \"get tickets!\" link to external ticketing, no price shown on the venue page"
+    },
+    "kremwerk:6ab5c2964eed901104dd2b37": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/03/caravan-emergence (\"$15 Adv/ $20 Door\")"
+    },
+    "kremwerk:6ab6fd456f42ab2d9bcba9ca": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/30/space-age-futuristic-drag-cabaret (\"$15 online, $20 Door\")"
+    },
+    "kremwerk:6ab701ac56d2ce66082074b7": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming/2026/10/17/rollercoaster-of-dubs — \"get tickets!\" link to external ticketing, no price shown on the venue page"
+    },
+    "chophouse-row:6ab4430e46d6e83993f6ac08": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://celine-waldmann.com/products/lantern-making-workshop (\"Regular price $25.00 USD\"; status: \"Sold out\")"
+    },
+    "chophouse-row:6ab445e0a0aa147f4e630bd9": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://celine-waldmann.com/products/collage-club-with-studio-arby (\"Regular price $15.00 USD\")"
+    },
+    "chophouse-row:6ab4465dd22c642491c094f1": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://celine-waldmann.com/products/hand-sewing-basics-class-october-18 (\"Regular price $25.00 USD\")"
+    },
+    "chophouse-row:6ab44784c737c03e8c4c5e5f": {
+      "fields": {
+        "cost": {
+          "soldOut": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://celine-waldmann.com/products/collaged-bookmark-workshop-with-studio-arby (\"Regular price $40.00 USD\"; \"currently sold out for both available dates (September 19 and October 11)\")"
+    },
+    "chophouse-row:6ab6be1dccca702d30046411": {
+      "fields": {
+        "cost": {
+          "min": 30.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://celine-waldmann.com/products/hand-sewing-for-kids-october-17 (\"The workshop costs $30.00 USD\")"
+    },
+    "pono-ranch:6ab6e281f8720d27be117e3f": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/sonoro-collective-pono-ranch — tickets via posh.vip (JS-rendered), no price shown on either page"
+    },
+    "pono-ranch:6ab6e61adf14c94bc3e8dfb1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/mdq-underground-culture-1 — tickets via Shotgun.live, no price shown on the venue page"
+    },
+    "pono-ranch:6ab6e85a62ffbd43defab3bb": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/lezztalkaboutit-presents-latinx-night — tickets via Partiful, no price shown on the venue page"
+    },
+    "pono-ranch:6ab6eaea029c1835ef46d5b9": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/dilly-disco-groove-plug-alterlatina-present-wicked-wavelengths-halloween-bar-crawl — door covers explicitly \"increase throughout the night\", no fixed price stated; bracelet price also not shown"
+    },
+    "pono-ranch:6ab6f8281b21a667d490ea47": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.ponoranch.com/live-music/owltober-halloween-party — tickets via lineleap.com, no price shown on the venue page"
+    },
+    "visit-seattle:visit-seattle-amadeus": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/amadeus/ — pure aggregator listing, directs to seattlerep.org for tickets/pricing (show is 7+ months out)"
+    },
+    "visit-seattle:visit-seattle-intimate-apparel": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/intimate-apparel/ — pure aggregator listing, directs to seattlerep.org for tickets/pricing (show is 7+ months out)"
+    },
+    "visit-seattle:visit-seattle-seattle-seahawks-vs-arizona-cardinals": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/seattle-seahawks-vs-arizona-cardinals/ — pure aggregator listing, directs to seahawks.com for tickets/pricing"
+    },
+    "visit-seattle:visit-seattle-seattle-sounders-fc-vs-la-fc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/seattle-sounders-fc-vs-la-fc/ — pure aggregator listing, directs to soundersfc.com for tickets/pricing"
+    },
+    "visit-seattle:visit-seattle-you-are-cordially-invited-to-the-end-of-the-world": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://visitseattle.org/events/you-are-cordially-invited-to-the-end-of-the-world/ — pure aggregator listing, directs to seattlerep.org for tickets/pricing (show is 7+ months out)"
     }
   }
 }
