@@ -1,5 +1,5 @@
 import { ZonedDateTime, Duration, LocalDateTime, LocalDate, ChronoUnit } from "@js-joda/core";
-import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError } from "../../lib/config/schema.js";
+import { EventCost, IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent, UncertaintyError, UncertaintyField } from "../../lib/config/schema.js";
 import '@js-joda/timezone';
 
 const PAGE_SIZE = 25;
@@ -196,7 +196,14 @@ export default class SEAtodayRipper implements IRipper {
                     description = this.stripHtml(eventData.Description);
                 }
 
-                // Get location information
+                // Get location information. CitySpark's own Venue field is usually
+                // reliable, but events syndicated from Seattle Public Library's
+                // calendar sometimes leave Venue blank (or, occasionally, wrong)
+                // while embedding the real location in the description as a
+                // "Location Link:" line. Fall back to that when Venue is missing,
+                // and flag a conflict for the uncertainty resolver when the two
+                // disagree outright rather than trusting either silently.
+                const locationLink = this.extractLocationLink(eventData.Description);
                 let location = '';
                 if (eventData.Venue) {
                     location = eventData.Venue;
@@ -206,7 +213,13 @@ export default class SEAtodayRipper implements IRipper {
                     if (eventData.CityState) {
                         location += `, ${eventData.CityState}`;
                     }
+                } else if (locationLink) {
+                    location = eventData.CityState ? `${locationLink}, ${eventData.CityState}` : locationLink;
                 }
+
+                const locationConflict = !!(eventData.Venue && locationLink &&
+                    !eventData.Venue.toLowerCase().includes(locationLink.toLowerCase()) &&
+                    !locationLink.toLowerCase().includes(eventData.Venue.toLowerCase()));
 
                 // Build event URL
                 let eventUrl = '';
@@ -244,14 +257,35 @@ export default class SEAtodayRipper implements IRipper {
 
                 events.push(event);
 
+                // Combine every unknown/conflicting field into a single
+                // UncertaintyError per event (rather than one per field) so
+                // they share one cache entry and resolve together, per the
+                // pattern in sources/events12/ripper.ts. The fingerprint is
+                // built field-by-field so an event with only a cost gap keeps
+                // producing the same hash as before this location check was
+                // added — existing cached cost resolutions stay valid.
+                const unknownFields: UncertaintyField[] = [];
+                const fingerprintParts: string[] = [];
+                const reasonParts: string[] = [];
                 if (cost === undefined) {
+                    unknownFields.push("cost");
+                    fingerprintParts.push(`${eventData.PId ?? ''}|${eventData.Free ?? ''}|${eventData.Price ?? ''}|${eventData.IsTicketed ?? ''}`);
+                    reasonParts.push("CitySpark API returned no cost information for this event");
+                }
+                if (locationConflict) {
+                    unknownFields.push("location");
+                    fingerprintParts.push(`${eventData.Venue ?? ''}|${locationLink ?? ''}`);
+                    reasonParts.push(`CitySpark venue "${eventData.Venue}" conflicts with the location named in the event description ("${locationLink}")`);
+                }
+
+                if (unknownFields.length > 0) {
                     const uncertainty: UncertaintyError = {
                         type: "Uncertainty",
-                        reason: "CitySpark API returned no cost information for this event",
+                        reason: reasonParts.join('; '),
                         source: "seatoday",
-                        unknownFields: ["cost"],
+                        unknownFields,
                         event,
-                        partialFingerprint: simpleHash(`${eventData.PId ?? ''}|${eventData.Free ?? ''}|${eventData.Price ?? ''}|${eventData.IsTicketed ?? ''}`),
+                        partialFingerprint: simpleHash(fingerprintParts.join('||')),
                     };
                     events.push(uncertainty);
                 }
@@ -288,6 +322,21 @@ export default class SEAtodayRipper implements IRipper {
         } catch (error) {
             return null;
         }
+    }
+
+    /**
+     * Extract the "Location Link:" value CitySpark embeds in the description
+     * for some syndicated calendars (e.g. Seattle Public Library's Trumba
+     * feed). The value appears either on its own line after a blank line
+     * ("Location Link:\n\nCentral Library") or inline on the same line
+     * ("Location Link: Online") — see sources/seatoday/sample-data.json for
+     * both forms pulled from the live feed. Returns null when the
+     * description has no such line.
+     */
+    private extractLocationLink(description?: string): string | null {
+        if (!description) return null;
+        const match = description.match(/Location Link:\s*([^\n]+)/);
+        return match ? match[1].trim() : null;
     }
 
     private stripHtml(html: string): string {
