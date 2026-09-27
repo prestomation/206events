@@ -17,9 +17,9 @@ calendars:
     tags: ["Downtown"]
     imageUrl: "https://images.siff.net/CINEMA/Venues/OPS_Downtown_copytray_500x500.png"
     geo:
-      lat: 47.6110
-      lng: -122.3365
-      label: "SIFF Cinema Downtown, 600 Pine St, Seattle, WA 98101"
+      lat: 47.6142012
+      lng: -122.3413502
+      label: "SIFF Cinema Downtown, 2100 4th Ave, Seattle, WA 98121"
       osmType: way
       osmId: 360389738
   - name: uptown
