@@ -1,0 +1,10 @@
+geo: null
+name: city-of-north-bend
+sourceRole: aggregator
+friendlyname: City of North Bend Events
+description: City of North Bend community calendar, covering "What's Brewing North Bend" coffee chats, Arbor Day and Oaktoberfest, the North Bend Trail Fest, the North Bend Blues Walk, yard waste recycling events, and other public community programs
+icsUrl: https://www.northbendwa.gov/common/modules/iCalendar/iCalendar.aspx?catID=21&feed=calendar
+infoUrl: https://www.northbendwa.gov/calendar.aspx?CID=21
+tags:
+  - Community
+  - North Bend
