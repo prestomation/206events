@@ -1895,7 +1895,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'olde town, issaquah': { lat: 47.5348778, lng: -122.043297 }, // approximate — Issaquah city centroid; "Olde Town" names the historic downtown core, not a single addressable venue
   'pickering barn': { lat: 47.5499285, lng: -122.0494091 }, // 1730 10th Ave NW, Issaquah, WA 98027
   'timberlake park': { lat: 47.5675322, lng: -122.0947233 }, // Issaquah, WA 98027
-  'park pointe': { lat: 47.5254, lng: -122.0314 }, // reuses this file's existing "park pointe, southeast evan street, issaquah, wa" coords; shorter prefix so a bare "Park Pointe, Issaquah, WA" also matches
+  'park pointe, issaquah': { lat: 47.5254, lng: -122.0314 }, // reuses this file's existing "park pointe, southeast evan street, issaquah, wa" coords; city-qualified so a bare "Park Pointe, Issaquah, WA" also matches without a bare "park pointe" prefix (too generic a park-development name to key on alone — risks colliding with an unrelated same-named place elsewhere)
 
   // kcls
   'jj smith elementary': { lat: 47.2065168, lng: -121.9939739 }, // 1640 Fell St, Enumclaw, WA 98022
@@ -1922,7 +1922,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'visible coffee roasters': { lat: 47.8613165, lng: -122.220784 }, // 15118 Main St, Mill Creek, WA 98012
   'the church of jesus christ of latter-day saints, 9256 nels nelson rd nw, bremerton, wa': { lat: 47.6458943, lng: -122.6601679 }, // exact-string key (org name is too generic to use as a prefix — many meetinghouses share it)
   'daybreak star indian cultural center': { lat: 47.6679292, lng: -122.4180263 }, // reuses this file's existing full-address entry; shorter prefix covers the "Bernie Whitebear Lane" vs "...Way" street-name variants seen from seatoday/external-myballard
-  'heron park': { lat: 47.8575063, lng: -122.1957447 }, // 2705 155th St SE, Mill Creek, WA — approximate (Nominatim resolves the street, not the specific park entrance)
+  'heron park, 2705 155th st se': { lat: 47.8575063, lng: -122.1957447 }, // 2705 155th St SE, Mill Creek, WA — approximate (Nominatim resolves the street, not the specific park entrance); address-qualified since "Heron Park" alone is too generic a park name to key on safely
 
   // seattle-bach-festival
   'walker-ames room, kane hall': { lat: 47.6566, lng: -122.3092 }, // reuses this file's existing Kane Hall, University of Washington coords
@@ -1965,7 +1965,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   // external-city-of-bothell / -redmond-community-events / -duvall
   'east norway hill park': { lat: 47.7396978, lng: -122.1813792 }, // 11920 NE 155th St, Bothell, WA 98011
   'downtown park - 16101 redmond way redmond wa 98052': { lat: 47.6742876, lng: -122.1247736, osmType: 'way', osmId: 238108677 }, // exact-string key ("Downtown Park" alone is too generic a park name to use as a prefix); reuses this file's existing "redmond downtown park" coords
-  'smith woods': { lat: 47.7098792, lng: -122.1038861 }, // 176th Ave NE & NE 124th St, Redmond, WA 98052
+  'smith woods - 176th': { lat: 47.7098792, lng: -122.1038861 }, // 176th Ave NE & NE 124th St, Redmond, WA 98052 — address-qualified since "Smith Woods" alone is too generic (common surname + generic park suffix) to key on safely
   'duvall visitor center': { lat: 47.7403732, lng: -121.9858368 }, // 15619 Main St NE, Duvall, WA 98019
   "cc's espresso & ice creamery - 15525 main st ne duvall wa 98019": { lat: 47.7406338, lng: -121.9864295 }, // exact-string key; 15525 Main St NE, Duvall, WA 98019
 
@@ -1973,7 +1973,7 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   'mello fellos bike shop': { lat: 47.6157111, lng: -122.340924 }, // 2151 6th Ave, Seattle, WA 98121
   'lincoln high school theater': { lat: 47.6663, lng: -122.3275 }, // shorter prefix reusing this file's existing "lincoln high school theater, seattle, wa" coords, so the "4300 block of Woodlawn Ave N..." suffix variant also matches
   'mission theater': { lat: 45.5262294, lng: -122.6881319 }, // McMenamins Mission Theater, 1624 NW Glisan St, Portland, OR 97209
-  'bella vita': { lat: 47.682301, lng: -122.3554984 }, // 7315 Greenwood Ave N, Seattle, WA 98103
+  'bella vita, 7315': { lat: 47.682301, lng: -122.3554984 }, // 7315 Greenwood Ave N, Seattle, WA 98103 — address-qualified since "Bella Vita" is a very common restaurant name nationally
 
   // external-trio-truck / -unexpected-productions
   'three bull brewing tap house': { lat: 47.9126479, lng: -122.0966822 }, // 127 Ave C, Snohomish, WA 98290
