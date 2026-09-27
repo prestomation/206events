@@ -99934,10 +99934,14 @@
       "evidence": "https://www.vashonevents.org/events/2026/10/2/farewell-wine-shop-vashon — potluck-style closing party (\"bring a shareable dish\"), no admission fee mentioned"
     },
     "vashon-events:6ab2a07d373a982b0fe3fce5": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "reason": "no fee or ticketing signal anywhere on the page (\"registration is open\" but no price, no \"buy tickets\" language); a multi-week improv class series at Vashon Recess Lab"
+      "evidence": "https://www.vashonevents.org/events/2026/9/28/funny-bones-improv-amp-theatre-games — page is alive and readable (multi-week improv class series, \"Registration is open only until the second class\"), but genuinely states no price"
     },
     "vashon-events:6ab469ac27f4ac7dabc2bc10": {
       "fields": {
@@ -99970,10 +99974,14 @@
       "evidence": "https://www.vashonevents.org/events/2026/10/4/croaker-in-the-garden — live music at Palouse Winery, no cover charge mentioned, only an optional $25 pre-order cheese plate (paid activity inside, entry itself free per rubric)"
     },
     "vashon-events:6ab5ed94c243e31e23b869df": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "reason": "no pricing information anywhere on the page for this trivia night"
+      "evidence": "https://www.vashonevents.org/events/2026/10/2/the-mostly-true-trivia-games — page is alive and readable but genuinely states no price for this trivia night"
     },
     "vashon-events:6ab7c8407018c204b8dedd6a": {
       "fields": {
@@ -100204,6 +100212,86 @@
       "resolvedAt": "2026-09-27",
       "source": "agent",
       "evidence": "https://visitseattle.org/events/you-are-cordially-invited-to-the-end-of-the-world/ — pure aggregator listing, directs to seattlerep.org for tickets/pricing (show is 7+ months out)"
+    },
+    "halcyon-brewing:6ab565c560e813224c4d909c": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/5th-anniversary-party — no cover charge mentioned (\"food and beer specials, music, coloring sheets, Beer Pong Tournament\"); site-wide events listing confirms this specific event as free"
+    },
+    "halcyon-brewing:6ab5664eaeb1b6147b3a1a65": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/free-comedy-show-... (\"Free comedy show put on by the Open Mic Collective\")"
+    },
+    "halcyon-brewing:6ab5669f5d9fb97af75efa9a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/free-comedy-show-... (\"Free comedy show put on by the Open Mic Collective\")"
+    },
+    "halcyon-brewing:6ab566bff382614dc8394dd5": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/improv-overload-... (\"This is a FREE comedy show!\")"
+    },
+    "halcyon-brewing:6ab567d718cb5356df7c4ea7": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/rocking-rocktober-show (\"Free for the community and open for all ages\")"
+    },
+    "halcyon-brewing:6ab56a0a591eec05f5784ff9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/seahawks-on-the-projector-... — no cover mentioned; site-wide events listing confirms this recurring event as free"
+    },
+    "halcyon-brewing:6ab56a51ee74d005f95d6395": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/seahawks-on-the-projector-... — no cover mentioned; site-wide events listing confirms this recurring event as free"
+    },
+    "halcyon-brewing:6ab56a9612b179704ff18c55": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.halcyonbrewingco.com/events/seahawks-on-the-projector-... — no cover mentioned; site-wide events listing confirms this recurring event as free"
     }
   }
 }
