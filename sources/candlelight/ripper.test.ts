@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeAll, afterAll, vi } from "vitest";
 import { ZoneId } from "@js-joda/core";
 import '@js-joda/timezone';
 import { readFileSync } from "fs";
@@ -14,6 +14,16 @@ describe("CandlelightRipper", () => {
     const timezone = ZoneId.of("America/Los_Angeles");
     const sampleData = JSON.parse(readFileSync(join(__dirname, "sample-data.json"), "utf-8"));
     const hits = sampleData.hits;
+
+    // parseEvents drops past sessions, so pin "now" to the day the sample
+    // data was saved. Otherwise the tests fail as the sample dates go by.
+    beforeAll(() => {
+        vi.useFakeTimers({ toFake: ["Date"] });
+        vi.setSystemTime(new Date("2026-09-21T00:00:00Z"));
+    });
+    afterAll(() => {
+        vi.useRealTimers();
+    });
 
     it("should extract events from sample data", () => {
         const events = ripper.parseEvents(hits, timezone);
