@@ -70,10 +70,15 @@ export function isVagueLocation(location: string): boolean {
  * as "Virtual" alone. Every real hybrid-location string in the source data
  * uses "or" ("Online or ...", "Virtual or ..."), so requiring it costs
  * nothing on the strings this is meant to catch.
+ *
+ * An optional leading "Hybrid" (with an optional dash/colon separator) is
+ * also accepted before "online"/"virtual" — some government calendars phrase
+ * this as "Hybrid - Online or In-person at <venue>" rather than starting
+ * directly with "Online"/"Virtual" (e.g. external-seattle-gov-arts).
  */
 export function extractHybridPhysicalLocation(location: string): string | null {
   const match = location.match(
-    /^(?:online|virtual)(?:\/online)?(?:\s+event|\s+meeting)?\s+(?:or|and)\s+(?:in[- ]?person\s+)?(?:via\s+\w+\s+)?(?:at|@|in the)\s+(.+)$/i,
+    /^(?:hybrid\s*[-–:]\s*)?(?:online|virtual)(?:\/online)?(?:\s+event|\s+meeting)?\s+(?:or|and)\s+(?:in[- ]?person\s+)?(?:via\s+\w+\s+)?(?:at|@|in the)\s+(.+)$/i,
   );
   if (!match) return null;
   const rest = match[1].trim().replace(/\.+$/, '').trim();
@@ -1814,14 +1819,196 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
 
   // --- 2026-09-26 geo-resolver batch: remaining "has street address" /
   // "venue name only" unresolvable entries. Skipped as correctly
-  // unresolvable (checked, no confident match): "the poet" and "spice bar"
-  // (no matching Seattle venue by that name found via Nominatim or web
-  // search), "20224 pond view ln ne, ... poulsbo, wa" (a real residential
-  // address that Nominatim's structured/unstructured search can't locate —
-  // likely a private residence not addressable in OSM), "california sw in
-  // heart of fauntleroy" / "california sw intersections" (vague multi-block
+  // unresolvable (checked, no confident match): "spice bar" (19hz lists it
+  // only as "Spice Bar (Seattle, WA)" with no address; no confident match
+  // found via Nominatim or web search — corrected 2026-09-27: "the poet" IS
+  // resolvable, see below; the prior search here only checked Seattle, but
+  // 19hz's own listing tags it "(Tacoma, WA)"), "20224 pond view ln ne, ...
+  // poulsbo, wa" (a real residential address that Nominatim's
+  // structured/unstructured search can't locate — likely a private
+  // residence not addressable in OSM), "california sw in heart of
+  // fauntleroy" / "california sw intersections" (vague multi-block
   // descriptions, no single cross street named), and "roam, pono ranch,
   // skal" (three distinct Ballard bars named together, not one venue).
+  // "the poet" — 19hz tags this venue "(Tacoma, WA)"; it's inside Manuscript,
+  // 202 St Helens Ave, Tacoma (per web search), forward-geocoded via Nominatim.
+  'the poet': { lat: 47.2620059, lng: -122.446054 },
+
+  // --- 2026-09-27 geo-resolver batch: 576-error queue drain. Each entry
+  // below is a real venue/address forward-geocoded via Nominatim against the
+  // address the source itself supplied (never a reverse-geocoded guess).
+  // Grouped roughly by source. Genuinely unresolvable strings from this same
+  // queue (rotating/roaming locations, PO boxes, private residences, bare
+  // org names with no address, pure URLs, street-intersection-only
+  // descriptions with no dedicated venue name) were left alone — see
+  // skills/geo-resolver/SKILL.md.
+
+  // club-sake — short venue-name prefixes so any address-suffix variant
+  // (truncated, re-formatted) still resolves; coords reuse this file's
+  // existing full-string entries for the same venues where present.
+  'stan sayres': { lat: 47.5701091, lng: -122.2774992 }, // Stan Sayres Memorial Park, 3808 Lake Washington Blvd S, Seattle, WA 98118
+  'jack hyde park': { lat: 47.274448, lng: -122.46041 }, // 2000 Ruston Way, Tacoma, WA
+  'kikaha': { lat: 47.2448704, lng: -122.4310072 }, // 1930 E D St, Tacoma, WA
+  'lakewood seward park community club': { lat: 47.5596018, lng: -122.2710791 }, // 4916 S Angeline St, Seattle, WA 98118
+  // "evi's house" intentionally omitted — a private residence, not a public venue.
+
+  // bandit-improv / cardfestnw
+  'tacoma armory': { lat: 47.253026, lng: -122.4470294 }, // 1001 Yakima Ave, Tacoma, WA 98405
+  'wwu viking union': { lat: 48.7387666, lng: -122.4860161 }, // 516 High St, Bellingham, WA 98225
+
+  // cozy-comedy
+  'the edmonds theater': { lat: 47.8109928, lng: -122.3776802 }, // 415 Main St, Edmonds, WA 98020
+  'north bend theatre': { lat: 47.4960521, lng: -121.7868029 }, // 125 Bendigo Blvd N, North Bend, WA 98045
+  'the sound hotel seattle belltown': { lat: 47.6143781, lng: -122.341884 }, // 2120 4th Ave, Seattle, WA 98121
+  'bishop block bottle shop': { lat: 48.1155147, lng: -122.756349 }, // 718 Washington St, Port Townsend, WA 98368
+
+  // dancing-til-dusk
+  'lake city mini park': { lat: 47.7191064, lng: -122.2958837 }, // NE 127th St, Seattle, WA 98125
+  'occidental park': { lat: 47.600477, lng: -122.333147 }, // Occidental Ave S & S Main St, Seattle, WA 98104
+
+  // do206
+  'wamu theater': { lat: 47.593154, lng: -122.3329041 }, // 800 Occidental Ave S, Seattle, WA 98134 (Lumen Field Event Center)
+  'the tractor tavern': { lat: 47.6657081, lng: -122.382803 }, // 5213 Ballard Ave NW, Seattle, WA 98107
+  'tractor tavern': { lat: 47.6657081, lng: -122.382803 }, // "the"-less variant of the entry above
+  't-mobile park': { lat: 47.5913974, lng: -122.332507 }, // 1250 1st Ave S, Seattle, WA 98134
+  'chapel performance space': { lat: 47.6642701, lng: -122.3311925 }, // reuses this file's Good Shepherd Center coords, 4649 Sunnyside Ave N, Seattle, WA 98103
+
+  // foundercal
+  'surf incubator': { lat: 47.6050344, lng: -122.3340723 }, // 999 3rd Ave, Seattle, WA
+  'washington state history museum': { lat: 47.2447212, lng: -122.4360881 }, // 1911 Pacific Ave, Tacoma, WA 98402
+  'washington state historical society': { lat: 47.2447212, lng: -122.4360881 }, // same institution/address as the entry above, different org-name phrasing
+  'hotel theodore': { lat: 47.6122929, lng: -122.3344232 }, // 1531 7th Ave, Seattle, WA 98101
+  'bellevue city hall': { lat: 47.6144239, lng: -122.1921605 }, // 450 110th Ave NE, Bellevue, WA 98004
+  // "9824 se shoreland dr, seattle, wa" (foundercal) intentionally omitted —
+  // the source lists "Seattle" but this address is on Mercer Island; even
+  // corrected, Nominatim can't locate the specific parcel (likely a private
+  // residence not individually addressable in OSM).
+
+  // greater-seattle-choral-consortium
+  "st. mark's cathedral": { lat: 47.6319325, lng: -122.3213601 }, // 1245 10th Ave E, Seattle, WA 98102
+  'plymouth congregational church': { lat: 47.6086538, lng: -122.3326468 }, // 1217 6th Ave, Seattle, WA 98101
+
+  // green-seattle-partnership
+  'kubota gardens': { lat: 47.5128166, lng: -122.266071 }, // Kubota Garden, Seattle, WA 98118
+
+  // issaquah
+  'olde town, issaquah': { lat: 47.5348778, lng: -122.043297 }, // approximate — Issaquah city centroid; "Olde Town" names the historic downtown core, not a single addressable venue
+  'pickering barn': { lat: 47.5499285, lng: -122.0494091 }, // 1730 10th Ave NW, Issaquah, WA 98027
+  'timberlake park': { lat: 47.5675322, lng: -122.0947233 }, // Issaquah, WA 98027
+  'park pointe': { lat: 47.5254, lng: -122.0314 }, // reuses this file's existing "park pointe, southeast evan street, issaquah, wa" coords; shorter prefix so a bare "Park Pointe, Issaquah, WA" also matches
+
+  // kcls
+  'jj smith elementary': { lat: 47.2065168, lng: -121.9939739 }, // 1640 Fell St, Enumclaw, WA 98022
+  'family first community center': { lat: 47.458022, lng: -122.185806 }, // 16200 116th Ave SE, Renton, WA 98058
+
+  // northwest-art-alliance
+  'magnuson park, hangar 30': { lat: 47.6828462, lng: -122.2609876 }, // Building 30, 6310 NE 74th St, Seattle, WA 98115
+
+  // psms
+  'cispus learning center': { lat: 46.4382565, lng: -121.8477093 }, // 2142 Cispus Rd (Forest Rd 23), Randle, WA 98377
+
+  // queer-social-club
+  "king's books": { lat: 47.2617026, lng: -122.4455975 }, // 218 St Helens Ave, Tacoma, WA 98402
+
+  // seatoday
+  'carpinito brothers': { lat: 47.3566453, lng: -122.251737 }, // Pumpkin Patch and Corn Maze, Kent, WA
+  'town & country markets poulsbo': { lat: 47.7462283, lng: -122.6364713 }, // 20148 10th Ave NE, Poulsbo, WA
+  'the pacific tower': { lat: 47.592856, lng: -122.3157149 }, // 1200 12th Ave S, Seattle, WA 98144
+  'washington athletic club': { lat: 47.6097167, lng: -122.3336001 }, // 1325 6th Ave, Seattle, WA 98101
+  'berkshire hathaway homeservices northwest real estate - west seattle': { lat: 47.5533838, lng: -122.3874165 }, // 5415 California Ave SW, Seattle, WA
+  'oxbow farm': { lat: 47.5699, lng: -121.9010 }, // reuses this file's existing full-address Oxbow Farm & Conservation Center entry; shorter prefix covers the "Carnation-Duvall Rd NE" abbreviated spelling
+  'eleven:eleven on the block': { lat: 47.6145431, lng: -122.3179599 }, // 1512 11th Ave, Seattle, WA 98122
+  'asylum collective': { lat: 47.5993189, lng: -122.3335988 }, // 108 S Jackson St, Seattle, WA 98104
+  'visible coffee roasters': { lat: 47.8613165, lng: -122.220784 }, // 15118 Main St, Mill Creek, WA 98012
+  'the church of jesus christ of latter-day saints, 9256 nels nelson rd nw, bremerton, wa': { lat: 47.6458943, lng: -122.6601679 }, // exact-string key (org name is too generic to use as a prefix — many meetinghouses share it)
+  'daybreak star indian cultural center': { lat: 47.6679292, lng: -122.4180263 }, // reuses this file's existing full-address entry; shorter prefix covers the "Bernie Whitebear Lane" vs "...Way" street-name variants seen from seatoday/external-myballard
+  'heron park': { lat: 47.8575063, lng: -122.1957447 }, // 2705 155th St SE, Mill Creek, WA — approximate (Nominatim resolves the street, not the specific park entrance)
+
+  // seattle-bach-festival
+  'walker-ames room, kane hall': { lat: 47.6566, lng: -122.3092 }, // reuses this file's existing Kane Hall, University of Washington coords
+
+  // seattle-indivisible
+  'yesler i-5 overpass': { lat: 47.6017191, lng: -122.328845 }, // approximate — Yesler Way at 6th Ave S, Seattle, WA 98104
+
+  // techmeetups-seattle
+  'databricks - bellevue': { lat: 47.6149303, lng: -122.1957373 }, // City Center Bellevue, 500 108th Ave NE, Bellevue, WA 98004
+  'pine box': { lat: 47.6154981, lng: -122.3276703 }, // 1600 Melrose Ave, Seattle, WA 98122
+  'pioneer square labs': { lat: 47.6001618, lng: -122.3313409 }, // 240 2nd Ave S, Seattle, WA 98104
+
+  // seattle-council-ptsa
+  'washington state capitol': { lat: 47.0357718, lng: -122.9048521 }, // 416 Sid Snyder Ave SW, Olympia, WA 98501
+  'ballard high school': { lat: 47.6767863, lng: -122.3745454 }, // 1418 NW 65th St, Seattle, WA 98117
+
+  // seattles-child
+  'the center for wooden boats': { lat: 47.6271962, lng: -122.3359006 }, // 1010 Valley St, Seattle, WA 98109
+
+  // west-seattle-chamber
+  'mama be well healing studio': { lat: 47.5672386, lng: -122.3865543 }, // reuses this file's existing "mama be well healing studio @ 4034 california sw" coords; shorter prefix covers the "4034A" suite-letter variant
+  'the lab @ 1010': { lat: 47.5476879, lng: -122.3195617 }, // 1010 S Bailey St, Seattle, WA 98108 (Seattle Drum School of Music, Georgetown)
+  'west seattle salon': { lat: 47.5586893, lng: -122.3870659 }, // 4811 California Ave SW, Seattle, WA 98116
+
+  // west-seattle-indivisible
+  'west seattle bridge': { lat: 47.5712342, lng: -122.3240718 }, // approximate — the bridge span itself, Seattle, WA
+
+  // wtia-community-events
+  'aws skills center seattle': { lat: 47.616259, lng: -122.3329618 }, // 1007 Stewart St, Seattle, WA 98101
+
+  // external-birds-connect-seattle
+  'discovery park south': { lat: 47.6618111, lng: -122.4219145 }, // approximate — Discovery Park, Seattle, WA (south parking lot isn't individually indexed in OSM)
+  'union bay lot e16': { lat: 47.6573765, lng: -122.2940013 }, // reuses this file's existing "union bay viewpoint" coords (Union Bay Natural Area, Seattle, WA)
+  'billy frank jr nisqually wildlife refuge': { lat: 47.0727663, lng: -122.7128327 }, // 100 Brown Farm Rd NE, Olympia, WA 98516
+  'marymoor park': { lat: 47.6586619, lng: -122.1111053, osmType: 'relation', osmId: 6641326 }, // Redmond, WA — general park; reuses this file's existing "marymoor park, parking lot g" coords as a shorter prefix so other numbered/lettered lots also resolve
+  'carkeek meeting location': { lat: 47.7096629, lng: -122.3728927 }, // reuses this file's existing "carkeek park" coords
+  'parking - carkeek park beach': { lat: 47.7096629, lng: -122.3728927 }, // reuses this file's existing "carkeek park" coords
+  'edmonds marsh': { lat: 47.8064696, lng: -122.3853374 }, // Edmonds, WA
+
+  // external-city-of-bothell / -redmond-community-events / -duvall
+  'east norway hill park': { lat: 47.7396978, lng: -122.1813792 }, // 11920 NE 155th St, Bothell, WA 98011
+  'downtown park - 16101 redmond way redmond wa 98052': { lat: 47.6742876, lng: -122.1247736, osmType: 'way', osmId: 238108677 }, // exact-string key ("Downtown Park" alone is too generic a park name to use as a prefix); reuses this file's existing "redmond downtown park" coords
+  'smith woods': { lat: 47.7098792, lng: -122.1038861 }, // 176th Ave NE & NE 124th St, Redmond, WA 98052
+  'duvall visitor center': { lat: 47.7403732, lng: -121.9858368 }, // 15619 Main St NE, Duvall, WA 98019
+  "cc's espresso & ice creamery - 15525 main st ne duvall wa 98019": { lat: 47.7406338, lng: -121.9864295 }, // exact-string key; 15525 Main St NE, Duvall, WA 98019
+
+  // external-everyday-rides-seattle / -myballard / -nw-asian-weekly / -phinneywood-blog
+  'mello fellos bike shop': { lat: 47.6157111, lng: -122.340924 }, // 2151 6th Ave, Seattle, WA 98121
+  'lincoln high school theater': { lat: 47.6663, lng: -122.3275 }, // shorter prefix reusing this file's existing "lincoln high school theater, seattle, wa" coords, so the "4300 block of Woodlawn Ave N..." suffix variant also matches
+  'mission theater': { lat: 45.5262294, lng: -122.6881319 }, // McMenamins Mission Theater, 1624 NW Glisan St, Portland, OR 97209
+  'bella vita': { lat: 47.682301, lng: -122.3554984 }, // 7315 Greenwood Ave N, Seattle, WA 98103
+
+  // external-trio-truck / -unexpected-productions
+  'three bull brewing tap house': { lat: 47.9126479, lng: -122.0966822 }, // 127 Ave C, Snohomish, WA 98290
+  'jules maes saloon': { lat: 47.5496126, lng: -122.317554 }, // 5919 Airport Way S, Seattle, WA 98108 (Georgetown) — the source's garbled address mixes in an unrelated Pike Place Market alley; the venue name is the real signal here
+
+  // external-seattle-gov-arts / -city-wide
+  'in person - city hall': { lat: 47.6038904, lng: -122.3300986 }, // Seattle City Hall, 600 4th Ave, Seattle, WA 98104
+  'lake city court community room': { lat: 47.7202563, lng: -122.2917911 }, // 12536 33rd Ave NE, Seattle, WA 98125
+
+  // external-seattle-parks-foundation
+  'canterberry farms': { lat: 47.2891025, lng: -122.0877151 }, // 19102 SE Green Valley Rd, Auburn, WA 98092
+
+  // external-seattle-streets-alliance
+  'cathy hillenbrand community room': { lat: 47.6198283, lng: -122.3204725 }, // 923 E John St, Seattle, WA 98102 (Station House, Capitol Hill) — verified via web search; the source's "E John St &, 10th Ave E" garbled text describes this same corner
+  'seattle asian art museum': { lat: 47.6302957, lng: -122.3141354 }, // 1400 E Prospect St, Seattle, WA 98112 (Volunteer Park)
+
+  // external-seattle-university — SU campus buildings without individual OSM
+  // records; reuse this file's existing "redhawk center" / Bannan / Sullivan
+  // Hall coords (same convention as those existing entries) as an approximation.
+  'wyckoff reading room': { lat: 47.6095, lng: -122.3188 },
+  'billodue makerspace': { lat: 47.6095, lng: -122.3188 },
+  'seattle university main campus - lemieux library': { lat: 47.6095, lng: -122.3188 },
+  'sullivan hall': { lat: 47.609583, lng: -122.317083 }, // reuses this file's existing "sullivan hall, second floor gallery" coords; shorter prefix covers the "2nd floor" numeral variant
+  'bannan building': { lat: 47.609583, lng: -122.318472 }, // reuses this file's existing Bannan Center / Wyckoff Auditorium coords
+  ', student center 1st floor': { lat: 47.6095, lng: -122.3188 }, // exact-string key (leading comma from source data) — reuses this file's existing "student center" coords
+  ', campion ballroom': { lat: 47.6068, lng: -122.3195 }, // exact-string key (leading comma from source data) — reuses this file's existing "campion ballroom" coords
+
+  // external-uw-campus-events
+  'startup hall': { lat: 47.6566432, lng: -122.3161291 }, // 1100 NE Campus Pkwy, Seattle, WA 98105 (Condon Hall)
+
+  // external-wallyhood — coordinates taken directly from the Google Maps
+  // place-URL the source emits (the "3d"/"4d" params are Google's own pin
+  // for this exact search target), forward-geocode not needed.
+  'https://www.google.com/maps/place/wallingford+farmers+market/@47.6635123,-122.3331515,16.68z/data=!4m6!3m5!1s0x5490145744a22a99:0x2df93443a9ce7080!8m2!3d47.6638867!4d-122.3333528!16s%2fg%2f1tkktkqn?entry=ttu&g_ep=egoymdi1mdqymy4wikxmdsojldewmjexndu1safqaw%3d%3d': { lat: 47.6638867, lng: -122.3333528 },
+  'wallingford farmers market': { lat: 47.6638867, lng: -122.3333528 }, // same coords as the URL entry above, for any future plain-name variant
   "811 1st ave suite 91m, 811 1st avenue, #suite 91m, seattle, wa": { lat: 47.6034802, lng: -122.3354924, osmType: 'relation', osmId: 3115695 }, // Colman Commons, Colman Building, 811 1st Ave, Seattle, WA 98104
   "fairwinds - brittany park, mill creek, wa": { lat: 47.7517666, lng: -122.1624099, osmType: 'way', osmId: 27915520 }, // Fairwinds - Brittany Park senior living community, 17143 133rd Ave NE, Woodinville, WA 98072 (source labeled it "Mill Creek" but OSM/Nominatim place this exact-name venue in Woodinville)
   "frog pond parking lot, magnuson park": { lat: 47.6742009, lng: -122.2581739 }, // approximate — the 65th Ave NE entrance into Magnuson Park, locally known as the "Frog Pond" park-and-ride lot (per Seattle Parks/WTA trail descriptions); no separate OSM feature for the lot itself
