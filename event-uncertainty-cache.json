@@ -99206,6 +99206,326 @@
       "resolvedAt": "2026-09-27",
       "source": "agent",
       "evidence": "https://udistrict.com/events/seattle-boba-fest/"
+    },
+    "charlies-queer-books:charlies-queer-books-6445320261021": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/6445320261021 (BookManager API: no ticket SKU, RSVP-only, standard free in-store author event)",
+      "partialFingerprint": "14sr3e6"
+    },
+    "charlies-queer-books:charlies-queer-books-6445420261024": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://charliesqueerbooks.com/events/6445420261024 (BookManager API: no ticket SKU, drop-in signing, standard free in-store author event)",
+      "partialFingerprint": "6th4tb"
+    },
+    "danceus-swing:danceus-1788243418450359-2026-09-29": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "DanceUS listing shows only a placeholder 12am-11:59pm slot; swingitseattle.com registration page does not publish clock times for classes, only date ranges"
+    },
+    "discover-slu:discover-slu-naushad": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.discoverslu.com/events/naushad/ (states \"November 28 - 29, 2026 11 am - 3 pm\")",
+      "partialFingerprint": "w5o3c5"
+    },
+    "events12:musical-about-dancers-120367-2026-09-27-1330": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (ticketed Broadway-style production; ticketing page is a client-rendered SPA with dynamic per-performance pricing not exposed in static markup)",
+      "partialFingerprint": "zgt27l-until2026-09-27-tk"
+    },
+    "events12:musical-about-dancers-120367-2026-09-27-1900": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.5thavenue.org/shows/2026-27/a-chorus-line/ (ticketed Broadway-style production; ticketing page is a client-rendered SPA with dynamic per-performance pricing not exposed in static markup)",
+      "partialFingerprint": "zgt27l-until2026-09-27-tk"
+    },
+    "events12:film-festival-seattle-103544-2026-09-27": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        },
+        "startTime": "16:30",
+        "duration": 5220
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://nwfilmforum.org/festivals/local-sightings-film-festival-2026/ (Local Sightings festival schedule table: only Sun Sep 27 screening is \"The Life We Leave\" at 4:30 PM; runtime 87min per IMDb/TMDB/Letterboxd; General Admission $15)",
+      "partialFingerprint": "122q8l9-until2026-09-27-tu"
+    },
+    "events12:film-festival-gig-harbor-118472-2026-09-27": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "gigharborfilm.org tickets page returned no readable pricing/schedule content; could not confirm 2026 pricing from a reliable current-year source"
+    },
+    "events12:free-things-to-do-119028-2026-09-27": {
+      "fields": {
+        "startTime": "14:00",
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://ballardlocks.org/tour-information.html (free tours \"Start time: 2:00 pm... Duration: approximately one hour\")",
+      "partialFingerprint": "13oc9ft-until2026-09-27-tu"
+    },
+    "foundercal:foundercal-seattle-practical-claude-write-and-summarize-316710379": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "foundercal source page links this title to an unrelated Meetup group (\"Bollywood Beats and Social Dance Nights\") at an implausible 3:56 AM start time — a mismatched/spam-signature listing, not reliable evidence for this workshop duration"
+    },
+    "foundercal:foundercal-project-hack-night-and-social-316490238": {
+      "fields": {
+        "duration": 7200
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.meetup.com/psppython/events/316490238/ (Meetup page: \"Thursday, Oct 8 · 6:00 PM to 8:00 PM PDT\")",
+      "partialFingerprint": "23e20ecdb1838300"
+    },
+    "museum_of_flight:mof-member-planetarium-astrobiology-2026-11-14-1100": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8547/member-planetarium-astrobiology (page: \"Time Slots: 11:00 AM to 12:00 PM or 1:00 PM to 2:00 PM\")",
+      "partialFingerprint": "rlty3f"
+    },
+    "museum_of_flight:mof-member-planetarium-astrobiology-2026-11-14-1300": {
+      "fields": {
+        "duration": 3600
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.museumofflight.org/exhibits-and-events/calendar-of-events/8547/member-planetarium-astrobiology (page: \"Time Slots: 11:00 AM to 12:00 PM or 1:00 PM to 2:00 PM\")",
+      "partialFingerprint": "rlty3f"
+    },
+    "phoenix-comics-and-games:friday-night-magic-draft-reality-fracture-october-2-ticket": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "Only indirect evidence found (Wizards Store Locator feed data structure is ambiguous on whether this specific Friday draft shares its sibling Friday Standard Showdown timestamp, or the Tuesday draft's slot); stores commonly run Friday Night Magic at a different time than weeknight drafts, so this should not be published as a confirmed time"
+    },
+    "seattle-artist-league:beginning-drawing-wednesday-morning-6-weeks-begins-11-4": {
+      "fields": {
+        "startTime": "10:30",
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.seattleartistleague.com/art-classes/beginning-drawing-wednesday-morning-6-weeks-begins-11-4/ (page: \"Time: 10:30-1:00 (no class 11.11)\")"
+    },
+    "seattle-center:eureka-day-x50636": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-x50636 (add-to-calendar link params: eventStartTime=19:30:00, eventEndTime=22:00:00)",
+      "partialFingerprint": "gdugaq"
+    },
+    "seattle-center:renegade-craft-x50315": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/renegade-craft-x50315 (add-to-calendar link params: eventStartTime=11:00:00, eventEndTime=17:00:00)",
+      "partialFingerprint": "cagzps"
+    },
+    "seattle-center:turkfest-x50557": {
+      "fields": {
+        "duration": 21600
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/turkfest-x50557 (add-to-calendar link params: eventStartTime=12:00:00, eventEndTime=18:00:00)",
+      "partialFingerprint": "1hfqlpe"
+    },
+    "seattle-center:eureka-day-x50637": {
+      "fields": {
+        "duration": 10800
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eureka-day-x50637 (add-to-calendar link params: eventStartTime=14:00:00, eventEndTime=17:00:00)",
+      "partialFingerprint": "l28r23"
+    },
+    "seattle-center:eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50397": {
+      "fields": {
+        "duration": 9000
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/eulogy-or-how-to-plan-your-own-funeral-(and-have-fun-doing-it)-x50397 (add-to-calendar link params: eventStartTime=19:30:00, eventEndTime=22:00:00)",
+      "partialFingerprint": "1lp3lqb"
+    },
+    "seattle-center:rush-fifty-something-tour-x46874": {
+      "fields": {
+        "duration": 14400
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.seattlecenter.com/events/event-calendar/rush-fifty-something-tour-x46874 (add-to-calendar link params: eventStartTime=19:30:00, eventEndTime=23:30:00)",
+      "partialFingerprint": "rz8p6s"
+    },
+    "stg:tm-vvG1HZ_oS_RdrW": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "Ticketmaster blocks automated access (HTTP 403); no price data accessible via other channels for this specific performance"
+    },
+    "stg:tm-vvG1HZ_oS_cSrE": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "Ticketmaster blocks automated access (HTTP 403); no price data accessible via other channels for this specific performance"
+    },
+    "seatoday:cityspark-20033249": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "CitySpark API description: \"All Library programs are free and open to the public.\" (Seattle Public Library citizenship class at Central Library)",
+      "partialFingerprint": "tdnazb"
+    },
+    "seatoday:cityspark-18425355": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://members.thegsba.org/eventcalendar/Details/making-strides-against-breast-cancer-of-seattle-1664688 (no registration fee listed; Making Strides walks are free to register, fundraising encouraged not required)",
+      "partialFingerprint": "r45ba1"
+    },
+    "seatoday:cityspark-19874333": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.eventbrite.com/e/zulus-twilight-imperium-tournament-tickets-1998821296304 (Eventbrite listing: \"Cost: $25\")",
+      "partialFingerprint": "1fvenyg"
+    },
+    "seatoday:cityspark-19769396": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://mtsgreenway.org/get-involved/annual-tree-planting-celebration-2026/ (\"Sign up to volunteer\" event; \"all tools, instructions, and lunch will be provided\" — standard free nonprofit volunteer planting day, no fee mentioned)",
+      "partialFingerprint": "mcwun2"
+    },
+    "seatoday:cityspark-19399281": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "CitySpark record has empty description and no ticketing info; Center for Wooden Boats offers both free speaker-series talks and a $775 multi-day Performance Sailing certification course, and \"Performance Sailing Class - Boathouse Library\" could not be confidently matched to either"
+    },
+    "seatoday:cityspark-19523143": {
+      "fields": {
+        "cost": {
+          "min": 9.0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "CitySpark API description: \"Individual classes cost $9. A series subscription (6 classes) costs $42, a savings of $12!\"",
+      "partialFingerprint": "15bzcxm"
+    },
+    "seatoday:cityspark-19844230": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.bothellwa.gov/calendar.aspx?EID=2749 (municipal Fire Prevention Week Open House at Station 42 — station tours/demos, no ticketing signal in CitySpark record; standard free community open house)",
+      "partialFingerprint": "1fkp8xp"
+    },
+    "seatoday:cityspark-17845578": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "CitySpark API description: \"The Wastemobile offers King County residents and eligible businesses a safe, free, and convenient opportunity to dispose of household hazardous waste at no cost.\"",
+      "partialFingerprint": "nyi2c9"
+    },
+    "seatoday:cityspark-19889227": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "CitySpark API description: \"The Mill Creek Police Department is hosting a FREE one-day class...\"",
+      "partialFingerprint": "e29s7q"
+    },
+    "traveling-goat:hockey-happy-hour-2026-10-04": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "Bar page ties happy hour to Kraken puck-drop with no fixed time (\"From puck drop to final whistle\"); third-party schedule sources for this date give conflicting/unverifiable timezone-ambiguous game times"
+    },
+    "traveling-goat:hockey-happy-hour-2026-10-06": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "Bar page ties happy hour to Kraken puck-drop with no fixed time (\"From puck drop to final whistle\"); third-party schedule sources for this date give conflicting/unverifiable timezone-ambiguous game times"
+    },
+    "traveling-goat:hockey-happy-hour-2026-10-20": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "Bar page ties happy hour to Kraken puck-drop with no fixed time (\"From puck drop to final whistle\"); third-party schedule sources for this date give conflicting/unverifiable timezone-ambiguous game times"
+    },
+    "traveling-goat:hockey-happy-hour-2026-10-22": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "Bar page ties happy hour to Kraken puck-drop with no fixed time (\"From puck drop to final whistle\"); third-party schedule sources for this date give conflicting/unverifiable timezone-ambiguous game times"
     }
   }
 }
