@@ -31829,11 +31829,12 @@
     },
     "cascade-bicycle-club:cascade-kitsap-color-classic-2026": {
       "fields": {
-        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/IMG_2156.jpg?h=adc05618&itok=SYFHc36J"
+        "imageUrl": "https://cbc-drupal-assets-2024.s3.us-west-2.amazonaws.com/live/styles/21_9_400_x_172/s3/images/2025-12/IMG_2156.jpg?h=adc05618&itok=SYFHc36J",
+        "setting": "outdoor"
       },
-      "resolvedAt": "2026-07-12",
+      "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://cascade.org/rides-events/kitsap-color-classic-2026 (image found on event page)"
+      "evidence": "https://cascade.org/rides-events/kitsap-color-classic-2026 (imageUrl: image found on event page. setting: outdoor — a road cycling ride, \"the route is entirely along public roads\")"
     },
     "cascade-bicycle-club:cascade-lake-chelan-tour-2026": {
       "fields": {
@@ -99289,11 +99290,12 @@
     "events12:free-things-to-do-119028-2026-09-27": {
       "fields": {
         "startTime": "14:00",
-        "duration": 3600
+        "duration": 3600,
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://ballardlocks.org/tour-information.html (free tours \"Start time: 2:00 pm... Duration: approximately one hour\")",
+      "evidence": "https://ballardlocks.org/tour-information.html (startTime/duration: free tours \"Start time: 2:00 pm... Duration: approximately one hour\". setting: outdoor — free guided tour of the Hiram M. Chittenden Locks grounds (fish ladder, spillway dams), predominantly outdoor)",
       "partialFingerprint": "13oc9ft-until2026-09-27-tu"
     },
     "foundercal:foundercal-seattle-practical-claude-write-and-summarize-316710379": {
@@ -100292,6 +100294,84 @@
       "resolvedAt": "2026-09-27",
       "source": "agent",
       "evidence": "https://www.halcyonbrewingco.com/events/seahawks-on-the-projector-... — no cover mentioned; site-wide events listing confirms this recurring event as free"
+    },
+    "venue:loc:canterberry farms, 19102 se green valley rd, auburn, wa, 98092, united states": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.canterberryfarms.com — a u-pick blueberry farm (open fields); sample event \"MAVUNO Community Harvest Festival\" description mentions \"farm experiences, tree planting\""
+    },
+    "venue:loc:seward park nature center,5902 lake washington blvd s, seattle, wa 98118, usa": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "reason": "A \"Nature Center\" is typically a staffed indoor building (classrooms/exhibits/meeting space) that also hosts indoor programs, in addition to being a trailhead for outdoor bird walks — the only verified sample event (an outdoor guided walk) establishes the walk itself is outdoor but not that this venue-wide location key is exclusively outdoor. Mixed indoor/outdoor per SKILL.md rubric; demoting to per-event classification instead of a venue-wide default."
+    },
+    "venue:loc:union bay lot e16,3863 union bay cir ne, seattle, wa 98105, usa": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "A parking-lot trailhead used as the meeting point for Birds Connect Seattle's outdoor Union Bay Natural Area bird walks"
+    },
+    "venue:loc:westcrest park": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Seattle city park; sample event \"Field Trip: Practice Birding by Ear in Westcrest Park\" — outdoor birding walk"
+    },
+    "venue:osm:node:8284901380": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/8284901380 (no separate OSM entity for Starbird Chicken itself — Nominatim search returns nothing; this node, tagged leisure=fitness_centre for co-tenant \"City Sweats\", is the only POI at this street address). Stronger evidence: the ribbon-cutting event's own flyer (west-seattle-chamber photo-resolver pass) gives the address as \"4755 Fauntleroy Way SW Suite 150\" — a numbered suite in a multi-tenant retail plaza, i.e. an enclosed indoor storefront, independent of which specific tenant OSM happens to have tagged."
+    },
+    "venue:osm:way:221073175": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/221073175 — tagged building=yes, \"The Mountaineers\" Program Center (a social-club building)"
+    },
+    "venue:osm:way:370478197": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/370478197 — tagged building=yes, amenity=arts_centre, Youngstown Cultural Arts Center"
+    },
+    "seattle-parks-activecommunities:sprac-89541-2026-10-10": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Chado Urasenke Tankokai Seattle Association Tea Ceremony — traditional Japanese tea ceremony, conducted indoors in a dedicated tea room/tatami space"
+    },
+    "seattle-parks-activecommunities:sprac-89542-2026-10-10": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Chado Urasenke Tankokai Seattle Association Tea Ceremony — traditional Japanese tea ceremony, conducted indoors in a dedicated tea room/tatami space"
+    },
+    "seattle-parks-activecommunities:sprac-89543-2026-10-10": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-27",
+      "source": "agent",
+      "evidence": "Chado Urasenke Tankokai Seattle Association Tea Ceremony — traditional Japanese tea ceremony, conducted indoors in a dedicated tea room/tatami space"
     }
   }
 }
