@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import SEAtodayRipper from './ripper.js';
-import { RipperCalendarEvent } from '../../lib/config/schema.js';
+import { RipperCalendarEvent, UncertaintyError } from '../../lib/config/schema.js';
 import { LocalDate, ZoneRegion } from '@js-joda/core';
 import '@js-joda/timezone';
 
@@ -114,5 +114,87 @@ describe('SEAtodayRipper', () => {
         expect(calEvents[0].description).toBeUndefined();
         expect(calEvents[0].location).toBeUndefined();
         expect(calEvents[0].imageUrl).toBeUndefined();
+    });
+
+    // Regression test for GitHub issue #1623: CitySpark's Venue field was
+    // wrong for a Seattle Public Library exhibit, so the site geocoded the
+    // event to an unrelated address. The description carries a separate
+    // "Location Link:" value that should be trusted instead when it
+    // conflicts with Venue.
+    it('should fall back to the description\'s Location Link when Venue is missing', () => {
+        const sampleData = [
+            makeEvent({
+                PId: 1,
+                Venue: undefined,
+                Address: undefined,
+                Description: '<p>Story time.</p>\n\nLocation Link:\n\nBallard Branch\n\nRoom Location: Story Room',
+            }),
+        ];
+
+        const events = ripper.parseEvents(sampleData, timezone, baseUrl);
+        const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+
+        expect(calEvents[0].location).toBe('Ballard Branch, Seattle, WA');
+    });
+
+    it('should flag a location conflict when Venue disagrees with the Location Link, without discarding Venue', () => {
+        const sampleData = [
+            makeEvent({
+                PId: 18572479,
+                Venue: 'Northwest Worklofts (Commons)',
+                Address: undefined,
+                Description: 'Sunday details.\n\nLocation Link:\n\nCentral Library\n\nRoom Location: Level 8 - Gallery',
+            }),
+        ];
+
+        const events = ripper.parseEvents(sampleData, timezone, baseUrl);
+        const calEvents = events.filter(e => 'date' in e) as RipperCalendarEvent[];
+        const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty') as UncertaintyError[];
+
+        // Venue-derived location is still published as the placeholder value
+        // (never silently overwritten with a guess)...
+        expect(calEvents[0].location).toBe('Northwest Worklofts (Commons), Seattle, WA');
+        // ...but the conflict is flagged for the uncertainty resolver, along
+        // with the pre-existing cost gap (Free/Price/IsTicketed all unset).
+        expect(uncertainties).toHaveLength(1);
+        expect(uncertainties[0].unknownFields).toEqual(['cost', 'location']);
+        expect(uncertainties[0].reason).toContain('Northwest Worklofts (Commons)');
+        expect(uncertainties[0].reason).toContain('Central Library');
+    });
+
+    it('should not flag a conflict when the Location Link is consistent with Venue', () => {
+        const sampleData = [
+            makeEvent({
+                PId: 1,
+                Venue: 'Central Library',
+                Address: undefined,
+                Description: 'Details.\n\nLocation Link:\n\nCentral Library\n\nRoom Location: Level 8',
+            }),
+        ];
+
+        const events = ripper.parseEvents(sampleData, timezone, baseUrl);
+        const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty') as UncertaintyError[];
+
+        expect(uncertainties).toHaveLength(1);
+        expect(uncertainties[0].unknownFields).toEqual(['cost']);
+    });
+
+    it('should compute a deterministic cost-only fingerprint unaffected by the location field', () => {
+        // Two events with identical PId/Free/Price/IsTicketed but different
+        // Venue/description text must produce the same fingerprint, proving
+        // the location check does not perturb the pre-existing cost-only
+        // fingerprint format that 800+ committed cache entries rely on.
+        const sampleData = [
+            makeEvent({ PId: 42, Venue: 'Venue A', Description: '<p>No location link here.</p>' }),
+            makeEvent({ PId: 42, Venue: 'Venue B', Description: '<p>Also no location link.</p>' }),
+        ];
+
+        const events = ripper.parseEvents(sampleData, timezone, baseUrl);
+        const uncertainties = events.filter(e => 'type' in e && e.type === 'Uncertainty') as UncertaintyError[];
+
+        expect(uncertainties).toHaveLength(2);
+        expect(uncertainties[0].unknownFields).toEqual(['cost']);
+        expect(uncertainties[1].unknownFields).toEqual(['cost']);
+        expect(uncertainties[0].partialFingerprint).toBe(uncertainties[1].partialFingerprint);
     });
 });
