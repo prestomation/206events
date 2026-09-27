@@ -99547,13 +99547,10 @@
       "partialFingerprint": "1d4hovu-until2026-10-18-tu"
     },
     "foundercal:foundercal-seattle-practical-claude-write-and-summarize-316710379": {
-      "fields": {
-        "duration": 3600
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://www.meetup.com/bollywood-beats-and-social-dance-nights/events/316710379/ (Meetup page: \"Monday, Oct 5 · 3:56 AM to 4:56 AM PDT\")",
-      "partialFingerprint": "9bf218ffa3926977"
+      "reason": "foundercal source page links this title to an unrelated Meetup group (\"Bollywood Beats and Social Dance Nights\") at an implausible 3:56 AM start time — a mismatched/spam-signature listing, not reliable evidence for this workshop duration"
     },
     "foundercal:foundercal-project-hack-night-and-social-316490238": {
       "fields": {
@@ -99583,13 +99580,10 @@
       "partialFingerprint": "rlty3f"
     },
     "phoenix-comics-and-games:friday-night-magic-draft-reality-fracture-october-2-ticket": {
-      "fields": {
-        "startTime": "18:30"
-      },
+      "unresolvable": true,
       "resolvedAt": "2026-09-27",
       "source": "agent",
-      "evidence": "https://locator.wizards.com/store/10197 (Wizards Store Locator event feed: sibling \"Tuesday Night Magic Draft: Reality Fracture\" confirmed at 2026-09-30T01:30:00Z = 6:30pm PT; Friday/Tuesday Reality Fracture drafts at this store run on the same weekly 6:30pm slot per the feed timestamps); duration left unresolved as no end time is published",
-      "partialFingerprint": "1jb8e7y"
+      "reason": "Only indirect evidence found (Wizards Store Locator feed data structure is ambiguous on whether this specific Friday draft shares its sibling Friday Standard Showdown timestamp, or the Tuesday draft's slot); stores commonly run Friday Night Magic at a different time than weeknight drafts, so this should not be published as a confirmed time"
     },
     "phoenix-comics-and-games:tuesday-night-draft-reality-fracture-september-29-ticket": {
       "fields": {
