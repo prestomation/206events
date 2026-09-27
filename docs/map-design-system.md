@@ -112,12 +112,20 @@ leads to a popup where following means exactly one calendar.
 
 The coordinate alone is not enough, and getting this wrong produced a real bug.
 A source with a ripper-level `geo` stamps that **one point** on every event it
-publishes. `discover-slu` is an aggregator: its 43 events all carry its office
-coordinate but actually happen at 17 different places — MOHAI, REI, The
-Spheres, The Center for Wooden Boats, Tapster. Keyed on the coordinate alone,
-the whole neighbourhood collapsed into a single pin named after whichever
-`location` string happened to be modal, so the South Lake Union Farmers Market
-was filed under "The Behnke Family Gallery".
+publishes. `discover-slu` is an aggregator whose events happen at 17 different
+places — MOHAI, REI, The Spheres, The Center for Wooden Boats, Tapster — but
+it originally carried a ripper-level `geo` anyway (its own office address).
+Keyed on the coordinate alone, the whole neighbourhood collapsed into a single
+pin named after whichever `location` string happened to be modal, so the South
+Lake Union Farmers Market was filed under "The Behnke Family Gallery" — and,
+separately, every individual event's pin sat at the office instead of its real
+venue (GitHub issue #1620: a "Stir Up the Paint" event pinned blocks away from
+the Tapster it was actually at). The fix for the second half was to give
+`discover-slu` `geo: null` like other multi-venue aggregators, so each event
+geocodes from its own `location` string instead of inheriting one fixed point.
+The coordinate-plus-name-key grouping below is what keeps a *future* aggregator
+mistake like this from collapsing venues on the map even when the underlying
+coordinates are wrong.
 
 So the key is the quantized coordinate plus `venueNameKey(location)` — the
 leading segment of the location string, lowercased, with a leading "the" and

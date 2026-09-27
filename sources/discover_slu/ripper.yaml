@@ -7,13 +7,15 @@ cost: free
 tags: ["Community", "South Lake Union"]
 lookahead: P1M
 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/03/Seattle_-_SLU_streetcar_on_Terry_Avenue_01.jpg"
-geo:
-  lat: 47.6224
-  lng: -122.3329
-  label: "Discover SLU, 436 Minor Ave N, Seattle, WA 98109"
-  osmChecked: "2026-04-25"
-  osmType: way
-  osmId: 570858174
+# Each event happens at a different venue around South Lake Union (REI,
+# MOHAI, Tapster, King Leroy, FareStart, ...) — not at Discover SLU's own
+# office address. A fixed ripper-level geo here overrides the per-event
+# `location` string the ripper extracts, pinning every event at the office
+# regardless of where it actually is (GitHub issue #1620). geo: null lets
+# each event geocode from its own location instead, matching the pattern
+# used by other multi-venue neighborhood aggregators (e.g. west-seattle-chamber,
+# downtown-seattle-association).
+geo: null
 calendars:
   - name: discover-slu
     friendlyname: "Discover South Lake Union Events"
