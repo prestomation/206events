@@ -56,7 +56,7 @@ export function extractTrucks(html: string): WaTruck[] {
         const ch = html[i];
         if (inString) {
             out += ch;
-            if (ch === "\\") { out += html[++i]; continue; }
+            if (ch === "\\") { out += html[++i] ?? ""; continue; }
             if (ch === '"') inString = false;
             continue;
         }
@@ -211,6 +211,7 @@ export default class WaFoodTrucksRipper implements IRipper {
         const html = await res.text();
 
         const calConfig = ripper.config.calendars[0];
+        if (!calConfig) throw new Error("wa-food-trucks: no calendar in ripper.yaml");
         const zone = ZoneId.of(calConfig.timezone.toString());
         let events: RipperCalendarEvent[] = [];
         let errors: RipperError[] = [];
