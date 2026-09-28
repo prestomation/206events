@@ -101348,7 +101348,10 @@
     "events12:olympia-arts-weekend-119209-2026-10-02": {
       "fields": {
         "startTime": "17:00",
-        "duration": 18000
+        "duration": 18000,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101357,7 +101360,10 @@
     "events12:olympia-arts-weekend-119209-2026-10-03": {
       "fields": {
         "startTime": "12:00",
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101398,7 +101404,10 @@
     },
     "events12:ballet-119686-2026-10-02": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101406,7 +101415,10 @@
     },
     "events12:ballet-119686-2026-10-03": {
       "fields": {
-        "startTime": "14:00"
+        "startTime": "14:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101414,7 +101426,10 @@
     },
     "events12:ballet-119686-2026-10-04": {
       "fields": {
-        "startTime": "13:00"
+        "startTime": "13:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101423,7 +101438,10 @@
     "events12:greek-festival-100082-2026-10-02": {
       "fields": {
         "startTime": "12:00",
-        "duration": 32400
+        "duration": 32400,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101432,7 +101450,10 @@
     "events12:greek-festival-100082-2026-10-03": {
       "fields": {
         "startTime": "10:00",
-        "duration": 39600
+        "duration": 39600,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101441,7 +101462,10 @@
     "events12:greek-festival-100082-2026-10-04": {
       "fields": {
         "startTime": "11:00",
-        "duration": 25200
+        "duration": 25200,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101635,7 +101659,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-02": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101643,7 +101670,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-03": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101651,7 +101681,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-04": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101659,7 +101692,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-05": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101667,7 +101703,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-06": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101675,7 +101714,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-07": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101683,7 +101725,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-08": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101691,7 +101736,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-09": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101699,7 +101747,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-10": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101707,7 +101758,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-11": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101715,7 +101769,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-12": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101723,7 +101780,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-13": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101731,7 +101791,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-14": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101739,7 +101802,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-15": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101747,7 +101813,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-16": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101755,7 +101824,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-17": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101763,7 +101835,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-18": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101771,7 +101846,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-19": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101779,7 +101857,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-20": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101787,7 +101868,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-21": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101795,7 +101879,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-22": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101803,7 +101890,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-23": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101811,7 +101901,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-24": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101819,7 +101912,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-25": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101827,7 +101923,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-26": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101835,7 +101934,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-27": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101843,7 +101945,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-28": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101851,7 +101956,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-29": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101859,7 +101967,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-30": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101867,7 +101978,10 @@
     },
     "events12:spooky-comedy-104278-2026-10-31": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102300,7 +102414,10 @@
     "events12:chocolate-festival-106212-2026-10-03": {
       "fields": {
         "startTime": "09:00",
-        "duration": 32400
+        "duration": 32400,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102309,7 +102426,10 @@
     "events12:chocolate-festival-106212-2026-10-04": {
       "fields": {
         "startTime": "09:00",
-        "duration": 25200
+        "duration": 25200,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102330,7 +102450,10 @@
     "events12:gem-mineral-show-120188-2026-10-03": {
       "fields": {
         "startTime": "10:00",
-        "duration": 25200
+        "duration": 25200,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102339,7 +102462,10 @@
     "events12:gem-mineral-show-120188-2026-10-04": {
       "fields": {
         "startTime": "10:00",
-        "duration": 25200
+        "duration": 25200,
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102360,20 +102486,26 @@
     "events12:oyster-seafood-festival-100352-2026-10-03": {
       "fields": {
         "startTime": "10:00",
-        "duration": 28800
+        "duration": 28800,
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
-      "evidence": "https://oysterfest.org/"
+      "evidence": "https://oysterfest.org/store/ticket"
     },
     "events12:oyster-seafood-festival-100352-2026-10-04": {
       "fields": {
         "startTime": "10:00",
-        "duration": 25200
+        "duration": 25200,
+        "cost": {
+          "min": 15.0
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
-      "evidence": "https://oysterfest.org/"
+      "evidence": "https://oysterfest.org/store/ticket"
     },
     "events12:prayers-for-pets-115501-2026-10-03": {
       "unresolvable": true,
@@ -102401,7 +102533,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-03": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102409,7 +102544,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-04": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102417,7 +102555,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-05": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102425,7 +102566,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-06": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102433,7 +102577,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-07": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102441,7 +102588,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-08": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102449,7 +102599,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-09": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102457,7 +102610,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-10": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102465,7 +102621,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-11": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102473,7 +102632,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-12": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102481,7 +102643,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-13": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102489,7 +102654,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-14": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102497,7 +102665,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-15": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102505,7 +102676,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-16": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102513,7 +102687,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-17": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102521,7 +102698,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-18": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102529,7 +102709,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-19": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102537,7 +102720,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-20": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102545,7 +102731,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-21": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102553,7 +102742,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-22": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102561,7 +102753,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-23": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102569,7 +102764,10 @@
     },
     "events12:haunted-history-walk-118684-2026-10-24": {
       "fields": {
-        "startTime": "19:00"
+        "startTime": "19:00",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -102752,7 +102950,10 @@
     "events12:croatian-festival-119407-2026-10-04": {
       "fields": {
         "startTime": "12:00",
-        "duration": 21600
+        "duration": 21600,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
