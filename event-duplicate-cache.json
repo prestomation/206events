@@ -29622,6 +29622,14 @@
     "seattle-center-festal-all-events.ics Turkfest|2026-10-10T11:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Turkfest|2026-10-10T12:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-28"
+    },
+    "craft-map-seattle-craft-map-seattle.ics West Seattle Harvest Festival|2026-10-25T11:00:00-07:00[America/Los_Angeles]::paper-boat-booksellers-events.ics West Seattle Harvest Festival|2026-10-25T11:00:00.147-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-28"
+    },
+    "craft-map-seattle-craft-map-seattle.ics West Seattle Harvest Festival|2026-10-25T11:00:00-07:00[America/Los_Angeles]::recurring-west-seattle-harvest-fest.ics West Seattle Junction Harvest Fest|2026-10-25T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-28"
     }
   }
 }

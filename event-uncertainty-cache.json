@@ -103040,6 +103040,222 @@
       "resolvedAt": "2026-09-28",
       "source": "agent",
       "reason": "Event page has no featured image"
+    },
+    "first-hill-improvement-association:6ab976130315de5d8331b88b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/9/27/wheels-10th-anniversary-at-trinity"
+    },
+    "first-hill-improvement-association:6ab9767fea09384d96008fcc": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/30/first-hill-final-friday-sushi-kanpai"
+    },
+    "first-hill-improvement-association:6ab976b92104d906631b92b0": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/31/first-hill-pet-parade"
+    },
+    "first-hill-improvement-association:6ab977c86b6e0560fb280d56": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.seattlefirstbaptist.org/events/pearl-django-26/"
+    },
+    "first-hill-improvement-association:6ab978677018c204b84beee4": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://earlymusicseattle.org/event/rumbarroco-latin-baroque-fiesta/"
+    },
+    "first-hill-improvement-association:6ab978aa1cff6c5dd63d93a0": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/24/seattle-bach-festival-bachs-b-minor-mass"
+    },
+    "side-rail-collective:6ab9880536b5d05b7bd4f594": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.siderailcollective.com/calendar/figuredrawing"
+    },
+    "u-district-partnership:seattle-boba-fest-2026-08-01": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/bobafest"
+    },
+    "vashon-events:6ab960121cff6c5dd634f3c5": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/3/the-third-verse-at-the-coop"
+    },
+    "venue:loc:concrete theatre, 45920 main st, concrete, wa 98237": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://concrete-wa.com/events/ghost-walk-halloween-fun/"
+    },
+    "venue:loc:dacca park, 2820 54th ave e, fife, wa 98424": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.fifewa.gov/275/Harvest-Festival"
+    },
+    "venue:loc:depot arts center, 611 r ave, anacortes, wa 98221": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://business.anacortes.org/events/details/2026-anacortes-bier-near-the-pier-23509"
+    },
+    "venue:loc:elysian capitol hill brewery, 1221 e pike st, seattle, wa 98122, seattle, wa 98122": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.elysianbrewing.com/node/939"
+    },
+    "venue:loc:leavenworth festhalle, 1001 front st, leavenworth, wa 98826": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://leavenworth.org/oktoberfest/"
+    },
+    "venue:loc:mccaw hall, 321 mercer st, seattle, wa 98109": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.pnb.org/season/serenade/"
+    },
+    "venue:loc:mount vernon (65 miles n)": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.festivaloffamilyfarms.com/farm-tour-info/"
+    },
+    "venue:loc:oysterfest, 250 west sanderson way, shelton, wa 98584": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://oysterfest.org/"
+    },
+    "venue:loc:tacoma dome, 2727 e d street, tacoma, wa 98421": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.tacomafallrvshow.com/show-information/"
+    },
+    "venue:loc:thomas w. huntamer park, 618 woodland square loop se, lacey, wa 98503": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://laceyparks.org/childrens-day/"
+    },
+    "venue:loc:university way ne & ne 42nd st, seattle, wa 98105": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://udistrictseattle.com/chowdown"
+    },
+    "venue:loc:washington center for the performing arts, 512 washington st se, olympia, wa 98501": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.artswalkoly.com/p/about/attend"
+    },
+    "venue:osm:node:2158761323": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://velocitydancecenter.org/events/out-there-2026/"
+    },
+    "venue:osm:node:2268896085": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.potterynorthwest.org/auction"
+    },
+    "venue:osm:relation:2883446": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "reason": "Mixed venue: outdoor Greek Festival on grounds, indoor church services; cannot assign single setting"
+    },
+    "venue:osm:way:236755630": {
+      "fields": {
+        "setting": "indoor"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.seattlefirstbaptist.org/events/"
     }
   }
 }
