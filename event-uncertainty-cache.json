@@ -98763,11 +98763,12 @@
       "fields": {
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://i0.wp.com/rainierbeachcommunityclub.org/wp-content/uploads/2026/07/DT-FINAL-PNG-POSTER-6.13.25-no-cut-marks-27x40in.pdf.png?resize=580%2C751&ssl=1"
       },
-      "resolvedAt": "2026-09-27",
+      "resolvedAt": "2026-09-28",
       "source": "agent",
-      "evidence": "https://rainierbeachcommunityclub.org/events/meaningful-movies (\"Free to All (donations gratefully accepted)\" — a stable series-level policy statement, not tied to a specific screening)"
+      "evidence": "https://rainierbeachcommunityclub.org/events/meaningful-movies"
     },
     "rabbit_box:6ab5b4e9f817c36bf00988a8": {
       "fields": {
@@ -102820,6 +102821,24 @@
       "resolvedAt": "2026-09-28",
       "source": "agent",
       "evidence": "https://www.ticketmaster.com/disneys-beauty-and-the-beast-touring-seattle-washington-12-27-2026/event/0F00651CD9C137CA"
+    },
+    "columbia-city-gallery:columbia-city-gallery-9543": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "reason": "Event page has no featured image"
+    },
+    "columbia-city-gallery:columbia-city-gallery-9546": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "reason": "Event page has no featured image"
+    },
+    "columbia-city-gallery:columbia-city-gallery-9549": {
+      "unresolvable": true,
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "reason": "Event page has no featured image"
     }
   }
 }
