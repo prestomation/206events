@@ -1,4 +1,7 @@
-# verified: 2026-09-02 ok — 1 upcoming event; removing expectEmpty
+# 2026-09-27: build-health flagged 0 events again. Confirmed via the live
+# Eventbrite organizer page ("No upcoming events"). Small community org with
+# intermittent programming — re-adding expectEmpty; remove again whenever a
+# future build finds an upcoming event (as on 2026-09-02).
 name: filipino-community-seattle
 sourceRole: venue
 type: eventbrite
@@ -19,6 +22,7 @@ calendars:
   - name: filipino-community-seattle
     friendlyname: "Filipino Community of Seattle"
     timezone: America/Los_Angeles
+    expectEmpty: true
     config:
       organizerId: "56553753403"
       defaultLocation: "5740 Martin Luther King Jr Way S, Seattle, WA 98118"

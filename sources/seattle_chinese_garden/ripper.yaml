@@ -13,6 +13,10 @@ geo:
   osmType: way
   osmId: 31706566
 calendars:
+  # 2026-09-27: build-health flagged 0 events. Confirmed via the live
+  # Squarespace JSON endpoint (0 upcoming, 30 past) — seasonal/intermittent
+  # programming, not a broken feed.
   - name: all-events
     friendlyname: "Seattle Chinese Garden"
     timezone: America/Los_Angeles
+    expectEmpty: true

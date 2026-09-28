@@ -577,6 +577,11 @@ calendars:
   - name: greenbridge
     friendlyname: "KCLS - Greenbridge"
     timezone: America/Los_Angeles
+    # 2026-09-27: build-health flagged 0 events. Confirmed via the live
+    # BiblioCommons events API: no events with branchLocationId "1510" across
+    # ~1000 events (spanning past the P4W lookahead window) — a small branch
+    # with no current programming, not a broken feed.
+    expectEmpty: true
     config:
       branchId: "1510"
     geo:
