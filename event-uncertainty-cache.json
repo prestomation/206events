@@ -101441,7 +101441,8 @@
         "duration": 32400,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101453,7 +101454,8 @@
         "duration": 39600,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -101465,7 +101467,8 @@
         "duration": 25200,
         "cost": {
           "paid": true
-        }
+        },
+        "setting": "outdoor"
       },
       "resolvedAt": "2026-09-28",
       "source": "agent",
@@ -103256,6 +103259,24 @@
       "resolvedAt": "2026-09-28",
       "source": "agent",
       "evidence": "https://www.seattlefirstbaptist.org/events/"
+    },
+    "vashon-events:6ab9cbb0184acd512b1b3274": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://www.vashonevents.org/events/2026/10/2/2-gins-in"
+    },
+    "art-love-salon:art-love-salon-1256": {
+      "fields": {
+        "imageUrl": "https://artlove.org/art/photos/events/1256_big_1055facea06b57a2.jpg"
+      },
+      "resolvedAt": "2026-09-28",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/1256"
     }
   }
 }
