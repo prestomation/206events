@@ -55,6 +55,15 @@ describe("parseIcs", () => {
         // City name omitted from LOCATION on the source page.
         const craftShow = events.find(e => e.id === "enumclaw-4944")!;
         expect(craftShow.location).toBe("Glacier Middle School, Enumclaw, WA 98022");
+
+        // Known source-data quirk: this LOCATION's "venue" segment (before
+        // " - ") is a promotional sentence rather than a venue name, so it
+        // passes through normalizeLocation as-is. The street address
+        // portion is still correct and geocodable.
+        const harvest = events.find(e => e.id === "enumclaw-4941")!;
+        expect(harvest.location).toBe(
+            "Join the community in the garden for a free event!, 46620 228th Ave SE, Enumclaw, WA 98022"
+        );
     });
 
     test("produces stable, unique ids", () => {
