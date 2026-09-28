@@ -1,0 +1,22 @@
+name: enumclaw
+sourceRole: venue
+description: "City of Enumclaw"
+url: "https://www.cityofenumclaw.net/calendar.aspx"
+friendlyLink: https://www.cityofenumclaw.net/calendar.aspx
+geo: null
+tags: ["Enumclaw"]
+# The CivicPlus iCalendar feed (VEVENT) carries no image field, and there is
+# no single venue (events span many Enumclaw locations) — use a city photo as
+# the fallback and keep these out of the per-event photo-gap queue.
+imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/30/Enumclaw%2C_Washington_%283600810744%29.jpg"
+skipEventPhotos: true
+calendars:
+  # CivicPlus iCalendar category id for public community events (catID=23).
+  # Every other populated category is committee/board meetings or office
+  # closures — see docs/source-candidates/city-of-enumclaw.md.
+  - name: community-events
+    friendlyname: "City of Enumclaw Community Events"
+    timezone: America/Los_Angeles
+    tags: ["Community"]
+    config:
+      catID: 23
