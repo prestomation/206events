@@ -101,3 +101,10 @@ Art Love Salon/Conru (18) are already covered by `sources/art_love_salon/`,
 and the rest are 1-10 events each across ~25 orgs, many already sourced.
 Notviable confirmed. Side lead: Occidental Fine Arts Center (8 upcoming here)
 has no dedicated source; it may be worth its own candidate.
+
+2026-09-28: Occidental Fine Arts Center lead followed up — see
+`docs/source-candidates/occidental-fine-arts-center.md` (org id `774`, 🔥
+High confidence, 6 future events, same RSC pipeline as Art Love Salon).
+(The 8-upcoming count from 2026-09-23 above vs. 6 here just reflects two
+events having passed/rolled off the aggregator's window between checks,
+not a discrepancy in the org id or pipeline.)
