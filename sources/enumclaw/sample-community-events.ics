@@ -1,0 +1,101 @@
+BEGIN:VCALENDAR
+PRODID:iCalendar-Ruby
+VERSION:2.0
+X-WR-TIMEZONE:America/Los_Angeles
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+X-LIC-LOCATION:America/Los_Angeles
+BEGIN:STANDARD
+DTSTART:20241103T020000
+RRULE:FREQ=YEARLY;BYDAY=1SU;BYMONTH=11
+TZNAME:PST
+TZOFFSETFROM:-0700
+TZOFFSETTO:-0800
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20250309T020000
+RRULE:FREQ=YEARLY;BYDAY=2SU;BYMONTH=3
+TZNAME:PDT
+TZOFFSETFROM:-0800
+TZOFFSETTO:-0700
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+DESCRIPTION: https://www.cityofenumclaw.net/m/calendar/event/detail/4920
+DTEND;TZID=America/Los_Angeles:20261218T200000
+DTSTAMP;TZID=America/Los_Angeles:20260413T080331
+DTSTART;TZID=America/Los_Angeles:20261218T160000
+LAST-MODIFIED;TZID=America/Los_Angeles:20260413T080331
+LOCATION:<p>Cole Street from Myrtle to the tent on Cole</p> -   Enumclaw WA
+  98022
+SEQUENCE:0
+SUMMARY:Frosty Friday Evenings
+UID:4920
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=23
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION: https://www.cityofenumclaw.net/m/calendar/event/detail/4919
+DTEND;TZID=America/Los_Angeles:20261211T200000
+DTSTAMP;TZID=America/Los_Angeles:20260413T080331
+DTSTART;TZID=America/Los_Angeles:20261211T160000
+LAST-MODIFIED;TZID=America/Los_Angeles:20260413T080331
+LOCATION:<p>Cole Street from Myrtle to the tent on Cole</p> -   Enumclaw WA
+  98022
+SEQUENCE:0
+SUMMARY:Frosty Friday Evenings
+UID:4919
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=23
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION: https://www.cityofenumclaw.net/m/calendar/event/detail/4942
+DTEND;TZID=America/Los_Angeles:20261011T160000
+DTSTAMP;TZID=America/Los_Angeles:20260911T112532
+DTSTART;TZID=America/Los_Angeles:20261011T140000
+LAST-MODIFIED;TZID=America/Los_Angeles:20260911T112532
+LOCATION:<p>Old Osceola Schoolhouse</p> - 45623 220th Ave SE  Enumclaw WA 9
+ 8022
+SEQUENCE:0
+SUMMARY:Pumpkin Succulent Workshop #2
+UID:4942
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=23
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION: https://www.cityofenumclaw.net/m/calendar/event/detail/4943
+DTEND;TZID=America/Los_Angeles:20261011T130000
+DTSTAMP;TZID=America/Los_Angeles:20260911T113353
+DTSTART;TZID=America/Los_Angeles:20261011T110000
+LAST-MODIFIED;TZID=America/Los_Angeles:20260911T113353
+LOCATION:<p>Old Osceola Schoolhouse</p> - 45623 220th Ave SE  Enumclaw WA 9
+ 8022
+SEQUENCE:0
+SUMMARY:Pumpkin Succulent Workshop #1
+UID:4943
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=23
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION: https://www.cityofenumclaw.net/m/calendar/event/detail/4944
+DTEND;TZID=America/Los_Angeles:20261010T150000
+DTSTAMP;TZID=America/Los_Angeles:20260911T150343
+DTSTART;TZID=America/Los_Angeles:20261010T100000
+LAST-MODIFIED;TZID=America/Los_Angeles:20260911T150343
+LOCATION:<p>Glacier Middle School</p> -    WA 98022
+SEQUENCE:0
+SUMMARY:The Hungry Housewives 12th Annual Craft and Vendor Show
+UID:4944
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=23
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION: https://www.cityofenumclaw.net/m/calendar/event/detail/4941
+DTEND;TZID=America/Los_Angeles:20261003T150000
+DTSTAMP;TZID=America/Los_Angeles:20260909T083916
+DTSTART;TZID=America/Los_Angeles:20261003T090000
+LAST-MODIFIED;TZID=America/Los_Angeles:20260909T083916
+LOCATION:<p><span style="font-size: 14px\;">Join the community in the garde
+ n for a free event!&nbsp\;</span></p> - 46620 228th Ave SE  Enumclaw WA 98
+ 022
+SEQUENCE:0
+SUMMARY:Hometown Harvest 2026 Osceola Country Gardens Event
+UID:4941
+URL:/common/modules/iCalendar/iCalendar.aspx?feed=calendar&catID=23
+END:VEVENT
+END:VCALENDAR
