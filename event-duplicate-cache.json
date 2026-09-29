@@ -29726,31 +29726,6 @@
       "resolvedAt": "2026-09-29",
       "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
     },
-    "external-trio-truck.ics CLOSED|2026-11-02T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-02T12:30:00.963-008:00[America/Los_Angeles]": {
-      "decision": "rejected",
-      "resolvedAt": "2026-09-29",
-      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
-    },
-    "external-trio-truck.ics CLOSED|2026-11-09T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-09T12:30:00.963-008:00[America/Los_Angeles]": {
-      "decision": "rejected",
-      "resolvedAt": "2026-09-29",
-      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
-    },
-    "external-trio-truck.ics CLOSED|2026-11-16T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-16T12:30:00.963-008:00[America/Los_Angeles]": {
-      "decision": "rejected",
-      "resolvedAt": "2026-09-29",
-      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
-    },
-    "external-trio-truck.ics CLOSED|2026-11-23T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-23T12:30:00.963-008:00[America/Los_Angeles]": {
-      "decision": "rejected",
-      "resolvedAt": "2026-09-29",
-      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
-    },
-    "external-trio-truck.ics CLOSED|2026-11-30T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-30T12:30:00.963-008:00[America/Los_Angeles]": {
-      "decision": "rejected",
-      "resolvedAt": "2026-09-29",
-      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
-    },
     "external-trio-truck.ics CLOSED|2026-11-02T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-02T12:30:00.963-08:00[America/Los_Angeles]": {
       "decision": "rejected",
       "resolvedAt": "2026-09-29",
