@@ -6,7 +6,7 @@ url: https://occidentalfinearts.org/events
 tags: [Arts, Pioneer Square]
 firstSeen: 2026-09-28
 lastChecked: 2026-09-29
-pr: TBD
+pr: 1636
 ---
 
 Gallery, studios, and workshop space in Pioneer Square (311 1/2 Occidental
