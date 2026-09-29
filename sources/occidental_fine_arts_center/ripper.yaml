@@ -1,0 +1,16 @@
+name: occidental-fine-arts-center
+sourceRole: venue
+description: "Occidental Fine Arts Center"
+url: "https://publicdisplay.art/calendar"
+friendlyLink: https://occidentalfinearts.org
+tags: ["Arts", "Pioneer Square"]
+geo:
+  lat: 47.5995732
+  lng: -122.3331248
+  label: "Occidental Fine Arts Center, 311 1/2 Occidental Ave South, Seattle, WA 98104"
+  osmType: node
+  osmId: 14027816501
+calendars:
+  - name: occidental-fine-arts-center
+    friendlyname: "Occidental Fine Arts Center"
+    timezone: America/Los_Angeles
