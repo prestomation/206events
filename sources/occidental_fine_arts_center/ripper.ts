@@ -1,33 +1,27 @@
 import { Duration, LocalDateTime, ZoneId, ZonedDateTime } from "@js-joda/core";
 import { IRipper, Ripper, RipperCalendar, RipperCalendarEvent, RipperError, RipperEvent } from "../../lib/config/schema.js";
 import { FetchFn, getFetchForConfig } from "../../lib/config/proxy-fetch.js";
-import { extractNextFlightData, extractJsonAfterMarker, to24Hour, parseHoursRange, ParsedHoursRange } from "../../lib/config/rsc-flight.js";
+import { extractNextFlightData, extractJsonAfterMarker, parseHoursRange } from "../../lib/config/rsc-flight.js";
 import '@js-joda/timezone';
 
-// Re-exported for backwards compatibility with existing test imports; the
-// implementations live in lib/config/rsc-flight.ts, shared with
-// sources/occidental_fine_arts_center/ripper.ts (same upstream platform).
-export { extractNextFlightData, extractJsonAfterMarker };
-
-// Art Love Salon and its parent Conru Foundation don't publish their own
-// calendar (see docs/source-candidates/art-love-salon.md) — their event data
-// only surfaces through the citywide aggregator PublicDisplay.ART, whose
-// /calendar page embeds a Next.js React Server Components ("RSC") flight
-// payload rather than a conventional API or DOM-rendered listing. This
-// ripper pulls the two organizations' single-day events out of that
-// payload, then fetches each event's own detail page (a second RSC payload)
-// for its `hours` field, since the calendar payload's `start_date` is always
-// midnight and carries no real start time.
+// Occidental Fine Arts Center (a Conru Art Foundation venue, like Art Love
+// Salon — see sources/art_love_salon/ripper.ts) doesn't publish its own
+// calendar: occidentalfinearts.org's /events page renders client-side with
+// no embedded data. Its event data only surfaces through the citywide
+// aggregator PublicDisplay.ART, whose /calendar page embeds a Next.js React
+// Server Components ("RSC") flight payload. This ripper pulls Occidental's
+// single-day events out of that payload, then fetches each event's own
+// detail page (a second RSC payload) for its `hours` field, since the
+// calendar payload's `start_date` is always midnight and carries no real
+// start time. See docs/source-candidates/occidental-fine-arts-center.md.
 const CALENDAR_URL = "https://publicdisplay.art/calendar";
 const TIMEZONE = ZoneId.of('America/Los_Angeles');
-const LOCATION = "Art Love Salon, 110 Union St, Seattle, WA 98121";
+const LOCATION = "Occidental Fine Arts Center, 311 1/2 Occidental Ave South, Seattle, WA 98104";
 const DEFAULT_DURATION_MINUTES = 120;
 const USER_AGENT = 'Mozilla/5.0 (compatible; 206events/1.0)';
 
-// PublicDisplay.ART organization ids for Art Love Salon and its parent Conru
-// Foundation (both operate out of the same 110 Union St address, one
-// programming operation split across two organization records upstream).
-const ORG_IDS = new Set([462, 1]);
+// PublicDisplay.ART organization id for Occidental Fine Arts Center.
+const ORG_ID = 774;
 
 interface PublicDisplayOrg {
     id: number;
@@ -58,7 +52,7 @@ interface PublicDisplayEventDetail {
     photos?: PublicDisplayPhoto[];
 }
 
-export default class ArtLoveSalonRipper implements IRipper {
+export default class OccidentalFineArtsCenterRipper implements IRipper {
 
     public async rip(ripper: Ripper): Promise<RipperCalendar[]> {
         const fetchFn = getFetchForConfig(ripper.config);
@@ -107,11 +101,11 @@ export default class ArtLoveSalonRipper implements IRipper {
 
     /**
      * Pulls PublicDisplay.ART's `initialEvents` array out of the calendar
-     * page's RSC payload and narrows it to Art Love Salon / Conru
-     * Foundation's own single-day events. Multi-day entries (e.g. an
-     * "Art & Culture Week" container spanning a week) are excluded — their
-     * individual days are already listed as their own events — as are
-     * events for every other organization on the citywide aggregator.
+     * page's RSC payload and narrows it to Occidental Fine Arts Center's own
+     * single-day events. Multi-day entries (e.g. an "Art & Culture Week"
+     * container spanning a week) are excluded — their individual days are
+     * already listed as their own events — as are events for every other
+     * organization on the citywide aggregator.
      */
     // Public for testing
     findCandidateEvents(calendarHtml: string): PublicDisplayCalendarEvent[] {
@@ -133,7 +127,7 @@ export default class ArtLoveSalonRipper implements IRipper {
         return rawEvents.filter(e => {
             const org = e.org;
             const orgId = org && typeof org === 'object' ? org.id : undefined;
-            if (orgId === undefined || !ORG_IDS.has(orgId)) return false;
+            if (orgId !== ORG_ID) return false;
             const startDay = (e.start_date ?? '').slice(0, 10);
             const endDay = (e.end_date ?? '').slice(0, 10);
             return startDay !== '' && startDay === endDay;
@@ -187,7 +181,7 @@ export default class ArtLoveSalonRipper implements IRipper {
             return { type: 'ParseError', reason: `No hours published for "${name}"`, context: detailUrl };
         }
 
-        const parsedHours = this.parseHoursRange(hours);
+        const parsedHours = parseHoursRange(hours);
         if (!parsedHours) {
             return { type: 'ParseError', reason: `Could not parse hours "${hours}" for "${name}"`, context: detailUrl };
         }
@@ -213,7 +207,7 @@ export default class ArtLoveSalonRipper implements IRipper {
         const imageUrl = mainPhoto?.big || undefined;
 
         const event: RipperCalendarEvent = {
-            id: `art-love-salon-${eventId}`,
+            id: `occidental-fine-arts-center-${eventId}`,
             ripped: new Date(),
             date,
             duration: Duration.ofMinutes(durationMinutes),
@@ -224,17 +218,5 @@ export default class ArtLoveSalonRipper implements IRipper {
             imageUrl,
         };
         return event;
-    }
-
-    // Public for testing. Delegates to lib/config/rsc-flight.ts, shared
-    // with sources/occidental_fine_arts_center/ripper.ts.
-    to24Hour(hourStr: string, ampm: string): number {
-        return to24Hour(hourStr, ampm);
-    }
-
-    // Public for testing. Delegates to lib/config/rsc-flight.ts, shared
-    // with sources/occidental_fine_arts_center/ripper.ts.
-    parseHoursRange(hours: string): ParsedHoursRange | null {
-        return parseHoursRange(hours);
     }
 }

@@ -1,12 +1,12 @@
 ---
 name: Occidental Fine Arts Center
-status: candidate
+status: added
 platform: PublicDisplay.ART (Conru Art Foundation aggregator) — org id 774
 url: https://occidentalfinearts.org/events
 tags: [Arts, Pioneer Square]
 firstSeen: 2026-09-28
-lastChecked: 2026-09-28
-pr:
+lastChecked: 2026-09-29
+pr: TBD
 ---
 
 Gallery, studios, and workshop space in Pioneer Square (311 1/2 Occidental
@@ -48,3 +48,15 @@ real clock times). Two implementation options for whoever picks this up:
    promoting those two functions to a shared lib module if a third
    Conru-family org ever needs this pattern, rather than duplicating
    them a second time).
+
+Implemented 2026-09-29 (option 2): `sources/occidental_fine_arts_center/`
+as its own ripper — a separate venue/calendar rather than folding into
+`art-love-salon`'s single calendar. Promoted `extractNextFlightData`,
+`extractJsonAfterMarker`, `to24Hour`, and `parseHoursRange` to
+`lib/config/rsc-flight.ts` (with its own test coverage) so both rippers
+share the PublicDisplay.ART parsing logic instead of duplicating it;
+`sources/art_love_salon/ripper.ts` now delegates to the shared module
+(re-exports preserved for its existing tests). Verified 6 upcoming events
+in a scoped build (`ONLY_SOURCE=occidental-fine-arts-center`), 0 errors.
+Geo resolved to an actual OSM POI (`node` id `14027816501`, "Occidental
+Fine Arts Center") via Nominatim — no `KNOWN_VENUE_COORDS` entry needed.
