@@ -29630,6 +29630,251 @@
     "craft-map-seattle-craft-map-seattle.ics West Seattle Harvest Festival|2026-10-25T11:00:00-07:00[America/Los_Angeles]::recurring-west-seattle-harvest-fest.ics West Seattle Junction Harvest Fest|2026-10-25T11:00:00-07:00[America/Los_Angeles]": {
       "decision": "confirmed",
       "resolvedAt": "2026-09-28"
+    },
+    "ai-house-calendar.ics AI Governance (In Person + Online): Law, Lawyers, and Liability|2026-10-07T13:30:00-07:00[America/Los_Angeles]::foundercal-seattle.ics AI Governance (In Person + Online): Law, Lawyers, and Liability|2026-10-07T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same event, same luma URL, ai-house and foundercal both list it"
+    },
+    "ai-house-calendar.ics AI Workers for Agencies: Live Demos & Real Playbooks|2026-09-28T16:00:00-07:00[America/Los_Angeles]::techmeetups-seattle-in-person.ics AI Workers for Agencies: Live Demos & Real Playbooks|2026-09-28T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same event, same luma URL, different timezone representation"
+    },
+    "barboza-barboza.ics Katherine Van Bebber with Tanisha Deka + Aimee Lefkowicz + Persephone Darke|2026-10-27T19:00:00-07:00[America/Los_Angeles]::do206-do206.ics Katherine Van Bebber|2026-10-27T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show, same venue, title variant (barboza has full lineup)"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Kacey Musgraves - Middle of Nowhere Tour |2026-10-27T19:30:00-07:00[America/Los_Angeles]::do206-do206.ics Kacey Musgraves: Middle of Nowhere Tour|2026-10-27T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same concert, same time, Climate Pledge Arena is at Seattle Center"
+    },
+    "dark-seattle-shows.ics Dead Kennedys|2026-10-06T20:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Dead Kennedys with Flipper & Dish Pit|2026-10-06T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show, same URL, title variant"
+    },
+    "do206-do206.ics BurnDown Tour 2026 feat. Febuary|2026-10-27T19:30:00-07:00[America/Los_Angeles]::el-corazon-el-corazon.ics BurnDown Tour 2026 feat. Febuary with Love Letter, Soap Box Derby|2026-10-27T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at El Corazon, title variant (full billing on venue site)"
+    },
+    "do206-do206.ics Dead Kennedys with Special Guests|2026-10-06T20:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Dead Kennedys with Flipper & Dish Pit|2026-10-06T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Showbox, title variant"
+    },
+    "do206-do206.ics Ho99o9 & N8NOFACE|2026-10-27T19:00:00-07:00[America/Los_Angeles]::substation-substation.ics Ho99o9 & N8NOFACE w/ Slay Squad|2026-10-27T19:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Substation, title variant with support act"
+    },
+    "do206-do206.ics Improv Happy Hour|2026-10-17T18:00:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Improv Happy Hour|2026-10-17T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Unexpected Productions, same time"
+    },
+    "do206-do206.ics Mike D 5D|2026-09-28T20:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Mike D 5D with Angelnumber 8|2026-09-28T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Showbox, title variant with support act"
+    },
+    "do206-do206.ics Night of the Living Theater: An Improvised Zombie Apocalypse|2026-10-18T19:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Night of the Living Theater: An Improvised Zombie Apocalypse|2026-10-18T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Unexpected Productions"
+    },
+    "do206-do206.ics Psychotic Reaction  Grrrizzly|2026-09-28T19:00:00-07:00[America/Los_Angeles]::seattle-showlists-central-saloon.ics Psychotic Reaction • Grrrizzly • WillyPete|2026-09-28T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Central Saloon, title variant with support acts"
+    },
+    "do206-do206.ics Seattle Center Sculpture Walk 2026|2026-10-14T19:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Seattle Center Sculpture Walk 2026|2026-10-14T00:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same event, seattle-center lists as all-day, do206 has evening time"
+    },
+    "do206-do206.ics Seattle Theatresports 2026|2026-10-16T21:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Seattle Theatresports 2026|2026-10-16T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Unexpected Productions"
+    },
+    "do206-do206.ics Seattle Theatresports 2026|2026-10-17T21:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Seattle Theatresports 2026|2026-10-17T21:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same show at Unexpected Productions"
+    },
+    "external-trio-truck.ics CLOSED|2026-10-05T00:00:00-07:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-10-05T12:30:00.963-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-10-12T00:00:00-07:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-10-12T12:30:00.963-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-10-19T00:00:00-07:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-10-19T12:30:00.963-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-10-26T00:00:00-07:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-10-26T12:30:00.963-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-02T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-02T12:30:00.963-008:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-09T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-09T12:30:00.963-008:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-16T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-16T12:30:00.963-008:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-23T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-23T12:30:00.963-008:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-30T00:00:00-008:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-30T12:30:00.963-008:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-02T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-02T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-09T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-09T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-16T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-16T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-23T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-23T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-11-30T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-11-30T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-12-07T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-12-07T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-12-14T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-12-14T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-12-21T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-12-21T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-trio-truck.ics CLOSED|2026-12-28T00:00:00-08:00[America/Los_Angeles]::the-cove-the-cove.ics CLOSED|2026-12-28T12:30:00.963-08:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-29",
+      "note": "Same title 'CLOSED' but different venues: trio-truck (food truck) vs the-cove (coffee shop)"
+    },
+    "external-uw-campus-events.ics Teaching Technologies Office Hours|2026-12-28T11:00:00-08:00[America/Los_Angeles]::external-uw-graduate-school.ics Teaching Technologies Office Hours|2026-12-28T11:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same Zoom event, same title/time, both UW feeds"
+    },
+    "external-visit-ballard.ics Conor Byrne Open Mic Nights|2026-10-04T19:30:00-07:00[America/Los_Angeles]::recurring-conor-byrne-open-mic.ics Conor Byrne Pub — Sunday Open Mic|2026-10-04T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same weekly open mic at Conor Byrne Pub, same venue and time"
+    },
+    "foundercal-seattle.ics AI Workers for Agencies: Live Demos & Real Playbooks|2026-09-28T16:00:00-07:00[America/Los_Angeles]::techmeetups-seattle-in-person.ics AI Workers for Agencies: Live Demos & Real Playbooks|2026-09-28T23:00:00Z": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same luma.com/aihouse-ay5k URL, same event, different timezone representation"
+    },
+    "seatoday-seatoday-all.ics FREE Homebuyer Education Class: Down Payment Assistance in WA|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics FREE Homebuyer Education Class: Down Payment Assistance in WA|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Family Charcuterie Class at Laro Tayo|2026-10-11T12:15:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Family Charcuterie Class at Laro Tayo|2026-10-11T12:15:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Harvest Efficiencies Field Day|2026-09-30T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Harvest Efficiencies Field Day|2026-09-30T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Harvest Efficiencies Field Day|2026-09-30T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Harvest Efficiencies Field Day|2026-09-30T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and arts sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Relieve Your Stress with AVEDA|2026-10-11T12:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Relieve Your Stress with AVEDA|2026-10-11T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in arts and community sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in arts and learning sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Harvest Efficiencies Field Day|2026-09-30T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Harvest Efficiencies Field Day|2026-09-30T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in community and learning sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Nettlebed Farm Tour: Livestock Management on a Small Commercial Farm|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same seatoday event appearing in community and learning sub-calendars"
+    },
+    "seattle-center-seattle-center-events.ics Eureka Day: Open Captioning|2026-10-14T14:00:00-07:00[America/Los_Angeles]::seattle-rep-all-performances.ics Eureka Day|2026-10-14T14:00-07:00": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-29",
+      "note": "Same matinee at Seattle Rep, Oct 14 14:00; seattle-center specifically labels it as open captioning performance"
     }
   }
 }
