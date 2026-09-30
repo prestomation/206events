@@ -1,0 +1,10 @@
+geo: null
+name: city-of-snoqualmie
+sourceRole: aggregator
+friendlyname: City of Snoqualmie Events
+description: City of Snoqualmie community calendar, covering Snoqualmie Winter Lights, Trunk or Treat, Halloween festivities, and other public community programs
+icsUrl: https://www.snoqualmiewa.gov/common/modules/iCalendar/iCalendar.aspx?catID=14&feed=calendar
+infoUrl: https://www.snoqualmiewa.gov/calendar.aspx?CID=14
+tags:
+  - Community
+  - Snoqualmie
