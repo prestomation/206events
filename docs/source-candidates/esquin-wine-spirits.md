@@ -3,7 +3,7 @@ name: "Esquin Wine & Spirits"
 status: blocked
 platform: unknown
 url: https://esquin.com/events
-tags: []
+tags: [Wine, Georgetown]
 firstSeen: 2026-09-30
 lastChecked: 2026-09-30
 ---
