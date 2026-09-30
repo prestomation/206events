@@ -102205,7 +102205,8 @@
     },
     "columbia-city-business-association:ccba-6858989": {
       "fields": {
-        "duration": 14400
+        "duration": 14400,
+        "imageUrl": "https://columbiacityseattle.com/resources/Pictures/SSCF-Flyer-sm.jpg"
       },
       "resolvedAt": "2026-09-30",
       "source": "agent",
@@ -102213,7 +102214,8 @@
     },
     "columbia-city-business-association:ccba-6859022": {
       "fields": {
-        "duration": 14400
+        "duration": 14400,
+        "imageUrl": "https://www.rookiesseattle.com/resources/Pictures/Rookies.jpg"
       },
       "resolvedAt": "2026-09-30",
       "source": "agent",
@@ -102408,6 +102410,46 @@
       "resolvedAt": "2026-09-30",
       "source": "agent",
       "reason": "Ballard Locks free tours run Wed-Fri 2pm through end of September; today is last day; day-specific key"
+    },
+    "occidental-fine-arts-center:occidental-fine-arts-center-3661": {
+      "fields": {
+        "imageUrl": "https://artlove.org/art/photos/events/3661_big_6abd1f3b049f87e4.jpg"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3661"
+    },
+    "occidental-fine-arts-center:occidental-fine-arts-center-3687": {
+      "fields": {
+        "imageUrl": "https://artlove.org/art/photos/events/3687_big_cb5f5311f49d5680.jpg"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3687"
+    },
+    "occidental-fine-arts-center:occidental-fine-arts-center-3695": {
+      "fields": {
+        "imageUrl": "https://artlove.org/art/photos/events/3695_big_f42defed45dd3e28.jpg"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3695"
+    },
+    "occidental-fine-arts-center:occidental-fine-arts-center-3698": {
+      "fields": {
+        "imageUrl": "https://artlove.org/art/photos/events/3698_big_6571032b3f6d831c.jpg"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3698"
+    },
+    "occidental-fine-arts-center:occidental-fine-arts-center-3699": {
+      "fields": {
+        "imageUrl": "https://artlove.org/art/photos/events/3699_big_dc2ff912c165e719.jpg"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/event/3699"
     }
   }
 }
