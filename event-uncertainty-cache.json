@@ -102206,25 +102206,34 @@
     "columbia-city-business-association:ccba-6858989": {
       "fields": {
         "duration": 14400,
-        "imageUrl": "https://columbiacityseattle.com/resources/Pictures/SSCF-Flyer-sm.jpg"
+        "imageUrl": "https://columbiacityseattle.com/resources/Pictures/SSCF-Flyer-sm.jpg",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-30",
       "source": "agent",
-      "evidence": "https://columbiacityseattle.com/event-6858989"
+      "evidence": "https://www.columbia-city.org/events"
     },
     "columbia-city-business-association:ccba-6859022": {
       "fields": {
         "duration": 14400,
-        "imageUrl": "https://www.rookiesseattle.com/resources/Pictures/Rookies.jpg"
+        "imageUrl": "https://www.rookiesseattle.com/resources/Pictures/Rookies.jpg",
+        "cost": {
+          "paid": true
+        }
       },
       "resolvedAt": "2026-09-30",
       "source": "agent",
-      "evidence": "https://columbiacityseattle.com/event-6859022"
+      "evidence": "https://www.columbia-city.org/events"
     },
     "discnw:2026-winter-kd80-youth-clinic": {
       "fields": {
         "startTime": "09:00",
-        "duration": 10800
+        "duration": 10800,
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-30",
       "source": "agent",
@@ -102421,7 +102430,10 @@
     },
     "occidental-fine-arts-center:occidental-fine-arts-center-3687": {
       "fields": {
-        "imageUrl": "https://artlove.org/art/photos/events/3687_big_cb5f5311f49d5680.jpg"
+        "imageUrl": "https://artlove.org/art/photos/events/3687_big_cb5f5311f49d5680.jpg",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-30",
       "source": "agent",
@@ -102445,11 +102457,238 @@
     },
     "occidental-fine-arts-center:occidental-fine-arts-center-3699": {
       "fields": {
-        "imageUrl": "https://artlove.org/art/photos/events/3699_big_dc2ff912c165e719.jpg"
+        "imageUrl": "https://artlove.org/art/photos/events/3699_big_dc2ff912c165e719.jpg",
+        "cost": {
+          "min": 0
+        }
       },
       "resolvedAt": "2026-09-30",
       "source": "agent",
       "evidence": "https://publicdisplay.art/event/3699"
+    },
+    "first-hill-improvement-association:6abae7b083654a7a1b2405bd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://fryemuseum.org/visit/"
+    },
+    "first-hill-improvement-association:6abae8068ac8a67883d37ad4": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://fryemuseum.org/visit/"
+    },
+    "first-hill-improvement-association:6abae85a8ac8a67883d3934b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://fryemuseum.org/visit/"
+    },
+    "first-hill-improvement-association:6abae939addc156cbefa16dd": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://fryemuseum.org/visit/"
+    },
+    "first-hill-improvement-association:6abae9859b61880b79da9a80": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://fryemuseum.org/visit/"
+    },
+    "first-hill-improvement-association:6abafeef876b6d535e78ad9b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/23/fall-lantern-festival"
+    },
+    "first-hill-improvement-association:6abb0017fb24320aa147bd5a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/7/fhia-urban-design-amp-public-space-committee-meeting"
+    },
+    "first-hill-improvement-association:6abb005283654a7a1b2c7cb9": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/8/fhia-transportation-committee-meeting"
+    },
+    "first-hill-improvement-association:6abb009a2fbc5143a1a61c93": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar/2026/10/27/fhia-clean-healthy-safe-committee-meeting"
+    },
+    "occidental-fine-arts-center:3661": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/calendar"
+    },
+    "occidental-fine-arts-center:3695": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/calendar"
+    },
+    "occidental-fine-arts-center:3698": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/calendar"
+    },
+    "occidental-fine-arts-center:3851": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://publicdisplay.art/calendar"
+    },
+    "first-hill-improvement-association:6abafd357e15a117cead8136": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar"
+    },
+    "first-hill-improvement-association:6abafdbe97e1a77acf4ba416": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar"
+    },
+    "first-hill-improvement-association:6abafe15b1c89f0a17a59ff1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar"
+    },
+    "first-hill-improvement-association:6abafe57237422089f7e7884": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.firsthill.org/neighborhoodcalendar"
+    },
+    "chophouse-row:6ab6beafcea0925bfae48a03": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.chophouserow.com/events"
+    },
+    "cobys_cafe:https://www.cobyscafe.com/product/x/MZG2NWMMTMX4HKYF4JVAJM2D": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.cobyscafe.com/product/x/MZG2NWMMTMX4HKYF4JVAJM2D"
+    },
+    "vashon-events:6abaaa38ceb33842f085da8c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://vashonisland.org/events"
+    },
+    "venue:osm:node:2369546291": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/2369546291"
+    },
+    "venue:osm:node:4249290890": {
+      "fields": {
+        "setting": "covered"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/node/4249290890"
+    },
+    "venue:osm:way:161219678": {
+      "fields": {
+        "setting": "outdoor"
+      },
+      "resolvedAt": "2026-09-30",
+      "source": "agent",
+      "evidence": "https://www.openstreetmap.org/way/161219678"
     }
   }
 }
