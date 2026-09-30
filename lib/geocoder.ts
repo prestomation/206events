@@ -2012,6 +2012,8 @@ const KNOWN_VENUE_COORDS: Record<string, GeoCoords> = {
   "811 1st ave suite 91m, 811 1st avenue, #suite 91m, seattle, wa": { lat: 47.6034802, lng: -122.3354924, osmType: 'relation', osmId: 3115695 }, // Colman Commons, Colman Building, 811 1st Ave, Seattle, WA 98104
   "fairwinds - brittany park, mill creek, wa": { lat: 47.7517666, lng: -122.1624099, osmType: 'way', osmId: 27915520 }, // Fairwinds - Brittany Park senior living community, 17143 133rd Ave NE, Woodinville, WA 98072 (source labeled it "Mill Creek" but OSM/Nominatim place this exact-name venue in Woodinville)
   "frog pond parking lot, magnuson park": { lat: 47.6742009, lng: -122.2581739 }, // approximate — the 65th Ave NE entrance into Magnuson Park, locally known as the "Frog Pond" park-and-ride lot (per Seattle Parks/WTA trail descriptions); no separate OSM feature for the lot itself
+  "railroad park & centennial log pavilion": { lat: 47.5296371, lng: -121.8265035, osmType: 'way', osmId: 490827312 }, // Railroad Community Park, 7971 Railroad Ave SE, Snoqualmie, WA 98065
+  "snoqualmie valley ymca parking lot": { lat: 47.5323325, lng: -121.8730218, osmType: 'way', osmId: 559940000 }, // YMCA, 35018 SE Ridge St, Snoqualmie, WA 98065
 };
 
 /**
