@@ -29850,6 +29850,381 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-29",
       "note": "Same matinee at Seattle Rep, Oct 14 14:00; seattle-center specifically labels it as open captioning performance"
+    },
+    "19hz-all-events.ics SOUNDWAVS: DJ Habibeats|2026-10-10T12:00:00-07:00[America/Los_Angeles]::external-on-the-hiyu.ics WRG Presents: SOUNDWAVS w/ DJ Habibeats|2026-10-10T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same DJ Habibeats show at On the Hiyu, title variant"
+    },
+    "SAF-SAF.ics South Lake Union: Then & Now|2026-10-31T10:00:00-07:00[America/Los_Angeles]::discover-slu-discover-slu.ics South Lake Union: Then & Now|2026-10-31T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same architecture tour, two feeds"
+    },
+    "benaroya-hall-benaroya-taper.ics Pianist Paul Lewis Plays Mozart & Chopin|2026-10-27T19:30:00-07:00[America/Los_Angeles]::do206-do206.ics Paul Lewis Plays Mozart Sonatas|2026-10-27T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same recital at Benaroya Hall, title variant"
+    },
+    "danceus-swing-danceus-swing.ics Swing Sundays at Century Ballroom|2026-10-04T21:00:00-07:00[America/Los_Angeles]::external-seattle-dance-info.ics Sundays at Reverie Ballroom|2026-10-04T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-30",
+      "note": "Different venues and times: Century Ballroom vs Reverie Ballroom"
+    },
+    "dark-seattle-shows.ics Castle, Slow Goat|2026-10-23T20:00-07:00[America/Los_Angeles]::el-corazon-the-funhouse.ics Castle with Slow Goat, Wet Temple|2026-10-23T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same show at The Funhouse, title includes support bands"
+    },
+    "do206-do206.ics Born of Ghosts + The Sirens + DB Stewart + Collin Salcido|2026-10-28T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics Born of Ghosts + The Sirens + DB Stewart + Collin Salcido|2026-10-28T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same show at Conor Byrne Pub, two feeds"
+    },
+    "do206-do206.ics Catch Your Breath|2026-10-28T19:00:00-07:00[America/Los_Angeles]::showbox-presents-showbox-sodo.ics Catch Your Breath with Tx2, Arankai and Colorblind|2026-10-28T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same show at Showbox SoDo, title variant includes support acts"
+    },
+    "do206-do206.ics Medium Build with Merle Law|2026-10-28T20:00:00-07:00[America/Los_Angeles]::showbox-presents-the-showbox.ics Medium Build Presents The King of Having Fun on Tour with Merle Law|2026-10-28T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same show at The Showbox, title variant"
+    },
+    "do206-do206.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-03T19:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-03T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same improv show, do206 and venue's own feed"
+    },
+    "do206-do206.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-09T19:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-09T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same improv show, do206 and venue's own feed"
+    },
+    "do206-do206.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-10T19:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Poe Unexpected: Edgar Allan Poe Improvised|2026-10-10T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same improv show, do206 and venue's own feed"
+    },
+    "do206-do206.ics Rocky Horror Improv Show|2026-10-03T23:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Rocky Horror Improv Show|2026-10-03T23:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same improv show at Unexpected Productions, two feeds"
+    },
+    "do206-do206.ics Rocky Horror Improv Show|2026-10-10T23:30:00-07:00[America/Los_Angeles]::external-unexpected-productions.ics Rocky Horror Improv Show|2026-10-10T23:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same improv show at Unexpected Productions, two feeds"
+    },
+    "external-Geekwire.ics East-West Life Science Summit 2026|2026-10-06T09:00:00-07:00[America/Los_Angeles]::external-science-in-seattle.ics East West Life Science Summit 2026|2026-10-06T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same summit at WSU Spokane, title hyphen variant"
+    },
+    "external-center-for-active-living.ics American Mah Jongg|2026-10-07T12:30:00-07:00[America/Los_Angeles]::the-missing-piece-the-missing-piece.ics American Mah Jongg|2026-10-07T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-30",
+      "note": "Different venues (210m apart) and different times: probably separate Mah Jongg sessions"
+    },
+    "external-city-of-mercer-island.ics 2026 CERT Class (Day 3)|2026-10-03T01:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics 2026 CERT Class (Day 3)|2026-10-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same CERT class, Mercer Island calendar and seatoday aggregate"
+    },
+    "external-city-of-mercer-island.ics 2026 CERT Class (Day 3)|2026-10-03T01:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2026 CERT Class (Day 3)|2026-10-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same CERT class, Mercer Island calendar and seatoday aggregate"
+    },
+    "external-city-of-mercer-island.ics 2026 CERT Class (Day 3)|2026-10-03T01:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 CERT Class (Day 3)|2026-10-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same CERT class, Mercer Island calendar and seatoday aggregate"
+    },
+    "external-earshot-jazz.ics Concert for Cancer's 15th Annual Benefit Show!|2026-09-28T19:30:00-07:00[America/Los_Angeles]::jazz-alley-jazz-alley.ics In Concert for Cancer's 15th Anniversary Concert Celebration and Fundraiser!|2026-09-28T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same benefit concert at Jazz Alley, title variant"
+    },
+    "external-seattle-gov-arts.ics Grief Rituals: reflections on migration and mourning|2026-10-03T11:30:00-07:00[America/Los_Angeles]::external-seattledances.ics Grief Rituals: reflections on migration and mourning|2026-10-03T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-30",
+      "note": "Different venues: King Street Station vs A Resting Place (462m apart)"
+    },
+    "external-seattle-gov-city-wide.ics Grief Rituals: reflections on migration and mourning|2026-10-03T11:30:00-07:00[America/Los_Angeles]::external-seattledances.ics Grief Rituals: reflections on migration and mourning|2026-10-03T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-30",
+      "note": "Different venues: King Street Station vs A Resting Place (462m apart)"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-08T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park stewardship event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-09T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park stewardship event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Daybreak Community & Land Tending|2026-10-15T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-15T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park stewardship event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Dragonfly Pavilion Restoration Event|2026-10-10T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Dragonfly Pavilion Restoration Event|2026-10-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park restoration event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Green Sports Day! Seattle: Hitt's Hill|2026-10-09T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Green Sports Day! Seattle: Hitt's Hill|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Greg Davis Park Forest Restoration|2026-10-13T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Greg Davis Park Forest Restoration|2026-10-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park restoration, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Mapes Creek Land and Culture Tending|2026-10-04T12:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Mapes Creek Land and Culture Tending|2026-10-04T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Orchard Street Ravine Work Party|2026-10-10T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Orchard Street Ravine Work Party|2026-10-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Pigeon Point Park Restoration Event|2026-10-06T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Pigeon Point Park Restoration Event|2026-10-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park restoration, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Preparing for fall planting with Schmitz Park Restore|2026-10-10T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Preparing for fall planting with Schmitz Park Restore|2026-10-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park planting event, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-city-wide.ics Sturtevant Ravine Work Party!|2026-10-10T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Sturtevant Ravine Work Party!|2026-10-10T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same ravine work party, city and Seattle Parks Foundation feeds"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-08T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-08T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-09T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-09T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Daybreak Community & Land Tending|2026-10-15T11:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Daybreak Community & Land Tending|2026-10-15T11:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Dragonfly Pavilion Restoration Event|2026-10-10T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Dragonfly Pavilion Restoration Event|2026-10-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park restoration, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Green Sports Day! Seattle: Hitt's Hill|2026-10-09T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Green Sports Day! Seattle: Hitt's Hill|2026-10-09T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Greg Davis Park Forest Restoration|2026-10-13T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Greg Davis Park Forest Restoration|2026-10-13T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park restoration, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Mapes Creek Land and Culture Tending|2026-10-04T12:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Mapes Creek Land and Culture Tending|2026-10-04T12:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park event, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Orchard Street Ravine Work Party|2026-10-10T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Orchard Street Ravine Work Party|2026-10-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same ravine work party, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Pigeon Point Park Restoration Event|2026-10-06T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Pigeon Point Park Restoration Event|2026-10-06T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park restoration, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Preparing for fall planting with Schmitz Park Restore|2026-10-10T10:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Preparing for fall planting with Schmitz Park Restore|2026-10-10T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same park planting, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattle-gov-parks-recreation.ics Sturtevant Ravine Work Party!|2026-10-10T09:00:00-07:00[America/Los_Angeles]::external-seattle-parks-foundation.ics Sturtevant Ravine Work Party!|2026-10-10T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same ravine work party, city parks-recreation and Seattle Parks Foundation"
+    },
+    "external-seattledances.ics PNB: SERENADE|2026-10-02T19:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Serenade|2026-10-02T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same PNB ballet at McCaw Hall, seattledances prefix vs Seattle Center listing"
+    },
+    "external-seattledances.ics PNB: SERENADE|2026-10-03T14:00:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Serenade|2026-10-03T14:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same PNB ballet at McCaw Hall, seattledances prefix vs Seattle Center listing"
+    },
+    "external-seattledances.ics PNB: SERENADE|2026-10-03T19:30:00-07:00[America/Los_Angeles]::seattle-center-seattle-center-events.ics Serenade|2026-10-03T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same PNB ballet at McCaw Hall, seattledances prefix vs Seattle Center listing"
+    },
+    "external-unexpected-productions.ics Rocky Horror Improv Show|2026-10-03T23:30:00-07:00[America/Los_Angeles]::pike-place-market-events.ics Rocky Horror Improv Show|2026-10-03T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-09-30",
+      "note": "Different times (23:30 vs 11:30), may be data quality issue in Pike Place Market feed"
+    },
+    "external-urban-league-seattle.ics Homebuyer Education Workshop [IN-PERSON]|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Homebuyer Education Workshop [IN-PERSON]|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same Urban League workshop, two feeds"
+    },
+    "external-urban-league-seattle.ics Homebuyer Education Workshop [IN-PERSON]|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Homebuyer Education Workshop [IN-PERSON]|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same Urban League workshop, two feeds"
+    },
+    "external-uw-campus-events.ics How to Prepare and Test Your Thesis or Dissertation for Accessibility when authoring in Google Docs|2026-10-14T11:30:00-07:00[America/Los_Angeles]::external-uw-libraries-seattle.ics How to Prepare and Test Your Thesis or Dissertation for Accessibility when authoring in Google Docs|2026-10-14T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same UW library workshop (Zoom), campus events and libraries feeds"
+    },
+    "seatoday-seatoday-all.ics Seattle Space Week|2026-09-30T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Space Week|2026-09-30T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Space Week|2026-10-01T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Space Week|2026-10-01T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Space Week|2026-10-02T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Space Week|2026-10-02T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Space Week|2026-10-03T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Space Week|2026-10-03T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Space Week|2026-10-04T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Space Week|2026-10-04T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics The Rise and Fall of the Kingdome Exhibit|2026-10-05T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Rise and Fall of the Kingdome Exhibit|2026-10-05T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same exhibit in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics The Rise and Fall of the Kingdome Exhibit|2026-10-06T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Rise and Fall of the Kingdome Exhibit|2026-10-06T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same exhibit in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics The Rise and Fall of the Kingdome Exhibit|2026-10-07T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Rise and Fall of the Kingdome Exhibit|2026-10-07T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same exhibit in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics The Rise and Fall of the Kingdome Exhibit|2026-10-08T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Rise and Fall of the Kingdome Exhibit|2026-10-08T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same exhibit in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics The Rise and Fall of the Kingdome Exhibit|2026-10-09T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Rise and Fall of the Kingdome Exhibit|2026-10-09T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same exhibit in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics The Rise and Fall of the Kingdome Exhibit|2026-10-12T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Rise and Fall of the Kingdome Exhibit|2026-10-12T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same exhibit in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Transit Trek with Transit Trekker and King County Parks|2026-10-01T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Transit Trek with Transit Trekker and King County Parks|2026-10-01T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Transit Trek with Transit Trekker and King County Parks|2026-10-01T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Transit Trek with Transit Trekker and King County Parks|2026-10-01T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS MONTH|2026-10-01T10:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS MONTH|2026-10-01T10:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same blood drive in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS MONTH|2026-10-02T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS MONTH|2026-10-02T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same blood drive in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics 2026 CERT Class (Day 3)|2026-10-03T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2026 CERT Class (Day 3)|2026-10-03T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Airport Advisory Committee Meeting|2026-10-12T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Airport Advisory Committee Meeting|2026-10-12T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same meeting in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-10-12T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-10-12T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same canceled meeting in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Transit Trek with Transit Trekker and King County Parks|2026-10-01T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Transit Trek with Transit Trekker and King County Parks|2026-10-01T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
+    },
+    "seatoday-seatoday-food.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Senior Social Seminar - Food, Mood & Function|2026-09-29T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-09-30",
+      "note": "Same event in seatoday sub-calendars"
     }
   }
 }
