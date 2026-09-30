@@ -6,7 +6,7 @@ url: https://www.snoqualmiewa.gov/common/modules/iCalendar/iCalendar.aspx?catID=
 tags: [Community, Snoqualmie]
 firstSeen: 2026-09-26
 lastChecked: 2026-09-30
-pr:
+pr: 1639
 ---
 
 City of Snoqualmie (King County), same CivicPlus platform as Issaquah/
