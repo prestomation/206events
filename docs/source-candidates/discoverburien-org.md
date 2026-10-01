@@ -1,11 +1,12 @@
 ---
 name: "Discover Burien"
-status: investigating
+status: added
 platform: Squarespace (calendarView collection)
 url: https://www.discoverburien.org/calendar
 tags: [Community, Burien]
 firstSeen: 2026-09-24
-lastChecked: 2026-09-24
+lastChecked: 2026-10-01
+pr: 1645
 ---
 
 Burien community/tourism calendar site (`discoverburien.org`), King County.
@@ -46,3 +47,21 @@ the challenge. Still 🔴 Low / not implementable without either (a) a
 `month=`-parameterized requests, or (b) Squarespace calendarView support
 landing in the built-in ripper type with some other pagination approach.
 Left as `investigating`.
+
+**Added 2026-10-01:** Took option (b) — the unparameterized `?format=json`
+request was already sufficient; no `month=` crawl (and thus no bot
+challenge) is needed. `fetchUpcomingEvents` in `lib/config/squarespace.ts`
+already had an `items` fallback for non-`upcoming`/`past` collections (used
+whenever `upcoming` is absent and non-empty `items` is present), but it
+pushed every item through unfiltered — fine for a plain content collection,
+wrong for a `calendarView` one where `items` mixes past and future dates.
+Fixed it to filter `items` to `startDate > now`, mirroring the existing
+`past`-fallback filter immediately below it; this fallback had no test
+coverage and no other live source depends on it, so the fix is safe.
+Added `sources/discover_burien/ripper.yaml` (`type: squarespace`,
+`sourceRole: aggregator`, `geo: null`, tags `Community`/`Burien`). Verified
+with `ONLY_SOURCE=discover-burien`: 16 future events (Oct–Nov 2026,
+Farmer's Market, Boo-in Burien Trick-or-Treat, Business After-Hours, Burien
+Uncorked, Monthly Pride Happy Hour, etc.), 0 errors — the response isn't
+strictly bounded to the current calendar month, so no month-crawl is
+missed.
