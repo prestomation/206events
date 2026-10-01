@@ -102066,11 +102066,12 @@
         "startTime": "19:30",
         "cost": {
           "min": 0
-        }
+        },
+        "imageUrl": "https://portlandpoetryconfluence.org/wp-content/uploads/2026/07/2026-Programming.jpg"
       },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "https://portlandpoetryconfluence.org/2026-schedule/"
+      "evidence": "https://portlandpoetryconfluence.org"
     },
     "discover-slu:discover-slu-beautiful-repair-2": {
       "unresolvable": true,
