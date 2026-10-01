@@ -101728,11 +101728,14 @@
     },
     "occidental-fine-arts-center:occidental-fine-arts-center-3661": {
       "fields": {
-        "imageUrl": "https://artlove.org/art/photos/events/3661_big_6abd1f3b049f87e4.jpg"
+        "imageUrl": "https://artlove.org/art/photos/events/3661_big_6abd1f3b049f87e4.jpg",
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-30",
+      "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "https://publicdisplay.art/event/3661"
+      "evidence": "https://occidentalfinearts.org"
     },
     "occidental-fine-arts-center:occidental-fine-arts-center-3687": {
       "fields": {
@@ -101747,19 +101750,25 @@
     },
     "occidental-fine-arts-center:occidental-fine-arts-center-3695": {
       "fields": {
-        "imageUrl": "https://artlove.org/art/photos/events/3695_big_f42defed45dd3e28.jpg"
+        "imageUrl": "https://artlove.org/art/photos/events/3695_big_f42defed45dd3e28.jpg",
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-30",
+      "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "https://publicdisplay.art/event/3695"
+      "evidence": "https://occidentalfinearts.org"
     },
     "occidental-fine-arts-center:occidental-fine-arts-center-3698": {
       "fields": {
-        "imageUrl": "https://artlove.org/art/photos/events/3698_big_6571032b3f6d831c.jpg"
+        "imageUrl": "https://artlove.org/art/photos/events/3698_big_6571032b3f6d831c.jpg",
+        "cost": {
+          "min": 0
+        }
       },
-      "resolvedAt": "2026-09-30",
+      "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "https://publicdisplay.art/event/3698"
+      "evidence": "https://occidentalfinearts.org"
     },
     "occidental-fine-arts-center:occidental-fine-arts-center-3699": {
       "fields": {
@@ -102054,11 +102063,15 @@
     },
     "open-books:open-books-10-4-portland-poetry-confluence-2025-2026-10-2": {
       "fields": {
-        "startTime": "19:30"
+        "startTime": "19:30",
+        "cost": {
+          "min": 0
+        },
+        "imageUrl": "https://portlandpoetryconfluence.org/wp-content/uploads/2026/07/2026-Programming.jpg"
       },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "https://portlandpoetryconfluence.org/2026-schedule/"
+      "evidence": "https://portlandpoetryconfluence.org"
     },
     "discover-slu:discover-slu-beautiful-repair-2": {
       "unresolvable": true,
@@ -102121,10 +102134,14 @@
       "reason": "Winston Wächter Fine Art does not publish daily gallery hours; exhibition open Tue-Sat but specific times not listed"
     },
     "seatoday:cityspark-20051140": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/mini-city-hall/20051140/2026-10-03T00"
     },
     "seatoday:cityspark-20053786": {
       "unresolvable": true,
@@ -102139,10 +102156,14 @@
       "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
     },
     "seatoday:cityspark-20051141": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/utilities-long-term-planning-open-house/20051141/2026-10-05T00"
     },
     "seatoday:cityspark-20053787": {
       "unresolvable": true,
@@ -102151,16 +102172,24 @@
       "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
     },
     "seatoday:cityspark-20051142": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/continuing-the-conversation/20051142/2026-10-05T00"
     },
     "seatoday:cityspark-20053795": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
+      "evidence": "https://www.facebook.com/groups/coffeewithacop"
     },
     "seatoday:cityspark-20049120": {
       "unresolvable": true,
@@ -102169,10 +102198,14 @@
       "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
     },
     "seatoday:cityspark-19893819": {
-      "unresolvable": true,
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "reason": "CitySpark API returned no cost data and embed pages are JS-rendered (inaccessible to automated fetch)"
+      "evidence": "https://6amcity.com/wa/seattle/events/embed#/details/business-and-engineering-career-fair-2026/19893819/2026-10-13T00"
     },
     "seatoday:cityspark-19523057": {
       "unresolvable": true,
@@ -102206,7 +102239,7 @@
       },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "Ticketmaster event page returns HTTP 403 to automated fetches; Ticketmaster always charges admission"
+      "evidence": "https://www.stgpresents.org"
     },
     "stg:tm-vvG1HZ_KL8Ri--": {
       "fields": {
@@ -102216,7 +102249,7 @@
       },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "Ticketmaster event page returns HTTP 403 to automated fetches; Ticketmaster always charges admission"
+      "evidence": "https://www.stgpresents.org"
     },
     "stg:tm-vvG1HZ_KL8YH-c": {
       "fields": {
@@ -102226,7 +102259,7 @@
       },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "Ticketmaster event page returns HTTP 403 to automated fetches; Ticketmaster always charges admission"
+      "evidence": "https://www.stgpresents.org"
     },
     "wamu-theater:tm-vvG1HZ_KRKtHyp": {
       "fields": {
@@ -102236,7 +102269,7 @@
       },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "Ticketmaster event page returns HTTP 403 to automated fetches; Ticketmaster always charges admission"
+      "evidence": "https://www.livenation.com/venue/KovZpZAEFeeA/wamu-theater-events"
     },
     "climate-pledge-arena:tm-vvG1HZ_G3OEB5B": {
       "fields": {
@@ -102246,13 +102279,453 @@
       },
       "resolvedAt": "2026-10-01",
       "source": "agent",
-      "evidence": "Ticketmaster event page returns HTTP 403 to automated fetches; Ticketmaster always charges admission"
+      "evidence": "https://climatepledgearena.com"
     },
     "climate-pledge-arena:tm-vvG1HZ_2Sp5cJu": {
       "unresolvable": true,
       "resolvedAt": "2026-10-01",
       "source": "agent",
       "reason": "Ticketmaster returns HTTP 403; arena tour start time and price not determinable from accessible sources"
+    },
+    "queer-social-club:6abab3f6f741a717f818543d": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/poly-poly-oxen-free"
+    },
+    "queer-social-club:6abc10033991a11af392910f": {
+      "fields": {
+        "cost": {
+          "min": 8.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://partiful.com/e/RTxaCrC1JLbAGWGE0xGA"
+    },
+    "queer-social-club:6abc19ba391e2344d1e933ec": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/sq-connects-monthly-gathering-for-queer-small-business-owners"
+    },
+    "queer-social-club:6abc1ca1ca4eb11d2fbc9887": {
+      "fields": {
+        "cost": {
+          "min": 100.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.queerchata.com/product/seattle-intro-to-bachata-october-2026"
+    },
+    "queer-social-club:6abc1d993434041c4671d636": {
+      "fields": {
+        "cost": {
+          "min": 100.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.queerchata.com/product/seattle-4-week-intro-to-bachata-november-2026"
+    },
+    "queer-social-club:6abc1e416cf1147f1e704bf2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.queerchata.com/locations/seattle"
+    },
+    "queer-social-club:6abc1eb0cbed4332fc9379cf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.queerchata.com/locations/seattle"
+    },
+    "queer-social-club:6abc26b07b9c3c301f717a58": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://partiful.com/e/8AtKi79hOoT9iun8IdHn"
+    },
+    "queer-social-club:6abc27d8bc9f4872aca222ee": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://freezetag.ticketspice.com/trivia-nights-with-freeze-tag"
+    },
+    "queer-social-club:6abc2a2f69a2934b0cf04f2a": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://freezetag.ticketspice.com/trivia-nights-with-freeze-tag"
+    },
+    "queer-social-club:6abc31e74f7cf7537f8f9aad": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-ay53e-2gjdx-yxy7f"
+    },
+    "queer-social-club:6abc3215f5f3697baa14294e": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-ay53e-2gjdx-yxy7f-4db4w"
+    },
+    "queer-social-club:6abc323003c3ae5d7eeb5f0b": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-ay53e-2gjdx-yxy7f-xjk79"
+    },
+    "queer-social-club:6abc324c96c3a55e0f80f18f": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/board-gayme-night-at-stoup-brewing-capitol-hill-ceh8j-sjmwh-2b46e-mae5a-3n2nd-ay53e-2gjdx-yxy7f-3bztk"
+    },
+    "queer-social-club:6abc333e4f7cf7537f8fec35": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/columbia-city-craft-club"
+    },
+    "queer-social-club:6abc33b52bbe2e559f546a42": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/columbia-city-craft-club"
+    },
+    "queer-social-club:6abc33d160abcf0666900688": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/columbia-city-craft-club"
+    },
+    "queer-social-club:6abc33eac6892e10133c8158": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/columbia-city-craft-club"
+    },
+    "queer-social-club:6abc33fecd5c6460ac8ac532": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/columbia-city-craft-club"
+    },
+    "queer-social-club:6abc345cc85f26783c167843": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://partiful.com/e/y3d08xtZwLyfSMN9G8Mv"
+    },
+    "queer-social-club:6abc387732360c40d2b01c45": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night"
+    },
+    "queer-social-club:6abc38ae17d8d86fa71ab45b": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night"
+    },
+    "queer-social-club:6abc38c578ae3333d9477be0": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night"
+    },
+    "queer-social-club:6abc38dba9c6a56b8233fefe": {
+      "fields": {
+        "cost": {
+          "min": 14.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://queersocialclub.com/events-seattle/21-lgbtqia-pride-skate-night"
+    },
+    "queer-social-club:6abc3bcbe923b123d638c7ca": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://resy.com/cities/seattle-wa/venues/dreamland-bar-and-diner"
+    },
+    "queer-social-club:6abc3c21259b5d2606dd9856": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://resy.com/cities/seattle-wa/venues/dreamland-bar-and-diner"
+    },
+    "queer-social-club:6abc3cbf7d8b56540753f37b": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://resy.com/cities/seattle-wa/venues/dreamland-bar-and-diner"
+    },
+    "queer-social-club:6abc3cd9c35d075d40be9501": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://resy.com/cities/seattle-wa/venues/dreamland-bar-and-diner"
+    },
+    "queer-social-club:6abc3cf38718ce38be463489": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://resy.com/cities/seattle-wa/venues/dreamland-bar-and-diner"
+    },
+    "queer-social-club:6abc3d4f50bdcf5858da62b1": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://resy.com/cities/seattle-wa/venues/dreamland-bar-and-diner"
+    },
+    "kremwerk:6abad2995d80f4562797c0cc": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming"
+    },
+    "kremwerk:6abb163ac8edc223e148dd24": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming"
+    },
+    "kremwerk:6abb18f32c63bb1dba199366": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming"
+    },
+    "kremwerk:6abc61455c33862579fb06b2": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming"
+    },
+    "kremwerk:6abc64bd0bded06817273ebf": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.kremwerk.com/upcoming"
+    },
+    "occidental-fine-arts-center:occidental-fine-arts-center-3851": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://occidentalfinearts.org"
+    },
+    "rabbit_box:6abaded7d096e7318c7e4ee1": {
+      "fields": {
+        "cost": {
+          "min": 15.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/ken-okada-group-ft-yoyoka"
+    },
+    "rabbit_box:6abb1104c59de209ead27b5c": {
+      "fields": {
+        "cost": {
+          "paid": true
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/snaxs-october-edition-karaoke"
+    },
+    "rabbit_box:6abb16ac9758b1706bd54e25": {
+      "fields": {
+        "cost": {
+          "min": 25.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/prom-queen-dirty-verbs-caitlin-sherman"
+    },
+    "rabbit_box:6abbdeb93a329313f652b575": {
+      "fields": {
+        "cost": {
+          "min": 10.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.therabbitboxseattle.com/events/coming-up-jake"
+    },
+    "native_action_network:6abc3721def8172b8b3d73c4": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org/events/native-nonprofits-and-professionals-night"
+    },
+    "native_action_network:6abc3825cfc33665ef443efd": {
+      "fields": {
+        "cost": {
+          "min": 50.0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://nativeactionnetwork.org/events/native-nonprofit-learning-series-conference-nonprofit-fundamentals"
+    },
+    "do206:do206-2026-10-29-fremont-evening-market-1769122518": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://fremontmarkets.com"
+    },
+    "pike-place-market:ppm-chew-a-gum-wall-inspired-fashion-show": {
+      "fields": {
+        "cost": {
+          "min": 0
+        }
+      },
+      "resolvedAt": "2026-10-01",
+      "source": "agent",
+      "evidence": "https://www.pikeplacemarket.org/events-calendar/chew-a-gum-wall-inspired-fashion-show/"
     }
   }
 }

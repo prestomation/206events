@@ -30225,6 +30225,361 @@
       "decision": "confirmed",
       "resolvedAt": "2026-09-30",
       "note": "Same event in seatoday sub-calendars"
+    },
+    "19hz-all-events.ics pastel goth|2026-10-10T21:00:00-07:00[America/Los_Angeles]::queer-social-club-all-events.ics Sapphic Pastel Goth Night|2026-10-10T21:00:00.201-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at The Wash, title variant: 19hz from Instagram post, queer-social-club from event page"
+    },
+    "ai-house-calendar.ics AI Governance (In Person + Online): Law, Lawyers, and Liability|2026-10-07T13:30:00-07:00[America/Los_Angeles]::foundercal-seattle.ics AI Governance (In Person + Online): Law, Lawyers, and Liability|2026-10-07T13:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Identical title, time, and Luma URL - same event listed in two aggregators"
+    },
+    "ballard-brewed-all-events.ics A Knight at the Round Table|2026-11-22T14:00:00.056-08:00[America/Los_Angeles]::queer-social-club-all-events.ics A Knight at the Round Table|2026-11-22T14:00:00.936-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at Obec Brewing, same title, nearly identical times and addresses"
+    },
+    "bellevue-community-events.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event, bellevue official source vs seatoday aggregator"
+    },
+    "bellevue-community-events.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event, bellevue official source vs seatoday arts sub-calendar"
+    },
+    "bellevue-community-events.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event, bellevue official source vs seatoday community sub-calendar"
+    },
+    "bellevue-community-events.ics Mini City Hall and Puget Sound Energy Resource Fair|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Mini City Hall and Puget Sound Energy Resource Fair|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at Crossroads Mall/Shopping Center (same location), different name for same place"
+    },
+    "bellevue-community-events.ics Mini City Hall and Puget Sound Energy Resource Fair|2026-10-03T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Mini City Hall and Puget Sound Energy Resource Fair|2026-10-03T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at Crossroads Mall/Shopping Center (same location)"
+    },
+    "chophouse-row-chophouse-row-events.ics Cloud Room: GSBA Hill Talk|2026-10-13T16:30:00.031-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Hill Talk at The Cloud Room|2026-10-13T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at The Cloud Room 1424 11th Ave, title variant (GSBA vs venue prefix)"
+    },
+    "chophouse-row-chophouse-row-events.ics Cloud Room: GSBA Hill Talk|2026-10-13T16:30:00.031-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Hill Talk at The Cloud Room|2026-10-13T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at The Cloud Room, title variant"
+    },
+    "chophouse-row-chophouse-row-events.ics Cloud Room: GSBA Hill Talk|2026-10-13T16:30:00.031-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Hill Talk at The Cloud Room|2026-10-13T16:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at The Cloud Room, title variant"
+    },
+    "climate-pledge-arena-climate-pledge-arena.ics Seattle Kraken vs. Philadelphia Flyers|2026-12-29T18:40:00-08:00[America/Los_Angeles]::events12-seattle-events.ics Hockey vs. Philadelphia Flyers|2026-12-29T18:40:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same NHL game at Climate Pledge Arena, events12 uses abbreviated title"
+    },
+    "do206-do206.ics Fremont Evening Market|2026-10-29T17:00:00-07:00[America/Los_Angeles]::recurring-fremont-evening-market.ics Fremont Evening Market|2026-10-29T17:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same recurring market event, do206 aggregator vs venue recurring source"
+    },
+    "do206-do206.ics The Rolling Thunder + Bigfoot Curious + Velvet Armada|2026-10-29T20:00:00-07:00[America/Los_Angeles]::seattle-showlists-conor-byrne-pub.ics The Rolling Thunder + Bigfoot Curious + Velvet Armada|2026-10-29T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same show at Conor Byrne Pub, listed in do206 aggregator and seattle-showlists venue feed"
+    },
+    "external-seattle-city-of-lit.ics  Egrets, While War: An Evening with Tishani Doshi|2026-10-13T18:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Tishani Doshi Presents Egrets, While War|2026-10-13T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same poetry reading at Raisbeck Auditorium/Cornish College, title variant, 30-min time discrepancy between sources"
+    },
+    "external-seattle-city-of-lit.ics  Egrets, While War: An Evening with Tishani Doshi|2026-10-13T18:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Tishani Doshi Presents Egrets, While War|2026-10-13T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same poetry reading at Raisbeck Auditorium/Cornish College, title variant"
+    },
+    "external-seattle-university.ics Egrets, While War: An Evening with Tishani Doshi|2026-10-13T18:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Tishani Doshi Presents Egrets, While War|2026-10-13T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at Raisbeck Auditorium, listed on SU events and seatoday"
+    },
+    "external-seattle-university.ics Egrets, While War: An Evening with Tishani Doshi|2026-10-13T18:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Tishani Doshi Presents Egrets, While War|2026-10-13T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at Raisbeck Auditorium, SU vs seatoday arts sub-calendar"
+    },
+    "external-uw-campus-events.ics Information Session: Bachelor of Science in HCDE|2026-11-16T16:00:00-08:00[America/Los_Angeles]::external-uw-hcde.ics Information Session: Bachelor of Science in HCDE|2026-11-16T16:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same UW HCDE info session in both campus events feed and HCDE department feed"
+    },
+    "external-uw-campus-events.ics MLIS Prospective Student Information Session - Chat with the Chair|2026-10-05T16:00:00-07:00[America/Los_Angeles]::external-uw-information-school.ics MLIS Prospective Student Information Session - Chat with the Chair|2026-10-05T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same UW iSchool MLIS info session in campus events and iSchool feeds, same URL"
+    },
+    "external-uw-campus-events.ics Teaching Technologies Office Hours|2026-12-28T14:00:00-08:00[America/Los_Angeles]::external-uw-graduate-school.ics Teaching Technologies Office Hours|2026-12-28T14:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same UW Zoom office hours in campus events and grad school feeds"
+    },
+    "external-uw-campus-events.ics Teaching Technologies Office Hours|2026-12-29T11:00:00-08:00[America/Los_Angeles]::external-uw-graduate-school.ics Teaching Technologies Office Hours|2026-12-29T11:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same UW Zoom office hours in campus events and grad school feeds"
+    },
+    "external-uw-campus-events.ics Teaching Technologies Office Hours|2026-12-29T14:00:00-08:00[America/Los_Angeles]::external-uw-graduate-school.ics Teaching Technologies Office Hours|2026-12-29T14:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same UW Zoom office hours in campus events and grad school feeds"
+    },
+    "external-visit-ballard.ics Magic Monday Casual Commander Night | Reuben's Brews Ballard Taproom|2026-10-05T18:00:00-07:00[America/Los_Angeles]::reubens-brews-ballard.ics Magic Monday Casual Commander Night|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same event at Reuben's Brews, visit-ballard appends venue to title"
+    },
+    "nectar-lounge-nectar-lounge.ics SAVE FERRIS with Georgetown Orbits, Simple Minded Symphony|2026-12-12T20:00:00-08:00[America/Los_Angeles]::seattle-showlists-nectar-lounge.ics SAVE FERRIS with Georgetown Orbits plus guests|2026-12-12T20:00:00-08:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same show at Nectar Lounge, showlists uses abbreviated support act listing"
+    },
+    "queer-social-club-all-events.ics Board Gayme Night at Stoup Brewing - Capitol Hill|2026-10-05T18:30:00.687-07:00[America/Los_Angeles]::recurring-hitc-trivia-stoup-capitol-hill.ics Trivia at Stoup Brewing Capitol Hill|2026-10-05T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-10-01",
+      "note": "Different events: Board Gayme Night (board games, 18:30) vs Trivia Night (19:30) at same venue"
+    },
+    "queer-social-club-all-events.ics Lashes Cabaret! a Free Drag Show!|2026-10-02T19:30:00.924-07:00[America/Los_Angeles]::recurring-unicorn-seattle-lashes-drag-show.ics Lashes Cabaret Drag Show at Unicorn|2026-10-02T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same Unicorn drag show, queer-social-club vs recurring venue source"
+    },
+    "queer-social-club-all-events.ics Trivia Thursday - Columbia City|2026-10-01T19:00:00.903-07:00[America/Los_Angeles]::recurring-rough-tumble-trivia-thursday-columbia-city.ics Trivia Thursday at Rough & Tumble - Columbia City|2026-10-01T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same trivia night at Rough & Tumble Columbia City, queer-social-club vs venue recurring source"
+    },
+    "queer-social-club-all-events.ics Trivia Tuesday - Ballard|2026-10-06T19:00:00.018-07:00[America/Los_Angeles]::recurring-rough-tumble-trivia-tuesday-ballard.ics Trivia Tuesday at Rough & Tumble - Ballard|2026-10-06T19:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same trivia night at Rough & Tumble Ballard, queer-social-club vs venue recurring source"
+    },
+    "queer-social-club-all-events.ics Twatties! - Open Mic of the Absurd!|2026-10-05T20:00:00.972-07:00[America/Los_Angeles]::recurring-twatties-open-mic.ics Twatties Open Mic|2026-10-05T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same open mic event at St. John's/719 E Pike, queer-social-club vs venue recurring source"
+    },
+    "recurring-carkeek-park-demonstration-garden-volunteers.ics Carkeek Park Demonstration Garden Volunteer Session|2026-10-03T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-all.ics Carkeek Park Demonstration Garden Volunteer Session|2026-10-03T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same volunteer session, recurring venue source vs seatoday aggregator"
+    },
+    "recurring-carkeek-park-demonstration-garden-volunteers.ics Carkeek Park Demonstration Garden Volunteer Session|2026-10-03T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Carkeek Park Demonstration Garden Volunteer Session|2026-10-03T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same volunteer session, recurring vs seatoday community"
+    },
+    "recurring-carkeek-park-demonstration-garden-volunteers.ics Carkeek Park Demonstration Garden Volunteer Session|2026-10-03T09:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Carkeek Park Demonstration Garden Volunteer Session|2026-10-03T09:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same volunteer session, recurring vs seatoday sports"
+    },
+    "recurring-hitc-trivia-stoup-ballard.ics Trivia at Stoup Brewing Ballard|2026-10-06T19:30:00-07:00[America/Los_Angeles]::stoup-brewing-ballard.ics Trivia at Stoup Brewing Ballard|2026-10-06T19:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same trivia event at Stoup Ballard, hitc recurring vs stoup venue source"
+    },
+    "seatoday-seatoday-all.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-08T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-08T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-09T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-09T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event day 2 in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-09T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics 2-DAY COMMUNITY BLOOD DRIVE - BREAST CANCER AWARENESS CHALLENGE|2026-10-09T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event day 2 in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Airport Advisory Committee Meeting|2026-10-15T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Airport Advisory Committee Meeting|2026-10-15T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Airport Advisory Committee Meeting|2026-10-15T16:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Airport Advisory Committee Meeting|2026-10-15T16:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and sports sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-arts.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and arts sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics EC 17th Anniv. Celebration + Panel Discussion + CFK Fundraiser|2026-10-13T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics EC 17th Anniv. Celebration + Panel Discussion + CFK Fundraiser|2026-10-13T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics EC 17th Anniv. Celebration + Panel Discussion + CFK Fundraiser|2026-10-13T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EC 17th Anniv. Celebration + Panel Discussion + CFK Fundraiser|2026-10-13T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and food sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same CitySpark event ID 20053795 in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same CitySpark event ID 20053795 in all and food sub-calendars"
+    },
+    "seatoday-seatoday-community.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same CitySpark event ID 20053795 in community and food sub-calendars"
+    },
+    "seatoday-seatoday-all.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-10-01",
+      "note": "Different events: CitySpark ID 20053795 (no location, 10am) vs ID 19889226 (Visible Coffee Roasters, 8:30am)"
+    },
+    "seatoday-seatoday-all.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-10-01",
+      "note": "Different events: CitySpark ID 20053795 vs ID 19889226 at different locations and times"
+    },
+    "seatoday-seatoday-all.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-10-01",
+      "note": "Different events: CitySpark ID 19889226 (Visible Coffee Roasters, 8:30am) vs ID 20053795 (10am)"
+    },
+    "seatoday-seatoday-all.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-10-01",
+      "note": "Different events: CitySpark ID 19889226 vs ID 20053795 at different locations and times"
+    },
+    "seatoday-seatoday-community.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-10-01",
+      "note": "Different events: CitySpark ID 20053795 vs ID 19889226 at different locations"
+    },
+    "seatoday-seatoday-community.ics National Coffee with a Cop|2026-10-07T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics National Coffee With A Cop|2026-10-07T10:00:00-07:00[America/Los_Angeles]": {
+      "decision": "rejected",
+      "resolvedAt": "2026-10-01",
+      "note": "Different events: CitySpark ID 19889226 vs ID 20053795 at different locations"
+    },
+    "seatoday-seatoday-all.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-10-12T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-10-12T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-10-12T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-sports.ics Race Equity Advisory Committee Regular Meeting - Canceled|2026-10-12T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and sports sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Interactive Conference 2026|2026-10-12T15:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Interactive Conference 2026|2026-10-12T15:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Seattle Interactive Conference 2026|2026-10-13T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Seattle Interactive Conference 2026|2026-10-13T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event day 2 in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-all.ics The Rise and Fall of the Kingdome Exhibit|2026-10-13T08:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics The Rise and Fall of the Kingdome Exhibit|2026-10-13T08:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Utilities Long-Term Planning Open House|2026-10-05T15:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Utilities Long-Term Planning Open House|2026-10-05T15:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Win With Washington, Tuesday October 13 Business Meeting|2026-10-13T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Win With Washington, Tuesday October 13 Business Meeting|2026-10-13T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and community sub-calendars"
+    },
+    "seatoday-seatoday-all.ics Win With Washington, Tuesday October 13 Business Meeting|2026-10-13T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Win With Washington, Tuesday October 13 Business Meeting|2026-10-13T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in all and learning sub-calendars"
+    },
+    "seatoday-seatoday-arts.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-community.ics Continuing the Conversation: Welcoming Neighbors Through Stories|2026-10-05T18:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in arts and community sub-calendars"
+    },
+    "seatoday-seatoday-community.ics EC 17th Anniv. Celebration + Panel Discussion + CFK Fundraiser|2026-10-13T11:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics EC 17th Anniv. Celebration + Panel Discussion + CFK Fundraiser|2026-10-13T11:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in community and learning sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-food.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in community and food sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in community and learning sub-calendars"
+    },
+    "seatoday-seatoday-food.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Monthly Coffee Connections|2026-10-13T08:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in food and learning sub-calendars"
+    },
+    "seatoday-seatoday-community.ics Win With Washington, Tuesday October 13 Business Meeting|2026-10-13T12:30:00-07:00[America/Los_Angeles]::seatoday-seatoday-learning.ics Win With Washington, Tuesday October 13 Business Meeting|2026-10-13T12:30:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same seatoday event in community and learning sub-calendars"
+    },
+    "sunset-tavern-sunset-tavern.ics Tractor Tavern Presents: Bob Sumner, Laith & The Texas Birds|2026-10-08T20:00:00-07:00[America/Los_Angeles]::tractor-tavern-tractor-tavern.ics Tractor Presents: Bob Sumner w/ Laith & The Texas Birds, Birdie Fenn Cent @ The Sunset Tavern|2026-10-08T20:00:00-07:00[America/Los_Angeles]": {
+      "decision": "confirmed",
+      "resolvedAt": "2026-10-01",
+      "note": "Same show at Sunset Tavern, tractor-tavern listing says '@ The Sunset Tavern' in title - Tractor is presenter, Sunset is venue"
     }
   }
 }
