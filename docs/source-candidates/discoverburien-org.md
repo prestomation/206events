@@ -6,7 +6,7 @@ url: https://www.discoverburien.org/calendar
 tags: [Community, Burien]
 firstSeen: 2026-09-24
 lastChecked: 2026-10-01
-pr:
+pr: 1645
 ---
 
 Burien community/tourism calendar site (`discoverburien.org`), King County.
