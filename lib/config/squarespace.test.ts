@@ -438,6 +438,57 @@ describe('SquarespaceRipper', () => {
         });
     });
 
+    describe('fetchUpcomingEvents data.items fallback (calendarView collections)', () => {
+        // A `calendarView` Squarespace collection (e.g. a monthly community
+        // calendar) returns neither `upcoming` nor `past` — just `items` for
+        // whatever month it defaults to, mixing dates on both sides of today.
+        const futureMs = Date.now() + 10 * 24 * 60 * 60 * 1000;
+        const pastMs = Date.now() - 10 * 24 * 60 * 60 * 1000;
+
+        test('filters data.items to future events only', async () => {
+            const mockRipper = new MockFetchSquarespaceRipper();
+            mockRipper.setMockResponse({
+                calendarView: true,
+                items: [
+                    { id: 'future1', title: 'Upcoming Market', startDate: futureMs },
+                    { id: 'past1', title: 'Earlier This Month', startDate: pastMs },
+                ],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(1);
+            expect(events[0].id).toBe('future1');
+        });
+
+        test('data.items fallback is skipped when data.upcoming has events', async () => {
+            const mockRipper = new MockFetchSquarespaceRipper();
+            mockRipper.setMockResponse({
+                upcoming: [
+                    { id: 'upcoming1', title: 'Upcoming Event', startDate: futureMs },
+                ],
+                items: [
+                    { id: 'future2', title: 'Also Future But In Items Array', startDate: futureMs },
+                ],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(1);
+            expect(events[0].id).toBe('upcoming1');
+        });
+
+        test('returns no events when all data.items are in the past', async () => {
+            const mockRipper = new MockFetchSquarespaceRipper();
+            mockRipper.setMockResponse({
+                items: [
+                    { id: 'past2', title: 'Last Week', startDate: pastMs },
+                ],
+            });
+            const events = await (mockRipper as unknown as { fetchUpcomingEvents(u: URL): Promise<SquarespaceEvent[]> })
+                .fetchUpcomingEvents(baseUrl);
+            expect(events).toHaveLength(0);
+        });
+    });
+
     describe('rip() error handling', () => {
         test('returns error calendar on network failure, does not throw', async () => {
             const { config, ripperImpl } = makeMinimalRipperConfig();

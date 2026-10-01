@@ -1,0 +1,12 @@
+name: discover-burien
+sourceRole: aggregator
+type: squarespace
+description: "Discover Burien"
+url: "https://www.discoverburien.org/calendar"
+friendlyLink: https://www.discoverburien.org/calendar
+geo: null
+tags: ["Community", "Burien"]
+calendars:
+  - name: discover-burien
+    friendlyname: "Discover Burien"
+    timezone: America/Los_Angeles

@@ -267,7 +267,12 @@ export class SquarespaceRipper implements IRipper {
             if (data.upcoming && data.upcoming.length > 0) {
                 allEvents.push(...data.upcoming);
             } else if (data.items && data.items.length > 0) {
-                allEvents.push(...data.items);
+                // `items` is what a `calendarView` collection returns instead of
+                // `upcoming`/`past` — it mixes past and future dates within
+                // whatever month the collection defaults to, so (like the
+                // `past` fallback below) it needs filtering to future events.
+                const now = Date.now();
+                allEvents.push(...data.items.filter(e => e.startDate > now));
             } else if (data.past && data.past.length > 0) {
                 // Some Squarespace sites misconfigure their collection type, causing
                 // future events to appear in `data.past`. Fall back to that array and
