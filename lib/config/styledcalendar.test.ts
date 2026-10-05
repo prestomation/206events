@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import LZString from "lz-string";
-import { ZoneId, ZoneRegion } from "@js-joda/core";
+import { LocalDateTime, ZonedDateTime, ZoneId, ZoneRegion } from "@js-joda/core";
 import "@js-joda/timezone";
 import { StyledCalendarRipper } from "./styledcalendar.js";
 import { Ripper, RipperConfig } from "./schema.js";
@@ -48,10 +48,16 @@ function makeApiResponse(events: object[]): string {
 
 // Returns a date string N days from today, optionally with a time component.
 // Using relative dates prevents test rot when hardcoded dates become past.
-function futureDateStr(daysFromNow: number, time?: string, tzOffset = "-08:00"): string {
+// The UTC offset for `time` is resolved from TZ rather than hardcoded,
+// since the US DST boundary can fall inside the 30/90-day lookahead window
+// these tests use — a fixed offset would silently shift the parsed hour by
+// one once the target date crosses into/out of daylight time.
+function futureDateStr(daysFromNow: number, time?: string): string {
     const d = new Date(Date.now() + daysFromNow * 24 * 60 * 60 * 1000);
     const dateStr = d.toISOString().slice(0, 10); // YYYY-MM-DD
-    return time ? `${dateStr}T${time}${tzOffset}` : dateStr;
+    if (!time) return dateStr;
+    const offset = ZonedDateTime.of(LocalDateTime.parse(`${dateStr}T${time}`), TZ).offset().id();
+    return `${dateStr}T${time}${offset}`;
 }
 
 afterEach(() => {
@@ -65,8 +71,8 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "event-1",
                     title: "Live Music Night",
-                    start: futureDateStr(30, "19:00:00", "-07:00"),
-                    end: futureDateStr(30, "21:00:00", "-07:00"),
+                    start: futureDateStr(30, "19:00:00"),
+                    end: futureDateStr(30, "21:00:00"),
                     allDay: false,
                     timeZone: "America/Los_Angeles",
                     extendedProps: { description: "<p>A great show</p>" },
@@ -100,8 +106,8 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "event-4",
                     title: "Westie Brunch Dance",
-                    start: futureDateStr(30, "10:30:00", "-07:00"),
-                    end: futureDateStr(30, "12:30:00", "-07:00"),
+                    start: futureDateStr(30, "10:30:00"),
+                    end: futureDateStr(30, "12:30:00"),
                     allDay: false,
                     extendedProps: {
                         location: "Phinney Community Center, 459 N 67th St, Seattle, WA 98103, USA",
@@ -125,8 +131,8 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "event-5",
                     title: "Zoom Meeting",
-                    start: futureDateStr(30, "17:00:00", "-07:00"),
-                    end: futureDateStr(30, "18:00:00", "-07:00"),
+                    start: futureDateStr(30, "17:00:00"),
+                    end: futureDateStr(30, "18:00:00"),
                     allDay: false,
                 },
             ];
@@ -177,7 +183,7 @@ describe("StyledCalendarRipper", () => {
                 {
                     id: "event-3",
                     title: "Open Mic",
-                    start: futureDateStr(30, "20:00:00", "-07:00"),
+                    start: futureDateStr(30, "20:00:00"),
                     allDay: false,
                 },
             ];
@@ -368,7 +374,7 @@ describe("StyledCalendarRipper", () => {
     describe("LZ-String decompression", () => {
         it("correctly decompresses and parses event arrays", async () => {
             const events = [
-                { id: "a", title: "Test Event", start: futureDateStr(90, "18:00:00", "-07:00"), end: futureDateStr(90, "20:00:00", "-07:00"), allDay: false },
+                { id: "a", title: "Test Event", start: futureDateStr(90, "18:00:00"), end: futureDateStr(90, "20:00:00"), allDay: false },
             ];
             const compressed = LZString.compressToUTF16(JSON.stringify(events));
             const decompressed = LZString.decompressFromUTF16(compressed);
